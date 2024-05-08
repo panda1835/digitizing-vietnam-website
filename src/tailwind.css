@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+}
+
+.max-width {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  @apply text-2xl font-bold mb-4 text-primary-blue;
+}
+
+hr {
+  @apply border-black my-5;
+}
+
+.team-member {
+  display: inline-block; /* Place team member divs side by side */
+  margin: 10px; /* Add some space around each team member */
+  text-align: center; /* Center the text inside each team member div */
+}
+.member-image {
+  background-color: #ccc; /* Placeholder color for the image */
+  border-radius: 50%; /* Make the div circular */
+  width: 200px; /* Set the width of the image */
+  height: 200px; /* Set the height of the image */
+  margin-bottom: 10px; /* Add some space below the image */
+}
