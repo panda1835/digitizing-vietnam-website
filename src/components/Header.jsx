@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 
 const Header = () => {
   return (
-    <header className="bg-primary-gray">
+    <header className="bg-primary-gray mb-10">
       <nav className="flex py-3 mb-10 max-width">
         <div className="ml-5">
           <Link to="/">
