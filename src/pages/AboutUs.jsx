@@ -3,7 +3,7 @@ import React from "react";
 const AboutUs = () => {
   return (
     <div className="flex flex-col items-center max-width">
-      <div className="flex-col mb-20 m-5">
+      <div className="flex-col mb-20 mx-5">
         <h1 className="flex justify-center">About Us</h1>
 
         <h2>Our Mission</h2>

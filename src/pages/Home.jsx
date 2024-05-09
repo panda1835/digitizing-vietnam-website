@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="flex flex-col items-center max-width">
-      <div className="flex-col text-center mb-20">
+      <div className="flex-col text-center mb-20 mx-5">
         <h1>Digitizing Vietnam</h1>
-        <p className="text-gray-400">
+        <p className="text-gray-500">
           A digital hub to study pre-modern and modern Vietnam{" "}
         </p>
       </div>
