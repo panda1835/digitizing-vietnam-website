@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
+import { Link } from "react-router-dom";
 
 const OurCollection = () => {
   const [collections, setCollections] = useState([]);
@@ -11,31 +12,31 @@ const OurCollection = () => {
       .catch(() =>
         setCollections([
           {
-            id: 1,
+            id: "han-nom",
             title: "Hán-Nôm",
             description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
             imageUrl: "https://via.placeholder.com/500",
           },
           {
-            id: 2,
+            id: "nu-gioi-chung",
             title: "Nữ Giới Chung",
             description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
             imageUrl: "https://via.placeholder.com/500",
           },
           {
-            id: 3,
+            id: "vietnam-studies-journal",
             title: "Vietnamese Studies Journal",
             description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Duis auctor lacinia mauris, id volutpat quam. Ut viverra, odio id finibus convallis, elit elit consequat purus, vitae viverra quam neque sed turpis. Orci varius natoque penatibus.",
             imageUrl: "https://via.placeholder.com/500",
           },
           {
-            id: 4,
+            id: "trinh-cong-son",
             title: "Trịnh Công Sơn",
             description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Duis auctor lacinia mauris, id volutpat quam. Ut viverra, odio id finibus convallis, elit elit consequat purus, vitae viverra quam neque sed turpis. Orci varius natoque penatibus.",
             imageUrl: "https://via.placeholder.com/500",
           },
         ])
@@ -70,19 +71,21 @@ const OurCollection = () => {
         </form>
 
         {/* Collection gallery */}
-        <div className="grid grid-cols-3 gap-4 mt-10">
+        <div className="grid grid-cols-3 gap-8 mt-10">
           {collections.map((collection) => (
-            <div key={collection.id} className="">
-              <img
-                src={collection.imageUrl}
-                alt={collection.title}
-                className="object-cover rounded-lg h-1/2 w-full"
-              />
-              <div className="text-xl text-primary-blue mt-2">
-                {collection.title}
+            <Link to={`/our-collections/${collection.id}`} key={collection.id}>
+              <div className="">
+                <img
+                  src={collection.imageUrl}
+                  alt={collection.title}
+                  className="object-cover rounded-lg w-full h-40"
+                />
+                <div className="text-xl text-primary-blue mt-2">
+                  {collection.title}
+                </div>
+                <p className="text-gray-500">{collection.description}</p>
               </div>
-              <p>{collection.description}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
