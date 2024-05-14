@@ -100,13 +100,13 @@ const EachCollection = () => {
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 mx-5">
         {/* Banner */}
-        <img
-          src={collectionData.imageUrl}
-          alt="Collection Banner"
-          className="w-64 h-64 mb-4"
-        />
-        <h1>{collectionData.title}</h1>
-        <p>{collectionData.description}</p>
+        <section
+          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg"
+          style={{ "background-image": `url(${collectionData.imageUrl})` }}
+        >
+          <h1>{collectionData.title}</h1>
+          <p className="text-white mx-10">{collectionData.description}</p>
+        </section>
 
         {/* Search bar */}
         <SearchBar />
