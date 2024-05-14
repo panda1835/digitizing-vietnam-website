@@ -9,13 +9,13 @@ const SearchBar = () => {
           type="text"
           name="search-query"
           placeholder="Search"
-          className="rounded border pl-8"
+          className="rounded border pl-8 w-80 h-10"
         />
       </div>
       <input
         type="submit"
         value="Search"
-        className="border rounded px-2 mx-2 bg-primary-blue text-white"
+        className="border rounded-lg px-5 mx-2 bg-primary-blue text-white"
       />
     </form>
   );
