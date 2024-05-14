@@ -18,10 +18,7 @@ const Home = () => {
             Digitizing Vietnam marks a digital leap forward in Vietnam Studies
             with the Columbia-Fulbright collaboration.
           </p>
-          <Link
-            to="/about-us"
-            className="bg-primary-blue rounded p-2 text-white"
-          >
+          <Link to="/about-us" className="button">
             Learn more
           </Link>
         </div>
@@ -50,10 +47,7 @@ const Home = () => {
             Explore our eclectic collections, which range from pre-modern
             Hán-Nôm texts to the first Vietnamese women&apos;s magazine.
           </p>
-          <Link
-            to="/our-collections"
-            className="bg-primary-blue rounded p-2 text-white"
-          >
+          <Link to="/our-collections" className="button">
             Learn more
           </Link>
         </div>
