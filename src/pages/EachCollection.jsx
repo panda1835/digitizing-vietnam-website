@@ -11,6 +11,15 @@ const EachCollection = () => {
   const [featuredArticles, setFeaturedArticles] = useState([]);
   const [loadingCollectionData, setLoadingCollectionData] = useState(true);
   const [loadingFeaturedArticles, setLoadingFeaturedArticles] = useState(true);
+  const [isLearnMoreOpen, setIsLearnMoreOpen] = useState(false);
+
+  const handleLearnMoreClick = () => {
+    setIsLearnMoreOpen(true);
+  };
+
+  const handleOverlayClose = () => {
+    setIsLearnMoreOpen(false);
+  };
 
   useEffect(() => {
     fetch(config["api"]["collection_by_id"])
@@ -24,6 +33,8 @@ const EachCollection = () => {
           title: "Vietnamese Studies Journal Collections",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
+          information:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
           imageUrl: "https://via.placeholder.com/500",
           items: [
             {
@@ -141,8 +152,46 @@ const EachCollection = () => {
 
           {/* Learn more button */}
           <div className="flex flex-row justify-center my-5">
-            <button className="">Learn More</button>
+            <button className="" onClick={handleLearnMoreClick}>
+              Learn More
+            </button>
           </div>
+
+          {/* Information overlay */}
+
+          {isLearnMoreOpen && (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+            <div
+              className="overlay fixed inset-0 bg-black bg-opacity-50 flex items-center"
+              onClick={handleOverlayClose}
+            >
+              <div
+                className="bg-white p-5 mx-10 rounded-lg shadow-lg text-left relative h-[80vh] overflow-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={handleOverlayClose}
+                  className="absolute top-0 right-0 m-2 bg-white text-primary-blue"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <p className="px-10 pt-5 items-start justify-start">
+                  {collectionData["information"]}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Featured articles */}
