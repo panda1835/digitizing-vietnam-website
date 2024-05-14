@@ -3,14 +3,19 @@ import React, { useEffect, useState } from "react";
 import Item from "../components/Item";
 import SearchBar from "../components/SearchBar";
 
+import config from "../config";
 const OurCollections = () => {
   const [collections, setCollections] = useState([]);
+  const [loadingCollections, setLoadingCollections] = useState(true);
 
   useEffect(() => {
-    fetch("http://your-api-url.com/collections")
+    fetch(config["api"]["collections"])
       .then((response) => response.json())
-      .then((data) => setCollections(data))
-      .catch(() =>
+      .then((data) => {
+        setCollections(data);
+        setLoadingCollections(false);
+      })
+      .catch(() => {
         setCollections([
           {
             id: "han-nom",
@@ -40,8 +45,10 @@ const OurCollections = () => {
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Duis auctor lacinia mauris, id volutpat quam. Ut viverra, odio id finibus convallis, elit elit consequat purus, vitae viverra quam neque sed turpis. Orci varius natoque penatibus.",
             imageUrl: "https://via.placeholder.com/500",
           },
-        ])
-      );
+        ]);
+
+        setLoadingCollections(false);
+      });
   }, []);
 
   return (
@@ -55,6 +62,13 @@ const OurCollections = () => {
         </p>
         {/* Search bar */}
         <SearchBar />
+
+        {/* Loading indicator */}
+        <div className="flex items-center justify-center">
+          <div
+            className={`loader ${loadingCollections ? "visible" : "hidden"} `}
+          ></div>
+        </div>
 
         {/* Collection gallery */}
         <div className="grid grid-cols-3 gap-8 mt-10">

@@ -4,16 +4,22 @@ import React, { useEffect, useState } from "react";
 import Item from "../components/Item";
 import SearchBar from "../components/SearchBar";
 
+import config from "../config";
 const EachCollection = () => {
   const { collectionId } = useParams();
   const [collectionData, setCollectionData] = useState({});
   const [featuredArticles, setFeaturedArticles] = useState([]);
+  const [loadingCollectionData, setLoadingCollectionData] = useState(true);
+  const [loadingFeaturedArticles, setLoadingFeaturedArticles] = useState(true);
 
   useEffect(() => {
-    fetch(`http://your-api-url.com/collections/${collectionId}`)
+    fetch(config["api"]["collection_by_id"])
       .then((response) => response.json())
-      .then((data) => setCollectionData(data))
-      .catch(() =>
+      .then((data) => {
+        setCollectionData(data);
+        setLoadingCollectionData(false);
+      })
+      .catch(() => {
         setCollectionData({
           title: "Vietnamese Studies Journal Collections",
           description:
@@ -56,15 +62,19 @@ const EachCollection = () => {
               imageUrl: "https://via.placeholder.com/500",
             },
           ],
-        })
-      );
+        });
+        setLoadingCollectionData(false);
+      });
   }, [collectionId]);
 
   useEffect(() => {
-    fetch(`http://your-api-url.com/blogs?related-collection=${collectionId}`)
+    fetch(config["api"]["blog_by_collection"])
       .then((response) => response.json())
-      .then((data) => setFeaturedArticles(data))
-      .catch(() =>
+      .then((data) => {
+        setFeaturedArticles(data);
+        setLoadingFeaturedArticles(false);
+      })
+      .catch(() => {
         setFeaturedArticles([
           {
             id: "article-1",
@@ -81,8 +91,9 @@ const EachCollection = () => {
             title: "Article 3",
             imageUrl: "https://via.placeholder.com/500",
           },
-        ])
-      );
+        ]);
+        setLoadingFeaturedArticles(false);
+      });
   }, [collectionId]);
 
   return (
@@ -99,6 +110,17 @@ const EachCollection = () => {
 
         {/* Search bar */}
         <SearchBar />
+
+        {/* Loading indicator */}
+        <div className="flex items-center justify-center">
+          <div
+            className={`loader ${
+              loadingCollectionData || loadingFeaturedArticles
+                ? "visible"
+                : "hidden"
+            } `}
+          ></div>
+        </div>
 
         {/* Item gallery */}
         <div>
