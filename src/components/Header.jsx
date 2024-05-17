@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <nav className="flex py-3 mb-10 max-width">
         <div className="ml-5">
           <Link to="/">
-            <img src={logo} alt="Logo" />
+            <img src={logo2} alt="Logo" />
           </Link>
         </div>
         <div className="w-28"></div> {/* Empty box */}
@@ -27,7 +27,7 @@ const Header = () => {
               <Link to="/blogs">Blogs</Link>
             </li>
             <li className="text-primary-blue font-bold">
-              <Link to="/contact-us">Contact Us</Link>
+              <Link to="/online-resources">Online Resources</Link>
             </li>
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded">
               <Link to="/">EN/VI</Link>
