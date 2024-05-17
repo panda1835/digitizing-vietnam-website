@@ -1,13 +1,13 @@
 import React from "react";
 
-const ContactUs = () => {
+const OnlineResources = () => {
   return (
     <div className="max-width">
       <h1 className="text-2xl text-primary-blue">
-        Welcome to the ContactUs Page
+        Welcome to the OnlineResources Page
       </h1>
     </div>
   );
 };
 
-export default ContactUs;
+export default OnlineResources;
