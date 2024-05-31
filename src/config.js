@@ -1,13 +1,12 @@
-const uri = "http://127.0.0.1:8000/dv";
+const REACT_APP_BACKEND_URI =
+  "https://digitizing-vietnam-85e1a0248f95.herokuapp.com/dv";
 
 const config = {
   api: {
-    manifest:
-      "https://gist.githubusercontent.com/panda1835/e2d8027227a0b81bdb0e692a75380d87/raw/46fdb09f7cf94a4888202cd50eb543cd77a531ba/manifest.json",
-    ocr: `${uri}/ocr`,
-    collection_by_id: `${uri}/collections`,
-    collections: `${uri}/collections`,
-    blogs: `${uri}/blogs`,
+    manifest: `${REACT_APP_BACKEND_URI}/manifest`,
+    ocr: `${REACT_APP_BACKEND_URI}/ocr`,
+    collections: `${REACT_APP_BACKEND_URI}/collections`,
+    blogs: `${REACT_APP_BACKEND_URI}/blogs`,
   },
 };
 
