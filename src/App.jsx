@@ -12,7 +12,7 @@ import EachCollection from "./pages/EachCollection";
 import DocumentViewer from "./pages/DocumentViewer";
 import Blogs from "./pages/Blogs";
 import BlogArticle from "./pages/BlogArticle";
-import ContactUs from "./pages/ContactUs";
+import OnlineResources from "./pages/OnlineResources";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,7 +44,7 @@ const App = () => {
               />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/blogs/:id" element={<BlogArticle />} />
-              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/online-resources" element={<OnlineResources />} />
             </Routes>
           </div>
           <Footer />
