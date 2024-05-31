@@ -1,14 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
-
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-primary-gray">
-      <div className="ml-5 max-width">
-        <Link to="/">
-          <img src={logo} alt="Logo" />
-        </Link>
+      <div className="ml-5 py-2 max-width flex justify-end">
+        <p className="mr-5">© {currentYear} Digitizing Vietnam Project</p>
       </div>
     </footer>
   );
