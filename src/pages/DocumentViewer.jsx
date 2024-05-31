@@ -7,13 +7,16 @@ import MiradorURLSyncPlugin from "../mirador-plugins/MiradorURLSyncPlugin";
 import config from "../config";
 
 const DocumentViewer = () => {
-  const { documentId } = useParams();
+  const { collectionId, documentId } = useParams();
   const location = useLocation();
   const originalCanvasId = new URLSearchParams(location.search).get("canvasId");
 
   const [documentData, setDocumentData] = useState({});
   const [currentCanvasId, setCurrentCanvasId] = useState("");
   const [currentPageOCR, setCurrentPageOCR] = useState("");
+  const [isDocumentMetadataVisible, setIsDocumentMetadataVisible] =
+    useState(true);
+  const [isOCRVisible, setIsOCRVisible] = useState(false);
 
   // Event listener for popstate event to update the currentCanvasId when
   // there is changes in the url query parameter
@@ -26,8 +29,9 @@ const DocumentViewer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(config["api"]["manifest"]);
-        // `https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/${collectionId}/${documentId}/manifest.json`
+        const response = await fetch(
+          `${config["api"]["manifest"]}/${collectionId}/${documentId}`
+        );
         const data = await response.json();
         setDocumentData(data);
       } catch (error) {
@@ -35,50 +39,111 @@ const DocumentViewer = () => {
       }
     };
     fetchData();
-  }, [documentId]);
+  }, [collectionId, documentId]);
 
   // Fetch page OCR text
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          config["api"]["ocr"].format(documentId, currentCanvasId)
+          `${config["api"]["ocr"]}/${collectionId}/${documentId}?canvasId=${currentCanvasId}`
         );
         const data = await response.json();
-        setCurrentPageOCR(data);
+        setCurrentPageOCR(data["text"]);
       } catch (error) {
-        setCurrentPageOCR(currentCanvasId.toLowerCase());
+        setCurrentPageOCR("Error while loading OCR text for this page.");
       }
     };
     fetchData();
-  }, [documentId, currentCanvasId]);
+  }, [collectionId, documentId, currentCanvasId]);
 
   return (
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-5 ">
-        <h1>{documentData["label"]}</h1>
+        <h1>
+          {documentData
+            ? documentData["label"] &&
+              Object.keys(documentData["label"]).includes("en")
+              ? documentData["label"]["en"][0]
+              : documentData["label"]
+            : null}
+        </h1>
 
         {/* Content */}
         <div className="flex flex-row">
           {/* General Info and Text OCR section */}
-          <div className="w-96">
+          <div className="w-80">
             {/* Tab */}
-            <div className="flex flex-row justify-between">
-              <div className="font-bold">General Information</div>
-              <div className="text-gray-500">Text OCR</div>
+            <div className="flex flex-row justify-between w-80">
+              <div
+                className={`${
+                  isDocumentMetadataVisible ? "font-bold" : "text-gray-500"
+                }  cursor-pointer`}
+                onClick={() => {
+                  setIsDocumentMetadataVisible(true);
+                  setIsOCRVisible(false);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setIsDocumentMetadataVisible(true);
+                    setIsOCRVisible(false);
+                  }
+                }}
+                tabIndex={0}
+              >
+                General Information
+              </div>
+              <div
+                className={`${
+                  isOCRVisible ? "font-bold" : "text-gray-500"
+                } cursor-pointer`}
+                onClick={() => {
+                  setIsDocumentMetadataVisible(false);
+                  setIsOCRVisible(true);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setIsDocumentMetadataVisible(false);
+                    setIsOCRVisible(true);
+                  }
+                }}
+                tabIndex={0}
+              >
+                Text OCR
+              </div>
             </div>
 
             {/* Info display */}
             <div className="flex flex-row h-full mirador justify-between border-solid border-2 p-2 rounded-lg">
-              <div className="flex flex-col">
-                {documentData["metadata"] &&
+              <div className="flex flex-col overflow-auto">
+                {/* Document metadata */}
+                {isDocumentMetadataVisible &&
+                  documentData &&
+                  documentData["metadata"] &&
                   documentData["metadata"].map((item, index) => (
                     <div key={index}>
-                      <div className="font-bold">{item["label"]}: </div>
-                      <div>{item["value"]}</div>
+                      <div className="font-bold">
+                        {Object.keys(item["label"]).includes("en")
+                          ? item["label"]["en"][0]
+                          : item["label"]}
+                      </div>
+                      <div>
+                        {Object.keys(item["value"]).includes("en")
+                          ? item["value"]["en"][0]
+                          : item["value"]}
+                      </div>
                     </div>
                   ))}
-                <p>{currentPageOCR}</p>
+                {/* OCR */}
+                {isOCRVisible &&
+                  currentPageOCR.split("\n").map((line, index) => {
+                    return (
+                      <div key={index}>
+                        <p>{line}</p>
+                        <br></br>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>
@@ -110,7 +175,7 @@ const DocumentViewer = () => {
                   },
                   windows: [
                     {
-                      loadedManifest: config["api"]["manifest"],
+                      loadedManifest: `${config["api"]["manifest"]}/${collectionId}/${documentId}`,
                       canvasId: originalCanvasId,
                       thumbnailNavigationPosition: "far-right",
                     },
