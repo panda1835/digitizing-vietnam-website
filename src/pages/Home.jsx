@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="flex flex-col items-center max-width">
-      <div className="flex-col text-center mb-20 mx-5">
+      {/* Header */}
+      <section className="flex-col text-center mb-20 mx-5">
         <h1>Digitizing Vietnam</h1>
         <p className="text-gray-500">
           A digital hub to study pre-modern and modern Vietnam{" "}
         </p>
-      </div>
+      </section>
 
-      <div className="flex flex-row w-full justify-around items-center mb-10">
+      <section className="flex flex-row w-full justify-around items-center mb-10">
         <div>
           <h2>About Digitizing Vietnam</h2>
           <p className="w-80 mb-5">
@@ -30,9 +31,9 @@ const Home = () => {
             alt="About Digitizing Vietnam"
           ></img>
         </div>
-      </div>
+      </section>
 
-      <div className="flex flex-row w-full justify-around items-center mb-10">
+      <section className="flex flex-row w-full justify-around items-center mb-10">
         <div>
           <img
             className="w-96"
@@ -51,7 +52,7 @@ const Home = () => {
             Learn more
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
