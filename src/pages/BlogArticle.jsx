@@ -24,7 +24,7 @@ const BlogArticle = () => {
         return response.json();
       })
       .then((data) => {
-        setPost(data);
+        setPost(data["data"]);
         setLoading(false);
       })
       .catch((error) => {
@@ -54,6 +54,19 @@ const BlogArticle = () => {
   return (
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-10">
+        <section
+          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg"
+          style={{ "background-image": `url(${post.image_url})` }}
+        >
+          <h1 className="text-center">{post.title}</h1>
+          <p className="text-primary-blue font-bold mx-10">{post.author}</p>
+          <p className="text-primary-blue font-bold mx-10">
+            {post.date_created}
+          </p>
+        </section>
+        {/* <h1>{post.title}</h1>
+        <p className="">{post.author}</p>
+        <p>{post.date_created}</p> */}
         <div dangerouslySetInnerHTML={sanitizeHTML(inlined)} />
       </div>
     </div>
