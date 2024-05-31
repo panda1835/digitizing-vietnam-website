@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo2 from "../assets/logo2.png";
+import logo3 from "../assets/logo3.png";
 
 const Header = () => {
   return (
     <header className="bg-primary-gray mb-10">
       <nav className="flex py-3 mb-10 max-width">
-        <div className="ml-5">
+        <div className="ml-5 w-40">
           <Link to="/">
-            <img src={logo2} alt="Logo" />
+            <img src={logo3} alt="Logo" />
           </Link>
         </div>
         <div className="w-28"></div> {/* Empty box */}
