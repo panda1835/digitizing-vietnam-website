@@ -81,9 +81,9 @@ const Blogs = () => {
                 <Item
                   title={item.title}
                   description={""}
-                  imageUrl={item.imageUrl}
-                  link={`/blogs/${item.id}`}
-                  key={`/blogs/${item.id}`}
+                  imageUrl={item.image_url}
+                  link={`/blogs/${item.blog_id}`}
+                  key={`/blogs/${item.blog_id}`}
                 />
               ))}
           </div>
@@ -97,10 +97,10 @@ const Blogs = () => {
               highlights.map((item) => (
                 <Item
                   title={item.title}
-                  description={""}
-                  imageUrl={item.imageUrl}
-                  link={`/blogs/${item.id}`}
-                  key={`/blogs/${item.id}`}
+                  description={`${item.author} - ${item.date_created}`}
+                  imageUrl={item.image_url}
+                  link={`/blogs/${item.blog_id}`}
+                  key={`/blogs/${item.blog_id}`}
                 />
               ))}
           </div>
@@ -115,9 +115,9 @@ const Blogs = () => {
                 <Item
                   title={item.title}
                   description={""}
-                  imageUrl={item.imageUrl}
-                  link={`/blogs/${item.id}`}
-                  key={`/blogs/${item.id}`}
+                  imageUrl={item.image_url}
+                  link={`/blogs/${item.blog_id}`}
+                  key={`/blogs/${item.blog_id}`}
                 />
               ))}
           </div>
