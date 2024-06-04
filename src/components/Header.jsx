@@ -14,19 +14,19 @@ const Header = () => {
         <div className="w-28"></div> {/* Empty box */}
         <div className="flex flex-grow items-center">
           <ul className="flex flex-grow justify-evenly">
-            <li className="text-primary-blue font-bold">
+            <li className="text-primary-blue font-bold text-xl">
               <Link to="/">Home</Link>
             </li>
-            <li className="text-primary-blue font-bold">
+            <li className="text-primary-blue font-bold text-xl">
               <Link to="/about-us">About Us</Link>
             </li>
-            <li className="text-primary-blue font-bold">
-              <Link to="/our-collections">Our Collections</Link>
+            <li className="text-primary-blue font-bold text-xl">
+              <Link to="/our-collections">Collections</Link>
             </li>
-            <li className="text-primary-blue font-bold">
+            <li className="text-primary-blue font-bold text-xl">
               <Link to="/blogs">Blogs</Link>
             </li>
-            <li className="text-primary-blue font-bold">
+            <li className="text-primary-blue font-bold text-xl">
               <Link to="/online-resources">Online Resources</Link>
             </li>
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded">
