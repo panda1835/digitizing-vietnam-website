@@ -66,7 +66,7 @@ const Blogs = () => {
         <SearchBar />
 
         {/* Loading indicator */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-20">
           <div
             className={`loader ${loadingBlogs ? "visible" : "hidden"} `}
           ></div>

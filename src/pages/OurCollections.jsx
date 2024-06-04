@@ -36,7 +36,7 @@ const OurCollections = () => {
         <SearchBar />
 
         {/* Loading indicator */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-20">
           <div className={`loader ${loading ? "visible" : "hidden"} `}></div>
         </div>
 
