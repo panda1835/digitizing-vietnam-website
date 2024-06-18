@@ -63,47 +63,44 @@ const EachCollection = () => {
           <p className="text-primary-blue mx-10">
             {collectionData.description}
           </p>
-          {/* Learn more button */}
-          <div className="flex flex-row justify-center my-5">
-            <button className="" onClick={openLearnMoreModal}>
-              Learn More
-            </button>
+          {/* Navigation buttons */}
+          <div className="flex">
+            <div className="m-5">
+              <button
+                className=""
+                onClick={() => {
+                  document
+                    .getElementById("our-volumes")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Our Volumes
+              </button>
+            </div>
+
+            <div className="m-5">
+              <button
+                className=""
+                onClick={() => {
+                  document
+                    .getElementById("feature-articles")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Featured Articles
+              </button>
+            </div>
           </div>
-          {/* Information overlay */}
         </section>
 
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeLearnMoreModal}
-          contentLabel="Example Modal"
-        >
-          <button
-            onClick={closeLearnMoreModal}
-            className="absolute top-0 right-0 m-2 bg-white text-primary-blue"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-          <p className="px-10 pt-5 items-start justify-start">
-            {collectionData["information"]}
-          </p>
-        </Modal>
+        {/* Collection information */}
+        <div className="my-10">{collectionData["information"]}</div>
 
         {/* Search bar */}
         <SearchBar />
 
         {/* Loading indicator */}
-        <div className="flex items-center justify-center mt-20">
+        <div className="flex items-center justify-center mt-10">
           <div
             className={`loader ${
               loadingCollectionData || loadingFeaturedArticles
@@ -115,7 +112,7 @@ const EachCollection = () => {
 
         {/* Item gallery */}
         <div>
-          <h1>Our Volumes</h1>
+          <h1 id="our-volumes">Our Volumes</h1>
           <div className="grid grid-cols-3 gap-8 mt-10">
             {collectionData &&
               collectionData.documents &&
@@ -147,7 +144,7 @@ const EachCollection = () => {
 
         {/* Featured articles */}
         <section>
-          <h1>Featured Articles</h1>
+          <h1 id="feature-articles">Featured Articles</h1>
           <div className="grid grid-cols-3 gap-8 mt-10">
             {featuredArticles &&
               featuredArticles &&
