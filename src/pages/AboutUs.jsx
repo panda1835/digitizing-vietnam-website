@@ -55,7 +55,7 @@ const AboutUs = () => {
           <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
             <img
               className="w-48 h-48 rounded-full mb-4 object-cover"
-              src="./assets/Tram Thi Phuong Nguyen.JPG"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Tram+Thi+Phuong+Nguyen.jpg"
               alt="Tram Phuong Nguyen"
             />
             <h3 className="text-xl">Tram Phuong Nguyen</h3>
@@ -68,7 +68,7 @@ const AboutUs = () => {
           <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
             <img
               className="w-48 h-48 rounded-full mb-4 object-cover"
-              src="./assets/Van Le.jpg"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Van+Le.jpg"
               alt="Van Le"
             />
             <h3 className="text-xl">Van Nguyen Tuong Le</h3>
@@ -80,7 +80,7 @@ const AboutUs = () => {
           <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
             <img
               className="w-48 h-48 rounded-full mb-4 object-cover"
-              src="./assets/Phuc Le.jpg"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Phuc+Le.jpg"
               alt="Phuc Le"
             />
             <h3 className="text-xl">Phuc Le</h3>
@@ -95,7 +95,7 @@ const AboutUs = () => {
           <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
             <img
               className="w-48 h-48 rounded-full mb-4 object-cover"
-              src="./assets/Vu Minh Hoang.jpeg"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Vu+Minh+Hoang.jpg"
               alt="Hoang Minh Vu"
             />
             <h3 className="text-xl">Hoang Minh Vu</h3>
@@ -108,7 +108,7 @@ const AboutUs = () => {
           <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
             <img
               className="w-48 h-48 rounded-full mb-4 object-cover"
-              src="./assets/John Phan.png"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/John+Phan.png"
               alt="John Phan"
             />
             <h3 className="text-xl">John Phan</h3>
@@ -121,7 +121,7 @@ const AboutUs = () => {
           <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
             <img
               className="w-48 h-48 rounded-full mb-4 object-cover"
-              src="./assets/Lien Hang T. Nguyen.png"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Lien+Hang+T.+Nguyen.png"
               alt="Lien-Hang Nguyen"
             />
             <h3 className="text-xl">Lien-Hang Nguyen</h3>
@@ -134,7 +134,7 @@ const AboutUs = () => {
           <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
             <img
               className="w-48 h-48 rounded-full mb-4 object-cover"
-              src="./assets/Nguyen Nam.jpeg"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Nguyen+Nam.jpg"
               alt="Nam Nguyen"
             />
             <h3 className="text-xl">Nam Nguyen</h3>
