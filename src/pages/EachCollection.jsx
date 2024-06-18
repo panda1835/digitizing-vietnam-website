@@ -51,7 +51,7 @@ const EachCollection = () => {
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <h1 className="text-white relative z-10">{collectionData.title}</h1>
-          <p className="text-white mx-10 relative z-10">
+          <p className="text-white mx-10 relative z-10 text-center">
             {collectionData.description}
           </p>
           {/* Navigation buttons */}

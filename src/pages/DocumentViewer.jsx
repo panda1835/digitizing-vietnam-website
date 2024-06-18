@@ -86,7 +86,7 @@ const DocumentViewer = () => {
 
         {/* Share links */}
         <div className="pb-5">
-          <div className="font-bold text-primary-blue">Permanent link: </div>
+          <div className="font-bold text-primary-blue">Permalink: </div>
 
           <div className="flex justify-left items-center">
             <button
