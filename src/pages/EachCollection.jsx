@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Modal from "react-modal";
 
 import BookItem from "../components/BookItem";
 import Item from "../components/Item";
@@ -13,17 +12,8 @@ const EachCollection = () => {
   const [featuredArticles, setFeaturedArticles] = useState([]);
   const [loadingCollectionData, setLoadingCollectionData] = useState(true);
   const [loadingFeaturedArticles, setLoadingFeaturedArticles] = useState(true);
-  const [modalIsOpen, setModalIsOpen] = React.useState(false);
 
   const handleLoadMoreClick = () => {};
-
-  function openLearnMoreModal() {
-    setModalIsOpen(true);
-  }
-
-  function closeLearnMoreModal() {
-    setModalIsOpen(false);
-  }
 
   useEffect(() => {
     fetch(`${config["api"]["collections"]}/${collectionId}`)
@@ -54,17 +44,18 @@ const EachCollection = () => {
       <div className="flex-col mb-20 mx-5">
         {/* Banner */}
         <section
-          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg"
+          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg relative"
           style={{
             backgroundImage: `url(${collectionData.image_url})`,
           }}
         >
-          <h1>{collectionData.title}</h1>
-          <p className="text-primary-blue mx-10">
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <h1 className="text-white relative z-10">{collectionData.title}</h1>
+          <p className="text-white mx-10 relative z-10">
             {collectionData.description}
           </p>
           {/* Navigation buttons */}
-          <div className="flex">
+          <div className="flex relative z-10">
             <div className="m-5">
               <button
                 className=""
