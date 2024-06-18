@@ -1,6 +1,8 @@
 import { useParams, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
+import { ClipboardDocumentIcon } from "@heroicons/react/16/solid";
+
 import Mirador from "../components/Mirador";
 import MiradorURLSyncPlugin from "../mirador-plugins/MiradorURLSyncPlugin";
 
@@ -17,6 +19,19 @@ const DocumentViewer = () => {
   const [isDocumentMetadataVisible, setIsDocumentMetadataVisible] =
     useState(true);
   const [isOCRVisible, setIsOCRVisible] = useState(false);
+
+  const [copySuccess, setCopySuccess] = useState("Copy");
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(window.location.href).then(
+      () => {
+        setCopySuccess("Copied!");
+      },
+      () => {
+        setCopySuccess("Copy");
+      }
+    );
+  };
 
   // Event listener for popstate event to update the currentCanvasId when
   // there is changes in the url query parameter
@@ -68,6 +83,34 @@ const DocumentViewer = () => {
               : documentData["label"]
             : null}
         </h1>
+
+        {/* Share links */}
+        <div className="pb-5">
+          <div className="font-bold text-primary-blue">Permanent link: </div>
+
+          <div className="flex justify-left items-center">
+            <button
+              onClick={copyToClipboard}
+              className="mr-5 bg-white text-black flex justify-center items-center"
+            >
+              <div className="flex-col text-center justify-center">
+                <ClipboardDocumentIcon />
+                {copySuccess && (
+                  <div
+                    className={
+                      copySuccess == "Copied!"
+                        ? "text-green-700 font-bold w-8"
+                        : "text-black font-bold w-8"
+                    }
+                  >
+                    {copySuccess}
+                  </div>
+                )}
+              </div>
+            </button>
+            {window.location.href}
+          </div>
+        </div>
 
         {/* Content */}
         <div className="flex flex-row">
@@ -184,7 +227,6 @@ const DocumentViewer = () => {
                 plugins={[MiradorURLSyncPlugin]}
               />
             </div>
-            {/*  */}
           </div>
         </div>
       </div>
