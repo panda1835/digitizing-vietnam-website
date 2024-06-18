@@ -50,7 +50,7 @@ const OnlineResources = () => {
         )}
 
         {/* Online resources gallery */}
-        <div className="grid grid-cols-3 gap-8 mt-10">
+        <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {onlineResources.map((category) => (
             <div
               className="flex flex-col items-left justify-items-start"
