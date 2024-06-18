@@ -51,44 +51,100 @@ const AboutUs = () => {
 
         <h2>Core Team</h2>
 
-        <ul className="mb-5 list-disc ml-5">
-          <li>
-            Tram Phuong Nguyen, Ph.D. in Ethnology Digital Curator, Weatherhead
-            East Asian Institute, Columbia University
-          </li>
+        <div className="flex flex-wrap justify-start items-start md:flex-row flex-col">
+          <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
+            <img
+              className="w-48 h-48 rounded-full mb-4 object-cover"
+              src="./assets/Tram Thi Phuong Nguyen.JPG"
+              alt="Tram Phuong Nguyen"
+            />
+            <h3 className="text-xl">Tram Phuong Nguyen</h3>
+            <p className="px-5">
+              Ph.D. in Ethnology Digital Curator, Weatherhead East Asian
+              Institute, Columbia University
+            </p>
+          </div>
 
-          <li>
-            Van Nguyen Tuong Le, M.A. in Digital Humanities Digital Humanities
-            Librarian, Vietnam Studies Center, Fulbright University Vietnam
-          </li>
-          <li>
-            Phuc Le, BA in Computer Science Website Developer, Columbia
-            University
-          </li>
-        </ul>
+          <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
+            <img
+              className="w-48 h-48 rounded-full mb-4 object-cover"
+              src="./assets/Van Le.jpg"
+              alt="Van Le"
+            />
+            <h3 className="text-xl">Van Nguyen Tuong Le</h3>
+            <p className="px-5">
+              M.A. in Digital Humanities Digital Humanities Librarian, Vietnam
+              Studies Center, Fulbright University Vietnam
+            </p>
+          </div>
+          <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
+            <img
+              className="w-48 h-48 rounded-full mb-4 object-cover"
+              src="./assets/Phuc Le.jpg"
+              alt="Phuc Le"
+            />
+            <h3 className="text-xl">Phuc Le</h3>
+            <p className="px-5">
+              BA in Computer Science Website Developer, Columbia University
+            </p>
+          </div>
+        </div>
 
         <h2>Advisors</h2>
+        <div className="flex flex-wrap justify-start items-start md:flex-row flex-col">
+          <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
+            <img
+              className="w-48 h-48 rounded-full mb-4 object-cover"
+              src="./assets/Vu Minh Hoang.jpeg"
+              alt="Hoang Minh Vu"
+            />
+            <h3 className="text-xl">Hoang Minh Vu</h3>
+            <p className="px-5">
+              Ph.D. in History Faculty member in History and Vietnam Studies,
+              Fulbright University Vietnam
+            </p>
+          </div>
 
-        <ul className="mb-5 list-disc ml-5">
-          <li>
-            Hoang Minh Vu, Ph.D. in History Faculty member in History and
-            Vietnam Studies, Fulbright University Vietnam
-          </li>
-          <li>
-            John Phan, Ph.D. in East & Southeast Asian Language History
-            Assistant Professor, Director of Undergraduate Studies, EALAC,
-            Columbia University
-          </li>
-          <li>
-            Lien-Hang Nguyen, Ph.D. in History Assistant Professor, Director of
-            the Weatherhead East Asian Institute, Columbia University
-          </li>
-          <li>
-            Nam Nguyen, Ph.D. in East Asian Languages and Civilizations
-            Professor, Director of the Vietnam Studies Center, Fulbright
-            University Vietnam
-          </li>
-        </ul>
+          <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
+            <img
+              className="w-48 h-48 rounded-full mb-4 object-cover"
+              src="./assets/John Phan.png"
+              alt="John Phan"
+            />
+            <h3 className="text-xl">John Phan</h3>
+            <p className="px-5">
+              Ph.D. in East & Southeast Asian Language History Assistant
+              Professor, Director of Undergraduate Studies, EALAC, Columbia
+              University
+            </p>
+          </div>
+          <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
+            <img
+              className="w-48 h-48 rounded-full mb-4 object-cover"
+              src="./assets/Lien Hang T. Nguyen.png"
+              alt="Lien-Hang Nguyen"
+            />
+            <h3 className="text-xl">Lien-Hang Nguyen</h3>
+            <p className="px-5">
+              Ph.D. in History Assistant Professor, Director of the Weatherhead
+              East Asian Institute, Columbia University
+            </p>
+          </div>
+
+          <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
+            <img
+              className="w-48 h-48 rounded-full mb-4 object-cover"
+              src="./assets/Nguyen Nam.jpeg"
+              alt="Nam Nguyen"
+            />
+            <h3 className="text-xl">Nam Nguyen</h3>
+            <p className="px-5">
+              Ph.D. in East Asian Languages and Civilizations Professor,
+              Director of the Vietnam Studies Center, Fulbright University
+              Vietnam
+            </p>
+          </div>
+        </div>
 
         <h2>Institutional Support</h2>
 
