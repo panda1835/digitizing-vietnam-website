@@ -13,6 +13,8 @@ import DocumentViewer from "./pages/DocumentViewer";
 import Blogs from "./pages/Blogs";
 import BlogArticle from "./pages/BlogArticle";
 import OnlineResources from "./pages/OnlineResources";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./utils/i18n";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,32 +27,34 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <div className="page">
-      <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-          <div className="page-content">
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/our-collections" element={<OurCollections />} />
-              <Route
-                path="/our-collections/:collectionId"
-                element={<EachCollection />}
-              />
-              <Route
-                path="/our-collections/:collectionId/:documentId"
-                element={<DocumentViewer />}
-              />
-              <Route path="/blogs" element={<Blogs />} />
-              <Route path="/blogs/:id" element={<BlogArticle />} />
-              <Route path="/online-resources" element={<OnlineResources />} />
-            </Routes>
-          </div>
-          <Footer />
-        </QueryClientProvider>
-      </BrowserRouter>
-    </div>
+    <I18nextProvider i18n={i18n}>
+      <div className="page">
+        <BrowserRouter>
+          <QueryClientProvider client={queryClient}>
+            <div className="page-content">
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/our-collections" element={<OurCollections />} />
+                <Route
+                  path="/our-collections/:collectionId"
+                  element={<EachCollection />}
+                />
+                <Route
+                  path="/our-collections/:collectionId/:documentId"
+                  element={<DocumentViewer />}
+                />
+                <Route path="/blogs" element={<Blogs />} />
+                <Route path="/blogs/:id" element={<BlogArticle />} />
+                <Route path="/online-resources" element={<OnlineResources />} />
+              </Routes>
+            </div>
+            <Footer />
+          </QueryClientProvider>
+        </BrowserRouter>
+      </div>
+    </I18nextProvider>
   );
 };
 

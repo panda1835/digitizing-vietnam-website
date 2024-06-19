@@ -43,9 +43,14 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import logo3 from "../assets/logo3.png";
 
+import LanguageSelector from "./LanguageSelector";
+
 const Header = () => {
+  const { t } = useTranslation();
   const [openNav, setOpenNav] = useState(false); // State for mobile navigation
 
   const toggleNav = () => {
@@ -64,22 +69,23 @@ const Header = () => {
         <div className="flex items-center justify-between flex-grow md:block hidden">
           <ul className="flex justify-evenly">
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/">Home</Link>
+              <Link to="/">{t("home")}</Link>
             </li>
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/about-us">About Us</Link>
+              <Link to="/about-us">{t("about-us")}</Link>
             </li>
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/our-collections">Collections</Link>
+              <Link to="/our-collections">{t("collections")}</Link>
             </li>
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/blogs">Blogs</Link>
+              <Link to="/blogs">{t("blogs")}</Link>
             </li>
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/online-resources">Online Resources</Link>
+              <Link to="/online-resources">{t("online-resources")}</Link>
             </li>
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded">
-              <Link to="/">EN/VI</Link>
+              {/* <Link to="/">EN/VI</Link> */}
+              <LanguageSelector />
             </li>
           </ul>
         </div>
@@ -140,7 +146,8 @@ const Header = () => {
               <Link to="/online-resources">Online Resources</Link>
             </li>
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded mb-5">
-              <Link to="/">EN/VI</Link>
+              {/* <Link to="/">EN/VI</Link> */}
+              <LanguageSelector />
             </li>
           </ul>
         </div>

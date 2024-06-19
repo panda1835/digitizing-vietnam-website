@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Modal from "react-modal";
 import config from "../config";
@@ -7,6 +8,8 @@ const OnlineResources = () => {
   const [onlineResources, setOnlineResources] = useState([]);
   const [loading, setLoading] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState({});
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(config["api"]["onlineResources"])
@@ -35,10 +38,9 @@ const OnlineResources = () => {
       <div className="flex-col mb-20 mx-5">
         {/* Header */}
         <section className="flex flex-col items-center justify-center">
-          <h1 className="">Online Resources</h1>
+          <h1 className="">{t("online-resources-title")}</h1>
           <p className="text-gray-500 mb-5 text-center">
-            Are you looking for a launchpad for your research on Vietnam? Check
-            out some resources below and find the best fit.
+            {t("online-resources-subtitle")}
           </p>
         </section>
 
@@ -97,7 +99,7 @@ const OnlineResources = () => {
                 </button>
                 <h2>{category.category_name}</h2>
                 {category.resources.length === 0 && (
-                  <p>There are no resources available for this category.</p>
+                  <p>{t("online-resources-no-resource-message")}</p>
                 )}
                 {category.resources.map((resource) => (
                   <div key={resource.title} className="">

@@ -1,10 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const AboutUs = () => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 mx-5">
-        <h1 className="flex justify-center">About Us</h1>
+        <h1 className="flex justify-center">{t("about-us")}</h1>
 
         <h2>Our Mission</h2>
 

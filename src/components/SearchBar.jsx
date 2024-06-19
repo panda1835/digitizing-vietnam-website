@@ -1,6 +1,8 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
+import { useTranslation } from "react-i18next";
 
 const SearchBar = () => {
+  const { t } = useTranslation();
   return (
     <form className="flex my-5">
       <div className="relative">
@@ -8,13 +10,13 @@ const SearchBar = () => {
         <input
           type="text"
           name="search-query"
-          placeholder="Search"
+          placeholder={t("btn-search")}
           className="rounded border pl-8 w-80 h-10"
         />
       </div>
       <input
         type="submit"
-        value="Search"
+        value={t("btn-search")}
         className="border rounded-lg px-5 mx-2 bg-primary-blue text-white"
       />
     </form>

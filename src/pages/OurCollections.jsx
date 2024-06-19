@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Item from "../components/Item";
 import SearchBar from "../components/SearchBar";
 
 import config from "../config";
 const OurCollections = () => {
+  const { t } = useTranslation();
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,11 +27,9 @@ const OurCollections = () => {
       <div className="flex-col mb-20 mx-5">
         {/* Header */}
         <section className="flex flex-col items-center justify-center">
-          <h1 className="">Our Collections</h1>
+          <h1 className="">{t("collections-title")}</h1>
           <p className="text-gray-500 mb-5 text-center">
-            Explore our digital archive dedicated to the preservation and
-            academic exploration of Vietnam&apos;s historical and intellectual
-            heritage.
+            {t("collections-subtitle")}
           </p>
         </section>
         {/* Search bar */}

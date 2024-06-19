@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 import SearchBar from "../components/SearchBar";
 import Item from "../components/Item";
@@ -10,6 +11,8 @@ const Blogs = () => {
   const [highlights, setHighlights] = useState([]);
   const [initiatives, setInitiatives] = useState([]);
   const [loadingBlogs, setLoadingBlogs] = useState(true);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(`${config["api"]["blogs"]}/news`)
@@ -55,11 +58,8 @@ const Blogs = () => {
       <div className="flex-col mb-20 mx-5">
         {/* Header */}
         <section className="flex-col text-center mb-10">
-          <h1>Vietnam Digitized: A Blog</h1>
-          <p className="text-gray-500">
-            News, insights and initiatives on the digital front of Vietnamese
-            heritage
-          </p>
+          <h1>{t("blogs-title")}</h1>
+          <p className="text-gray-500">{t("blogs-subtitle")}</p>
         </section>
 
         {/* Search bar */}
@@ -74,7 +74,7 @@ const Blogs = () => {
 
         {/* News */}
         <section className="mb-10">
-          <h1>News</h1>
+          <h1>{t("blogs-news")}</h1>
           <div className="grid grid-cols-3 gap-8 mt-10">
             {news &&
               news.map((item) => (
@@ -91,7 +91,7 @@ const Blogs = () => {
 
         {/* Highlights */}
         <section className="mb-10">
-          <h1>Highlights</h1>
+          <h1>{t("blogs-highlights")}</h1>
           <div className="grid grid-cols-3 gap-8 mt-10">
             {highlights &&
               highlights.map((item) => (
@@ -108,7 +108,7 @@ const Blogs = () => {
 
         {/* Initiatives */}
         <section className="mb-10">
-          <h1>Initiatives</h1>
+          <h1>{t("blogs-initiatives")}</h1>
           <div className="grid grid-cols-3 gap-8 mt-10">
             {initiatives &&
               initiatives.map((item) => (
