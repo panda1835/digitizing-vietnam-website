@@ -84,7 +84,6 @@ const Header = () => {
               <Link to="/online-resources">{t("online-resources")}</Link>
             </li>
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded">
-              {/* <Link to="/">EN/VI</Link> */}
               <LanguageSelector />
             </li>
           </ul>
@@ -146,7 +145,6 @@ const Header = () => {
               <Link to="/online-resources">Online Resources</Link>
             </li>
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded mb-5">
-              {/* <Link to="/">EN/VI</Link> */}
               <LanguageSelector />
             </li>
           </ul>
