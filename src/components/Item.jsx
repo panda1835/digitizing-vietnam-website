@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Item = (props) => {
   return (
     <Link to={props.link}>
-      <div className="">
+      <div className="mb-5">
         <img
           src={props.imageUrl}
           alt={props.title}

@@ -41,7 +41,7 @@ const OurCollections = () => {
         </div>
 
         {/* Collection gallery */}
-        <div className="grid grid-cols-3 gap-8 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {collections.map((collection) => (
             <Item
               title={collection.title}
