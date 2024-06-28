@@ -14,6 +14,12 @@ const Header = () => {
     setOpenNav(!openNav);
   };
 
+  const [activeItem, setActiveItem] = useState("");
+
+  const handleItemClick = (itemName) => {
+    setActiveItem(itemName);
+  };
+
   return (
     <header className="bg-primary-gray mb-10">
       <nav className="flex py-3 mb-10 max-w-screen-lg mx-auto">
@@ -25,21 +31,25 @@ const Header = () => {
         <div className="w-28"></div> {/* Empty box */}
         <div className="flex items-center justify-between flex-grow md:block hidden">
           <ul className="flex justify-evenly">
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/">{t("home")}</Link>
-            </li>
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/about-us">{t("about-us")}</Link>
-            </li>
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/our-collections">{t("collections")}</Link>
-            </li>
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/blogs">{t("blogs")}</Link>
-            </li>
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/online-resources">{t("online-resources")}</Link>
-            </li>
+            {[
+              "home",
+              "about-us",
+              "our-collections",
+              "blogs",
+              "online-resources",
+            ].map((item) => (
+              <li
+                key={item}
+                className={`text-primary-blue font-bold text-xl border-b-2 ${
+                  activeItem === item
+                    ? "border-primary-yellow"
+                    : "border-transparent"
+                } hover:border-primary-yellow transition duration-300`}
+                onClick={() => handleItemClick(item)}
+              >
+                <Link to={`/${item === "home" ? "" : item}`}>{t(item)}</Link>
+              </li>
+            ))}
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded">
               <LanguageSelector />
             </li>
@@ -86,21 +96,25 @@ const Header = () => {
       {openNav && (
         <div className="lg:hidden flex flex-col items-center">
           <ul className="mt-4 flex flex-col items-center gap-2">
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/">{t("home")}</Link>
-            </li>
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/about-us">{t("about-us")}</Link>
-            </li>
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/our-collections">{t("collections")}</Link>
-            </li>
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/blogs">{t("blogs")}</Link>
-            </li>
-            <li className="text-primary-blue font-bold text-xl">
-              <Link to="/online-resources">{t("online-resources")}</Link>
-            </li>
+            {[
+              "home",
+              "about-us",
+              "our-collections",
+              "blogs",
+              "online-resources",
+            ].map((item) => (
+              <li
+                key={item}
+                className={`text-primary-blue font-bold text-xl border-b-2 ${
+                  activeItem === item
+                    ? "border-primary-yellow"
+                    : "border-transparent"
+                }`}
+                onClick={() => handleItemClick(item)}
+              >
+                <Link to={`/${item === "home" ? "" : item}`}>{t(item)}</Link>
+              </li>
+            ))}
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded mb-5">
               <LanguageSelector />
             </li>
