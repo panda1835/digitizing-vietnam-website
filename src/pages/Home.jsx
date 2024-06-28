@@ -14,15 +14,15 @@ const Home = () => {
           <p className="text-gray-500">{t("home-welcome-subtitle")}</p>
         </section>
 
-        <section className="flex flex-col md:flex-row justify-evenly items-center my-5">
+        <section className="flex flex-col md:flex-row justify-evenly items-center my-5 md:my-10">
           <div className="md:w-96">
             <img
               className="my-5"
-              src="https://www.lrsoc.com/web/wp-content/uploads/2021/01/Placeholder-shop.jpg"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+1.png"
               alt="About Digitizing Vietnam"
             ></img>
           </div>
-          <div className="md:w-96">
+          <div className="md:w-96 flex flex-col items-center md:items-start">
             <h2>{t("home-about-digitizing-vietnam")}</h2>
             <p className="mb-5">{t("home-about-digitizing-vietnam-content")}</p>
             <Link to="/about-us" className="button">
@@ -31,7 +31,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="flex flex-col md:flex-row justify-evenly items-center my-5">
+        <section className="flex flex-col md:flex-row justify-evenly items-center my-5 md:my-10">
           <div className="md:w-96 order-1 md:order-2">
             <img
               className="my-5"
@@ -39,7 +39,7 @@ const Home = () => {
               alt="Our Collections"
             ></img>
           </div>
-          <div className="md:w-96 order-2 md:order-1">
+          <div className="md:w-96 flex flex-col items-center md:items-start order-2 md:order-1">
             <h2>{t("home-our-collections")}</h2>
             <p className="mb-5">{t("home-our-collections-content")}</p>
             <Link to="/our-collections" className="button">
@@ -48,15 +48,15 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="flex flex-col md:flex-row justify-evenly items-center my-5">
+        <section className="flex flex-col md:flex-row justify-evenly items-center my-5 md:my-10">
           <div className="md:w-96">
             <img
               className="my-5"
-              src="https://www.lrsoc.com/web/wp-content/uploads/2021/01/Placeholder-shop.jpg"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+3.png"
               alt="Our Blog"
             ></img>
           </div>
-          <div className="md:w-96">
+          <div className="md:w-96 flex flex-col items-center md:items-start">
             <h2>{t("home-our-blog")}</h2>
             <p className="mb-5">{t("home-our-blog-content")}</p>
             <Link to="/blogs" className="button">
