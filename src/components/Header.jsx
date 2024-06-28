@@ -130,19 +130,19 @@ const Header = () => {
         <div className="lg:hidden flex flex-col items-center">
           <ul className="mt-4 flex flex-col items-center gap-2">
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/">Home</Link>
+              <Link to="/">{t("home")}</Link>
             </li>
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/about-us">About Us</Link>
+              <Link to="/about-us">{t("about-us")}</Link>
             </li>
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/our-collections">Collections</Link>
+              <Link to="/our-collections">{t("collections")}</Link>
             </li>
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/blogs">Blogs</Link>
+              <Link to="/blogs">{t("blogs")}</Link>
             </li>
             <li className="text-primary-blue font-bold text-xl">
-              <Link to="/online-resources">Online Resources</Link>
+              <Link to="/online-resources">{t("online-resources")}</Link>
             </li>
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded mb-5">
               <LanguageSelector />
