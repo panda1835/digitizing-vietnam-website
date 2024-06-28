@@ -53,14 +53,19 @@ const BlogArticle = () => {
 
   return (
     <div className="flex flex-col max-width">
-      <div className="flex-col mb-20 mx-10">
+      <div className="flex-col mb-20 mx-5">
         <section
-          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg"
+          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg relative"
           style={{ "background-image": `url(${post.image_url})` }}
         >
-          <h1 className="text-center">{post.title}</h1>
-          <p className="text-primary-blue font-bold mx-10">{post.author}</p>
-          <p className="text-primary-blue font-bold mx-10">
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <p className="text-center text-3xl md:text-4xl text-white relative z-10 mb-5 mx-10">
+            {post.title}
+          </p>
+          <p className="text-white relative z-10 font-bold mx-10">
+            {post.author}
+          </p>
+          <p className="text-white relative z-10 font-bold mx-10">
             {post.date_created}
           </p>
         </section>

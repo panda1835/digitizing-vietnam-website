@@ -75,7 +75,7 @@ const Blogs = () => {
         {/* News */}
         <section className="mb-10">
           <h1>{t("blogs-news")}</h1>
-          <div className="grid grid-cols-3 gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {news &&
               news.map((item) => (
                 <Item
@@ -92,7 +92,7 @@ const Blogs = () => {
         {/* Highlights */}
         <section className="mb-10">
           <h1>{t("blogs-highlights")}</h1>
-          <div className="grid grid-cols-3 gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {highlights &&
               highlights.map((item) => (
                 <Item
@@ -109,7 +109,7 @@ const Blogs = () => {
         {/* Initiatives */}
         <section className="mb-10">
           <h1>{t("blogs-initiatives")}</h1>
-          <div className="grid grid-cols-3 gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {initiatives &&
               initiatives.map((item) => (
                 <Item
