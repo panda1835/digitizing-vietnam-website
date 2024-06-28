@@ -11,7 +11,7 @@ const SearchBar = () => {
           type="text"
           name="search-query"
           placeholder={t("btn-search")}
-          className="rounded border pl-8 w-80 h-10"
+          className="rounded border pl-8 md:w-80 h-10"
         />
       </div>
       <input
