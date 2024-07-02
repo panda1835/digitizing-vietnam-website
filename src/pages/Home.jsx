@@ -23,7 +23,9 @@ const Home = () => {
             ></img>
           </div>
           <div className="md:w-96 flex flex-col items-center md:items-start">
-            <h2>{t("home-about-digitizing-vietnam")}</h2>
+            <Link to="/about-us" className="">
+              <h2>{t("home-about-digitizing-vietnam")}</h2>
+            </Link>
             <p className="mb-5">{t("home-about-digitizing-vietnam-content")}</p>
             <Link to="/about-us" className="button">
               {t("btn-learn-more")}
@@ -40,7 +42,9 @@ const Home = () => {
             ></img>
           </div>
           <div className="md:w-96 flex flex-col items-center md:items-start order-2 md:order-1">
-            <h2>{t("home-our-collections")}</h2>
+            <Link to="/our-collections" className="">
+              <h2>{t("home-our-collections")}</h2>
+            </Link>
             <p className="mb-5">{t("home-our-collections-content")}</p>
             <Link to="/our-collections" className="button">
               {t("btn-learn-more")}
@@ -57,7 +61,9 @@ const Home = () => {
             ></img>
           </div>
           <div className="md:w-96 flex flex-col items-center md:items-start">
-            <h2>{t("home-our-blog")}</h2>
+            <Link to="/blogs" className="">
+              <h2>{t("home-our-blog")}</h2>
+            </Link>
             <p className="mb-5">{t("home-our-blog-content")}</p>
             <Link to="/blogs" className="button">
               {t("btn-learn-more")}
