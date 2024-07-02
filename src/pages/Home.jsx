@@ -14,7 +14,7 @@ const Home = () => {
           <p className="text-gray-500">{t("home-welcome-subtitle")}</p>
         </section>
 
-        <section className="flex flex-col md:flex-row justify-evenly items-center my-5 md:my-10">
+        <section className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10">
           <div className="md:w-96">
             <img
               className="my-5"
@@ -31,7 +31,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="flex flex-col md:flex-row justify-evenly items-center my-5 md:my-10">
+        <section className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10">
           <div className="md:w-96 order-1 md:order-2">
             <img
               className="my-5"
@@ -48,7 +48,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="flex flex-col md:flex-row justify-evenly items-center my-5 md:my-10">
+        <section className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10">
           <div className="md:w-96">
             <img
               className="my-5"
