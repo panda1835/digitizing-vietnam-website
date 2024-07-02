@@ -21,8 +21,9 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-primary-gray mb-10">
-      <nav className="flex py-3 mb-10 max-w-screen-lg mx-auto items-center justify-between">
+    <header className="bg-primary-gray">
+      {/* Navigation bar */}
+      <nav className="flex py-3 max-w-screen-lg mx-auto items-center justify-between">
         <div className="ml-5 w-60">
           <Link to="/">
             <img src={logo} alt="Logo" />

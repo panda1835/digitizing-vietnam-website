@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 import BookItem from "../components/BookItem";
 import Item from "../components/Item";
-import SearchBar from "../components/SearchBar";
 
 import config from "../config";
 const EachCollection = () => {
@@ -86,9 +85,6 @@ const EachCollection = () => {
 
         {/* Collection information */}
         <div className="my-10">{collectionData["information"]}</div>
-
-        {/* Search bar */}
-        <SearchBar />
 
         {/* Loading indicator */}
         <div className="flex items-center justify-center mt-10">

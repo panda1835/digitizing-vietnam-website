@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import Item from "../components/Item";
-import SearchBar from "../components/SearchBar";
 
 import config from "../config";
 const OurCollections = () => {
@@ -32,8 +31,6 @@ const OurCollections = () => {
             {t("collections-subtitle")}
           </p>
         </section>
-        {/* Search bar */}
-        <SearchBar />
 
         {/* Loading indicator */}
         <div className="flex items-center justify-center mt-10">

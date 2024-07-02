@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import SearchBar from "../components/SearchBar";
 import Item from "../components/Item";
 
 import config from "../config";
@@ -61,9 +60,6 @@ const Blogs = () => {
           <h1>{t("blogs-title")}</h1>
           <p className="text-gray-500">{t("blogs-subtitle")}</p>
         </section>
-
-        {/* Search bar */}
-        <SearchBar />
 
         {/* Loading indicator */}
         <div className="flex items-center justify-center mt-10">
