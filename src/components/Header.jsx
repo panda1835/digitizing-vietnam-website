@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import logo3 from "../assets/logo3.png";
+import logo from "../assets/logo.png";
 
 import LanguageSelector from "./LanguageSelector";
 
@@ -22,15 +22,15 @@ const Header = () => {
 
   return (
     <header className="bg-primary-gray mb-10">
-      <nav className="flex py-3 mb-10 max-w-screen-lg mx-auto">
-        <div className="ml-5 w-40">
+      <nav className="flex py-3 mb-10 max-w-screen-lg mx-auto items-center justify-between">
+        <div className="ml-5 w-60">
           <Link to="/">
-            <img src={logo3} alt="Logo" />
+            <img src={logo} alt="Logo" />
           </Link>
         </div>
         <div className="w-28"></div> {/* Empty box */}
         <div className="flex items-center justify-between flex-grow md:block hidden">
-          <ul className="flex justify-evenly">
+          <ul className="flex justify-evenly items-center">
             {[
               "home",
               "about-us",
@@ -56,7 +56,7 @@ const Header = () => {
           </ul>
         </div>
         <button
-          className="md:hidden block text-primary-blue bg-primary-gray p-2 rounded"
+          className="md:hidden block text-primary-blue bg-primary-gray p-2 rounded flex justify-end"
           onClick={toggleNav}
         >
           {openNav ? (

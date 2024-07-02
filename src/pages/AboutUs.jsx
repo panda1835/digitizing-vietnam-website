@@ -139,7 +139,7 @@ const AboutUs = () => {
             <p className="px-5">
               {i18n.language === "en"
                 ? "Ph.D. in East & Southeast Asian Language History"
-                : "Tiến sĩ Lịch sử ngôn ngữ Đông Á và Nam Á"}
+                : "Tiến sĩ Lịch sử ngôn ngữ Đông Á và Đông Nam Á"}
             </p>
             <p className="px-5">
               {i18n.language === "en"
