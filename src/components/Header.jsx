@@ -57,7 +57,7 @@ const Header = () => {
           </ul>
         </div>
         <button
-          className="md:hidden block text-primary-blue bg-primary-gray p-2 rounded flex justify-end"
+          className="md:hidden block mr-5 text-primary-blue bg-primary-gray p-2 rounded flex justify-end"
           onClick={toggleNav}
         >
           {openNav ? (
