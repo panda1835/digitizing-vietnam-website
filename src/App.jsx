@@ -14,6 +14,7 @@ import AboutUs from "./pages/AboutUs";
 import OurCollections from "./pages/OurCollections";
 import EachCollection from "./pages/EachCollection";
 import DocumentViewer from "./pages/DocumentViewer";
+import Tools from "./pages/Tools";
 import Blogs from "./pages/Blogs";
 import BlogArticle from "./pages/BlogArticle";
 import OnlineResources from "./pages/OnlineResources";
@@ -51,6 +52,7 @@ const App = () => {
                   path="/our-collections/:collectionId/:documentId"
                   element={<DocumentViewer />}
                 />
+                <Route path="/tools" element={<Tools />} />
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/blogs/:id" element={<BlogArticle />} />
                 <Route path="/online-resources" element={<OnlineResources />} />

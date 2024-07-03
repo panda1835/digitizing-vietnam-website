@@ -36,12 +36,13 @@ const Header = () => {
               "home",
               "about-us",
               "our-collections",
+              "tools",
               "blogs",
               "online-resources",
             ].map((item) => (
               <li
                 key={item}
-                className={`text-primary-blue font-bold text-xl border-b-2 ${
+                className={`text-primary-blue font-bold text-base border-b-2 ${
                   activeItem === item
                     ? "border-primary-yellow"
                     : "border-transparent"
@@ -101,6 +102,7 @@ const Header = () => {
               "home",
               "about-us",
               "our-collections",
+              "tools",
               "blogs",
               "online-resources",
             ].map((item) => (
