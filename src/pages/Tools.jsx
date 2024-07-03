@@ -19,7 +19,7 @@ function Tools() {
           <h1 className="text-4xl font-bold mb-4">
             V-Text: Advanced Annotation Tool for Vietnam-Related Research
           </h1>
-          <p className="text-gray-700 text-lg leading-loose">
+          <p className="text-lg leading-loose">
             V-Text is a cutting-edge annotation tool designed specifically for
             independent research groups focusing on Vietnam-related texts,
             images, and videos. It offers a comprehensive suite of features
@@ -41,7 +41,7 @@ function Tools() {
           <h3 className="text-primary-blue text-2xl font-bold mb-2">
             Multimedia Annotation
           </h3>
-          <p className="text-gray-700">
+          <p className="text-center md:text-left">
             V-Text supports a wide range of formats, allowing users to annotate
             text documents, images, and videos seamlessly.
           </p>
@@ -50,7 +50,7 @@ function Tools() {
           <h3 className="text-primary-blue text-2xl font-bold mb-2">
             Language-Specific Tools
           </h3>
-          <p className="text-gray-700">
+          <p className="text-center md:text-left">
             With robust support for the Vietnamese language, including special
             characters and diacritics, V-Text ensures accurate and efficient
             annotation of Vietnamese texts.
@@ -60,7 +60,7 @@ function Tools() {
           <h3 className="text-primary-blue text-2xl font-bold mb-2">
             Collaborative Environment
           </h3>
-          <p className="text-gray-700">
+          <p className="text-center md:text-left">
             V-Text fosters collaboration by enabling multiple users to work on
             the same project simultaneously. Real-time updates and version
             control ensure that all contributions are synchronized and
@@ -71,7 +71,7 @@ function Tools() {
           <h3 className="text-primary-blue text-2xl font-bold mb-2">
             Customizable Annotations
           </h3>
-          <p className="text-gray-700">
+          <p className="text-center md:text-left">
             Researchers can create and manage custom tags, comments, and
             metadata, allowing for detailed and organized annotation tailored to
             specific research needs.
