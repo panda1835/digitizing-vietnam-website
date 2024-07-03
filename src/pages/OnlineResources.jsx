@@ -9,10 +9,10 @@ const OnlineResources = () => {
   const [loading, setLoading] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState({});
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    fetch(config["api"]["onlineResources"])
+    fetch(`${config["api"]["onlineResources"]}?lang=${i18n.language}`)
       .then((response) => response.json())
       .then((data) => {
         setOnlineResources(data["data"]);
@@ -21,7 +21,7 @@ const OnlineResources = () => {
       .catch(() => {
         setLoading(false);
       });
-  }, []);
+  }, [i18n.language]);
 
   // Open modal for a specific category
   const openModal = (categoryName) => {

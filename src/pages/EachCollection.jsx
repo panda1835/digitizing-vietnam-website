@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import BookItem from "../components/BookItem";
 import Item from "../components/Item";
 
 import config from "../config";
+import { t } from "i18next";
 const EachCollection = () => {
+  const { i18n } = useTranslation();
+
   const { collectionId } = useParams();
   const [collectionData, setCollectionData] = useState({});
   const [featuredArticles, setFeaturedArticles] = useState([]);
@@ -15,7 +19,9 @@ const EachCollection = () => {
   const handleLoadMoreClick = () => {};
 
   useEffect(() => {
-    fetch(`${config["api"]["collections"]}/${collectionId}`)
+    fetch(
+      `${config["api"]["collections"]}/${collectionId}?lang=${i18n.language}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setCollectionData(data["data"]);
@@ -24,7 +30,7 @@ const EachCollection = () => {
       .catch(() => {
         setLoadingCollectionData(false);
       });
-  }, [collectionId]);
+  }, [collectionId, i18n.language]);
 
   useEffect(() => {
     fetch(`${config["api"]["blogs"]}?related-collection=${collectionId}`)
@@ -62,7 +68,7 @@ const EachCollection = () => {
                     .scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Our Volumes
+                {t("each-collection-our-volumes")}
               </button>
             </div>
 
@@ -75,7 +81,7 @@ const EachCollection = () => {
                     .scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Featured Articles
+                {t("each-collection-featured-articles")}
               </button>
             </div>
           </div>
@@ -97,7 +103,7 @@ const EachCollection = () => {
 
         {/* Item gallery */}
         <div>
-          <h1 id="our-volumes">Our Volumes</h1>
+          <h1 id="our-volumes">{t("each-collection-our-volumes")}</h1>
           <div className="grid grid-cols-3 gap-8 mt-10">
             {collectionData &&
               collectionData.documents &&
@@ -114,14 +120,14 @@ const EachCollection = () => {
 
           {collectionData.documents && collectionData.documents.length === 0 && (
             <div className="flex mb-10">
-              <p>No volumes found.</p>
+              <p>{t("no-volume-found")}</p>
             </div>
           )}
 
           {collectionData.documents && collectionData.documents.length > 0 && (
             <div className="flex flex-row justify-center my-5">
               <button className="" onClick={handleLoadMoreClick}>
-                Load More
+                {t("btn-load-more")}
               </button>
             </div>
           )}
@@ -129,7 +135,9 @@ const EachCollection = () => {
 
         {/* Featured articles */}
         <section>
-          <h1 id="feature-articles">Featured Articles</h1>
+          <h1 id="feature-articles">
+            {t("each-collection-featured-articles")}
+          </h1>
           <div className="grid grid-cols-3 gap-8 mt-10">
             {featuredArticles &&
               featuredArticles &&

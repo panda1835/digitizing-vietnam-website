@@ -5,12 +5,12 @@ import Item from "../components/Item";
 
 import config from "../config";
 const OurCollections = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(config["api"]["collections"])
+    fetch(`${config["api"]["collections"]}?lang=${i18n.language}`)
       .then((response) => response.json())
       .then((data) => {
         setCollections(data["data"]);
@@ -19,7 +19,7 @@ const OurCollections = () => {
       .catch(() => {
         setLoading(false);
       });
-  }, []);
+  }, [i18n.language]);
 
   return (
     <div className="flex flex-col max-width">
