@@ -17,7 +17,7 @@ const SearchBar = () => {
       <input
         type="submit"
         value={t("btn-search")}
-        className="border rounded-lg px-5 mx-2 bg-primary-blue text-white"
+        className="border rounded-lg px-5 mx-2 bg-primary-blue text-white cursor-pointer"
       />
     </form>
   );
