@@ -43,6 +43,7 @@ const OurCollections = () => {
             <Item
               title={collection.title}
               description={collection.description}
+              max_trim_word={50}
               imageUrl={collection.image_url}
               link={`/our-collections/${collection.collection_id}`}
               key={`/our-collections/${collection.collection_id}`}
