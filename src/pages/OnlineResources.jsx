@@ -97,7 +97,7 @@ const OnlineResources = () => {
                     />
                   </svg>
                 </button>
-                <h2>{category.category_name}</h2>
+                <h2 className="mr-6">{category.category_name}</h2>
                 {category.resources.length === 0 && (
                   <p>{t("online-resources-no-resource-message")}</p>
                 )}
