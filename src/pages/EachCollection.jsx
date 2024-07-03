@@ -50,9 +50,7 @@ const EachCollection = () => {
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <h1 className="text-white relative z-10">{collectionData.title}</h1>
-          <p className="text-white mx-10 relative z-10 text-center">
-            {collectionData.description}
-          </p>
+
           {/* Navigation buttons */}
           <div className="flex relative z-10">
             <div className="m-5">
@@ -84,7 +82,7 @@ const EachCollection = () => {
         </section>
 
         {/* Collection information */}
-        <div className="my-10">{collectionData["information"]}</div>
+        <div className="my-10">{collectionData.description}</div>
 
         {/* Loading indicator */}
         <div className="flex items-center justify-center mt-10">
