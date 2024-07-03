@@ -12,7 +12,7 @@ import React from "react";
 
 function Tools() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container max-width px-4 py-16">
       {/* Hero section */}
       <section className="flex flex-col md:flex-row items-center justify-between">
         <div className="text-center md:text-left w-full md:w-1/2">
