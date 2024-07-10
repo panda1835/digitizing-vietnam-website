@@ -66,7 +66,7 @@ const Home = () => {
           </Slider>
         </section>
 
-        <section className="flex">
+        <section className="flex flex-col md:flex-row">
           <div className="flex flex-col justify-between items-center my-5 md:my-10">
             <div className="md:w-96">
               <img
