@@ -10,7 +10,7 @@ const GachBongTop = () => {
   };
 
   return (
-    <div className="w-full h-40 bg-repeat" style={style}>
+    <div className="w-full h-20 bg-repeat" style={style}>
       {/* Flex container to center SearchBar */}
       <div className="flex justify-center items-center h-full">
         <SearchBar />
