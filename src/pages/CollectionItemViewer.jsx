@@ -8,12 +8,13 @@ import MiradorURLSyncPlugin from "../mirador-plugins/MiradorURLSyncPlugin";
 
 import config from "../config";
 
-const DocumentViewer = () => {
+const CollectionItemViewer = () => {
   const { collectionId, documentId } = useParams();
   const location = useLocation();
   const originalCanvasId = new URLSearchParams(location.search).get("canvasId");
 
-  const [documentData, setDocumentData] = useState({});
+  const [manifest, setManifest] = useState({});
+  const [mediaType, setMediaType] = useState("document");
   const [currentCanvasId, setCurrentCanvasId] = useState("");
   const [currentPageOCR, setCurrentPageOCR] = useState("");
   const [isDocumentMetadataVisible, setIsDocumentMetadataVisible] =
@@ -48,9 +49,12 @@ const DocumentViewer = () => {
           `${config["api"]["manifest"]}/${collectionId}/${documentId}`
         );
         const data = await response.json();
-        setDocumentData(data);
+        setManifest(data);
+        if (data["media"]) {
+          setMediaType(data["media"]);
+        }
       } catch (error) {
-        setDocumentData({});
+        setManifest({});
       }
     };
     fetchData();
@@ -76,11 +80,10 @@ const DocumentViewer = () => {
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-5 ">
         <h1>
-          {documentData
-            ? documentData["label"] &&
-              Object.keys(documentData["label"]).includes("en")
-              ? documentData["label"]["en"][0]
-              : documentData["label"]
+          {manifest
+            ? manifest["label"] && Object.keys(manifest["label"]).includes("en")
+              ? manifest["label"]["en"][0]
+              : manifest["label"]
             : null}
         </h1>
 
@@ -136,24 +139,26 @@ const DocumentViewer = () => {
               >
                 General Information
               </div>
-              <div
-                className={`${
-                  isOCRVisible ? "font-bold" : "text-gray-500"
-                } cursor-pointer`}
-                onClick={() => {
-                  setIsDocumentMetadataVisible(false);
-                  setIsOCRVisible(true);
-                }}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
+              {mediaType === "document" && (
+                <div
+                  className={`${
+                    isOCRVisible ? "font-bold" : "text-gray-500"
+                  } cursor-pointer`}
+                  onClick={() => {
                     setIsDocumentMetadataVisible(false);
                     setIsOCRVisible(true);
-                  }
-                }}
-                tabIndex={0}
-              >
-                Text OCR
-              </div>
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      setIsDocumentMetadataVisible(false);
+                      setIsOCRVisible(true);
+                    }
+                  }}
+                  tabIndex={0}
+                >
+                  Text OCR
+                </div>
+              )}
             </div>
 
             {/* Info display */}
@@ -161,9 +166,9 @@ const DocumentViewer = () => {
               <div className="flex flex-col overflow-auto">
                 {/* Document metadata */}
                 {isDocumentMetadataVisible &&
-                  documentData &&
-                  documentData["metadata"] &&
-                  documentData["metadata"].map((item, index) => (
+                  manifest &&
+                  manifest["metadata"] &&
+                  manifest["metadata"].map((item, index) => (
                     <div key={index}>
                       <div className="font-bold">
                         {Object.keys(item["label"]).includes("en")
@@ -191,42 +196,61 @@ const DocumentViewer = () => {
             </div>
           </div>
 
-          {/* Document viewer */}
+          {/* Item viewer */}
           <div className="w-full relative ml-5">
-            <div className="mirador ">
-              {/* Mirador */}
-              <Mirador
-                className=""
-                config={{
-                  id: "mirador",
-                  window: {
-                    allowWindowSideBar: true,
-                    allowTopMenuButton: true,
-                    allowMaximize: false,
-                    allowClose: false,
-                    allowFullscreen: true,
-                    defaultView: "single",
-                    views: [
-                      { key: "single", behaviors: ["individuals"] },
-                      { key: "book", behaviors: ["paged"] },
-                      { key: "scroll", behaviors: ["continuous"] },
-                      { key: "gallery" },
-                    ],
-                  },
-                  workspaceControlPanel: {
-                    enabled: false, // Configure if the control panel should be rendered.  Useful if you want to lock the viewer down to only the configured manifests
-                  },
-                  windows: [
-                    {
-                      loadedManifest: `${config["api"]["manifest"]}/${collectionId}/${documentId}`,
-                      canvasId: originalCanvasId,
-                      thumbnailNavigationPosition: "far-right",
+            {mediaType === "video" && (
+              <div>
+                <iframe
+                  width="600"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${
+                    manifest["items"][0]["items"][0]["items"][0]["body"][
+                      "id"
+                    ].split("=")[1]
+                  }`}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            )}
+
+            {mediaType === "document" && (
+              <div className="mirador ">
+                {/* Mirador */}
+                <Mirador
+                  className=""
+                  config={{
+                    id: "mirador",
+                    window: {
+                      allowWindowSideBar: true,
+                      allowTopMenuButton: true,
+                      allowMaximize: false,
+                      allowClose: false,
+                      allowFullscreen: true,
+                      defaultView: "single",
+                      views: [
+                        { key: "single", behaviors: ["individuals"] },
+                        { key: "book", behaviors: ["paged"] },
+                        { key: "scroll", behaviors: ["continuous"] },
+                        { key: "gallery" },
+                      ],
                     },
-                  ],
-                }}
-                plugins={[MiradorURLSyncPlugin]}
-              />
-            </div>
+                    workspaceControlPanel: {
+                      enabled: false, // Configure if the control panel should be rendered.  Useful if you want to lock the viewer down to only the configured manifests
+                    },
+                    windows: [
+                      {
+                        loadedManifest: `${config["api"]["manifest"]}/${collectionId}/${documentId}`,
+                        canvasId: originalCanvasId,
+                        thumbnailNavigationPosition: "far-right",
+                      },
+                    ],
+                  }}
+                  plugins={[MiradorURLSyncPlugin]}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -234,4 +258,4 @@ const DocumentViewer = () => {
   );
 };
 
-export default DocumentViewer;
+export default CollectionItemViewer;

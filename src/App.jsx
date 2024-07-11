@@ -13,7 +13,7 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import OurCollections from "./pages/OurCollections";
 import EachCollection from "./pages/EachCollection";
-import DocumentViewer from "./pages/DocumentViewer";
+import CollectionItemViewer from "./pages/CollectionItemViewer";
 import Tools from "./pages/Tools";
 import Blogs from "./pages/Blogs";
 import BlogArticle from "./pages/BlogArticle";
@@ -50,7 +50,7 @@ const App = () => {
                 />
                 <Route
                   path="/our-collections/:collectionId/:documentId"
-                  element={<DocumentViewer />}
+                  element={<CollectionItemViewer />}
                 />
                 <Route path="/tools" element={<Tools />} />
                 <Route path="/blogs" element={<Blogs />} />
