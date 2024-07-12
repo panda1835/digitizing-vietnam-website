@@ -20,6 +20,7 @@ import BlogArticle from "./pages/BlogArticle";
 import OnlineResources from "./pages/OnlineResources";
 import GachBongTop from "./components/GachBongTop";
 import GachBongBottom from "./components/GachBongBottom";
+import BackToTopButton from "./components/BackToTopButton";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,28 +37,27 @@ const App = () => {
       <div className="page">
         <BrowserRouter>
           <QueryClientProvider client={queryClient}>
-            <div className="page-content">
-              <Header />
-              <GachBongTop />
-              <div className="mb-10"></div>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about-us" element={<AboutUs />} />
-                <Route path="/our-collections" element={<OurCollections />} />
-                <Route
-                  path="/our-collections/:collectionId"
-                  element={<EachCollection />}
-                />
-                <Route
-                  path="/our-collections/:collectionId/:documentId"
-                  element={<CollectionItemViewer />}
-                />
-                <Route path="/tools" element={<Tools />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route path="/blogs/:id" element={<BlogArticle />} />
-                <Route path="/online-resources" element={<OnlineResources />} />
-              </Routes>
-            </div>
+            <Header />
+            <GachBongTop />
+            <div className="mb-10"></div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/our-collections" element={<OurCollections />} />
+              <Route
+                path="/our-collections/:collectionId"
+                element={<EachCollection />}
+              />
+              <Route
+                path="/our-collections/:collectionId/:documentId"
+                element={<CollectionItemViewer />}
+              />
+              <Route path="/tools" element={<Tools />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blogs/:id" element={<BlogArticle />} />
+              <Route path="/online-resources" element={<OnlineResources />} />
+            </Routes>
+            <BackToTopButton />
             <GachBongBottom />
             <Footer />
           </QueryClientProvider>

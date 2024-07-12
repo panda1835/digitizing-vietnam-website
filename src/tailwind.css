@@ -9,10 +9,6 @@
   min-height: 100vh;
 }
 
-.page-content {
-  flex: 1;
-}
-
 .max-width {
   max-width: 1000px;
   margin: auto;
