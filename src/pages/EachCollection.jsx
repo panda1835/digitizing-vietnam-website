@@ -49,7 +49,7 @@ const EachCollection = () => {
       <div className="flex-col mb-20 mx-5">
         {/* Banner */}
         <section
-          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg relative"
+          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg relative text-center"
           style={{
             backgroundImage: `url(${collectionData.image_url})`,
           }}
