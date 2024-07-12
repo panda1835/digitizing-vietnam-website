@@ -104,7 +104,7 @@ const EachCollection = () => {
         {/* Item gallery */}
         <div>
           <h1 id="our-volumes">{t("each-collection-our-volumes")}</h1>
-          <div className="grid grid-cols-3 gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {collectionData &&
               collectionData.documents &&
               collectionData.documents.map((item) => (
@@ -138,7 +138,7 @@ const EachCollection = () => {
           <h1 id="feature-articles">
             {t("each-collection-featured-articles")}
           </h1>
-          <div className="grid grid-cols-3 gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {featuredArticles &&
               featuredArticles &&
               featuredArticles.map((item) => (
