@@ -1,7 +1,8 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-
+import { useTranslation } from "react-i18next";
 import { ClipboardDocumentIcon } from "@heroicons/react/16/solid";
+import { ChevronRightIcon } from "@heroicons/react/16/solid";
 
 import Mirador from "../components/Mirador";
 import MiradorURLSyncPlugin from "../mirador-plugins/MiradorURLSyncPlugin";
@@ -9,11 +10,13 @@ import MiradorURLSyncPlugin from "../mirador-plugins/MiradorURLSyncPlugin";
 import config from "../config";
 
 const CollectionItemViewer = () => {
+  const { t, i18n } = useTranslation();
   const { collectionId, documentId } = useParams();
   const location = useLocation();
   const originalCanvasId = new URLSearchParams(location.search).get("canvasId");
 
   const [manifest, setManifest] = useState({});
+  const [collectionName, setCollectionName] = useState("");
   const [mediaType, setMediaType] = useState("document");
   const [currentCanvasId, setCurrentCanvasId] = useState("");
   const [currentPageOCR, setCurrentPageOCR] = useState("");
@@ -60,6 +63,17 @@ const CollectionItemViewer = () => {
     fetchData();
   }, [collectionId, documentId]);
 
+  // Fetch collection data
+  useEffect(() => {
+    fetch(
+      `${config["api"]["collections"]}/${collectionId}?lang=${i18n.language}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setCollectionName(data["data"]["title"]);
+      });
+  }, [collectionId, i18n.language]);
+
   // Fetch page OCR text
   useEffect(() => {
     const fetchData = async () => {
@@ -79,6 +93,19 @@ const CollectionItemViewer = () => {
   return (
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-5 ">
+        {/* Breadcrumbs */}
+        <div className="flex items-center">
+          <Link to="/our-collections">
+            <h3>{t("our-collections")}</h3>
+          </Link>
+          <h3 className="mx-3">></h3>
+          {/* <ChevronRightIcon className="w-10"></ChevronRightIcon> */}
+          <Link to={`/our-collections/${collectionId}`}>
+            <h3>{collectionName}</h3>
+          </Link>
+        </div>
+
+        {/* Title */}
         <h1>
           {manifest
             ? manifest["label"] && Object.keys(manifest["label"]).includes("en")
