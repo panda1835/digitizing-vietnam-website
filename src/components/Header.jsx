@@ -18,6 +18,7 @@ const Header = () => {
 
   const handleItemClick = (itemName) => {
     setActiveItem(itemName);
+    setOpenNav(!openNav);
   };
 
   return (
