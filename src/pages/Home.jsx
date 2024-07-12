@@ -67,15 +67,15 @@ const Home = () => {
         </section>
 
         <section className="flex flex-col md:flex-row">
-          <div className="flex flex-col justify-between items-center my-5 md:my-10">
-            <div className="md:w-96">
+          <div className="flex flex-col items-center my-5 md:my-10">
+            <div className="">
               <img
                 className="my-5"
                 src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+1.png"
                 alt="About Digitizing Vietnam"
               ></img>
             </div>
-            <div className="md:w-96 flex flex-col items-center md:items-start">
+            <div className=" flex flex-col items-center md:items-start">
               <Link to="/about-us" className="">
                 <h2>{t("home-about-digitizing-vietnam")}</h2>
               </Link>
@@ -89,14 +89,14 @@ const Home = () => {
           </div>
 
           <div className="flex flex-col items-center my-5 md:my-10 mx-10">
-            <div className="md:w-96">
+            <div className="">
               <img
                 className="my-5"
                 src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+2.jpg"
                 alt="Our Collections"
               ></img>
             </div>
-            <div className="md:w-96 flex flex-col items-center md:items-start order-2 md:order-1">
+            <div className=" flex flex-col items-center md:items-start">
               <Link to="/our-collections" className="">
                 <h2>{t("home-our-collections")}</h2>
               </Link>
@@ -108,14 +108,14 @@ const Home = () => {
           </div>
 
           <div className="flex flex-col items-center my-5 md:my-10">
-            <div className="md:w-96">
+            <div className="">
               <img
                 className="my-5"
                 src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+3.png"
                 alt="Our Blog"
               ></img>
             </div>
-            <div className="md:w-96 flex flex-col items-center md:items-start">
+            <div className=" flex flex-col items-center md:items-start">
               <Link to="/blogs" className="">
                 <h2>{t("home-our-blog")}</h2>
               </Link>
