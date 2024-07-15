@@ -11,7 +11,7 @@ const GachBongBottom = () => {
   return (
     // Apply Tailwind classes along with inline styles
     // w-full for full width, min-h-screen for minimum height of the screen, bg-repeat for repeating the background
-    <div className="w-full h-40 bg-repeat" style={style}></div>
+    <div className="w-full h-20 bg-repeat" style={style}></div>
   );
 };
 
