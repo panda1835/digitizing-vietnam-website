@@ -15,8 +15,15 @@ const EachCollection = () => {
   const [featuredArticles, setFeaturedArticles] = useState([]);
   const [loadingCollectionData, setLoadingCollectionData] = useState(true);
   const [loadingFeaturedArticles, setLoadingFeaturedArticles] = useState(true);
+  const [itemsToShow, setItemsToShow] = useState(6);
 
-  const handleLoadMoreClick = () => {};
+  const handleLoadMoreClick = () => {
+    if (itemsToShow <= 6) {
+      setItemsToShow(collectionData.documents.length); // Show all items
+    } else {
+      setItemsToShow(6); // Only show 6 items
+    }
+  };
 
   useEffect(() => {
     fetch(
@@ -107,31 +114,34 @@ const EachCollection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {collectionData &&
               collectionData.documents &&
-              collectionData.documents.map((item) => (
-                <BookItem
-                  title={item.title}
-                  description={""}
-                  imageUrl={item.image_url}
-                  link={`/our-collections/${collectionId}/${item.document_id}`}
-                  key={`/our-collections/${collectionId}/${item.document_id}`}
-                />
-              ))}
+              collectionData.documents
+                .slice(0, itemsToShow)
+                .map((item) => (
+                  <BookItem
+                    title={item.title}
+                    description={""}
+                    imageUrl={item.image_url}
+                    link={`/our-collections/${collectionId}/${item.document_id}`}
+                    key={`/our-collections/${collectionId}/${item.document_id}`}
+                  />
+                ))}
           </div>
 
           {collectionData.documents && collectionData.documents.length === 0 && (
-            <div className="flex mb-10">
+            <div className="flex mt-10">
               <p>{t("no-volume-found")}</p>
             </div>
           )}
 
-          {collectionData.documents && collectionData.documents.length > 0 && (
-            <div className="flex flex-row justify-center my-5">
+          {collectionData.documents && collectionData.documents.length > 6 && (
+            <div className="flex flex-row justify-center mt-10">
               <button className="" onClick={handleLoadMoreClick}>
-                {t("btn-load-more")}
+                {itemsToShow <= 6 ? t("btn-load-more") : t("btn-load-less")}
               </button>
             </div>
           )}
         </div>
+        <div className="mb-10"></div>
 
         {/* Featured articles */}
         <section>

@@ -1,7 +1,8 @@
 {
   "btn-learn-more": "Learn More",
   "btn-read-more": "Read More",
-  "btn-load-more": "Load More",
+  "btn-load-more": "Show More",
+  "btn-load-less": "Show Less",
   "btn-search": "Search",
 
   "home": "Home",

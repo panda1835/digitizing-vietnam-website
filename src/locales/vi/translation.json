@@ -1,7 +1,8 @@
 {
   "btn-learn-more": "Tìm hiểu thêm",
   "btn-read-more": "Đọc thêm",
-  "btn-load-more": "Tải thêm",
+  "btn-load-more": "Hiển thị thêm",
+  "btn-load-less": "Hiển thị bớt",
   "btn-search": "Tìm kiếm",
 
   "home": "Trang chủ",
