@@ -98,8 +98,8 @@ const AboutUs = () => {
             </p>
             <p className="px-5">
               {i18n.language === "en"
-                ? "Website Developer, Columbia University"
-                : "Người phát triển trang web, Đại học Columbia"}
+                ? "Digital Architect, Columbia University"
+                : "Kỹ sư giải pháp CNTT, Đại học Columbia"}
             </p>
           </div>
         </div>
