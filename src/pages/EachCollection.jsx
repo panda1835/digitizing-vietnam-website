@@ -128,7 +128,7 @@ const EachCollection = () => {
           </div>
 
           {collectionData.documents && collectionData.documents.length === 0 && (
-            <div className="flex mt-10">
+            <div className="flex">
               <p>{t("no-volume-found")}</p>
             </div>
           )}

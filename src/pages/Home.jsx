@@ -66,17 +66,16 @@ const Home = () => {
           </Slider>
         </section>
 
-        <section className="flex flex-col md:flex-row">
-          <div className="flex flex-col items-center my-5 md:my-10">
-            <div className="">
-              <img
-                className="my-5"
-                src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+1.png"
-                alt="About Digitizing Vietnam"
-              ></img>
-            </div>
+        {/* Content */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 my-5 md:my-10">
+          <div className="">
+            <img
+              className="object-cover rounded-lg w-full h-40"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+1.png"
+              alt="About Digitizing Vietnam"
+            ></img>
             <div className=" flex flex-col items-center md:items-start">
-              <Link to="/about-us" className="">
+              <Link to="/about-us" className="mt-5">
                 <h2>{t("home-about-digitizing-vietnam")}</h2>
               </Link>
               <p className="mb-5">
@@ -88,16 +87,14 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center my-5 md:my-10 mx-10">
-            <div className="">
-              <img
-                className="my-5"
-                src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+2.jpg"
-                alt="Our Collections"
-              ></img>
-            </div>
+          <div className="">
+            <img
+              className="object-cover rounded-lg w-full h-40"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+2.jpg"
+              alt="Our Collections"
+            ></img>
             <div className=" flex flex-col items-center md:items-start">
-              <Link to="/our-collections" className="">
+              <Link to="/our-collections" className="mt-5">
                 <h2>{t("home-our-collections")}</h2>
               </Link>
               <p className="mb-5">{t("home-our-collections-content")}</p>
@@ -107,16 +104,14 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center my-5 md:my-10">
-            <div className="">
-              <img
-                className="my-5"
-                src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+3.png"
-                alt="Our Blog"
-              ></img>
-            </div>
+          <div className="">
+            <img
+              className="object-cover rounded-lg w-full h-40"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+3.png"
+              alt="Our Blog"
+            ></img>
             <div className=" flex flex-col items-center md:items-start">
-              <Link to="/blogs" className="">
+              <Link to="/blogs" className="mt-5">
                 <h2>{t("home-our-blog")}</h2>
               </Link>
               <p className="mb-5">{t("home-our-blog-content")}</p>
