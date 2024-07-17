@@ -100,7 +100,7 @@ const Home = () => {
         </section>
 
         {/* Slideshow */}
-        <section className="w-full mb-20 bg-gradient-to-b from-white to-primary-yellow">
+        <section className="w-full mb-20 bg-gradient-to-b from-white to-primary-blue">
           <Slider {...settings}>
             {slides.map((slide, index) => (
               <div
@@ -111,12 +111,10 @@ const Home = () => {
                 <img
                   src={slide.img}
                   alt={slide.caption[i18n.language]}
-                  className="mx-auto object-contain"
+                  className="mx-auto object-cover h-72 w-full"
                   style={{ maxHeight: "100%", maxWidth: "100%" }}
                 />
-                <p className="text-white mt-5">
-                  {slide.caption[i18n.language]}
-                </p>
+                <p className="text-white">{slide.caption[i18n.language]}</p>
               </div>
             ))}
           </Slider>

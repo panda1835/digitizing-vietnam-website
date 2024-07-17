@@ -1,13 +1,3 @@
-// const Tools = () => {
-//   return (
-//     <div>
-//       <h1>Tools</h1>
-//     </div>
-//   );
-// };
-
-// export default Tools;
-
 import React from "react";
 
 function Tools() {
@@ -27,7 +17,7 @@ function Tools() {
             the fields of Vietnam studies.
           </p>
           <button className="font-bold py-2 px-4 rounded-full mt-4">
-            Try V-text
+            <a href="https://vtext-653242fba46d.herokuapp.com/">Try V-text</a>
           </button>
         </div>
         <div className="w-full md:w-1/2 flex justify-center">
