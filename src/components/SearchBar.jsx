@@ -11,13 +11,13 @@ const SearchBar = () => {
           type="text"
           name="search-query"
           placeholder={t("btn-search")}
-          className="rounded border pl-8 w-full md:w-80 h-10"
+          className="rounded border-2 border-black pl-8 w-full md:w-80 h-10 "
         />
       </div>
       <input
         type="submit"
         value={t("btn-search")}
-        className="border rounded-lg px-5 mx-2 bg-primary-blue text-white cursor-pointer"
+        className="border-2 border-black rounded-lg px-5 mx-2 bg-primary-blue text-white cursor-pointer"
       />
     </form>
   );
