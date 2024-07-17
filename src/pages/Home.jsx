@@ -85,6 +85,9 @@ const Home = () => {
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: "0px",
+    autoplay: true,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
   };
 
   return (
@@ -97,7 +100,7 @@ const Home = () => {
         </section>
 
         {/* Slideshow */}
-        <section className="w-full mb-20">
+        <section className="w-full mb-20 bg-gradient-to-b from-white to-primary-yellow">
           <Slider {...settings}>
             {slides.map((slide, index) => (
               <div
@@ -111,7 +114,9 @@ const Home = () => {
                   className="mx-auto object-contain"
                   style={{ maxHeight: "100%", maxWidth: "100%" }}
                 />
-                <p>{slide.caption[i18n.language]}</p>
+                <p className="text-white mt-5">
+                  {slide.caption[i18n.language]}
+                </p>
               </div>
             ))}
           </Slider>
