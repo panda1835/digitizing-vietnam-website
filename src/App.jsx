@@ -1,6 +1,10 @@
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import { I18nextProvider } from "react-i18next";
+import i18n from "./utils/i18n";
+
 import "./tailwind.css";
 
 import Header from "./components/Header";
@@ -9,10 +13,14 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import OurCollections from "./pages/OurCollections";
 import EachCollection from "./pages/EachCollection";
-import DocumentViewer from "./pages/DocumentViewer";
+import CollectionItemViewer from "./pages/CollectionItemViewer";
+import Tools from "./pages/Tools";
 import Blogs from "./pages/Blogs";
 import BlogArticle from "./pages/BlogArticle";
 import OnlineResources from "./pages/OnlineResources";
+import GachBongTop from "./components/GachBongTop";
+import GachBongBottom from "./components/GachBongBottom";
+import BackToTopButton from "./components/BackToTopButton";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,11 +33,13 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <div className="page">
-      <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-          <div className="page-content">
+    <I18nextProvider i18n={i18n}>
+      <div className="page">
+        <BrowserRouter>
+          <QueryClientProvider client={queryClient}>
             <Header />
+            <GachBongTop />
+            <div className="mb-10"></div>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />
@@ -40,17 +50,20 @@ const App = () => {
               />
               <Route
                 path="/our-collections/:collectionId/:documentId"
-                element={<DocumentViewer />}
+                element={<CollectionItemViewer />}
               />
+              <Route path="/tools" element={<Tools />} />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/blogs/:id" element={<BlogArticle />} />
               <Route path="/online-resources" element={<OnlineResources />} />
             </Routes>
-          </div>
-          <Footer />
-        </QueryClientProvider>
-      </BrowserRouter>
-    </div>
+            <BackToTopButton />
+            <GachBongBottom />
+            <Footer />
+          </QueryClientProvider>
+        </BrowserRouter>
+      </div>
+    </I18nextProvider>
   );
 };
 

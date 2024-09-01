@@ -1,32 +1,34 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Modal from "react-modal";
+import { useTranslation } from "react-i18next";
 
 import BookItem from "../components/BookItem";
 import Item from "../components/Item";
-import SearchBar from "../components/SearchBar";
 
 import config from "../config";
+import { t } from "i18next";
 const EachCollection = () => {
+  const { i18n } = useTranslation();
+
   const { collectionId } = useParams();
   const [collectionData, setCollectionData] = useState({});
   const [featuredArticles, setFeaturedArticles] = useState([]);
   const [loadingCollectionData, setLoadingCollectionData] = useState(true);
   const [loadingFeaturedArticles, setLoadingFeaturedArticles] = useState(true);
-  const [modalIsOpen, setModalIsOpen] = React.useState(false);
+  const [itemsToShow, setItemsToShow] = useState(6);
 
-  const handleLoadMoreClick = () => {};
-
-  function openLearnMoreModal() {
-    setModalIsOpen(true);
-  }
-
-  function closeLearnMoreModal() {
-    setModalIsOpen(false);
-  }
+  const handleLoadMoreClick = () => {
+    if (itemsToShow <= 6) {
+      setItemsToShow(collectionData.documents.length); // Show all items
+    } else {
+      setItemsToShow(6); // Only show 6 items
+    }
+  };
 
   useEffect(() => {
-    fetch(`${config["api"]["collections"]}/${collectionId}`)
+    fetch(
+      `${config["api"]["collections"]}/${collectionId}?lang=${i18n.language}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setCollectionData(data["data"]);
@@ -35,7 +37,7 @@ const EachCollection = () => {
       .catch(() => {
         setLoadingCollectionData(false);
       });
-  }, [collectionId]);
+  }, [collectionId, i18n.language]);
 
   useEffect(() => {
     fetch(`${config["api"]["blogs"]}?related-collection=${collectionId}`)
@@ -54,56 +56,49 @@ const EachCollection = () => {
       <div className="flex-col mb-20 mx-5">
         {/* Banner */}
         <section
-          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg"
+          className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg relative text-center"
           style={{
             backgroundImage: `url(${collectionData.image_url})`,
           }}
         >
-          <h1>{collectionData.title}</h1>
-          <p className="text-primary-blue mx-10">
-            {collectionData.description}
-          </p>
-          {/* Learn more button */}
-          <div className="flex flex-row justify-center my-5">
-            <button className="" onClick={openLearnMoreModal}>
-              Learn More
-            </button>
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <h1 className="text-white relative z-10">{collectionData.title}</h1>
+
+          {/* Navigation buttons */}
+          <div className="flex relative z-10">
+            <div className="m-5">
+              <button
+                className=""
+                onClick={() => {
+                  document
+                    .getElementById("our-volumes")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                {t("each-collection-our-volumes")}
+              </button>
+            </div>
+
+            <div className="m-5">
+              <button
+                className=""
+                onClick={() => {
+                  document
+                    .getElementById("feature-articles")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                {t("each-collection-featured-articles")}
+              </button>
+            </div>
           </div>
-          {/* Information overlay */}
         </section>
 
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeLearnMoreModal}
-          contentLabel="Example Modal"
-        >
-          <button
-            onClick={closeLearnMoreModal}
-            className="absolute top-0 right-0 m-2 bg-white text-primary-blue"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-          <p className="px-10 pt-5 items-start justify-start">
-            {collectionData["information"]}
-          </p>
-        </Modal>
-
-        {/* Search bar */}
-        <SearchBar />
+        {/* Collection information */}
+        <div className="my-10">{collectionData.description}</div>
 
         {/* Loading indicator */}
-        <div className="flex items-center justify-center mt-20">
+        <div className="flex items-center justify-center mt-10">
           <div
             className={`loader ${
               loadingCollectionData || loadingFeaturedArticles
@@ -115,40 +110,45 @@ const EachCollection = () => {
 
         {/* Item gallery */}
         <div>
-          <h1>Our Volumes</h1>
-          <div className="grid grid-cols-3 gap-8 mt-10">
+          <h1 id="our-volumes">{t("each-collection-our-volumes")}</h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {collectionData &&
               collectionData.documents &&
-              collectionData.documents.map((item) => (
-                <BookItem
-                  title={item.title}
-                  description={""}
-                  imageUrl={item.image_url}
-                  link={`/our-collections/${collectionId}/${item.document_id}`}
-                  key={`/our-collections/${collectionId}/${item.document_id}`}
-                />
-              ))}
+              collectionData.documents
+                .slice(0, itemsToShow)
+                .map((item) => (
+                  <BookItem
+                    title={item.title}
+                    description={""}
+                    imageUrl={item.image_url}
+                    link={`/our-collections/${collectionId}/${item.document_id}`}
+                    key={`/our-collections/${collectionId}/${item.document_id}`}
+                  />
+                ))}
           </div>
 
           {collectionData.documents && collectionData.documents.length === 0 && (
-            <div className="flex mb-10">
-              <p>No volumes found.</p>
+            <div className="flex">
+              <p>{t("no-volume-found")}</p>
             </div>
           )}
 
-          {collectionData.documents && collectionData.documents.length > 0 && (
-            <div className="flex flex-row justify-center my-5">
+          {collectionData.documents && collectionData.documents.length > 6 && (
+            <div className="flex flex-row justify-center mt-10">
               <button className="" onClick={handleLoadMoreClick}>
-                Load More
+                {itemsToShow <= 6 ? t("btn-load-more") : t("btn-load-less")}
               </button>
             </div>
           )}
         </div>
+        <div className="mb-10"></div>
 
         {/* Featured articles */}
         <section>
-          <h1>Featured Articles</h1>
-          <div className="grid grid-cols-3 gap-8 mt-10">
+          <h1 id="feature-articles">
+            {t("each-collection-featured-articles")}
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {featuredArticles &&
               featuredArticles &&
               featuredArticles.map((item) => (

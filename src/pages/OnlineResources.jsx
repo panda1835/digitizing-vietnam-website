@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Modal from "react-modal";
 import config from "../config";
@@ -8,8 +9,10 @@ const OnlineResources = () => {
   const [loading, setLoading] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState({});
 
+  const { t, i18n } = useTranslation();
+
   useEffect(() => {
-    fetch(config["api"]["onlineResources"])
+    fetch(`${config["api"]["onlineResources"]}?lang=${i18n.language}`)
       .then((response) => response.json())
       .then((data) => {
         setOnlineResources(data["data"]);
@@ -18,7 +21,7 @@ const OnlineResources = () => {
       .catch(() => {
         setLoading(false);
       });
-  }, []);
+  }, [i18n.language]);
 
   // Open modal for a specific category
   const openModal = (categoryName) => {
@@ -35,10 +38,9 @@ const OnlineResources = () => {
       <div className="flex-col mb-20 mx-5">
         {/* Header */}
         <section className="flex flex-col items-center justify-center">
-          <h1 className="">Online Resources</h1>
+          <h1 className="">{t("online-resources-title")}</h1>
           <p className="text-gray-500 mb-5 text-center">
-            Are you looking for a launchpad for your research on Vietnam? Check
-            out some resources below and find the best fit.
+            {t("online-resources-subtitle")}
           </p>
         </section>
 
@@ -50,7 +52,7 @@ const OnlineResources = () => {
         )}
 
         {/* Online resources gallery */}
-        <div className="grid grid-cols-3 gap-8 mt-10">
+        <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {onlineResources.map((category) => (
             <div
               className="flex flex-col items-left justify-items-start"
@@ -95,9 +97,9 @@ const OnlineResources = () => {
                     />
                   </svg>
                 </button>
-                <h2>{category.category_name}</h2>
+                <h2 className="mr-6">{category.category_name}</h2>
                 {category.resources.length === 0 && (
-                  <p>There are no resources available for this category.</p>
+                  <p>{t("online-resources-no-resource-message")}</p>
                 )}
                 {category.resources.map((resource) => (
                   <div key={resource.title} className="">

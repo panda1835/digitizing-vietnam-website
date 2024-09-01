@@ -9,12 +9,8 @@
   min-height: 100vh;
 }
 
-.page-content {
-  flex: 1;
-}
-
 .max-width {
-  max-width: 1500px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -24,6 +20,10 @@ h1 {
 
 h2 {
   @apply text-2xl font-bold mb-4 text-primary-blue;
+}
+
+h3 {
+  @apply text-xl font-bold mb-4 text-primary-blue;
 }
 
 hr {
