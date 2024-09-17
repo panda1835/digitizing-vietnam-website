@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link } from "../i18n/routing.ts";
 
 const BookItem = (props) => {
   return (
-    <Link to={props.link}>
+    <Link href={props.link}>
       <div className="border-solid border-2 flex flex-col items-center justify-center rounded-lg py-2 w-64">
         <img
           src={props.imageUrl}

@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.max-width {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  @apply text-4xl font-bold mb-5 text-primary-blue;
+}
+
+h2 {
+  @apply text-2xl font-bold mb-4 text-primary-blue;
+}
+
+h3 {
+  @apply text-xl font-bold mb-4 text-primary-blue;
+}
+
+hr {
+  @apply border-black my-5;
+}
+
+button,
+.button {
+  @apply bg-primary-blue rounded-lg py-2 px-4 text-white;
+}
+
+.mirador {
+  height: 700px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+"use client";
+import { Link } from "../i18n/routing";
+import { useTranslations } from "next-intl";
 
 const trimDescription = (content, max_word) => {
   const words = content.split(" ");
@@ -10,11 +11,11 @@ const trimDescription = (content, max_word) => {
 };
 
 const Item = (props) => {
-  const { t } = useTranslation();
-  const screen_width = window.innerWidth;
+  const t = useTranslations("Button");
+
   return (
     <div className="mb-5">
-      <Link to={props.link}>
+      <Link href={props.link}>
         <img
           src={props.imageUrl}
           alt={props.title}
@@ -25,12 +26,19 @@ const Item = (props) => {
       </Link>
 
       <p className="text-gray-500">
-        {screen_width < 640
-          ? props.description
-          : trimDescription(props.description, props.max_trim_word)}{" "}
-        <Link to={props.link} className="text-primary-blue cursor-pointer">
+        <span className="hidden sm:inline">
           {" "}
-          {t("btn-read-more")}
+          {/* Hide on small screens */}
+          {trimDescription(props.description, props.max_trim_word)}
+        </span>
+        <span className="sm:hidden">
+          {" "}
+          {/* Show only on small screens */}
+          {props.description}
+        </span>{" "}
+        <Link href={props.link} className="text-primary-blue cursor-pointer">
+          {" "}
+          {t("read-more")}
         </Link>
       </p>
     </div>

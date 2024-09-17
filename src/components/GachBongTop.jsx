@@ -1,11 +1,10 @@
-import React from "react";
-import gach_bong from "../assets/gach-bong.png";
+"use client";
 import SearchBar from "./SearchBar";
 
 const GachBongTop = () => {
   // Inline style for background image
   const style = {
-    backgroundImage: `url(${gach_bong})`,
+    backgroundImage: `url(/images/gach-bong.png)`,
     backgroundSize: "auto 80px", // Assuming you want the "height" of the repeating image to be 80px
   };
 

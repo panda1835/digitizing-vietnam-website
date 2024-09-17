@@ -1,13 +1,15 @@
+"use client";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
-import logo from "../assets/logo.png";
+// eslint-disable-next-line import/no-unresolved
+import { Link } from "@/i18n/routing";
 
-import LanguageSelector from "./LanguageSelector";
+// eslint-disable-next-line import/no-unresolved
+import LocaleSwitcher from "@/components/LocaleSwitcher.tsx";
 
 const Header = () => {
-  const { t } = useTranslation();
+  const t = useTranslations("Header");
   const [openNav, setOpenNav] = useState(false); // State for mobile navigation
 
   const toggleNav = () => {
@@ -26,8 +28,8 @@ const Header = () => {
       {/* Navigation bar */}
       <nav className="flex py-3 max-w-screen-lg mx-auto items-center justify-between">
         <div className="ml-5 w-60">
-          <Link to="/">
-            <img src={logo} alt="Logo" />
+          <Link href="/">
+            <img src="/images/logo.png" alt="Logo" />
           </Link>
         </div>
         <div className="w-28"></div> {/* Empty box */}
@@ -50,11 +52,11 @@ const Header = () => {
                 } hover:border-primary-yellow transition duration-300`}
                 onClick={() => handleItemClick(item)}
               >
-                <Link to={`/${item === "home" ? "" : item}`}>{t(item)}</Link>
+                <Link href={`/${item === "home" ? "" : item}`}>{t(item)}</Link>
               </li>
             ))}
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded">
-              <LanguageSelector />
+              <LocaleSwitcher />
             </li>
           </ul>
         </div>
@@ -116,11 +118,11 @@ const Header = () => {
                 }`}
                 onClick={() => handleItemClick(item)}
               >
-                <Link to={`/${item === "home" ? "" : item}`}>{t(item)}</Link>
+                <Link href={`/${item === "home" ? "" : item}`}>{t(item)}</Link>
               </li>
             ))}
             <li className="text-white bg-primary-blue pl-2 pr-2 p-1 rounded mb-5">
-              <LanguageSelector />
+              <LocaleSwitcher />
             </li>
           </ul>
         </div>
