@@ -28,11 +28,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body>
+      <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <Header />
           <GachBongTop />
-          <div className="mt-10">{children}</div>
+          <div className="flex-grow mt-10">{children}</div>
           <BackToTopButton />
           <GachBongBottom />
           <Footer />
