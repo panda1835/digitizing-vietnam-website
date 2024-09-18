@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 
+// eslint-disable-next-line import/no-unresolved
 import { Link } from "../i18n/routing";
 
 // eslint-disable-next-line import/no-unresolved
