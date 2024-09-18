@@ -50,5 +50,11 @@
     "title": "Tài nguyên Trực tuyến",
     "subtitle": "Bạn đang tìm kiếm một nền tảng để nghiên cứu về Việt Nam? Hãy khám phá một số tài nguyên dưới đây và tìm sự phù hợp nhất.",
     "no-resource-message": "Hiện không có tài nguyên nào cho danh mục này."
+  },
+
+  "SearchResult": {
+    "title": "Kết quả tìm kiếm",
+    "search-result-for": "Kết quả tìm kiếm cho",
+    "no-search-result": "Không tìm thấy kết quả nào."
   }
 }

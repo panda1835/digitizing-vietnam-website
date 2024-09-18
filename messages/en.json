@@ -50,5 +50,11 @@
     "title": "Online Resources",
     "subtitle": "Are you looking for a launchpad for your research on Vietnam? Check out some resources below and find the best fit.",
     "no-resource-message": "There are no resources available for this category."
+  },
+
+  "SearchResult": {
+    "title": "Search Results",
+    "search-result-for": "Search results for",
+    "no-search-result": "No search results found."
   }
 }
