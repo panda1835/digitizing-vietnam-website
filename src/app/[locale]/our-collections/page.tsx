@@ -8,7 +8,6 @@ const OurCollections = async () => {
   const locale = await getLocale();
 
   const t = await getTranslations("Collection");
-
   const collections = await fetchCollections(locale);
 
   return (
