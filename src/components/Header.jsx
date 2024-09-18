@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 
 // eslint-disable-next-line import/no-unresolved
-import LocaleSwitcher from "@/components/LocaleSwitcher.tsx";
+import LocaleSwitcher from "./LocaleSwitcher.tsx";
 
 const Header = () => {
   const t = useTranslations("Header");
