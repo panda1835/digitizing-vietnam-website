@@ -4,8 +4,6 @@ import { useTranslations } from "next-intl";
 import ItemSkeleton from "./ItemSkeleton";
 
 const OurCollectionsSkeleton = () => {
-  const placeholderItems = ["x", "x", "x"];
-
   const t = useTranslations("Collection");
 
   return (
@@ -19,7 +17,7 @@ const OurCollectionsSkeleton = () => {
 
         {/* Collection gallery */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-5">
-          {placeholderItems.map((item) => (
+          {[1, 2, 3].map((item) => (
             <ItemSkeleton key={item.key} />
           ))}
         </div>
