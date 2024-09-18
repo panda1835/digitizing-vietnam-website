@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const AboutUs = ({ params: { locale } }) => {
   const t = useTranslations("AboutUs");
@@ -37,7 +38,8 @@ const AboutUs = ({ params: { locale } }) => {
 
         <div className="flex flex-wrap justify-start items-start md:flex-row flex-col">
           <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
-            <img
+            <Image
+              unoptimized
               className="w-48 h-48 rounded-full mb-4 object-cover"
               src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Tram+Thi+Phuong+Nguyen.jpg"
               alt="Tram Phuong Nguyen"
@@ -56,7 +58,8 @@ const AboutUs = ({ params: { locale } }) => {
           </div>
 
           <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
-            <img
+            <Image
+              unoptimized
               className="w-48 h-48 rounded-full mb-4 object-cover"
               src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Van+Le.jpg"
               alt="Van Le"
@@ -76,7 +79,8 @@ const AboutUs = ({ params: { locale } }) => {
             </p>
           </div>
           <div className="w-full md:w-1/3 flex flex-col items-center mb-5">
-            <img
+            <Image
+              unoptimized
               className="w-48 h-48 rounded-full mb-4 object-cover"
               src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Phuc+Le.jpg"
               alt="Phuc Le"
@@ -100,7 +104,8 @@ const AboutUs = ({ params: { locale } }) => {
         <h2>{locale === "en" ? "Advisors" : "Cố vấn"}</h2>
         <div className="flex flex-wrap justify-start items-start md:flex-row flex-col">
           <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
-            <img
+            <Image
+              unoptimized
               className="w-48 h-48 rounded-full mb-4 object-cover"
               src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Vu+Minh+Hoang.jpg"
               alt="Hoang Minh Vu"
@@ -119,7 +124,8 @@ const AboutUs = ({ params: { locale } }) => {
           </div>
 
           <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
-            <img
+            <Image
+              unoptimized
               className="w-48 h-48 rounded-full mb-4 object-cover"
               src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/John+Phan.png"
               alt="John Phan"
@@ -139,7 +145,8 @@ const AboutUs = ({ params: { locale } }) => {
             </p>
           </div>
           <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
-            <img
+            <Image
+              unoptimized
               className="w-48 h-48 rounded-full mb-4 object-cover"
               src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Lien+Hang+T.+Nguyen.png"
               alt="Lien-Hang Nguyen"
@@ -158,7 +165,8 @@ const AboutUs = ({ params: { locale } }) => {
           </div>
 
           <div className="w-full md:w-1/4 flex flex-col items-center mb-5">
-            <img
+            <Image
+              unoptimized
               className="w-48 h-48 rounded-full mb-4 object-cover"
               src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Nguyen+Nam.jpg"
               alt="Nam Nguyen"

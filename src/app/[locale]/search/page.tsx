@@ -24,7 +24,7 @@ const SearchResult = ({
 
         {/* Search result */}
         <p className="text-xl mb-5">
-          {t("search-result-for")} "{searchQuery}"
+          {t("search-result-for")} &quot;{searchQuery}&quot;
         </p>
 
         {/* Pagination */}
