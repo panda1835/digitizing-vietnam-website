@@ -99,7 +99,7 @@ const Header = () => {
       </nav>
       {/* Mobile Navigation */}
       {openNav && (
-        <div className="lg:hidden flex flex-col items-center">
+        <div className="md:hidden flex flex-col items-center">
           <ul className="mt-4 flex flex-col items-center gap-2">
             {[
               "home",
