@@ -12,7 +12,7 @@ const CollectionInfoPanel = ({ manifest, mediaType, currentPageOCR }) => {
         <button
           className={`${
             isDocumentMetadataVisible ? "font-bold" : "text-gray-500"
-          }  cursor-pointer`}
+          }  cursor-pointer bg-transparent text-black`}
           onClick={() => {
             setIsDocumentMetadataVisible(true);
             setIsOCRVisible(false);
@@ -31,7 +31,7 @@ const CollectionInfoPanel = ({ manifest, mediaType, currentPageOCR }) => {
           <button
             className={`${
               isOCRVisible ? "font-bold" : "text-gray-500"
-            } cursor-pointer`}
+            } cursor-pointer bg-transparent text-black`}
             onClick={() => {
               setIsDocumentMetadataVisible(false);
               setIsOCRVisible(true);

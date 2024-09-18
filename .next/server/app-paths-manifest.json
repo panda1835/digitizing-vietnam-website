@@ -1,7 +1,0 @@
-{
-  "/[locale]/about-us/page": "app/[locale]/about-us/page.js",
-  "/[locale]/our-collections/[collectionid]/page": "app/[locale]/our-collections/[collectionid]/page.js",
-  "/[locale]/our-collections/page": "app/[locale]/our-collections/page.js",
-  "/[locale]/online-resources/page": "app/[locale]/online-resources/page.js",
-  "/[locale]/our-collections/[collectionid]/[documentid]/page": "app/[locale]/our-collections/[collectionid]/[documentid]/page.js"
-}

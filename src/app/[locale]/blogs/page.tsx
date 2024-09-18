@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import Item from "../../../components/Item";
 
@@ -6,7 +6,7 @@ import config from "../../config";
 import { fetchData } from "../../../lib/fetch";
 
 const Blogs = async () => {
-  const t = useTranslations("Blog");
+  const t = await getTranslations("Blog");
 
   const newData = await fetchData(`${config["api"]["blogs"]}/news`);
   const news = newData["data"];
@@ -19,7 +19,6 @@ const Blogs = async () => {
   );
   const initiatives = initiativeData["data"];
 
-  // console.log(news);
   return (
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-5">
@@ -28,13 +27,6 @@ const Blogs = async () => {
           <h1>{t("title")}</h1>
           <p className="text-gray-500">{t("subtitle")}</p>
         </section>
-
-        {/* Loading indicator */}
-        {/* <div className="flex items-center justify-center mt-10">
-          <div
-            className={`loader ${loadingBlogs ? "visible" : "hidden"} `}
-          ></div>
-        </div> */}
 
         {/* News */}
         <section className="mb-10">
