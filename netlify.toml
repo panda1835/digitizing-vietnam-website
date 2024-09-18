@@ -2,3 +2,10 @@
   from = "/*"
   to = "/"
   status = 200
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
