@@ -10,7 +10,7 @@ export default function LocaleSwitcherSelect({ children, defaultValue }) {
   const pathname = usePathname();
 
   function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value;
+    const nextLocale = event.target.value as "en" | "vi";
 
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });
