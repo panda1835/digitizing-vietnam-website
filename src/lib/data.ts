@@ -1,4 +1,3 @@
-import exp from "constants";
 import config from "./config";
 
 export async function fetchData(url) {
@@ -22,12 +21,17 @@ export async function fetchEachCollection(collectionId, locale) {
   const collectionDataResponse = await fetchData(
     `${config["api"]["collections"]}/${collectionId}?lang=${locale}`
   );
-  const collectionData = collectionDataResponse["data"];
 
   const featuredArticlesResponse = await fetchData(
     `${config["api"]["blogs"]}?related-collection=${collectionId}`
   );
-  const featuredArticles = featuredArticlesResponse["data"];
+
+  const data = await Promise.all([
+    collectionDataResponse,
+    featuredArticlesResponse,
+  ]);
+  const collectionData = data[0]["data"];
+  const featuredArticles = data[1]["data"];
 
   return {
     collectionData,
@@ -45,23 +49,31 @@ export async function fetchCollectionItems(
   const manifestResponse = await fetchData(
     `${config["api"]["manifest"]}/${collectionId}/${documentId}`
   );
-  const manifest = manifestResponse;
-  let mediaType = "document";
-  if (manifestResponse["media"]) {
-    mediaType = manifestResponse["media"];
-  }
 
   // Fetch collection data
   const collectionResponse = await fetchData(
     `${config["api"]["collections"]}/${collectionId}?lang=${locale}`
   );
-  const collectionName = collectionResponse["data"]["title"];
 
   // Fetch page OCR text
   const ocrResponse = await fetchData(
     `${config["api"]["ocr"]}/${collectionId}/${documentId}?canvasId=${canvasId}`
   );
-  const currentPageOCR = ocrResponse["text"];
+
+  const data = await Promise.all([
+    manifestResponse,
+    collectionResponse,
+    ocrResponse,
+  ]);
+
+  const manifest = data[0];
+  const collectionName = data[1]["data"]["title"];
+  const currentPageOCR = data[2]["text"];
+
+  let mediaType = "document";
+  if (manifest["media"]) {
+    mediaType = manifest["media"];
+  }
 
   return {
     manifest,
@@ -73,15 +85,16 @@ export async function fetchCollectionItems(
 
 export async function fetchBlogs() {
   const newData = await fetchData(`${config["api"]["blogs"]}/news`);
-  const news = newData["data"];
-
   const highlightData = await fetchData(`${config["api"]["blogs"]}/highlights`);
-  const highlights = highlightData["data"];
-
   const initiativeData = await fetchData(
     `${config["api"]["blogs"]}/initiatives`
   );
-  const initiatives = initiativeData["data"];
+
+  const data = await Promise.all([newData, highlightData, initiativeData]);
+
+  const news = data[0]["data"];
+  const highlights = data[1]["data"];
+  const initiatives = data[2]["data"];
 
   return {
     news,
