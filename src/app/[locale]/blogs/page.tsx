@@ -2,22 +2,12 @@ import { getTranslations } from "next-intl/server";
 
 import Item from "../../../components/Item";
 
-import config from "../../config";
-import { fetchData } from "../../../lib/fetch";
+import { fetchBlogs } from "../../../lib/data";
 
 const Blogs = async () => {
   const t = await getTranslations("Blog");
 
-  const newData = await fetchData(`${config["api"]["blogs"]}/news`);
-  const news = newData["data"];
-
-  const highlightData = await fetchData(`${config["api"]["blogs"]}/highlights`);
-  const highlights = highlightData["data"];
-
-  const initiativeData = await fetchData(
-    `${config["api"]["blogs"]}/initiatives`
-  );
-  const initiatives = initiativeData["data"];
+  const { news, highlights, initiatives } = await fetchBlogs();
 
   return (
     <div className="flex flex-col max-width">

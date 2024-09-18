@@ -4,8 +4,7 @@ import CollectionItemGallery from "../../../../components/CollectionItemGallery"
 import Item from "../../../../components/Item";
 import ScrollButtons from "../../../../components/ScrollButtons";
 
-import config from "../../../config";
-import { fetchData } from "../../../../lib/fetch";
+import { fetchEachCollection } from "../../../../lib/data";
 const EachCollection = async ({
   params,
 }: {
@@ -17,15 +16,10 @@ const EachCollection = async ({
   const t = await getTranslations("Collection");
 
   // Fetch data
-  const collectionDataResponse = await fetchData(
-    `${config["api"]["collections"]}/${collectionId}?lang=${locale}`
+  const { collectionData, featuredArticles } = await fetchEachCollection(
+    collectionId,
+    locale
   );
-  const collectionData = collectionDataResponse["data"];
-
-  const featuredArticlesResponse = await fetchData(
-    `${config["api"]["blogs"]}?related-collection=${collectionId}`
-  );
-  const featuredArticles = featuredArticlesResponse["data"];
 
   return (
     <div className="flex flex-col items-center max-width">

@@ -7,7 +7,8 @@ import CollectionInforPanel from "../../../../../components/CollectionInforPanel
 import CollectionPermalink from "../../../../../components/CollectionPermalink";
 
 import config from "../../../../config";
-import { fetchData } from "../../../../../lib/fetch";
+import { fetchCollectionItems } from "../../../../../lib/data";
+
 const CollectionItemViewer = async ({
   params,
   searchParams,
@@ -28,27 +29,13 @@ const CollectionItemViewer = async ({
 
   const t = await getTranslations();
 
-  // Fetch manifest data
-  const manifestResponse = await fetchData(
-    `${config["api"]["manifest"]}/${collectionId}/${documentId}`
-  );
-  const manifest = manifestResponse;
-  let mediaType = "document";
-  if (manifestResponse["media"]) {
-    mediaType = manifestResponse["media"];
-  }
-
-  // Fetch collection data
-  const collectionResponse = await fetchData(
-    `${config["api"]["collections"]}/${collectionId}?lang=${locale}`
-  );
-  const collectionName = collectionResponse["data"]["title"];
-
-  // Fetch page OCR text
-  const ocrResponse = await fetchData(
-    `${config["api"]["ocr"]}/${collectionId}/${documentId}?canvasId=${originalCanvasId}`
-  );
-  const currentPageOCR = ocrResponse["text"];
+  const { manifest, mediaType, collectionName, currentPageOCR } =
+    await fetchCollectionItems(
+      collectionId,
+      documentId,
+      locale,
+      originalCanvasId
+    );
 
   return (
     <div className="flex flex-col max-width">

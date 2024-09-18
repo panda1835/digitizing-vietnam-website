@@ -1,19 +1,17 @@
 import juice from "juice";
 import DOMPurify from "isomorphic-dompurify";
 
-import config from "../../../config";
-import { fetchData } from "../../../../lib/fetch";
+import { fetchBlogArticle } from "../../../../lib/data";
 
 const BlogArticle = async ({ params }: { params: { slug: string } }) => {
-  const id = params.slug;
+  const blogId = params.slug;
 
   // Function to sanitize HTML content using DOMPurify to prevent Cross-Site Scripting (XSS) attacks
   const sanitizeHTML = (html) => {
     return { __html: DOMPurify.sanitize(html) };
   };
 
-  const data = await fetchData(`${config.api.blogs}?blog-id=${id}`);
-  const post = data["data"];
+  const post = await fetchBlogArticle(blogId);
 
   // Use juice to convert the CSS in <style> tags to inline styles
   const inlined = post ? juice(post.content) : "";

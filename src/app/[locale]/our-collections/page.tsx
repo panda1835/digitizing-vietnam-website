@@ -2,16 +2,14 @@ import { getTranslations, getLocale } from "next-intl/server";
 
 import Item from "../../../components/Item";
 
-import config from "../../config";
-import { fetchData } from "@/lib/fetch";
+import { fetchCollections } from "../../../lib/data";
 
 const OurCollections = async () => {
   const locale = await getLocale();
 
   const t = await getTranslations("Collection");
 
-  const data = await fetchData(`${config.api.collections}?lang=${locale}`);
-  const collections = data["data"];
+  const collections = await fetchCollections(locale);
 
   return (
     <div className="flex flex-col max-width">
