@@ -1,6 +1,5 @@
 "use client";
-// eslint-disable-next-line import/no-unresolved
-import { Link } from "@/i18n/routing";
+import { Link } from "../i18n/routing";
 import { useTranslations } from "next-intl";
 
 const trimDescription = (content, max_word) => {

@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { ChangeEvent, useTransition } from "react";
-import { usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "../i18n/routing";
 
 export default function LocaleSwitcherSelect({ children, defaultValue }) {
   const router = useRouter();
