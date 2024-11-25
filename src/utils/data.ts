@@ -1,4 +1,8 @@
-import config from "./config";
+import { fetchAPI } from "./fetch-api";
+
+import config from "../lib/config";
+
+const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
 export async function fetchData(url) {
   const res = await fetch(url);
@@ -10,17 +14,32 @@ export async function fetchData(url) {
   return data;
 }
 
-export async function fetchCollections(locale) {
-  const data = await fetchData(`${config.api.collections}?lang=${locale}`);
-  const collections = data["data"];
-
-  return collections;
+export async function fetchCollections(locale: string) {
+  const path = `/collections`;
+  const urlParamsObject = { populate: "*", locale: locale, sort: "Order:asc" };
+  const options = { headers: { Authorization: `Bearer ${token}` } };
+  const data = await fetchAPI(path, urlParamsObject, options);
+  return data["data"];
 }
 
 export async function fetchEachCollection(collectionId, locale) {
-  const collectionDataResponse = await fetchData(
-    `${config["api"]["collections"]}/${collectionId}?lang=${locale}`
-  );
+  // const collectionDataResponse = await fetchData(
+  //   `${config["api"]["collections"]}/${collectionId}?lang=${locale}`
+  // );
+
+  const path = `/collections`;
+  const urlParamsObject = {
+    populate: "*",
+    locale: locale,
+    sort: "Order:asc",
+    filters: {
+      Slug: {
+        $eq: collectionId,
+      },
+    },
+  };
+  const options = { headers: { Authorization: `Bearer ${token}` } };
+  const collectionDataResponse = await fetchAPI(path, urlParamsObject, options);
 
   const featuredArticlesResponse = await fetchData(
     `${config["api"]["blogs"]}?related-collection=${collectionId}`
@@ -30,7 +49,9 @@ export async function fetchEachCollection(collectionId, locale) {
     collectionDataResponse,
     featuredArticlesResponse,
   ]);
-  const collectionData = data[0]["data"];
+
+  console.log(data, data[0]["data"][0]["collection_items"]);
+  const collectionData = data[0]["data"][0];
   const featuredArticles = data[1]["data"];
 
   return {

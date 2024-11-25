@@ -21,16 +21,15 @@ const CollectionItemGallery = ({ collectionData, collectionId }) => {
       <h1 id="our-volumes">{t("Collection.our-volumes")}</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
         {collectionData &&
-          collectionData.documents &&
-          collectionData.documents
+          collectionData
             .slice(0, itemsToShow)
             .map((item) => (
               <BookItem
-                title={item.title}
+                title={item.Title}
                 description={""}
                 imageUrl={item.image_url}
-                link={`/our-collections/${collectionId}/${item.document_id}`}
-                key={`/our-collections/${collectionId}/${item.document_id}`}
+                link={`/our-collections/${collectionId}/${item.Slug}`}
+                key={`/our-collections/${collectionId}/${item.Slug}`}
               />
             ))}
       </div>

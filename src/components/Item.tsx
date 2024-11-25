@@ -1,5 +1,5 @@
-"use client";
 // eslint-disable-next-line import/no-unresolved
+import Image from "next/image";
 import { Link } from "../i18n/routing";
 import { useTranslations } from "next-intl";
 
@@ -17,9 +17,12 @@ const Item = (props) => {
   return (
     <div className="mb-5">
       <Link href={props.link}>
-        <img
-          src={props.imageUrl}
+        <Image
+          unoptimized
+          src={props.imageUrl.url}
           alt={props.title}
+          width={props.imageUrl.width}
+          height={props.imageUrl.height}
           className="object-cover rounded-lg w-full h-40"
         />
 

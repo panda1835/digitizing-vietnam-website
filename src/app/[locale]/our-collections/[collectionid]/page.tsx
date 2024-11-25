@@ -4,7 +4,7 @@ import CollectionItemGallery from "../../../../components/CollectionItemGallery"
 import Item from "../../../../components/Item";
 import ScrollButtons from "../../../../components/ScrollButtons";
 
-import { fetchEachCollection } from "../../../../lib/data";
+import { fetchEachCollection } from "../../../../utils/data";
 const EachCollection = async ({
   params,
 }: {
@@ -28,11 +28,11 @@ const EachCollection = async ({
         <section
           className="bg-no-repeat bg-cover bg-center w-full h-80 flex flex-col items-center justify-center rounded-lg relative text-center"
           style={{
-            backgroundImage: `url(${collectionData.image_url})`,
+            backgroundImage: `url(${collectionData.Banner.url})`,
           }}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <h1 className="text-white relative z-10">{collectionData.title}</h1>
+          <h1 className="text-white relative z-10">{collectionData.Title}</h1>
 
           {/* Navigation buttons */}
           <div>
@@ -42,11 +42,11 @@ const EachCollection = async ({
         </section>
 
         {/* Collection information */}
-        <div className="my-10">{collectionData.description}</div>
+        <div className="my-10">{collectionData.Description}</div>
 
         {/* Item gallery */}
         <CollectionItemGallery
-          collectionData={collectionData}
+          collectionData={collectionData["collection_items"]}
           collectionId={collectionId}
         />
         <div className="mb-10"></div>

@@ -2,7 +2,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 
 import Item from "../../../components/Item";
 
-import { fetchCollections } from "../../../lib/data";
+import { fetchCollections } from "../../../utils/data";
 
 const OurCollections = async () => {
   const locale = await getLocale();
@@ -23,12 +23,12 @@ const OurCollections = async () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {collections.map((collection) => (
             <Item
-              title={collection.title}
-              description={collection.description}
+              title={collection.Title}
+              description={collection.Description}
               max_trim_word={50}
-              imageUrl={collection.image_url}
-              link={`/our-collections/${collection.collection_id}`}
-              key={`/our-collections/${collection.collection_id}`}
+              imageUrl={collection.Banner.formats.small}
+              link={`/our-collections/${collection.Slug}`}
+              key={`/our-collections/${collection.Slug}`}
             />
           ))}
         </div>

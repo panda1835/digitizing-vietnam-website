@@ -1,7 +1,7 @@
 import juice from "juice";
 import DOMPurify from "isomorphic-dompurify";
 
-import { fetchBlogArticle } from "../../../../lib/data";
+import { fetchBlogArticle } from "../../../../utils/data";
 
 const BlogArticle = async ({ params }: { params: { slug: string } }) => {
   const blogId = params.slug;

@@ -7,7 +7,7 @@ import CollectionInforPanel from "../../../../../components/CollectionInforPanel
 import CollectionPermalink from "../../../../../components/CollectionPermalink";
 
 import config from "../../../../config";
-import { fetchCollectionItems } from "../../../../../lib/data";
+import { fetchCollectionItems } from "../../../../../utils/data";
 
 const CollectionItemViewer = async ({
   params,
