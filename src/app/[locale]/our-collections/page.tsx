@@ -1,8 +1,8 @@
 import { getTranslations, getLocale } from "next-intl/server";
 
-import Item from "../../../components/Item";
+import Item from "@/components/Item";
 
-import { fetchCollections } from "../../../utils/data";
+import { fetchCollections } from "@/utils/data";
 
 const OurCollections = async () => {
   const locale = await getLocale();

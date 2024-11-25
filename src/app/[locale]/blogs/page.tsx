@@ -1,8 +1,8 @@
 import { getTranslations } from "next-intl/server";
 
-import Item from "../../../components/Item";
+import Item from "@/components/Item";
 
-import { fetchBlogs } from "../../../utils/data";
+import { fetchBlogs } from "@/utils/data";
 
 const Blogs = async () => {
   const t = await getTranslations("Blog");

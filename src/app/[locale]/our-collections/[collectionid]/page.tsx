@@ -1,10 +1,10 @@
 import { getTranslations } from "next-intl/server";
 
-import CollectionItemGallery from "../../../../components/CollectionItemGallery";
-import Item from "../../../../components/Item";
-import ScrollButtons from "../../../../components/ScrollButtons";
+import CollectionItemGallery from "@/components/CollectionItemGallery";
+import Item from "@/components/Item";
+import ScrollButtons from "@/components/ScrollButtons";
 
-import { fetchEachCollection } from "../../../../utils/data";
+import { fetchEachCollection } from "@/utils/data";
 const EachCollection = async ({
   params,
 }: {

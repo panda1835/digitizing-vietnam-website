@@ -1,5 +1,5 @@
 "use client";
-import BookItem from "./BookItem";
+import BookItem from "@/components/BookItem";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 

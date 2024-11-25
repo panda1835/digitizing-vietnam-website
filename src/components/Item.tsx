@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import Image from "next/image";
-import { Link } from "../i18n/routing";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
 const trimDescription = (content, max_word) => {

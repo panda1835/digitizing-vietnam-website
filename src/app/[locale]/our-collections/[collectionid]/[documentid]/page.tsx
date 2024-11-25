@@ -1,13 +1,13 @@
 // "use client";
-import { Link } from "../../../../../i18n/routing";
+import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
-import MiradorViewer from "../../../../../components/MiradorViewer";
-import CollectionInforPanel from "../../../../../components/CollectionInforPanel";
-import CollectionPermalink from "../../../../../components/CollectionPermalink";
+import MiradorViewer from "@/components/MiradorViewer";
+import CollectionInforPanel from "@/components/CollectionInforPanel";
+import CollectionPermalink from "@/components/CollectionPermalink";
 
 import config from "../../../../config";
-import { fetchCollectionItems } from "../../../../../utils/data";
+import { fetchCollectionItems } from "@/utils/data";
 
 const CollectionItemViewer = async ({
   params,

@@ -1,5 +1,5 @@
 "use client";
-import SearchBar from "./SearchBar";
+import SearchBar from "@/components/SearchBar";
 
 const GachBongTop = () => {
   // Inline style for background image

@@ -3,7 +3,7 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
 // eslint-disable-next-line import/no-unresolved
-import { useRouter } from "../i18n/routing";
+import { useRouter } from "@/i18n/routing";
 import { useState } from "react";
 
 const SearchBar = () => {
