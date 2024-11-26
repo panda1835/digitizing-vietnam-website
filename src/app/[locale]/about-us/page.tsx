@@ -5,13 +5,21 @@ import { useEffect, useState } from "react";
 
 import { renderHtml } from "@/utils/renderHtml";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import LoadingIndicator from "@/components/LoadingIndicator";
 
 const AboutUs = ({ params: { locale } }) => {
   const [aboutUsData, setAboutUsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const t = useTranslations("AboutUs");
+  const t = useTranslations();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,13 +45,25 @@ const AboutUs = ({ params: { locale } }) => {
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 mx-5">
-        <h1 className="flex justify-center">{t("title")}</h1>
         {loading ? (
           <div className="mt-20">
             <LoadingIndicator />
           </div>
         ) : (
           <>
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{t("AboutUs.title")}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+            <h1 className="flex justify-center mt-8">{t("AboutUs.title")}</h1>
             <h2 className="mt-5">
               {locale === "en" ? "Our Mission" : "Sứ mệnh"}
             </h2>
