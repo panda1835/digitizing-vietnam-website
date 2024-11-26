@@ -20,7 +20,6 @@ export async function GET(request) {
   const params = new URLSearchParams(searchParams);
   const queryString = params.toString();
   const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/online-resource-types?${queryString}`;
-  console.log(url);
 
   const data = await fetcher(url);
   const allCategories = data.data;

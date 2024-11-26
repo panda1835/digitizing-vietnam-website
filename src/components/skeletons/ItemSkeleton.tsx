@@ -3,7 +3,7 @@
 const ItemSkeleton = () => {
   return (
     <div className="mb-5 animate-pulse">
-      <div className="bg-gray-300 rounded-lg w-full h-40"></div>{" "}
+      <div className="bg-gray-300 rounded w-full h-40"></div>{" "}
       {/* Image Skeleton */}
       <div className="mt-2 bg-gray-300 h-6 rounded w-3/4"></div>{" "}
       {/* Title Skeleton */}

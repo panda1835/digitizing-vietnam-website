@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 
+import { Button } from "@/components/ui/button";
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -31,13 +32,13 @@ const BackToTopButton = () => {
   return (
     <>
       {isVisible && (
-        <button
+        <Button
           onClick={scrollToTop}
-          className="fixed bottom-5 right-5 z-50 p-3 w-12 bg-primary-blue text-white rounded-lg hover:bg-primary-yellow transition duration-300 ease-in-out"
+          className="fixed bottom-5 right-5 z-50 p-3 py-6 w-12 bg-primary-blue text-white rounded hover:bg-primary-yellow transition duration-300 ease-in-out"
           aria-label="Go to top"
         >
           ↑
-        </button>
+        </Button>
       )}
     </>
   );
