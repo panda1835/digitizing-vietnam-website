@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   Breadcrumb,
@@ -20,7 +21,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import Link from "next/link";
+import LoadingIndicator from "@/components/LoadingIndicator";
 
 const OnlineResources = ({ params: { locale } }) => {
   const [onlineResources, setOnlineResources] = useState<any[]>([]);
@@ -88,69 +89,68 @@ const OnlineResources = ({ params: { locale } }) => {
         </section>
 
         {/* Loading indicator */}
-        {loading && (
-          <div className="flex items-center justify-center mt-20">
-            <div className={`loader ${loading ? "visible" : "hidden"} `}></div>
+        {loading ? (
+          <div className="mt-20">
+            <LoadingIndicator />
+          </div>
+        ) : (
+          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            {onlineResources.map((category) => (
+              <div
+                className="flex flex-col items-left justify-items-start"
+                key={category.category_name}
+              >
+                <Image
+                  unoptimized
+                  src={category.image_url}
+                  alt={`Icon for ${category.category_name}`}
+                  width={80}
+                  height={80}
+                />
+
+                <Dialog>
+                  <DialogTrigger>
+                    <h2 className="text-left cursor-pointer">
+                      {category.category_name}
+                    </h2>
+                  </DialogTrigger>
+                  <DialogContent className="bg-white ">
+                    <DialogHeader>
+                      <DialogTitle>
+                        <h2 className="mr-6">{category.category_name}</h2>
+                      </DialogTitle>
+                      <DialogDescription className="text-left">
+                        <ScrollArea className="h-[500px] w-full p-4">
+                          {category.resources.length === 0 && (
+                            <p>{t("OnlineResource.no-resource-message")}</p>
+                          )}
+                          {category.resources.map((resource) => (
+                            <div key={resource.title} className="">
+                              <Link
+                                href={resource.url}
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline text-blue-500"
+                              >
+                                <h3>{resource.title}</h3>
+                              </Link>
+                              <p className="text-black mb-5">
+                                {resource.description}
+                              </p>
+                            </div>
+                          ))}
+                        </ScrollArea>
+                      </DialogDescription>
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
+
+                <p className="text-left">{category.description}</p>
+              </div>
+            ))}
           </div>
         )}
-
-        {/* Online resources gallery */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-          {onlineResources.map((category) => (
-            <div
-              className="flex flex-col items-left justify-items-start"
-              key={category.category_name}
-            >
-              <Image
-                unoptimized
-                src={category.image_url}
-                alt={`Icon for ${category.category_name}`}
-                width={80}
-                height={80}
-              />
-
-              <Dialog>
-                <DialogTrigger>
-                  <h2 className="text-left cursor-pointer">
-                    {category.category_name}
-                  </h2>
-                </DialogTrigger>
-                <DialogContent className="bg-white ">
-                  <DialogHeader>
-                    <DialogTitle>
-                      <h2 className="mr-6">{category.category_name}</h2>
-                    </DialogTitle>
-                    <DialogDescription className="text-left">
-                      <ScrollArea className="h-[500px] w-full p-4">
-                        {category.resources.length === 0 && (
-                          <p>{t("OnlineResource.no-resource-message")}</p>
-                        )}
-                        {category.resources.map((resource) => (
-                          <div key={resource.title} className="">
-                            <Link
-                              href={resource.url}
-                              passHref
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="underline text-blue-500"
-                            >
-                              <h3>{resource.title}</h3>
-                            </Link>
-                            <p className="text-black mb-5">
-                              {resource.description}
-                            </p>
-                          </div>
-                        ))}
-                      </ScrollArea>
-                    </DialogDescription>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
-
-              <p className="text-left">{category.description}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
