@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Modal from "react-modal";
-import config from "../../config";
+import Image from "next/image";
 
 const OnlineResources = ({ params: { locale } }) => {
   const [onlineResources, setOnlineResources] = useState<any[]>([]);
@@ -12,15 +12,27 @@ const OnlineResources = ({ params: { locale } }) => {
   const t = useTranslations("OnlineResource");
 
   useEffect(() => {
-    fetch(`${config["api"]["onlineResources"]}?lang=${locale}`)
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const queryParams = {
+          "pagination[withCount]": "false",
+          fields: "*",
+          populate: "*",
+          locale: locale,
+        };
+
+        const queryString = new URLSearchParams(queryParams).toString();
+        const response = await fetch(`/api/online-resources?${queryString}`);
+        const data = await response.json();
         setOnlineResources(data["data"]);
+      } catch (error) {
+        console.error("Error fetching online resources:", error);
+      } finally {
         setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, [locale]);
 
   // Open modal for a specific category
@@ -56,14 +68,13 @@ const OnlineResources = ({ params: { locale } }) => {
               className="flex flex-col items-left justify-items-start"
               key={category.category_name}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
+              <Image
+                unoptimized
+                src={category.image_url}
+                alt={`Icon for ${category.category_name}`}
                 width={80}
                 height={80}
-                viewBox="0 0 800 800"
-              >
-                <path d={category.image_url} />
-              </svg>
+              />
               {/* <button className="bg-transparent"> */}
               <h2
                 className="text-left cursor-pointer"
