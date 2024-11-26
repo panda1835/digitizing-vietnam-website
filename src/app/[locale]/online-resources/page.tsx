@@ -4,12 +4,21 @@ import { useTranslations } from "next-intl";
 import Modal from "react-modal";
 import Image from "next/image";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
 const OnlineResources = ({ params: { locale } }) => {
   const [onlineResources, setOnlineResources] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState({});
 
-  const t = useTranslations("OnlineResource");
+  const t = useTranslations();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,10 +57,25 @@ const OnlineResources = ({ params: { locale } }) => {
   return (
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-5">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+
+            <BreadcrumbItem>
+              <BreadcrumbPage>{t("OnlineResource.title")}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
         {/* Header */}
-        <section className="flex flex-col items-center justify-center">
-          <h1 className="">{t("title")}</h1>
-          <p className="text-gray-500 mb-5 text-center">{t("subtitle")}</p>
+        <section className="flex flex-col items-center justify-center mt-10">
+          <h1 className="">{t("OnlineResource.title")}</h1>
+          <p className="text-gray-500 mb-5 text-center">
+            {t("OnlineResource.subtitle")}
+          </p>
         </section>
 
         {/* Loading indicator */}
@@ -108,7 +132,7 @@ const OnlineResources = ({ params: { locale } }) => {
                 </button>
                 <h2 className="mr-6">{category.category_name}</h2>
                 {category.resources.length === 0 && (
-                  <p>{t("no-resource-message")}</p>
+                  <p>{t("OnlineResource.no-resource-message")}</p>
                 )}
                 {category.resources.map((resource) => (
                   <div key={resource.title} className="">
