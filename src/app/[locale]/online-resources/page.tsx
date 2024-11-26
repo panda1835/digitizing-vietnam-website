@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import Modal from "react-modal";
 import Image from "next/image";
 
 import {
@@ -12,6 +11,16 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import Link from "next/link";
 
 const OnlineResources = ({ params: { locale } }) => {
   const [onlineResources, setOnlineResources] = useState<any[]>([]);
@@ -71,7 +80,7 @@ const OnlineResources = ({ params: { locale } }) => {
         </Breadcrumb>
 
         {/* Header */}
-        <section className="flex flex-col items-center justify-center mt-10">
+        <section className="flex flex-col items-center justify-center mt-8">
           <h1 className="">{t("OnlineResource.title")}</h1>
           <p className="text-gray-500 mb-5 text-center">
             {t("OnlineResource.subtitle")}
@@ -99,57 +108,45 @@ const OnlineResources = ({ params: { locale } }) => {
                 width={80}
                 height={80}
               />
-              {/* <button className="bg-transparent"> */}
-              <h2
-                className="text-left cursor-pointer"
-                onClick={() => openModal(category.category_name)}
-              >
-                {category.category_name}
-              </h2>
 
-              <Modal
-                isOpen={modalIsOpen[category.category_name]}
-                onRequestClose={() => closeModal(category.category_name)}
-                contentLabel={category.category_name}
-                key={category.category_name}
-              >
-                <button
-                  onClick={() => closeModal(category.category_name)}
-                  className="absolute top-0 right-0 m-2 bg-white text-primary-blue"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-                <h2 className="mr-6">{category.category_name}</h2>
-                {category.resources.length === 0 && (
-                  <p>{t("OnlineResource.no-resource-message")}</p>
-                )}
-                {category.resources.map((resource) => (
-                  <div key={resource.title} className="">
-                    <a
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline text-blue-500"
-                    >
-                      <h3>{resource.title}</h3>
-                    </a>
-                    <p className="text-black mb-5">{resource.description}</p>
-                  </div>
-                ))}
-              </Modal>
+              <Dialog>
+                <DialogTrigger>
+                  <h2 className="text-left cursor-pointer">
+                    {category.category_name}
+                  </h2>
+                </DialogTrigger>
+                <DialogContent className="bg-white ">
+                  <DialogHeader>
+                    <DialogTitle>
+                      <h2 className="mr-6">{category.category_name}</h2>
+                    </DialogTitle>
+                    <DialogDescription className="text-left">
+                      <ScrollArea className="h-[500px] w-full p-4">
+                        {category.resources.length === 0 && (
+                          <p>{t("OnlineResource.no-resource-message")}</p>
+                        )}
+                        {category.resources.map((resource) => (
+                          <div key={resource.title} className="">
+                            <Link
+                              href={resource.url}
+                              passHref
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline text-blue-500"
+                            >
+                              <h3>{resource.title}</h3>
+                            </Link>
+                            <p className="text-black mb-5">
+                              {resource.description}
+                            </p>
+                          </div>
+                        ))}
+                      </ScrollArea>
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
 
-              {/* </button> */}
               <p className="text-left">{category.description}</p>
             </div>
           ))}

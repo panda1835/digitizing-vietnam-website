@@ -30,11 +30,6 @@ hr {
   @apply border-black my-5;
 }
 
-button,
-.button {
-  @apply bg-primary-blue rounded-lg py-2 px-4 text-white;
-}
-
 .mirador {
   height: 700px;
 }
