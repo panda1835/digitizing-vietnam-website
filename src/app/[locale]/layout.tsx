@@ -3,11 +3,11 @@ import "@/components/globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import GachBongTop from "@/components/GachBongTop";
-import GachBongBottom from "@/components/GachBongBottom";
-import BackToTopButton from "@/components/BackToTopButton";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import GachBongTop from "@/components/layout/GachBongTop";
+import GachBongBottom from "@/components/layout/GachBongBottom";
+import BackToTopButton from "@/components/layout/BackToTopButton";
 
 export const metadata = {
   title: "Digitizing Việt Nam",

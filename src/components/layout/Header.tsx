@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 
 // eslint-disable-next-line import/no-unresolved
-import { Link } from "../i18n/routing";
+import { Link } from "../../i18n/routing";
 
 // eslint-disable-next-line import/no-unresolved
-import LocaleSwitcher from "@/components/LocaleSwitcher";
+import LocaleSwitcher from "@/components/layout/LocaleSwitcher";
 
 const Header = () => {
   const t = useTranslations("Header");
