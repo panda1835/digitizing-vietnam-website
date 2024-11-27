@@ -3,9 +3,17 @@ import { getTranslations } from "next-intl/server";
 import { BlogCategory } from "@/types/blog";
 
 import Item from "@/components/Item";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Blogs = async ({ params: { locale } }) => {
-  const t = await getTranslations("Blog");
+  const t = await getTranslations();
 
   let blogData: BlogCategory[] = [];
 
@@ -38,10 +46,22 @@ const Blogs = async ({ params: { locale } }) => {
   return (
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-5">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+
+            <BreadcrumbItem>
+              <BreadcrumbPage>{t("Header.blogs")}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
         {/* Header */}
-        <section className="flex-col text-center mb-10">
-          <h1>{t("title")}</h1>
-          <p className="text-gray-500">{t("subtitle")}</p>
+        <section className="flex-col text-center my-8">
+          <h1>{t("Blog.title")}</h1>
+          <p className="text-gray-500">{t("Blog.subtitle")}</p>
         </section>
 
         {blogData.map((category) => (

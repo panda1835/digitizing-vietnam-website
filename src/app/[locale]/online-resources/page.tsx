@@ -21,7 +21,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import LoadingIndicator from "@/components/LoadingIndicator";
+import LoadingIndicator from "@/components/layout/LoadingIndicator";
 
 const OnlineResources = ({ params: { locale } }) => {
   const [onlineResources, setOnlineResources] = useState<any[]>([]);
