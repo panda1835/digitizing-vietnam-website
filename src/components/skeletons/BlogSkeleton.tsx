@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import ItemSleleton from "./ItemSkeleton";
+import ItemSleleton from "@/components/skeletons/ItemSkeleton";
 
 const BlogSkeleton = () => {
   const t = useTranslations("Blog");
