@@ -12,6 +12,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
+import { formatDate } from "@/utils/datetime";
+
 const Blogs = async ({ params: { locale } }) => {
   const t = await getTranslations();
 
@@ -27,20 +29,12 @@ const Blogs = async ({ params: { locale } }) => {
 
     const queryString = new URLSearchParams(queryParams).toString();
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/blog?${queryString}`
+      `${process.env.NEXT_PUBLIC_API_URL}/api/blogs?${queryString}`
     );
     const data = await response.json();
     blogData = data["data"];
   } catch (error) {
     console.error("Error fetching blogs:", error);
-  }
-  function formatDate(date: string) {
-    const formattedDate = new Date(date).toLocaleDateString(locale, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-    return formattedDate;
   }
 
   return (
@@ -71,7 +65,10 @@ const Blogs = async ({ params: { locale } }) => {
               {category.blogs.map((item) => (
                 <Item
                   title={item.title}
-                  description={`${item.author} - ${formatDate(item.date)}`}
+                  description={`${item.author} - ${formatDate(
+                    item.date,
+                    locale
+                  )}`}
                   imageUrl={item.thumbnail}
                   link={`/blogs/${item.slug}`}
                   key={`/blogs/${item.slug}`}

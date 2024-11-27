@@ -34,8 +34,8 @@ const AboutUs = async ({ params: { locale } }) => {
     aboutUsData = data["data"];
   } catch (error) {
     console.error("Error fetching online resources:", error);
-  } finally {
   }
+
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 mx-5">

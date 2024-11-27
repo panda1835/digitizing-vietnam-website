@@ -4,6 +4,7 @@ export interface Blog {
   date: string;
   slug: string;
   thumbnail: string;
+  content: string;
 }
 
 export interface BlogCategory {
