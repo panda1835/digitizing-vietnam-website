@@ -1,13 +1,39 @@
 import { getTranslations } from "next-intl/server";
 
+import { BlogCategory } from "@/types/blog";
+
 import Item from "@/components/Item";
 
-import { fetchBlogs } from "@/utils/data";
-
-const Blogs = async () => {
+const Blogs = async ({ params: { locale } }) => {
   const t = await getTranslations("Blog");
 
-  const { news, highlights, initiatives } = await fetchBlogs();
+  let blogData: BlogCategory[] = [];
+
+  try {
+    const queryParams = {
+      fields: "*",
+      "populate[0]": "blogs.thumbnail",
+      "populate[1]": "blogs.blog_authors",
+      locale: locale,
+    };
+
+    const queryString = new URLSearchParams(queryParams).toString();
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/blog?${queryString}`
+    );
+    const data = await response.json();
+    blogData = data["data"];
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+  }
+  function formatDate(date: string) {
+    const formattedDate = new Date(date).toLocaleDateString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    return formattedDate;
+  }
 
   return (
     <div className="flex flex-col max-width">
@@ -18,56 +44,22 @@ const Blogs = async () => {
           <p className="text-gray-500">{t("subtitle")}</p>
         </section>
 
-        {/* News */}
-        <section className="mb-10">
-          <h1>{t("news")}</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-            {news &&
-              news.map((item) => (
+        {blogData.map((category) => (
+          <section className="mb-10" key={category.category_name}>
+            <h1>{category.category_name}</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
+              {category.blogs.map((item) => (
                 <Item
                   title={item.title}
-                  description={""}
-                  imageUrl={item.image_url}
-                  link={`/blogs/${item.blog_id}`}
-                  key={`/blogs/${item.blog_id}`}
+                  description={`${item.author} - ${formatDate(item.date)}`}
+                  imageUrl={item.thumbnail}
+                  link={`/blogs/${item.slug}`}
+                  key={`/blogs/${item.slug}`}
                 />
               ))}
-          </div>
-        </section>
-
-        {/* Highlights */}
-        <section className="mb-10">
-          <h1>{t("highlights")}</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-            {highlights &&
-              highlights.map((item) => (
-                <Item
-                  title={item.title}
-                  description={`${item.author} - ${item.date_created}`}
-                  imageUrl={item.image_url}
-                  link={`/blogs/${item.blog_id}`}
-                  key={`/blogs/${item.blog_id}`}
-                />
-              ))}
-          </div>
-        </section>
-
-        {/* Initiatives */}
-        <section className="mb-10">
-          <h1>{t("initiatives")}</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-            {initiatives &&
-              initiatives.map((item) => (
-                <Item
-                  title={item.title}
-                  description={""}
-                  imageUrl={item.image_url}
-                  link={`/blogs/${item.blog_id}`}
-                  key={`/blogs/${item.blog_id}`}
-                />
-              ))}
-          </div>
-        </section>
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );

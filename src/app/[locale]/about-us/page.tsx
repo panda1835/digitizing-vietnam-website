@@ -58,7 +58,6 @@ const AboutUs = ({ params: { locale } }) => {
                   <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
-
                 <BreadcrumbItem>
                   <BreadcrumbPage>{t("AboutUs.title")}</BreadcrumbPage>
                 </BreadcrumbItem>

@@ -2,18 +2,7 @@ import { NextResponse } from "next/server";
 
 import { fetcher } from "@/lib/api";
 
-interface OnlineResource {
-  title: string;
-  description: string;
-  url: string;
-}
-
-interface ResourceCategory {
-  category_name: string;
-  description: string;
-  image_url: string;
-  resources: OnlineResource[];
-}
+import { OnlineResource, ResourceCategory } from "@/types/online-resources";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -36,7 +25,7 @@ export async function GET(request) {
           title: resource.name,
           description: resource.description,
           url: resource.url,
-        };
+        } as OnlineResource;
       }),
     });
   });
