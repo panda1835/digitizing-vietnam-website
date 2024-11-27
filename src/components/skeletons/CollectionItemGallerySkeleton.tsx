@@ -1,5 +1,5 @@
 "use client";
-import BookItemSkeleton from "./BookItemSkeleton";
+import BookItemSkeleton from "@/components/skeletons/BookItemSkeleton";
 import { useTranslations } from "next-intl";
 
 const CollectionItemGallery = () => {

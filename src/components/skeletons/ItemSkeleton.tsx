@@ -1,5 +1,3 @@
-"use client";
-
 const ItemSkeleton = () => {
   return (
     <div className="mb-5 animate-pulse">

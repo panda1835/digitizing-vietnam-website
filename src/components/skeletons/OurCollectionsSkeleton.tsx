@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-import ItemSkeleton from "./ItemSkeleton";
+import ItemSkeleton from "@/components/skeletons/ItemSkeleton";
 
 const OurCollectionsSkeleton = () => {
   const t = useTranslations("Collection");
@@ -18,7 +18,7 @@ const OurCollectionsSkeleton = () => {
         {/* Collection gallery */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-5">
           {[1, 2, 3].map((item) => (
-            <ItemSkeleton key={item.key} />
+            <ItemSkeleton key={item} />
           ))}
         </div>
       </div>

@@ -2,7 +2,7 @@
 import { useTranslations } from "next-intl";
 
 import CollectionItemGallerySkeleton from "./CollectionItemGallerySkeleton";
-import ItemSkeleton from "./ItemSkeleton";
+import ItemSkeleton from "@/components/skeletons/ItemSkeleton";
 
 const EachCollectionSkeleton = () => {
   const t = useTranslations("Collection");
