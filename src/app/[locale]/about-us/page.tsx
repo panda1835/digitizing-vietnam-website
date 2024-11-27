@@ -25,7 +25,8 @@ const AboutUs = ({ params: { locale } }) => {
       try {
         const queryParams = {
           fields: "*",
-          populate: "*",
+          "populate[0]": "core_team.avatar",
+          "populate[1]": "advisor.avatar",
           locale: locale,
         };
 
@@ -85,10 +86,17 @@ const AboutUs = ({ params: { locale } }) => {
                       width={192}
                       height={192}
                       src={
-                        teamMember.avatar ||
-                        "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+                        teamMember.avatar
+                          ? teamMember.avatar.formats.medium
+                            ? teamMember.avatar.formats.medium.url
+                            : teamMember.avatar.formats.thumbnail.url
+                          : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
                       }
-                      alt={teamMember.avatar || `Avatar of ${teamMember.name}`}
+                      alt={
+                        teamMember.avatar
+                          ? teamMember.avatar.alternativeText
+                          : `Avatar of ${teamMember.name}`
+                      }
                     />
                     <h3 className="text-xl">{teamMember.name}</h3>
                     <p className="px-5 font-bold">{teamMember.title}</p>
@@ -111,10 +119,17 @@ const AboutUs = ({ params: { locale } }) => {
                       width={192}
                       height={192}
                       src={
-                        teamMember.avatar ||
-                        "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+                        teamMember.avatar
+                          ? teamMember.avatar.formats.medium
+                            ? teamMember.avatar.formats.medium.url
+                            : teamMember.avatar.formats.thumbnail.url
+                          : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
                       }
-                      alt={teamMember.avatar || `Avatar of ${teamMember.name}`}
+                      alt={
+                        teamMember.avatar
+                          ? teamMember.avatar.alternativeText
+                          : `Avatar of ${teamMember.name}`
+                      }
                     />
                     <h3 className="text-xl">{teamMember.name}</h3>
                     <p className="px-5 font-bold text-center">
