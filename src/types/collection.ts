@@ -3,7 +3,11 @@ export interface Collection {
   title: string;
   subject: string[];
   dateCreated: string;
-  thumbnail: ImageFormat;
+  thumbnail: {
+    alternativeText: string;
+    caption: string;
+    formats: ImageFormat;
+  };
   abstract: string;
   language: string[];
   format: string[];

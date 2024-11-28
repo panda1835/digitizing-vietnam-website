@@ -23,7 +23,7 @@ const Item = (props) => {
           alt={props.alternativeText || ""}
           width={props.imageUrl.width}
           height={props.imageUrl.height}
-          className="object-cover rounded-lg w-full h-40"
+          className="object-cover rounded w-full h-40"
         />
 
         <div className="text-xl text-primary-blue mt-2">{props.title}</div>

@@ -15,7 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-const OurCollections = async ({ params: { slug, locale } }) => {
+const OurCollections = async ({ params: { locale } }) => {
   let collections: Collection[] = [];
 
   const t = await getTranslations();
@@ -38,7 +38,7 @@ const OurCollections = async ({ params: { slug, locale } }) => {
         ({
           title: collection.title,
           abstract: collection.abstract,
-          thumbnail: getImageByKey(collection.thumbnail[0].formats, "medium")!,
+          thumbnail: collection.thumbnail,
           slug: collection.slug,
         } as Collection)
     );
@@ -55,7 +55,6 @@ const OurCollections = async ({ params: { slug, locale } }) => {
               <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-
             <BreadcrumbItem>
               <BreadcrumbPage>{t("Collection.title")}</BreadcrumbPage>
             </BreadcrumbItem>
@@ -77,7 +76,9 @@ const OurCollections = async ({ params: { slug, locale } }) => {
               title={collection.title}
               description={collection.abstract}
               max_trim_word={50}
-              imageUrl={collection.thumbnail}
+              imageUrl={
+                getImageByKey(collection.thumbnail[0].formats, "medium")!
+              }
               link={`/our-collections/${collection.slug}`}
               key={`/our-collections/${collection.slug}`}
             />
