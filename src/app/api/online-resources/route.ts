@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { fetcher } from "@/lib/api";
 
-import { OnlineResource, ResourceCategory } from "@/types/online-resources";
+import { OnlineResource, ResourceCategory } from "@/types/online-resource";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);

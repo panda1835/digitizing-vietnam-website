@@ -20,7 +20,7 @@ const Item = (props) => {
         <Image
           unoptimized
           src={props.imageUrl.url}
-          alt={props.title}
+          alt={props.alternativeText || ""}
           width={props.imageUrl.width}
           height={props.imageUrl.height}
           className="object-cover rounded-lg w-full h-40"

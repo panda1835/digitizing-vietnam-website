@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { getImageByKey } from "@/utils/image";
 
 const AboutUs = async ({ params: { locale } }) => {
   let aboutUsData = [];
@@ -71,9 +72,7 @@ const AboutUs = async ({ params: { locale } }) => {
                   height={192}
                   src={
                     teamMember.avatar
-                      ? teamMember.avatar.formats.medium
-                        ? teamMember.avatar.formats.medium.url
-                        : teamMember.avatar.formats.thumbnail.url
+                      ? getImageByKey(teamMember.avatar.formats, "small")!.url
                       : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
                   }
                   alt={
@@ -104,9 +103,7 @@ const AboutUs = async ({ params: { locale } }) => {
                   height={192}
                   src={
                     teamMember.avatar
-                      ? teamMember.avatar.formats.medium
-                        ? teamMember.avatar.formats.medium.url
-                        : teamMember.avatar.formats.thumbnail.url
+                      ? getImageByKey(teamMember.avatar.formats, "small")!.url
                       : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
                   }
                   alt={

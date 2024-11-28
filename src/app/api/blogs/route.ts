@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { fetcher } from "@/lib/api";
 import { Blog, BlogCategory } from "@/types/blog";
+import { getImageByKey } from "@/utils/image";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -23,9 +24,7 @@ export async function GET(request) {
           author: post.blog_authors[0].name,
           date: post.publishedAt,
           slug: post.slug,
-          thumbnail:
-            post.thumbnail[0].formats.medium ||
-            post.thumbnail[0].formats.thumbnail,
+          thumbnail: getImageByKey(post.thumbnail[0].formats, "medium")!.url,
         } as Blog;
       }),
     });

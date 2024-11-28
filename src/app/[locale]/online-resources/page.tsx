@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-import { ResourceCategory } from "@/types/online-resources";
+import { ResourceCategory } from "@/types/online-resource";
 
 const OnlineResources = async ({ params: { locale } }) => {
   const t = await getTranslations();

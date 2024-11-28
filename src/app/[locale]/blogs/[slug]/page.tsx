@@ -38,7 +38,6 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
     };
   } catch (error) {
     console.error("Error fetching blog:", error);
-  } finally {
   }
 
   return (
