@@ -35,27 +35,6 @@ const BlogSkeleton = () => {
 
         {/* News */}
         <section className="mb-10">
-          <div className="h-9 bg-gray-300 rounded w-1/4 mb-4"></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-            {[1, 2, 3].map((item) => (
-              <ItemSleleton key={item} />
-            ))}
-          </div>
-        </section>
-
-        {/* Highlights */}
-        <section className="mb-10">
-          <div className="h-9 bg-gray-300 rounded w-1/4 mb-4"></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-            {[1, 2, 3].map((item) => (
-              <ItemSleleton key={item} />
-            ))}
-          </div>
-        </section>
-
-        {/* Initiatives */}
-        <section className="mb-10">
-          <div className="h-9 bg-gray-300 rounded w-1/4 mb-4"></div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {[1, 2, 3].map((item) => (
               <ItemSleleton key={item} />
