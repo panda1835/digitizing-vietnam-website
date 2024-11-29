@@ -28,7 +28,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col bg-white">
         <NextIntlClientProvider messages={messages}>
           <Header />
           <GachBongTop />

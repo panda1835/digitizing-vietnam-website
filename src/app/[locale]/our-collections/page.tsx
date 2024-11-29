@@ -1,11 +1,11 @@
 import { getTranslations } from "next-intl/server";
 
 import { fetcher } from "@/lib/api";
-import { getImageByKey } from "@/utils/image";
+import { formatDate } from "@/utils/datetime";
 
 import { Collection } from "@/types/collection";
 
-import Item from "@/components/Item";
+import CollectionView from "@/components/view/Collection";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -23,7 +23,7 @@ const OurCollections = async ({ params: { locale } }) => {
   try {
     const queryParams = {
       fields: "*",
-      populate: "thumbnail",
+      populate: "*",
       locale: locale,
     };
 
@@ -32,14 +32,25 @@ const OurCollections = async ({ params: { locale } }) => {
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
     const data = await fetcher(url);
     const collectionData = data.data;
-
     collections = collectionData.map(
       (collection) =>
         ({
           title: collection.title,
           abstract: collection.abstract,
-          thumbnail: collection.thumbnail,
+          thumbnail: collection.thumbnail[0],
           slug: collection.slug,
+          datePublished: formatDate(collection.publishedAt, locale),
+          dateCreated:
+            formatDate(collection.date_created.full_date, locale) ||
+            formatDate(collection.date_created.year_month_only, locale) ||
+            formatDate(collection.date_created.year_only, locale) ||
+            formatDate(collection.date_created.approximate_date, locale),
+          format: collection.formats.map((format) => format.name),
+          language: collection.languages.map((language) => language.name),
+          subject: collection.subjects.map((subject) => subject.name),
+          collectionLocation: collection.collection_location.name,
+          accessCondition: collection.access_condition.name,
+          collectionItems: collection.collection_items,
         } as Collection)
     );
   } catch (error) {
@@ -68,9 +79,9 @@ const OurCollections = async ({ params: { locale } }) => {
             {t("Collection.subtitle")}
           </p>
         </section>
-
+        <CollectionView collections={collections} />
         {/* Collection gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {collections.map((collection) => (
             <Item
               title={collection.title}
@@ -83,7 +94,7 @@ const OurCollections = async ({ params: { locale } }) => {
               key={`/our-collections/${collection.slug}`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

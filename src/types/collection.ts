@@ -2,6 +2,7 @@ export interface Collection {
   slug: string;
   title: string;
   subject: string[];
+  datePublished: string;
   dateCreated: string;
   thumbnail: {
     alternativeText: string;
