@@ -14,3 +14,7 @@ interface ImageFormat {
     resource_type: string;
   };
 }
+
+interface Formats {
+  [key: string]: ImageFormat;
+}

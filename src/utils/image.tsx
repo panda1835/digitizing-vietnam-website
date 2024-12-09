@@ -1,7 +1,3 @@
-interface Formats {
-  [key: string]: ImageFormat;
-}
-
 export function getImageByKey(
   formats: Formats,
   requestedSize: string

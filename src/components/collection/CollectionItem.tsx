@@ -24,16 +24,21 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import type { ViewType } from "@/types/view";
 import { getImageByKey } from "@/utils/image";
 import { trimDescription } from "@/utils/text";
+import { formatStrapiDate } from "@/utils/datetime";
 import { Link } from "@/i18n/routing";
 
-export default function CollectionView({ collections }) {
+export default function CollectionView({
+  collectionItems,
+  collectionSlug,
+  locale,
+}) {
   const [viewType, setViewType] = useState<ViewType>("grid");
 
   const t = useTranslations();
 
   const GridView = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {collections.map((item, index) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      {collectionItems.map((item, index) => (
         <HoverCard key={index}>
           <HoverCardTrigger asChild>
             <div className="flex flex-col rounded border border-gray-500 overflow-hidden cursor-pointer">
@@ -41,15 +46,20 @@ export default function CollectionView({ collections }) {
                 unoptimized
                 src={getImageByKey(item.thumbnail.formats, "medium")!.url}
                 alt={item.thumbnail.alternativeText}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-40"
                 width={getImageByKey(item.thumbnail.formats, "medium")!.width}
                 height={getImageByKey(item.thumbnail.formats, "medium")!.height}
               />
               <div className="p-4">
-                <h3 className="font-semibold">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {item.collectionItems.length} items
-                </p>
+                <Link
+                  href={`/our-collections/${collectionSlug}/${item.slug}`}
+                  className="text-blue-600 hover:underline"
+                >
+                  <p className="font-semibold text-sm text-primary-blue">
+                    {item.title}
+                  </p>
+                  <p>{}</p>
+                </Link>
               </div>
             </div>
           </HoverCardTrigger>
@@ -61,7 +71,7 @@ export default function CollectionView({ collections }) {
                   {trimDescription(item.abstract, 20)}{" "}
                   <Link
                     href={`/our-collections/${item.slug}`}
-                    className="text-blue-600 hover:underline"
+                    className="text-blue-600  hover:underline"
                   >
                     {t("Button.read-more")}.
                   </Link>
@@ -69,27 +79,18 @@ export default function CollectionView({ collections }) {
                 <div className="text-sm text-muted-foreground">
                   <p>
                     <span className="font-bold">Created</span>:{" "}
-                    {item.datePublished}
-                  </p>
-                  <p>
-                    <span className="font-bold">Formats</span>:{" "}
-                    {item.format.join(", ")}
+                    {formatStrapiDate(item.date_created, locale)}
                   </p>
                   <p>
                     <span className="font-bold">Languages</span>:{" "}
-                    {item.language.join(", ")}
+                    {item.languages.map((lang) => lang.name).join(", ")}
                   </p>
                   <p>
-                    <span className="font-bold">Subjects</span>:{" "}
-                    {item.subject.join(", ")}
+                    <span className="font-bold">Edition</span>: {item.edition}
                   </p>
                   <p>
-                    <span className="font-bold">Location</span>:{" "}
-                    {item.collectionLocation}
-                  </p>
-                  <p>
-                    <span className="font-bold">Access Condition</span>:{" "}
-                    {item.accessCondition}
+                    <span className="font-bold">File Size</span>:{" "}
+                    {item.file_size}
                   </p>
                 </div>
               </ScrollArea>
@@ -102,7 +103,7 @@ export default function CollectionView({ collections }) {
 
   const ListView = () => (
     <div className="space-y-4">
-      {collections.map((item, index) => (
+      {collectionItems.map((item, index) => (
         <div key={index} className="flex gap-4 items-start border rounded p-4">
           <Image
             src={getImageByKey(item.thumbnail.formats, "medium")!.url}
@@ -127,27 +128,18 @@ export default function CollectionView({ collections }) {
             </p>
             <div className="text-sm text-muted-foreground">
               <p>
-                <span className="font-bold">Created</span>: {item.datePublished}
-              </p>
-              <p>
-                <span className="font-bold">Formats</span>:{" "}
-                {item.format.join(", ")}
+                <span className="font-bold">Created</span>:{" "}
+                {formatStrapiDate(item.date_created, locale)}
               </p>
               <p>
                 <span className="font-bold">Languages</span>:{" "}
-                {item.language.join(", ")}
+                {item.languages.map((lang) => lang.name).join(", ")}
               </p>
               <p>
-                <span className="font-bold">Subjects</span>:{" "}
-                {item.subject.join(", ")}
+                <span className="font-bold">Edition</span>: {item.edition}
               </p>
               <p>
-                <span className="font-bold">Location</span>:{" "}
-                {item.collectionLocation}
-              </p>
-              <p>
-                <span className="font-bold">Access Condition</span>:{" "}
-                {item.accessCondition}
+                <span className="font-bold">File Size</span>: {item.file_size}
               </p>
             </div>
           </div>
@@ -162,11 +154,11 @@ export default function CollectionView({ collections }) {
         <TableRow>
           <TableHead>Title</TableHead>
           <TableHead>Languages</TableHead>
-          <TableHead>Access Condition</TableHead>
+          <TableHead>Created</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {collections.map((item, index) => (
+        {collectionItems.map((item, index) => (
           <TableRow key={index}>
             <TableCell className="font-medium">
               <Link
@@ -176,8 +168,10 @@ export default function CollectionView({ collections }) {
                 <p className="font-medium">{item.title}</p>
               </Link>
             </TableCell>
-            <TableCell>{item.language.join(", ")}</TableCell>
-            <TableCell>{item.accessCondition}</TableCell>
+            <TableCell>
+              {item.languages.map((lang) => lang.name).join(", ")}
+            </TableCell>
+            <TableCell>{formatStrapiDate(item.date_created, locale)}</TableCell>
           </TableRow>
         ))}
       </TableBody>
@@ -185,7 +179,7 @@ export default function CollectionView({ collections }) {
   );
 
   return (
-    <div className="container mx-auto py-6 space-y-6  p-6 rounded">
+    <div className="container mx-auto py-6 space-y-6 rounded">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold"></h2>
         <div className="flex gap-2">

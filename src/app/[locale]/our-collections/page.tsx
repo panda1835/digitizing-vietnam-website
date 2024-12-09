@@ -5,7 +5,7 @@ import { formatDate } from "@/utils/datetime";
 
 import { Collection } from "@/types/collection";
 
-import CollectionView from "@/components/view/Collection";
+import CollectionView from "@/components/collection/Collection";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -80,21 +80,6 @@ const OurCollections = async ({ params: { locale } }) => {
           </p>
         </section>
         <CollectionView collections={collections} />
-        {/* Collection gallery */}
-        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {collections.map((collection) => (
-            <Item
-              title={collection.title}
-              description={collection.abstract}
-              max_trim_word={50}
-              imageUrl={
-                getImageByKey(collection.thumbnail[0].formats, "medium")!
-              }
-              link={`/our-collections/${collection.slug}`}
-              key={`/our-collections/${collection.slug}`}
-            />
-          ))}
-        </div> */}
       </div>
     </div>
   );

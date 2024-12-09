@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
+import qs from "qs";
 
 import {
   Breadcrumb,
@@ -9,14 +10,20 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import CollectionItemGallery from "@/components/CollectionItemGallery";
-import Item from "@/components/Item";
-import ScrollButtons from "@/components/ScrollButtons";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import CollectionItem from "@/components/collection/CollectionItem";
+import MetaData from "@/components/collection/Metadata";
 
-import { Collection, CollectionItem } from "@/types/collection";
 import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
-import { get } from "http";
+import { formatDate } from "@/utils/datetime";
+import { populate } from "dotenv";
 
 const EachCollection = async ({ params: { locale, collectionId } }) => {
   const t = await getTranslations();
@@ -24,21 +31,30 @@ const EachCollection = async ({ params: { locale, collectionId } }) => {
   let collection = {
     title: "",
     abstract: "",
+    datePublished: "",
+    dateCreated: "",
+    format: [],
+    language: [],
+    subject: [],
+    collectionLocation: "",
+    accessCondition: "",
     thumbnail: {
       alternativeText: "",
       caption: "",
-      formats: {},
+      formats: [{ url: "", width: 0, height: 0 }] as unknown as Formats,
     },
     slug: "",
-    collection_items: [],
   };
+
+  let collectionItems = [];
 
   try {
     const queryParams = {
       fields: "*",
       "filters[slug][$eq]": collectionId,
-      "populate[0]": "thumbnail",
-      "populate[1]": "collection_items.thumbnail",
+      // "populate[0]": "thumbnail",
+      // "populate[1]": "collection_items.thumbnail",
+      populate: "*",
       locale: locale,
     };
 
@@ -47,21 +63,58 @@ const EachCollection = async ({ params: { locale, collectionId } }) => {
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
     const data = await fetcher(url);
     const collectionData = data.data[0];
-
+    // console.log("Collection data:", collectionData);
     collection = {
       title: collectionData.title,
       abstract: collectionData.abstract,
       thumbnail: collectionData.thumbnail[0],
       slug: collectionData.slug,
-      collection_items: collectionData.collection_items.map((item) => ({
-        title: item.title,
-        description: item.description,
-        image_url: getImageByKey(item.thumbnail.formats, "medium")!,
-        link: `/collections/${collectionId}/${item.slug}`,
-      })),
+      datePublished: formatDate(collectionData.publishedAt, locale),
+      dateCreated:
+        formatDate(collectionData.date_created.full_date, locale) ||
+        formatDate(collectionData.date_created.year_month_only, locale) ||
+        formatDate(collectionData.date_created.year_only, locale) ||
+        formatDate(collectionData.date_created.approximate_date, locale),
+      format: collectionData.formats.map((format) => format.name),
+      language: collectionData.languages.map((language) => language.name),
+      subject: collectionData.subjects.map((subject) => subject.name),
+      collectionLocation: collectionData.collection_location.name,
+      accessCondition: collectionData.access_condition.name,
+      // collectionItems: collectionData.collection_items,
     };
+
+    // For many weird reasons I could not get both collection thumbnail,
+    // collection_items thumbnail, and other collection metadata such as access condition, ...
+    // So I have to make another API call to get the collection items separately!!!
+    const queryParamsCollectionItem = {
+      fields: "*",
+      "filters[slug][$eq]": collectionId,
+      populate: [
+        "collection_items.thumbnail",
+        "collection_items.date_created",
+        "collection_items.languages",
+        "collection_items.contributor",
+      ],
+      locale: locale,
+    };
+
+    // const queryStringCollectionItem = new URLSearchParams(
+    //   queryParamsCollectionItem
+    // ).toString();
+
+    const queryStringCollectionItem = qs.stringify(queryParamsCollectionItem);
+
+    const urlCollectionItem = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryStringCollectionItem}`;
+    const dataCollectionItem = await fetcher(urlCollectionItem);
+    const collectionDataCollectionItem = dataCollectionItem.data[0];
+    collectionItems = collectionDataCollectionItem.collection_items;
+    // console.log("Contributors:", collectionItems[0]["contributor"]);
+    // console.log("Languages:", collectionItems[0]["languages"]);
+
+    // console.log("Collection:", collection);
+    console.log("Collection items:", collectionItems);
   } catch (error) {
-    console.error("Error fetching blog:", error);
+    console.error("Error fetching collection:", error);
   }
 
   return (
@@ -96,13 +149,27 @@ const EachCollection = async ({ params: { locale, collectionId } }) => {
 
         <h1 className="text-primary-blue my-8">{collection.title}</h1>
 
-        <div className="mb-8">{collection.abstract}</div>
+        <div className="mb-4">{collection.abstract}</div>
+        <Dialog>
+          <DialogTrigger>
+            <p className="text-blue-600 hover:underline">Metadata</p>
+          </DialogTrigger>
+          <DialogContent className="bg-white">
+            <DialogHeader>
+              {/* <DialogTitle>Are you absolutely sure?</DialogTitle> */}
+              <DialogDescription>
+                <MetaData collection={collection} />
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
 
-        {/* Item gallery */}
-        <CollectionItemGallery
-          collectionData={collection.collection_items}
-          collectionId={collectionId}
+        <CollectionItem
+          collectionItems={collectionItems}
+          collectionSlug={collection.slug}
+          locale={locale}
         />
+
         <div className="mb-10"></div>
 
         {/* Featured articles */}
