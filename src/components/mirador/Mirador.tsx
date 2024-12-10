@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import mirador from "mirador";
 
-class Mirador extends Component {
+class Mirador extends Component<MiradorProps> {
   componentDidMount() {
     const { config, plugins } = this.props;
     mirador.viewer(config, plugins);

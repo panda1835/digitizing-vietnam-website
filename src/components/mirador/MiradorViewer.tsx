@@ -7,7 +7,7 @@ const MiradorViewer = ({ manifestUrl, canvasId }) => {
     <div className="mirador ">
       {/* Mirador */}
       <Mirador
-        className=""
+        // className=""
         config={{
           id: "mirador",
           window: {
