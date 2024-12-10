@@ -1,6 +1,6 @@
 "use client";
-import Mirador from "@/components/Mirador";
-import MiradorURLSyncPlugin from "../lib/mirador-plugins/MiradorURLSyncPlugin";
+import Mirador from "@/components/mirador/Mirador";
+import MiradorURLSyncPlugin from "../../lib/mirador-plugins/MiradorURLSyncPlugin";
 
 const MiradorViewer = ({ manifestUrl, canvasId }) => {
   return (

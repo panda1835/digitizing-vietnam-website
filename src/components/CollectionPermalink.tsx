@@ -6,14 +6,16 @@ import { ClipboardDocumentIcon } from "@heroicons/react/16/solid";
 const CollectionPermalink = () => {
   const [copySuccess, setCopySuccess] = useState("Copy");
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(window.location.href).then(
-      () => {
-        setCopySuccess("Copied!");
-      },
-      () => {
-        setCopySuccess("Copy");
-      }
-    );
+    if (typeof window !== "undefined") {
+      navigator.clipboard.writeText(window.location.href).then(
+        () => {
+          setCopySuccess("Copied!");
+        },
+        () => {
+          setCopySuccess("Copy");
+        }
+      );
+    }
   };
   return (
     <div className="pb-5">
@@ -39,7 +41,7 @@ const CollectionPermalink = () => {
             )}
           </div>
         </button>
-        {window.location.href}
+        {typeof window !== "undefined" && window.location.href}
       </div>
     </div>
   );

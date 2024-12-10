@@ -81,16 +81,47 @@ export default function CollectionView({
                     <span className="font-bold">Created</span>:{" "}
                     {formatStrapiDate(item.date_created, locale)}
                   </p>
+                  {item.contributor.map((contributor) => (
+                    <p key={contributor.author.name}>
+                      <span className="font-bold">
+                        {contributor.author_role_term.name}
+                      </span>
+                      : {contributor.author.name}
+                    </p>
+                  ))}
                   <p>
                     <span className="font-bold">Languages</span>:{" "}
                     {item.languages.map((lang) => lang.name).join(", ")}
                   </p>
+                  {/* <p>
+                <span className="font-bold">Place of publication</span>:{" "}
+                {item.place_of_publication.name}
+              </p> */}
                   <p>
-                    <span className="font-bold">Edition</span>: {item.edition}
+                    <span className="font-bold">Subjects</span>:{" "}
+                    {item.subjects.map((subject) => subject.name).join(", ")}
+                  </p>
+                  {/* <p>
+                <span className="font-bold">Edition</span>: {item.edition}
+              </p> */}
+                  <p>
+                    <span className="font-bold">Publisher</span>:{" "}
+                    {item.publisher.name}
                   </p>
                   <p>
-                    <span className="font-bold">File Size</span>:{" "}
-                    {item.file_size}
+                    <span className="font-bold">Collection</span>:{" "}
+                    {
+                      item.collections.map((collection) => (
+                        <Link
+                          key={collection.slug}
+                          href={`/our-collections/${collection.slug}`}
+                          className="text-blue-600 hover:underline"
+                        >
+                          {collection.title}
+                        </Link>
+                      ))
+                      // .join(", ")
+                    }
                   </p>
                 </div>
               </ScrollArea>
@@ -131,15 +162,47 @@ export default function CollectionView({
                 <span className="font-bold">Created</span>:{" "}
                 {formatStrapiDate(item.date_created, locale)}
               </p>
+              {item.contributor.map((contributor) => (
+                <p key={contributor.author.name}>
+                  <span className="font-bold">
+                    {contributor.author_role_term.name}
+                  </span>
+                  : {contributor.author.name}
+                </p>
+              ))}
               <p>
                 <span className="font-bold">Languages</span>:{" "}
                 {item.languages.map((lang) => lang.name).join(", ")}
               </p>
+              {/* <p>
+                <span className="font-bold">Place of publication</span>:{" "}
+                {item.place_of_publication.name}
+              </p> */}
               <p>
+                <span className="font-bold">Subjects</span>:{" "}
+                {item.subjects.map((subject) => subject.name).join(", ")}
+              </p>
+              {/* <p>
                 <span className="font-bold">Edition</span>: {item.edition}
+              </p> */}
+              <p>
+                <span className="font-bold">Publisher</span>:{" "}
+                {item.publisher.name}
               </p>
               <p>
-                <span className="font-bold">File Size</span>: {item.file_size}
+                <span className="font-bold">Collection</span>:{" "}
+                {
+                  item.collections.map((collection) => (
+                    <Link
+                      key={collection.slug}
+                      href={`/our-collections/${collection.slug}`}
+                      className="text-blue-600 hover:underline"
+                    >
+                      {collection.title}
+                    </Link>
+                  ))
+                  // .join(", ")
+                }
               </p>
             </div>
           </div>

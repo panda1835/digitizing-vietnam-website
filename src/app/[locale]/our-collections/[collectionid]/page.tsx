@@ -15,6 +15,7 @@ import {
   DialogContent,
   DialogDescription,
   DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import CollectionItem from "@/components/collection/CollectionItem";
@@ -94,6 +95,11 @@ const EachCollection = async ({ params: { locale, collectionId } }) => {
         "collection_items.date_created",
         "collection_items.languages",
         "collection_items.contributor",
+        "collection_items.subjects",
+        "collection_items.publisher",
+        "collection_items.collections",
+        "collection_items.contributor.author",
+        "collection_items.contributor.author_role_term",
       ],
       locale: locale,
     };
@@ -112,7 +118,7 @@ const EachCollection = async ({ params: { locale, collectionId } }) => {
     // console.log("Languages:", collectionItems[0]["languages"]);
 
     // console.log("Collection:", collection);
-    console.log("Collection items:", collectionItems);
+    // console.log("Collection items:", collectionItems);
   } catch (error) {
     console.error("Error fetching collection:", error);
   }
@@ -156,7 +162,7 @@ const EachCollection = async ({ params: { locale, collectionId } }) => {
           </DialogTrigger>
           <DialogContent className="bg-white">
             <DialogHeader>
-              {/* <DialogTitle>Are you absolutely sure?</DialogTitle> */}
+              <DialogTitle>{collection.title}</DialogTitle>
               <DialogDescription>
                 <MetaData collection={collection} />
               </DialogDescription>

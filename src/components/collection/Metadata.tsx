@@ -1,8 +1,6 @@
 export default function Metadata({ collection }) {
   return (
     <div className="space-y-2">
-      <h4 className="font-semibold">{collection.title}</h4>
-
       <div className="text-sm text-muted-foreground">
         <p>
           <span className="font-bold">Created</span>: {collection.datePublished}
