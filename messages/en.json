@@ -54,7 +54,8 @@
 
   "SearchResult": {
     "title": "Search Results",
-    "search-result-for": "Search results for",
+    "showing": "Showing",
+    "search-result-for": "search results for",
     "no-search-result": "No search results found."
   }
 }

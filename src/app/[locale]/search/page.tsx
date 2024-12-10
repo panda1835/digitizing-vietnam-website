@@ -1,8 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import qs from "qs";
 
-import FilterSidebar from "@/components/FilterSidebar";
+import FilterSidebar from "@/app/[locale]/search/FilterSidebar";
 import CollectionItem from "@/components/collection/CollectionItem";
+import SearchResults from "./SearchResult";
 import { fetcher } from "@/lib/api";
 
 const SearchResult = async ({
@@ -49,11 +50,10 @@ const SearchResult = async ({
     const queryString = qs.stringify(queryParams);
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
-    console.log("URL:", url);
     const data = await fetcher(url);
     const collectionData = data.data;
-    console.log("Collection data:", collectionData);
-    console.log("collections", collectionData[0].collections);
+    console.log("Collection data:", collectionData[0]);
+    // console.log("collections", collectionData[0].collections);
     searchResult = collectionData;
   } catch (error) {
     console.error("Error fetching collection:", error);
@@ -61,7 +61,7 @@ const SearchResult = async ({
 
   return (
     <div className="flex flex-col max-width">
-      <div className="flex-col mb-8 mx-5">
+      <div className="flex-col mx-5">
         {/* Header */}
         <section className="flex flex-col items-center justify-center">
           <h1 className="">{t("title")}</h1>
@@ -69,24 +69,12 @@ const SearchResult = async ({
 
         {/* Search result */}
       </div>
-      {/* <p className="text-xl mb-5">
-        {t("search-result-for")} &quot;{searchQuery}&quot;
-      </p> */}
-      <div className="flex flex-col md:flex-row">
-        <FilterSidebar />
-        <div className="flex-grow">
-          {/* Pagination */}
-          {searchResult.length == 0 && <p>{t("no-search-result")}</p>}
-          {searchResult.length > 0 && (
-            // Pagination
-            <CollectionItem
-              collectionItems={searchResult}
-              locale={locale}
-              collectionSlug={"123"}
-            />
-          )}
-        </div>
-      </div>
+
+      <SearchResults
+        searchResults={searchResult}
+        locale={locale}
+        searchQuery={searchQuery}
+      />
     </div>
   );
 };

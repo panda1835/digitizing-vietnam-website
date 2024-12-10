@@ -111,6 +111,7 @@ export default function CollectionView({ collections }) {
       {collections.map((item, index) => (
         <div key={index} className="flex gap-4 items-start border rounded p-4">
           <Image
+            unoptimized
             src={getImageByKey(item.thumbnail.formats, "medium")!.url}
             alt={item.thumbnail.alternativeText}
             className="w-24 h-24 object-cover rounded"

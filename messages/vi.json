@@ -54,7 +54,8 @@
 
   "SearchResult": {
     "title": "Kết quả tìm kiếm",
-    "search-result-for": "Kết quả tìm kiếm cho",
+    "showing": "Hiển thị",
+    "search-result-for": "kết quả tìm kiếm cho",
     "no-search-result": "Không tìm thấy kết quả nào."
   }
 }
