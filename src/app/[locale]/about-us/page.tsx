@@ -12,7 +12,9 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+
 import { getImageByKey } from "@/utils/image";
+import { fetcher } from "@/lib/api";
 
 const AboutUs = async ({ params: { locale } }) => {
   let aboutUsData = [];
@@ -28,11 +30,11 @@ const AboutUs = async ({ params: { locale } }) => {
     };
 
     const queryString = new URLSearchParams(queryParams).toString();
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/about-us?${queryString}`
-    );
-    const data = await response.json();
-    aboutUsData = data["data"];
+
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/about-us?${queryString}`;
+
+    const data = await fetcher(url);
+    aboutUsData = data.data;
   } catch (error) {
     console.error("Error fetching online resources:", error);
   }

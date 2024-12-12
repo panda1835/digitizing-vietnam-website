@@ -20,7 +20,9 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-import { ResourceCategory } from "@/types/online-resource";
+import { fetcher } from "@/lib/api";
+import { OnlineResource, ResourceCategory } from "@/types/online-resource";
+import { on } from "events";
 
 const OnlineResources = async ({ params: { locale } }) => {
   const t = await getTranslations();
@@ -35,11 +37,29 @@ const OnlineResources = async ({ params: { locale } }) => {
     };
 
     const queryString = new URLSearchParams(queryParams).toString();
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/online-resources?${queryString}`
-    );
-    const data = await response.json();
-    onlineResources = data.data;
+
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/online-resource-types?${queryString}`;
+
+    const data = await fetcher(url);
+    const allCategories = data.data;
+    const resourceCategories: ResourceCategory[] = [];
+    // Iterate through each online resource type
+    // add the online resources to the array
+    allCategories.forEach((category) => {
+      resourceCategories.push({
+        category_name: category.name,
+        description: category.description,
+        image_url: category.thumbnail.url,
+        resources: category.online_resources.map((resource) => {
+          return {
+            title: resource.name,
+            description: resource.description,
+            url: resource.url,
+          } as OnlineResource;
+        }),
+      });
+    });
+    onlineResources = resourceCategories;
   } catch (error) {
     console.error("Error fetching online resources:", error);
   } finally {

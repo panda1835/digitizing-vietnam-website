@@ -1,6 +1,8 @@
 import { getTranslations } from "next-intl/server";
 
-import { BlogCategory } from "@/types/blog";
+import { fetcher } from "@/lib/api";
+import { Blog, BlogCategory } from "@/types/blog";
+import { getImageByKey } from "@/utils/image";
 
 import Item from "@/components/Item";
 import {
@@ -28,11 +30,30 @@ const Blogs = async ({ params: { locale } }) => {
     };
 
     const queryString = new URLSearchParams(queryParams).toString();
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/blogs?${queryString}`
-    );
-    const data = await response.json();
-    blogData = data["data"];
+
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blog-categories?${queryString}`;
+
+    const data = await fetcher(url);
+    const allCategories = data.data;
+    const blogCategories: BlogCategory[] = [];
+
+    allCategories.forEach((category) => {
+      blogCategories.push({
+        category_name: category.name,
+        description: category.description,
+        blogs: category.blogs.map((post) => {
+          return {
+            title: post.name,
+            author: post.blog_authors[0].name,
+            date: post.publishedAt,
+            slug: post.slug,
+            thumbnail: getImageByKey(post.thumbnail[0].formats, "medium")!.url,
+          } as Blog;
+        }),
+      });
+    });
+
+    blogData = blogCategories;
   } catch (error) {
     console.error("Error fetching blogs:", error);
   }
