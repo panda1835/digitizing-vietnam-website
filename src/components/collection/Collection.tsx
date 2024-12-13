@@ -36,7 +36,7 @@ export default function CollectionView({ collections }) {
       {collections.map((item, index) => (
         <HoverCard key={index}>
           <HoverCardTrigger asChild>
-            <div className="flex flex-col rounded border border-gray-500 overflow-hidden cursor-pointer">
+            <div className="flex flex-col rounded-lg border border-gray-500 overflow-hidden cursor-pointer">
               <Link href={`/our-collections/${item.slug}`} className="">
                 <Image
                   unoptimized
@@ -109,12 +109,15 @@ export default function CollectionView({ collections }) {
   const ListView = () => (
     <div className="space-y-4">
       {collections.map((item, index) => (
-        <div key={index} className="flex gap-4 items-start border rounded p-4">
+        <div
+          key={index}
+          className="flex gap-4 items-start border rounded-lg p-4"
+        >
           <Image
             unoptimized
             src={getImageByKey(item.thumbnail.formats, "medium")!.url}
             alt={item.thumbnail.alternativeText}
-            className="w-24 h-24 object-cover rounded"
+            className="w-24 h-24 object-cover rounded-lg"
             width={getImageByKey(item.thumbnail.formats, "medium")!.width}
             height={getImageByKey(item.thumbnail.formats, "medium")!.height}
           />
@@ -192,7 +195,7 @@ export default function CollectionView({ collections }) {
   );
 
   return (
-    <div className="container mx-auto py-6 space-y-6  p-6 rounded">
+    <div className="container mx-auto py-6 space-y-6  p-6 rounded-lg">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold"></h2>
         <div className="flex gap-2">

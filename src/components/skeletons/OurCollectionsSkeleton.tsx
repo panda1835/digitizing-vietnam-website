@@ -25,7 +25,7 @@ const OurCollectionsSkeleton = () => {
             <BreadcrumbSeparator />
 
             <BreadcrumbItem>
-              <BreadcrumbPage>{t("Collection.title")}</BreadcrumbPage>
+              <BreadcrumbPage>{t("Header.our-collections")}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>

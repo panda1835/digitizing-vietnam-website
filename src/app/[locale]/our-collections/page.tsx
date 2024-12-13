@@ -67,7 +67,7 @@ const OurCollections = async ({ params: { locale } }) => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>{t("Collection.title")}</BreadcrumbPage>
+              <BreadcrumbPage>{t("Header.our-collections")}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>

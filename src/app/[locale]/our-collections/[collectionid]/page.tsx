@@ -134,7 +134,7 @@ const EachCollection = async ({ params: { locale, collectionId } }) => {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink href={`/${locale}/our-collections`}>
-                {t("Collection.title")}
+                {t("Header.our-collections")}
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -160,7 +160,7 @@ const EachCollection = async ({ params: { locale, collectionId } }) => {
           <DialogTrigger>
             <p className="text-blue-600 hover:underline">Metadata</p>
           </DialogTrigger>
-          <DialogContent className="bg-white">
+          <DialogContent className="">
             <DialogHeader>
               <DialogTitle>{collection.title}</DialogTitle>
               <DialogDescription>
