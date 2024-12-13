@@ -7,3 +7,4 @@ coverage/
 
 .next/
 src-react
+netlify.toml
