@@ -21,7 +21,7 @@ const CollectionItemViewer = async ({
   params,
   searchParams,
 }: {
-  params: { collectionId: string; documentId: string; locale: string };
+  params: { collectionid: string; documentid: string; locale: string };
   searchParams?: {
     canvasId?: string;
   };
@@ -31,8 +31,8 @@ const CollectionItemViewer = async ({
   // const originalCanvasId = canvasParam.get("canvasId")?.toString();
 
   const locale = params.locale;
-  const collectionId = params.collectionId;
-  const documentId = params.documentId;
+  const collectionId = params.collectionid;
+  const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
 
   const t = await getTranslations();

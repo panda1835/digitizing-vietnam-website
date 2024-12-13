@@ -26,7 +26,8 @@ import { getImageByKey } from "@/utils/image";
 import { formatDate } from "@/utils/datetime";
 import { populate } from "dotenv";
 
-const EachCollection = async ({ params: { locale, collectionId } }) => {
+const EachCollection = async ({ params: { locale, collectionid } }) => {
+  const collectionId = collectionid;
   const t = await getTranslations();
 
   let collection = {
