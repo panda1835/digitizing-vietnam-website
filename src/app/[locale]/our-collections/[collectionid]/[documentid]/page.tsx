@@ -109,7 +109,7 @@ const CollectionItemViewer = async ({
 
             {"document" === "document" && (
               <MiradorViewer
-                manifestUrl={`https://manifest.digitizingvietnam.com/get-manifest?item-slug=${documentId}`}
+                manifestUrl={`https://manifest.digitizingvietnam.com/get-manifest?item-slug=${documentId}&locale=${locale}`}
                 canvasId={originalCanvasId}
               />
             )}

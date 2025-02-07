@@ -17,6 +17,10 @@ const config: Config = {
         "primary-blue": "#00196e",
         "primary-yellow": "#ffad1d",
         "primary-gray": "#e1e1de",
+        "branding-brown": "#a5701c",
+        "branding-black": "#181818",
+        "branding-gray": "#f1f1f1",
+        "branding-white": "#fbfbfb",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

@@ -7,13 +7,16 @@
     "search": "Tìm kiếm"
   },
 
-  "Header": {
+  "NavigationBar": {
     "home": "Trang chủ",
     "about-us": "Về chúng tôi",
     "our-collections": "Bộ sưu tập",
     "tools": "Công cụ",
     "blogs": "Bài viết",
-    "online-resources": "Tài nguyên"
+    "online-resources": "Tài nguyên",
+    "outreach": "Outreach",
+    "vietnam-for-educators": "Việt Nam cho giáo viên",
+    "understanding-vietnam": "Hiểu về Việt Nam"
   },
 
   "Home": {

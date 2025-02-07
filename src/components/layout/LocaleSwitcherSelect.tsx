@@ -20,12 +20,12 @@ export default function LocaleSwitcherSelect({ children, defaultValue }) {
   return (
     <div
       className={clsx(
-        "relative text-gray-400",
+        "relative text-gray-400 px-3 py-2 rounded-lg bg-branding-black",
         isPending && "transition-opacity [&:disabled]:opacity-30"
       )}
     >
       <select
-        className="text-primary-yellow border-none bg-transparent"
+        className="text-branding-white  border-none bg-transparent"
         defaultValue={defaultValue}
         onChange={onSelectChange}
       >

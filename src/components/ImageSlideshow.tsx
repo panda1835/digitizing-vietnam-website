@@ -1,10 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useState } from "react";
+import { Merriweather } from "next/font/google";
+
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const ImageSlideshow = ({ slides, locale }) => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   // Slider settings
   const settings = {
     dots: true,
@@ -18,24 +25,44 @@ const ImageSlideshow = ({ slides, locale }) => {
     autoplay: true,
     autoplaySpeed: 5000,
     cssEase: "linear",
+    customPaging: (i) => (
+      <div className="h-3 w-3 bg-[#CCCCCC] hover:bg-[#FFA500] rounded-full transition-colors duration-300"></div>
+    ),
+    appendDots: (dots) => (
+      <div style={{ width: "100%" }}>
+        <ul style={{ margin: "-10px" }}>{dots}</ul>
+      </div>
+    ),
   };
 
   return (
-    <div>
+    <div className="relative">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="text-center h-72 flex flex-col justify-center items-center"
+            className="relative h-[600px]"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
           >
-            {/* Ensure the image is centered within its container */}
-            <img
-              src={slide.img}
+            <Image
+              unoptimized
+              src={slide.img || "/placeholder.svg"}
               alt={slide.caption[locale]}
-              className="mx-auto object-cover h-72 w-full"
+              className="object-cover h-[600px] w-full"
+              width={1920}
+              height={1080}
               style={{ maxHeight: "100%", maxWidth: "100%" }}
             />
-            <p className="text-white">{slide.caption[locale]}</p>
+            {hoveredIndex === index && (
+              <div className="absolute bottom-0 w-full bg-black bg-opacity-50 flex items-center transition-opacity duration-500">
+                <p
+                  className={`text-white text-lg p-8 text-left ${merriweather.className}`}
+                >
+                  {slide.caption[locale]}
+                </p>
+              </div>
+            )}
           </div>
         ))}
       </Slider>

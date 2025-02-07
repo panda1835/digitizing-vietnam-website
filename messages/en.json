@@ -7,13 +7,16 @@
     "search": "Search"
   },
 
-  "Header": {
+  "NavigationBar": {
     "home": "Home",
     "about-us": "About Us",
     "our-collections": "Collections",
     "tools": "Tools",
-    "blogs": "Blogs",
-    "online-resources": "Resources"
+    "blogs": "Highlights",
+    "online-resources": "Resources",
+    "outreach": "Outreach",
+    "vietnam-for-educators": "Việt Nam for Educators",
+    "understanding-vietnam": "Understanding Việt Nam"
   },
 
   "Home": {
