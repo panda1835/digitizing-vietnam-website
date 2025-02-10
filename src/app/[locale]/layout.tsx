@@ -35,10 +35,24 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <NavigationBar />
           <div
-            className="flex-grow bg-repeat px-[20px] md:px-[50px]"
+            className="flex-grow bg-repeat px-[20px] md:px-[50px] relative"
             style={style}
           >
-            <div className="flex justify-center items-center h-full">
+            <div
+              className="absolute inset-0 bg-[url('/images/smudge-1.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
+              top-[161px] left-[242px] 
+              md:top-[100px] md:left-[600px]
+              "
+            />
+            <div
+              className="absolute inset-0 bg-[url('/images/smudge-2.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
+              top-[2000px] left-[400px]
+              md:top-[1500px] md:left-[1100px]
+              sm:top-[1500px] sm:left-[400px]
+              
+              "
+            />
+            <div className="flex justify-center items-center h-full mb-10">
               <SearchBar locale={locale} />
             </div>
             {children}
