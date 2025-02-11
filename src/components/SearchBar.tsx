@@ -41,7 +41,7 @@ const CustomSearchBox = ({ currentRefinement, refine }: any) => {
   const t = useTranslations("Button");
 
   return (
-    <div className="relative flex-grow md:flex-grow-0">
+    <div className="relative w-full">
       <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500" />
       <input
         type="text"
@@ -49,7 +49,7 @@ const CustomSearchBox = ({ currentRefinement, refine }: any) => {
         placeholder={t("search")}
         value={currentRefinement}
         onChange={(e) => refine(e.target.value)}
-        className="max-w-7xl h-[54px] px-5 py-2 pl-12 bg-branding-gray rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
+        className="h-[54px] w-full px-5 py-2 pl-12 bg-branding-gray rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
       />
     </div>
   );
@@ -113,7 +113,7 @@ const SearchBar = ({ locale }: { locale: string }) => {
     //     className="border-2 border-black rounded-lg px-5 mx-2 bg-primary-blue text-white cursor-pointer"
     //   />
     // </form>
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="w-full px-4 py-8">
       <InstantSearch
         searchClient={searchClient}
         indexName="development_api::strapi"

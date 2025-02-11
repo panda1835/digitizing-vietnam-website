@@ -5,9 +5,7 @@ import { getMessages } from "next-intl/server";
 
 import NavigationBar from "@/components/layout/NavigationBar";
 import Footer from "@/components/layout/Footer";
-import GachBongTop from "@/components/SearchBar";
 import BackToTopButton from "@/components/layout/BackToTopButton";
-import SearchBar from "@/components/SearchBar";
 
 export const metadata = {
   title: "Digitizing Việt Nam",
@@ -31,7 +29,7 @@ export default async function LocaleLayout({
   };
   return (
     <html lang={locale}>
-      <body className="min-h-screen flex flex-col  bg-[#f7f7f7]">
+      <body className="min-h-screen flex flex-col bg-[#f7f7f7]">
         <NextIntlClientProvider messages={messages}>
           <NavigationBar />
           <div
@@ -52,9 +50,6 @@ export default async function LocaleLayout({
               
               "
             />
-            <div className="flex justify-center items-center h-full mb-10">
-              <SearchBar locale={locale} />
-            </div>
             {children}
           </div>
           <BackToTopButton />
