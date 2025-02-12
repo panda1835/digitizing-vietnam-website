@@ -12,7 +12,7 @@ import { House } from "lucide-react";
 
 export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {
   return (
-    <div className="my-10">
+    <div className="mb-10 mt-16">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

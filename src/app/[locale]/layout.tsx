@@ -33,7 +33,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <NavigationBar />
           <div
-            className="flex-grow bg-repeat px-[20px] md:px-[50px] relative"
+            className="flex-grow bg-repeat bg-opacity-90 px-[20px] md:px-[50px] relative"
             style={style}
           >
             <div

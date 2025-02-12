@@ -3,18 +3,14 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 import { renderHtml } from "@/utils/renderHtml";
-
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-
-import { getImageByKey } from "@/utils/image";
+import { Merriweather } from "next/font/google";
+import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
+import { Separator } from "@/components/ui/separator";
+import { MoveRight } from "lucide-react";
 import { fetcher } from "@/lib/api";
+import Avatars from "./Avatars";
+import LearnMoreButton from "@/components/LearnMoreButton";
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const AboutUs = async ({ params: { locale } }) => {
   let aboutUsData = [];
@@ -42,105 +38,153 @@ const AboutUs = async ({ params: { locale } }) => {
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 mx-5">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{t("AboutUs.title")}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-        <h1 className="flex justify-center mt-8">{t("AboutUs.title")}</h1>
-        <h2 className="mt-5">{locale === "en" ? "Our Mission" : "Sứ mệnh"}</h2>
-        <div dangerouslySetInnerHTML={renderHtml(aboutUsData["mission"])} />
-
-        <h2 className="mt-5">
-          {locale === "en" ? "Core Team" : "Nhóm vận hành chính"}
-        </h2>
-        <div className="flex flex-wrap justify-start items-start md:flex-row flex-col">
-          {aboutUsData["core_team"] &&
-            aboutUsData["core_team"].map((teamMember) => (
-              <div
-                key={teamMember.name}
-                className="w-full md:w-1/3 flex flex-col items-center mb-5"
-              >
-                <Image
-                  unoptimized
-                  className="w-48 h-48 rounded-full mb-4 object-cover"
-                  width={192}
-                  height={192}
-                  src={
-                    teamMember.avatar
-                      ? getImageByKey(teamMember.avatar.formats, "small")!.url
-                      : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-                  }
-                  alt={
-                    teamMember.avatar
-                      ? teamMember.avatar.alternativeText
-                      : `Avatar of ${teamMember.name}`
-                  }
-                />
-                <h3 className="text-xl">{teamMember.name}</h3>
-                <p className="px-5 font-bold">{teamMember.title}</p>
-                <p className="px-5 text-center">{teamMember.description}</p>
-              </div>
-            ))}
-        </div>
-
-        <h2 className="mt-5">{locale === "en" ? "Advisors" : "Cố vấn"}</h2>
-        <div className="flex flex-wrap justify-start items-start md:flex-row flex-col">
-          {aboutUsData["advisor"] &&
-            aboutUsData["advisor"].map((teamMember) => (
-              <div
-                key={teamMember.name}
-                className="w-full md:w-1/3 flex flex-col items-center mb-5"
-              >
-                <Image
-                  unoptimized
-                  className="w-48 h-48 rounded-full mb-4 object-cover"
-                  width={192}
-                  height={192}
-                  src={
-                    teamMember.avatar
-                      ? getImageByKey(teamMember.avatar.formats, "small")!.url
-                      : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-                  }
-                  alt={
-                    teamMember.avatar
-                      ? teamMember.avatar.alternativeText
-                      : `Avatar of ${teamMember.name}`
-                  }
-                />
-                <h3 className="text-xl">{teamMember.name}</h3>
-                <p className="px-5 font-bold text-center">{teamMember.title}</p>
-                <p className="px-5 text-center">{teamMember.description}</p>
-              </div>
-            ))}
-        </div>
-        <h2 className="mt-5">
-          {locale === "en" ? "Institutional Support" : "Đơn vị hỗ trợ"}
-        </h2>
+        <BreadcrumbAndSearchBar
+          locale={locale}
+          breadcrumbItems={[{ label: t("AboutUs.title") }]}
+        />
         <div
-          className="pl-5"
-          dangerouslySetInnerHTML={renderHtml(
-            aboutUsData["institutional_support"]
-          )}
+          className={`${merriweather.className} text-branding-black text-4xl`}
+        >
+          {t("AboutUs.title")}
+        </div>
+        <div
+          className="md:col-span-2 font-['Helvetica Neue'] text-branding-black max-w-5xl mt-6"
+          dangerouslySetInnerHTML={renderHtml(aboutUsData["subheadline"])}
         />
 
-        <h2 className="mt-5">
-          {locale === "en" ? "Funding" : "Nguồn tài trợ"}
-        </h2>
-        <div dangerouslySetInnerHTML={renderHtml(aboutUsData["funding"])} />
+        <div className="mt-28">
+          <Separator />
+        </div>
 
-        <h2 className="mt-5">
-          {locale === "en" ? "Our Collections" : "Bộ sưu tập"}
-        </h2>
-        <div
-          dangerouslySetInnerHTML={renderHtml(aboutUsData["our_collections"])}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
+          <div className={`${merriweather.className}  text-4xl`}>
+            {locale === "en" ? "Our Mission" : "Sứ mệnh"}
+          </div>
+          <div
+            className="md:col-span-2 font-['Helvetica Neue'] text-branding-black"
+            dangerouslySetInnerHTML={renderHtml(aboutUsData["mission"])}
+          />
+        </div>
+
+        <div className="mt-20">
+          <Separator />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
+          <div className={`${merriweather.className}  text-4xl`}>
+            {locale === "en" ? "Our Collections" : "Bộ sưu tập"}
+          </div>
+          <div className="md:col-span-2 font-['Helvetica Neue']">
+            <div
+              className="  text-branding-black"
+              dangerouslySetInnerHTML={renderHtml(
+                aboutUsData["our_collections"]
+              )}
+            />
+            <LearnMoreButton url={"/our-collections"} />
+          </div>
+        </div>
+
+        <div className="mt-20">
+          <Separator />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
+          <div className={`${merriweather.className}  text-4xl`}>
+            {locale === "en" ? "Core Team" : "Nhóm vận hành chính"}{" "}
+          </div>
+          <Avatars teamMember={aboutUsData["core_team"]} />
+        </div>
+        <div className="mt-20">
+          <Separator />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+          <div className={`${merriweather.className}  text-4xl`}>
+            {locale === "en" ? "Advisors" : "Cố vấn"}
+          </div>
+          <Avatars teamMember={aboutUsData["advisor"]} />
+        </div>
+        <div className="mt-20">
+          <Separator />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+          <div className={`${merriweather.className}  text-4xl`}>
+            {locale === "en" ? "Institutional Support" : "Đơn vị hỗ trợ"}
+          </div>
+          <div className="md:col-span-2">
+            <div className={`${merriweather.className}  text-2xl`}>
+              {locale === "en" ? "Core Institutions" : "Core Institutions"}
+            </div>
+            <div
+              className="font-['Helvetica Neue'] text-branding-black"
+              dangerouslySetInnerHTML={renderHtml(
+                aboutUsData["institutional_support_core_institutions"]
+              )}
+            />
+            <div className="flex flex-wrap justify-between items-center gap-8 mb-16 mt-8">
+              <Image
+                unoptimized
+                src="/images/vsc-logo.png"
+                alt="Fulbright University Vietnam - Vietnam Studies Center"
+                width={200}
+                height={80}
+                className="object-contain"
+              />
+              <Image
+                unoptimized
+                src="/images/weatherhead-logo.png"
+                alt="Columbia University WeatherHead East Asian Institute"
+                width={200}
+                height={80}
+                className="object-contain"
+              />
+              <Image
+                unoptimized
+                src="/images/henry-luce-foundation-logo.png"
+                alt="Henry Luce Foundation"
+                width={200}
+                height={80}
+                className="object-contain"
+              />
+            </div>
+            <div className={`${merriweather.className}  text-2xl`}>
+              {locale === "en" ? "Partners" : "Partners"}
+            </div>
+            <div
+              className="font-['Helvetica Neue'] text-branding-black"
+              dangerouslySetInnerHTML={renderHtml(
+                aboutUsData["institutional_support_partners"]
+              )}
+            />
+            <div className="flex justify-between items-center gap-8 mb-16 mt-8">
+              {["1", "2", "3", "4", "5"].map((item) => (
+                <Image
+                  unoptimized
+                  key={item}
+                  src={`/images/partner-logo-${item}.png`}
+                  alt="Fulbright University Vietnam - Vietnam Studies Center"
+                  width={100}
+                  height={80}
+                  className="object-contain h-20"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <Separator />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+          <div className={`${merriweather.className}  text-4xl`}>
+            {locale === "en" ? "Funding" : "Nguồn tài trợ"}
+          </div>
+          <div
+            className="md:col-span-2 font-['Helvetica Neue'] text-branding-black"
+            dangerouslySetInnerHTML={renderHtml(aboutUsData["funding"])}
+          />
+        </div>
       </div>
     </div>
   );

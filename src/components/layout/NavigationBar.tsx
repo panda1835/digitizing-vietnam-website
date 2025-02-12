@@ -33,8 +33,8 @@ const NavigationBar = () => {
   ];
 
   return (
-    <header className="bg-branding-white px-[20px] md:px-[50px]">
-      <nav className="flex py-[60px]  mx-auto items-center justify-between">
+    <header className="bg-branding-white px-[20px] md:px-[50px] shadow-[0px_4px_55px_0px_rgba(0,0,0,0.10)]">
+      <nav className="flex py-[40px]  mx-auto items-center justify-between">
         <Logo />
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>

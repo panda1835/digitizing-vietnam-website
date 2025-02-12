@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-branding-white">
-      <div className="px-[20px] md:px-[50px] py-6 lg:py-10 bg-branding-white shadow-[0px_-4px_55px_0px_rgba(0,0,0,0.02)]">
+      <div className="px-[20px] md:px-[50px] py-6 lg:py-10 bg-branding-white shadow-[0px_-4px_55px_0px_rgba(0,0,0,0.10)]">
         <div className="flex flex-col gap-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Email Section */}
