@@ -12,7 +12,7 @@
     "about-us": "About Us",
     "our-collections": "Collections",
     "tools": "Tools",
-    "blogs": "Highlights",
+    "highlights": "Highlights",
     "online-resources": "Resources",
     "outreach": "Outreach",
     "vietnam-for-educators": "Việt Nam for Educators",
@@ -41,7 +41,7 @@
     "no-volume-found": "No volumes found."
   },
 
-  "Blog": {
+  "Highlight": {
     "title": "Vietnam Digitized: A Blog",
     "subtitle": "News, insights and initiatives on the digital front of Vietnamese heritage.",
     "news": "News",

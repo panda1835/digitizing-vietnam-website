@@ -3,13 +3,13 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 import { renderHtml } from "@/utils/renderHtml";
-import { Merriweather } from "next/font/google";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Separator } from "@/components/ui/separator";
-import { MoveRight } from "lucide-react";
 import { fetcher } from "@/lib/api";
 import Avatars from "./Avatars";
 import LearnMoreButton from "@/components/LearnMoreButton";
+import { Merriweather } from "next/font/google";
+
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const AboutUs = async ({ params: { locale } }) => {
@@ -37,7 +37,7 @@ const AboutUs = async ({ params: { locale } }) => {
 
   return (
     <div className="flex flex-col items-center max-width">
-      <div className="flex-col mb-20 mx-5">
+      <div className="flex-col mb-20">
         <BreadcrumbAndSearchBar
           locale={locale}
           breadcrumbItems={[{ label: t("AboutUs.title") }]}

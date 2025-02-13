@@ -23,7 +23,7 @@ const NavigationBar = () => {
     { key: "about-us", href: "/about-us" },
     { key: "our-collections", href: "/our-collections" },
     { key: "tools", href: "/tools" },
-    { key: "blogs", href: "/blogs" },
+    { key: "highlights", href: "/highlights" },
     { key: "online-resources", href: "/online-resources" },
   ];
 

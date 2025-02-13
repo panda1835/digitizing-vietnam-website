@@ -191,7 +191,7 @@ const Home = ({ params: { locale } }) => {
                 heritage.
               </p>
               <div className="mt-4">
-                <LearnMoreButton url="/blogs" />
+                <LearnMoreButton url="/highlights" />
               </div>
             </div>
           </div>

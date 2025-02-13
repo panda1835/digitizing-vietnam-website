@@ -3,7 +3,11 @@ export interface Blog {
   author: string;
   date: string;
   slug: string;
-  thumbnail: string;
+  thumbnail: {
+    url: string;
+    width: number;
+    height: number;
+  };
   content: string;
 }
 

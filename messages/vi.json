@@ -12,7 +12,7 @@
     "about-us": "Về chúng tôi",
     "our-collections": "Bộ sưu tập",
     "tools": "Công cụ",
-    "blogs": "Bài viết",
+    "highlights": "Bài viết",
     "online-resources": "Tài nguyên",
     "outreach": "Outreach",
     "vietnam-for-educators": "Việt Nam cho giáo viên",
@@ -41,7 +41,7 @@
     "no-volume-found": "Không tìm thấy tập nào."
   },
 
-  "Blog": {
+  "Highlight": {
     "title": "Việt Nam Số hóa: Blog",
     "subtitle": "Thông tin, nhận định và các sáng kiến trên mặt trận số hóa di sản Việt Nam.",
     "news": "Tin tức",
