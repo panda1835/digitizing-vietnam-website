@@ -1,9 +1,12 @@
-import AboutUsSkeleton from "@/components/skeletons/AboutUsSkeleton";
-
-export default function Loading() {
+import LoadingSpinner from "@/components/layout/LoadingSpinner";
+const Loading = () => {
   return (
-    <div>
-      <AboutUsSkeleton />
+    <div className="flex flex-col max-width justify-center items-center">
+      <div className="mt-20">
+        <LoadingSpinner />
+      </div>
     </div>
   );
-}
+};
+
+export default Loading;
