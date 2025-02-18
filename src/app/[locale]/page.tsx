@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Merriweather } from "next/font/google";
@@ -13,13 +13,34 @@ import {
 } from "@/components/ui/card";
 import SearchBar from "@/components/SearchBar";
 import LearnMoreButton from "@/components/LearnMoreButton";
+import { fetcher } from "@/lib/api";
 
 import { slides } from "@/utils/home-slides";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 import ImageSlideshow from "@/components/ImageSlideshow";
-const Home = ({ params: { locale } }) => {
-  const t = useTranslations();
+import ArticleCard from "@/components/ArticleCard";
+import { formatDate } from "@/utils/datetime";
+import { getImageByKey } from "@/utils/image";
+const Home = async ({ params: { locale } }) => {
+  const t = await getTranslations();
+
+  const queryParams = {
+    fields: "*",
+    "populate[0]": "thumbnail",
+    // "populate[1]": "blogs.blog_authors",
+    locale: locale,
+    sort: "publishedAt:desc",
+  };
+
+  const queryString = new URLSearchParams(queryParams).toString();
+
+  const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?${queryString}`;
+
+  const data = await fetcher(url);
+  const highlights = data.data.slice(0, 3);
+
+  console.log(highlights);
 
   return (
     <div className="flex flex-col items-center max-width w-full">
@@ -194,6 +215,18 @@ const Home = ({ params: { locale } }) => {
                 <LearnMoreButton url="/highlights" />
               </div>
             </div>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            {highlights.map((item) => (
+              <ArticleCard
+                title={item.title}
+                description={item.content}
+                date={formatDate(item.date, locale)}
+                imageUrl={getImageByKey(item.thumbnail[0].formats, "medium")}
+                link={`/highlights/${item.slug}`}
+                key={`/highlights/${item.slug}`}
+              />
+            ))}
           </div>
         </section>
       </div>
