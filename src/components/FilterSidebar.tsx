@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 
 interface FilterOption {
   name: string;
@@ -20,11 +21,13 @@ interface FilterGroup {
 interface FilterSidebarProps {
   filters: FilterGroup[];
   onFilterChange: (filters: Record<string, string[]>) => void;
+  numberOfResults: number;
 }
 
 export default function FilterSidebar({
   filters,
   onFilterChange,
+  numberOfResults,
 }: FilterSidebarProps) {
   const t = useTranslations();
 
@@ -48,7 +51,10 @@ export default function FilterSidebar({
 
   return (
     <div className="w-full md:w-80 mb-8 md:mb-0 md:mr-8 bg-white p-4 rounded-lg shadow">
-      <h2 className="text-xl font-semibold mb-4">Filters</h2>
+      <div className="mb-4 font-['Helvetica Neue'] text-branding-black">
+        <span className="font-semibold text-4xl">{numberOfResults}</span>{" "}
+        <span className="text-xl font-base">{t("Collection.result")}</span>
+      </div>
       <ScrollArea className="h-[calc(100vh-200px)]">
         {filters.map((group) => {
           const isExpanded = expandedGroups[group.name] || false;
@@ -58,11 +64,14 @@ export default function FilterSidebar({
 
           return (
             <div key={group.name} className="mb-6">
-              <h3 className="text-lg font-medium mb-2">
+              <div className="text-lg font-medium mb-2 font-['Helvetica Neue'] ">
                 {group.name
                   .replace(/_/g, " ")
                   .replace(/^\w/, (c) => c.toUpperCase())}
-              </h3>
+              </div>
+              <div className="mb-4">
+                <Separator />
+              </div>
               {displayedOptions.map((option) => (
                 <div
                   key={`${group.name}-${option.name}`}
@@ -89,7 +98,7 @@ export default function FilterSidebar({
                   />
                   <label
                     htmlFor={`${group.name}-${option.name}`}
-                    className="ml-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    className="ml-2 text-sm font-base leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     {option.name} ({option.count})
                   </label>
@@ -98,7 +107,7 @@ export default function FilterSidebar({
               {group.options.length > 3 && (
                 <Button
                   variant="link"
-                  className="mt-2 p-0 h-auto text-sm text-blue-600 hover:text-blue-800"
+                  className="mt-2 p-0 h-auto text-sm text-branding-brown hover:underline"
                   onClick={() => toggleGroup(group.name)}
                 >
                   {isExpanded ? t("Button.load-less") : t("Button.load-more")}
@@ -108,7 +117,7 @@ export default function FilterSidebar({
           );
         })}
       </ScrollArea>
-      <Button onClick={applyFilters} className="w-full mt-4">
+      <Button onClick={applyFilters} className="w-full mt-4 bg-branding-black">
         Apply Filters
       </Button>
     </div>

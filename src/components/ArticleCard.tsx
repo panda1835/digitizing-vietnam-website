@@ -50,6 +50,8 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
             </div>
           </div>
         </div>
+
+        {/* Abstract */}
         <div
           className="text-branding-black text-base font-light font-['Helvetica Neue'] leading-[23px] mt-4 line-clamp-4"
           dangerouslySetInnerHTML={renderHtml(description)}

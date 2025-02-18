@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -11,14 +10,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
-import { fetcher } from "@/lib/api";
 import { OnlineResource, ResourceCategory } from "@/types/online-resource";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-import LearnMoreButton from "@/components/LearnMoreButton";
-import { Merriweather } from "next/font/google";
 import { MoveRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+
+import { fetcher } from "@/lib/api";
+
+import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const OnlineResources = async ({ params: { locale } }) => {
@@ -116,7 +115,7 @@ const OnlineResources = async ({ params: { locale } }) => {
                         >
                           {category.category_name}
                         </div>
-                        <p className="mt-3 mb-6 text-base font-light font-['Helvetica Neue'] leading-relaxed text-branding-black text-left">
+                        <p className="mt-6 mb-6 text-base font-light font-['Helvetica Neue'] leading-relaxed text-branding-black text-left">
                           {category.description}
                         </p>
                         <Separator />

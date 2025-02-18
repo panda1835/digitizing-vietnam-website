@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
-import FilterSidebar from "@/app/[locale]/search/FilterSidebar";
+import FilterSidebar from "@/components/FilterSidebar";
 import CollectionItem from "@/components/collection/CollectionItem";
 
 export default function SearchResults({ searchResults, locale, searchQuery }) {
