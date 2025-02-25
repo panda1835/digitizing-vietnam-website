@@ -8,7 +8,6 @@ const inter = Inter({ weight: "400", subsets: ["vietnamese"] });
 
 const ArticleCard = ({ title, description, date, imageUrl, link }) => {
   const t = useTranslations("Button");
-  console.log("ArticleCard , ");
   return (
     <div className="mb-5">
       <Image

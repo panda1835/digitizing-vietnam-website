@@ -34,7 +34,7 @@ const OurCollections = ({ collections, locale }) => {
                 selectedOptions.includes(lang)
               );
             case "resourceTypes":
-              return item.resource_types.some((resource_type) =>
+              return item.resourceTypes.some((resource_type) =>
                 selectedOptions.includes(resource_type)
               );
             case "subjects":
@@ -57,7 +57,7 @@ const OurCollections = ({ collections, locale }) => {
   };
 
   return (
-    <div className="flex flex-col max-width items-center">
+    <div className="flex flex-col w-full items-center">
       <div className="flex-col mb-20 w-full">
         <BreadcrumbAndSearchBar
           locale={locale}
@@ -89,7 +89,7 @@ const OurCollections = ({ collections, locale }) => {
               numberOfResults={filteredResults.length}
             />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10 gap-y-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10 gap-y-12">
             {filteredResults.map((collection) => (
               <CollectionItem collection={collection} key={collection.slug} />
             ))}

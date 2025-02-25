@@ -40,8 +40,6 @@ const Home = async ({ params: { locale } }) => {
   const data = await fetcher(url);
   const highlights = data.data.slice(0, 3);
 
-  console.log(highlights);
-
   return (
     <div className="flex flex-col items-center max-width w-full">
       <div className="flex-col mb-20 px-5 w-full">
