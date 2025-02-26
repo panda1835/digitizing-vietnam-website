@@ -117,7 +117,10 @@ export default function FilterSidebar({
           );
         })}
       </ScrollArea>
-      <Button onClick={applyFilters} className="w-full mt-4 bg-branding-black">
+      <Button
+        onClick={applyFilters}
+        className="w-full mt-4 bg-branding-black hover:bg-branding-brown"
+      >
         Apply Filters
       </Button>
     </div>

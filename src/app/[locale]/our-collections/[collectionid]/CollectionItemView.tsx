@@ -14,16 +14,16 @@ import { generateCollectionFilters } from "./filter";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-const OurCollections = ({ collections, locale }) => {
+const CollectionItemView = ({ collection, collectionItems, locale }) => {
   const t = useTranslations();
 
-  const [filteredResults, setFilteredResults] = useState(collections);
+  const [filteredResults, setFilteredResults] = useState(collectionItems);
 
-  //   console.log("collections", collections);
-  const filter = generateCollectionFilters(collections);
+  //   console.log("collectionItems", collectionItems);
+  const filter = generateCollectionFilters(collectionItems);
 
   const handleFilterChange = (selectedFilters: Record<string, string[]>) => {
-    const filtered = collections.filter((item) => {
+    const filtered = collectionItems.filter((item) => {
       return Object.entries(selectedFilters).every(
         ([filterName, selectedOptions]) => {
           if (selectedOptions.length === 0) return true;
@@ -31,20 +31,14 @@ const OurCollections = ({ collections, locale }) => {
           switch (filterName) {
             case "languages":
               return item.languages.some((lang) =>
-                selectedOptions.includes(lang)
+                selectedOptions.includes(lang.name)
               );
-            case "resourceTypes":
-              return item.resourceTypes.some((resource_type) =>
-                selectedOptions.includes(resource_type)
-              );
+
             case "subjects":
               return item.subjects.some((subject) =>
-                selectedOptions.includes(subject)
+                selectedOptions.includes(subject.name)
               );
-            case "collections":
-              return item.collections.some((collection) =>
-                selectedOptions.includes(collection.title)
-              );
+
             case "publishers":
               return selectedOptions.includes(item.publisher);
             default:
@@ -61,23 +55,27 @@ const OurCollections = ({ collections, locale }) => {
       <div className="flex-col mb-20 w-full">
         <BreadcrumbAndSearchBar
           locale={locale}
-          breadcrumbItems={[{ label: t("NavigationBar.our-collections") }]}
+          breadcrumbItems={[
+            {
+              label: t("NavigationBar.our-collections"),
+              href: "our-collections",
+            },
+            { label: collection.title },
+          ]}
         />
 
         {/* Headline */}
         <div
           className={`${merriweather.className} text-branding-black text-4xl`}
         >
-          {t("NavigationBar.our-collections")}
+          {collection.title}
         </div>
 
         {/* Subheadline */}
         <div
-          className={`font-light font-['Helvetica Neue'] leading-relaxed mt-8`}
+          className={`font-light font-['Helvetica Neue'] leading-relaxed mt-8 max-w-4xl`}
         >
-          {locale === "en"
-            ? "Explore our digital archive dedicated to the preservation and academic exploration of Vietnam's historical and intellectual heritage."
-            : "Khám phá bộ sưu tập kỹ thuật số của chúng tôi, dành riêng cho việc bảo tồn và khám phá học thuật về di sản lịch sử và trí tuệ của Việt Nam."}
+          {collection.abstract}
         </div>
 
         <div className="mt-28">
@@ -92,8 +90,12 @@ const OurCollections = ({ collections, locale }) => {
             />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10 gap-y-12">
-            {filteredResults.map((collection) => (
-              <CollectionItem collection={collection} key={collection.slug} />
+            {filteredResults.map((item) => (
+              <CollectionItem
+                collectionItem={item}
+                collectionSlug={collection.slug}
+                key={item.slug}
+              />
             ))}
           </div>
         </div>
@@ -102,4 +104,4 @@ const OurCollections = ({ collections, locale }) => {
   );
 };
 
-export default OurCollections;
+export default CollectionItemView;

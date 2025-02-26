@@ -1,21 +1,17 @@
 // "use client";
-import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
 import MiradorViewer from "@/components/mirador/MiradorViewer";
-import CollectionInforPanel from "@/components/CollectionInforPanel";
 import CollectionPermalink from "@/components/CollectionPermalink";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
+import Metadata from "./Metadata";
+import { Separator } from "@/components/ui/separator";
 
-import config from "../../../../config";
-import { fetchCollectionItems } from "@/utils/data";
+import { fetcher } from "@/lib/api";
+import { Merriweather } from "next/font/google";
+import { toast } from "sonner";
+
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const CollectionItemViewer = async ({
   params,
@@ -26,55 +22,73 @@ const CollectionItemViewer = async ({
     canvasId?: string;
   };
 }) => {
-  // const searchParams = useSearchParams();
-  // const canvasParam = new URLSearchParams(searchParams);
-  // const originalCanvasId = canvasParam.get("canvasId")?.toString();
-
   const locale = params.locale;
   const collectionId = params.collectionid;
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
 
   const t = await getTranslations();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  // const { manifest, mediaType, collectionName, currentPageOCR } =
-  // await fetchCollectionItems(
-  //   collectionId,
-  //   documentId,
-  //   locale,
-  //   originalCanvasId
-  // );
+  let collectionItemData: any = {};
+  let collectionTitle = "";
+
+  try {
+    const queryParams = {
+      fields: "*",
+      "filters[slug][$eq]": documentId,
+      populate: "*",
+      locale: locale,
+    };
+
+    const queryString = new URLSearchParams(queryParams).toString();
+
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
+    const data = await fetcher(url);
+    collectionItemData = data.data[0];
+    collectionTitle =
+      collectionItemData.collections.find(
+        (collection: any) => collection.slug === collectionId
+      )?.title || "";
+
+    console.log("Collection data:", collectionItemData);
+  } catch (error) {
+    toast.error("Error fetching collection:", error);
+  }
 
   return (
-    <div className="flex flex-col max-width">
-      <div className="flex-col mb-20 mx-5 ">
+    <div className="flex flex-col w-full items-center">
+      <div className="flex-col mb-20 w-full">
         {/* Breadcrumbs */}
 
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href={`/${locale}/our-collections`}>
-                {t("Collection.title")}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            {/* <BreadcrumbItem>
-              <BreadcrumbPage>{collectionName}</BreadcrumbPage>
-            </BreadcrumbItem> */}
-          </BreadcrumbList>
-        </Breadcrumb>
-        {/* Title */}
-        {/* <h1>
-          {manifest
-            ? manifest["label"] && Object.keys(manifest["label"]).includes("en")
-              ? manifest["label"]["en"][0]
-              : manifest["label"]
-            : null}
-        </h1> */}
+        <BreadcrumbAndSearchBar
+          locale={locale}
+          breadcrumbItems={[
+            {
+              label: t("NavigationBar.our-collections"),
+              href: "/our-collections",
+            },
+            {
+              label: collectionTitle,
+              href: "/our-collections/" + collectionId,
+            },
+            { label: collectionItemData.title },
+          ]}
+        />
+
+        {/* Headline */}
+        <div
+          className={`${merriweather.className} text-branding-black text-4xl`}
+        >
+          {collectionItemData.title}
+        </div>
+
+        {/* Subheadline */}
+        <div
+          className={`font-light font-['Helvetica Neue'] leading-relaxed mt-8 max-w-4xl`}
+        >
+          {collectionItemData.abstract}
+        </div>
 
         {/* Share links */}
         <CollectionPermalink />
@@ -82,14 +96,9 @@ const CollectionItemViewer = async ({
         {/* Content */}
         <div className="flex flex-row">
           {/* General Info and Text OCR section */}
-          {/* <CollectionInforPanel
-            manifest={manifest}
-            mediaType={mediaType}
-            currentPageOCR={currentPageOCR}
-          /> */}
 
           {/* Item viewer */}
-          <div className="w-full relative ml-5">
+          <div className="w-full relative">
             {/* {mediaType === "video" && (
               <div>
                 <iframe
@@ -109,12 +118,18 @@ const CollectionItemViewer = async ({
 
             {"document" === "document" && (
               <MiradorViewer
-                manifestUrl={`https://manifest.digitizingvietnam.com/get-manifest?item-slug=${documentId}&locale=${locale}`}
+                manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
                 canvasId={originalCanvasId}
               />
             )}
           </div>
         </div>
+        <div className="mt-16">
+          <Separator />
+        </div>
+
+        {/* Metadata */}
+        <Metadata locale={locale} collectionItemData={collectionItemData} />
       </div>
     </div>
   );

@@ -1,17 +1,35 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import qs from "qs";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import CollectionItem from "@/components/collection/CollectionItem";
+import MetaData from "@/components/collection/Metadata";
+
 import { fetcher } from "@/lib/api";
+import { getImageByKey } from "@/utils/image";
 import { formatDate } from "@/utils/datetime";
-import { Collection } from "@/types/collection";
+import { populate } from "dotenv";
 
-import CollectionItemView from "./CollectionItemView";
-
-const OurCollections = async ({ params: { locale, collectionid } }) => {
+const EachCollection = async ({ params: { locale, collectionid } }) => {
   const collectionId = collectionid;
-  let collections: Collection[] = [];
-
   const t = await getTranslations();
+
   let collection = {
     title: "",
     abstract: "",
@@ -107,14 +125,80 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
   }
 
   return (
-    <div className="flex flex-col max-width items-center">
-      <CollectionItemView
-        collectionItems={collectionItems}
-        collection={collection}
-        locale={locale}
-      />
+    <div className="flex flex-col max-width">
+      <div className="flex-col mb-20 mx-5">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href={`/${locale}/our-collections`}>
+                {t("Header.our-collections")}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{collection.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        {/* Banner */}
+        <Image
+          unoptimized
+          src={getImageByKey(collection.thumbnail.formats, "small")!.url}
+          alt={collection.thumbnail.alternativeText}
+          width={100}
+          height={100}
+          className="w-full h-[300px] object-cover mt-8 rounded"
+        />
+
+        <h1 className="text-primary-blue my-8">{collection.title}</h1>
+
+        <div className="mb-4">{collection.abstract}</div>
+        <Dialog>
+          <DialogTrigger>
+            <p className="text-blue-600 hover:underline">Metadata</p>
+          </DialogTrigger>
+          <DialogContent className="">
+            <DialogHeader>
+              <DialogTitle>{collection.title}</DialogTitle>
+              <DialogDescription>
+                <MetaData collection={collection} />
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+
+        <CollectionItem
+          collectionItems={collectionItems}
+          collectionSlug={collection.slug}
+          locale={locale}
+        />
+
+        <div className="mb-10"></div>
+
+        {/* Featured articles */}
+        <section>
+          <h1 id="feature-articles">{t("Collection.featured-articles")}</h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            {/* {featuredArticles &&
+              featuredArticles &&
+              featuredArticles.map((item) => (
+                <Item
+                  title={item.title}
+                  description={""}
+                  imageUrl={item.image_url}
+                  link={`/blogs/${item.blog_id}`}
+                  key={`/blogs/${item.blog_id}`}
+                />
+              ))} */}
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
 
-export default OurCollections;
+export default EachCollection;

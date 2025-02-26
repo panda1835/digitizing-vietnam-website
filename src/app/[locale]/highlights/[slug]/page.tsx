@@ -10,6 +10,7 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 const BlogArticle = async ({ params: { slug, locale } }) => {
+  console.log("locale1", locale);
   let post: Blog = {
     title: "",
     author: "",
@@ -59,7 +60,10 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
         <BreadcrumbAndSearchBar
           locale={locale}
           breadcrumbItems={[
-            { label: t("NavigationBar.highlights"), href: "/highlights" },
+            {
+              label: t("NavigationBar.highlights"),
+              href: `highlights`,
+            },
             { label: post.title },
           ]}
         />

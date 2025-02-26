@@ -6,6 +6,7 @@ import { getMessages } from "next-intl/server";
 import NavigationBar from "@/components/layout/NavigationBar";
 import Footer from "@/components/layout/Footer";
 import BackToTopButton from "@/components/layout/BackToTopButton";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata = {
   title: "Digitizing Việt Nam",
@@ -52,6 +53,7 @@ export default async function LocaleLayout({
             />
             {children}
           </div>
+          <Toaster />
           <BackToTopButton />
           <Footer />
         </NextIntlClientProvider>

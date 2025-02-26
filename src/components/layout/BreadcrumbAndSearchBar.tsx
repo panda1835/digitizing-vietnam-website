@@ -24,7 +24,9 @@ export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {
           {breadcrumbItems.slice(0, -1).map((item, index) => (
             <BreadcrumbList key={index}>
               <BreadcrumbItem>
-                <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
+                <BreadcrumbLink href={`/${locale}/${item.href}`}>
+                  {item.label}
+                </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator>/</BreadcrumbSeparator>
             </BreadcrumbList>
