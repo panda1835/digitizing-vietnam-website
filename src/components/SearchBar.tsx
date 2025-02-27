@@ -72,8 +72,8 @@ const SearchBar = ({ locale }: { locale: string }) => {
   };
 
   const CustomHits = connectHits(({ hits }) => (
-    <div className="">
-      <ScrollArea className="h-[00px] w-[400px]">
+    <div className="absolute left-0 sm:px-10 md:px-20 w-full flex justify-center items-center">
+      <ScrollArea className="h-[300px] w-full">
         {hits.map((hit) => (
           <>
             {hit.locale === locale && ( // Filter by locale
