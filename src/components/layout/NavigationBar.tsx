@@ -88,7 +88,7 @@ const NavigationBar = () => {
             </NavigationMenuItem>
           </NavigationMenuList>
 
-          <div className="hidden lg:block ml-6">
+          <div className="hidden lg:block ml-6 w-16">
             <LocaleSwitcher />
           </div>
         </NavigationMenu>
@@ -125,7 +125,9 @@ const NavigationBar = () => {
                   ))}
                 </div>
               </div>
-              <LocaleSwitcher />
+              <div className="block w-16">
+                <LocaleSwitcher />
+              </div>
             </nav>
           </SheetContent>
         </Sheet>
