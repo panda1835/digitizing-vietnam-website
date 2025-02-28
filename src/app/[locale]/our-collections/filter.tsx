@@ -17,8 +17,6 @@ export const generateCollectionFilters = (collections) => {
     filterGroups.accessCondition.push(item.accessCondition);
   });
 
-  console.log("filterGroups", filterGroups);
-
   const filterCounts = Object.entries(filterGroups).reduce(
     (acc, [name, options]) => {
       acc[name] = options.reduce((countMap, option) => {

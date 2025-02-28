@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import { Link } from "@/i18n/routing";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
 // eslint-disable-next-line import/no-unresolved
@@ -63,7 +65,6 @@ const SearchBar = ({ locale }: { locale: string }) => {
 
   const router = useRouter();
 
-  console.log("locale", locale);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim()) {
@@ -79,14 +80,37 @@ const SearchBar = ({ locale }: { locale: string }) => {
             {hit.locale === locale && ( // Filter by locale
               <div
                 key={hit}
-                className="border bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                className="border bg-white hover:bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex"
               >
-                <div className="p-5">
-                  <div className="text-xl font-semibold mb-2">{hit.title}</div>
-                  <div className="text-muted-foreground mb-2">
-                    {(hit.description || hit.abstract).slice(0, 100)}...
+                <Link
+                  href={
+                    hit.collection_location
+                      ? `/our-collections/${hit.slug}`
+                      : "/our-collections"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex"
+                >
+                  {hit.thumbnail && hit.thumbnail[0] && (
+                    <Image
+                      src={hit.thumbnail[0].url}
+                      alt={hit.title}
+                      width={96}
+                      height={96}
+                      className="object-cover p-2 border"
+                    />
+                  )}
+                  <div className="p-5 flex-grow">
+                    <div className="text-xl font-semibold mb-2">
+                      {hit.title}
+                    </div>
+                    <div className="text-muted-foreground mb-2">
+                      {(hit.description || hit.abstract).slice(0, 100)}
+                      ...
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             )}
           </>
