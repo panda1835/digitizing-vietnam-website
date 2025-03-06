@@ -98,7 +98,11 @@ export default function SearchResults({ searchResults, locale, searchQuery }) {
   return (
     <div className="container mx-auto py-8">
       <div className="flex flex-col md:flex-row">
-        <FilterSidebar filters={filters} onFilterChange={handleFilterChange} />
+        <FilterSidebar
+          filters={filters}
+          onFilterChange={handleFilterChange}
+          numberOfResults={0}
+        />
         <div className="flex-grow">
           {/* Pagination */}
           {searchResults.length == 0 && (
