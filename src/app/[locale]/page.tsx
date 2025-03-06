@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import SearchBar from "@/components/SearchBar";
+import SearchBar from "@/components/search/SearchBar";
 import LearnMoreButton from "@/components/LearnMoreButton";
 import { fetcher } from "@/lib/api";
 

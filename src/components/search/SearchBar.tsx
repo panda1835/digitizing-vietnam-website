@@ -16,6 +16,7 @@ import {
 } from "react-instantsearch-dom";
 import algoliasearch from "algoliasearch/lite";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import SearchBarResultItem from "./SearchBarResultItem";
 
 const originalSearchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || "",
@@ -39,8 +40,34 @@ const searchClient = {
     return originalSearchClient.search(requests);
   },
 };
+// const CustomSearchBox = ({ currentRefinement, refine }: any) => {
+//   const t = useTranslations("Button");
+
+//   return (
+//     <div className="relative w-full">
+//       <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-700" />
+//       <input
+//         type="text"
+//         name="search-query"
+//         placeholder={t("search")}
+//         value={currentRefinement}
+//         onChange={(e) => refine(e.target.value)}
+//         className="h-[54px] w-full px-5 py-2 pl-12 bg-[#ededed] rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
+//       />
+//     </div>
+//   );
+// };
+
 const CustomSearchBox = ({ currentRefinement, refine }: any) => {
   const t = useTranslations("Button");
+  const router = useRouter();
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && currentRefinement.trim()) {
+      e.preventDefault();
+      router.push(`/search?q=${encodeURIComponent(currentRefinement.trim())}`);
+    }
+  };
 
   return (
     <div className="relative w-full">
@@ -51,7 +78,8 @@ const CustomSearchBox = ({ currentRefinement, refine }: any) => {
         placeholder={t("search")}
         value={currentRefinement}
         onChange={(e) => refine(e.target.value)}
-        className="h-[54px] w-full px-5 py-2 pl-12 bg-[#ededed] rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
+        onKeyDown={handleKeyDown}
+        className="h-[54px] w-full px-5 py-2 pl-12 bg-branding-white shadow-lg rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
       />
     </div>
   );
@@ -73,45 +101,16 @@ const SearchBar = ({ locale }: { locale: string }) => {
   };
 
   const CustomHits = connectHits(({ hits }) => (
-    <div className="absolute left-0 sm:px-10 md:px-20 w-full flex justify-center items-center">
-      <ScrollArea className="h-[300px] w-full">
+    <div className="absolute z-10 left-0 mt-2 sm:px-10 md:px-24 w-full flex justify-center items-center rounded-lg">
+      <ScrollArea
+        className={`h-[300px] w-full rounded-lg py-2 ${
+          hits.length > 0 ? "bg-white" : ""
+        }`}
+      >
         {hits.map((hit) => (
           <>
             {hit.locale === locale && ( // Filter by locale
-              <div
-                key={hit}
-                className="border bg-white hover:bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex"
-              >
-                <Link
-                  href={
-                    hit.collection_location
-                      ? `/our-collections/${hit.slug}`
-                      : "/our-collections"
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex"
-                >
-                  {hit.thumbnail && hit.thumbnail[0] && (
-                    <Image
-                      src={hit.thumbnail[0].url}
-                      alt={hit.title}
-                      width={96}
-                      height={96}
-                      className="object-cover p-2 border"
-                    />
-                  )}
-                  <div className="p-5 flex-grow">
-                    <div className="text-xl font-semibold mb-2">
-                      {hit.title}
-                    </div>
-                    <div className="text-muted-foreground mb-2">
-                      {(hit.description || hit.abstract).slice(0, 100)}
-                      ...
-                    </div>
-                  </div>
-                </Link>
-              </div>
+              <SearchBarResultItem key={hit.objectID} hit={hit} />
             )}
           </>
         ))}
@@ -142,7 +141,7 @@ const SearchBar = ({ locale }: { locale: string }) => {
         searchClient={searchClient}
         indexName="development_api::strapi"
       >
-        <div className="p-4">
+        <div className="px-4 pt-4">
           <SearchInput />
         </div>
         <CustomHits />

@@ -7,7 +7,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-import SearchBar from "@/components/SearchBar";
+import SearchBar from "@/components/search/SearchBar";
 import { House } from "lucide-react";
 
 export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {

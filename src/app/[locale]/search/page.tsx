@@ -1,135 +1,73 @@
-// import { getTranslations } from "next-intl/server";
-// import qs from "qs";
-
-// import FilterSidebar from "@/app/[locale]/search/FilterSidebar";
-// import CollectionItem from "@/components/collection/CollectionItem";
-// import SearchResults from "./SearchResult";
-// import { fetcher } from "@/lib/api";
-
-// const SearchResult = async ({
-//   params,
-//   searchParams,
-// }: {
-//   params: Promise<{ locale: string }>;
-//   searchParams: Promise<{
-//     query: string;
-//     language: string;
-//     page: string;
-//   }>;
-// }) => {
-//   const { query: searchQuery, language, page } = await searchParams;
-//   const { locale } = await params;
-
-//   const t = await getTranslations("SearchResult");
-
-//   let searchResult = [];
-
-//   try {
-//     const queryParams = {
-//       fields: "*",
-//       populate: [
-//         "thumbnail",
-//         "date_created",
-//         "languages",
-//         "contributor",
-//         "contributor.author",
-//         "contributor.author_role_term",
-//         "resource_types",
-//         "place_of_publication",
-//         "subjects",
-//         "collections",
-//         "publisher",
-//       ],
-//       locale: locale,
-//     };
-
-//     if (language) {
-//       queryParams["filters[languages][name][$eq]"] = language;
-//     }
-
-//     const queryString = qs.stringify(queryParams);
-
-//     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
-//     const data = await fetcher(url);
-//     const collectionData = data.data;
-//     console.log("Collection data:", collectionData[0]);
-//     // console.log("collections", collectionData[0].collections);
-//     searchResult = collectionData;
-//   } catch (error) {
-//     console.error("Error fetching collection:", error);
-//   }
-
-//   return (
-//     <div className="flex flex-col max-width">
-//       <div className="flex-col mx-5">
-//         {/* Header */}
-//         <section className="flex flex-col items-center justify-center">
-//           <h1 className="">{t("title")}</h1>
-//         </section>
-
-//         {/* Search result */}
-//       </div>
-
-//       <SearchResults
-//         searchResults={searchResult}
-//         locale={locale}
-//         searchQuery={searchQuery}
-//       />
-//     </div>
-//   );
-// };
-
-// export default SearchResult;
-
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import algoliasearch from "algoliasearch/lite";
 import {
   InstantSearch,
   SearchBox,
   Hits,
-  Pagination,
-  RefinementList,
+  Configure,
 } from "react-instantsearch-dom";
+import algoliasearch from "algoliasearch/lite";
+import { useEffect, useState } from "react";
+import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
+import { useRouter } from "next/navigation";
 
 const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY!
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || "",
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY || ""
 );
 
-export default function SearchResults() {
+const SearchResultsPage = () => {
   const searchParams = useSearchParams();
-  const query = searchParams.get("query") || "";
+  const query = searchParams.get("q") || ""; // Get the query from the URL
+  const [searchQuery, setSearchQuery] = useState(query);
+  const router = useRouter();
+
+  // Update searchQuery when URL changes
+  useEffect(() => {
+    setSearchQuery(query);
+  }, [query]);
+
+  // Handles new search submissions
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">
-        Search Results for &quot;{query}&quot;
-      </h1>
-      <InstantSearch searchClient={searchClient} indexName="your_index_name">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
-            <h2 className="text-xl font-semibold mb-4">Filters</h2>
-            <RefinementList attribute="category" />
-          </div>
-          <div className="md:col-span-3">
-            <SearchBox defaultRefinement={query} />
-            <Hits hitComponent={Hit} />
-            <Pagination />
-          </div>
-        </div>
+    <div className="max-w-3xl mx-auto p-6">
+      <form onSubmit={handleSubmit} className="relative w-full mb-6">
+        <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-700" />
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search..."
+          className="w-full h-[54px] px-5 py-2 pl-12 bg-[#ededed] rounded-[26px]"
+        />
+      </form>
+
+      <InstantSearch
+        searchClient={searchClient}
+        indexName="development_api::strapi"
+      >
+        <Configure query={query} />
+        <Hits hitComponent={Hit} />
       </InstantSearch>
     </div>
   );
-}
+};
 
-function Hit({ hit }) {
-  return (
-    <div className="border p-4 rounded-lg mb-4">
-      <h2 className="text-xl font-semibold">{hit.name}</h2>
-      <p className="text-gray-600">{hit.description}</p>
-      <p className="text-sm text-gray-500 mt-2">Category: {hit.category}</p>
-    </div>
-  );
-}
+// Custom hit component
+const Hit = ({ hit }) => (
+  <div className="border bg-white hover:bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-4 mb-4">
+    <h2 className="text-xl font-semibold">{hit.title || hit.name}</h2>
+    <p className="text-muted-foreground">
+      {hit.description || hit.abstract || "No description available."}
+    </p>
+  </div>
+);
+
+export default SearchResultsPage;
