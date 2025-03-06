@@ -23,6 +23,7 @@ const SearchBarResultItem = ({ hit }) => {
         >
           {hit.thumbnail && (
             <Image
+              unoptimized
               src={
                 Array.isArray(hit.thumbnail)
                   ? hit.thumbnail[0]?.url
