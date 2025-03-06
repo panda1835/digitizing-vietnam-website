@@ -7,7 +7,6 @@ import { getImageByKey } from "@/utils/image";
 import ArticleCard from "@/components/ArticleCard";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Separator } from "@radix-ui/react-separator";
 import { formatDate } from "@/utils/datetime";
 import { Merriweather } from "next/font/google";
 
@@ -84,7 +83,7 @@ const Blogs = async ({ params: { locale } }) => {
 
         {/* Tab */}
         <Tabs
-          defaultValue={blogData[0].category_name
+          defaultValue={blogData[1].category_name
             .replace(/\s/g, "")
             .toLowerCase()}
           className="w-full mt-10"

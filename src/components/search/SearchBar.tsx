@@ -103,8 +103,8 @@ const SearchBar = ({ locale }: { locale: string }) => {
   const CustomHits = connectHits(({ hits }) => (
     <div className="absolute z-10 left-0 mt-2 sm:px-10 md:px-24 w-full flex justify-center items-center rounded-lg">
       <ScrollArea
-        className={`h-[300px] w-full rounded-lg py-2 ${
-          hits.length > 0 ? "bg-white" : ""
+        className={`h-[0px] w-full rounded-lg py-2 ${
+          hits.length > 0 ? "bg-white h-[300px]" : ""
         }`}
       >
         {hits.map((hit) => (

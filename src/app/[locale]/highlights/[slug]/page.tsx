@@ -89,6 +89,7 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
         </div>
 
         <Image
+          unoptimized
           src={post.thumbnail.url}
           alt={post.title}
           width={post.thumbnail.width}

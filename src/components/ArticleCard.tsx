@@ -19,7 +19,7 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
         className="object-cover rounded w-full h-40"
       />
 
-      <p className="">
+      <div className="">
         {/* Date */}
         <div className="text-muted-foreground mt-6">{date}</div>
 
@@ -55,7 +55,7 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
           className="text-branding-black text-base font-light font-['Helvetica Neue'] leading-[23px] mt-4 line-clamp-4"
           dangerouslySetInnerHTML={renderHtml(description)}
         ></div>
-      </p>
+      </div>
     </div>
   );
 };
