@@ -6,11 +6,12 @@ import { fetcher } from "@/lib/api";
 import { formatDate } from "@/utils/datetime";
 import { Merriweather } from "next/font/google";
 import SocialMediaSharing from "./SocialMediaSharing";
+
+import { getImageByKey } from "@/utils/image";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 const BlogArticle = async ({ params: { slug, locale } }) => {
-  console.log("locale1", locale);
   let post: Blog = {
     title: "",
     author: "",
@@ -40,12 +41,12 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
     const blogPost = data.data[0];
     post = {
       title: blogPost.title,
-      author: blogPost.blog_authors[0].name,
+      author: (blogPost.blog_authors[0] && blogPost.blog_authors[0].name) || "",
       date: blogPost.publishedAt,
       thumbnail: {
-        url: blogPost.thumbnail[0].formats.medium.url,
-        width: blogPost.thumbnail[0].formats.medium.width,
-        height: blogPost.thumbnail[0].formats.medium.height,
+        url: getImageByKey(blogPost.thumbnail[0].formats, "medium")!.url,
+        width: getImageByKey(blogPost.thumbnail[0].formats, "medium")!.width,
+        height: getImageByKey(blogPost.thumbnail[0].formats, "medium")!.height,
       },
       content: blogPost.content,
       slug: blogPost.slug,
@@ -100,7 +101,7 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
           dangerouslySetInnerHTML={renderHtml(post.content)}
           className="mt-10 text-branding-black text-base font-light font-['Helvetica Neue'] leading-[30px]"
         />
-        <div className="flex justify-end">
+        <div className="flex justify-end mt-12">
           <SocialMediaSharing title={post.title} />
         </div>
 

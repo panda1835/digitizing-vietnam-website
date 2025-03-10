@@ -30,6 +30,7 @@ const Blogs = async ({ params: { locale } }) => {
 
     const data = await fetcher(url);
     const allCategories = data.data;
+
     const blogCategories: BlogCategory[] = [];
 
     allCategories.forEach((category) => {
@@ -40,7 +41,7 @@ const Blogs = async ({ params: { locale } }) => {
           const thumbnail = getImageByKey(post.thumbnail[0].formats, "medium");
           return {
             title: post.title,
-            author: post.blog_authors[0].name,
+            author: (post.blog_authors[0] && post.blog_authors[0].name) || "",
             date: post.publishedAt,
             slug: post.slug,
             content: post.content,
@@ -58,7 +59,6 @@ const Blogs = async ({ params: { locale } }) => {
   } catch (error) {
     console.error("Error fetching blogs:", error);
   }
-
   return (
     <div className="flex flex-col max-width items-center">
       <div className="flex-col mb-20 w-full">
@@ -83,7 +83,7 @@ const Blogs = async ({ params: { locale } }) => {
 
         {/* Tab */}
         <Tabs
-          defaultValue={blogData[1].category_name
+          defaultValue={blogData[0].category_name
             .replace(/\s/g, "")
             .toLowerCase()}
           className="w-full mt-10"
