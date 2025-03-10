@@ -2,6 +2,12 @@ import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import LearnMoreButton from "@/components/LearnMoreButton";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { Merriweather } from "next/font/google";
 import { getImageByKey } from "@/utils/image";
@@ -30,7 +36,17 @@ export const CollectionItem = ({ collectionItem, collectionSlug }) => {
           {collectionItem.title}
         </div>
       </Link>
-      <div className="line-clamp-3 mt-3">{collectionItem.abstract}</div>
+      <HoverCard>
+        <HoverCardTrigger>
+          <div className="line-clamp-3 mt-3">{collectionItem.abstract}</div>
+        </HoverCardTrigger>
+        <HoverCardContent className="w-[350px]">
+          <ScrollArea className="h-[200px] p-4">
+            {collectionItem.abstract}
+          </ScrollArea>
+        </HoverCardContent>
+      </HoverCard>
+
       <div className="mt-3">
         <LearnMoreButton
           url={`/our-collections/${collectionSlug}/${collectionItem.slug}`}
