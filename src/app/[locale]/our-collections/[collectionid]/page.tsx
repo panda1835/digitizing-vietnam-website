@@ -6,6 +6,8 @@ import { formatDate } from "@/utils/datetime";
 import { Collection } from "@/types/collection";
 
 import CollectionItemView from "./CollectionItemView";
+import FeatureArticle from "./FeatureArticle";
+import { Separator } from "@/components/ui/separator";
 
 const OurCollections = async ({ params: { locale, collectionid } }) => {
   const collectionId = collectionid;
@@ -28,6 +30,7 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
       formats: [{ url: "", width: 0, height: 0 }] as unknown as Formats,
     },
     slug: "",
+    featuredBlog: [],
   };
 
   let collectionItems = [];
@@ -36,9 +39,17 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
     const queryParams = {
       fields: "*",
       "filters[slug][$eq]": collectionId,
-      // "populate[0]": "thumbnail",
+      "populate[0]": "featured_blogs.thumbnail",
+      "populate[1]": "date_created",
+      "populate[2]": "formats",
+      "populate[3]": "languages",
+      "populate[4]": "subjects",
+      "populate[5]": "collection_location",
+      "populate[6]": "access_condition",
+      "populate[7]": "thumbnail",
+
       // "populate[1]": "collection_items.thumbnail",
-      populate: "*",
+      // populate: "*",
       locale: locale,
     };
 
@@ -47,7 +58,6 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
     const data = await fetcher(url);
     const collectionData = data.data[0];
-    // console.log("Collection data:", collectionData);
     collection = {
       title: collectionData.title,
       abstract: collectionData.abstract,
@@ -64,6 +74,7 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
       subject: collectionData.subjects.map((subject) => subject.name),
       collectionLocation: collectionData.collection_location.name,
       accessCondition: collectionData.access_condition.name,
+      featuredBlog: collectionData.featured_blogs,
       // collectionItems: collectionData.collection_items,
     };
 
@@ -113,6 +124,8 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
         collection={collection}
         locale={locale}
       />
+      <Separator className="mt-10 w-full" />
+      <FeatureArticle highlights={collection.featuredBlog} locale={locale} />
     </div>
   );
 };
