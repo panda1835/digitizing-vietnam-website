@@ -7,6 +7,12 @@
     "search": "Tìm kiếm"
   },
 
+  "ErrorPage": {
+    "not-found": "Không tìm thấy trang",
+    "not-found-message": "Trang bạn đang tìm kiếm không tồn tại.",
+    "back-to-home": "Quay lại trang chủ"
+  },
+
   "NavigationBar": {
     "home": "Trang chủ",
     "about-us": "Về chúng tôi",

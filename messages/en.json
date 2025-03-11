@@ -7,6 +7,12 @@
     "search": "Search"
   },
 
+  "ErrorPage": {
+    "not-found": "Page Not Found",
+    "not-found-message": "The page you are looking for does not exist.",
+    "back-to-home": "Back to Home"
+  },
+
   "NavigationBar": {
     "home": "Home",
     "about-us": "About Us",
