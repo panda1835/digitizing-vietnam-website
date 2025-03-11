@@ -42,9 +42,8 @@ const SearchBarResultItem = ({ hit }) => {
             <div className="text-lg font-normal font-['Helvetica_Neue'] mb-1">
               {hit.title || hit.name}
             </div>
-            <div className="text-base font-light font-['Helvetica_Neue'] mb-2">
-              {(hit.description || hit.abstract || "").slice(0, 100)}
-              ...
+            <div className="text-base font-light font-['Helvetica_Neue'] mb-2 line-clamp-2">
+              {hit.description || hit.abstract || ""}
             </div>
           </div>
         </Link>

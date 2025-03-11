@@ -20,7 +20,7 @@ const Tools = async ({ params: { locale } }) => {
         >
           {t("NavigationBar.tools")}
         </div>
-        <p className="mt-10 text-muted-foreground">To be updated soon</p>
+        <p className="mt-10 text-muted-foreground">To be updated soon.</p>
       </div>
     </div>
   );
