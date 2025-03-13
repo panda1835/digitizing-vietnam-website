@@ -11,7 +11,7 @@ import { Toaster } from "@/components/ui/sonner";
 export const metadata = {
   title: "Digitizing Việt Nam",
   description:
-    "Digitizing Việt Nam, a central hub for resources about Vietnamese Studies.",
+    "Digitizing Việt Nam, a central hub for resources about Vietnam Studies.",
 };
 
 export default async function LocaleLayout({
