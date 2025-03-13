@@ -9,7 +9,7 @@ const ItemBreadcrumbs = ({ hit }) => {
       {hit.online_resource_types && (
         <>
           {t("NavigationBar.online-resources")} &gt;{" "}
-          {hit.online_resource_types[0].name}
+          {hit.online_resource_types[0].name || hit.online_resource_types[0]}
         </>
       )}
       {hit.collection_location && (
@@ -19,8 +19,9 @@ const ItemBreadcrumbs = ({ hit }) => {
       )}
       {hit.collections && (
         <>
-          {t("NavigationBar.our-collections")} &gt; {hit.collections[0].title}{" "}
-          &gt; {hit.title || hit.name}
+          {t("NavigationBar.our-collections")} &gt;{" "}
+          {hit.collections[0].title || hit.collections[0]} &gt;{" "}
+          {hit.title || hit.name}
         </>
       )}
     </div>

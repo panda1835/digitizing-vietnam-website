@@ -4,7 +4,7 @@ import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-const NotFound = async ({ params: { locale } }) => {
+const NotFound = async () => {
   const t = await getTranslations();
 
   return (

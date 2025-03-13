@@ -67,5 +67,22 @@
     "showing": "Showing",
     "search-result-for": "search results for",
     "no-search-result": "No search results found."
+  },
+
+  "Filter": {
+    "result": "results",
+    "apply-filters": "Apply Filters",
+    "category": {
+      "part_of": "Part of",
+      "collections": "Collections",
+      "authors": "Authors",
+      "languages": "Languages",
+      "subjects": "Subjects",
+      "formats": "Formats",
+      "resource_types": "Resource types",
+      "collection_locations": "Collection locations",
+      "access_condition": "Access condition",
+      "online_resource_types": "Online resource types"
+    }
   }
 }

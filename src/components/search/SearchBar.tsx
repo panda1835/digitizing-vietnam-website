@@ -139,7 +139,7 @@ const SearchBar = ({ locale }: { locale: string }) => {
     <div className="w-full px-4 py-8">
       <InstantSearch
         searchClient={searchClient}
-        indexName="development_api::strapi"
+        indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
       >
         <div className="px-4 pt-4">
           <SearchInput />

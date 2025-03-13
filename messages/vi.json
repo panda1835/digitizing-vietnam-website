@@ -67,5 +67,22 @@
     "showing": "Hiển thị",
     "search-result-for": "kết quả tìm kiếm cho",
     "no-search-result": "Không tìm thấy kết quả nào."
+  },
+
+  "Filter": {
+    "result": "kết quả",
+    "apply-filters": "Áp dụng bộ lọc",
+    "category": {
+      "part_of": "Thuộc về",
+      "collections": "Bộ sưu tập",
+      "authors": "Tác giả",
+      "languages": "Ngôn ngữ",
+      "subjects": "Chủ đề",
+      "formats": "Định dạng",
+      "resource_types": "Loại tài nguyên",
+      "collection_locations": "Địa điểm bộ sưu tập",
+      "access_condition": "Điều kiện truy cập",
+      "online_resource_types": "Loại tài nguyên trực tuyến"
+    }
   }
 }
