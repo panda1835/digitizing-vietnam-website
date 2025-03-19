@@ -38,6 +38,7 @@ const OnlineResources = async ({ params: { locale } }) => {
 
     const data = await fetcher(url);
     const allCategories = data.data;
+    // console.log(allCategories);
     const resourceCategories: ResourceCategory[] = [];
     // Iterate through each online resource type
     // add the online resources to the array
@@ -45,7 +46,6 @@ const OnlineResources = async ({ params: { locale } }) => {
       resourceCategories.push({
         category_name: category.name,
         description: category.description,
-        image_url: category.thumbnail.url,
         resources: category.online_resources.map((resource) => {
           return {
             title: resource.name,
