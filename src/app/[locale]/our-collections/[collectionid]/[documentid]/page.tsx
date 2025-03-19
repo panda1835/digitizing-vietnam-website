@@ -1,5 +1,6 @@
 // "use client";
 import { getTranslations } from "next-intl/server";
+import qs from "qs";
 
 import MiradorViewer from "@/components/mirador/MiradorViewer";
 import CollectionPermalink from "@/components/CollectionPermalink";
@@ -37,11 +38,24 @@ const CollectionItemViewer = async ({
     const queryParams = {
       fields: "*",
       "filters[slug][$eq]": documentId,
-      populate: "*",
+      populate: [
+        "date_created",
+        "languages",
+        "contributor",
+        "subjects",
+        "publisher",
+        "collections",
+        "resource_types",
+        "format",
+        "place_of_publication",
+        "access_condition",
+        "contributor.author",
+        "contributor.author_role_term",
+      ],
       locale: locale,
     };
-
-    const queryString = new URLSearchParams(queryParams).toString();
+    const queryStringParam = qs.stringify(queryParams);
+    const queryString = new URLSearchParams(queryStringParam).toString();
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
     const data = await fetcher(url);
@@ -50,10 +64,8 @@ const CollectionItemViewer = async ({
       collectionItemData.collections.find(
         (collection: any) => collection.slug === collectionId
       )?.title || "";
-
-    console.log("Collection data:", collectionItemData);
   } catch (error) {
-    toast.error("Error fetching collection:", error);
+    console.log("Error fetching collection:", error);
   }
 
   return (

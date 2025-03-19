@@ -48,6 +48,24 @@
     "result": "results"
   },
 
+  "CollectionMetadata": {
+    "title": "Title",
+    "authors": "Authors",
+    "resource-types": "Resource Types",
+    "languages": "Languages",
+    "subjects": "Subjects",
+    "formats": "Formats",
+    "place-of-publication": "Place of Publication",
+    "date-created": "Date Created",
+    "publisher": "Publisher",
+    "edition": "Edition",
+    "identifier": "Identifier",
+    "url": "URL",
+    "note": "Note",
+    "access-condition": "Access Condition",
+    "related-works": "Related Works"
+  },
+
   "Highlight": {
     "title": "Vietnam Digitized: A Blog",
     "subtitle": "News, insights and initiatives on the digital front of Vietnamese heritage.",

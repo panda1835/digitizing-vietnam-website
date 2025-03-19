@@ -51,6 +51,7 @@ export const CollectionItem = ({ collectionItem, collectionSlug }) => {
         <LearnMoreButton
           url={`/our-collections/${collectionSlug}/${collectionItem.slug}`}
           text={t("Button.learn-more")}
+          newTab={false}
         />
       </div>
     </div>

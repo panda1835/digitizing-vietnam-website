@@ -48,6 +48,24 @@
     "result": "kết quả"
   },
 
+  "CollectionMetadata": {
+    "title": "Tiêu đề",
+    "authors": "Tác giả",
+    "resource-types": "Loại tài nguyên",
+    "languages": "Ngôn ngữ",
+    "subjects": "Chủ đề",
+    "formats": "Định dạng",
+    "place-of-publication": "Nơi xuất bản",
+    "date-created": "Ngày tạo",
+    "publisher": "Nhà xuất bản",
+    "edition": "Phiên bản",
+    "identifier": "Mã định danh",
+    "url": "Liên kết",
+    "note": "Ghi chú",
+    "access-condition": "Điều kiện truy cập",
+    "related-works": "Tác phẩm liên quan"
+  },
+
   "Highlight": {
     "title": "Việt Nam Số hóa: Blog",
     "subtitle": "Thông tin, nhận định và các sáng kiến trên mặt trận số hóa di sản Việt Nam.",

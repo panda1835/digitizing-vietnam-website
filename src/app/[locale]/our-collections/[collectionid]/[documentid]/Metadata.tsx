@@ -1,20 +1,38 @@
+"use client";
+import { useTranslations } from "next-intl";
+
 export default function Metadata({ locale, collectionItemData }) {
+  const t = useTranslations();
   return (
     <div>
-      {/* Title */}
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-8">
+        {/* Title */}
         <div className="items-center gap-3">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Title" : "Tiêu đề"}:
+            {t("CollectionMetadata.title")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.title}
           </div>
         </div>
+        {/* Authors */}
+        <div className="items-center gap-3 mt-4">
+          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+            {t("CollectionMetadata.authors")}:
+          </div>
+          <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+            {collectionItemData.contributor
+              .filter(
+                (author: any) => author.author_role_term?.name === "Author"
+              )
+              .map((author: any) => `${author.author.name}`)
+              .join(", ") || "N/A"}
+          </div>
+        </div>
         {/* Resource Types */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Resource Types" : "Loại tài nguyên"}:
+            {t("CollectionMetadata.resource-types")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.resource_types
@@ -25,7 +43,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Place of Publication */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Place of Publication" : "Nơi xuất bản"}:
+            {t("CollectionMetadata.place-of-publication")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.place_of_publication?.name || "N/A"}
@@ -34,7 +52,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Date Created */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Date Created" : "Ngày tạo"}:
+            {t("CollectionMetadata.date-created")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.date_created?.full_date
@@ -64,7 +82,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Format */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Format" : "Định dạng"}:
+            {t("CollectionMetadata.format")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.format?.name || "N/A"}
@@ -73,7 +91,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Languages */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Languages" : "Ngôn ngữ"}:
+            {t("CollectionMetadata.languages")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.languages
@@ -84,7 +102,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Subjects */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Subjects" : "Chủ đề"}:
+            {t("CollectionMetadata.subjects")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.subjects
@@ -95,7 +113,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Publisher */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Publisher" : "Nhà xuất bản"}:
+            {t("CollectionMetadata.publisher")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.publisher?.name || "N/A"}
@@ -104,7 +122,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Edition */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Edition" : "Phiên bản"}:
+            {t("CollectionMetadata.edition")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.edition}
@@ -113,7 +131,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Identifier */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Identifier" : "Mã định danh"}:
+            {t("CollectionMetadata.identifier")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.identifier || "N/A"}
@@ -122,7 +140,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* URL */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "URL" : "Liên kết"}:
+            {t("CollectionMetadata.url")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.url || "N/A"}
@@ -131,7 +149,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Note */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Note" : "Ghi chú"}:
+            {t("CollectionMetadata.note")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.note || "N/A"}
@@ -140,7 +158,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Related Works */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Related Works" : "Tác phẩm liên quan"}:
+            {t("CollectionMetadata.related-works")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.related_works || "N/A"}
@@ -150,7 +168,7 @@ export default function Metadata({ locale, collectionItemData }) {
         {/* Access Condition */}
         <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {locale === "en" ? "Access Condition" : "Điều kiện truy cập"}:
+            {t("CollectionMetadata.access-condition")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
             {collectionItemData.access_condition?.name || "N/A"}

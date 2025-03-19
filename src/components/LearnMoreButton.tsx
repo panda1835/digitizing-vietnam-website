@@ -4,10 +4,15 @@ export default function LearnMoreButton({
   url,
   text = "Learn more",
   className = "",
+  newTab = true,
 }) {
   return (
     <div>
-      <Link href={url} target="_blank" rel="noopener noreferrer">
+      <Link
+        href={url}
+        target={newTab ? "_blank" : undefined}
+        rel={newTab ? "noopener noreferrer" : undefined}
+      >
         <div
           className={[
             "h-[22px] justify-start items-center gap-2 inline-flex text-branding-brown text-base font-normal",
