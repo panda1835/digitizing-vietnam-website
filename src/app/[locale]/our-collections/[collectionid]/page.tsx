@@ -33,7 +33,7 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
     featuredBlog: [],
   };
 
-  let collectionItems = [];
+  let collectionItems: { display_order: number }[] = [];
 
   try {
     const queryParams = {
@@ -108,6 +108,10 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
     const dataCollectionItem = await fetcher(urlCollectionItem);
     const collectionDataCollectionItem = dataCollectionItem.data[0];
     collectionItems = collectionDataCollectionItem.collection_items;
+    // Sort collection items by display order
+    collectionItems.sort((a, b) => a.display_order - b.display_order);
+    // console.log("Collection items:", collectionItems);
+
     // console.log("Contributors:", collectionItems[0]["contributor"]);
     // console.log("Languages:", collectionItems[0]["languages"]);
 
