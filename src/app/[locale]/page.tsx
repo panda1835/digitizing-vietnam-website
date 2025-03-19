@@ -1,9 +1,7 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Merriweather } from "next/font/google";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight } from "lucide-react";
 import {
   Card,
   CardContent,
