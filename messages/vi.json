@@ -80,6 +80,21 @@
     "no-resource-message": "Hiện không có tài nguyên nào cho danh mục này."
   },
 
+  "Tools": {
+    "image-ocr-platform": {
+      "name": "Image OCR Platform",
+      "description": "Image OCR Platform là một công cụ cho phép người dùng trích xuất văn bản từ hình ảnh. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần trích xuất văn bản từ các tài liệu lịch sử hoặc các loại hình ảnh khác."
+    },
+    "han-nom-dictionaries": {
+      "name": "Từ điển Hán-Nôm",
+      "description": "Công cụ Từ điển Hán-Nôm là bộ sưu tập các từ điển cung cấp định nghĩa và giải thích cho các ký tự Hán-Nôm. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần tra cứu ý nghĩa của các ký tự Hán-Nôm trong các văn bản lịch sử."
+    },
+    "kieu-tools": {
+      "name": "Công cụ Kiều",
+      "description": "Công cụ Kiều là bộ sưu tập các công cụ cho phép người dùng phân tích và khám phá văn bản Truyện Kiều của Nguyễn Du. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích chi tiết văn bản Truyện Kiều."
+    }
+  },
+
   "SearchResult": {
     "title": "Kết quả tìm kiếm",
     "showing": "Hiển thị",
