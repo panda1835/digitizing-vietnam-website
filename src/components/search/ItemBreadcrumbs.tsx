@@ -8,8 +8,19 @@ const ItemBreadcrumbs = ({ hit }) => {
     <div className=" text-[#626262] text-base font-light font-['Helvetica_Neue']">
       {hit.online_resource_types && (
         <>
-          {t("NavigationBar.online-resources")} &gt;{" "}
-          {hit.online_resource_types[0].name || hit.online_resource_types[0]}
+          {t("NavigationBar.online-resources")}
+          {/* 
+            This is for handling cases where the online resources
+            was edited and became a Draft, which resulted in the
+            online_resource_types being an empty array.
+          */}
+          {hit.online_resource_types.length > 0 && (
+            <>
+              &gt;{" "}
+              {hit.online_resource_types[0].name ||
+                hit.online_resource_types[0]}
+            </>
+          )}
         </>
       )}
       {hit.collection_location && (

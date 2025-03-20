@@ -27,6 +27,7 @@ export const preprocessSearchResults = (hits) => {
         thumbnail: hit.thumbnail,
         slug: hit.slug,
         collections: hit.collections.map((collection) => collection.title),
+        collection_slugs: hit.collections.map((collection) => collection.slug),
         author: hit.contributor.map((contributor) => contributor.author.name),
         formats: [hit.format ? hit.format.name : ""],
         languages: hit.languages.map((language) => language.name),
@@ -61,6 +62,7 @@ export const generateCollectionFilters = (hits, locale) => {
   const filterGroups = {
     part_of: new Array<string>(),
     collections: new Array<string>(),
+    collection_slugs: new Array<string>(),
     authors: new Array<string>(),
     languages: new Array<string>(),
     subjects: new Array<string>(),
@@ -89,6 +91,9 @@ export const generateCollectionFilters = (hits, locale) => {
     else if (item.collections) {
       item.collections.forEach((collection) =>
         filterGroups.collections.push(collection)
+      );
+      item.collection_slugs.forEach((collection_slug) =>
+        filterGroups.collection_slugs.push(collection_slug)
       );
       item.author.forEach((author) => filterGroups.authors.push(author));
       item.languages.forEach((lang) => filterGroups.languages.push(lang));

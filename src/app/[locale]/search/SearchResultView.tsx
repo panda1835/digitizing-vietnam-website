@@ -17,7 +17,6 @@ const SearchResultView = ({ hits, locale }) => {
 
   const handleFilterChange = (selectedFilters: Record<string, string[]>) => {
     const filtered = hits.filter((item) => {
-      console.log("Item", item);
       return Object.entries(selectedFilters).every(
         ([filterName, selectedOptions]) => {
           if (selectedOptions.length === 0) return true;
