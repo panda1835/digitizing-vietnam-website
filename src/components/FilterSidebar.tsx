@@ -64,12 +64,17 @@ export default function FilterSidebar({
 
   // Clean up filters by removing empty options (option name is null or "" due to CMS entry)
   // and groups with no options
+
+  const excludeCategory = ["collection_slugs"];
   const cleanFilters = filters
     .map((group) => ({
       ...group,
       options: group.options.filter((option) => option.name),
     }))
-    .filter((group) => group.options.length > 0);
+    .filter(
+      (group) =>
+        group.options.length > 0 && !excludeCategory.includes(group.name)
+    );
 
   return (
     <div className="w-full md:w-80 mb-8 md:mb-0 md:mr-8 bg-white p-4 rounded-lg shadow">

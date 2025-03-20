@@ -32,9 +32,7 @@ export const preprocessSearchResults = (hits) => {
         formats: [hit.format ? hit.format.name : ""],
         languages: hit.languages.map((language) => language.name),
         subjects: hit.subjects.map((subject) => subject.name),
-        access_condition: [
-          hit.access_condition ? hit.access_condition.name : "",
-        ],
+        access_condition: hit.access_condition ? hit.access_condition.name : "",
         resource_types: hit.resource_types.map(
           (resourceType) => resourceType.name
         ),
