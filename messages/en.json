@@ -87,7 +87,13 @@
     },
     "han-nom-dictionaries": {
       "name": "Hán-Nôm Dictionaries",
-      "description": "The Hán-Nôm Dictionaries tool is a collection of dictionaries that provide definitions and explanations for Hán-Nôm characters. This tool is especially useful for researchers who need to look up the meanings of Hán-Nôm characters in historical texts."
+      "description": "The Hán-Nôm Dictionaries tool is a collection of dictionaries that provide definitions and explanations for Hán-Nôm characters. This tool is especially useful for researchers who need to look up the meanings of Hán-Nôm characters in historical texts.",
+      "dictionaries": {
+        "tu-dien-chu-nom-dan-giai": {
+          "name": "Tự Điển Chữ Nôm Dẫn Giải",
+          "description": "Description here"
+        }
+      }
     },
     "kieu-tools": {
       "name": "Kiều Tools",

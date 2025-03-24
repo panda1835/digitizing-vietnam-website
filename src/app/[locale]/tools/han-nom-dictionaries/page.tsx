@@ -11,6 +11,20 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const HanNomDictionaries = async ({ params: { locale } }) => {
   const t = await getTranslations();
 
+  const dictionaries = [
+    {
+      href: "/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai",
+      name: t(
+        "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
+      ),
+      description: t(
+        "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.description"
+      ),
+      target: "",
+      rel: "",
+    },
+  ];
+
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 w-full">
@@ -38,7 +52,25 @@ const HanNomDictionaries = async ({ params: { locale } }) => {
         <div className="mt-28">
           <Separator />
         </div>
-        <div className="mt-10 text-muted-foreground">To be implemented</div>
+        <div className="flex flex-col mt-10 space-y-3">
+          {dictionaries.map((tool, index) => (
+            <div key={index}>
+              <Link
+                className="hover:cursor-pointer hover:underline"
+                href={tool.href}
+                target={tool.target}
+                rel={tool.rel}
+              >
+                <div>{tool.name}</div>
+              </Link>
+              {tool.description && (
+                <div className="text-muted-foreground text-sm mt-2">
+                  {tool.description}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
