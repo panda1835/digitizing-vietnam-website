@@ -17,15 +17,6 @@ export default function LookUp({
 }: {
   entries: GDNVHVDictionaryEntry[];
 }) {
-  useEffect(() => {
-    const invalidEntries = entries.filter(
-      (entry) => !Array.isArray(entry.hdwd)
-    );
-    if (invalidEntries.length > 0) {
-      console.warn("Found entries with non-array 'hdwd':", invalidEntries);
-    }
-  }, [entries]);
-
   const [searchKeyword, setSearchKeyword] = useState("");
   const [filtered, setFiltered] = useState<GDNVHVDictionaryEntry[]>([]);
 

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import { parseStringPromise } from "xml2js";
+import path from "path";
 
 export async function GET(request) {
   try {
@@ -20,13 +21,20 @@ export async function GET(request) {
 
     if (dictionaryParam == "tu-dien-chu-nom-dan-giai") {
       const xmlDictionaryData = await fs.readFile(
-        "/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg.xml",
+        path.join(
+          process.cwd(),
+          "data/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg.xml"
+        ),
         "utf-8"
       );
+
       const jsonDictionaryData = await parseStringPromise(xmlDictionaryData);
 
       const xmlRefData = await fs.readFile(
-        "/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg_refs.xml",
+        path.join(
+          process.cwd(),
+          "data/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg_refs.xml"
+        ),
         "utf-8"
       );
       const jsonRefData = await parseStringPromise(
@@ -39,7 +47,10 @@ export async function GET(request) {
       };
     } else if (dictionaryParam == "giup-doc-nom-va-han-viet") {
       const xmlDictionaryData = await fs.readFile(
-        "public/dictionaries/giup-doc-nom-va-han-viet/gdnhv.xml",
+        path.join(
+          process.cwd(),
+          "data/dictionaries/giup-doc-nom-va-han-viet/gdnhv.xml"
+        ),
         "utf-8"
       );
       const jsonDictionaryData = await parseStringPromise(
