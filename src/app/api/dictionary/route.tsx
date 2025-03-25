@@ -20,13 +20,13 @@ export async function GET(request) {
 
     if (dictionaryParam == "tu-dien-chu-nom-dan-giai") {
       const xmlDictionaryData = await fs.readFile(
-        "public/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg.xml",
+        "/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg.xml",
         "utf-8"
       );
       const jsonDictionaryData = await parseStringPromise(xmlDictionaryData);
 
       const xmlRefData = await fs.readFile(
-        "public/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg_refs.xml",
+        "/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg_refs.xml",
         "utf-8"
       );
       const jsonRefData = await parseStringPromise(
