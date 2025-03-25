@@ -30,7 +30,11 @@ export default function LookUp({
   const [filtered, setFiltered] = useState<GDNVHVDictionaryEntry[]>([]);
 
   const handleSearch = () => {
-    const result = search(searchKeyword, entries, "giup-doc-nom-va-han-viet");
+    const result = search(
+      searchKeyword,
+      entries,
+      "giup-doc-nom-va-han-viet"
+    ) as GDNVHVDictionaryEntry[];
     setFiltered(result);
   };
 

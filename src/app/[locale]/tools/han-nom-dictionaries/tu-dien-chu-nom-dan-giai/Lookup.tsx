@@ -23,7 +23,11 @@ export default function LookUp({
   const [filtered, setFiltered] = useState<DictionaryEntry[]>([]);
 
   const handleSearch = () => {
-    const result = search(searchKeyword, entries, "tu-dien-chu-nom-dan-giai");
+    const result = search(
+      searchKeyword,
+      entries,
+      "tu-dien-chu-nom-dan-giai"
+    ) as DictionaryEntry[];
     setFiltered(result);
   };
 
