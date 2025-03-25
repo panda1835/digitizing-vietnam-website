@@ -4,10 +4,9 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { CollectionItem } from "./CollectionItem";
+import { Merriweather } from "next/font/google";
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-
-import { Merriweather } from "next/font/google";
 import { Separator } from "@/components/ui/separator";
 import FilterSidebar from "@/components/FilterSidebar";
 import { generateCollectionFilters } from "./filter";

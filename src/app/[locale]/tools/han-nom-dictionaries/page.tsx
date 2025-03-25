@@ -23,6 +23,17 @@ const HanNomDictionaries = async ({ params: { locale } }) => {
       target: "",
       rel: "",
     },
+    {
+      href: "/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet",
+      name: t(
+        "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
+      ),
+      description: t(
+        "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.description"
+      ),
+      target: "",
+      rel: "",
+    },
   ];
 
   return (

@@ -92,6 +92,10 @@
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải",
           "description": "Description here"
+        },
+        "giup-doc-nom-va-han-viet": {
+          "name": "Giúp Đọc Nôm và Hán Việt",
+          "description": "Description here"
         }
       }
     },

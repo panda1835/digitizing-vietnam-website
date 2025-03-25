@@ -5,7 +5,10 @@ import { parseStringPromise } from "xml2js";
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
+
     const dictionaryParam = searchParams.get("dictionary");
+    console.log(dictionaryParam);
+
     if (!dictionaryParam) {
       return NextResponse.json(
         { error: "Missing dictionary parameter" },
@@ -14,6 +17,7 @@ export async function GET(request) {
     }
 
     let returnData = {};
+
     if (dictionaryParam == "tu-dien-chu-nom-dan-giai") {
       const xmlDictionaryData = await fs.readFile(
         "public/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg.xml",
@@ -32,6 +36,17 @@ export async function GET(request) {
       returnData = {
         dictionary: jsonDictionaryData.dictionary.entry,
         ref: jsonRefData.reference_list.reference,
+      };
+    } else if (dictionaryParam == "giup-doc-nom-va-han-viet") {
+      const xmlDictionaryData = await fs.readFile(
+        "public/dictionaries/giup-doc-nom-va-han-viet/gdnhv.xml",
+        "utf-8"
+      );
+      const jsonDictionaryData = await parseStringPromise(
+        xmlDictionaryData.replace(/<\/?cit>/g, "")
+      );
+      returnData = {
+        dictionary: jsonDictionaryData.TEI.text[0].body[0].entry,
       };
     } else {
       return NextResponse.json(
