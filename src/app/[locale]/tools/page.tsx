@@ -4,6 +4,14 @@ import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { getTranslations } from "next-intl/server";
 
 import { Merriweather } from "next/font/google";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("NavigationBar.tools")} | Digitizing Việt Nam`,
+  };
+}
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 

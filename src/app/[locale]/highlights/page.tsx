@@ -10,6 +10,15 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { formatDate } from "@/utils/datetime";
 import { Merriweather } from "next/font/google";
 
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("NavigationBar.highlights")} | Digitizing Việt Nam`,
+  };
+}
+
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const Blogs = async ({ params: { locale } }) => {
   const t = await getTranslations();

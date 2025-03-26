@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-export default function Metadata({ locale, collectionItemData }) {
+export default function DocumentMetadata({ locale, collectionItemData }) {
   const t = useTranslations();
   return (
     <div>

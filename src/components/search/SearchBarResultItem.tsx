@@ -13,7 +13,11 @@ const SearchBarResultItem = ({ hit }) => {
               : hit.online_resource_types
               ? "/online-resources"
               : hit.collections
-              ? `/our-collections/${hit.collection_slugs[0]}/${hit.slug}`
+              ? `/our-collections/${
+                  hit.collection_slugs
+                    ? hit.collection_slugs[0]
+                    : hit.collections[0].slug
+                }/${hit.slug}`
               : "/"
           }
           target="_blank"

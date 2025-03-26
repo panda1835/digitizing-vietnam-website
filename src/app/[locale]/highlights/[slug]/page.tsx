@@ -6,9 +6,47 @@ import { fetcher } from "@/lib/api";
 import { formatDate } from "@/utils/datetime";
 import { Merriweather } from "next/font/google";
 import SocialMediaSharing from "./SocialMediaSharing";
-
+import { Metadata } from "next";
 import { getImageByKey } from "@/utils/image";
+import algoliasearch from "algoliasearch";
+
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
+);
+
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string; slug: string };
+}): Promise<Metadata> {
+  const t = await getTranslations();
+
+  const { results } = await searchClient.search([
+    {
+      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
+      query: params.slug,
+      params: {
+        restrictSearchableAttributes: ["slug"], // Only search in slug field
+      },
+    },
+  ]);
+
+  const hits = (results[0] as any).hits.filter(
+    (hit) => hit.locale === params.locale
+  );
+  if (hits.length > 0) {
+    return {
+      title: `${hits[0].title} | Digitizing Việt Nam`,
+    };
+  } else {
+    return {
+      title: `${t("NavigationBar.highlights")} | Digitizing Việt Nam`,
+    };
+  }
+}
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 const BlogArticle = async ({ params: { slug, locale } }) => {

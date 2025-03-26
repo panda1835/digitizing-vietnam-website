@@ -4,6 +4,16 @@ import { getTranslations } from "next-intl/server";
 import SearchResultView from "./SearchResultView";
 
 import { preprocessSearchResults } from "./filter";
+
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("SearchResult.title")} | Digitizing Việt Nam`,
+  };
+}
+
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
   process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""

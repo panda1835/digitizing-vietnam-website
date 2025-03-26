@@ -18,6 +18,14 @@ import { Separator } from "@/components/ui/separator";
 import { fetcher } from "@/lib/api";
 
 import { Merriweather } from "next/font/google";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("NavigationBar.online-resources")} | Digitizing Việt Nam`,
+  };
+}
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const OnlineResources = async ({ params: { locale } }) => {

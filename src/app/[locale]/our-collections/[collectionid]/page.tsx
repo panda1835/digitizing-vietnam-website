@@ -3,15 +3,53 @@ import qs from "qs";
 
 import { fetcher } from "@/lib/api";
 import { formatDate } from "@/utils/datetime";
-import { Collection } from "@/types/collection";
 
 import CollectionItemView from "./CollectionItemView";
 import FeatureArticle from "./FeatureArticle";
 import { Separator } from "@/components/ui/separator";
 
+import { Metadata } from "next";
+import algoliasearch from "algoliasearch";
+
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
+);
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string; collectionid: string };
+}): Promise<Metadata> {
+  const t = await getTranslations();
+
+  const { results } = await searchClient.search([
+    {
+      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
+      query: params.collectionid,
+      params: {
+        restrictSearchableAttributes: ["slug"], // Only search in slug field
+      },
+    },
+  ]);
+
+  const hits = (results[0] as any).hits.filter(
+    (hit) => hit.locale === params.locale
+  );
+
+  if (hits.length > 0) {
+    return {
+      title: `${hits[0].title} | Digitizing Việt Nam`,
+    };
+  } else {
+    return {
+      title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
+    };
+  }
+}
+
 const OurCollections = async ({ params: { locale, collectionid } }) => {
   const collectionId = collectionid;
-  let collections: Collection[] = [];
 
   const t = await getTranslations();
   let collection = {

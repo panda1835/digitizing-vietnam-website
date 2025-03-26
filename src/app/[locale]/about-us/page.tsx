@@ -9,8 +9,16 @@ import { fetcher } from "@/lib/api";
 import Avatars from "./Avatars";
 import LearnMoreButton from "@/components/LearnMoreButton";
 import { Merriweather } from "next/font/google";
+import { Metadata } from "next";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("AboutUs.title")} | Digitizing Việt Nam`,
+  };
+}
 
 const AboutUs = async ({ params: { locale } }) => {
   let aboutUsData = [];

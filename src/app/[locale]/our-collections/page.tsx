@@ -5,6 +5,14 @@ import { formatDate } from "@/utils/datetime";
 import { Collection } from "@/types/collection";
 
 import CollectionView from "./CollectionView";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
+  };
+}
 
 const OurCollections = async ({ params: { locale } }) => {
   let collections: Collection[] = [];

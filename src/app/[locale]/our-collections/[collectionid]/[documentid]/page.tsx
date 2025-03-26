@@ -5,14 +5,51 @@ import qs from "qs";
 import MiradorViewer from "@/components/mirador/MiradorViewer";
 import CollectionPermalink from "@/components/CollectionPermalink";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-import Metadata from "./Metadata";
+import DocumentMetadata from "./Metadata";
 import { Separator } from "@/components/ui/separator";
 
 import { fetcher } from "@/lib/api";
 import { Merriweather } from "next/font/google";
-import { toast } from "sonner";
+import { Metadata } from "next";
+import algoliasearch from "algoliasearch";
+
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
+);
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string; collectionid: string; documentid: string };
+}): Promise<Metadata> {
+  const t = await getTranslations();
+
+  const { results } = await searchClient.search([
+    {
+      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
+      query: params.documentid,
+      params: {
+        restrictSearchableAttributes: ["slug"], // Only search in slug field
+      },
+    },
+  ]);
+
+  const hits = (results[0] as any).hits.filter(
+    (hit) => hit.locale === params.locale
+  );
+  if (hits.length > 0) {
+    return {
+      title: `${hits[0].title} | Digitizing Việt Nam`,
+    };
+  } else {
+    return {
+      title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
+    };
+  }
+}
 
 const CollectionItemViewer = async ({
   params,
@@ -141,7 +178,10 @@ const CollectionItemViewer = async ({
         </div>
 
         {/* Metadata */}
-        <Metadata locale={locale} collectionItemData={collectionItemData} />
+        <DocumentMetadata
+          locale={locale}
+          collectionItemData={collectionItemData}
+        />
       </div>
     </div>
   );
