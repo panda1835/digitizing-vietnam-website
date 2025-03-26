@@ -34,16 +34,16 @@ const NavigationBar = () => {
 
   return (
     <header className="bg-branding-white px-[20px] md:px-[50px] shadow-[0px_4px_55px_0px_rgba(0,0,0,0.10)]">
-      <nav className="flex py-[40px]  mx-auto items-center justify-between">
+      <nav className="flex py-[40px] mx-auto items-center justify-between">
         <Logo />
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
-            {navItems.slice(0, -1).map((item) => (
+            {navItems.slice(0, -2).map((item) => (
               <NavigationMenuItem key={item.key}>
                 <Link href={item.href} legacyBehavior passHref>
                   <NavigationMenuLink
                     className={cn(
-                      "group bg-transparent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                      "group bg-transparent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-base font-['Helvetica Neue'] font-light transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
                     )}
                   >
                     {t(item.key)}
@@ -52,11 +52,11 @@ const NavigationBar = () => {
               </NavigationMenuItem>
             ))}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-base">
+              <NavigationMenuTrigger className="bg-transparent text-base font-['Helvetica Neue'] font-light">
                 {t("outreach")}
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[200px] gap-3 p-4 ">
+              <NavigationMenuContent className="right:0 absolute left-auto top-full w-auto mt-2">
+                <ul className="w-[300px] gap-3 p-4 bg-white rounded-md shadow-[0px_4px_55px_0px_rgba(0,0,0,0.10)]">
                   {outreachItems.map((item) => (
                     <li key={item.key}>
                       <NavigationMenuLink asChild>
@@ -64,7 +64,7 @@ const NavigationBar = () => {
                           href={item.href}
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-base font-medium leading-none">
+                          <div className="text-base font-['Helvetica Neue'] font-light leading-none">
                             {t(item.key)}
                           </div>
                         </Link>
@@ -75,17 +75,19 @@ const NavigationBar = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            <NavigationMenuItem>
-              <Link href={navItems[4].href} legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    "group bg-transparent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                  )}
-                >
-                  {t(navItems[4].key)}
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+            {navItems.slice(3, 5).map((item) => (
+              <NavigationMenuItem key={item.key}>
+                <Link href={item.href} legacyBehavior passHref>
+                  <NavigationMenuLink
+                    className={cn(
+                      "group bg-transparent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-base font-['Helvetica Neue'] font-light transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    )}
+                  >
+                    {t(item.key)}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
 
           <div className="hidden lg:block ml-6 w-16">
@@ -106,14 +108,16 @@ const NavigationBar = () => {
                 <Link
                   key={item.key}
                   href={item.href}
-                  className="block py-2 text-lg"
+                  className="block py-2 text-lg font-['Helvetica Neue'] font-light"
                 >
                   {t(item.key)}
                 </Link>
               ))}
               <div className="py-2">
-                <div className="text-lg font-medium">{t("outreach")}</div>
-                <div className="pl-4 mt-2 flex flex-col gap-2">
+                <div className="text-lg font-['Helvetica Neue'] font-light">
+                  {t("outreach")}
+                </div>
+                <div className="pl-4 mt-2 flex flex-col gap-2 font-['Helvetica Neue'] font-light">
                   {outreachItems.map((item) => (
                     <Link
                       key={item.key}

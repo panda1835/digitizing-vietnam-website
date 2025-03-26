@@ -79,7 +79,7 @@ const Home = async ({ params: { locale } }) => {
           >
             About Us
           </div>
-          <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue']">
+          <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
             <p className="text-muted-foreground ">
               Digitizing Vietnam marks a digital leap forward in Vietnam Studies
               with the Columbia-Fulbright collaboration. This joint venture
@@ -132,18 +132,14 @@ const Home = async ({ params: { locale } }) => {
             >
               Study Vietnam through the Digital Lens
             </div>
-            <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue']">
+            <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
               <p className="text-muted-foreground ">
                 Delve into Vietnam&apos;s history, culture, and society through
                 cutting-edge tools and curated resources tailored for scholars,
                 students, and educators.
               </p>
-              <div className="mt-4">
-                <LearnMoreButton url="/highlights" />
-              </div>
             </div>
           </div>
-          {/* <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue']"> */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
             <Card className="bg-branding-gray">
               <CardHeader>
@@ -184,16 +180,16 @@ const Home = async ({ params: { locale } }) => {
                 </p>
               </CardContent>
               <CardFooter>
-                <div>
+                <div className="flex flex-col gap-4">
                   <LearnMoreButton
                     url="/vietnam-for-educators"
                     text="Việt Nam for Educators"
-                    className="text-xl hover:text-branding-brown text-black"
+                    className={`text-lg ${merriweather.className} hover:text-branding-brown text-black`}
                   />
                   <LearnMoreButton
                     url="/understanding-vietnam"
                     text="Understanding Việt Nam"
-                    className="text-xl hover:text-branding-brown text-black"
+                    className={`text-lg ${merriweather.className} hover:text-branding-brown text-black`}
                   />
                 </div>
               </CardFooter>
@@ -220,7 +216,6 @@ const Home = async ({ params: { locale } }) => {
               </CardFooter>
             </Card>
           </div>
-          {/* </div> */}
         </section>
 
         {/* Highlights */}
@@ -232,7 +227,7 @@ const Home = async ({ params: { locale } }) => {
             >
               Highlights
             </div>
-            <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue']">
+            <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
               <p className="text-muted-foreground ">
                 Latest news and discoveries from the digital front of Vietnamese
                 heritage.

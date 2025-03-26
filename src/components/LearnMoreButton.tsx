@@ -19,7 +19,7 @@ export default function LearnMoreButton({
             className,
           ].join(" ")}
         >
-          <div className="font-['Helvetica Neue']">{text}</div>
+          <div className="font-['Helvetica Neue'] font-light">{text}</div>
           <MoveRight size={16} />
         </div>
       </Link>
