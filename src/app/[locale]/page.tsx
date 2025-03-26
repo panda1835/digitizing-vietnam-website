@@ -133,64 +133,94 @@ const Home = async ({ params: { locale } }) => {
               Study Vietnam through the Digital Lens
             </div>
             <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue']">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-                <Card className="bg-branding-gray">
-                  <CardHeader>
-                    <CardTitle
-                      className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-                    >
-                      Collections
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Explore our digital archive dedicated to the preservation
-                      and academic exploration of Vietnam&apos;s historical and
-                      intellectual heritage.
-                    </p>
-                  </CardContent>
-                  <CardFooter>
-                    <div>
-                      <LearnMoreButton url="/collections" />
-                    </div>
-                  </CardFooter>
-                </Card>
-
-                <Card className="bg-branding-gray col-span-2">
-                  <CardHeader>
-                    <CardTitle
-                      className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-                    >
-                      Outreach
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      The Digitizing Việt Nam Project regards outreach to be
-                      fundamental. We do more than simply host collections—we
-                      bring them to life and make them central to the education
-                      of Vietnam&apos;s younger generations and the broader
-                      public.
-                    </p>
-                  </CardContent>
-                  <CardFooter>
-                    <div>
-                      <LearnMoreButton
-                        url="/vietnam-for-educators"
-                        text="Việt Nam for Educators"
-                        className="text-xl hover:text-branding-brown text-black"
-                      />
-                      <LearnMoreButton
-                        url="/understanding-vietnam"
-                        text="Understanding Việt Nam"
-                        className="text-xl hover:text-branding-brown text-black"
-                      />
-                    </div>
-                  </CardFooter>
-                </Card>
+              <p className="text-muted-foreground ">
+                Delve into Vietnam&apos;s history, culture, and society through
+                cutting-edge tools and curated resources tailored for scholars,
+                students, and educators.
+              </p>
+              <div className="mt-4">
+                <LearnMoreButton url="/highlights" />
               </div>
             </div>
           </div>
+          {/* <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue']"> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            <Card className="bg-branding-gray">
+              <CardHeader>
+                <CardTitle
+                  className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
+                >
+                  Collections
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Explore our digital archive dedicated to the preservation and
+                  academic exploration of Vietnam&apos;s historical and
+                  intellectual heritage.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <div>
+                  <LearnMoreButton url="/collections" />
+                </div>
+              </CardFooter>
+            </Card>
+
+            <Card className="bg-branding-gray">
+              <CardHeader>
+                <CardTitle
+                  className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
+                >
+                  Outreach
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The Digitizing Việt Nam Project regards outreach to be
+                  fundamental. We do more than simply host collections—we bring
+                  them to life and make them central to the education of
+                  Vietnam&apos;s younger generations and the broader public.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <div>
+                  <LearnMoreButton
+                    url="/vietnam-for-educators"
+                    text="Việt Nam for Educators"
+                    className="text-xl hover:text-branding-brown text-black"
+                  />
+                  <LearnMoreButton
+                    url="/understanding-vietnam"
+                    text="Understanding Việt Nam"
+                    className="text-xl hover:text-branding-brown text-black"
+                  />
+                </div>
+              </CardFooter>
+            </Card>
+
+            <Card className="bg-branding-gray">
+              <CardHeader>
+                <CardTitle
+                  className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
+                >
+                  Tools
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Digitizing Vietnam marks a digital leap forward in Vietnam
+                  Studies with the Columbia-Fulbright collaboration.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <div>
+                  <LearnMoreButton url="/tools" />
+                </div>
+              </CardFooter>
+            </Card>
+          </div>
+          {/* </div> */}
         </section>
 
         {/* Highlights */}
@@ -212,12 +242,12 @@ const Home = async ({ params: { locale } }) => {
               </div>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
             {highlights.map((item) => (
               <ArticleCard
                 title={item.title}
                 description={item.content}
-                date={formatDate(item.date, locale)}
+                date={formatDate(item.publishedAt, locale)}
                 imageUrl={getImageByKey(item.thumbnail[0].formats, "medium")}
                 link={`/highlights/${item.slug}`}
                 key={`/highlights/${item.slug}`}

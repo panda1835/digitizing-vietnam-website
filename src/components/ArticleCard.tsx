@@ -9,7 +9,7 @@ const inter = Inter({ weight: "400", subsets: ["vietnamese"] });
 const ArticleCard = ({ title, description, date, imageUrl, link }) => {
   const t = useTranslations("Button");
   return (
-    <div className="mb-5">
+    <div className="mb-5 w-full">
       <Image
         unoptimized
         src={imageUrl.url}
@@ -33,7 +33,7 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
           </div>
         </Link>
         {/* Tag */}
-        <div className="flex justify-start items-center gap-[3px] mt-2">
+        {/* <div className="flex justify-start items-center gap-[3px] mt-2">
           <div className="px-2.5 py-1.5 bg-white rounded-[5px] border border-[#cdcdcd] justify-center items-center gap-1 flex">
             <div
               className={`text-branding-black text-sm font-normal ${inter.className}`}
@@ -48,11 +48,11 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
               Restoration
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Abstract */}
         <div
-          className="text-branding-black text-base font-light font-['Helvetica Neue'] leading-[23px] mt-4 line-clamp-4"
+          className="text-branding-black text-base font-light font-['Helvetica Neue']  mt-4 line-clamp-4"
           dangerouslySetInnerHTML={renderHtml(description)}
         ></div>
       </div>
