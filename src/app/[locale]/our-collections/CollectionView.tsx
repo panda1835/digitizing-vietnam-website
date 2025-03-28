@@ -84,13 +84,13 @@ const OurCollections = ({ collections, locale }) => {
           <Separator />
         </div>
         <div className="flex">
-          <div className="mt-10">
+          {/* <div className="mt-10">
             <FilterSidebar
               filters={filter}
               onFilterChange={handleFilterChange}
               numberOfResults={filteredResults.length}
             />
-          </div>
+          </div> */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10 gap-y-12">
             {filteredResults.map((collection) => (
               <CollectionItem collection={collection} key={collection.slug} />

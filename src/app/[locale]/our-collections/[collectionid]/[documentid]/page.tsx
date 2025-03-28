@@ -13,6 +13,8 @@ import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
 import algoliasearch from "algoliasearch";
 
+import TruyenKieu from "./truyen-kieu/TruyenKieuText";
+import NotFound from "@/app/not-found";
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
   process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
@@ -64,6 +66,22 @@ const CollectionItemViewer = async ({
   const collectionId = params.collectionid;
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
+
+  if (collectionId === "truyen-kieu") {
+    if (documentId === "truyen-kieu-1866") {
+      return <TruyenKieu version="1866" />;
+    } else if (documentId === "truyen-kieu-1870") {
+      return <TruyenKieu version="1870" />;
+    } else if (documentId === "truyen-kieu-1871") {
+      return <TruyenKieu version="1871" />;
+    } else if (documentId === "truyen-kieu-1872") {
+      return <TruyenKieu version="1872" />;
+    } else if (documentId === "truyen-kieu-1902") {
+      return <TruyenKieu version="1902" />;
+    } else {
+      return NotFound();
+    }
+  }
 
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
