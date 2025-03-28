@@ -13,7 +13,9 @@ import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
 import algoliasearch from "algoliasearch";
 
-import TruyenKieu from "./truyen-kieu/TruyenKieuText";
+import TruyenKieu from "./searchable-text/TruyenKieuText";
+import LucVanTienText from "./searchable-text/LucVanTienText";
+
 import NotFound from "@/app/not-found";
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
@@ -81,6 +83,10 @@ const CollectionItemViewer = async ({
     } else {
       return NotFound();
     }
+  }
+
+  if (collectionId === "luc-van-tien") {
+    return <LucVanTienText />;
   }
 
   const t = await getTranslations();
