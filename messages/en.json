@@ -91,11 +91,11 @@
       "dictionaries": {
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải",
-          "description": "Description here"
+          "description": "To date, The Dictionary of Nôm Characters with Quotations and Annotations by Prof. Nguyễn Quang Hồng Nguyễn Quang Hồng is the largest dictionary on Chữ Nôm, containing nearly 10,000 entries extracted by the author from 124 ancient works and texts from various periods, fields, and genres. The dictionary is systematically and scientifically structured into two columns: one column identifies the character form, pronunciation, and code of the character, while the other analyzes the structure of the Chữ Nôm character, provides its meaning, and includes relevant contextual examples. Special attention is given to the variations of Chữ Nôm characters, with each entry possibly having one or more variant forms that are clearly recorded from specific textual sources. This is a significant highlight of this dictionary."
         },
         "giup-doc-nom-va-han-viet": {
           "name": "Giúp Đọc Nôm và Hán Việt",
-          "description": "Description here"
+          "description": "The Nôm and Sino-Vietnamese Pronunciation Guide by Father Anthony Trần Văn Kiệm consists of two main parts: Part I introduces and lists the radicals used in writing Hán-Nôm characters, followed by an arrangement of Hán-Nôm characters classified by radicals and stroke count. This is undoubtedly one of the rare and valuable books for referencing and self-studying Hán-Nôm that anyone passionate about learning these ancient scripts should read."
         }
       }
     },
