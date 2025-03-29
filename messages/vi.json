@@ -103,7 +103,14 @@
     },
     "kieu-tools": {
       "name": "Công cụ Kiều",
-      "description": "Công cụ Kiều là bộ sưu tập các công cụ cho phép người dùng phân tích và khám phá văn bản Truyện Kiều của Nguyễn Du. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích chi tiết văn bản Truyện Kiều."
+      "description": "Công cụ Kiều là bộ sưu tập các công cụ cho phép người dùng phân tích và khám phá văn bản Truyện Kiều của Nguyễn Du. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích chi tiết văn bản Truyện Kiều.",
+      "tools": {
+        "glossary": {
+          "name": "Bảng chú các chữ Nôm trong mỗi bản Kiều",
+          "description": "Danh sách tất cả các chữ Nôm và số lần xuất hiện trong một bản Kiều.",
+          "version-not-found": "Không tìm thấy phiên bản Kiều tương ứng"
+        }
+      }
     }
   },
 

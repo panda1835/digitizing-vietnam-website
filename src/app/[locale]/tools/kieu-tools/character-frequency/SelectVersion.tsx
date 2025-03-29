@@ -17,8 +17,10 @@ const SelectVersion = ({ currentVersion }: { currentVersion: string }) => {
     router.push(`/tools/kieu-tools/character-frequency/${value}`);
   };
   return (
-    <div className="flex items-center justify-center gap-2 mb-8">
-      <span className="text-2xl text-blue-600 font-bold">Version:</span>
+    <div className="flex items-center justify-center gap-2">
+      <span className="text-2xl text-branding-brown font-['Helvetica Neue'] ">
+        Version:
+      </span>
       <div className="w-32">
         <Select
           defaultValue={`${currentVersion}`}
