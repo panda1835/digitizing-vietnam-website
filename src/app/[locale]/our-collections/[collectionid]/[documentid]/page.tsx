@@ -69,26 +69,6 @@ const CollectionItemViewer = async ({
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
 
-  if (collectionId === "truyen-kieu") {
-    if (documentId === "truyen-kieu-1866") {
-      return <TruyenKieu version="1866" />;
-    } else if (documentId === "truyen-kieu-1870") {
-      return <TruyenKieu version="1870" />;
-    } else if (documentId === "truyen-kieu-1871") {
-      return <TruyenKieu version="1871" />;
-    } else if (documentId === "truyen-kieu-1872") {
-      return <TruyenKieu version="1872" />;
-    } else if (documentId === "truyen-kieu-1902") {
-      return <TruyenKieu version="1902" />;
-    } else {
-      return NotFound();
-    }
-  }
-
-  if (collectionId === "luc-van-tien") {
-    return <LucVanTienText />;
-  }
-
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -127,6 +107,72 @@ const CollectionItemViewer = async ({
       )?.title || "";
   } catch (error) {
     console.log("Error fetching collection:", error);
+  }
+
+  if (collectionId === "truyen-kieu") {
+    if (documentId === "truyen-kieu-1866") {
+      return (
+        <TruyenKieu
+          version="1866"
+          locale={locale}
+          documentid={`truyen-kieu-1866`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    } else if (documentId === "truyen-kieu-1870") {
+      return (
+        <TruyenKieu
+          version="1870"
+          locale={locale}
+          documentid={`truyen-kieu-1870`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    } else if (documentId === "truyen-kieu-1871") {
+      return (
+        <TruyenKieu
+          version="1871"
+          locale={locale}
+          documentid={`truyen-kieu-1871`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    } else if (documentId === "truyen-kieu-1872") {
+      return (
+        <TruyenKieu
+          version="1872"
+          locale={locale}
+          documentid={`truyen-kieu-1872`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    } else if (documentId === "truyen-kieu-1902") {
+      return (
+        <TruyenKieu
+          version="1902"
+          locale={locale}
+          documentid={`truyen-kieu-1902`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    }
+    // Do not have else because the documentid can be different for other items
+  }
+
+  if (collectionId === "luc-van-tien") {
+    return (
+      <LucVanTienText
+        locale={locale}
+        documentid={`van-tien-co-tich-tan-truyen`}
+        collectionid={collectionId}
+        collectionTitle={collectionTitle}
+      />
+    );
   }
 
   return (
