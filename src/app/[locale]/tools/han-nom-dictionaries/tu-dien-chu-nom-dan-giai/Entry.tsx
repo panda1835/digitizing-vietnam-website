@@ -19,22 +19,20 @@ export default function Entry({
   entry: DictionaryEntry;
   refs: Reference[];
 }) {
-  console.log(entry);
-  console.log(refs);
   return (
     <div className="">
-      <Card className={`${NomNaTong.className} mb-2`}>
+      <Card className={`${NomNaTong.className} mb-4 p-4`}>
         <CardContent>
-          <h3 className="text-lg font-semibold">
+          <h3 className="text-2xl font-semibold">
             <span className={``}>{entry.hn[0]}</span> ({entry.qn[0]})
           </h3>
-          <div className={``}>
+          <div className={`text-xl`}>
             {entry.derivations[0].sense_list[0].$.struct}
           </div>
 
           {entry.derivations[0].sense_list[0].sense.map((sense, i) => (
             <div key={i}>
-              <p className=" text-gray-600">
+              <p className="text-lg text-gray-600">
                 {sense.$.type}{" "}
                 {typeof sense.def[0] === "object"
                   ? sense.def[0]._.replace("__", sense.def[0].$.ref)
@@ -42,15 +40,18 @@ export default function Entry({
               </p>
               <div>
                 {sense.source_list[0].citation.map((citation, j) => (
-                  <div key={j} className="text-gray-600">
-                    <div className="mt-2">
+                  <div key={j} className="text-lg text-gray-600">
+                    <div className=" mt-2">
                       {"〇"} {citation.passage[0].source_text[0]}
                     </div>
-                    <div> {citation.passage[0].transliteration[0]}</div>
+                    <div className="">
+                      {" "}
+                      {citation.passage[0].transliteration[0]}
+                    </div>
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger>
-                          <div className="text-blue-500 text-sm">
+                          <div className="text-blue-500 text-base">
                             {citation.reference_list[0].reference[0]}
                           </div>
                         </TooltipTrigger>

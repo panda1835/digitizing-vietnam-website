@@ -91,11 +91,13 @@
       "dictionaries": {
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải",
-          "description": "Cho đến nay, Tự điển chữ Nôm dẫn giải của tác giả GS.TSKH Nguyễn Quang Hồng là cuốn tự điển lớn nhất về chữ Nôm với gần 1vạn mục từ được tác giả trích dẫn từ 124 tác phẩm cổ, văn bản cổ khác nhau thuộc nhiều thời kỳ, nhiều lĩnh vực, nhiều loại hình. Tự điển được cấu trúc có tính hệ thống, khoa học theo hai cột: một cột xác định hình chữ, âm đọc và kí mã của chữ, cột thứ hai có phần phân tích cấu trúc chữ Nôm, giải nghĩa chữ kèm theo văn cảnh cụ thể. Chú trọng tới các biến thể chữ Nôm, một mục từ có thể có một hoặc nhiều chữ Nôm với các cách viết khác nhau được ghi rõ từ các nguồn văn bản cụ thể. Đây là một điểm nhấn quan trọng của cuỗn tự điển này."
+          "description": "Cho đến nay, Tự điển chữ Nôm dẫn giải của tác giả GS.TSKH Nguyễn Quang Hồng là cuốn tự điển lớn nhất về chữ Nôm với gần 1vạn mục từ được tác giả trích dẫn từ 124 tác phẩm cổ, văn bản cổ khác nhau thuộc nhiều thời kỳ, nhiều lĩnh vực, nhiều loại hình. Tự điển được cấu trúc có tính hệ thống, khoa học theo hai cột: một cột xác định hình chữ, âm đọc và kí mã của chữ, cột thứ hai có phần phân tích cấu trúc chữ Nôm, giải nghĩa chữ kèm theo văn cảnh cụ thể. Chú trọng tới các biến thể chữ Nôm, một mục từ có thể có một hoặc nhiều chữ Nôm với các cách viết khác nhau được ghi rõ từ các nguồn văn bản cụ thể. Đây là một điểm nhấn quan trọng của cuỗn tự điển này.",
+          "search-placeholder": "Tìm kiếm Hán Nôm hoặc Quốc Ngữ"
         },
         "giup-doc-nom-va-han-viet": {
           "name": "Giúp Đọc Nôm và Hán Việt",
-          "description": "Cuốn tự điển Giới thiệu đọc Nôm và Hán Việt của Linh mục Anthony Trần Văn Kiệm được cấu tạo bởi hai phần chính: Phần I là phần giới thiệu và liệt kê các bộ thủ dùng viết chữ Hán Nôm, và liệt kê các chữ Hán Nôm được sắp xếp theo bộ thủ và các nét. đây là một trong những cuốn sách quý hiếm dùng để tra cứu và tự học chữ Hán Nôm mà các bạn ham muốn học chữ Hán Nôm nên đọc."
+          "description": "Cuốn tự điển Giới thiệu đọc Nôm và Hán Việt của Linh mục Anthony Trần Văn Kiệm được cấu tạo bởi hai phần chính: Phần I là phần giới thiệu và liệt kê các bộ thủ dùng viết chữ Hán Nôm, và liệt kê các chữ Hán Nôm được sắp xếp theo bộ thủ và các nét. đây là một trong những cuốn sách quý hiếm dùng để tra cứu và tự học chữ Hán Nôm mà các bạn ham muốn học chữ Hán Nôm nên đọc.",
+          "search-placeholder": "Tìm kiếm Hán Nôm hoặc Quốc Ngữ"
         }
       }
     },

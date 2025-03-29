@@ -1,5 +1,3 @@
-import { Link } from "@/i18n/routing";
-
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { getTranslations } from "next-intl/server";
 
@@ -14,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import LearnMoreButton from "@/components/LearnMoreButton";
 import { Separator } from "@/components/ui/separator";
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
@@ -60,65 +59,27 @@ const Tools = async ({ params: { locale } }) => {
           <Separator />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-          <Card className="bg-branding-gray flex flex-col">
-            <CardHeader>
-              <CardTitle
-                className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-              >
-                {t("Tools.image-ocr-platform.name")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex-1 flex flex-col justify-end">
-              <p className="text-muted-foreground">
-                {t("Tools.image-ocr-platform.description")}
-              </p>
-            </CardContent>
-            <CardFooter>
-              <div>
-                <LearnMoreButton url="https://ocr.digitizingvietnam.com" />
-              </div>
-            </CardFooter>
-          </Card>
-
-          <Card className="bg-branding-gray flex flex-col">
-            <CardHeader>
-              <CardTitle
-                className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-              >
-                {t("Tools.han-nom-dictionaries.name")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex-1 flex flex-col justify-end">
-              <p className="text-muted-foreground">
-                {t("Tools.han-nom-dictionaries.description")}{" "}
-              </p>
-            </CardContent>
-            <CardFooter>
-              <div>
-                <LearnMoreButton url="/tools/han-nom-dictionaries" />
-              </div>
-            </CardFooter>
-          </Card>
-
-          <Card className="bg-branding-gray flex flex-col">
-            <CardHeader>
-              <CardTitle
-                className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-              >
-                {t("Tools.kieu-tools.name")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex-1 flex flex-col justify-end">
-              <p className="text-muted-foreground">
-                {t("Tools.kieu-tools.description")}{" "}
-              </p>
-            </CardContent>
-            <CardFooter>
-              <div>
-                <LearnMoreButton url="/tools/kieu-tools" />
-              </div>
-            </CardFooter>
-          </Card>
+          {tools.map((tool) => (
+            <div key={tool.name}>
+              <Card className="bg-branding-gray flex flex-col">
+                <CardHeader>
+                  <CardTitle
+                    className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
+                  >
+                    {tool.name}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-end">
+                  <p className="text-muted-foreground">{tool.description}</p>
+                </CardContent>
+                <CardFooter>
+                  <div>
+                    <LearnMoreButton url={tool.href} />
+                  </div>
+                </CardFooter>
+              </Card>
+            </div>
+          ))}
         </div>
       </div>
     </div>
