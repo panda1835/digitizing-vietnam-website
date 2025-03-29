@@ -52,7 +52,11 @@ export default async function FrequencyTable({
       <div className="w-full">
         <BreadcrumbAndSearchBar
           locale={locale}
-          breadcrumbItems={[{ label: t("AboutUs.title") }]}
+          breadcrumbItems={[
+            { label: t("NavigationBar.tools"), href: "tools" },
+            { label: t("Tools.kieu-tools.name"), href: "tools/kieu-tools" },
+            { label: t("Tools.kieu-tools.tools.glossary.name") },
+          ]}
         />
         <div
           className={`${merriweather.className} text-branding-black text-4xl`}

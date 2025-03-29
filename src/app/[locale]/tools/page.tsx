@@ -74,7 +74,7 @@ const Tools = async ({ params: { locale } }) => {
                 </CardContent>
                 <CardFooter>
                   <div>
-                    <LearnMoreButton url={tool.href} />
+                    <LearnMoreButton url={tool.href} newTab={false} />
                   </div>
                 </CardFooter>
               </Card>

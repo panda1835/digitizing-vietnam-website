@@ -1,39 +1,9 @@
-import { Link } from "@/i18n/routing";
-
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { getTranslations } from "next-intl/server";
 
 import { Merriweather } from "next/font/google";
 import { Separator } from "@/components/ui/separator";
-
-import { ChevronRight } from "lucide-react";
-
-interface ToolLinkProps {
-  title: string;
-  description: string;
-  href: string;
-}
-
-const ToolLink = ({ title, description, href }: ToolLinkProps) => {
-  return (
-    <Link
-      href={href}
-      className={`font-light font-['Helvetica Neue'] block py-6 transition-colors`}
-    >
-      <div className="flex items-center justify-between">
-        <div className="space-y-1">
-          <h3 className="text-xl font-normal text-branding-black hover:underline">
-            {title}
-          </h3>
-          <p className="text-muted-foreground">{description}</p>
-        </div>
-        <div className="flex-shrink-0 h-6 w-6">
-          <ChevronRight className="h-full w-full text-muted-foreground" />
-        </div>
-      </div>
-    </Link>
-  );
-};
+import { ToolList } from "../ToolList";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -93,37 +63,7 @@ const HanNomDictionaries = async ({ params: { locale } }) => {
           <Separator />
         </div>
         <div className="mt-10 ">
-          <div className="px-10 rounded-lg border border-gray-200 bg-transparent overflow-hidden">
-            {dictionaries.map((tool, index) => (
-              <div key={tool.href}>
-                <ToolLink
-                  title={tool.title}
-                  description={tool.description}
-                  href={tool.href}
-                />
-                {index < dictionaries.length - 1 && (
-                  <div className="h-px bg-gray-200 mx-6" />
-                )}
-              </div>
-            ))}
-          </div>
-          {/* {dictionaries.map((tool, index) => (
-            <div key={index}>
-              <Link
-                className="hover:cursor-pointer hover:underline"
-                href={tool.href}
-                target={tool.target}
-                rel={tool.rel}
-              >
-                <div>{tool.name}</div>
-              </Link>
-              {tool.description && (
-                <div className="text-muted-foreground text-sm mt-2">
-                  {tool.description}
-                </div>
-              )}
-            </div>
-          ))} */}
+          <ToolList tools={dictionaries} />
         </div>
       </div>
     </div>
