@@ -63,7 +63,9 @@ export default function LookUp({
           onKeyDown={handleKeyDown}
           className={`flex-1 ${NomNaTong.className}`}
         /> */}
-        <Button onClick={handleSearch}>Search</Button>
+        <Button onClick={handleSearch} className="h-12">
+          {t("Button.search")}
+        </Button>
       </div>
       {filtered.map((entry, index) => (
         <Entry key={index} entry={entry} refs={refs} />

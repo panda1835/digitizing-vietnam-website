@@ -20,7 +20,15 @@ export default async function DictionaryLayout({
           locale={locale}
           breadcrumbItems={[
             { label: t("NavigationBar.tools"), href: "tools" },
-            { label: t("Tools.han-nom-dictionaries.name") },
+            {
+              label: t("Tools.han-nom-dictionaries.name"),
+              href: "tools/han-nom-dictionaries",
+            },
+            {
+              label: t(
+                "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
+              ),
+            },
           ]}
         />
       </div>
@@ -36,19 +44,28 @@ export default async function DictionaryLayout({
 
             <nav className="flex flex-col">
               <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/introduction">
-                Introduction
+                {locale === "en" ? "Introduction" : "Lời dẫn"}
               </NavLink>
               <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai">
-                Dictionary
+                {locale === "en" ? "Dictionary" : "Từ điển"}
               </NavLink>
               <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/arrangement-of-entries">
-                Arrangement of Entries
+                {locale === "en"
+                  ? "Arrangement of Entries"
+                  : "Thể lệ biên soạn"}
               </NavLink>
               <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/chu-nom-structure">
-                Chữ Nôm Structure
+                {locale === "en"
+                  ? "Chữ Nôm Structure"
+                  : "Sơ đồ phân loại cấu trúc chữ Nôm"}
               </NavLink>
               <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/source-texts">
-                Source Texts
+                {locale === "en" ? "Source Texts" : "Nguồn dẫn chữ Nôm"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/about-digital-version">
+                {locale === "en"
+                  ? "About the Digital Version"
+                  : "Về phiên bản số thức"}
               </NavLink>
             </nav>
           </div>
