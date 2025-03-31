@@ -26,7 +26,7 @@ const ImageSlideshow = ({ slides, locale }) => {
     autoplaySpeed: 5000,
     cssEase: "linear",
     customPaging: (i) => (
-      <div className="h-3 w-3 bg-[#CCCCCC] hover:bg-[#FFA500] rounded-full transition-colors duration-300"></div>
+      <div className="h-3 w-3 bg-[#CCCCCC] hover:bg-branding-brown rounded-full transition-colors duration-300"></div>
     ),
     appendDots: (dots) => (
       <div style={{ width: "100%" }}>
