@@ -26,7 +26,7 @@ export default async function DictionaryLayout({
             },
             {
               label: t(
-                "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
+                "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
               ),
             },
           ]}
@@ -39,35 +39,18 @@ export default async function DictionaryLayout({
             <div className="p-6 border-b border-gray-200">
               <div className="text-lg font-normal text-branding-brown">
                 {t(
-                  "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
+                  "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
                 )}
               </div>
             </div>
 
             <nav className="flex flex-col">
-              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/about-digital-version">
-                {locale === "en"
-                  ? "About the Digital Version"
-                  : "Về phiên bản số thức"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/introduction">
+              <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/introduction">
                 {locale === "en" ? "Introduction" : "Lời dẫn"}
               </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/arrangement-of-entries">
-                {locale === "en"
-                  ? "Arrangement of Entries"
-                  : "Thể lệ biên soạn"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai">
-                {locale === "en" ? "Dictionary" : "Tự điển"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/chu-nom-structure">
-                {locale === "en"
-                  ? "Chữ Nôm Structure"
-                  : "Sơ đồ phân loại cấu trúc chữ Nôm"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/source-texts">
-                {locale === "en" ? "Source Texts" : "Nguồn dẫn chữ Nôm"}
+
+              <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet">
+                {locale === "en" ? "Dictionary" : "Từ điển"}
               </NavLink>
             </nav>
           </div>

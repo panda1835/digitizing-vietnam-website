@@ -9,9 +9,9 @@ const NomNaTong = localFont({
 export default function Entry({ entry }: { entry: GDNVHVDictionaryEntry }) {
   return (
     <div className="">
-      <Card className={`${NomNaTong.className} mb-2`}>
+      <Card className={`${NomNaTong.className} mb-4 p-4`}>
         <CardContent>
-          <h3 className="text-2xl font-semibold">
+          <h3 className="text-2xl font-semibold text-branding-brown">
             <span className={``}>{entry.orthography[0].orth.join(" ")}</span>
           </h3>
           <div className="text-xl">

@@ -23,7 +23,7 @@ export default function Entry({
     <div className="">
       <Card className={`${NomNaTong.className} mb-4 p-4`}>
         <CardContent>
-          <h3 className="text-2xl font-semibold">
+          <h3 className="text-2xl font-semibold text-branding-brown">
             <span className={``}>{entry.hn[0]}</span> ({entry.qn[0]})
           </h3>
           <div className={`text-xl`}>

@@ -1,16 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import Lookup from "./Lookup";
 import LoadingSpinner from "@/components/layout/LoadingSpinner";
 import { Merriweather } from "next/font/google";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-export default function DictionaryPage(params: { locale: string }) {
-  const { locale } = params;
+export default function DictionaryPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const [data, setData] = useState({ dictionary: [], ref: [] });
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"; // Fallback to localhost during development
 
+  const t = useTranslations();
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
@@ -36,20 +41,16 @@ export default function DictionaryPage(params: { locale: string }) {
   return (
     <div className="">
       <div className={`${merriweather.className} text-branding-black text-4xl`}>
-        Tự Điển Chữ Nôm Dẫn Giải
+        {t(
+          "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
+        )}
       </div>
-      <div className={`font-['Helvetica_Neue'] font-light text-base mt-6`}>
+
+      <div className={`font-['Helvetica_Neue'] font-light text-base my-6`}>
         <span>
-          {locale === "en"
-            ? "Nôm Characters with Quotations and Annotations"
-            : "Nôm Characters with Quotations and Annotations"}
-        </span>
-      </div>
-      <div className={`font-['Helvetica_Neue'] font-light text-base mb-6`}>
-        <span>
-          {locale === "en"
-            ? "Prof. Nguyễn Quang Hồng"
-            : "GS.TSKH Nguyễn Quang Hồng"}
+          {t(
+            "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.author"
+          )}
         </span>
       </div>
       <Lookup entries={data.dictionary} refs={data.ref} />
