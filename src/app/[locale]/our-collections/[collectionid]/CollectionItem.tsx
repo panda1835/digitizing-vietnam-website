@@ -38,7 +38,9 @@ export const CollectionItem = ({ collectionItem, collectionSlug }) => {
       </Link>
       <HoverCard>
         <HoverCardTrigger>
-          <div className="line-clamp-3 mt-3">{collectionItem.abstract}</div>
+          <div className="line-clamp-3 mt-3 font-light font-['Helvetica Neue'] ">
+            {collectionItem.abstract}
+          </div>
         </HoverCardTrigger>
         <HoverCardContent className="w-[350px]">
           <ScrollArea className="h-[200px] p-4">

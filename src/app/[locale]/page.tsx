@@ -141,7 +141,7 @@ const Home = async ({ params: { locale } }) => {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            <Card className="bg-branding-gray flex flex-col">
+            <Card className="bg-branding-gray flex flex-col h-full">
               <CardHeader>
                 <CardTitle
                   className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
@@ -163,7 +163,7 @@ const Home = async ({ params: { locale } }) => {
               </CardFooter>
             </Card>
 
-            <Card className="bg-branding-gray flex flex-col">
+            <Card className="bg-branding-gray flex flex-col h-full">
               <CardHeader>
                 <CardTitle
                   className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
@@ -195,7 +195,7 @@ const Home = async ({ params: { locale } }) => {
               </CardFooter>
             </Card>
 
-            <Card className="bg-branding-gray flex flex-col">
+            <Card className="bg-branding-gray flex flex-col h-full">
               <CardHeader>
                 <CardTitle
                   className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
