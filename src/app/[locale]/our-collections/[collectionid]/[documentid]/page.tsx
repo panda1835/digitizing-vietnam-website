@@ -165,14 +165,16 @@ const CollectionItemViewer = async ({
   }
 
   if (collectionId === "luc-van-tien") {
-    return (
-      <LucVanTienText
-        locale={locale}
-        documentid={`van-tien-co-tich-tan-truyen`}
-        collectionid={collectionId}
-        collectionTitle={collectionTitle}
-      />
-    );
+    if (documentId === "van-tien-co-tich-tan-truyen") {
+      return (
+        <LucVanTienText
+          locale={locale}
+          documentid={`van-tien-co-tich-tan-truyen`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    }
   }
 
   return (
