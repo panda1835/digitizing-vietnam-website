@@ -69,7 +69,7 @@ const Tools = async ({ params: { locale } }) => {
                     {tool.name}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col justify-end">
+                <CardContent className="flex-1 flex flex-col justify-end mt-5">
                   <p className="text-muted-foreground">{tool.description}</p>
                 </CardContent>
                 <CardFooter>

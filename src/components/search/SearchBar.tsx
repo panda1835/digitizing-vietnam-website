@@ -59,7 +59,7 @@ const searchClient = {
 // };
 
 const CustomSearchBox = ({ currentRefinement, refine }: any) => {
-  const t = useTranslations("Button");
+  const t = useTranslations();
   const router = useRouter();
 
   const handleKeyDown = (e) => {
@@ -75,11 +75,11 @@ const CustomSearchBox = ({ currentRefinement, refine }: any) => {
       <input
         type="text"
         name="search-query"
-        placeholder={t("search")}
+        placeholder={t("SearchResult.search-across-website")}
         value={currentRefinement}
         onChange={(e) => refine(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="h-[54px] w-full px-5 py-2 pl-12 bg-branding-white shadow-lg rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
+        className="h-[54px] font-light font-['Helvetica Neue'] w-full px-5 py-2 pl-12 bg-branding-white shadow-lg rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
       />
     </div>
   );
