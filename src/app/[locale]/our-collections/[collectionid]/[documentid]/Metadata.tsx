@@ -21,12 +21,21 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
             {t("CollectionMetadata.authors")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.contributor
-              .filter(
-                (author: any) => author.author_role_term?.name === "Author"
+            {Object.entries(
+              collectionItemData.contributor.reduce((acc: any, author: any) => {
+                const role = author.author_role_term?.name || "Unknown";
+                if (!acc[role]) {
+                  acc[role] = [];
+                }
+                acc[role].push(author.author.name);
+                return acc;
+              }, {})
+            )
+              .map(
+                ([role, authors]: [string, string[]]) =>
+                  `${role}: ${authors.join(", ")}`
               )
-              .map((author: any) => `${author.author.name}`)
-              .join(", ") || "N/A"}
+              .join("; ") || "N/A"}
           </div>
         </div>
         {/* Resource Types */}
