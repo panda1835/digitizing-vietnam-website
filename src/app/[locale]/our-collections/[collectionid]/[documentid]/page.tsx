@@ -9,6 +9,7 @@ import DocumentMetadata from "./Metadata";
 import { Separator } from "@/components/ui/separator";
 
 import { fetcher } from "@/lib/api";
+import { renderHtml } from "@/utils/renderHtml";
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
 import algoliasearch from "algoliasearch";
@@ -16,7 +17,6 @@ import algoliasearch from "algoliasearch";
 import TruyenKieu from "./searchable-text/TruyenKieuText";
 import LucVanTienText from "./searchable-text/LucVanTienText";
 
-import NotFound from "@/app/not-found";
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
   process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
@@ -90,6 +90,7 @@ const CollectionItemViewer = async ({
         "format",
         "place_of_publication",
         "access_condition",
+        "item_url",
         "contributor.author",
         "contributor.author_role_term",
       ],
@@ -177,6 +178,14 @@ const CollectionItemViewer = async ({
     }
   }
 
+  let documentType = "document";
+  if (collectionItemData.item_url[0]) {
+    const url = collectionItemData.item_url[0];
+    if (url.media_embed) {
+      documentType = "embed";
+    }
+  }
+
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex-col mb-20 w-full">
@@ -220,24 +229,20 @@ const CollectionItemViewer = async ({
 
           {/* Item viewer */}
           <div className="w-full relative">
-            {/* {mediaType === "video" && (
-              <div>
-                <iframe
-                  width="600"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${
-                    manifest["items"][0]["items"][0]["items"][0]["body"][
-                      "id"
-                    ].split("=")[1]
-                  }`}
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+            {/* Video/audio type */}
+            {documentType === "embed" && (
+              <div className="flex">
+                <div
+                  className=""
+                  dangerouslySetInnerHTML={renderHtml(
+                    collectionItemData.item_url[0].media_embed
+                  )}
+                ></div>
               </div>
-            )} */}
+            )}
 
-            {"document" === "document" && (
+            {/* Automatic IIIF Manifest */}
+            {documentType === "document" && (
               <MiradorViewer
                 manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
                 canvasId={originalCanvasId}

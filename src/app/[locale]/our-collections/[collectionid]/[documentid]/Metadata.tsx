@@ -5,7 +5,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
   const t = useTranslations();
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">
         {/* Title */}
         <div className="items-center gap-3">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
