@@ -23,6 +23,7 @@ const NavigationBar = () => {
     { key: "about-us", href: "/about-us" },
     { key: "our-collections", href: "/our-collections" },
     { key: "tools", href: "/tools" },
+    { key: "outreach", href: "/pedagogy" },
     { key: "highlights", href: "/highlights" },
     { key: "online-resources", href: "/online-resources" },
   ];
@@ -38,7 +39,7 @@ const NavigationBar = () => {
         <Logo />
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
-            {navItems.slice(0, -2).map((item) => (
+            {navItems.map((item) => (
               <NavigationMenuItem key={item.key}>
                 <Link href={item.href} legacyBehavior passHref>
                   <NavigationMenuLink
@@ -51,7 +52,7 @@ const NavigationBar = () => {
                 </Link>
               </NavigationMenuItem>
             ))}
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <NavigationMenuTrigger className="bg-transparent text-base font-['Helvetica Neue'] font-light">
                 {t("outreach")}
               </NavigationMenuTrigger>
@@ -87,7 +88,7 @@ const NavigationBar = () => {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-            ))}
+            ))} */}
           </NavigationMenuList>
 
           <div className="hidden lg:block ml-6 w-16">
@@ -113,7 +114,7 @@ const NavigationBar = () => {
                   {t(item.key)}
                 </Link>
               ))}
-              <div className="py-2">
+              {/* <div className="py-2">
                 <div className="text-lg font-['Helvetica Neue'] font-light">
                   {t("outreach")}
                 </div>
@@ -128,7 +129,7 @@ const NavigationBar = () => {
                     </Link>
                   ))}
                 </div>
-              </div>
+              </div> */}
               <div className="block w-16">
                 <LocaleSwitcher />
               </div>

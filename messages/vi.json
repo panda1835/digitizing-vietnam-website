@@ -20,7 +20,7 @@
     "tools": "Công cụ",
     "highlights": "Bài viết",
     "online-resources": "Tài nguyên",
-    "outreach": "Outreach",
+    "outreach": "Thư viện",
     "vietnam-for-educators": "Việt Nam cho giáo viên",
     "understanding-vietnam": "Hiểu về Việt Nam"
   },
@@ -64,6 +64,30 @@
     "note": "Ghi chú",
     "access-condition": "Điều kiện truy cập",
     "related-works": "Tác phẩm liên quan"
+  },
+
+  "Outreach": {
+    "contributed-by": "Đóng góp bởi",
+    "metadata": "Thông tin chi tiết",
+    "title": "Tiêu đề",
+    "lecturers": "Giảng viên",
+    "description": "Mô tả",
+    "duration": "Thời lượng",
+    "date-created": "Ngày tạo",
+
+    "podcast-title": "Podcast",
+    "episode-title": "Tập",
+    "episode-number": "Tập số",
+    "host": "Người dẫn",
+    "guest": "Khách mời",
+    "release-date": "Ngày phát hành",
+    "episode-url": "Liên kết tập",
+    "podcast-url": "Liên kết podcast",
+    "transcript": "Bản ghi âm",
+
+    "semester": "Học kỳ",
+    "instructor": "Giảng viên",
+    "affiliation": "Đơn vị"
   },
 
   "Highlight": {

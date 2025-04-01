@@ -91,7 +91,7 @@ const Home = async ({ params: { locale } }) => {
               future.
             </p>
             <div className="mt-4 mb-10">
-              <LearnMoreButton url="/about-us" />
+              <LearnMoreButton text={t("Button.learn-more")} url="/about-us" />
             </div>
 
             {/* Partner Logos */}
@@ -158,38 +158,9 @@ const Home = async ({ params: { locale } }) => {
               </CardContent>
               <CardFooter>
                 <div>
-                  <LearnMoreButton url="/collections" />
-                </div>
-              </CardFooter>
-            </Card>
-
-            <Card className="bg-branding-gray flex flex-col h-full">
-              <CardHeader>
-                <CardTitle
-                  className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-                >
-                  {t("NavigationBar.outreach")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-end">
-                <p className="text-muted-foreground">
-                  The Digitizing Việt Nam Project regards outreach to be
-                  fundamental. We do more than simply host collections—we bring
-                  them to life and make them central to the education of
-                  Vietnam&apos;s younger generations and the broader public.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <div className="flex flex-col gap-4">
                   <LearnMoreButton
-                    url="/vietnam-for-educators"
-                    text="Việt Nam for Educators"
-                    className={`text-lg ${merriweather.className} hover:text-branding-brown text-black`}
-                  />
-                  <LearnMoreButton
-                    url="/understanding-vietnam"
-                    text="Understanding Việt Nam"
-                    className={`text-lg ${merriweather.className} hover:text-branding-brown text-black`}
+                    text={t("Button.learn-more")}
+                    url="/collections"
                   />
                 </div>
               </CardFooter>
@@ -211,7 +182,45 @@ const Home = async ({ params: { locale } }) => {
               </CardContent>
               <CardFooter>
                 <div>
-                  <LearnMoreButton url="/tools" />
+                  <LearnMoreButton text={t("Button.learn-more")} url="/tools" />
+                </div>
+              </CardFooter>
+            </Card>
+
+            <Card className="bg-branding-gray flex flex-col h-full">
+              <CardHeader>
+                <CardTitle
+                  className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
+                >
+                  {t("NavigationBar.outreach")}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col justify-end">
+                <p className="text-muted-foreground">
+                  The Digitizing Việt Nam Project regards outreach to be
+                  fundamental. We do more than simply host collections—we bring
+                  them to life and make them central to the education of
+                  Vietnam&apos;s younger generations and the broader public.
+                </p>
+              </CardContent>
+              <CardFooter>
+                {/* <div className="flex flex-col gap-4">
+                  <LearnMoreButton text={t("Button.learn-more")}
+                    url="/vietnam-for-educators"
+                    text="Việt Nam for Educators"
+                    className={`text-lg ${merriweather.className} hover:text-branding-brown text-black`}
+                  />
+                  <LearnMoreButton text={t("Button.learn-more")}
+                    url="/understanding-vietnam"
+                    text="Understanding Việt Nam"
+                    className={`text-lg ${merriweather.className} hover:text-branding-brown text-black`}
+                  />
+                </div> */}
+                <div>
+                  <LearnMoreButton
+                    text={t("Button.learn-more")}
+                    url="/pedagogy"
+                  />
                 </div>
               </CardFooter>
             </Card>
@@ -233,7 +242,10 @@ const Home = async ({ params: { locale } }) => {
                 heritage.
               </p>
               <div className="mt-4">
-                <LearnMoreButton url="/highlights" />
+                <LearnMoreButton
+                  text={t("Button.learn-more")}
+                  url="/highlights"
+                />
               </div>
             </div>
           </div>

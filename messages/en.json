@@ -20,7 +20,7 @@
     "tools": "Tools",
     "highlights": "What's New",
     "online-resources": "Resources",
-    "outreach": "Outreach",
+    "outreach": "Pedagogical Library",
     "vietnam-for-educators": "Việt Nam for Educators",
     "understanding-vietnam": "Understanding Việt Nam"
   },
@@ -64,6 +64,31 @@
     "note": "Note",
     "access-condition": "Access Condition",
     "related-works": "Related Works"
+  },
+
+  "Outreach": {
+    "contributed-by": "Contributed by",
+    "metadata": "Metadata",
+    "lecture-title": "Lecture Title",
+    "lecturers": "Lecturers",
+    "description": "Description",
+    "duration": "Duration",
+    "date-created": "Created Date",
+
+    "podcast-title": "Podcast",
+    "episode-title": "Episode",
+    "episode-number": "Episode Number",
+    "host": "Host",
+    "guest": "Guest",
+    "release-date": "Release Date",
+    "episode-url": "Episode URL",
+    "podcast-url": "Podcast URL",
+    "transcript": "Transcript",
+
+    "course-title": "Course",
+    "semester": "Semester",
+    "instructor": "Instructor",
+    "affiliation": "Affiliation"
   },
 
   "Highlight": {

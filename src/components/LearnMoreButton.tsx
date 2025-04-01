@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { MoveRight } from "lucide-react";
+
 export default function LearnMoreButton({
   url,
   text = "Learn more",
