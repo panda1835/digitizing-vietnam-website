@@ -11,10 +11,10 @@ export default function Entry({ entry }: { entry: GDNVHVDictionaryEntry }) {
     <div className="">
       <Card className={`${NomNaTong.className} mb-4 p-4`}>
         <CardContent>
-          <h3 className="text-2xl font-semibold text-branding-brown">
+          <div className="text-2xl font-semibold text-branding-brown">
             <span className={``}>{entry.orthography[0].orth.join(" ")}</span>
-          </h3>
-          <div className="text-xl">
+          </div>
+          <div className="text-xl mt-2">
             {entry.hdwd[0]._} ({entry.origin[0]._})
           </div>
           <div>

@@ -151,7 +151,7 @@ export default function ArrangementOfEntries({
               provided in the main text, while the alternative is enclosed in{" "}
               <strong>parentheses ()</strong> for the reader&apos;s reference.
               For certain cases where pronunciation or meaning is ambiguous, the
-              compiler adds explanatory notes in{""}
+              compiler adds explanatory notes in{" "}
               <strong>square brackets []</strong> (in a smaller font size) for
               clarity. Additional notation includes:
               <ul className="list-disc ">

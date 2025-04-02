@@ -32,9 +32,9 @@ export default async function DictionaryLayout({
           ]}
         />
       </div>
-      <div className="container pb-16 flex flex-col md:flex-row gap-8">
+      <div className="w-full pb-16 flex flex-col lg:flex-row gap-16 lg:gap-8">
         {/* Sidebar navigation */}
-        <aside className="w-full md:w-96 shrink-0 font-light font-['Helvetica Neue']">
+        <aside className="w-full lg:w-96 shrink-0 font-light font-['Helvetica Neue']">
           <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <div className="p-6 border-b border-gray-200">
               <div className="text-lg font-normal text-branding-brown">
