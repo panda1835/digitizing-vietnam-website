@@ -113,7 +113,7 @@ export default function AboutDigitalVersion({
           <div
             className={`${merriweather.className} text-branding-black text-4xl`}
           >
-            Sơ đồ phân loại cấu trúc chữ Nôm
+            Về phiên bản số thức
           </div>
           <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
             <p className="pt-5">
