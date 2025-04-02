@@ -5,7 +5,10 @@
     "load-more": "Show More",
     "load-less": "Show Less",
     "search": "Search",
-    "copy-url": "Copy URL"
+    "copy-url": "Copy URL",
+    "next": "Next",
+    "previous": "Previous",
+    "go-to-page": "Go to page"
   },
 
   "Toast": {
@@ -53,6 +56,8 @@
     "no-volume-found": "No volumes found.",
     "result": "results"
   },
+
+  "CollectionItem": { "page": "Page", "missing-page": "Missing page" },
 
   "CollectionMetadata": {
     "title": "Title",

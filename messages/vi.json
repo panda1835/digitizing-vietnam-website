@@ -4,7 +4,10 @@
     "read-more": "Đọc thêm",
     "load-more": "Hiển thị thêm",
     "load-less": "Hiển thị bớt",
-    "copy-url": "Sao chép URL"
+    "copy-url": "Sao chép URL",
+    "next": "Tiếp",
+    "previous": "Trước",
+    "go-to-page": "Đi đến trang"
   },
 
   "Toast": {
@@ -52,6 +55,8 @@
     "no-volume-found": "Không tìm thấy tập nào.",
     "result": "kết quả"
   },
+
+  "CollectionItem": { "page": "Trang", "missing-page": "Trang bị thiếu" },
 
   "CollectionMetadata": {
     "title": "Tiêu đề",

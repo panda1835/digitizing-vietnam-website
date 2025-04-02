@@ -23,6 +23,7 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 import localFont from "next/font/local";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -194,19 +195,57 @@ export default function ImageTextNoteView({
           <div className="flex flex-col md:flex-row md:justify-center space-x-4">
             {/* Image */}
             <div>
-              {textData[pageIndex] && textData[pageIndex].$ && (
-                <Image
-                  unoptimized
-                  // src="/page01a.jpg"
-                  src={`https://backend.digitizingvietnam.com/images/iiif/2/${documentid}/${textData[pageIndex].$.pi}/full/full/0/default.jpg`}
-                  alt={`${title}`}
-                  width={200}
-                  height={300}
-                  className="max-w-4xl w-full"
-                />
-              )}
+              {textData[pageIndex] &&
+                textData[pageIndex].$ &&
+                (textData[pageIndex].$.pi !== "NA" ? (
+                  <Image
+                    unoptimized
+                    // src="/page01a.jpg"
+                    src={`https://backend.digitizingvietnam.com/images/iiif/2/${documentid}/${textData[pageIndex].$.pi}/full/full/0/default.jpg`}
+                    alt={`${title}`}
+                    width={200}
+                    height={300}
+                    className="max-w-4xl w-full"
+                  />
+                ) : (
+                  <div className="w-full h-96 items-center justify-center flex bg-gray-200">
+                    {t("CollectionItem.missing-page")}
+                  </div>
+                ))}
               <div className="text-center text-sm mt-2">
-                Trang {currentPage} / {totalPages}
+                {t("CollectionItem.page")} {currentPage} / {totalPages}
+              </div>
+
+              <div className="mt-4 flex justify-center items-center space-x-2">
+                <Button
+                  onClick={() => {
+                    const input = document.querySelector<HTMLInputElement>(
+                      'input[type="number"]'
+                    );
+                    const page = input ? Number(input.value) : 1;
+                    if (page >= 1 && page <= totalPages) {
+                      router.push(`?page=${page}`);
+                    }
+                  }}
+                  // className="bg-branding-brown text-white px-4 py-2 rounded"
+                >
+                  {t("Button.go-to-page")}
+                </Button>
+                <input
+                  type="number"
+                  min="1"
+                  max={totalPages}
+                  placeholder={currentPage.toString()}
+                  className="border border-gray-300 rounded px-2 py-1 w-20 text-center"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      const page = Number(e.currentTarget.value);
+                      if (page >= 1 && page <= totalPages) {
+                        router.push(`?page=${page}`);
+                      }
+                    }
+                  }}
+                />
               </div>
 
               {/* Pagination */}
@@ -248,7 +287,8 @@ export default function ImageTextNoteView({
                   className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center"
                 >
                   <div className="text-2xl">
-                    {textData[pageIndex].div[0].lg[0].l[index]._}
+                    {textData[pageIndex].div[0].lg[0] &&
+                      textData[pageIndex].div[0].lg[0].l[index]._}
                   </div>
 
                   {(() => {
@@ -294,10 +334,10 @@ export default function ImageTextNoteView({
               <thead>
                 <tr>
                   <th className="border border-gray-300 px-4 py-2 w-32">
-                    Quốc ngữ
+                    {locale === "vi" ? "Quốc ngữ" : "Modern Vietnamese"}
                   </th>
                   <th className="border border-gray-300 px-4 py-2">
-                    Chú thích
+                    {locale === "vi" ? "Chú thích" : "Note"}
                   </th>
                 </tr>
               </thead>
