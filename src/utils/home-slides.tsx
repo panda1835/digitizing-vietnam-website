@@ -41,20 +41,7 @@ export const slides = [
       en: "An advertisement of a bicycle shop in Nữ Giới Chung newspaper, vol.1",
     },
   },
-  {
-    img: "https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/home_slideshow/Saigon_Chronicles_-_Negotiating_Modernity.png",
-    caption: {
-      vi: "Chợ Tân Mỹ, bộ sưu tập phim ngắn Chuyện Sài Gòn ",
-      en: "Tân Mỹ market, Saigon Chronicles",
-    },
-  },
-  {
-    img: "https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/home_slideshow/Saigon_Chronicles_-_Wild_Style_Graffiti_in_Saigon_(4).png",
-    caption: {
-      vi: "Nghệ sĩ graffiti đường phố hoạt động trong hẻm Sài Gòn, bộ sưu tập phim ngắn Chuyện Sài Gòn",
-      en: "Graffiti artist working in Sài Gòn's alley, Saigon Chronicles",
-    },
-  },
+
   {
     img: "https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/home_slideshow/Thu_Kinh_Dai_Toan.jpeg",
     caption: {
