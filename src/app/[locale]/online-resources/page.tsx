@@ -94,7 +94,7 @@ const OnlineResources = async ({ params: { locale } }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {onlineResources.map((category) => (
             <div
-              className="flex flex-col items-left justify-items-start border bg-branding-gray rounded-lg p-5 h-[400px] justify-between"
+              className="flex flex-col items-left justify-items-start border bg-branding-gray rounded-lg p-5 h-full justify-between"
               key={category.category_name}
             >
               <div
@@ -103,7 +103,7 @@ const OnlineResources = async ({ params: { locale } }) => {
                 {category.category_name}
               </div>
               <div>
-                <p className="text-base font-light font-['Helvetica Neue'] leading-relaxed text-branding-black text-left">
+                <p className="mt-5 text-base font-light font-['Helvetica Neue'] leading-relaxed text-branding-black text-left">
                   {category.description}
                 </p>
                 <Dialog>

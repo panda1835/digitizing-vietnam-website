@@ -3,15 +3,9 @@ import { getTranslations } from "next-intl/server";
 
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import LearnMoreButton from "@/components/LearnMoreButton";
+
 import { Separator } from "@/components/ui/separator";
+import { InfoCard } from "@/components/common/InfoCard";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -61,26 +55,23 @@ const Tools = async ({ params: { locale } }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {tools.map((tool) => (
             <div key={tool.name}>
-              <Card className="bg-branding-gray flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle
-                    className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-                  >
-                    {tool.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col justify-end mt-5">
-                  <p className="text-muted-foreground">{tool.description}</p>
-                </CardContent>
-                <CardFooter>
-                  <div>
-                    <LearnMoreButton url={tool.href} newTab={false} />
-                  </div>
-                </CardFooter>
-              </Card>
+              <InfoCard
+                name={tool.name}
+                description={tool.description}
+                url={tool.href}
+                newTab={false}
+              />
             </div>
           ))}
         </div>
+
+        {/* <iframe
+          src="https://kimtudien.com.vn"
+          width="100%"
+          height="600"
+          frameBorder="0"
+          title="Embedded Website"
+        ></iframe> */}
       </div>
     </div>
   );

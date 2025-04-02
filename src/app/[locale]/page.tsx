@@ -2,15 +2,9 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Merriweather } from "next/font/google";
 import { Separator } from "@/components/ui/separator";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import SearchBar from "@/components/search/SearchBar";
 import LearnMoreButton from "@/components/LearnMoreButton";
+import { InfoCard } from "@/components/common/InfoCard";
 import { fetcher } from "@/lib/api";
 
 import { slides } from "@/utils/home-slides";
@@ -37,6 +31,27 @@ const Home = async ({ params: { locale } }) => {
 
   const data = await fetcher(url);
   const highlights = data.data.slice(0, 3);
+
+  const outlines = [
+    {
+      name: "Our Collections",
+      description:
+        "Explore our digital archive dedicated to the preservation and academic exploration of Vietnam's historical and intellectual heritage.",
+      url: "/collections",
+    },
+    {
+      name: "Tools",
+      description:
+        "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration.",
+      url: "/tools",
+    },
+    {
+      name: "Outreach",
+      description:
+        "The Digitizing Việt Nam Project regards outreach to be fundamental. We do more than simply host collections—we bring them to life and make them central to the education of Vietnam's younger generations and the broader public.",
+      url: "/pedagogy",
+    },
+  ];
 
   return (
     <div className="flex flex-col items-center max-width w-full">
@@ -80,7 +95,7 @@ const Home = async ({ params: { locale } }) => {
             About Us
           </div>
           <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
-            <p className="text-muted-foreground ">
+            <p className=" ">
               Digitizing Vietnam marks a digital leap forward in Vietnam Studies
               with the Columbia-Fulbright collaboration. This joint venture
               started with the memorandum of understanding between two
@@ -133,7 +148,7 @@ const Home = async ({ params: { locale } }) => {
               Study Vietnam through the Digital Lens
             </div>
             <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
-              <p className="text-muted-foreground ">
+              <p className=" ">
                 Delve into Vietnam&apos;s history, culture, and society through
                 cutting-edge tools and curated resources tailored for scholars,
                 students, and educators.
@@ -141,89 +156,14 @@ const Home = async ({ params: { locale } }) => {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            <Card className="bg-branding-gray flex flex-col h-full">
-              <CardHeader>
-                <CardTitle
-                  className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-                >
-                  {t("NavigationBar.our-collections")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-end">
-                <p className="text-muted-foreground">
-                  Explore our digital archive dedicated to the preservation and
-                  academic exploration of Vietnam&apos;s historical and
-                  intellectual heritage.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <div>
-                  <LearnMoreButton
-                    text={t("Button.learn-more")}
-                    url="/collections"
-                  />
-                </div>
-              </CardFooter>
-            </Card>
-
-            <Card className="bg-branding-gray flex flex-col h-full">
-              <CardHeader>
-                <CardTitle
-                  className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-                >
-                  {t("NavigationBar.tools")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-end">
-                <p className="text-muted-foreground">
-                  Digitizing Vietnam marks a digital leap forward in Vietnam
-                  Studies with the Columbia-Fulbright collaboration.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <div>
-                  <LearnMoreButton text={t("Button.learn-more")} url="/tools" />
-                </div>
-              </CardFooter>
-            </Card>
-
-            <Card className="bg-branding-gray flex flex-col h-full">
-              <CardHeader>
-                <CardTitle
-                  className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
-                >
-                  {t("NavigationBar.outreach")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-end">
-                <p className="text-muted-foreground">
-                  The Digitizing Việt Nam Project regards outreach to be
-                  fundamental. We do more than simply host collections—we bring
-                  them to life and make them central to the education of
-                  Vietnam&apos;s younger generations and the broader public.
-                </p>
-              </CardContent>
-              <CardFooter>
-                {/* <div className="flex flex-col gap-4">
-                  <LearnMoreButton text={t("Button.learn-more")}
-                    url="/vietnam-for-educators"
-                    text="Việt Nam for Educators"
-                    className={`text-lg ${merriweather.className} hover:text-branding-brown text-black`}
-                  />
-                  <LearnMoreButton text={t("Button.learn-more")}
-                    url="/understanding-vietnam"
-                    text="Understanding Việt Nam"
-                    className={`text-lg ${merriweather.className} hover:text-branding-brown text-black`}
-                  />
-                </div> */}
-                <div>
-                  <LearnMoreButton
-                    text={t("Button.learn-more")}
-                    url="/pedagogy"
-                  />
-                </div>
-              </CardFooter>
-            </Card>
+            {outlines.map((item) => (
+              <InfoCard
+                name={item.name}
+                description={item.description}
+                url={item.url}
+                key={item.url}
+              />
+            ))}
           </div>
         </section>
 
@@ -237,7 +177,7 @@ const Home = async ({ params: { locale } }) => {
               {t("NavigationBar.highlights")}
             </div>
             <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
-              <p className="text-muted-foreground ">
+              <p className=" ">
                 Latest news and discoveries from the digital front of Vietnamese
                 heritage.
               </p>

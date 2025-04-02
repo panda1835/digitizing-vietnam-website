@@ -4,7 +4,13 @@
     "read-more": "Read More",
     "load-more": "Show More",
     "load-less": "Show Less",
-    "search": "Search"
+    "search": "Search",
+    "copy-url": "Copy URL"
+  },
+
+  "Toast": {
+    "copied": "Copied!",
+    "failed-to-copy": "Failed to copy"
   },
 
   "ErrorPage": {

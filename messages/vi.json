@@ -4,7 +4,12 @@
     "read-more": "Đọc thêm",
     "load-more": "Hiển thị thêm",
     "load-less": "Hiển thị bớt",
-    "search": "Tìm kiếm"
+    "copy-url": "Sao chép URL"
+  },
+
+  "Toast": {
+    "copied": "Đã sao chép!",
+    "failed-to-copy": "Sao chép không thành công"
   },
 
   "ErrorPage": {

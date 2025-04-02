@@ -3,7 +3,7 @@ import { MoveRight } from "lucide-react";
 
 export default function LearnMoreButton({
   url,
-  text = "Learn more",
+  text,
   className = "",
   newTab = true,
 }) {
