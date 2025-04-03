@@ -1,17 +1,20 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
+
 import { Merriweather } from "next/font/google";
+
 import { Separator } from "@/components/ui/separator";
 import SearchBar from "@/components/search/SearchBar";
 import LearnMoreButton from "@/components/LearnMoreButton";
 import { InfoCard } from "@/components/common/InfoCard";
-import { fetcher } from "@/lib/api";
-
-import { slides } from "@/utils/home-slides";
-const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
-
 import ImageSlideshow from "@/components/ImageSlideshow";
 import ArticleCard from "@/components/ArticleCard";
+
+import { fetcher } from "@/lib/api";
+import { generateHomePageCarouselItems } from "@/utils/home-slides";
+
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+
 import { formatDate } from "@/utils/datetime";
 import { getImageByKey } from "@/utils/image";
 const Home = async ({ params: { locale } }) => {
@@ -34,24 +37,26 @@ const Home = async ({ params: { locale } }) => {
 
   const outlines = [
     {
-      name: "Our Collections",
+      name: t("NavigationBar.our-collections"),
       description:
         "Explore our digital archive dedicated to the preservation and academic exploration of Vietnam's historical and intellectual heritage.",
       url: "/collections",
     },
     {
-      name: "Tools",
+      name: t("NavigationBar.tools"),
       description:
         "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration.",
       url: "/tools",
     },
     {
-      name: "Outreach",
+      name: t("NavigationBar.outreach"),
       description:
         "The Digitizing Việt Nam Project regards outreach to be fundamental. We do more than simply host collections—we bring them to life and make them central to the education of Vietnam's younger generations and the broader public.",
       url: "/pedagogy",
     },
   ];
+
+  const slides = await generateHomePageCarouselItems(locale);
 
   return (
     <div className="flex flex-col items-center max-width w-full">
@@ -81,7 +86,7 @@ const Home = async ({ params: { locale } }) => {
 
         {/* Slideshow */}
         <section className="w-full mb-20">
-          <ImageSlideshow slides={slides} locale={locale} />
+          <ImageSlideshow slides={slides} />
         </section>
 
         {/* Content */}

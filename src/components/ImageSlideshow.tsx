@@ -9,7 +9,7 @@ import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-const ImageSlideshow = ({ slides, locale }) => {
+const ImageSlideshow = ({ slides }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   // Slider settings
@@ -48,7 +48,7 @@ const ImageSlideshow = ({ slides, locale }) => {
             <Image
               unoptimized
               src={slide.img || "/placeholder.svg"}
-              alt={slide.caption[locale]}
+              alt={slide.caption}
               className="object-cover h-[600px] w-full"
               width={1920}
               height={1080}
@@ -59,7 +59,7 @@ const ImageSlideshow = ({ slides, locale }) => {
                 <p
                   className={`text-white text-lg p-8 text-left ${merriweather.className}`}
                 >
-                  {slide.caption[locale]}
+                  {slide.caption}
                 </p>
               </div>
             )}
