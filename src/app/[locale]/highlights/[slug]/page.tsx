@@ -82,9 +82,9 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
       author: (blogPost.blog_authors[0] && blogPost.blog_authors[0].name) || "",
       date: blogPost.publishedAt,
       thumbnail: {
-        url: getImageByKey(blogPost.thumbnail[0].formats, "medium")!.url,
-        width: getImageByKey(blogPost.thumbnail[0].formats, "medium")!.width,
-        height: getImageByKey(blogPost.thumbnail[0].formats, "medium")!.height,
+        url: getImageByKey(blogPost.thumbnail[0].formats, "large")!.url,
+        width: getImageByKey(blogPost.thumbnail[0].formats, "large")!.width,
+        height: getImageByKey(blogPost.thumbnail[0].formats, "large")!.height,
       },
       content: blogPost.content,
       slug: blogPost.slug,
@@ -111,18 +111,23 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
         </p>
         <div className="h-[26px] flex-col justify-start items-start gap-5 inline-flex mt-8 mb-16">
           <div className="self-stretch">
-            <span className="text-branding-black text-base font-normal font-['Helvetica Neue'] leading-relaxed">
-              By
-            </span>
-            <span className="text-branding-black text-base font-medium font-['Helvetica Neue'] leading-relaxed">
-              {" "}
-            </span>
-            <span className="text-branding-brown text-base font-normal font-['Helvetica Neue'] leading-relaxed">
-              {post.author}
-            </span>
+            {post.author && (
+              <span>
+                <span className="text-branding-black text-base font-normal font-['Helvetica Neue'] leading-relaxed">
+                  By
+                </span>
+                <span className="text-branding-black text-base font-medium font-['Helvetica Neue'] leading-relaxed">
+                  {" "}
+                </span>
+                <span className="text-branding-brown text-base font-normal font-['Helvetica Neue'] leading-relaxed">
+                  {post.author}
+                </span>{" "}
+                ·{" "}
+              </span>
+            )}
+
             <span className="text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed">
-              {" "}
-              · {formatDate(post.date, locale)}
+              {formatDate(post.date, locale)}
             </span>
           </div>
         </div>

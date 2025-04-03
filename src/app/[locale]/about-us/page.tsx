@@ -89,7 +89,10 @@ const AboutUs = async ({ params: { locale } }) => {
                 aboutUsData["our_collections"]
               )}
             />
-            <LearnMoreButton url={"/our-collections"} />
+            <LearnMoreButton
+              url={"/our-collections"}
+              text={t("Button.learn-more")}
+            />
           </div>
         </div>
 
