@@ -4,11 +4,9 @@ import { Link } from "@/i18n/routing";
 import LocaleSwitcher from "@/components/layout/LocaleSwitcher";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";

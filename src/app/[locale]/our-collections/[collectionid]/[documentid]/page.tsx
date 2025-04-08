@@ -208,7 +208,7 @@ const CollectionItemViewer = async ({
 
         {/* Headline */}
         <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
+          className={`${merriweather.className} text-branding-black text-4xl max-w-4xl`}
         >
           {collectionItemData.title}
         </div>
