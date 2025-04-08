@@ -65,7 +65,7 @@
     "resource-types": "Resource Types",
     "languages": "Languages",
     "subjects": "Subjects",
-    "formats": "Formats",
+    "format": "Formats",
     "place-of-publication": "Place of Publication",
     "date-created": "Date Created",
     "publisher": "Publisher",
@@ -99,7 +99,12 @@
     "course-title": "Course",
     "semester": "Semester",
     "instructor": "Instructor",
-    "affiliation": "Affiliation"
+    "affiliation": "Affiliation",
+
+    "name": "Name",
+    "creators": "Creators",
+    "supported-languages": "Supported Languages",
+    "access-url": "Access URL"
   },
 
   "Highlight": {

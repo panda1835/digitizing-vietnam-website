@@ -69,6 +69,7 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
       "populate[4]": "categories",
       "populate[5]": "metadata",
       "populate[6]": "metadata.affiliation",
+      "populate[7]": "metadata.supported_languages",
 
       locale: locale,
     };

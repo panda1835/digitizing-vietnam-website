@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 
 export default function DocumentMetadata({ locale, collectionItemData }) {
   const t = useTranslations();
+  console.log(collectionItemData);
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">
@@ -16,7 +17,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
           </div>
         </div>
         {/* Authors */}
-        <div className="items-center gap-3 mt-4">
+        <div className="items-center gap-3">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.authors")}:
           </div>
@@ -27,7 +28,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
                 if (!acc[role]) {
                   acc[role] = [];
                 }
-                acc[role].push(author.author.name);
+                acc[role].push(author.author?.name || "");
                 return acc;
               }, {})
             )
@@ -120,59 +121,76 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
           </div>
         </div>
         {/* Publisher */}
-        <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {t("CollectionMetadata.publisher")}:
+        {collectionItemData.publisher && (
+          <div className="items-center gap-3 mt-4">
+            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+              {t("CollectionMetadata.publisher")}:
+            </div>
+            <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+              {collectionItemData.publisher?.name || "N/A"}
+            </div>
           </div>
-          <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.publisher?.name || "N/A"}
-          </div>
-        </div>
+        )}
+
         {/* Edition */}
-        <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {t("CollectionMetadata.edition")}:
+        {collectionItemData.edition && (
+          <div className="items-center gap-3 mt-4">
+            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+              {t("CollectionMetadata.edition")}:
+            </div>
+            <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+              {collectionItemData.edition}
+            </div>
           </div>
-          <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.edition}
-          </div>
-        </div>
+        )}
+
         {/* Identifier */}
-        <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {t("CollectionMetadata.identifier")}:
+        {collectionItemData.identifier && (
+          <div className="items-center gap-3 mt-4">
+            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+              {t("CollectionMetadata.identifier")}:
+            </div>
+            <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+              {collectionItemData.identifier || "N/A"}
+            </div>
           </div>
-          <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.identifier || "N/A"}
-          </div>
-        </div>
+        )}
+
         {/* URL */}
-        <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {t("CollectionMetadata.url")}:
+        {collectionItemData.url && (
+          <div className="items-center gap-3 mt-4">
+            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+              {t("CollectionMetadata.url")}:
+            </div>
+            <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+              {collectionItemData.url || "N/A"}
+            </div>
           </div>
-          <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.url || "N/A"}
-          </div>
-        </div>
+        )}
+
         {/* Note */}
-        <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {t("CollectionMetadata.note")}:
+        {collectionItemData.note && (
+          <div className="items-center gap-3 mt-4">
+            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+              {t("CollectionMetadata.note")}:
+            </div>
+            <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+              {collectionItemData.note || "N/A"}
+            </div>
           </div>
-          <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.note || "N/A"}
-          </div>
-        </div>
+        )}
+
         {/* Related Works */}
-        <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-            {t("CollectionMetadata.related-works")}:
+        {collectionItemData.related_works && (
+          <div className="items-center gap-3 mt-4">
+            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+              {t("CollectionMetadata.related-works")}:
+            </div>
+            <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+              {collectionItemData.related_works || "N/A"}
+            </div>
           </div>
-          <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.related_works || "N/A"}
-          </div>
-        </div>
+        )}
 
         {/* Access Condition */}
         <div className="items-center gap-3 mt-4">

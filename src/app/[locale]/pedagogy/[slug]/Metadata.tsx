@@ -10,44 +10,66 @@ import { formatDate } from "@/utils/datetime";
 export async function PedagogyMetadata({ metadata, locale }) {
   const t = await getTranslations();
   let formattedMetadata = {};
-
-  if (metadata.__component === "pedagogy.mini-lecture") {
-    formattedMetadata = {
-      "lecture-title": metadata.name,
-      lecturers: metadata.lecturers,
-      description: metadata.description,
-      duration: metadata.duration,
-      "date-created": formatDate(metadata.date_created, locale),
-    };
-  } else if (metadata.__component === "pedagogy.podcast") {
-    formattedMetadata = {
-      "podcast-title": metadata.podcast_title,
-      "episode-title": metadata.episode_title,
-      "episode-number": metadata.episode_number,
-      host: metadata.host,
-      guest: metadata.guest,
-      "release-date": formatDate(metadata.release_date, locale),
-      "episode-url": metadata.episode_url,
-      "podcast-url": metadata.podcast_url,
-      duration: metadata.duration,
-      transcript: metadata.transcript || "N/A",
-    };
-  } else if (metadata.__component === "pedagogy.syllabus") {
-    formattedMetadata = {
-      "course-title": metadata.name,
-      semester: metadata.semester,
-      instructor: metadata.instructor,
-      affiliation:
-        (metadata.affiliation &&
-          metadata.affiliation
-            .map(
-              (affiliation) =>
-                `${affiliation.institution} - ${affiliation.department}`
-            )
-            .join(", ")) ||
-        "N/A",
-    };
+  if (metadata) {
+    if (metadata.__component === "pedagogy.mini-lecture") {
+      formattedMetadata = {
+        "lecture-title": metadata.name,
+        lecturers: metadata.lecturers,
+        description: metadata.description,
+        duration: metadata.duration,
+        "date-created": formatDate(metadata.date_created, locale),
+      };
+    } else if (metadata.__component === "pedagogy.podcast") {
+      formattedMetadata = {
+        "podcast-title": metadata.podcast_title,
+        "episode-title": metadata.episode_title,
+        "episode-number": metadata.episode_number,
+        host: metadata.host,
+        guest: metadata.guest,
+        "release-date": formatDate(metadata.release_date, locale),
+        "episode-url": metadata.episode_url,
+        "podcast-url": metadata.podcast_url,
+        duration: metadata.duration,
+        transcript: metadata.transcript || "N/A",
+      };
+    } else if (metadata.__component === "pedagogy.syllabus") {
+      formattedMetadata = {
+        "course-title": metadata.name,
+        semester: metadata.semester,
+        instructor: metadata.instructor,
+        affiliation:
+          (metadata.affiliation &&
+            metadata.affiliation
+              .map(
+                (affiliation) =>
+                  `${affiliation.institution} - ${affiliation.department}`
+              )
+              .join(", ")) ||
+          "N/A",
+      };
+    } else if (metadata.__component === "pedagogy.dh-tool") {
+      formattedMetadata = {
+        name: metadata.name,
+        creators: metadata.creators,
+        description: metadata.description,
+        "supported-languages": metadata.supported_languages
+          .map((lang) => lang.name)
+          .join(", "),
+        "date-created": metadata.date_created,
+        affiliation:
+          (metadata.affiliation &&
+            metadata.affiliation
+              .map(
+                (affiliation) =>
+                  `${affiliation.institution} - ${affiliation.department}`
+              )
+              .join(", ")) ||
+          "N/A",
+        "access-url": metadata.access_url,
+      };
+    }
   }
+
   return (
     <div>
       <Accordion type="single" collapsible>

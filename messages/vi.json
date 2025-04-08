@@ -64,7 +64,7 @@
     "resource-types": "Loại tài nguyên",
     "languages": "Ngôn ngữ",
     "subjects": "Chủ đề",
-    "formats": "Định dạng",
+    "format": "Định dạng",
     "place-of-publication": "Nơi xuất bản",
     "date-created": "Ngày tạo",
     "publisher": "Nhà xuất bản",
@@ -95,9 +95,15 @@
     "podcast-url": "Liên kết podcast",
     "transcript": "Bản ghi âm",
 
+    "course-title": "Khóa học",
     "semester": "Học kỳ",
     "instructor": "Giảng viên",
-    "affiliation": "Đơn vị"
+    "affiliation": "Đơn vị",
+
+    "name": "Tên",
+    "creators": "Tác giả",
+    "supported-languages": "Ngôn ngữ hỗ trợ",
+    "access-url": "Liên kết truy cập"
   },
 
   "Highlight": {
