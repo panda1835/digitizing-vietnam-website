@@ -10,11 +10,11 @@
 }
 
 .max-width {
-  max-width: 1000px;
+  /* max-width: 1200px; */
   margin: auto;
 }
 
-h1 {
+/* h1 {
   @apply text-4xl font-bold mb-5 text-primary-blue;
 }
 
@@ -24,7 +24,7 @@ h2 {
 
 h3 {
   @apply text-xl font-bold mb-4 text-primary-blue;
-}
+} */
 
 hr {
   @apply border-black my-5;
@@ -111,6 +111,15 @@ hr {
 @layer base {
   * {
     @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;

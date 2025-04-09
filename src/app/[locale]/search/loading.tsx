@@ -1,9 +1,9 @@
-import LoadingIndicator from "@/components/layout/LoadingIndicator";
+import LoadingSpinner from "@/components/layout/LoadingSpinner";
 const Loading = () => {
   return (
-    <div className="flex flex-col max-width ">
+    <div className="flex flex-col max-width justify-center items-center">
       <div className="mt-20">
-        <LoadingIndicator />
+        <LoadingSpinner />
       </div>
     </div>
   );

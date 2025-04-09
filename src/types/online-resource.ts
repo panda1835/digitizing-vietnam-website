@@ -7,6 +7,6 @@ export interface OnlineResource {
 export interface ResourceCategory {
   category_name: string;
   description: string;
-  image_url: string;
+  image_url?: string;
   resources: OnlineResource[];
 }

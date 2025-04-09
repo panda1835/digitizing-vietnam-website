@@ -1,21 +1,59 @@
 // "use client";
-import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+import qs from "qs";
 
 import MiradorViewer from "@/components/mirador/MiradorViewer";
-import CollectionInforPanel from "@/components/CollectionInforPanel";
 import CollectionPermalink from "@/components/CollectionPermalink";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
+import DocumentMetadata from "./Metadata";
+import { Separator } from "@/components/ui/separator";
 
-import config from "../../../../config";
-import { fetchCollectionItems } from "@/utils/data";
+import { fetcher } from "@/lib/api";
+import { renderHtml } from "@/utils/renderHtml";
+import { Merriweather } from "next/font/google";
+import { Metadata } from "next";
+import algoliasearch from "algoliasearch";
+
+import TruyenKieu from "./searchable-text/TruyenKieuText";
+import LucVanTienText from "./searchable-text/LucVanTienText";
+
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
+);
+
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string; collectionid: string; documentid: string };
+}): Promise<Metadata> {
+  const t = await getTranslations();
+
+  const { results } = await searchClient.search([
+    {
+      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
+      query: params.documentid,
+      params: {
+        restrictSearchableAttributes: ["slug"], // Only search in slug field
+      },
+    },
+  ]);
+
+  const hits = (results[0] as any).hits.filter(
+    (hit) => hit.locale === params.locale
+  );
+  if (hits.length > 0) {
+    return {
+      title: `${hits[0].title} | Digitizing Việt Nam`,
+    };
+  } else {
+    return {
+      title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
+    };
+  }
+}
 
 const CollectionItemViewer = async ({
   params,
@@ -26,55 +64,161 @@ const CollectionItemViewer = async ({
     canvasId?: string;
   };
 }) => {
-  // const searchParams = useSearchParams();
-  // const canvasParam = new URLSearchParams(searchParams);
-  // const originalCanvasId = canvasParam.get("canvasId")?.toString();
-
   const locale = params.locale;
   const collectionId = params.collectionid;
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
 
   const t = await getTranslations();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  // const { manifest, mediaType, collectionName, currentPageOCR } =
-  // await fetchCollectionItems(
-  //   collectionId,
-  //   documentId,
-  //   locale,
-  //   originalCanvasId
-  // );
+  let collectionItemData: any = {};
+  let collectionTitle = "";
+
+  try {
+    const queryParams = {
+      fields: "*",
+      "filters[slug][$eq]": documentId,
+      populate: [
+        "date_created",
+        "languages",
+        "contributor",
+        "subjects",
+        "publisher",
+        "collections",
+        "resource_types",
+        "format",
+        "place_of_publication",
+        "access_condition",
+        "item_url",
+        "contributor.author",
+        "contributor.author_role_term",
+      ],
+      locale: locale,
+    };
+    const queryStringParam = qs.stringify(queryParams);
+    const queryString = new URLSearchParams(queryStringParam).toString();
+
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
+    const data = await fetcher(url);
+    collectionItemData = data.data[0];
+    collectionTitle =
+      collectionItemData.collections.find(
+        (collection: any) => collection.slug === collectionId
+      )?.title || "";
+  } catch (error) {
+    console.log("Error fetching collection:", error);
+  }
+
+  if (collectionId === "truyen-kieu") {
+    if (documentId === "truyen-kieu-1866") {
+      return (
+        <TruyenKieu
+          version="1866"
+          locale={locale}
+          documentid={`truyen-kieu-1866`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    } else if (documentId === "truyen-kieu-1870") {
+      return (
+        <TruyenKieu
+          version="1870"
+          locale={locale}
+          documentid={`truyen-kieu-1870`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    } else if (documentId === "truyen-kieu-1871") {
+      return (
+        <TruyenKieu
+          version="1871"
+          locale={locale}
+          documentid={`truyen-kieu-1871`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    } else if (documentId === "truyen-kieu-1872") {
+      return (
+        <TruyenKieu
+          version="1872"
+          locale={locale}
+          documentid={`truyen-kieu-1872`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    } else if (documentId === "truyen-kieu-1902") {
+      return (
+        <TruyenKieu
+          version="1902"
+          locale={locale}
+          documentid={`truyen-kieu-1902`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    }
+    // Do not have else because the documentid can be different for other items
+  }
+
+  if (collectionId === "luc-van-tien") {
+    if (documentId === "van-tien-co-tich-tan-truyen") {
+      return (
+        <LucVanTienText
+          locale={locale}
+          documentid={`van-tien-co-tich-tan-truyen`}
+          collectionid={collectionId}
+          collectionTitle={collectionTitle}
+        />
+      );
+    }
+  }
+
+  let documentType = "document";
+  if (collectionItemData.item_url[0]) {
+    const url = collectionItemData.item_url[0];
+    if (url.media_embed) {
+      documentType = "embed";
+    }
+  }
 
   return (
-    <div className="flex flex-col max-width">
-      <div className="flex-col mb-20 mx-5 ">
+    <div className="flex flex-col w-full items-center">
+      <div className="flex-col mb-20 w-full">
         {/* Breadcrumbs */}
 
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href={`/${locale}/our-collections`}>
-                {t("Collection.title")}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            {/* <BreadcrumbItem>
-              <BreadcrumbPage>{collectionName}</BreadcrumbPage>
-            </BreadcrumbItem> */}
-          </BreadcrumbList>
-        </Breadcrumb>
-        {/* Title */}
-        {/* <h1>
-          {manifest
-            ? manifest["label"] && Object.keys(manifest["label"]).includes("en")
-              ? manifest["label"]["en"][0]
-              : manifest["label"]
-            : null}
-        </h1> */}
+        <BreadcrumbAndSearchBar
+          locale={locale}
+          breadcrumbItems={[
+            {
+              label: t("NavigationBar.our-collections"),
+              href: "/our-collections",
+            },
+            {
+              label: collectionTitle,
+              href: "/our-collections/" + collectionId,
+            },
+            { label: collectionItemData.title },
+          ]}
+        />
+
+        {/* Headline */}
+        <div
+          className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
+        >
+          {collectionItemData.title}
+        </div>
+
+        {/* Subheadline */}
+        <div
+          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+        >
+          {collectionItemData.abstract}
+        </div>
 
         {/* Share links */}
         <CollectionPermalink />
@@ -82,39 +226,39 @@ const CollectionItemViewer = async ({
         {/* Content */}
         <div className="flex flex-row">
           {/* General Info and Text OCR section */}
-          {/* <CollectionInforPanel
-            manifest={manifest}
-            mediaType={mediaType}
-            currentPageOCR={currentPageOCR}
-          /> */}
 
           {/* Item viewer */}
-          <div className="w-full relative ml-5">
-            {/* {mediaType === "video" && (
-              <div>
-                <iframe
-                  width="600"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${
-                    manifest["items"][0]["items"][0]["items"][0]["body"][
-                      "id"
-                    ].split("=")[1]
-                  }`}
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+          <div className="w-full relative">
+            {/* Video/audio type */}
+            {documentType === "embed" && (
+              <div className="flex">
+                <div
+                  className=""
+                  dangerouslySetInnerHTML={renderHtml(
+                    collectionItemData.item_url[0].media_embed
+                  )}
+                ></div>
               </div>
-            )} */}
+            )}
 
-            {"document" === "document" && (
+            {/* Automatic IIIF Manifest */}
+            {documentType === "document" && (
               <MiradorViewer
-                manifestUrl={`https://manifest.digitizingvietnam.com/get-manifest?item-slug=${documentId}`}
+                manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
                 canvasId={originalCanvasId}
               />
             )}
           </div>
         </div>
+        <div className="mt-16">
+          <Separator />
+        </div>
+
+        {/* Metadata */}
+        <DocumentMetadata
+          locale={locale}
+          collectionItemData={collectionItemData}
+        />
       </div>
     </div>
   );

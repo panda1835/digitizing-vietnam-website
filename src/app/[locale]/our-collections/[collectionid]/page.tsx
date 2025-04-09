@@ -1,97 +1,73 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import qs from "qs";
 
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import CollectionItem from "@/components/collection/CollectionItem";
-import MetaData from "@/components/collection/Metadata";
-
 import { fetcher } from "@/lib/api";
-import { getImageByKey } from "@/utils/image";
 import { formatDate } from "@/utils/datetime";
-import { populate } from "dotenv";
 
-const EachCollection = async ({ params: { locale, collectionid } }) => {
-  const collectionId = collectionid;
+import CollectionItemView from "./CollectionItemView";
+import FeatureArticle from "./FeatureArticle";
+import { Separator } from "@/components/ui/separator";
+
+import { Metadata } from "next";
+import algoliasearch from "algoliasearch";
+
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
+);
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string; collectionid: string };
+}): Promise<Metadata> {
   const t = await getTranslations();
 
-  let collection = {
+  const { results } = await searchClient.search([
+    {
+      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
+      query: params.collectionid,
+      params: {
+        restrictSearchableAttributes: ["slug"], // Only search in slug field
+      },
+    },
+  ]);
+
+  const hits = (results[0] as any).hits.filter(
+    (hit) => hit.locale === params.locale && hit.slug === params.collectionid
+  );
+
+  if (hits.length > 0) {
+    return {
+      title: `${hits[0].title} | Digitizing Việt Nam`,
+    };
+  } else {
+    return {
+      title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
+    };
+  }
+}
+
+const OurCollections = async ({ params: { locale, collectionid } }) => {
+  const collectionId = collectionid;
+
+  const t = await getTranslations();
+
+  let collectionItems: { display_order: number }[] = [];
+  let featuredBlogs = [];
+  let collectionMetadata: { slug: string; title: string; abstract: string } = {
+    slug: "",
     title: "",
     abstract: "",
-    datePublished: "",
-    dateCreated: "",
-    format: [],
-    language: [],
-    subject: [],
-    collectionLocation: "",
-    accessCondition: "",
-    thumbnail: {
-      alternativeText: "",
-      caption: "",
-      formats: [{ url: "", width: 0, height: 0 }] as unknown as Formats,
-    },
-    slug: "",
   };
 
-  let collectionItems = [];
-
   try {
-    const queryParams = {
-      fields: "*",
-      "filters[slug][$eq]": collectionId,
-      // "populate[0]": "thumbnail",
-      // "populate[1]": "collection_items.thumbnail",
-      populate: "*",
-      locale: locale,
-    };
-
-    const queryString = new URLSearchParams(queryParams).toString();
-
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
-    const data = await fetcher(url);
-    const collectionData = data.data[0];
-    // console.log("Collection data:", collectionData);
-    collection = {
-      title: collectionData.title,
-      abstract: collectionData.abstract,
-      thumbnail: collectionData.thumbnail[0],
-      slug: collectionData.slug,
-      datePublished: formatDate(collectionData.publishedAt, locale),
-      dateCreated:
-        formatDate(collectionData.date_created.full_date, locale) ||
-        formatDate(collectionData.date_created.year_month_only, locale) ||
-        formatDate(collectionData.date_created.year_only, locale) ||
-        formatDate(collectionData.date_created.approximate_date, locale),
-      format: collectionData.formats.map((format) => format.name),
-      language: collectionData.languages.map((language) => language.name),
-      subject: collectionData.subjects.map((subject) => subject.name),
-      collectionLocation: collectionData.collection_location.name,
-      accessCondition: collectionData.access_condition.name,
-      // collectionItems: collectionData.collection_items,
-    };
-
-    // For many weird reasons I could not get both collection thumbnail,
-    // collection_items thumbnail, and other collection metadata such as access condition, ...
-    // So I have to make another API call to get the collection items separately!!!
     const queryParamsCollectionItem = {
       fields: "*",
       "filters[slug][$eq]": collectionId,
       populate: [
+        "featured_blogs.thumbnail",
+
         "collection_items.thumbnail",
         "collection_items.date_created",
         "collection_items.languages",
@@ -105,100 +81,35 @@ const EachCollection = async ({ params: { locale, collectionid } }) => {
       locale: locale,
     };
 
-    // const queryStringCollectionItem = new URLSearchParams(
-    //   queryParamsCollectionItem
-    // ).toString();
-
     const queryStringCollectionItem = qs.stringify(queryParamsCollectionItem);
 
     const urlCollectionItem = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryStringCollectionItem}`;
     const dataCollectionItem = await fetcher(urlCollectionItem);
-    const collectionDataCollectionItem = dataCollectionItem.data[0];
-    collectionItems = collectionDataCollectionItem.collection_items;
-    // console.log("Contributors:", collectionItems[0]["contributor"]);
-    // console.log("Languages:", collectionItems[0]["languages"]);
-
-    // console.log("Collection:", collection);
-    // console.log("Collection items:", collectionItems);
+    const collectionData = dataCollectionItem.data[0];
+    collectionItems = collectionData.collection_items;
+    featuredBlogs = collectionData.featured_blogs;
+    collectionMetadata = {
+      slug: collectionData.slug,
+      title: collectionData.title,
+      abstract: collectionData.abstract,
+    };
+    // Sort collection items by display order
+    collectionItems.sort((a, b) => a.display_order - b.display_order);
   } catch (error) {
     console.error("Error fetching collection:", error);
   }
 
   return (
-    <div className="flex flex-col max-width">
-      <div className="flex-col mb-20 mx-5">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">{t("Header.home")}</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href={`/${locale}/our-collections`}>
-                {t("Header.our-collections")}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{collection.title}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-        {/* Banner */}
-        <Image
-          unoptimized
-          src={getImageByKey(collection.thumbnail.formats, "small")!.url}
-          alt={collection.thumbnail.alternativeText}
-          width={100}
-          height={100}
-          className="w-full h-[300px] object-cover mt-8 rounded"
-        />
-
-        <h1 className="text-primary-blue my-8">{collection.title}</h1>
-
-        <div className="mb-4">{collection.abstract}</div>
-        <Dialog>
-          <DialogTrigger>
-            <p className="text-blue-600 hover:underline">Metadata</p>
-          </DialogTrigger>
-          <DialogContent className="">
-            <DialogHeader>
-              <DialogTitle>{collection.title}</DialogTitle>
-              <DialogDescription>
-                <MetaData collection={collection} />
-              </DialogDescription>
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-
-        <CollectionItem
-          collectionItems={collectionItems}
-          collectionSlug={collection.slug}
-          locale={locale}
-        />
-
-        <div className="mb-10"></div>
-
-        {/* Featured articles */}
-        <section>
-          <h1 id="feature-articles">{t("Collection.featured-articles")}</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-            {/* {featuredArticles &&
-              featuredArticles &&
-              featuredArticles.map((item) => (
-                <Item
-                  title={item.title}
-                  description={""}
-                  imageUrl={item.image_url}
-                  link={`/blogs/${item.blog_id}`}
-                  key={`/blogs/${item.blog_id}`}
-                />
-              ))} */}
-          </div>
-        </section>
-      </div>
+    <div className="flex flex-col w-full items-center">
+      <CollectionItemView
+        collectionItems={collectionItems}
+        collection={collectionMetadata}
+        locale={locale}
+      />
+      <Separator className="mt-10 w-full" />
+      <FeatureArticle highlights={featuredBlogs} locale={locale} />
     </div>
   );
 };
 
-export default EachCollection;
+export default OurCollections;

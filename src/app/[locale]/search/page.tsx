@@ -1,82 +1,57 @@
+import algoliasearch from "algoliasearch";
+
 import { getTranslations } from "next-intl/server";
-import qs from "qs";
+import SearchResultView from "./SearchResultView";
 
-import FilterSidebar from "@/app/[locale]/search/FilterSidebar";
-import CollectionItem from "@/components/collection/CollectionItem";
-import SearchResults from "./SearchResult";
-import { fetcher } from "@/lib/api";
+import { preprocessSearchResults } from "./filter";
 
-const SearchResult = async ({
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("SearchResult.title")} | Digitizing Việt Nam`,
+  };
+}
+
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
+);
+
+const SearchResultsPage = async ({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: string }>;
-  searchParams: Promise<{
-    query: string;
-    language: string;
-    page: string;
-  }>;
+  params: { locale: string };
+  searchParams?: {
+    q?: string;
+  };
 }) => {
-  const { query: searchQuery, language, page } = await searchParams;
-  const { locale } = await params;
+  const t = await getTranslations();
 
-  const t = await getTranslations("SearchResult");
+  const locale = params.locale;
+  const searchQuery = searchParams?.q || "";
 
-  let searchResult = [];
+  const { results } = await searchClient.search([
+    {
+      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
+      query: searchQuery,
+    },
+  ]);
 
-  try {
-    const queryParams = {
-      fields: "*",
-      populate: [
-        "thumbnail",
-        "date_created",
-        "languages",
-        "contributor",
-        "contributor.author",
-        "contributor.author_role_term",
-        "resource_types",
-        "place_of_publication",
-        "subjects",
-        "collections",
-        "publisher",
-      ],
-      locale: locale,
-    };
+  const hits = (results[0] as any).hits.filter((hit) => hit.locale === locale);
 
-    if (language) {
-      queryParams["filters[languages][name][$eq]"] = language;
-    }
+  // console.log("Hits", hits[0]);
+  const processedHits = preprocessSearchResults(hits);
 
-    const queryString = qs.stringify(queryParams);
-
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
-    const data = await fetcher(url);
-    const collectionData = data.data;
-    console.log("Collection data:", collectionData[0]);
-    // console.log("collections", collectionData[0].collections);
-    searchResult = collectionData;
-  } catch (error) {
-    console.error("Error fetching collection:", error);
-  }
+  // console.log("Result", hits[0]);
 
   return (
-    <div className="flex flex-col max-width">
-      <div className="flex-col mx-5">
-        {/* Header */}
-        <section className="flex flex-col items-center justify-center">
-          <h1 className="">{t("title")}</h1>
-        </section>
-
-        {/* Search result */}
-      </div>
-
-      <SearchResults
-        searchResults={searchResult}
-        locale={locale}
-        searchQuery={searchQuery}
-      />
+    <div className="flex flex-col items-center max-width">
+      <SearchResultView hits={processedHits} locale={locale} />
     </div>
   );
 };
 
-export default SearchResult;
+export default SearchResultsPage;
