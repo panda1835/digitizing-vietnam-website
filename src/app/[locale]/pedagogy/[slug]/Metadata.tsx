@@ -75,7 +75,7 @@ export async function PedagogyMetadata({ metadata, locale }) {
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1" className="border rounded-lg px-4 mb-4">
           <AccordionTrigger className="text-branding-brown text-xl font-normal font-['Helvetica Neue'] leading-relaxed">
-            {t("Outreach.metadata")}
+            {t("Outreach.metadata.metadata")}
           </AccordionTrigger>
           <AccordionContent>
             <div>
@@ -85,7 +85,7 @@ export async function PedagogyMetadata({ metadata, locale }) {
                   className="font-['Helvetica Neue'] text-base font-light mt-2"
                 >
                   <strong className="text-[#777777] text-lg font-normal">
-                    {t(`Outreach.${key}`)}:
+                    {t(`Outreach.metadata.${key}`)}:
                   </strong>{" "}
                   {value as string}
                 </div>

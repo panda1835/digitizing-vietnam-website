@@ -81,8 +81,9 @@
   "Outreach": {
     "title": "Thư viện giáo dục",
     "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện.",
+    "contributed-by": "Đóng góp bởi",
+
     "metadata": {
-      "contributed-by": "Đóng góp bởi",
       "metadata": "Thông tin chi tiết",
       "title": "Tiêu đề",
       "lecturers": "Giảng viên",
