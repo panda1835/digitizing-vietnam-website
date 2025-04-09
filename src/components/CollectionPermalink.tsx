@@ -1,47 +1,32 @@
 "use client";
-import { useState } from "react";
-
-import { ClipboardDocumentIcon } from "@heroicons/react/16/solid";
+import { useTranslations } from "next-intl";
+import { toast } from "sonner";
+import { Files } from "lucide-react";
 
 const CollectionPermalink = () => {
-  const [copySuccess, setCopySuccess] = useState("Copy");
+  const t = useTranslations();
   const copyToClipboard = () => {
     if (typeof window !== "undefined") {
       navigator.clipboard.writeText(window.location.href).then(
         () => {
-          setCopySuccess("Copied!");
+          toast.success(t("Toast.copied"));
         },
-        () => {
-          setCopySuccess("Copy");
+        (err) => {
+          toast.error(t("Toast.failed-to-copy"));
         }
       );
     }
   };
   return (
-    <div className="pb-5">
-      <div className="font-bold text-primary-blue">Permalink: </div>
-
+    <div className="mt-4 mb-10">
       <div className="flex justify-left items-center">
         <button
           onClick={copyToClipboard}
-          className="mr-5 bg-white text-black flex justify-center items-center"
+          className="mr-5 text-blue-500 flex justify-center items-center gap-2"
         >
-          <div className="flex-col text-center justify-center">
-            <ClipboardDocumentIcon />
-            {copySuccess && (
-              <div
-                className={
-                  copySuccess == "Copied!"
-                    ? "text-green-700 font-bold w-8"
-                    : "text-black font-bold w-8"
-                }
-              >
-                {copySuccess}
-              </div>
-            )}
-          </div>
+          <Files className="" />
+          <p className="">{t("Button.copy-url")}</p>
         </button>
-        {typeof window !== "undefined" && window.location.href}
       </div>
     </div>
   );

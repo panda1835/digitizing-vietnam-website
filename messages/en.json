@@ -4,16 +4,34 @@
     "read-more": "Read More",
     "load-more": "Show More",
     "load-less": "Show Less",
-    "search": "Search"
+    "search": "Search",
+    "copy-url": "Copy URL",
+    "next": "Next",
+    "previous": "Previous",
+    "go-to-page": "Go to page"
   },
 
-  "Header": {
+  "Toast": {
+    "copied": "Copied!",
+    "failed-to-copy": "Failed to copy"
+  },
+
+  "ErrorPage": {
+    "not-found": "Page Not Found",
+    "not-found-message": "The page you are looking for does not exist.",
+    "back-to-home": "Back to Home"
+  },
+
+  "NavigationBar": {
     "home": "Home",
     "about-us": "About Us",
     "our-collections": "Collections",
     "tools": "Tools",
-    "blogs": "Blogs",
-    "online-resources": "Resources"
+    "highlights": "What's New",
+    "online-resources": "Resources",
+    "outreach": "Pedagogical Library",
+    "vietnam-for-educators": "Việt Nam for Educators",
+    "understanding-vietnam": "Understanding Việt Nam"
   },
 
   "Home": {
@@ -21,6 +39,7 @@
     "about-digitizing-vietnam": "About Digitizing Vietnam",
     "about-digitizing-vietnam-content": "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration. The joint venture started with the memorandum of understanding between two universities in 2022. Weatherhead East Asian Institute of Columbia and Vietnam Studies Center of Fulbright will be spearheading research in the field of Vietnam studies, and Digitizing Vietnam will be one among many collaborative endeavors to come in the future.",
     "our-collections": "Our Collections",
+    "studying-vietnam": "Study Vietnam through the Digital Lens",
     "our-collections-content": "Do you want to try reading Hán-Nôm scripts, or to see how chữ quốc ngữ was used in the early 20th century? Our eclectic collections range from pre-modern Hán-Nôm texts to the first Vietnamese women's magazine. While by no means comprehensive, they provide rarely seen snapshots of Vietnamese history.",
     "our-blog": "Our Blog",
     "our-blog-content": "The blog is a special part in this digital hub for studies on both premodern and modern Vietnam. Here, you will find scholarly research as well as non-specialist insights related to Vietnam's historical and cultural evolution. We also invite you to contribute to the discussion on our collections, and share any insights you might have."
@@ -32,15 +51,68 @@
 
   "Collection": {
     "title": "Our Collections",
-    "subtitle": "Explore our digital archive dedicated to the preservation and academic exploration of Vietnam's historical and intellectual heritage.",
+    "subtitle": "Explore our digital archive dedicated to preserving and academically exploring Vietnam's historical, cultural & intellectual heritage.",
     "our-volumes": "Items",
     "featured-articles": "Featured Articles",
-    "no-volume-found": "No volumes found."
+    "no-volume-found": "No volumes found.",
+    "result": "results"
   },
 
-  "Blog": {
-    "title": "Vietnam Digitized: A Blog",
-    "subtitle": "News, insights and initiatives on the digital front of Vietnamese heritage.",
+  "CollectionItem": { "page": "Page", "missing-page": "Missing page" },
+
+  "CollectionMetadata": {
+    "title": "Title",
+    "authors": "Authors",
+    "resource-types": "Resource Types",
+    "languages": "Languages",
+    "subjects": "Subjects",
+    "format": "Formats",
+    "place-of-publication": "Place of Publication",
+    "date-created": "Date Created",
+    "publisher": "Publisher",
+    "edition": "Edition",
+    "identifier": "Identifier",
+    "url": "URL",
+    "note": "Note",
+    "access-condition": "Access Condition",
+    "related-works": "Related Works"
+  },
+
+  "Outreach": {
+    "title": "Pedagogical Library",
+    "subtitle": "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences.",
+    "contributed-by": "Contributed by",
+    "metadata": "Metadata",
+    "lecture-title": "Lecture Title",
+    "lecturers": "Lecturers",
+    "description": "Description",
+    "duration": "Duration",
+    "date-created": "Created Date",
+
+    "podcast-title": "Podcast",
+    "episode-title": "Episode",
+    "episode-number": "Episode Number",
+    "host": "Host",
+    "guest": "Guest",
+    "release-date": "Release Date",
+    "episode-url": "Episode URL",
+    "podcast-url": "Podcast URL",
+    "transcript": "Transcript",
+
+    "course-title": "Course",
+    "semester": "Semester",
+    "instructor": "Instructor",
+    "affiliation": "Affiliation",
+
+    "name": "Name",
+    "creators": "Creators",
+    "supported-languages": "Supported Languages",
+    "access-url": "Access URL"
+  },
+
+  "Highlight": {
+    "title": "What's new",
+    "subtitle": "Latest news and discoveries from the digital front of Vietnamese heritage.",
     "news": "News",
     "highlights": "Highlights",
     "initiatives": "Initiatives"
@@ -48,14 +120,69 @@
 
   "OnlineResource": {
     "title": "Online Resources",
-    "subtitle": "Are you looking for a launchpad for your research on Vietnam? Check out some resources below and find the best fit.",
+    "subtitle": "This curated collection offers a solid starting point for research on Vietnam, with materials designed to support diverse academic interests.",
     "no-resource-message": "There are no resources available for this category."
+  },
+
+  "Tools": {
+    "subtitle": "Engage creatively with Vietnam Studies — Use Digitizing Vietnam's specialized tools to approach the field with fresh perspectives and critical insight.",
+    "image-ocr-platform": {
+      "name": "Image OCR Platform",
+      "description": "The Image OCR Platform is a tool that allows users to upload images of text and convert them into machine-readable text. This tool is especially useful for researchers who need to transcribe text from images of historical documents."
+    },
+    "han-nom-dictionaries": {
+      "name": "Hán-Nôm Dictionaries",
+      "description": "The Hán-Nôm Dictionaries tool is a collection of dictionaries that provide definitions and explanations for Hán-Nôm characters. This tool is especially useful for researchers who need to look up the meanings of Hán-Nôm characters in historical texts.",
+      "dictionaries": {
+        "tu-dien-chu-nom-dan-giai": {
+          "name": "The Dictionary of Nôm Characters with Quotations and Annotations",
+          "description": "To date, The Dictionary of Nôm Characters with Quotations and Annotations by Prof. Nguyễn Quang Hồng Nguyễn Quang Hồng is the largest dictionary on Chữ Nôm, containing nearly 10,000 entries extracted by the author from 124 ancient works and texts from various periods, fields, and genres. The dictionary is systematically and scientifically structured into two columns: one column identifies the character form, pronunciation, and code of the character, while the other analyzes the structure of the Chữ Nôm character, provides its meaning, and includes relevant contextual examples. Special attention is given to the variations of Chữ Nôm characters, with each entry possibly having one or more variant forms that are clearly recorded from specific textual sources. This is a significant highlight of this dictionary.",
+          "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
+          "author": "Prof. Nguyễn Quang Hồng"
+        },
+        "giup-doc-nom-va-han-viet": {
+          "name": "Nôm and Sino-Vietnamese Pronunciation Guide",
+          "description": "The Nôm and Sino-Vietnamese Pronunciation Guide by Father Anthony Trần Văn Kiệm consists of two main parts: Part I introduces and lists the radicals used in writing Hán-Nôm characters, followed by an arrangement of Hán-Nôm characters classified by radicals and stroke count. This method of radicals organizing Hán-Nôm characters allows readers to quickly identify the pronunciation of a character in both Sino-Vietnamese and modern Vietnamese, thereby enabling them to easily find the corresponding meaning in Part II. Part II provides the pronunciation and meaning of each Hán-Nôm character. The pronunciation section includes the Beijing Mandarin pronunciation (transcribed in Pinyin, which the author refers to as Phanh Âm), the Sino-Vietnamese pronunciation, and the Vietnamese (Nôm) reading. This is undoubtedly one of the rare and valuable books for referencing and self-studying Hán-Nôm that anyone passionate about learning these ancient scripts should read.",
+          "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
+          "author": "Father Anthony Trần Văn Kiệm"
+        }
+      }
+    },
+    "kieu-tools": {
+      "name": "Kiều Tools",
+      "description": "The Kiều Tools is a collection of tools that allow users to analyze and explore the text of Nguyễn Du's Truyện Kiều. This tool is especially useful for researchers who need to analyze the text of Truyện Kiều in detail.",
+      "tools": {
+        "glossary": {
+          "name": "Glossary of Nôm characters",
+          "description": "This page lists occurrences of all Nôm characters and their frequencies in a selected version of Kiều.",
+          "version-not-found": "Version not found"
+        }
+      }
+    }
   },
 
   "SearchResult": {
     "title": "Search Results",
     "showing": "Showing",
     "search-result-for": "search results for",
-    "no-search-result": "No search results found."
+    "no-search-result": "No search results found.",
+    "search-across-website": "Search across the Digitizing Việt Nam website"
+  },
+
+  "Filter": {
+    "result": "results",
+    "apply-filters": "Apply Filters",
+    "category": {
+      "part_of": "Part of",
+      "collections": "Collections",
+      "authors": "Authors",
+      "languages": "Languages",
+      "subjects": "Subjects",
+      "formats": "Formats",
+      "resource_types": "Resource types",
+      "collection_locations": "Collection locations",
+      "access_condition": "Access condition",
+      "online_resource_types": "Online resource types"
+    }
   }
 }

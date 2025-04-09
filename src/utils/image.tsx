@@ -1,5 +1,5 @@
 export function getImageByKey(
-  formats: Formats,
+  formats: any,
   requestedSize: string
 ): ImageFormat | null {
   // Define the order of size keys from largest to smallest

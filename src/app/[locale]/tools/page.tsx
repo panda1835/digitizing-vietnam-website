@@ -1,73 +1,86 @@
-function Tools() {
-  return (
-    <div className="container max-width px-4 py-16">
-      {/* Hero section */}
-      <section className="flex flex-col md:flex-row items-center justify-between">
-        <div className="text-center md:text-left w-full md:w-1/2">
-          <h1 className="text-4xl font-bold mb-4">
-            V-Text: Advanced Annotation Tool for Vietnam-Related Research
-          </h1>
-          <p className="text-lg leading-loose">
-            V-Text is a cutting-edge annotation tool designed specifically for
-            independent research groups focusing on Vietnam-related texts,
-            images, and videos. It offers a comprehensive suite of features
-            tailored to the unique needs of scholars and researchers working in
-            the fields of Vietnam studies.
-          </p>
-          <button className="font-bold py-2 px-4 rounded-full mt-4">
-            <a href="https://vtext-653242fba46d.herokuapp.com/">Try V-text</a>
-          </button>
-        </div>
-        <div className="w-full md:w-1/2 flex justify-center">
-          {/* Add an image here using img tag with appropriate src and alt  */}
-        </div>
-      </section>
+import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
+import { getTranslations } from "next-intl/server";
 
-      {/* Key Features section */}
-      <section className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-16">
-        <div className="flex flex-col items-center p-4 border rounded-lg shadow-md">
-          <h3 className="text-primary-blue text-2xl font-bold mb-2">
-            Multimedia Annotation
-          </h3>
-          <p className="text-center md:text-left">
-            V-Text supports a wide range of formats, allowing users to annotate
-            text documents, images, and videos seamlessly.
-          </p>
+import { Merriweather } from "next/font/google";
+import { Metadata } from "next";
+
+import { Separator } from "@/components/ui/separator";
+import { InfoCard } from "@/components/common/InfoCard";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("NavigationBar.tools")} | Digitizing Việt Nam`,
+  };
+}
+
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+
+const Tools = async ({ params: { locale } }) => {
+  const t = await getTranslations();
+  const tools = [
+    {
+      href: "https://ocr.digitizingvietnam.com",
+      target: "_blank",
+      rel: "noopener noreferrer",
+      name: t("Tools.image-ocr-platform.name"),
+      description: t("Tools.image-ocr-platform.description"),
+    },
+    {
+      href: "/tools/han-nom-dictionaries",
+      name: t("Tools.han-nom-dictionaries.name"),
+      description: t("Tools.han-nom-dictionaries.description"),
+    },
+    {
+      href: "/tools/kieu-tools",
+      name: t("Tools.kieu-tools.name"),
+      description: t("Tools.kieu-tools.description"),
+    },
+  ];
+  return (
+    <div className="flex flex-col items-center max-width">
+      <div className="flex-col mb-20 w-full">
+        <BreadcrumbAndSearchBar
+          locale={locale}
+          breadcrumbItems={[{ label: t("NavigationBar.tools") }]}
+        />
+        <div
+          className={`${merriweather.className} text-branding-black text-4xl`}
+        >
+          {t("NavigationBar.tools")}
         </div>
-        <div className="flex flex-col items-center p-4 border rounded-lg shadow-md">
-          <h3 className="text-primary-blue text-2xl font-bold mb-2">
-            Language-Specific Tools
-          </h3>
-          <p className="text-center md:text-left">
-            With robust support for the Vietnamese language, including special
-            characters and diacritics, V-Text ensures accurate and efficient
-            annotation of Vietnamese texts.
-          </p>
+        {/* Subheadline */}
+        <div
+          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+        >
+          {t("Tools.subtitle")}
         </div>
-        <div className="flex flex-col items-center p-4 border rounded-lg shadow-md">
-          <h3 className="text-primary-blue text-2xl font-bold mb-2">
-            Collaborative Environment
-          </h3>
-          <p className="text-center md:text-left">
-            V-Text fosters collaboration by enabling multiple users to work on
-            the same project simultaneously. Real-time updates and version
-            control ensure that all contributions are synchronized and
-            documented.
-          </p>
+        <div className="mt-28">
+          <Separator />
         </div>
-        <div className="flex flex-col items-center p-4 border rounded-lg shadow-md">
-          <h3 className="text-primary-blue text-2xl font-bold mb-2">
-            Customizable Annotations
-          </h3>
-          <p className="text-center md:text-left">
-            Researchers can create and manage custom tags, comments, and
-            metadata, allowing for detailed and organized annotation tailored to
-            specific research needs.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          {tools.map((tool) => (
+            <div key={tool.name}>
+              <InfoCard
+                name={tool.name}
+                description={tool.description}
+                url={tool.href}
+                newTab={false}
+              />
+            </div>
+          ))}
         </div>
-      </section>
+
+        {/* <iframe
+          src="https://kimtudien.com.vn"
+          width="100%"
+          height="600"
+          frameBorder="0"
+          title="Embedded Website"
+        ></iframe> */}
+      </div>
     </div>
   );
-}
+};
 
 export default Tools;
