@@ -16,12 +16,17 @@ export default function LearnMoreButton({
       >
         <div
           className={[
-            "h-[22px] justify-start items-center gap-2 inline-flex text-branding-brown text-base font-normal",
+            " h-[22px] justify-start items-center gap-2 inline-flex text-branding-brown text-base font-normal group transform transition-transform hover:scale-105",
             className,
           ].join(" ")}
         >
-          <div className="font-['Helvetica Neue'] font-light">{text}</div>
-          <MoveRight size={16} />
+          <div className=" font-['Helvetica Neue'] font-light text-lg">
+            {text}
+          </div>
+          <MoveRight
+            size={16}
+            className="group-hover:translate-x-[+4px] transition-transform"
+          />
         </div>
       </Link>
     </div>

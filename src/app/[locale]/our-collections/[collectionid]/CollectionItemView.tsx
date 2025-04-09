@@ -65,14 +65,14 @@ const CollectionItemView = ({ collection, collectionItems, locale }) => {
 
         {/* Headline */}
         <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
+          className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
         >
           {collection.title}
         </div>
 
         {/* Subheadline */}
         <div
-          className={`font-light font-['Helvetica Neue'] leading-relaxed mt-8 max-w-4xl`}
+          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
         >
           {collection.abstract}
         </div>

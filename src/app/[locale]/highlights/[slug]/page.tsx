@@ -95,7 +95,7 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
 
   return (
     <div className="flex flex-col max-width">
-      <div className="flex-col mb-20 mx-5 max-w-5xl">
+      <div className="flex-col mb-20 max-w-5xl">
         <BreadcrumbAndSearchBar
           locale={locale}
           breadcrumbItems={[
@@ -113,20 +113,20 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
           <div className="self-stretch">
             {post.author && (
               <span>
-                <span className="text-branding-black text-base font-normal font-['Helvetica Neue'] leading-relaxed">
-                  By
+                <span className="text-branding-black text-lg font-normal font-['Helvetica Neue'] leading-relaxed">
+                  {/* {locale === "en" ? "By" : "Bởi"} */}
                 </span>
-                <span className="text-branding-black text-base font-medium font-['Helvetica Neue'] leading-relaxed">
+                <span className="text-branding-black text-lg font-medium font-['Helvetica Neue'] leading-relaxed">
                   {" "}
                 </span>
-                <span className="text-branding-brown text-base font-normal font-['Helvetica Neue'] leading-relaxed">
+                <span className="text-branding-brown text-lg font-normal font-['Helvetica Neue'] leading-relaxed">
                   {post.author}
                 </span>{" "}
                 ·{" "}
               </span>
             )}
 
-            <span className="text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed">
+            <span className="text-branding-black text-lg font-light font-['Helvetica Neue'] leading-relaxed">
               {formatDate(post.date, locale)}
             </span>
           </div>
@@ -142,13 +142,13 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
         />
         <div
           dangerouslySetInnerHTML={renderHtml(post.content)}
-          className="mt-10 text-branding-black text-base font-light font-['Helvetica Neue'] leading-[30px]"
+          className="mt-10 text-branding-black text-lg font-light font-['Helvetica Neue'] leading-[30px]"
         />
         <div className="flex justify-end mt-12">
           <SocialMediaSharing title={post.title} />
         </div>
 
-        <div>Related Highlights</div>
+        {/* <div>Related Highlights</div> */}
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
         {/* Title */}
         <Link href={link} className="">
           <div
-            className={`text-branding-black text-xl font-normal ${merriweather.className} mt-2 line-clamp-2`}
+            className={`text-branding-black text-xl font-normal ${merriweather.className} mt-2 line-clamp-2 hover:text-branding-brown hover:underline`}
             title={title}
           >
             {title}

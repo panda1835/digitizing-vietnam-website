@@ -84,7 +84,9 @@ const Blogs = async ({ params: { locale } }) => {
         </div>
 
         {/* Subheadline */}
-        <div className={`font-['Helvetica_Neue'] font-light text-base mt-6`}>
+        <div
+          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+        >
           {locale === "en"
             ? "Latest news and discoveries from the digital front of Vietnamese heritage."
             : "Những tin tức và phát hiện mới nhất từ mặt trận kỹ thuật số của di sản Việt."}

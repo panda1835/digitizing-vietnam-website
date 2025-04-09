@@ -4,6 +4,7 @@
     "read-more": "Đọc thêm",
     "load-more": "Hiển thị thêm",
     "load-less": "Hiển thị bớt",
+    "search": "Tìm kiếm",
     "copy-url": "Sao chép URL",
     "next": "Tiếp",
     "previous": "Trước",
@@ -38,6 +39,7 @@
     "about-digitizing-vietnam": "Về Dự án Số hóa Việt Nam",
     "about-digitizing-vietnam-content": "Dự án Số hóa Việt Nam là bước nhảy vọt số hóa trong nghiên cứu Việt Nam do Columbia và Fulbright hợp tác. Dự án bắt đầu từ hiệp định ghi nhớ giữa hai trường đại học vào năm 2022. Viện Đông Á học của Đại học Columbia và Trung tâm Nghiên cứu Việt Nam của Fulbright sẽ dẫn đầu trong nghiên cứu lĩnh vực nghiên cứu Việt Nam, và Dự án Số hóa Việt Nam là một trong những nỗ lực hợp tác trong tương lai.",
     "our-collections": "Bộ sưu tập của chúng tôi",
+    "studying-vietnam": "Nghiên cứu Việt Nam qua lăng kính số",
     "our-collections-content": "Bạn có muốn đọc văn bản Hán-Nôm hay xem chữ quốc ngữ được sử dụng vào đầu thế kỷ 20? Bộ sưu tập đa dạng của chúng tôi bao gồm các văn bản Hán-Nôm cổ đại đến tạp chí phụ nữ Việt Nam đầu tiên. Mặc dù không toàn diện, chúng cung cấp những bức tranh hiếm thấy về lịch sử Việt Nam.",
     "our-blog": "Blog của chúng tôi",
     "our-blog-content": "Blog là một phần đặc biệt trong trung tâm số hóa này, với nghiên cứu học thuật và những cái nhìn không chuyên sâu liên quan đến sự tiến hóa văn hóa lịch sử của Việt Nam. Chúng tôi cũng mời bạn đóng góp ý kiến ​​về các bộ sưu tập của chúng tôi và chia sẻ bất kỳ hiểu biết nào bạn có."
@@ -49,7 +51,7 @@
 
   "Collection": {
     "title": "Bộ sưu tập của chúng tôi",
-    "subtitle": "Khám phá kho lưu trữ số hóa dành riêng cho nghiên cứu và bảo tồn di sản lịch sử và tri thức của Việt Nam.",
+    "subtitle": "Khám phá kho lưu trữ số - nơi dành riêng cho việc bảo tồn và nghiên cứu học thuật về di sản lịch sử, văn hóa & tư tưởng Việt Nam.",
     "our-volumes": "Các Tập",
     "featured-articles": "Bài báo nổi bật",
     "no-volume-found": "Không tìm thấy tập nào.",
@@ -77,50 +79,55 @@
   },
 
   "Outreach": {
-    "contributed-by": "Đóng góp bởi",
-    "metadata": "Thông tin chi tiết",
-    "title": "Tiêu đề",
-    "lecturers": "Giảng viên",
-    "description": "Mô tả",
-    "duration": "Thời lượng",
-    "date-created": "Ngày tạo",
+    "title": "Thư viện giáo dục",
+    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện.",
+    "metadata": {
+      "contributed-by": "Đóng góp bởi",
+      "metadata": "Thông tin chi tiết",
+      "title": "Tiêu đề",
+      "lecturers": "Giảng viên",
+      "description": "Mô tả",
+      "duration": "Thời lượng",
+      "date-created": "Ngày tạo",
 
-    "podcast-title": "Podcast",
-    "episode-title": "Tập",
-    "episode-number": "Tập số",
-    "host": "Người dẫn",
-    "guest": "Khách mời",
-    "release-date": "Ngày phát hành",
-    "episode-url": "Liên kết tập",
-    "podcast-url": "Liên kết podcast",
-    "transcript": "Bản ghi âm",
+      "podcast-title": "Podcast",
+      "episode-title": "Tập",
+      "episode-number": "Tập số",
+      "host": "Người dẫn",
+      "guest": "Khách mời",
+      "release-date": "Ngày phát hành",
+      "episode-url": "Liên kết tập",
+      "podcast-url": "Liên kết podcast",
+      "transcript": "Bản ghi âm",
 
-    "course-title": "Khóa học",
-    "semester": "Học kỳ",
-    "instructor": "Giảng viên",
-    "affiliation": "Đơn vị",
+      "course-title": "Khóa học",
+      "semester": "Học kỳ",
+      "instructor": "Giảng viên",
+      "affiliation": "Đơn vị",
 
-    "name": "Tên",
-    "creators": "Tác giả",
-    "supported-languages": "Ngôn ngữ hỗ trợ",
-    "access-url": "Liên kết truy cập"
+      "name": "Tên",
+      "creators": "Tác giả",
+      "supported-languages": "Ngôn ngữ hỗ trợ",
+      "access-url": "Liên kết truy cập"
+    }
   },
 
   "Highlight": {
-    "title": "Việt Nam Số hóa: Blog",
-    "subtitle": "Thông tin, nhận định và các sáng kiến trên mặt trận số hóa di sản Việt Nam.",
+    "title": "Bài viết",
+    "subtitle": "Những tin tức và khám phá mới nhất về hành trình số hóa, bảo tồn và nghiên cứu di sản Việt Nam.",
     "news": "Tin tức",
     "highlights": "Tin nổi bật",
     "initiatives": "Các sáng kiến"
   },
 
   "OnlineResource": {
-    "title": "Tài nguyên Trực tuyến",
-    "subtitle": "Bạn đang tìm kiếm một nền tảng để nghiên cứu về Việt Nam? Hãy khám phá một số tài nguyên dưới đây và tìm sự phù hợp nhất.",
+    "title": "Tài nguyên tham khảo",
+    "subtitle": "Tuyển tập tài nguyên được tuyển chọn dưới đây là khởi điểm tinh chọn cho các nghiên cứu về Việt Nam, với nguồn tư liệu đa dạng, đáp ứng những mối quan tâm học thuật khác nhau.",
     "no-resource-message": "Hiện không có tài nguyên nào cho danh mục này."
   },
 
   "Tools": {
+    "subtitle": "Tiếp cận lĩnh vực Nghiên cứu Việt Nam một cách sáng tạo. Hãy sử dụng các công cụ chuyên biệt của Digitizing Việt Nam để khám phá lĩnh vực này với góc nhìn mới mẻ và tư duy phản biện.",
     "image-ocr-platform": {
       "name": "Image OCR Platform",
       "description": "Image OCR Platform là một công cụ cho phép người dùng trích xuất văn bản từ hình ảnh. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần trích xuất văn bản từ các tài liệu lịch sử hoặc các loại hình ảnh khác."
@@ -132,13 +139,13 @@
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải",
           "description": "Cho đến nay, Tự điển chữ Nôm dẫn giải của tác giả GS.TSKH Nguyễn Quang Hồng là cuốn tự điển lớn nhất về chữ Nôm với gần 1 vạn mục từ được tác giả trích dẫn từ 124 tác phẩm cổ, văn bản cổ khác nhau thuộc nhiều thời kỳ, nhiều lĩnh vực, nhiều loại hình. Tự điển được cấu trúc có tính hệ thống, khoa học theo hai cột: một cột xác định hình chữ, âm đọc và kí mã của chữ, cột thứ hai có phần phân tích cấu trúc chữ Nôm, giải nghĩa chữ kèm theo văn cảnh cụ thể. Chú trọng tới các biến thể chữ Nôm, một mục từ có thể có một hoặc nhiều chữ Nôm với các cách viết khác nhau được ghi rõ từ các nguồn văn bản cụ thể. Đây là một điểm nhấn quan trọng của cuốn tự điển này.",
-          "search-placeholder": "Tìm kiếm Hán Nôm hoặc Quốc Ngữ",
+          "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
           "author": "GS.TSKH Nguyễn Quang Hồng"
         },
         "giup-doc-nom-va-han-viet": {
           "name": "Giúp Đọc Nôm và Hán Việt",
           "description": "Cuốn tự điển Giới thiệu đọc Nôm và Hán Việt của Linh mục Anthony Trần Văn Kiệm được cấu tạo bởi hai phần chính: Phần I là phần giới thiệu và liệt kê các bộ thủ dùng viết chữ Hán Nôm, và liệt kê các chữ Hán Nôm được sắp xếp theo bộ thủ và các nét. Phương pháp sắp xếp chữ Hán Nôm theo bộ thủ giúp cho người đọc nhanh chóng tìm được cách phát âm theo âm Hán và âm tiếng Việt của một chữ Hán Nôm, qua đó giúp người đọc nhanh chóng tìm được nghĩa của chữ Hán Nôm tương ứng trong Phần II. Phần II là phần liệt kê cách đọc của từng chữ Hán Nôm và giải thích nghĩa của từng chữ. Phần liệt kê cách đọc của một chữ Hán Nôm bao gồm âm Bắc Kinh (theo phiên âm Pinjin, tác giả gọi là Phanh Âm), âm Hán Việt và âm tiếng Việt (Nôm). Đây là một trong những cuốn sách quý hiếm dùng để tra cứu và tự học chữ Hán Nôm mà các bạn ham muốn học chữ Hán Nôm nên đọc.",
-          "search-placeholder": "Tìm kiếm Hán Nôm hoặc Quốc Ngữ",
+          "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
           "author": "Linh mục Anthony Trần Văn Kiệm"
         }
       }

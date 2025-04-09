@@ -38,20 +38,17 @@ const Home = async ({ params: { locale } }) => {
   const outlines = [
     {
       name: t("NavigationBar.our-collections"),
-      description:
-        "Explore our digital archive dedicated to the preservation and academic exploration of Vietnam's historical and intellectual heritage.",
-      url: "/collections",
+      description: t("Collection.subtitle"),
+      url: "/our-collections",
     },
     {
       name: t("NavigationBar.tools"),
-      description:
-        "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration.",
+      description: t("Tools.subtitle"),
       url: "/tools",
     },
     {
-      name: t("NavigationBar.outreach"),
-      description:
-        "The Digitizing Việt Nam Project regards outreach to be fundamental. We do more than simply host collections—we bring them to life and make them central to the education of Vietnam's younger generations and the broader public.",
+      name: t("Outreach.title"),
+      description: t("Outreach.subtitle"),
       url: "/pedagogy",
     },
   ];
@@ -60,7 +57,7 @@ const Home = async ({ params: { locale } }) => {
 
   return (
     <div className="flex flex-col items-center max-width w-full">
-      <div className="flex-col mb-20 px-5 w-full">
+      <div className="flex-col mb-20 w-full">
         <SearchBar locale={locale} />
         {/* Header */}
         <section className="max-w-7xl justify-center items-center inline-flex mb-10 mt-10">
@@ -68,18 +65,22 @@ const Home = async ({ params: { locale } }) => {
             <span
               className={`text-branding-black text-[52px] font-light ${merriweather.className}`}
             >
-              A digital hub to study{" "}
+              {locale === "en"
+                ? "A digital hub to study"
+                : "Không gian số hỗ trợ nghiên cứu Việt Nam"}{" "}
             </span>
             <span
               className={`text-branding-brown text-[52px] font-light ${merriweather.className}`}
             >
-              pre-modern and modern
+              {locale === "en"
+                ? "pre-modern and modern"
+                : "cận đại và hiện đại."}
             </span>
             <span
               className={`text-branding-black text-[52px] font-light ${merriweather.className}`}
             >
               {" "}
-              Vietnam
+              {locale === "en" ? "Vietnam" : ""}
             </span>
           </div>
         </section>
@@ -97,25 +98,20 @@ const Home = async ({ params: { locale } }) => {
           <div
             className={`text-3xl font-medium mb-6 text-branding-black ${merriweather.className}`}
           >
-            About Us
+            {t("NavigationBar.about-us")}
           </div>
-          <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
+          <div className=" mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light text-lg">
             <p className=" ">
-              Digitizing Vietnam marks a digital leap forward in Vietnam Studies
-              with the Columbia-Fulbright collaboration. This joint venture
-              started with the memorandum of understanding between two
-              universities in 2022. WeatherHead East Asian Institute of Columbia
-              and Vietnam Studies Center of Fulbright will be accelerating
-              research in the field of Vietnam studies, and exploring further
-              value and serving many collaborative endeavors to come in the
-              future.
+              {locale === "en"
+                ? '"Digitizing Việt Nam" marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration. This joint venture started with a memorandum of understanding between two universities in 2022. Weatherhead East Asian Institute of Columbia and Vietnam Studies Center of Fulbright will accelerate research in the field of Vietnam studies and explore many collaborative endeavors to come in the future.'
+                : '"Số hóa Việt Nam" (Digitizing Việt Nam) đánh dấu một bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác giữa Đại học Columbia và Đại học Fulbright. Sáng kiến chung này bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022. Trong tương lai, Viện Nghiên cứu Đông Á Weatherhead thuộc Đại học Columbia và Trung tâm Nghiên cứu Việt Nam thuộc Đại học Fulbright sẽ cùng nhau thúc đẩy nghiên cứu trong lĩnh vực Việt Nam học, đồng thời khám phá thêm nhiều định hướng hợp tác mới.'}
             </p>
             <div className="mt-4 mb-10">
               <LearnMoreButton text={t("Button.learn-more")} url="/about-us" />
             </div>
 
             {/* Partner Logos */}
-            <div className="flex flex-wrap items-center justify-between gap-8 mb-16">
+            <div className="flex flex-wrap items-center justify-between md:justify-center gap-16 mb-16">
               <Image
                 unoptimized
                 src="/images/vsc-logo.png"
@@ -150,13 +146,13 @@ const Home = async ({ params: { locale } }) => {
             <div
               className={`text-3xl font-medium mb-6 text-branding-black ${merriweather.className}`}
             >
-              Study Vietnam through the Digital Lens
+              {t("Home.studying-vietnam")}
             </div>
-            <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
+            <div className=" mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light text-lg">
               <p className=" ">
-                Delve into Vietnam&apos;s history, culture, and society through
-                cutting-edge tools and curated resources tailored for scholars,
-                students, and educators.
+                {locale === "en"
+                  ? "Delve into Vietnam's history, culture, and society through cutting-edge tools and curated resources tailored for scholars, students, and educators."
+                  : "Khám phá lịch sử, văn hóa và xã hội Việt Nam thông qua các công cụ tiên tiến và nguồn tư liệu được tinh chọn cho học giả, sinh viên và giáo viên."}
               </p>
             </div>
           </div>
@@ -181,11 +177,8 @@ const Home = async ({ params: { locale } }) => {
             >
               {t("NavigationBar.highlights")}
             </div>
-            <div className="max-w-3xl mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light">
-              <p className=" ">
-                Latest news and discoveries from the digital front of Vietnamese
-                heritage.
-              </p>
+            <div className=" mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light text-lg">
+              <p className=" ">{t("Highlight.subtitle")}</p>
               <div className="mt-4">
                 <LearnMoreButton
                   text={t("Button.learn-more")}

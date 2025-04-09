@@ -117,10 +117,10 @@ const Pedagogies = async ({ params: { locale } }) => {
         </div>
 
         {/* Subheadline */}
-        <div className={`font-['Helvetica_Neue'] font-light text-base mt-6`}>
-          {locale === "en"
-            ? "The Digitizing Việt Nam Project regards outreach to be fundamental. We do more than simply host collections—we bring them to life and make them central to the education of Vietnam's younger generations and the broader public."
-            : "Dự án Digitizing Việt Nam coi việc tiếp cận là một phần quan trọng. Chúng tôi không chỉ lưu trữ bộ sưu tập mà còn đem chúng đến với cuộc sống và làm cho chúng trở thành trung tâm của việc giáo dục thế hệ trẻ Việt Nam và công chúng rộng lớn hơn."}
+        <div
+          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+        >
+          {t("Outreach.subtitle")}
         </div>
 
         {/* Tab */}

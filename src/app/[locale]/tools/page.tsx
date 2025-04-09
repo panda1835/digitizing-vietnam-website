@@ -51,11 +51,9 @@ const Tools = async ({ params: { locale } }) => {
         </div>
         {/* Subheadline */}
         <div
-          className={`font-light font-['Helvetica Neue'] leading-relaxed mt-8 max-w-4xl`}
+          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
         >
-          {locale === "en"
-            ? "Explore a suite of Digital Humanities tools designed for textual analysis and historical research. These resources support scholars in studying and interpreting historical texts with precision."
-            : "Khám phá bộ công cụ Nhân văn Số được thiết kế để phân tích văn bản và nghiên cứu lịch sử. Những tài nguyên này hỗ trợ các nhà nghiên cứu trong việc nghiên cứu và diễn giải các văn bản lịch sử một cách chính xác."}
+          {t("Tools.subtitle")}
         </div>
         <div className="mt-28">
           <Separator />

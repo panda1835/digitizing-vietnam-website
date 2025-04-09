@@ -85,10 +85,10 @@ const OnlineResources = async ({ params: { locale } }) => {
         </div>
 
         {/* Subheadline */}
-        <div className={`${merriweather.className} mt-6`}>
-          {locale === "en"
-            ? "Are you looking for a launchpad for your research on Vietnam? Check out some resources below and find the best fit."
-            : "Bạn đang tìm kiếm một nơi để bắt đầu nghiên cứu về Việt Nam? Hãy xem qua các nguồn tài nguyên dưới đây của chúng tôi."}
+        <div
+          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+        >
+          {t("OnlineResource.subtitle")}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
@@ -115,7 +115,7 @@ const OnlineResources = async ({ params: { locale } }) => {
                       <MoveRight size={16} />
                     </div>
                   </DialogTrigger>
-                  <DialogContent className="bg-white max-w-none">
+                  <DialogContent className="bg-white max-w-none ">
                     <DialogHeader>
                       <DialogTitle>
                         <div
@@ -129,7 +129,7 @@ const OnlineResources = async ({ params: { locale } }) => {
                         <Separator />
                       </DialogTitle>
                       <DialogDescription className="text-left">
-                        <ScrollArea className="h-[500px] w-full">
+                        <ScrollArea className="h-[250px] sm:h-[500px] w-full">
                           {category.resources.length === 0 && (
                             <p>{t("OnlineResource.no-resource-message")}</p>
                           )}

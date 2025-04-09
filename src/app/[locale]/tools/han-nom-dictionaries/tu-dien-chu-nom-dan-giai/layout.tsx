@@ -3,7 +3,7 @@ import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-
+import NavLink from "../NavLink";
 export default async function DictionaryLayout({
   children,
   params: { locale },
@@ -80,20 +80,25 @@ export default async function DictionaryLayout({
   );
 }
 
-function NavLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="py-3 px-6 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors relative group"
-    >
-      <span className="text-gray-800">{children}</span>
-      <span className="absolute left-0 top-0 bottom-0 w-1 bg-branding-brown opacity-0 group-hover:opacity-100 transition-opacity" />
-    </Link>
-  );
-}
+// function NavLink({
+//   href,
+//   children,
+// }: {
+//   href: string;
+//   children: React.ReactNode;
+// }) {
+//   const pathname = usePathname();
+//   const isActive = pathname === href;
+
+//   return (
+//     <Link
+//       href={href}
+//       className={`py-3 px-6 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors relative group ${
+//         isActive ? "bg-branding-brown text-white" : ""
+//       }`}
+//     >
+//       <span className="text-gray-800">{children}</span>
+//       <span className="absolute left-0 top-0 bottom-0 w-1 bg-branding-brown opacity-0 group-hover:opacity-100 transition-opacity" />
+//     </Link>
+//   );
+// }

@@ -14,7 +14,7 @@ const FeatureArticle = ({ highlights, locale }) => {
         <div
           className={`text-3xl font-medium mb-6 text-branding-black ${merriweather.className}`}
         >
-          Feature Articles
+          {locale === "en" ? "Featured Articles" : "Bài viết chuyên đề"}
         </div>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">

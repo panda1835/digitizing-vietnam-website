@@ -42,7 +42,14 @@ const NavigationBar = () => {
                 <Link href={item.href} legacyBehavior passHref>
                   <NavigationMenuLink
                     className={cn(
-                      "group bg-transparent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-base font-['Helvetica Neue'] font-light transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                      "group bg-transparent inline-flex h-10 w-max",
+                      "items-center justify-center rounded-md px-4 py-2 text-lg",
+                      "font-['Helvetica Neue'] font-medium transition-colors",
+                      "hover:text-branding-brown hover:font-bold hover:underline",
+                      "focus:text-branding-brown focus:font-bold focus:underline",
+                      "disabled:pointer-events-none disabled:opacity-50",
+                      "data-[active]:text-branding-brown data-[active]:font-bold",
+                      "data-[state=open]:text-branding-brown data-[state=open]:font-bold"
                     )}
                   >
                     {t(item.key)}

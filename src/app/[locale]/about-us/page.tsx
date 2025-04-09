@@ -56,7 +56,7 @@ const AboutUs = async ({ params: { locale } }) => {
           {t("AboutUs.title")}
         </div>
         <div
-          className="md:col-span-2 font-['Helvetica Neue'] text-branding-black max-w-5xl mt-6"
+          className="md:col-span-2 font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl"
           dangerouslySetInnerHTML={renderHtml(aboutUsData["subheadline"])}
         />
 
@@ -69,7 +69,7 @@ const AboutUs = async ({ params: { locale } }) => {
             {locale === "en" ? "Our Mission" : "Sứ mệnh"}
           </div>
           <div
-            className="md:col-span-2 font-['Helvetica Neue'] text-branding-black"
+            className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg text-branding-black"
             dangerouslySetInnerHTML={renderHtml(aboutUsData["mission"])}
           />
         </div>
@@ -82,7 +82,7 @@ const AboutUs = async ({ params: { locale } }) => {
           <div className={`${merriweather.className}  text-4xl`}>
             {locale === "en" ? "Our Collections" : "Bộ sưu tập"}
           </div>
-          <div className="md:col-span-2 font-['Helvetica Neue']">
+          <div className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg">
             <div
               className="  text-branding-black"
               dangerouslySetInnerHTML={renderHtml(
@@ -92,6 +92,7 @@ const AboutUs = async ({ params: { locale } }) => {
             <LearnMoreButton
               url={"/our-collections"}
               text={t("Button.learn-more")}
+              className="mt-8"
             />
           </div>
         </div>
@@ -129,12 +130,12 @@ const AboutUs = async ({ params: { locale } }) => {
               {locale === "en" ? "Core Institutions" : "Core Institutions"}
             </div>
             <div
-              className="font-['Helvetica Neue'] text-branding-black"
+              className="font-['Helvetica Neue'] font-light text-lg text-branding-black"
               dangerouslySetInnerHTML={renderHtml(
                 aboutUsData["institutional_support_core_institutions"]
               )}
             />
-            <div className="flex flex-wrap justify-between items-center gap-8 mb-16 mt-8">
+            <div className="flex flex-wrap justify-center items-center gap-16 mb-16 mt-8">
               <Image
                 unoptimized
                 src="/images/vsc-logo.png"
@@ -164,12 +165,12 @@ const AboutUs = async ({ params: { locale } }) => {
               {locale === "en" ? "Partners" : "Partners"}
             </div>
             <div
-              className="font-['Helvetica Neue'] text-branding-black"
+              className="font-['Helvetica Neue'] font-light text-lg text-branding-black"
               dangerouslySetInnerHTML={renderHtml(
                 aboutUsData["institutional_support_partners"]
               )}
             />
-            <div className="flex justify-between items-center gap-8 mb-16 mt-8">
+            <div className="flex justify-center flex-wrap items-center gap-8 mb-16 mt-8">
               {["1", "2", "3", "4", "5"].map((item) => (
                 <Image
                   unoptimized
@@ -192,7 +193,7 @@ const AboutUs = async ({ params: { locale } }) => {
             {locale === "en" ? "Funding" : "Nguồn tài trợ"}
           </div>
           <div
-            className="md:col-span-2 font-['Helvetica Neue'] text-branding-black"
+            className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg text-branding-black"
             dangerouslySetInnerHTML={renderHtml(aboutUsData["funding"])}
           />
         </div>

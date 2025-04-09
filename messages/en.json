@@ -39,6 +39,7 @@
     "about-digitizing-vietnam": "About Digitizing Vietnam",
     "about-digitizing-vietnam-content": "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration. The joint venture started with the memorandum of understanding between two universities in 2022. Weatherhead East Asian Institute of Columbia and Vietnam Studies Center of Fulbright will be spearheading research in the field of Vietnam studies, and Digitizing Vietnam will be one among many collaborative endeavors to come in the future.",
     "our-collections": "Our Collections",
+    "studying-vietnam": "Study Vietnam through the Digital Lens",
     "our-collections-content": "Do you want to try reading Hán-Nôm scripts, or to see how chữ quốc ngữ was used in the early 20th century? Our eclectic collections range from pre-modern Hán-Nôm texts to the first Vietnamese women's magazine. While by no means comprehensive, they provide rarely seen snapshots of Vietnamese history.",
     "our-blog": "Our Blog",
     "our-blog-content": "The blog is a special part in this digital hub for studies on both premodern and modern Vietnam. Here, you will find scholarly research as well as non-specialist insights related to Vietnam's historical and cultural evolution. We also invite you to contribute to the discussion on our collections, and share any insights you might have."
@@ -50,7 +51,7 @@
 
   "Collection": {
     "title": "Our Collections",
-    "subtitle": "Explore our digital archive dedicated to the preservation and academic exploration of Vietnam's historical and intellectual heritage.",
+    "subtitle": "Explore our digital archive dedicated to preserving and academically exploring Vietnam's historical, cultural & intellectual heritage.",
     "our-volumes": "Items",
     "featured-articles": "Featured Articles",
     "no-volume-found": "No volumes found.",
@@ -78,6 +79,8 @@
   },
 
   "Outreach": {
+    "title": "Pedagogical Library",
+    "subtitle": "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences.",
     "contributed-by": "Contributed by",
     "metadata": "Metadata",
     "lecture-title": "Lecture Title",
@@ -108,8 +111,8 @@
   },
 
   "Highlight": {
-    "title": "Vietnam Digitized: A Blog",
-    "subtitle": "News, insights and initiatives on the digital front of Vietnamese heritage.",
+    "title": "What's new",
+    "subtitle": "Latest news and discoveries from the digital front of Vietnamese heritage.",
     "news": "News",
     "highlights": "Highlights",
     "initiatives": "Initiatives"
@@ -117,11 +120,12 @@
 
   "OnlineResource": {
     "title": "Online Resources",
-    "subtitle": "Are you looking for a launchpad for your research on Vietnam? Check out some resources below and find the best fit.",
+    "subtitle": "This curated collection offers a solid starting point for research on Vietnam, with materials designed to support diverse academic interests.",
     "no-resource-message": "There are no resources available for this category."
   },
 
   "Tools": {
+    "subtitle": "Engage creatively with Vietnam Studies — Use Digitizing Vietnam's specialized tools to approach the field with fresh perspectives and critical insight.",
     "image-ocr-platform": {
       "name": "Image OCR Platform",
       "description": "The Image OCR Platform is a tool that allows users to upload images of text and convert them into machine-readable text. This tool is especially useful for researchers who need to transcribe text from images of historical documents."

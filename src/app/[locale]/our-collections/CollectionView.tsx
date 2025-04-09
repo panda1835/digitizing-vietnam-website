@@ -73,11 +73,9 @@ const OurCollections = ({ collections, locale }) => {
 
         {/* Subheadline */}
         <div
-          className={`font-light font-['Helvetica Neue'] leading-relaxed mt-8`}
+          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
         >
-          {locale === "en"
-            ? "Explore our digital archive dedicated to the preservation and academic exploration of Vietnam's historical and intellectual heritage."
-            : "Khám phá bộ sưu tập kỹ thuật số của chúng tôi, dành riêng cho việc bảo tồn và khám phá học thuật về di sản lịch sử và trí tuệ của Việt Nam."}
+          {t("Collection.subtitle")}
         </div>
 
         <div className="mt-28">

@@ -15,7 +15,7 @@ const ToolLink = ({ title, description, href }: ToolLinkProps) => {
     >
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <h3 className="text-xl font-normal text-branding-black hover:underline">
+          <h3 className="text-xl font-normal text-branding-black hover:underline hover:text-branding-brown">
             {title}
           </h3>
           <p className="text-muted-foreground">{description}</p>

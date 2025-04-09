@@ -25,7 +25,9 @@ export async function InfoCard({ name, description, url, newTab = false }) {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-end mt-5">
-          <p className="text-muted-foreground">{description}</p>
+          <p className="font-['Helvetica Neue'] font-light text-muted-foreground text-lg">
+            {description}
+          </p>
         </CardContent>
         <CardFooter>
           <div>
