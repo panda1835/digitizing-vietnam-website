@@ -16,6 +16,7 @@ export const preprocessSearchResults = (hits) => {
         resource_types: hit.resource_types.map(
           (resourceType) => resourceType.name
         ),
+        _highlightResult: hit._highlightResult,
       };
     }
     // If collection item
@@ -28,14 +29,17 @@ export const preprocessSearchResults = (hits) => {
         slug: hit.slug,
         collections: hit.collections.map((collection) => collection.title),
         collection_slugs: hit.collections.map((collection) => collection.slug),
-        author: hit.contributor.map((contributor) => contributor.author.name),
-        formats: [hit.format ? hit.format.name : ""],
+        author: hit.contributor.map(
+          (contributor) => contributor.author?.name || ""
+        ),
+        formats: [hit.format?.name || ""],
         languages: hit.languages.map((language) => language.name),
         subjects: hit.subjects.map((subject) => subject.name),
-        access_condition: hit.access_condition ? hit.access_condition.name : "",
+        access_condition: hit.access_condition?.name || "",
         resource_types: hit.resource_types.map(
           (resourceType) => resourceType.name
         ),
+        _highlightResult: hit._highlightResult,
       };
     }
     // If online resource
@@ -47,6 +51,7 @@ export const preprocessSearchResults = (hits) => {
         online_resource_types: hit.online_resource_types.map(
           (type) => type.name
         ),
+        _highlightResult: hit._highlightResult,
       };
     } else {
       return hit;

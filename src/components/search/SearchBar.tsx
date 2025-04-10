@@ -65,7 +65,7 @@ const CustomSearchBox = ({ currentRefinement, refine }: any) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && currentRefinement.trim()) {
       e.preventDefault();
-      router.push(`search?q=${encodeURIComponent(currentRefinement.trim())}`);
+      router.push(`/search?q=${encodeURIComponent(currentRefinement.trim())}`);
     }
   };
 
@@ -161,6 +161,8 @@ const SearchBar = ({ locale }: { locale: string }) => {
             "collection_slugs",
             "locale",
           ]}
+          highlightPreTag="<mark>"
+          highlightPostTag="</mark>"
         />
       </InstantSearch>
     </div>

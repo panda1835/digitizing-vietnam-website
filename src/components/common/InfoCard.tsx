@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 import {
   Card,
   CardContent,
@@ -19,9 +20,15 @@ export async function InfoCard({ name, description, url, newTab = false }) {
       <Card className="bg-branding-gray flex flex-col h-full">
         <CardHeader>
           <CardTitle
-            className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown`}
+            className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown hover:underline`}
           >
-            {name}
+            <Link
+              href={url}
+              target={newTab ? "_blank" : undefined}
+              rel={newTab ? "noopener noreferrer" : undefined}
+            >
+              {name}
+            </Link>
           </CardTitle>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-end mt-5">
