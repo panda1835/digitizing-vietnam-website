@@ -77,7 +77,7 @@ export default function FilterSidebar({
     );
 
   return (
-    <div className="w-full md:w-80 mb-8 md:mb-0 md:mr-8 bg-white p-4 rounded-lg shadow">
+    <div className=" md:w-80 mb-8 md:mb-0 mr-8 bg-white p-4 rounded-lg shadow">
       <div className="mb-4 font-['Helvetica Neue'] text-branding-black">
         <span className="font-semibold text-4xl">{numberOfResults}</span>{" "}
         <span className="text-xl font-base">{t("Filter.result")}</span>

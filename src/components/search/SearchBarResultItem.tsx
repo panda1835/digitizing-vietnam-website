@@ -35,7 +35,7 @@ const SearchBarResultItem = ({ hit }) => {
               alt={hit.title}
               width={96}
               height={96}
-              className="object-cover p-2 "
+              className="object-cover p-2 hidden sm:block"
             />
           )}
           <div className="flex-grow">
