@@ -145,7 +145,23 @@ const SearchBar = ({ locale }: { locale: string }) => {
           <SearchInput />
         </div>
         <CustomHits />
-        {/* <Configure filters={`locale:${locale}`} /> */}
+        <Configure
+          // filters={`locale:${locale}`}
+          attributesToRetrieve={[
+            "slug",
+            "online_resource_types",
+            "collections",
+            "collection_slugs",
+            "thumbnail",
+            "title",
+            "name",
+            "description",
+            "abstract",
+            "collection_location",
+            "collection_slugs",
+            "locale",
+          ]}
+        />
       </InstantSearch>
     </div>
   );
