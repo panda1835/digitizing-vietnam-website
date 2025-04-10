@@ -13,7 +13,7 @@ const ItemBreadcrumbs = ({ hit }) => {
             This is for handling cases where the online resources
             was edited and became a Draft, which resulted in the
             online_resource_types being an empty array.
-          */}
+          */}{" "}
           {hit.online_resource_types.length > 0 && (
             <>
               &gt;{" "}

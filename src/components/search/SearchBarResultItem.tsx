@@ -4,7 +4,7 @@ import ItemBreadcrumbs from "./ItemBreadcrumbs";
 
 const SearchBarResultItem = ({ hit }) => {
   return (
-    <div className="bg-white hover:bg-gray-100 hover:rounded-lg mx-3 p-3">
+    <div className="bg-white hover:bg-gray-100 hover:rounded-lg p-3 px-6">
       <div key={hit} className="mt-1 overflow-hidden flex">
         <Link
           href={
