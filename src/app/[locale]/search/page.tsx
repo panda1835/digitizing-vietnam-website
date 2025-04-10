@@ -37,6 +37,10 @@ const SearchResultsPage = async ({
     {
       indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
       query: searchQuery,
+      params: {
+        highlightPreTag: "<mark>", // Set the opening highlight tag
+        highlightPostTag: "</mark>", // Set the closing highlight tag
+      },
     },
   ]);
 
@@ -44,7 +48,6 @@ const SearchResultsPage = async ({
 
   // console.log("Hits", hits[0]);
   const processedHits = preprocessSearchResults(hits);
-
   // console.log("Result", hits[0]);
 
   return (

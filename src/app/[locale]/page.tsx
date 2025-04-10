@@ -38,17 +38,27 @@ const Home = async ({ params: { locale } }) => {
   const outlines = [
     {
       name: t("NavigationBar.our-collections"),
-      description: t("Collection.subtitle"),
+      description:
+        locale === "en"
+          ? "Explore our digital archive dedicated to preserving and academically exploring Vietnam's historical, cultural & intellectual heritage."
+          : "Khám phá kho lưu trữ số - nơi dành riêng cho việc bảo tồn và nghiên cứu học thuật về di sản lịch sử, văn hóa & tư tưởng Việt Nam.",
+
       url: "/our-collections",
     },
     {
       name: t("NavigationBar.tools"),
-      description: t("Tools.subtitle"),
+      description:
+        locale === "en"
+          ? "Engage creatively with Vietnam Studies — Use Digitizing Vietnam's specialized tools to approach the field with fresh perspectives and critical insight."
+          : "Tiếp cận lĩnh vực Nghiên cứu Việt Nam với các công cụ chuyên biệt của Digitizing Việt Nam.",
       url: "/tools",
     },
     {
       name: t("Outreach.title"),
-      description: t("Outreach.subtitle"),
+      description:
+        locale === "en"
+          ? "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences."
+          : "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả với tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện.",
       url: "/pedagogy",
     },
   ];

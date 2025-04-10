@@ -127,7 +127,7 @@ const AboutUs = async ({ params: { locale } }) => {
           </div>
           <div className="md:col-span-2">
             <div className={`${merriweather.className}  text-2xl`}>
-              {locale === "en" ? "Core Institutions" : "Core Institutions"}
+              {locale === "en" ? "Core Institutions" : "Các đơn vị chính"}
             </div>
             <div
               className="font-['Helvetica Neue'] font-light text-lg text-branding-black"
@@ -162,7 +162,7 @@ const AboutUs = async ({ params: { locale } }) => {
               />
             </div>
             <div className={`${merriweather.className}  text-2xl`}>
-              {locale === "en" ? "Partners" : "Partners"}
+              {locale === "en" ? "Partners" : "Đối tác"}
             </div>
             <div
               className="font-['Helvetica Neue'] font-light text-lg text-branding-black"

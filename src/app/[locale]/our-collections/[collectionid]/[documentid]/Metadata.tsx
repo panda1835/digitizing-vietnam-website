@@ -198,7 +198,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
             {t("CollectionMetadata.access-condition")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.access_condition?.name || "N/A"}
+            {collectionItemData.access_condition?.description || "N/A"}
           </div>
         </div>
       </div>

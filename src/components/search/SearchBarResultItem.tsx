@@ -4,7 +4,7 @@ import ItemBreadcrumbs from "./ItemBreadcrumbs";
 
 const SearchBarResultItem = ({ hit }) => {
   return (
-    <div className="bg-white hover:bg-gray-100 hover:rounded-lg mx-3 p-3">
+    <div className="bg-white hover:bg-gray-100 hover:rounded-lg p-3 px-6">
       <div key={hit} className="mt-1 overflow-hidden flex">
         <Link
           href={
@@ -43,10 +43,39 @@ const SearchBarResultItem = ({ hit }) => {
               <ItemBreadcrumbs hit={hit} />
             </div>
             <div className="text-lg font-normal font-['Helvetica_Neue'] mb-1">
-              {hit.title || hit.name}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html:
+                    hit._highlightResult?.title?.value ||
+                    hit._highlightResult?.name?.value ||
+                    hit.title ||
+                    hit.name,
+                }}
+              />
             </div>
             <div className="text-base font-light font-['Helvetica_Neue'] mb-2 line-clamp-2">
-              {hit.description || hit.abstract || ""}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    const highlightedText =
+                      hit._highlightResult?.description?.value ||
+                      hit._highlightResult?.abstract?.value ||
+                      hit.description ||
+                      hit.abstract;
+
+                    if (!highlightedText) return "";
+
+                    const regex =
+                      /(?:\b(?:\w+\b\W*){0,10})<mark>.*?<\/mark>.*/i;
+                    const match = highlightedText.match(regex);
+
+                    if (match && !highlightedText.startsWith(match[0])) {
+                      return `...${match[0]}`;
+                    }
+                    return match ? match[0] : highlightedText;
+                  })(),
+                }}
+              />
             </div>
           </div>
         </Link>

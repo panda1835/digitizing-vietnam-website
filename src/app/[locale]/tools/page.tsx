@@ -65,7 +65,7 @@ const Tools = async ({ params: { locale } }) => {
                 name={tool.name}
                 description={tool.description}
                 url={tool.href}
-                newTab={false}
+                newTab={tool.target === "_blank"}
               />
             </div>
           ))}

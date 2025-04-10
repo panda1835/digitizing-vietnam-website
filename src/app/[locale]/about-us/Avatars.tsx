@@ -38,7 +38,7 @@ export default function Avatar({ teamMember }) {
                 >
                   {teamMember.name}
                 </h3>
-                <p className="font-bold font-['Helvetica Neue'] font-semibold text-left">
+                <p className="font-['Helvetica Neue'] font-semibold text-left">
                   {teamMember.title}
                 </p>
                 <p className="text-left font-['Helvetica Neue'] font-light">
