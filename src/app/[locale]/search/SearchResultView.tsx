@@ -3,10 +3,14 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import SearchBarResultItem from "@/components/search/SearchBarResultItem";
 import { generateCollectionFilters } from "./filter";
 import FilterSidebar from "@/components/FilterSidebar";
+
+import { Filter } from "lucide-react";
 
 const SearchResultView = ({ hits, locale }) => {
   const t = useTranslations();
@@ -40,6 +44,12 @@ const SearchResultView = ({ hits, locale }) => {
                   selectedOptions.includes(collection)
                 ) ?? false
               );
+            case "authors":
+              return (
+                item.author?.some((contributor) =>
+                  selectedOptions.includes(contributor)
+                ) ?? false
+              );
             case "languages":
               return (
                 item.languages?.some((lang) =>
@@ -70,19 +80,42 @@ const SearchResultView = ({ hits, locale }) => {
     setFilteredResults(filtered);
   };
 
+  const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div className="flex-col mb-20 w-full">
       <BreadcrumbAndSearchBar
         locale={locale}
         breadcrumbItems={[{ label: t("SearchResult.title") }]}
       />
+      {/* Mobile view with Sheet */}
+      <div className="sm:hidden">
+        <Sheet open={showSidebar} onOpenChange={setShowSidebar}>
+          <SheetTrigger asChild>
+            <Button variant="default" size="sm" className="mb-4">
+              <Filter className="h-4 w-4" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-3/4 max-w-xs p-4">
+            <div className="h-full flex flex-col">
+              <FilterSidebar
+                filters={filter}
+                onFilterChange={handleFilterChange}
+                numberOfResults={filteredResults.length}
+              />
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
       <div className="flex">
-        <div className="">
-          <FilterSidebar
-            filters={filter}
-            onFilterChange={handleFilterChange}
-            numberOfResults={filteredResults.length}
-          />
+        <div className="sm:block">
+          {/* Desktop view with inline sidebar */}
+          <div className="hidden sm:block">
+            <FilterSidebar
+              filters={filter}
+              onFilterChange={handleFilterChange}
+              numberOfResults={filteredResults.length}
+            />
+          </div>
         </div>
         <div className="w-full">
           {filteredResults.map((hit) => (
