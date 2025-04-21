@@ -82,9 +82,12 @@ const Home = async ({ params: { locale } }) => {
             <span
               className={`text-branding-brown text-[52px] font-light ${merriweather.className}`}
             >
-              {locale === "en"
-                ? "pre-modern and modern"
-                : "cận đại và hiện đại."}
+              {locale === "en" ? "pre-modern and modern" : ""}
+            </span>
+            <span
+              className={`text-branding-brown text-[52px] font-light lg:hidden ${merriweather.className}`}
+            >
+              {locale === "vi" ? "cận đại và hiện đại." : ""}
             </span>
             <span
               className={`text-branding-black text-[52px] font-light ${merriweather.className}`}
@@ -92,6 +95,11 @@ const Home = async ({ params: { locale } }) => {
               {" "}
               {locale === "en" ? "Vietnam" : ""}
             </span>
+            <div
+              className={`text-branding-brown text-[52px] font-light lg:block hidden ${merriweather.className}`}
+            >
+              {locale === "vi" ? "cận đại và hiện đại." : ""}
+            </div>
           </div>
         </section>
 

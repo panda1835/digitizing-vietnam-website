@@ -15,7 +15,7 @@ export async function generateHomePageCarouselItems(locale: string) {
   const data = await fetcher(url);
   const homeData = data.data;
   return homeData.carousel.map((image) => ({
-    img: getImageByKey(image.image.formats, "medium")!.url,
+    img: getImageByKey(image.image.formats, "large")!.url,
     caption: image.caption,
   }));
 }
