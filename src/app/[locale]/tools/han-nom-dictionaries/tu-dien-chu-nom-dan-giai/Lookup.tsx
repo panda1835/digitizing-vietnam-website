@@ -1,16 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import Entry from "./Entry";
 import { useTranslations } from "next-intl";
-import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { search } from "../utils";
-import localFont from "next/font/local";
-
-const NomNaTong = localFont({
-  src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
-});
+import DictionarySearchBar from "../DictionarySearchBar";
 
 export default function LookUp({
   entries,
@@ -41,7 +35,7 @@ export default function LookUp({
   return (
     <div className="mx-auto p-4">
       <div className="flex gap-4 mb-6 items-center">
-        <div className="relative w-full">
+        {/* <div className="relative w-full">
           <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-700" />
           <input
             type="text"
@@ -54,7 +48,8 @@ export default function LookUp({
             onKeyDown={handleKeyDown}
             className={`flex-1 ${NomNaTong.className} h-[54px] w-full px-5 py-2 pl-12 bg-branding-white shadow-lg rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidde`}
           />
-        </div>
+        </div> */}
+
         {/* <Input
           type="text"
           placeholder="Search Hán Nôm or Quốc Ngữ"
@@ -63,9 +58,16 @@ export default function LookUp({
           onKeyDown={handleKeyDown}
           className={`flex-1 ${NomNaTong.className}`}
         /> */}
-        <Button onClick={handleSearch} className="h-12">
-          {t("Button.search")}
-        </Button>
+
+        <DictionarySearchBar
+          placeholder={t(
+            "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.search-placeholder"
+          )}
+          searchKeyword={searchKeyword}
+          setSearchKeyword={setSearchKeyword}
+          handleKeyDown={handleKeyDown}
+          handleSearch={handleSearch}
+        />
       </div>
       {filtered.map((entry, index) => (
         <Entry key={index} entry={entry} refs={refs} />

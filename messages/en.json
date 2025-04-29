@@ -132,9 +132,18 @@
       "name": "Image OCR Platform",
       "description": "The Image OCR Platform is a tool that allows users to upload images of text and convert them into machine-readable text. This tool is especially useful for researchers who need to transcribe text from images of historical documents."
     },
+
     "han-nom-dictionaries": {
       "name": "Hán-Nôm Dictionaries",
       "description": "The Hán-Nôm Dictionaries tool is a collection of dictionaries that provide definitions and explanations for Hán-Nôm characters. This tool is especially useful for researchers who need to look up the meanings of Hán-Nôm characters in historical texts.",
+      "writing-pad": {
+        "tooltip": "Draw a Han Nom character",
+        "title": "Draw a Han Nom character",
+        "description": "Use your finger or mouse to draw a Han character in the box below. When you're done, click Recognize to see matching results. Select the correct character to input it into the search box. Click Clear to erase the writing canvas.",
+        "clear": "Clear",
+        "recognize": "Recognize",
+        "recognizing": "Recognizing..."
+      },
       "dictionaries": {
         "tu-dien-chu-nom-dan-giai": {
           "name": "The Dictionary of Nôm Characters with Quotations and Annotations",
