@@ -140,7 +140,7 @@
       "writing-pad": {
         "tooltip": "Vẽ kí tự Hán Nôm",
         "title": "Vẽ kí tự Hán Nôm",
-        "description": "Dùng tay hoặc chuột để vẽ một chữ Hán vào ô bên dưới. Khi vẽ xong, nhấn Nhận dạng để xem các kết quả gợi ý. Chọn đúng chữ để nhập vào ô tìm kiếm. Nhấn Xoá để làm mới bảng vẽ.",
+        "description": "Dùng tay hoặc chuột để vẽ một chữ Hán Nôm vào ô bên dưới. Khi vẽ xong, nhấn Nhận dạng để xem các kết quả gợi ý. Chọn đúng chữ để nhập vào ô tìm kiếm. Nhấn Xoá để làm mới bảng vẽ.",
         "clear": "Xoá",
         "recognize": "Nhận diện",
         "recognizing": "Đang nhận diện..."

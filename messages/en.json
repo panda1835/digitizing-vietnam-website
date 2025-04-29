@@ -139,7 +139,7 @@
       "writing-pad": {
         "tooltip": "Draw a Han Nom character",
         "title": "Draw a Han Nom character",
-        "description": "Use your finger or mouse to draw a Han character in the box below. When you're done, click Recognize to see matching results. Select the correct character to input it into the search box. Click Clear to erase the writing canvas.",
+        "description": "Use your finger or mouse to draw a Han Nom character in the box below. When you're done, click Recognize to see matching results. Select the correct character to input it into the search box. Click Clear to erase the writing canvas.",
         "clear": "Clear",
         "recognize": "Recognize",
         "recognizing": "Recognizing..."
