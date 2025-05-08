@@ -21,16 +21,16 @@ export default function Entry({
 }) {
   return (
     <div className="">
-      <Card className={`${NomNaTong.className} mb-4 p-4`}>
+      <Card className={`${NomNaTong.className} mb-4 p-4 pb-0`}>
         <CardContent>
-          <h3 className="text-2xl font-semibold text-branding-brown">
-            <span className={``}>{entry.hn[0]}</span> ({entry.qn[0]})
+          <h3 className="text-2xl font-semibold text-branding-brown mb-4">
+            <span className={``}>{entry.hn}</span> ({entry.qn})
           </h3>
           <div className={`text-xl`}>
-            {entry.derivations[0].sense_list[0].$.struct}
+            {entry.derivations.sense_list[0].$.struct}
           </div>
 
-          {entry.derivations[0].sense_list[0].sense.map((sense, i) => (
+          {entry.derivations.sense_list[0].sense.map((sense, i) => (
             <div key={i}>
               <p className="text-lg text-gray-600">
                 {sense.$.type}{" "}

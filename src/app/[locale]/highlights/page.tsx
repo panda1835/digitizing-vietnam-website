@@ -63,7 +63,8 @@ const Blogs = async ({ params: { locale } }) => {
         }),
       });
     });
-    // Sort the blog by published date
+
+    // Sort the blogs by published date
     blogData = blogCategories.map((category) => ({
       category_name: category.category_name,
       description: category.description,

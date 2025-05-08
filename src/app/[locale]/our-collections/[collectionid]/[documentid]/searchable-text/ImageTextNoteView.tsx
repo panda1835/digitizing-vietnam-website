@@ -302,16 +302,19 @@ export default function ImageTextNoteView({
                             (note) => note.$.id === s.$.corresp
                           );
                           highlightedLine = highlightedLine.replace(
-                            s._,
+                            new RegExp(
+                              `(?<!<div[^>]*?>[^<]*)\\b${s._}\\b(?![^<]*?</div>)`,
+                              "g"
+                            ),
                             `<span class="text-branding-brown relative group"="${
                               s._
                             }">
-                          ${s._}
-                          <div class="z-50 absolute w-60 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black text-sm p-2 rounded border border-black shadow-lg">
-                          ${correspondingNote ? correspondingNote._ : s._}
-                          </div>
-                          </span>
-                          `
+                            ${s._}
+                            <div class="z-50 absolute w-60 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black text-sm p-2 rounded border border-black shadow-lg">
+                            ${correspondingNote ? correspondingNote._ : s._}
+                            </div>
+                            </span>
+                            `
                           );
                         }
                       );
