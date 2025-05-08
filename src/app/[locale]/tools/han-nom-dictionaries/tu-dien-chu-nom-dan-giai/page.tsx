@@ -13,9 +13,10 @@ export default async function DictionaryPage({
   const searchWord = (await searchParams).q;
   let data = { defs: [], refs: [] };
   if (searchWord) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const apiUrl =
+      process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
     const entries = await fetch(
-      `${apiUrl}/api/dictionary/tu-dien-chu-nom-dan-giai?q=${searchWord}`
+      `${apiUrl}/dictionary/tu-dien-chu-nom-dan-giai?q=${searchWord}`
     );
     data = await entries.json();
   }
