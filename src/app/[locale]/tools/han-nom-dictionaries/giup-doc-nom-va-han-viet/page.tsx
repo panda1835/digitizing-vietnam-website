@@ -17,7 +17,7 @@ export default async function DictionaryPage({
     const apiUrl =
       process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
     const entries = await fetch(
-      `${apiUrl}/dictionary/giup-doc-nom-va-han-viet?q=${searchWord}`
+      `${apiUrl}/han-nom-dictionary/giup-doc-nom-va-han-viet?q=${searchWord}`
     );
     data = await entries.json();
   }
