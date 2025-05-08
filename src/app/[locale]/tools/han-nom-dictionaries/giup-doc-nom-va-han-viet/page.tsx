@@ -1,39 +1,25 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-import Lookup from "./Lookup";
-import LoadingSpinner from "@/components/layout/LoadingSpinner";
+import { getTranslations } from "next-intl/server";
 import { Merriweather } from "next/font/google";
+import Entry from "./Entry";
+import DictionarySearchBar from "../DictionarySearchBar";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-export default function DictionaryPage() {
-  const [data, setData] = useState<{ dictionary: any[] } | null>(null);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"; // Fallback to localhost during development
-  const t = useTranslations();
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(
-        `/api/dictionary?dictionary=giup-doc-nom-va-han-viet`
-      );
-      const result = await res.json();
-      setData(result);
-    };
-
-    fetchData();
-  }, [baseUrl]);
-
-  if (!data) {
-    return (
-      <div className="flex flex-col max-width justify-center items-center">
-        <div className="mt-20">
-          <LoadingSpinner />
-        </div>
-      </div>
+export default async function DictionaryPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q: string | undefined }>;
+}) {
+  const t = await getTranslations();
+  const searchWord = (await searchParams).q;
+  let data = [];
+  if (searchWord) {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const entries = await fetch(
+      `${apiUrl}/api/dictionary/giup-doc-nom-va-han-viet?q=${searchWord}`
     );
+    data = await entries.json();
   }
-
   return (
     <div className="">
       <div className={`${merriweather.className} text-branding-black text-4xl`}>
@@ -49,7 +35,20 @@ export default function DictionaryPage() {
           )}
         </span>
       </div>
-      <Lookup entries={data.dictionary} />
+      <div className="mx-auto">
+        <div className="flex gap-4 mb-6 items-center">
+          <DictionarySearchBar
+            searchWord={searchWord}
+            placeholder={t(
+              "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.search-placeholder"
+            )}
+          />
+        </div>
+      </div>
+
+      {data.map((entry, index) => (
+        <Entry key={index} entry={entry} />
+      ))}
     </div>
   );
 }

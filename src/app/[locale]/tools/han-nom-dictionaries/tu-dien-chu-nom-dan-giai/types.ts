@@ -9,8 +9,8 @@ type Citation = {
   }[];
 };
 type DictionaryEntry = {
-  hn: string[];
-  qn: string[];
+  hn: string;
+  qn: string;
   derivations: {
     sense_list: {
       $: {
@@ -26,7 +26,7 @@ type DictionaryEntry = {
         };
       }[];
     }[];
-  }[];
+  };
 };
 
 type Reference = {

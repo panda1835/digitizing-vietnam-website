@@ -1,41 +1,23 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-import Lookup from "./Lookup";
-import LoadingSpinner from "@/components/layout/LoadingSpinner";
+import { getTranslations } from "next-intl/server";
 import { Merriweather } from "next/font/google";
+import Entry from "./Entry";
+import DictionarySearchBar from "../DictionarySearchBar";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-export default function DictionaryPage({
-  params: { locale },
+export default async function DictionaryPage({
+  searchParams,
 }: {
-  params: { locale: string };
+  searchParams: Promise<{ q: string | undefined }>;
 }) {
-  const [data, setData] = useState({ dictionary: [], ref: [] });
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"; // Fallback to localhost during development
-
-  const t = useTranslations();
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(
-        `/api/dictionary?dictionary=tu-dien-chu-nom-dan-giai`
-      );
-      const result = await res.json();
-      setData(result);
-    };
-
-    fetchData();
-  }, [baseUrl]);
-
-  if (!data) {
-    return (
-      <div className="flex flex-col max-width justify-center items-center">
-        <div className="mt-20">
-          <LoadingSpinner />
-        </div>
-      </div>
+  const t = await getTranslations();
+  const searchWord = (await searchParams).q;
+  let data = { defs: [], refs: [] };
+  if (searchWord) {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const entries = await fetch(
+      `${apiUrl}/api/dictionary/tu-dien-chu-nom-dan-giai?q=${searchWord}`
     );
+    data = await entries.json();
   }
 
   return (
@@ -53,7 +35,21 @@ export default function DictionaryPage({
           )}
         </span>
       </div>
-      <Lookup entries={data.dictionary} refs={data.ref} />
+
+      <div className="mx-auto">
+        <div className="flex gap-4 mb-6 items-center">
+          <DictionarySearchBar
+            searchWord={searchWord}
+            placeholder={t(
+              "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.search-placeholder"
+            )}
+          />
+        </div>
+      </div>
+
+      {data.defs.map((entry, index) => (
+        <Entry key={index} entry={entry} refs={data.refs} />
+      ))}
     </div>
   );
 }

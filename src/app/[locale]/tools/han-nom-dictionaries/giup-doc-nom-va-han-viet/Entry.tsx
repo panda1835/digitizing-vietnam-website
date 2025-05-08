@@ -7,25 +7,29 @@ const NomNaTong = localFont({
 });
 
 export default function Entry({ entry }: { entry: GDNVHVDictionaryEntry }) {
+  console.log(JSON.stringify(entry.text.sense_area.sense, null, 2));
   return (
     <div className="">
-      <Card className={`${NomNaTong.className} mb-4 p-4`}>
+      <Card className={`${NomNaTong.className} mb-4 p-4 pb-0`}>
         <CardContent>
           <div className="text-2xl font-semibold text-branding-brown">
-            <span className={``}>{entry.orthography[0].orth.join(" ")}</span>
+            <span className={``}>{entry.uni}</span>
           </div>
           <div className="text-xl mt-2">
-            {entry.hdwd[0]._} ({entry.origin[0]._})
+            {entry.qn} ({entry.pinyin.origin._})
           </div>
           <div>
             <ul>
-              {entry.sense_area.map((senseArea, i) => (
+              {entry.text.sense_area.sense.map((sense, i) => (
                 <li key={i}>
-                  <ul className="list-disc ml-4">
-                    {senseArea.sense.map((sense, j) => (
-                      <li key={j}>{sense}</li>
-                    ))}
-                  </ul>
+                  {sense._ ? (
+                    <div>
+                      {sense._}{" "}
+                      <span className="italic">{sense.cit.join(", ")}</span>
+                    </div>
+                  ) : (
+                    sense
+                  )}
                 </li>
               ))}
             </ul>

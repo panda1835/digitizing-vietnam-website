@@ -23,18 +23,25 @@ import {
 
 export default function DictionarySearchBar({
   placeholder,
-  searchKeyword,
-  setSearchKeyword,
-  handleKeyDown,
-  handleSearch,
+  searchWord,
 }: {
   placeholder: string;
-  searchKeyword: string;
-  setSearchKeyword: (val: string) => void;
-  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  handleSearch: () => void;
+  searchWord: string | undefined;
 }) {
   const t = useTranslations();
+
+  const [searchKeyword, setSearchKeyword] = useState(searchWord || "");
+
+  const handleSearch = () => {
+    window.location.href = `?q=${encodeURIComponent(searchKeyword)}`;
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   const [open, setOpen] = useState(false);
 
   const handleCandidateSelected = (char: string) => {
