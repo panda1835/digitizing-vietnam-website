@@ -13,7 +13,7 @@ export async function GET(request) {
     }
 
     const [data]: any = await db.query(
-      `SELECT * FROM giupdoc WHERE (LOWER(qn) = ? OR LOWER(uni) = ?)`,
+      `SELECT * FROM giupdoc WHERE (LOWER(qn) = CONVERT(? USING utf8mb4) OR LOWER(uni) = CONVERT(? USING utf8mb4))`,
       [query.toLowerCase(), query.toLowerCase()]
     );
 

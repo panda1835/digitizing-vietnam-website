@@ -7,7 +7,6 @@ const NomNaTong = localFont({
 });
 
 export default function Entry({ entry }: { entry: GDNVHVDictionaryEntry }) {
-  console.log(JSON.stringify(entry.text.sense_area.sense, null, 2));
   return (
     <div className="">
       <Card className={`${NomNaTong.className} mb-4 p-4 pb-0`}>

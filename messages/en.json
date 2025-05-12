@@ -144,6 +144,7 @@
         "recognize": "Recognize",
         "recognizing": "Recognizing..."
       },
+      "no-result": "No results found.",
       "dictionaries": {
         "tu-dien-chu-nom-dan-giai": {
           "name": "The Dictionary of Nôm Characters with Quotations and Annotations",

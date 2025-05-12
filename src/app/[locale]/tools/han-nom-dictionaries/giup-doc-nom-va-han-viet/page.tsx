@@ -46,7 +46,11 @@ export default async function DictionaryPage({
           />
         </div>
       </div>
-
+      {data.length === 0 && searchWord ? (
+        <div className="text-center text-lg font-['Helvetica_Neue'] font-light text-branding-black">
+          {t("Tools.han-nom-dictionaries.no-result")}
+        </div>
+      ) : null}
       {data.map((entry, index) => (
         <Entry key={index} entry={entry} />
       ))}

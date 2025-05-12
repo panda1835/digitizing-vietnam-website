@@ -14,8 +14,10 @@ export async function GET(request) {
     }
 
     const [defsRows]: any = await db.query(
-      `SELECT * FROM tdcndg WHERE (LOWER(hn) LIKE ? OR LOWER(qn) LIKE ?)`,
-      [`%${query.toLowerCase()}%`, `%${query.toLowerCase()}%`]
+      // Convert the query using utf8mb4 encoding to prevent
+      // Illegal mix of collations (utf8mb3_bin,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE)
+      `SELECT * FROM tdcndg WHERE (LOWER(qn) = CONVERT(? USING utf8mb4) OR LOWER(hn) = CONVERT(? USING utf8mb4))`,
+      [query.toLowerCase(), query.toLowerCase()]
     );
 
     const defData = await Promise.all(
@@ -30,9 +32,12 @@ export async function GET(request) {
       })
     );
 
-    const [refs]: any = await db.query(`SELECT * FROM tdcndg_refs`);
+    let refData = [];
+    if (defData.length > 0) {
+      const [refs]: any = await db.query(`SELECT * FROM tdcndg_refs`);
 
-    const refData = JSON.parse(JSON.stringify(refs));
+      refData = JSON.parse(JSON.stringify(refs));
+    }
 
     return NextResponse.json({ defs: defData, refs: refData }, { status: 200 });
   } catch (error) {

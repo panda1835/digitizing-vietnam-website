@@ -133,7 +133,6 @@
       "name": "Image OCR Platform",
       "description": "Image OCR Platform là một công cụ cho phép người dùng trích xuất văn bản từ hình ảnh. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần trích xuất văn bản từ các tài liệu lịch sử hoặc các loại hình ảnh khác."
     },
-
     "han-nom-dictionaries": {
       "name": "Từ điển Hán-Nôm",
       "description": "Công cụ Từ điển Hán-Nôm là bộ sưu tập các từ điển cung cấp định nghĩa và giải thích cho các ký tự Hán-Nôm. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần tra cứu ý nghĩa của các ký tự Hán-Nôm trong các văn bản lịch sử.",
@@ -145,6 +144,7 @@
         "recognize": "Nhận diện",
         "recognizing": "Đang nhận diện..."
       },
+      "no-result": "Không tìm thấy kết quả nào.",
       "dictionaries": {
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải",
