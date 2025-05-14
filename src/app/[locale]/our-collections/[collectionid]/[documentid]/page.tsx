@@ -16,6 +16,7 @@ import algoliasearch from "algoliasearch";
 
 import TruyenKieu from "./searchable-text/TruyenKieuText";
 import LucVanTienText from "./searchable-text/LucVanTienText";
+import ChinhPhuNgamText from "./searchable-text/ChinhPhuNgamText";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
@@ -62,12 +63,14 @@ const CollectionItemViewer = async ({
   params: { collectionid: string; documentid: string; locale: string };
   searchParams?: {
     canvasId?: string;
+    page?: string;
   };
 }) => {
   const locale = params.locale;
   const collectionId = params.collectionid;
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
+  const currentPage = searchParams?.page || "1";
 
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -169,10 +172,29 @@ const CollectionItemViewer = async ({
     if (documentId === "van-tien-co-tich-tan-truyen") {
       return (
         <LucVanTienText
+          collectionTitle={collectionTitle}
+          title={collectionItemData.title}
+          abstract={collectionItemData.abstract}
           locale={locale}
           documentid={`van-tien-co-tich-tan-truyen`}
           collectionid={collectionId}
+          page={currentPage}
+        />
+      );
+    }
+  }
+
+  if (collectionId === "chinh-phu-ngam-khuc") {
+    if (documentId === "chinh-phu-ngam-khuc") {
+      return (
+        <ChinhPhuNgamText
           collectionTitle={collectionTitle}
+          title={collectionItemData?.title}
+          abstract={collectionItemData?.abstract}
+          locale={locale}
+          documentid={`chinh-phu-ngam-khuc`}
+          collectionid={collectionId}
+          page={currentPage}
         />
       );
     }

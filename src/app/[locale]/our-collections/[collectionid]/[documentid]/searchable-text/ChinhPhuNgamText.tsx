@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { TruyenKieuRaw, TruyenKieuText } from "./types";
+import type { ChinhPhuNgamRaw, ChinhPhuNgamText } from "./types";
 import { getTranslations } from "next-intl/server";
 
 import CollectionPermalink from "@/components/CollectionPermalink";
@@ -16,7 +16,7 @@ const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
-export default async function LucVanTienText({
+export default async function ChinhPhuNgamKhucText({
   collectionTitle,
   title,
   abstract,
@@ -35,15 +35,15 @@ export default async function LucVanTienText({
 }) {
   const t = await getTranslations();
   const currentPage = Number(page) || 1;
-  let textData: TruyenKieuText;
-  let rawData: TruyenKieuRaw;
+  let textData: ChinhPhuNgamText;
+  let rawData: ChinhPhuNgamRaw;
   let totalPages = 0;
 
   const apiUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/api";
 
   const data = await fetch(
-    `${apiUrl}/searchable-text/luc-van-tien?page=${currentPage}`
+    `${apiUrl}/searchable-text/chinh-phu-ngam-khuc?page=${currentPage}`
   );
 
   const { text, rawText, count } = await data.json();
@@ -130,53 +130,85 @@ export default async function LucVanTienText({
                 totalPages={totalPages}
               />
             </div>
-            {/* Text */}
-            <div className={`text-center ${NomNaTong.className}`}>
-              {textData.page.div[1].lg[0].l.map((line, index) => (
-                <div
-                  key={`line-${index}`}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center"
-                >
-                  <div className="text-2xl">
-                    {textData.page.div[0].lg[0] &&
-                      textData.page.div[0].lg[0].l[index]._}
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              {/* Nom Text */}
+              <div className={`text-center ${NomNaTong.className}`}>
+                <div className="text-2xl border bg-branding-brown text-white py-2 mb-5 rounded-lg">
+                  {locale === "vi" ? "Phần chữ Nôm" : "Nom Text"}
+                </div>
+                <div>
+                  {textData.page.div[1].lg[0].l.map((line, index) => (
+                    <div
+                      key={`line-${index}`}
+                      className="grid grid-cols-1 gap-2 items-center"
+                    >
+                      <div className="text-2xl">
+                        {textData.page.div[0].lg[0] &&
+                          textData.page.div[0].lg[0].l[index]._}
+                      </div>
 
-                  {(() => {
-                    let highlightedLine = line._;
-                    if (rawData.page.div[1].lg[0].l[index].seg) {
-                      rawData.page.div[1].lg[0].l[index].seg.forEach((s) => {
-                        const correspondingNote =
-                          rawData.page.noteg[0].note.find(
-                            (note) => note.$.id === s.$.corresp
-                          );
-                        highlightedLine = highlightedLine.replace(
-                          new RegExp(
-                            // `(?<!<div[^>]*?>[^<]*)\\b${s._}\\b(?![^<]*?</div>)`,
-                            s._,
-                            "g"
-                          ),
-                          `<span class="text-branding-brown hover:underline relative group"="${
-                            s._
-                          }">
+                      {(() => {
+                        let highlightedLine = line._;
+                        if (rawData.page.div[1].lg[0].l[index].seg) {
+                          rawData.page.div[1].lg[0].l[index].seg.forEach(
+                            (s) => {
+                              const correspondingNote =
+                                rawData.page.noteg[0].note.find(
+                                  (note) => note.$.id === s.$.corresp
+                                );
+                              highlightedLine = highlightedLine.replace(
+                                new RegExp(
+                                  // `(?<!<div[^>]*?>[^<]*)\\b${s._}\\b(?![^<]*?</div>)`,
+                                  s._,
+                                  "g"
+                                ),
+                                `<span class="text-branding-brown hover:underline relative group"="${
+                                  s._
+                                }">
                             ${s._}
                             <div class="z-50 absolute w-60 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black text-sm p-2 rounded border border-black shadow-lg">
                             ${correspondingNote ? correspondingNote._ : s._}
                             </div>
                             </span>
                             `
+                              );
+                            }
+                          );
+                        }
+                        return (
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: highlightedLine,
+                            }}
+                            className="text-2xl mb-2"
+                          />
                         );
-                      });
-                    }
-                    return (
-                      <div
-                        dangerouslySetInnerHTML={{ __html: highlightedLine }}
-                        className="text-2xl mb-2"
-                      />
-                    );
-                  })()}
+                      })()}
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Han Text */}
+              <div className={`text-center ${NomNaTong.className}`}>
+                <div className="text-2xl border bg-branding-brown text-white py-2 mb-5 rounded-lg">
+                  {locale === "vi" ? "Phần chữ Hán" : "Han Text"}
+                </div>
+                <div>
+                  {textData.page.div[3].lg[0].l.map((line, index) => (
+                    <div
+                      key={`line-${index}`}
+                      className="grid grid-cols-1 gap-2 items-center"
+                    >
+                      <div className="text-2xl">
+                        {textData.page.div[2].lg[0] &&
+                          textData.page.div[2].lg[0].l[index]._}
+                      </div>
+                      <div className="text-2xl mb-2">{line._}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
