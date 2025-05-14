@@ -8,12 +8,17 @@
     "copy-url": "Copy URL",
     "next": "Next",
     "previous": "Previous",
-    "go-to-page": "Go to page"
+    "go-to-page": "Go to page",
+    "close": "Close",
+    "cancel": "Cancel",
+    "look-up": "Look up",
+    "looking-up": "Looking up..."
   },
 
   "Toast": {
     "copied": "Copied!",
-    "failed-to-copy": "Failed to copy"
+    "failed-to-copy": "Failed to copy",
+    "error-occurred": "An error occurred. Please try again later."
   },
 
   "ErrorPage": {

@@ -11,6 +11,7 @@ import localFont from "next/font/local";
 import { Separator } from "@/components/ui/separator";
 import PageInput from "./PageInput";
 import PaginationSection from "./PaginationSection";
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 
 const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -138,8 +139,12 @@ export default async function LucVanTienText({
                   className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center"
                 >
                   <div className="text-2xl">
-                    {textData.page.div[0].lg[0] &&
-                      textData.page.div[0].lg[0].l[index]._}
+                    {textData.page.div[0].lg[0] && (
+                      // textData.page.div[0].lg[0].l[index]._
+                      <LookupableHanNomText
+                        text={textData.page.div[0].lg[0].l[index]._}
+                      />
+                    )}
                   </div>
 
                   {(() => {

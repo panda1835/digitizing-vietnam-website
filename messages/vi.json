@@ -8,12 +8,17 @@
     "copy-url": "Sao chép URL",
     "next": "Tiếp",
     "previous": "Trước",
-    "go-to-page": "Đi đến trang"
+    "go-to-page": "Đi đến trang",
+    "close": "Đóng",
+    "cancel": "Hủy",
+    "look-up": "Tra cứu",
+    "looking-up": "Đang tra cứu..."
   },
 
   "Toast": {
     "copied": "Đã sao chép!",
-    "failed-to-copy": "Sao chép không thành công"
+    "failed-to-copy": "Sao chép không thành công",
+    "error-occurred": "Có lỗi xảy ra. Vui lòng thử lại sau."
   },
 
   "ErrorPage": {
