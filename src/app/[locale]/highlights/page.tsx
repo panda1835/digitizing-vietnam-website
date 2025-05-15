@@ -51,7 +51,7 @@ const Blogs = async ({ params: { locale } }) => {
           return {
             title: post.title,
             author: (post.blog_authors[0] && post.blog_authors[0].name) || "",
-            date: post.publishedAt,
+            date: post.createdAt,
             slug: post.slug,
             content: post.content,
             thumbnail: {
