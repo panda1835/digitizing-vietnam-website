@@ -2,13 +2,7 @@ import Image from "next/image";
 import type { TruyenKieuRaw, TruyenKieuText } from "./types";
 import { getTranslations } from "next-intl/server";
 
-import CollectionPermalink from "@/components/CollectionPermalink";
-import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-import { Merriweather } from "next/font/google";
-const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
-
 import localFont from "next/font/local";
-import { Separator } from "@/components/ui/separator";
 import PageInput from "./PageInput";
 import PaginationSection from "./PaginationSection";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
@@ -18,20 +12,14 @@ const NomNaTong = localFont({
 });
 
 export default async function LucVanTienText({
-  collectionTitle,
   title,
-  abstract,
   locale,
   documentid,
-  collectionid,
   page,
 }: {
-  collectionTitle: string;
   title: string;
-  abstract: string;
   locale: string;
   documentid: string;
-  collectionid: string;
   page: string;
 }) {
   const t = await getTranslations();
@@ -55,45 +43,7 @@ export default async function LucVanTienText({
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className="flex-col mb-20 w-full">
-        {/* Breadcrumbs */}
-
-        <BreadcrumbAndSearchBar
-          locale={locale}
-          breadcrumbItems={[
-            {
-              label: t("NavigationBar.our-collections"),
-              href: "/our-collections",
-            },
-            {
-              label: collectionTitle,
-              href: "/our-collections/" + collectionid,
-            },
-            { label: title },
-          ]}
-        />
-
-        {/* Headline */}
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
-        >
-          {title}
-        </div>
-
-        {/* Subheadline */}
-        <div
-          className={`font-light font-['Helvetica Neue'] leading-relaxed mt-8 max-w-4xl`}
-        >
-          {abstract}
-        </div>
-
-        {/* Share links */}
-        <CollectionPermalink />
-
-        <div className="mt-10">
-          <Separator />
-        </div>
-
+      <div className="flex-col w-full">
         {/* Content */}
         <div className="flex flex-col mt-16">
           {/* Image and Text */}

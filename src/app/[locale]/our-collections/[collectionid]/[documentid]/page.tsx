@@ -168,37 +168,37 @@ const CollectionItemViewer = async ({
     // Do not have else because the documentid can be different for other items
   }
 
-  if (collectionId === "luc-van-tien") {
-    if (documentId === "van-tien-co-tich-tan-truyen") {
-      return (
-        <LucVanTienText
-          collectionTitle={collectionTitle}
-          title={collectionItemData.title}
-          abstract={collectionItemData.abstract}
-          locale={locale}
-          documentid={`van-tien-co-tich-tan-truyen`}
-          collectionid={collectionId}
-          page={currentPage}
-        />
-      );
-    }
-  }
+  // if (collectionId === "luc-van-tien") {
+  //   if (documentId === "van-tien-co-tich-tan-truyen") {
+  //     return (
+  //       <LucVanTienText
+  //         collectionTitle={collectionTitle}
+  //         title={collectionItemData.title}
+  //         abstract={collectionItemData.abstract}
+  //         locale={locale}
+  //         documentid={`van-tien-co-tich-tan-truyen`}
+  //         collectionid={collectionId}
+  //         page={currentPage}
+  //       />
+  //     );
+  //   }
+  // }
 
-  if (collectionId === "chinh-phu-ngam-khuc") {
-    if (documentId === "chinh-phu-ngam-khuc") {
-      return (
-        <ChinhPhuNgamText
-          collectionTitle={collectionTitle}
-          title={collectionItemData?.title}
-          abstract={collectionItemData?.abstract}
-          locale={locale}
-          documentid={`chinh-phu-ngam-khuc`}
-          collectionid={collectionId}
-          page={currentPage}
-        />
-      );
-    }
-  }
+  // if (collectionId === "chinh-phu-ngam-khuc") {
+  //   if (documentId === "chinh-phu-ngam-khuc") {
+  //     return (
+  //       <ChinhPhuNgamText
+  //         collectionTitle={collectionTitle}
+  //         title={collectionItemData?.title}
+  //         abstract={collectionItemData?.abstract}
+  //         locale={locale}
+  //         documentid={`chinh-phu-ngam-khuc`}
+  //         collectionid={collectionId}
+  //         page={currentPage}
+  //       />
+  //     );
+  //   }
+  // }
 
   let documentType = "document";
   if (collectionItemData.item_url[0]) {
@@ -245,33 +245,53 @@ const CollectionItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        {/* Content */}
-        <div className="flex flex-row">
-          {/* General Info and Text OCR section */}
-
-          {/* Item viewer */}
-          <div className="w-full relative">
-            {/* Video/audio type */}
-            {documentType === "embed" && (
-              <div className="flex">
-                <div
-                  className=""
-                  dangerouslySetInnerHTML={renderHtml(
-                    collectionItemData.item_url[0].media_embed
-                  )}
-                ></div>
-              </div>
-            )}
-
-            {/* Automatic IIIF Manifest */}
-            {documentType === "document" && (
-              <MiradorViewer
-                manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
-                canvasId={originalCanvasId}
-              />
-            )}
-          </div>
+        <div className="mt-16">
+          <Separator />
         </div>
+
+        {/* Content */}
+        {collectionId === "luc-van-tien" &&
+        documentId === "van-tien-co-tich-tan-truyen" ? (
+          <LucVanTienText
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={`van-tien-co-tich-tan-truyen`}
+            page={currentPage}
+          />
+        ) : collectionId === "chinh-phu-ngam-khuc" &&
+          documentId === "chinh-phu-ngam-khuc" ? (
+          <ChinhPhuNgamText
+            title={collectionItemData?.title}
+            locale={locale}
+            documentid={`chinh-phu-ngam-khuc`}
+            page={currentPage}
+          />
+        ) : (
+          <div className="flex flex-row">
+            {/* Item viewer */}
+            <div className="w-full relative">
+              {/* Video/audio type */}
+              {documentType === "embed" && (
+                <div className="flex">
+                  <div
+                    className=""
+                    dangerouslySetInnerHTML={renderHtml(
+                      collectionItemData.item_url[0].media_embed
+                    )}
+                  ></div>
+                </div>
+              )}
+
+              {/* Automatic IIIF Manifest */}
+              {documentType === "document" && (
+                <MiradorViewer
+                  manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
+                  canvasId={originalCanvasId}
+                />
+              )}
+            </div>
+          </div>
+        )}
         <div className="mt-16">
           <Separator />
         </div>
