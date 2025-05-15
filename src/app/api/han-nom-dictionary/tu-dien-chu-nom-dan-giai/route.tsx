@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { parseStringPromise } from "xml2js";
+import fs from "fs/promises";
+import path from "path";
 import db from "@/lib/db";
-import { json } from "stream/consumers";
 
 export async function GET(request) {
   try {
@@ -32,12 +33,17 @@ export async function GET(request) {
       })
     );
 
-    let refData = [];
-    if (defData.length > 0) {
-      const [refs]: any = await db.query(`SELECT * FROM tdcndg_refs`);
-
-      refData = JSON.parse(JSON.stringify(refs));
-    }
+    const xmlRefData = await fs.readFile(
+      path.join(
+        process.cwd(),
+        "data/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg_refs.xml"
+      ),
+      "utf-8"
+    );
+    const jsonRefData = await parseStringPromise(
+      xmlRefData.replace(/<\/?i>/g, "")
+    );
+    const refData = jsonRefData.reference_list.reference;
 
     return NextResponse.json({ defs: defData, refs: refData }, { status: 200 });
   } catch (error) {

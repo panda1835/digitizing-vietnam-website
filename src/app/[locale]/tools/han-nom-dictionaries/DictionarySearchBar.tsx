@@ -68,7 +68,7 @@ export default function DictionarySearchBar({
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline" className="rounded-lg h-12 px-3">
+          <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-white hover:bg-gray-100 transition-all">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
@@ -86,7 +86,7 @@ export default function DictionarySearchBar({
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-          </Button>
+          </div>
         </DialogTrigger>
 
         <DialogContent className="max-w-md">

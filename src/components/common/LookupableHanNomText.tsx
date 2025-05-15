@@ -1,7 +1,9 @@
 "use client";
+import { Link } from "@/i18n/routing";
 import React, { useState } from "react";
 import localFont from "next/font/local";
-import Entry from "@/app/[locale]/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/Entry";
+import EntryTDCNDG from "@/app/[locale]/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/Entry";
+import EntryGDNVHV from "@/app/[locale]/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/Entry";
 import {
   HoverCard,
   HoverCardContent,
@@ -116,15 +118,41 @@ export default function Test({ text }: { text: string }) {
             {entryData!.tdcndg &&
               (entryData!.tdcndg.defs.length > 0 ? (
                 <div>
-                  <div className="text-center text-2xl mb-2">
-                    {t(
-                      "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
-                    )}
-                  </div>
-                  <Entry
+                  <Link
+                    href={`/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai?q=${selectedCharacter}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="text-xl mb-2 hover:underline">
+                      {t(
+                        "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
+                      )}
+                    </div>
+                  </Link>
+                  <EntryTDCNDG
                     entry={entryData!.tdcndg.defs[0]}
                     refs={entryData!.tdcndg.refs}
                   />
+                </div>
+              ) : (
+                <p>{t("Tools.han-nom-dictionaries.no-result")}</p>
+              ))}
+            <div className="mt-10"></div>
+            {entryData!.giupdoc &&
+              (entryData!.giupdoc.length > 0 ? (
+                <div>
+                  <Link
+                    href={`/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet?q=${selectedCharacter}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="text-xl mb-2 hover:underline">
+                      {t(
+                        "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
+                      )}
+                    </div>
+                  </Link>
+                  <EntryGDNVHV entry={entryData!.giupdoc[0]} />
                 </div>
               ) : (
                 <p>{t("Tools.han-nom-dictionaries.no-result")}</p>
