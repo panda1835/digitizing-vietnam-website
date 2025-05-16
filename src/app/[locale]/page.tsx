@@ -25,7 +25,7 @@ const Home = async ({ params: { locale } }) => {
     "populate[0]": "thumbnail",
     // "populate[1]": "blogs.blog_authors",
     locale: locale,
-    sort: "createdAt:desc",
+    sort: "createdAt:desc", // Use createdAt rather than publishedAt to avoid update after modification
   };
 
   const queryString = new URLSearchParams(queryParams).toString();
