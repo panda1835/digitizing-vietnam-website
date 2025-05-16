@@ -14,10 +14,10 @@ export default function Entry({ entry }: { entry: GDNVHVDictionaryEntry }) {
           <div className="text-2xl font-semibold text-branding-brown">
             <span className={``}>{entry.uni}</span>
           </div>
-          <div className="text-xl mt-2">
+          <div className="text-2xl mt-2">
             {entry.qn} ({entry.pinyin.origin._})
           </div>
-          <div>
+          <div className="text-lg">
             <ul>
               {entry.text.sense_area.sense.map((sense, i) => (
                 <li key={i}>
