@@ -11,11 +11,11 @@ export default function Entry({ entry }: { entry: GDNVHVDictionaryEntry }) {
     <div className="">
       <Card className={`${NomNaTong.className} mb-4 p-4 pb-0`}>
         <CardContent>
-          <div className="text-2xl font-semibold text-branding-brown">
-            <span className={``}>{entry.uni}</span>
-          </div>
-          <div className="text-2xl mt-2">
-            {entry.qn} ({entry.pinyin.origin._})
+          <div className="text-2xl font-semibold text-branding-brown mb-4">
+            <span className={``}>{entry.uni}</span> -{" "}
+            <span>
+              {entry.qn} ({entry.pinyin.origin._})
+            </span>
           </div>
           <div className="text-lg">
             <ul>

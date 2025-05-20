@@ -162,6 +162,12 @@
           "description": "The Nôm and Sino-Vietnamese Pronunciation Guide by Father Anthony Trần Văn Kiệm consists of two main parts: Part I introduces and lists the radicals used in writing Hán-Nôm characters, followed by an arrangement of Hán-Nôm characters classified by radicals and stroke count. This method of radicals organizing Hán-Nôm characters allows readers to quickly identify the pronunciation of a character in both Sino-Vietnamese and modern Vietnamese, thereby enabling them to easily find the corresponding meaning in Part II. Part II provides the pronunciation and meaning of each Hán-Nôm character. The pronunciation section includes the Beijing Mandarin pronunciation (transcribed in Pinyin, which the author refers to as Phanh Âm), the Sino-Vietnamese pronunciation, and the Vietnamese (Nôm) reading. This is undoubtedly one of the rare and valuable books for referencing and self-studying Hán-Nôm that anyone passionate about learning these ancient scripts should read.",
           "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
           "author": "Father Anthony Trần Văn Kiệm"
+        },
+        "nguyen-trai-quoc-am-tu-dien": {
+          "name": "Nguyễn Trãi Quốc Âm Từ Điển",
+          "description": "...",
+          "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
+          "author": "..."
         }
       }
     },

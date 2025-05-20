@@ -17,6 +17,7 @@ import algoliasearch from "algoliasearch";
 import TruyenKieu from "./searchable-text/TruyenKieuText";
 import LucVanTienText from "./searchable-text/LucVanTienText";
 import ChinhPhuNgamText from "./searchable-text/ChinhPhuNgamText";
+import TinhHoaMuaXuan from "./searchable-text/TinhHoaMuaXuan";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
@@ -64,6 +65,7 @@ const CollectionItemViewer = async ({
   searchParams?: {
     canvasId?: string;
     page?: string;
+    topic?: string;
   };
 }) => {
   const locale = params.locale;
@@ -71,6 +73,7 @@ const CollectionItemViewer = async ({
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
   const currentPage = searchParams?.page || "1";
+  const currentTopic = searchParams?.topic || "";
 
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -255,7 +258,7 @@ const CollectionItemViewer = async ({
           <LucVanTienText
             title={collectionItemData.title}
             locale={locale}
-            documentid={`van-tien-co-tich-tan-truyen`}
+            documentid={documentId}
             page={currentPage}
           />
         ) : collectionId === "chinh-phu-ngam-khuc" &&
@@ -263,9 +266,12 @@ const CollectionItemViewer = async ({
           <ChinhPhuNgamText
             title={collectionItemData?.title}
             locale={locale}
-            documentid={`chinh-phu-ngam-khuc`}
+            documentid={documentId}
             page={currentPage}
           />
+        ) : collectionId === "tho-ho-xuan-huong" &&
+          documentId === "tinh-hoa-mua-xuan" ? (
+          <TinhHoaMuaXuan locale={locale} topic={currentTopic || "Cảnh thu"} />
         ) : (
           <div className="flex flex-row">
             {/* Item viewer */}

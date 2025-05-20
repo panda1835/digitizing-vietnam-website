@@ -162,6 +162,12 @@
           "description": "Cuốn tự điển Giới thiệu đọc Nôm và Hán Việt của Linh mục Anthony Trần Văn Kiệm được cấu tạo bởi hai phần chính: Phần I là phần giới thiệu và liệt kê các bộ thủ dùng viết chữ Hán Nôm, và liệt kê các chữ Hán Nôm được sắp xếp theo bộ thủ và các nét. Phương pháp sắp xếp chữ Hán Nôm theo bộ thủ giúp cho người đọc nhanh chóng tìm được cách phát âm theo âm Hán và âm tiếng Việt của một chữ Hán Nôm, qua đó giúp người đọc nhanh chóng tìm được nghĩa của chữ Hán Nôm tương ứng trong Phần II. Phần II là phần liệt kê cách đọc của từng chữ Hán Nôm và giải thích nghĩa của từng chữ. Phần liệt kê cách đọc của một chữ Hán Nôm bao gồm âm Bắc Kinh (theo phiên âm Pinjin, tác giả gọi là Phanh Âm), âm Hán Việt và âm tiếng Việt (Nôm). Đây là một trong những cuốn sách quý hiếm dùng để tra cứu và tự học chữ Hán Nôm mà các bạn ham muốn học chữ Hán Nôm nên đọc.",
           "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
           "author": "Linh mục Anthony Trần Văn Kiệm"
+        },
+        "nguyen-trai-quoc-am-tu-dien": {
+          "name": "Nguyễn Trãi Quốc Âm Từ Điển",
+          "description": "...",
+          "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
+          "author": "..."
         }
       }
     },

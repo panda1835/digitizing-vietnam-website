@@ -25,7 +25,13 @@ const NomNaTong = localFont({
   src: "../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
-export default function Test({ text }: { text: string }) {
+export default function LookupableHanNomText({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState("");
   const [entryData, setEntryData] = useState<{
@@ -84,7 +90,7 @@ export default function Test({ text }: { text: string }) {
 
   return (
     <div>
-      <div className={`text-center text-2xl  ${NomNaTong.className}`}>
+      <div className={`text-2xl ${NomNaTong.className}  ${className || ""}`}>
         {characters.map((word, index) => (
           <HoverCard key={index}>
             <HoverCardTrigger>
