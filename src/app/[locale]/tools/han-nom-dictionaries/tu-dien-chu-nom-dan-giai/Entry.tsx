@@ -5,7 +5,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
 import localFont from "next/font/local";
 
 const NomNaTong = localFont({
@@ -67,8 +66,10 @@ export default function Entry({
                               )
                               .map((r, k) => (
                                 <div key={k}>
-                                  <div>{r.details[0].full_title[0]}</div>
-                                  <div>{r.details[0].hn_title[0]}</div>
+                                  <div>
+                                    <span>{r.details[0].full_title[0]}</span> -{" "}
+                                    <span>{r.details[0].hn_title[0]}</span>
+                                  </div>
                                   <div>{r.details[0].desc[0]}</div>
                                 </div>
                               ))}

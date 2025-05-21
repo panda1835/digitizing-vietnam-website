@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 
 export default function DocumentMetadata({ locale, collectionItemData }) {
   const t = useTranslations();
-  console.log(collectionItemData);
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">

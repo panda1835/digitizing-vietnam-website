@@ -8,12 +8,17 @@
     "copy-url": "Copy URL",
     "next": "Next",
     "previous": "Previous",
-    "go-to-page": "Go to page"
+    "go-to-page": "Go to page",
+    "close": "Close",
+    "cancel": "Cancel",
+    "look-up": "Look up",
+    "looking-up": "Looking up..."
   },
 
   "Toast": {
     "copied": "Copied!",
-    "failed-to-copy": "Failed to copy"
+    "failed-to-copy": "Failed to copy",
+    "error-occurred": "An error occurred. Please try again later."
   },
 
   "ErrorPage": {
@@ -144,18 +149,25 @@
         "recognize": "Recognize",
         "recognizing": "Recognizing..."
       },
+      "no-result": "No results found.",
       "dictionaries": {
         "tu-dien-chu-nom-dan-giai": {
-          "name": "The Dictionary of Nôm Characters with Quotations and Annotations",
-          "description": "To date, The Dictionary of Nôm Characters with Quotations and Annotations by Prof. Nguyễn Quang Hồng Nguyễn Quang Hồng is the largest dictionary on Chữ Nôm, containing nearly 10,000 entries extracted by the author from 124 ancient works and texts from various periods, fields, and genres. The dictionary is systematically and scientifically structured into two columns: one column identifies the character form, pronunciation, and code of the character, while the other analyzes the structure of the Chữ Nôm character, provides its meaning, and includes relevant contextual examples. Special attention is given to the variations of Chữ Nôm characters, with each entry possibly having one or more variant forms that are clearly recorded from specific textual sources. This is a significant highlight of this dictionary.",
+          "name": "Tự Điển Chữ Nôm Dẫn Giải (The Dictionary of Nôm Characters with Quotations and Annotations)",
+          "description": "To date, The Dictionary of Nôm Characters with Quotations and Annotations by Prof. Nguyễn Quang Hồng is the largest dictionary on Chữ Nôm, containing nearly 10,000 entries extracted by the author from 124 ancient works and texts from various periods, fields, and genres. The dictionary is systematically and scientifically structured into two columns: one column identifies the character form, pronunciation, and code of the character, while the other analyzes the structure of the Chữ Nôm character, provides its meaning, and includes relevant contextual examples. Special attention is given to the variations of Chữ Nôm characters, with each entry possibly having one or more variant forms that are clearly recorded from specific textual sources. This is a significant highlight of this dictionary.",
           "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
           "author": "Prof. Nguyễn Quang Hồng"
         },
         "giup-doc-nom-va-han-viet": {
-          "name": "Nôm and Sino-Vietnamese Pronunciation Guide",
+          "name": "Giúp Đọc Nôm và Hán Việt (Nôm and Sino-Vietnamese Pronunciation Guide)",
           "description": "The Nôm and Sino-Vietnamese Pronunciation Guide by Father Anthony Trần Văn Kiệm consists of two main parts: Part I introduces and lists the radicals used in writing Hán-Nôm characters, followed by an arrangement of Hán-Nôm characters classified by radicals and stroke count. This method of radicals organizing Hán-Nôm characters allows readers to quickly identify the pronunciation of a character in both Sino-Vietnamese and modern Vietnamese, thereby enabling them to easily find the corresponding meaning in Part II. Part II provides the pronunciation and meaning of each Hán-Nôm character. The pronunciation section includes the Beijing Mandarin pronunciation (transcribed in Pinyin, which the author refers to as Phanh Âm), the Sino-Vietnamese pronunciation, and the Vietnamese (Nôm) reading. This is undoubtedly one of the rare and valuable books for referencing and self-studying Hán-Nôm that anyone passionate about learning these ancient scripts should read.",
           "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
           "author": "Father Anthony Trần Văn Kiệm"
+        },
+        "nguyen-trai-quoc-am-tu-dien": {
+          "name": "Nguyễn Trãi Quốc Âm Từ Điển",
+          "description": "...",
+          "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
+          "author": "..."
         }
       }
     },

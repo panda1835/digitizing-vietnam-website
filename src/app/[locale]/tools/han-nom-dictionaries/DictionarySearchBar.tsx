@@ -20,7 +20,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import localFont from "next/font/local";
 
+const NomNaTong = localFont({
+  src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+});
 export default function DictionarySearchBar({
   placeholder,
   searchWord,
@@ -59,12 +63,12 @@ export default function DictionarySearchBar({
         value={searchKeyword}
         onChange={(e) => setSearchKeyword(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="flex-1 h-[54px] w-full px-5 py-2 pl-12 bg-white shadow-lg rounded-[26px]"
+        className={`${NomNaTong.className} flex-1 h-[54px] w-full px-5 py-2 pl-12 bg-white shadow-lg rounded-[26px]`}
       />
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline" className="rounded-lg h-12 px-3">
+          <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-white hover:bg-gray-100 transition-all">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
@@ -82,7 +86,7 @@ export default function DictionarySearchBar({
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-          </Button>
+          </div>
         </DialogTrigger>
 
         <DialogContent className="max-w-md">

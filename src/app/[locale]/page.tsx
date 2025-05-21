@@ -25,7 +25,7 @@ const Home = async ({ params: { locale } }) => {
     "populate[0]": "thumbnail",
     // "populate[1]": "blogs.blog_authors",
     locale: locale,
-    sort: "publishedAt:desc",
+    sort: "createdAt:desc", // Use createdAt rather than publishedAt to avoid update after modification
   };
 
   const queryString = new URLSearchParams(queryParams).toString();
@@ -210,7 +210,7 @@ const Home = async ({ params: { locale } }) => {
               <ArticleCard
                 title={item.title}
                 description={item.content}
-                date={formatDate(item.publishedAt, locale)}
+                date={formatDate(item.createdAt, locale)}
                 imageUrl={getImageByKey(item.thumbnail[0].formats, "medium")}
                 link={`/highlights/${item.slug}`}
                 key={`/highlights/${item.slug}`}

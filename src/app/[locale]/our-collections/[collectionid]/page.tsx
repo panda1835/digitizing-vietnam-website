@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import qs from "qs";
 
 import { fetcher } from "@/lib/api";
-import { formatDate } from "@/utils/datetime";
 
 import CollectionItemView from "./CollectionItemView";
 import FeatureArticle from "./FeatureArticle";

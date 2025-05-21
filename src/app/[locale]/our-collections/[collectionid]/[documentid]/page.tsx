@@ -16,6 +16,8 @@ import algoliasearch from "algoliasearch";
 
 import TruyenKieu from "./searchable-text/TruyenKieuText";
 import LucVanTienText from "./searchable-text/LucVanTienText";
+import ChinhPhuNgamText from "./searchable-text/ChinhPhuNgamText";
+import TinhHoaMuaXuan from "./searchable-text/TinhHoaMuaXuan";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
@@ -62,12 +64,16 @@ const CollectionItemViewer = async ({
   params: { collectionid: string; documentid: string; locale: string };
   searchParams?: {
     canvasId?: string;
+    page?: string;
+    topic?: string;
   };
 }) => {
   const locale = params.locale;
   const collectionId = params.collectionid;
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
+  const currentPage = searchParams?.page || "1";
+  const currentTopic = searchParams?.topic || "";
 
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -165,18 +171,37 @@ const CollectionItemViewer = async ({
     // Do not have else because the documentid can be different for other items
   }
 
-  if (collectionId === "luc-van-tien") {
-    if (documentId === "van-tien-co-tich-tan-truyen") {
-      return (
-        <LucVanTienText
-          locale={locale}
-          documentid={`van-tien-co-tich-tan-truyen`}
-          collectionid={collectionId}
-          collectionTitle={collectionTitle}
-        />
-      );
-    }
-  }
+  // if (collectionId === "luc-van-tien") {
+  //   if (documentId === "van-tien-co-tich-tan-truyen") {
+  //     return (
+  //       <LucVanTienText
+  //         collectionTitle={collectionTitle}
+  //         title={collectionItemData.title}
+  //         abstract={collectionItemData.abstract}
+  //         locale={locale}
+  //         documentid={`van-tien-co-tich-tan-truyen`}
+  //         collectionid={collectionId}
+  //         page={currentPage}
+  //       />
+  //     );
+  //   }
+  // }
+
+  // if (collectionId === "chinh-phu-ngam-khuc") {
+  //   if (documentId === "chinh-phu-ngam-khuc") {
+  //     return (
+  //       <ChinhPhuNgamText
+  //         collectionTitle={collectionTitle}
+  //         title={collectionItemData?.title}
+  //         abstract={collectionItemData?.abstract}
+  //         locale={locale}
+  //         documentid={`chinh-phu-ngam-khuc`}
+  //         collectionid={collectionId}
+  //         page={currentPage}
+  //       />
+  //     );
+  //   }
+  // }
 
   let documentType = "document";
   if (collectionItemData.item_url[0]) {
@@ -223,33 +248,56 @@ const CollectionItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        {/* Content */}
-        <div className="flex flex-row">
-          {/* General Info and Text OCR section */}
-
-          {/* Item viewer */}
-          <div className="w-full relative">
-            {/* Video/audio type */}
-            {documentType === "embed" && (
-              <div className="flex">
-                <div
-                  className=""
-                  dangerouslySetInnerHTML={renderHtml(
-                    collectionItemData.item_url[0].media_embed
-                  )}
-                ></div>
-              </div>
-            )}
-
-            {/* Automatic IIIF Manifest */}
-            {documentType === "document" && (
-              <MiradorViewer
-                manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
-                canvasId={originalCanvasId}
-              />
-            )}
-          </div>
+        <div className="mt-16">
+          <Separator />
         </div>
+
+        {/* Content */}
+        {collectionId === "luc-van-tien" &&
+        documentId === "van-tien-co-tich-tan-truyen" ? (
+          <LucVanTienText
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            page={currentPage}
+          />
+        ) : collectionId === "chinh-phu-ngam-khuc" &&
+          documentId === "chinh-phu-ngam-khuc" ? (
+          <ChinhPhuNgamText
+            title={collectionItemData?.title}
+            locale={locale}
+            documentid={documentId}
+            page={currentPage}
+          />
+        ) : collectionId === "tho-ho-xuan-huong" &&
+          documentId === "tinh-hoa-mua-xuan" ? (
+          <TinhHoaMuaXuan locale={locale} topic={currentTopic || "Cảnh thu"} />
+        ) : (
+          <div className="flex flex-row">
+            {/* Item viewer */}
+            <div className="w-full relative">
+              {/* Video/audio type */}
+              {documentType === "embed" && (
+                <div className="flex">
+                  <div
+                    className=""
+                    dangerouslySetInnerHTML={renderHtml(
+                      collectionItemData.item_url[0].media_embed
+                    )}
+                  ></div>
+                </div>
+              )}
+
+              {/* Automatic IIIF Manifest */}
+              {documentType === "document" && (
+                <MiradorViewer
+                  manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
+                  canvasId={originalCanvasId}
+                />
+              )}
+            </div>
+          </div>
+        )}
         <div className="mt-16">
           <Separator />
         </div>
