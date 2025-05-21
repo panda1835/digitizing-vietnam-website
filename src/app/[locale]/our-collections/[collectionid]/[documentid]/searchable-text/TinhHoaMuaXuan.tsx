@@ -39,8 +39,8 @@ export default async function TinhHoaMuaXuan({
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex-col w-full">
-        {/* Content */}
-        <div className="w-full flex flex-col md:flex-row mt-16 gap-8">
+        <div className="w-full flex flex-col sm:flex-row mt-16 gap-8">
+          {/* TOC */}
           <aside className="w-full lg:w-96 shrink-0 font-light font-['Helvetica Neue']">
             <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
               <div className="p-4 border-b border-gray-200 bg-branding-brown uppercase flex justify-center">
@@ -48,7 +48,7 @@ export default async function TinhHoaMuaXuan({
                   {locale === "vi" ? "Tinh hoa Mùa xuân" : "Spring Essence"}
                 </div>
               </div>
-              <ScrollArea className="h-[500px] md:h-[600px] w-[350px]">
+              <ScrollArea className="h-[500px] md:h-[600px] w-full">
                 <div className="flex flex-col">
                   {all_qn_topic.map((item: string, index: number) => (
                     <NavLink key={index} topic={item} currentTopic={topic}>
@@ -65,12 +65,11 @@ export default async function TinhHoaMuaXuan({
               </ScrollArea>
             </div>
           </aside>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2"></div>
 
           {/* Text */}
           <div className="mt-5 w-full">
             {/* Title */}
-            <div className="text-3xl font-semibold flex gap-2">
+            <div className="text-3xl font-semibold flex flex-col sm:flex-row gap-2">
               <span className={`${merriweather.className}`}>
                 {locale === "vi" ? qn_topic : en_topic} -
               </span>{" "}

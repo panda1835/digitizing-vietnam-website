@@ -18,8 +18,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { toast } from "sonner";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 import { useTranslations } from "next-intl";
+import { Merriweather } from "next/font/google";
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const NomNaTong = localFont({
   src: "../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -92,22 +99,50 @@ export default function LookupableHanNomText({
     <div>
       <div className={`text-2xl ${NomNaTong.className}  ${className || ""}`}>
         {characters.map((word, index) => (
-          <HoverCard key={index}>
-            <HoverCardTrigger>
-              <span className="cursor-pointer">{word}</span>
-            </HoverCardTrigger>
-            <HoverCardContent>
-              <Button
-                className=" text-white px-4 py-2 rounded"
-                onClick={() => {
-                  handleDictionarySearch(word);
-                }}
-                disabled={loading}
-              >
-                {loading ? t("Button.looking-up") : t("Button.look-up")}
-              </Button>
-            </HoverCardContent>
-          </HoverCard>
+          <span key={index}>
+            <span className="hidden md:inline-block">
+              <HoverCard openDelay={0} closeDelay={0}>
+                <HoverCardTrigger asChild>
+                  <span className="cursor-pointer">{word}</span>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-fit">
+                  <Button
+                    className="text-white text-lg px-4 py-3 rounded"
+                    onClick={() => {
+                      handleDictionarySearch(word);
+                    }}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      t("Button.looking-up")
+                    ) : (
+                      <div>{`${t("Button.look-up")} ${word}`}</div>
+                    )}
+                  </Button>
+                </HoverCardContent>
+              </HoverCard>
+            </span>
+            <span className="md:hidden">
+              <Popover>
+                <PopoverTrigger>{word}</PopoverTrigger>
+                <PopoverContent className="w-fit">
+                  <Button
+                    className={`text-white text-lg px-4 py-3 rounded ${NomNaTong.className}`}
+                    onClick={() => {
+                      handleDictionarySearch(word);
+                    }}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      t("Button.looking-up")
+                    ) : (
+                      <div>{`${t("Button.look-up")} ${word}`}</div>
+                    )}
+                  </Button>{" "}
+                </PopoverContent>
+              </Popover>
+            </span>
+          </span>
         ))}
       </div>
 
@@ -120,49 +155,50 @@ export default function LookupableHanNomText({
               {selectedCharacter}
             </DialogTitle>
           </DialogHeader>
-          <ScrollArea className="mt-4 max-h-64">
-            {entryData!.tdcndg &&
-              (entryData!.tdcndg.defs.length > 0 ? (
-                <div>
-                  <Link
-                    href={`/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai?q=${selectedCharacter}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+          <ScrollArea className="mt-4 pr-4 max-h-96">
+            {entryData!.tdcndg && entryData!.tdcndg.defs.length > 0 && (
+              <div>
+                <Link
+                  href={`/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai?q=${selectedCharacter}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div
+                    className={`text-xl text-branding-brown mb-4 hover:underline ${merriweather.className}`}
                   >
-                    <div className="text-xl mb-2 hover:underline">
-                      {t(
-                        "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
-                      )}
-                    </div>
-                  </Link>
-                  <EntryTDCNDG
-                    entry={entryData!.tdcndg.defs[0]}
-                    refs={entryData!.tdcndg.refs}
-                  />
-                </div>
-              ) : (
-                <p>{t("Tools.han-nom-dictionaries.no-result")}</p>
-              ))}
+                    {t(
+                      "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
+                    )}
+                  </div>
+                </Link>
+                <EntryTDCNDG
+                  entry={entryData!.tdcndg.defs[0]}
+                  refs={entryData!.tdcndg.refs}
+                />
+              </div>
+              // : (
+              //   <p>{t("Tools.han-nom-dictionaries.no-result")}</p>
+              // )
+            )}
             <div className="mt-10"></div>
-            {entryData!.giupdoc &&
-              (entryData!.giupdoc.length > 0 ? (
-                <div>
-                  <Link
-                    href={`/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet?q=${selectedCharacter}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+            {entryData!.giupdoc && entryData!.giupdoc.length > 0 && (
+              <div>
+                <Link
+                  href={`/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet?q=${selectedCharacter}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div
+                    className={`text-xl text-branding-brown mb-4 hover:underline ${merriweather.className}`}
                   >
-                    <div className="text-xl mb-2 hover:underline">
-                      {t(
-                        "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
-                      )}
-                    </div>
-                  </Link>
-                  <EntryGDNVHV entry={entryData!.giupdoc[0]} />
-                </div>
-              ) : (
-                <p>{t("Tools.han-nom-dictionaries.no-result")}</p>
-              ))}
+                    {t(
+                      "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
+                    )}
+                  </div>
+                </Link>
+                <EntryGDNVHV entry={entryData!.giupdoc[0]} />
+              </div>
+            )}
           </ScrollArea>
           <Button
             className="mt-4 px-4 py-4 rounded"
