@@ -27,8 +27,7 @@ export default async function ChinhPhuNgamKhucText({
   let rawData: ChinhPhuNgamRaw;
   let totalPages = 0;
 
-  const apiUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/api";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
 
   const data = await fetch(
     `${apiUrl}/searchable-text/chinh-phu-ngam-khuc?page=${currentPage}`
