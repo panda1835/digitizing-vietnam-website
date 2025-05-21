@@ -60,10 +60,8 @@ export default function LookupableHanNomText({
   const handleDictionarySearch = async (character) => {
     setLoading(true);
     try {
-      const apiUrl =
-        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
       const response = await fetch(
-        `${apiUrl}/han-nom-dictionary/all?q=${character}`
+        `/api/han-nom-dictionary/all?q=${character}`
       );
 
       if (!response.ok) {
