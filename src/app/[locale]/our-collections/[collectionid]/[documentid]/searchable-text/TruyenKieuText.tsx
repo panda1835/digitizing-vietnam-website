@@ -14,7 +14,7 @@ export default function TruyenKieu({
       collectionTitle={collectionTitle}
       title={`Truyện Kiều bản ${version}`}
       abstract=""
-      dataApiUrl={`/api/truyen-kieu?version=${version}`}
+      dataApiUrl={`/api/searchable-text/truyen-kieu?version=${version}`}
       collectionid={collectionid}
       documentid={documentid}
       locale={locale}

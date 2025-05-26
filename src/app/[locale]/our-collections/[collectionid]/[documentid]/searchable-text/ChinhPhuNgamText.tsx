@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 import localFont from "next/font/local";
 import PageInput from "./PageInput";
 import PaginationSection from "./PaginationSection";
-
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
@@ -91,9 +91,13 @@ export default async function ChinhPhuNgamKhucText({
                       key={`line-${index}`}
                       className="grid grid-cols-1 gap-2 items-center"
                     >
-                      <div className="text-2xl">
-                        {textData.page.div[0].lg[0] &&
-                          textData.page.div[0].lg[0].l[index]._}
+                      <div>
+                        {textData.page.div[0].lg[0] && (
+                          <LookupableHanNomText
+                            className="text-2xl"
+                            text={textData.page.div[0].lg[0].l[index]._}
+                          />
+                        )}
                       </div>
 
                       {(() => {

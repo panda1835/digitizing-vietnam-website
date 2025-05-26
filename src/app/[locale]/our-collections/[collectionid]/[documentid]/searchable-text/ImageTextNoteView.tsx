@@ -24,6 +24,7 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 import localFont from "next/font/local";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 
 const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -286,9 +287,13 @@ export default function ImageTextNoteView({
                   key={`line-${index}`}
                   className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center"
                 >
-                  <div className="text-2xl">
-                    {textData[pageIndex].div[0].lg[0] &&
-                      textData[pageIndex].div[0].lg[0].l[index]._}
+                  <div>
+                    {textData[pageIndex].div[0].lg[0] && (
+                      <LookupableHanNomText
+                        className="text-2xl"
+                        text={textData[pageIndex].div[0].lg[0].l[index]._}
+                      />
+                    )}
                   </div>
 
                   {(() => {
