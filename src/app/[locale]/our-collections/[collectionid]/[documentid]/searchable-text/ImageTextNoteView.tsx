@@ -25,6 +25,7 @@ import localFont from "next/font/local";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
+import TipBox from "@/components/common/TipBox";
 
 const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -282,6 +283,10 @@ export default function ImageTextNoteView({
             </div>
             {/* Text */}
             <div className={`text-center ${NomNaTong.className}`}>
+              <div className="mb-4">
+                <TipBox text={t("Tips.lookupable-text")} />
+              </div>
+
               {textData[pageIndex].div[1].lg[0].l.map((line, index) => (
                 <div
                   key={`line-${index}`}

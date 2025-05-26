@@ -21,6 +21,10 @@
     "error-occurred": "Có lỗi xảy ra. Vui lòng thử lại sau."
   },
 
+  "Tips": {
+    "lookupable-text": "Nhấp vào kí tự Hán Nôm để tra cứu trong từ điển."
+  },
+
   "ErrorPage": {
     "not-found": "Không tìm thấy trang",
     "not-found-message": "Trang bạn đang tìm kiếm không tồn tại.",

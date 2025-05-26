@@ -21,6 +21,10 @@
     "error-occurred": "An error occurred. Please try again later."
   },
 
+  "Tips": {
+    "lookupable-text": "Click on any Han-Nôm character to look it up in the dictionaries."
+  },
+
   "ErrorPage": {
     "not-found": "Page Not Found",
     "not-found-message": "The page you are looking for does not exist.",

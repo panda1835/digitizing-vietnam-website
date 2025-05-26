@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 import PageInput from "./PageInput";
 import PaginationSection from "./PaginationSection";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
+import TipBox from "@/components/common/TipBox";
 
 const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -82,6 +83,9 @@ export default async function LucVanTienText({
             </div>
             {/* Text */}
             <div className={`text-center ${NomNaTong.className}`}>
+              <div className="mb-4">
+                <TipBox text={t("Tips.lookupable-text")} />
+              </div>
               {textData.page.div[1].lg[0].l.map((line, index) => (
                 <div
                   key={`line-${index}`}
