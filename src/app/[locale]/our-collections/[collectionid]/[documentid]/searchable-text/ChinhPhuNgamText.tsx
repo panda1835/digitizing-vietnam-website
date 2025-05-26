@@ -82,7 +82,7 @@ export default async function ChinhPhuNgamKhucText({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {/* Nom Text */}
               <div className={`text-center ${NomNaTong.className}`}>
-                <div className="text-2xl border bg-branding-brown text-white py-2 mb-5 rounded-lg">
+                <div className="text-3xl text-branding-brown py-2 mb-4">
                   {locale === "vi" ? "Phần chữ Nôm" : "Nom Text"}
                 </div>
                 <div>
@@ -140,7 +140,7 @@ export default async function ChinhPhuNgamKhucText({
 
               {/* Han Text */}
               <div className={`text-center ${NomNaTong.className}`}>
-                <div className="text-2xl border bg-branding-brown text-white py-2 mb-5 rounded-lg">
+                <div className="text-3xl text-branding-brown py-2 mb-4">
                   {locale === "vi" ? "Phần chữ Hán" : "Han Text"}
                 </div>
                 <div>
