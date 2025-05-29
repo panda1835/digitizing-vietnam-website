@@ -1,0 +1,154 @@
+import { getTranslations } from "next-intl/server";
+
+import NavLink from "./NavLink";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
+import { Merriweather } from "next/font/google";
+import TipBox from "@/components/common/TipBox";
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+export default async function QuocAmThiTap({
+  locale,
+  topic,
+}: {
+  locale: string;
+  topic: string;
+}) {
+  const t = await getTranslations();
+
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
+  console.log(topic);
+  const data = await fetch(
+    `${apiUrl}/searchable-text/quoc-am-thi-tap?topicId=${topic}`
+  );
+
+  const {
+    id,
+    group,
+    qn_title,
+    title_num,
+    hn_title,
+    qn_body,
+    hn_body,
+    all_ids,
+    all_groups,
+    all_qn_titles,
+    all_hn_titles,
+    all_title_nums,
+  } = await data.json();
+  const groupedData = {};
+
+  for (let i = 0; i < all_ids.length; i++) {
+    const group = all_groups[i];
+    const title = all_qn_titles[i];
+    const id = all_ids[i];
+    const num = all_title_nums[i];
+    const hnTitle = all_hn_titles[i];
+
+    if (!groupedData[group]) {
+      groupedData[group] = {};
+    }
+
+    if (!groupedData[group][title]) {
+      groupedData[group][title] = [];
+    }
+
+    groupedData[group][title].push({
+      id,
+      num,
+      hnTitle,
+    });
+  }
+
+  return (
+    <div className="flex flex-col w-full items-center">
+      <div className="flex-col w-full">
+        <div className="w-full flex flex-col sm:flex-row mt-16 gap-8 pr-4">
+          {/* TOC */}
+          <aside className="w-full lg:w-96 shrink-0 font-light font-['Helvetica Neue']">
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-4 border-b border-gray-200 bg-branding-brown uppercase flex justify-center">
+                <div className="text-xl font-normal text-white">
+                  {locale === "vi" ? "Quốc Âm Thi Tập" : "Quốc Âm Thi Tập"}
+                </div>
+              </div>
+              <ScrollArea className="h-[500px] md:h-[600px] w-full">
+                <div className="flex flex-col">
+                  {all_ids.map((id: string, index: number) => (
+                    <NavLink key={index} topic={id} currentTopic={topic}>
+                      <div className="text-lg">
+                        {all_qn_titles[index]}{" "}
+                        {all_title_nums[index] != 0
+                          ? `bài ${all_title_nums[index]}`
+                          : ""}
+                      </div>
+                      <LookupableHanNomText
+                        text={all_hn_titles[index]}
+                        className="text-lg"
+                      />
+                    </NavLink>
+                  ))}
+                </div>
+              </ScrollArea>
+            </div>
+            <div className="mt-4">
+              <TipBox text={t("Tips.lookupable-text")} />
+            </div>
+          </aside>
+
+          {/* Text */}
+          <div className="mt-5 w-full">
+            {/* Title */}
+            <div className="text-3xl font-semibold flex flex-col sm:flex-row gap-2">
+              <span>
+                <LookupableHanNomText text={hn_title} className="text-3xl" />
+              </span>
+              <span className={`${merriweather.className}`}>
+                - {qn_title} {title_num != 0 ? `bài ${title_num}` : ""}
+              </span>{" "}
+            </div>
+
+            {/* Han Nom */}
+            <div className="w-full mt-8">
+              <div className="bg-branding-gray rounded-lg p-4 mt-2 w-full">
+                {hn_body.body.lg[0].l.map((line: any, index: number) => (
+                  <div key={index} className="">
+                    <div>
+                      <LookupableHanNomText
+                        text={line.seg[0].split("|").join("")}
+                      />
+                    </div>
+                    <div>
+                      <LookupableHanNomText
+                        text={line.seg[1].split("|").join("")}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Quoc Ngu */}
+            <div className="w-full mt-8">
+              <div className="bg-branding-gray rounded-lg p-4 mt-2 w-full font-['Helvetica Neue'] font-light text-xl">
+                {qn_body.body.lg[0].l.map((line: any, index: number) => (
+                  <div key={index} className="">
+                    <div> {line.seg[0].split("|").join(" ")} </div>
+                    <div>{line.seg[1].split("|").join(" ")} </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -18,6 +18,7 @@ import TruyenKieu from "./searchable-text/TruyenKieuText";
 import LucVanTienText from "./searchable-text/LucVanTienText";
 import ChinhPhuNgamText from "./searchable-text/ChinhPhuNgamText";
 import TinhHoaMuaXuan from "./searchable-text/TinhHoaMuaXuan";
+import QuocAmThiTap from "./searchable-text/QuocAmThiTap";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
@@ -272,6 +273,9 @@ const CollectionItemViewer = async ({
         ) : collectionId === "tho-ho-xuan-huong" &&
           documentId === "tinh-hoa-mua-xuan" ? (
           <TinhHoaMuaXuan locale={locale} topic={currentTopic || "Cảnh thu"} />
+        ) : collectionId === "quoc-am-thi-tap" &&
+          documentId === "thu-vi-ngam" ? (
+          <QuocAmThiTap locale={locale} topic={currentTopic || "1"} />
         ) : (
           <div className="flex flex-row">
             {/* Item viewer */}
