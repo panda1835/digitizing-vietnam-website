@@ -19,6 +19,7 @@ import LucVanTienText from "./searchable-text/LucVanTienText";
 import ChinhPhuNgamText from "./searchable-text/ChinhPhuNgamText";
 import TinhHoaMuaXuan from "./searchable-text/TinhHoaMuaXuan";
 import QuocAmThiTap from "./searchable-text/QuocAmThiTap";
+import NotFound from "@/app/not-found";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
@@ -115,6 +116,10 @@ const CollectionItemViewer = async ({
       )?.title || "";
   } catch (error) {
     console.log("Error fetching collection:", error);
+  }
+
+  if (!collectionItemData) {
+    return <NotFound />;
   }
 
   if (collectionId === "truyen-kieu") {

@@ -8,7 +8,7 @@ import { Merriweather } from "next/font/google";
 import { Separator } from "@/components/ui/separator";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-const CollectionItemView = ({ collectionItems }) => {
+const CollectionItemView = ({ collectionItems, collectionMetadata }) => {
   const [filteredResults, setFilteredResults] = useState(collectionItems);
   const noCategory = "NO_CATEGORY";
   const filter = generateCollectionFilters(collectionItems);
@@ -88,7 +88,7 @@ const CollectionItemView = ({ collectionItems }) => {
                   {items.map((item) => (
                     <CollectionItem
                       collectionItem={item}
-                      collectionSlug={item.slug}
+                      collectionSlug={collectionMetadata.slug}
                       key={item.slug}
                     />
                   ))}

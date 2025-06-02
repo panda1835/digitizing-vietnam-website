@@ -115,7 +115,10 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
         ]}
         locale={locale}
       />
-      <CollectionItemView collectionItems={collectionItems} />
+      <CollectionItemView
+        collectionItems={collectionItems}
+        collectionMetadata={collectionMetadata}
+      />
       <Separator className="mt-10 w-full" />
       <FeatureArticle highlights={featuredBlogs} locale={locale} />
     </div>
