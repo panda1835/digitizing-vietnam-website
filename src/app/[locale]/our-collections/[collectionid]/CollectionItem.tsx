@@ -31,7 +31,7 @@ export const CollectionItem = ({ collectionItem, collectionSlug }) => {
       </Link>
       <Link href={`/our-collections/${collectionSlug}/${collectionItem.slug}`}>
         <div
-          className={`${merriweather.className} text-branding-black text-2xl mt-6 hover:text-branding-brown hover:underline`}
+          className={`${merriweather.className} text-branding-black text-xl mt-6 hover:text-branding-brown hover:underline`}
         >
           {collectionItem.title}
         </div>

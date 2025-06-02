@@ -54,7 +54,8 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
 
   const t = await getTranslations();
 
-  let collectionItems: { display_order: number }[] = [];
+  let collectionItems: { display_order: number; display_category: string }[] =
+    [];
   let featuredBlogs = [];
   let collectionMetadata: { slug: string; title: string; abstract: string } = {
     slug: "",
@@ -114,11 +115,7 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
         ]}
         locale={locale}
       />
-      <CollectionItemView
-        collectionItems={collectionItems}
-        collection={collectionMetadata}
-        locale={locale}
-      />
+      <CollectionItemView collectionItems={collectionItems} />
       <Separator className="mt-10 w-full" />
       <FeatureArticle highlights={featuredBlogs} locale={locale} />
     </div>
