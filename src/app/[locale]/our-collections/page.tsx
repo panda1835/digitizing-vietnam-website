@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { fetcher } from "@/lib/api";
 import { formatDate } from "@/utils/datetime";
 import { Collection } from "@/types/collection";
-
+import { PageHeader } from "@/components/common/PageHeader";
 import CollectionView from "./CollectionView";
 import { Metadata } from "next";
 
@@ -60,6 +60,12 @@ const OurCollections = async ({ params: { locale } }) => {
 
   return (
     <div className="flex flex-col max-width items-center">
+      <PageHeader
+        title={t("NavigationBar.our-collections")}
+        subtitle={t("Collection.subtitle")}
+        breadcrumbItems={[{ label: t("NavigationBar.our-collections") }]}
+        locale={locale}
+      />
       <CollectionView collections={collections} locale={locale} />
     </div>
   );

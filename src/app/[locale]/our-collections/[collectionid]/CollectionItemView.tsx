@@ -52,34 +52,6 @@ const CollectionItemView = ({ collection, collectionItems, locale }) => {
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex-col mb-20 w-full">
-        <BreadcrumbAndSearchBar
-          locale={locale}
-          breadcrumbItems={[
-            {
-              label: t("NavigationBar.our-collections"),
-              href: "our-collections",
-            },
-            { label: collection.title },
-          ]}
-        />
-
-        {/* Headline */}
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
-        >
-          {collection.title}
-        </div>
-
-        {/* Subheadline */}
-        <div
-          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
-        >
-          {collection.abstract}
-        </div>
-
-        <div className="mt-28">
-          <Separator />
-        </div>
         <div className="flex">
           {/* <div className="mt-10">
             <FilterSidebar

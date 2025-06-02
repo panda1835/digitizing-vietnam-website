@@ -16,7 +16,7 @@ import { getImageByKey } from "@/utils/image";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export const CollectionItem = ({ collection }: { collection: Collection }) => {
-  const thumbnail = getImageByKey(collection.thumbnail.formats, "medium");
+  const thumbnail = getImageByKey(collection.thumbnail.formats, "large");
   const t = useTranslations();
   return (
     <div className="">

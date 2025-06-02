@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { OnlineResource, ResourceCategory } from "@/types/online-resource";
-import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { MoveRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
@@ -19,6 +18,7 @@ import { fetcher } from "@/lib/api";
 
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
+import { PageHeader } from "@/components/common/PageHeader";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -72,24 +72,12 @@ const OnlineResources = async ({ params: { locale } }) => {
   return (
     <div className="flex flex-col max-width items-center">
       <div className="flex-col mb-20 w-full">
-        <BreadcrumbAndSearchBar
-          locale={locale}
+        <PageHeader
+          title={t("NavigationBar.online-resources")}
+          subtitle={t("OnlineResource.subtitle")}
           breadcrumbItems={[{ label: t("NavigationBar.online-resources") }]}
+          locale={locale}
         />
-
-        {/* Headline */}
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
-        >
-          {t("NavigationBar.online-resources")}
-        </div>
-
-        {/* Subheadline */}
-        <div
-          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
-        >
-          {t("OnlineResource.subtitle")}
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {onlineResources.map((category) => (

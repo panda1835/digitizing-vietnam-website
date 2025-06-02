@@ -6,6 +6,7 @@ import { Metadata } from "next";
 
 import { Separator } from "@/components/ui/separator";
 import { InfoCard } from "@/components/common/InfoCard";
+import { PageHeader } from "@/components/common/PageHeader";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -40,24 +41,12 @@ const Tools = async ({ params: { locale } }) => {
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 w-full">
-        <BreadcrumbAndSearchBar
-          locale={locale}
+        <PageHeader
+          title={t("NavigationBar.tools")}
+          subtitle={t("Tools.subtitle")}
           breadcrumbItems={[{ label: t("NavigationBar.tools") }]}
+          locale={locale}
         />
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
-        >
-          {t("NavigationBar.tools")}
-        </div>
-        {/* Subheadline */}
-        <div
-          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
-        >
-          {t("Tools.subtitle")}
-        </div>
-        <div className="mt-28">
-          <Separator />
-        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {tools.map((tool) => (
             <div key={tool.name}>
