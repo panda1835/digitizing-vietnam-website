@@ -279,7 +279,7 @@ const CollectionItemViewer = async ({
           documentId === "tinh-hoa-mua-xuan" ? (
           <TinhHoaMuaXuan locale={locale} topic={currentTopic || "Cảnh thu"} />
         ) : collectionId === "quoc-am-thi-tap" &&
-          documentId === "thu-vi-ngam" ? (
+          documentId === "nguyen-trai-quoc-am-thi-tap" ? (
           <QuocAmThiTap locale={locale} topic={currentTopic || "1"} />
         ) : (
           <div className="flex flex-row">
