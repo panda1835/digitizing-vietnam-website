@@ -28,7 +28,7 @@ import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import TipBox from "@/components/common/TipBox";
 
 const NomNaTong = localFont({
-  src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+  src: "../../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
 export default function ImageTextNoteView({

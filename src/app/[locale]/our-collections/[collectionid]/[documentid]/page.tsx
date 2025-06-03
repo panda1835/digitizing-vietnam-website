@@ -14,11 +14,11 @@ import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
 import algoliasearch from "algoliasearch";
 
-import TruyenKieu from "./searchable-text/TruyenKieuText";
-import LucVanTienText from "./searchable-text/LucVanTienText";
-import ChinhPhuNgamText from "./searchable-text/ChinhPhuNgamText";
-import TinhHoaMuaXuan from "./searchable-text/TinhHoaMuaXuan";
-import QuocAmThiTap from "./searchable-text/QuocAmThiTap";
+import TruyenKieu from "./searchable-text/truyen-kieu/TruyenKieuText";
+import LucVanTienText from "./searchable-text/luc-van-tien/LucVanTienText";
+import ChinhPhuNgamText from "./searchable-text/chinh-phu-ngam-khuc/ChinhPhuNgamText";
+import TinhHoaMuaXuan from "./searchable-text/tinh-hoa-mua-xuan/TinhHoaMuaXuan";
+import QuocAmThiTap from "./searchable-text/quoc-am-thi-tap/QuocAmThiTap";
 import NotFound from "@/app/not-found";
 
 const searchClient = algoliasearch(

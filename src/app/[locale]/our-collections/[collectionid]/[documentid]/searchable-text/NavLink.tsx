@@ -15,13 +15,13 @@ export default function NavLink({
   return (
     <Link
       href={`?topic=${topic}`}
-      className={`py-3 px-6 border-b border-gray-100 hover:bg-gray-50 hover:border-l-branding-brown hover:border-l-4 transition-colors relative group ${
+      className={`block px-6 py-3 border-b border-gray-100 transition-colors relative group ${
         topic == currentTopic
-          ? "bg-gray-50 border-l-branding-brown border-l-4"
-          : ""
+          ? "bg-gray-50 border-l-4 border-l-branding-brown"
+          : "hover:bg-gray-50 hover:border-l-4 hover:border-l-branding-brown"
       }`}
     >
-      <span className="text-gray-800">{children}</span>
+      <div className="text-gray-800">{children}</div>
     </Link>
   );
 }

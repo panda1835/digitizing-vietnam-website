@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import NavLink from "./NavLink";
+import NavLink from "../NavLink";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import { Merriweather } from "next/font/google";
