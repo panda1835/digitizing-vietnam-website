@@ -5,12 +5,11 @@ import { Blog, BlogCategory } from "@/types/blog";
 import { getImageByKey } from "@/utils/image";
 
 import ArticleCard from "@/components/ArticleCard";
-import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { formatDate } from "@/utils/datetime";
-import { Merriweather } from "next/font/google";
 
 import { Metadata } from "next";
+import { PageHeader } from "@/components/common/PageHeader";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -19,7 +18,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const Blogs = async ({ params: { locale } }) => {
   const t = await getTranslations();
 
@@ -80,27 +78,16 @@ const Blogs = async ({ params: { locale } }) => {
   return (
     <div className="flex flex-col max-width items-center">
       <div className="flex-col mb-20 w-full">
-        <BreadcrumbAndSearchBar
-          locale={locale}
+        <PageHeader
+          title={t("NavigationBar.highlights")}
+          subtitle={
+            locale === "en"
+              ? "Latest news and discoveries from the digital front of Vietnamese heritage."
+              : "Những tin tức và phát hiện mới nhất từ mặt trận kỹ thuật số của di sản Việt."
+          }
           breadcrumbItems={[{ label: t("NavigationBar.highlights") }]}
+          locale={locale}
         />
-
-        {/* Headline */}
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
-        >
-          {t("NavigationBar.highlights")}
-        </div>
-
-        {/* Subheadline */}
-        <div
-          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
-        >
-          {locale === "en"
-            ? "Latest news and discoveries from the digital front of Vietnamese heritage."
-            : "Những tin tức và phát hiện mới nhất từ mặt trận kỹ thuật số của di sản Việt."}
-        </div>
-
         {/* Tab */}
         <Tabs
           defaultValue={blogData[0].category_name

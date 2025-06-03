@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { parseStringPromise } from "xml2js";
 import db from "@/lib/db";
 
 export async function GET(request) {
@@ -9,19 +8,13 @@ export async function GET(request) {
     const topic = searchParams.get("topic");
     let returnData = {};
 
-    // const xmlDictionaryData = await fs.readFile(
-    //   path.join(process.cwd(), `data/luc-van-tien/Luc_Van_Tien.xml`),
-    //   "utf-8"
-    // );
-
     const [data]: any = await db.query(
       `SELECT * FROM tho_hxh WHERE (qn_topic = ?)`,
       [topic]
     );
 
     const [allTopics]: any = await db.query(
-      `SELECT nom_topic, qn_topic, en_topic FROM tho_hxh `,
-      [topic]
+      `SELECT nom_topic, qn_topic, en_topic FROM tho_hxh `
     );
 
     returnData = {

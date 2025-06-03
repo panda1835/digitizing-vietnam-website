@@ -5,12 +5,11 @@ import { Blog, BlogCategory } from "@/types/blog";
 import { getImageByKey } from "@/utils/image";
 
 import ArticleCard from "@/components/ArticleCard";
-import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { formatDate } from "@/utils/datetime";
-import { Merriweather } from "next/font/google";
 
 import { Metadata } from "next";
+import { PageHeader } from "@/components/common/PageHeader";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -43,7 +42,6 @@ export interface PedagogyCategory {
   pedagogies: Pedagogy[];
 }
 
-const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const Pedagogies = async ({ params: { locale } }) => {
   const t = await getTranslations();
 
@@ -104,25 +102,12 @@ const Pedagogies = async ({ params: { locale } }) => {
   return (
     <div className="flex flex-col max-width items-center">
       <div className="flex-col mb-20 w-full">
-        <BreadcrumbAndSearchBar
-          locale={locale}
+        <PageHeader
+          title={t("NavigationBar.outreach")}
+          subtitle={t("Outreach.subtitle")}
           breadcrumbItems={[{ label: t("NavigationBar.outreach") }]}
+          locale={locale}
         />
-
-        {/* Headline */}
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
-        >
-          {t("NavigationBar.outreach")}
-        </div>
-
-        {/* Subheadline */}
-        <div
-          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
-        >
-          {t("Outreach.subtitle")}
-        </div>
-
         {/* Tab */}
         <Tabs
           defaultValue={pedagogyData[0].category_name

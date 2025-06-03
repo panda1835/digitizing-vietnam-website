@@ -24,9 +24,11 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 import localFont from "next/font/local";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
+import TipBox from "@/components/common/TipBox";
 
 const NomNaTong = localFont({
-  src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+  src: "../../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
 export default function ImageTextNoteView({
@@ -281,14 +283,22 @@ export default function ImageTextNoteView({
             </div>
             {/* Text */}
             <div className={`text-center ${NomNaTong.className}`}>
+              <div className="mb-4">
+                <TipBox text={t("Tips.lookupable-text")} />
+              </div>
+
               {textData[pageIndex].div[1].lg[0].l.map((line, index) => (
                 <div
                   key={`line-${index}`}
                   className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center"
                 >
-                  <div className="text-2xl">
-                    {textData[pageIndex].div[0].lg[0] &&
-                      textData[pageIndex].div[0].lg[0].l[index]._}
+                  <div>
+                    {textData[pageIndex].div[0].lg[0] && (
+                      <LookupableHanNomText
+                        className="text-2xl"
+                        text={textData[pageIndex].div[0].lg[0].l[index]._}
+                      />
+                    )}
                   </div>
 
                   {(() => {

@@ -16,7 +16,7 @@ import { getImageByKey } from "@/utils/image";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export const CollectionItem = ({ collection }: { collection: Collection }) => {
-  const thumbnail = getImageByKey(collection.thumbnail.formats, "medium");
+  const thumbnail = getImageByKey(collection.thumbnail.formats, "large");
   const t = useTranslations();
   return (
     <div className="">
@@ -33,7 +33,7 @@ export const CollectionItem = ({ collection }: { collection: Collection }) => {
 
       <Link href={`/our-collections/${collection.slug}`}>
         <div
-          className={`${merriweather.className} text-branding-black text-2xl mt-6 hover:text-branding-brown hover:underline`}
+          className={`${merriweather.className} text-branding-black text-xl mt-6 hover:text-branding-brown hover:underline`}
         >
           {collection.title}
         </div>

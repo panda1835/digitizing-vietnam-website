@@ -113,7 +113,7 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
         </p>
         <div className="h-[26px] flex-col justify-start items-start gap-5 inline-flex mt-8 mb-16">
           <div className="self-stretch">
-            <span className="text-branding-black text-base font-normal font-['Helvetica Neue'] leading-relaxed">
+            <span className="text-[#777777] text-base font-normal font-['Helvetica Neue'] leading-relaxed">
               {t("Outreach.contributed-by")}
             </span>
             <span className="text-branding-black text-base font-medium font-['Helvetica Neue'] leading-relaxed">

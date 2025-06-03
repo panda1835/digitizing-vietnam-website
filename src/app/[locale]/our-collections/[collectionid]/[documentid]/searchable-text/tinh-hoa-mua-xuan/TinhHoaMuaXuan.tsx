@@ -1,9 +1,10 @@
 import { getTranslations } from "next-intl/server";
 
-import NavLink from "./NavLink";
+import NavLink from "../NavLink";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import { Merriweather } from "next/font/google";
+import TipBox from "@/components/common/TipBox";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export default async function TinhHoaMuaXuan({
@@ -62,6 +63,9 @@ export default async function TinhHoaMuaXuan({
                   ))}
                 </div>
               </ScrollArea>
+            </div>
+            <div className="mt-4">
+              <TipBox text={t("Tips.lookupable-text")} />
             </div>
           </aside>
 

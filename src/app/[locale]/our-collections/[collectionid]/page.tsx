@@ -3,9 +3,11 @@ import qs from "qs";
 
 import { fetcher } from "@/lib/api";
 
+import { Separator } from "@/components/ui/separator";
+
 import CollectionItemView from "./CollectionItemView";
 import FeatureArticle from "./FeatureArticle";
-import { Separator } from "@/components/ui/separator";
+import { PageHeader } from "@/components/common/PageHeader";
 
 import { Metadata } from "next";
 import algoliasearch from "algoliasearch";
@@ -52,7 +54,8 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
 
   const t = await getTranslations();
 
-  let collectionItems: { display_order: number }[] = [];
+  let collectionItems: { display_order: number; display_category: string }[] =
+    [];
   let featuredBlogs = [];
   let collectionMetadata: { slug: string; title: string; abstract: string } = {
     slug: "",
@@ -100,10 +103,21 @@ const OurCollections = async ({ params: { locale, collectionid } }) => {
 
   return (
     <div className="flex flex-col w-full items-center">
+      <PageHeader
+        title={collectionMetadata.title}
+        subtitle={collectionMetadata.abstract}
+        breadcrumbItems={[
+          {
+            label: t("NavigationBar.our-collections"),
+            href: "our-collections",
+          },
+          { label: collectionMetadata.title },
+        ]}
+        locale={locale}
+      />
       <CollectionItemView
         collectionItems={collectionItems}
-        collection={collectionMetadata}
-        locale={locale}
+        collectionMetadata={collectionMetadata}
       />
       <Separator className="mt-10 w-full" />
       <FeatureArticle highlights={featuredBlogs} locale={locale} />

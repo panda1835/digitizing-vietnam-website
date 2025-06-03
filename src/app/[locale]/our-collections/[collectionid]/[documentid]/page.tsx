@@ -14,10 +14,12 @@ import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
 import algoliasearch from "algoliasearch";
 
-import TruyenKieu from "./searchable-text/TruyenKieuText";
-import LucVanTienText from "./searchable-text/LucVanTienText";
-import ChinhPhuNgamText from "./searchable-text/ChinhPhuNgamText";
-import TinhHoaMuaXuan from "./searchable-text/TinhHoaMuaXuan";
+import TruyenKieu from "./searchable-text/truyen-kieu/TruyenKieuText";
+import LucVanTienText from "./searchable-text/luc-van-tien/LucVanTienText";
+import ChinhPhuNgamText from "./searchable-text/chinh-phu-ngam-khuc/ChinhPhuNgamText";
+import TinhHoaMuaXuan from "./searchable-text/tinh-hoa-mua-xuan/TinhHoaMuaXuan";
+import QuocAmThiTap from "./searchable-text/quoc-am-thi-tap/QuocAmThiTap";
+import NotFound from "@/app/not-found";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
@@ -114,6 +116,10 @@ const CollectionItemViewer = async ({
       )?.title || "";
   } catch (error) {
     console.log("Error fetching collection:", error);
+  }
+
+  if (!collectionItemData) {
+    return <NotFound />;
   }
 
   if (collectionId === "truyen-kieu") {
@@ -272,6 +278,9 @@ const CollectionItemViewer = async ({
         ) : collectionId === "tho-ho-xuan-huong" &&
           documentId === "tinh-hoa-mua-xuan" ? (
           <TinhHoaMuaXuan locale={locale} topic={currentTopic || "Cảnh thu"} />
+        ) : collectionId === "quoc-am-thi-tap" &&
+          documentId === "nguyen-trai-quoc-am-thi-tap" ? (
+          <QuocAmThiTap locale={locale} topic={currentTopic || "1"} />
         ) : (
           <div className="flex flex-row">
             {/* Item viewer */}

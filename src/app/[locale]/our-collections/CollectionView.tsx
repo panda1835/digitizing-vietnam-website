@@ -1,18 +1,12 @@
 "use client";
-import { useTranslations } from "next-intl";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { CollectionItem } from "./CollectionItem";
 
-import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-
-import { Merriweather } from "next/font/google";
-import { Separator } from "@/components/ui/separator";
 import FilterSidebar from "@/components/FilterSidebar";
 import { generateCollectionFilters } from "./filter";
-
-const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const OurCollections = ({ collections, locale }) => {
   const t = useTranslations();
@@ -59,28 +53,6 @@ const OurCollections = ({ collections, locale }) => {
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex-col mb-20 w-full">
-        <BreadcrumbAndSearchBar
-          locale={locale}
-          breadcrumbItems={[{ label: t("NavigationBar.our-collections") }]}
-        />
-
-        {/* Headline */}
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
-        >
-          {t("NavigationBar.our-collections")}
-        </div>
-
-        {/* Subheadline */}
-        <div
-          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
-        >
-          {t("Collection.subtitle")}
-        </div>
-
-        <div className="mt-28">
-          <Separator />
-        </div>
         <div className="flex">
           {/* <div className="mt-10">
             <FilterSidebar
