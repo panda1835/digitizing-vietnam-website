@@ -27,9 +27,15 @@ export default function HanNomTranslator() {
     setInputText(text);
     const splitWords = text.trim().split(/\s+/);
     const mappedCandidates = splitWords.map((word) => nomMap[word] || []);
-    const mappedSelected = splitWords.map(
-      (_, i) => mappedCandidates[i]?.[0] || ""
-    );
+
+    // Preserve previous selections if the word hasn't changed
+    const mappedSelected = splitWords.map((word, i) => {
+      const existingIndex = words.indexOf(word);
+      if (existingIndex !== -1 && selectedChars[existingIndex]) {
+        return selectedChars[existingIndex];
+      }
+      return mappedCandidates[i]?.[0] || "";
+    });
 
     setWords(splitWords);
     setCandidates(mappedCandidates);
@@ -42,8 +48,10 @@ export default function HanNomTranslator() {
     updated[wordIndex] = char;
     setSelectedChars(updated);
   };
+
   const t = useTranslations();
   const locale = useLocale();
+
   return (
     <div className="flex-col mb-20 w-full">
       <PageHeader
@@ -68,8 +76,10 @@ export default function HanNomTranslator() {
           <Textarea
             value={inputText}
             onChange={handleChange}
-            placeholder="Nhập chữ Quốc ngữ..."
-            className="h-40"
+            placeholder={t(
+              "Tools.han-nom-tools.tools.han-nom-input-method-editor.type-in-quoc-ngu"
+            )}
+            className="h-40 text-xl"
           />
         </div>
 
@@ -84,10 +94,7 @@ export default function HanNomTranslator() {
               <div className="space-y-2">
                 {activeIndex !== null && words[activeIndex] && (
                   <div className="space-y-1">
-                    <div className="font-medium">
-                      {/* <LookupableHanNomText text={words[activeIndex]} /> */}
-                      {words[activeIndex]}
-                    </div>
+                    <div className="font-medium">{words[activeIndex]}</div>
                     <div className="flex flex-wrap gap-2">
                       {candidates[activeIndex]?.map((char, i) => (
                         <Button
@@ -99,7 +106,9 @@ export default function HanNomTranslator() {
                           }
                           onClick={() => handleSelect(activeIndex, char)}
                         >
-                          <div className={`${NomNaTong.className}`}>{char}</div>
+                          <div className={`${NomNaTong.className} text-xl`}>
+                            {char}
+                          </div>
                         </Button>
                       ))}
                     </div>
