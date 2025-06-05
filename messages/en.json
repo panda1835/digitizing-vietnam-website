@@ -185,6 +185,17 @@
           "version-not-found": "Version not found"
         }
       }
+    },
+    "han-nom-tools": {
+      "name": "Hán-Nôm Tools",
+      "description": "The Hán-Nôm Tools is a collection of tools that allow users to analyze and explore Hán-Nôm texts. This tool is especially useful for researchers who need to analyze Hán-Nôm texts in detail.",
+      "tools": {
+        "han-nom-input-method-editor": {
+          "name": "Hán-Nôm Input Method Editor",
+          "description": "The Hán-Nôm Input Method Editor is a tool that allows users to input Hán-Nôm characters using Quốc Ngữ. ",
+          "type-in-quoc-ngu": "Type in Quốc Ngữ"
+        }
+      }
     }
   },
 

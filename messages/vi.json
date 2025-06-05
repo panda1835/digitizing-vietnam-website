@@ -186,6 +186,17 @@
           "version-not-found": "Không tìm thấy phiên bản Kiều tương ứng"
         }
       }
+    },
+    "han-nom-tools": {
+      "name": "Công cụ Hán-Nôm",
+      "description": "Công cụ Hán-Nôm là một bộ sưu tập các công cụ cho phép người dùng phân tích và khám phá các văn bản Hán-Nôm. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích chi tiết các văn bản Hán-Nôm.",
+      "tools": {
+        "han-nom-input-method-editor": {
+          "name": "Bộ gõ Hán-Nôm",
+          "description": "Bộ gõ Hán-Nôm là một công cụ cho phép người dùng nhập các ký tự Hán-Nôm bằng chữ Quốc Ngữ.",
+          "type-in-quoc-ngu": "Nhập chữ Quốc Ngữ..."
+        }
+      }
     }
   },
 
