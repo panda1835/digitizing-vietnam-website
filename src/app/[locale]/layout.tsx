@@ -7,7 +7,7 @@ import NavigationBar from "@/components/layout/NavigationBar";
 import Footer from "@/components/layout/Footer";
 import BackToTopButton from "@/components/layout/BackToTopButton";
 import { Toaster } from "@/components/ui/sonner";
-
+import { TooltipProvider } from "@/components/ui/tooltip";
 export const metadata = {
   title: "Digitizing Việt Nam",
   description:
@@ -51,7 +51,7 @@ export default async function LocaleLayout({
               
               "
             />
-            {children}
+            <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
           </div>
           <Toaster />
           <BackToTopButton />

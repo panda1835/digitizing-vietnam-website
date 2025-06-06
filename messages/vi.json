@@ -189,12 +189,17 @@
     },
     "han-nom-tools": {
       "name": "Công cụ Hán-Nôm",
-      "description": "Công cụ Hán-Nôm là một bộ sưu tập các công cụ cho phép người dùng phân tích và khám phá các văn bản Hán-Nôm. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích chi tiết các văn bản Hán-Nôm.",
+      "description": "Công cụ Hán-Nôm là một tập hợp các tiện ích chuyên biệt hỗ trợ phân tích và khám phá các văn bản chữ Hán và chữ Nôm trong kho tàng di sản văn hiến Việt Nam. Được thiết kế nhằm phục vụ nhu cầu nghiên cứu chuyên sâu, công cụ này cung cấp các tính năng hữu ích cho việc xử lý, tra cứu và phân tích cấu trúc văn bản và văn tự, đặc biệt phù hợp với các học giả, nhà nghiên cứu ngôn ngữ, văn học cổ điển và lịch sử văn hóa. Đây là một nền tảng hỗ trợ đắc lực trong việc tiếp cận, bảo tồn và phát huy giá trị của di sản Hán-Nôm trong thời đại số.",
       "tools": {
         "han-nom-input-method-editor": {
           "name": "Bộ gõ Hán-Nôm",
-          "description": "Bộ gõ Hán-Nôm là một công cụ cho phép người dùng nhập các ký tự Hán-Nôm bằng chữ Quốc Ngữ.",
+          "description": "Khác với các bộ gõ Hán-Nôm truyền thống, bộ gõ này cho phép người dùng nhập trực tiếp chữ Hán và chữ Nôm ngay trên trình duyệt web, mà không cần cài đặt bất kỳ phần mềm nào. Nhờ tính linh hoạt cao, công cụ có thể được sử dụng trên mọi thiết bị có kết nối internet, mang lại sự thuận tiện tối đa cho người dùng trong quá trình tra cứu và soạn thảo văn bản Hán-Nôm. Đây là một giải pháp hữu ích cho cả người học lẫn các nhà nghiên cứu cần thao tác nhanh chóng và hiệu quả với văn bản cổ.",
           "type-in-quoc-ngu": "Nhập chữ Quốc Ngữ..."
+        },
+        "nom-character-classification-and-analysis-tool": {
+          "name": "Công cụ Thống kê và Phân loại Chữ Nôm",
+          "description": "Đây là một công cụ hiện đại và hiệu quả, hỗ trợ các nhà nghiên cứu văn bản Hán Nôm trong việc thống kê và phân loại chữ Nôm dựa trên hệ thống tiêu chí được trình bày trong Tự điển Chữ Nôm Dẫn giải của học giả Nguyễn Quang Hồng. Người dùng chỉ cần tải văn bản Hán Nôm lên hệ thống; công cụ sẽ tự động xử lý, cung cấp bảng thống kê chi tiết cùng các phân loại chữ Nôm xuất hiện trong văn bản. Đây là một trợ thủ đắc lực trong các nghiên cứu ngôn ngữ, văn tự và văn bản học liên quan đến di sản Hán Nôm.",
+          "type-in-han-nom": "Nhập văn bản Hán Nôm..."
         }
       }
     }

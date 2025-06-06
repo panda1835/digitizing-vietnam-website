@@ -188,12 +188,17 @@
     },
     "han-nom-tools": {
       "name": "Hán-Nôm Tools",
-      "description": "The Hán-Nôm Tools is a collection of tools that allow users to analyze and explore Hán-Nôm texts. This tool is especially useful for researchers who need to analyze Hán-Nôm texts in detail.",
+      "description": "The Hán-Nôm Toolkit is a collection of specialized digital tools designed to support the analysis and exploration of classical Chinese and Nôm texts within the rich literary heritage of Vietnam. Developed to meet the needs of advanced research, this toolkit offers essential features for processing, searching, and analyzing the structure of texts and scripts. It is particularly valuable for scholars in the fields of linguistics, classical literature, and cultural history. As a digital platform, it plays a vital role in facilitating access to, preserving, and promoting the enduring value of Hán-Nôm heritage in the digital age.",
       "tools": {
         "han-nom-input-method-editor": {
-          "name": "Hán-Nôm Input Method Editor",
-          "description": "The Hán-Nôm Input Method Editor is a tool that allows users to input Hán-Nôm characters using Quốc Ngữ. ",
+          "name": "Hán-Nôm Input Tool",
+          "description": "Unlike traditional Han-Nom input methods, this tool allows users to type Hán and Nôm characters directly in a web browser without the need to install any software. Thanks to its high flexibility, the tool can be used on any internet-connected device, offering maximum convenience for users in searching and composing Hán-Nôm texts. It serves as a practical solution for both learners and researchers who require quick and efficient interaction with classical texts. ",
           "type-in-quoc-ngu": "Type in Quốc Ngữ"
+        },
+        "nom-character-classification-and-analysis-tool": {
+          "name": "Nôm Character Classification and Analysis Tool",
+          "description": "This is a cutting-edge tool designed to assist researchers working with Hán-Nôm texts in compiling statistics and classifying Nôm characters based on the criteria outlined in Tự điển Chữ Nôm Dẫn giải (Explained Dictionary of Nom Characters) by scholar Nguyễn Quang Hồng. Users simply upload a Hán-Nôm text, and the tool automatically processes it to generate a detailed statistical report along with classifications of the Nôm characters found in the document. It serves as a valuable resource for linguistic, scriptural, and textual studies related to the Hán-Nôm heritage.",
+          "type-in-han-nom": "Type in Hán Nôm..."
         }
       }
     }
