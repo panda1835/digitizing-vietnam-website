@@ -115,10 +115,13 @@ export default function LookupableHanNomText({
                             )}
                           </div>
                         </Link>
-                        <EntryTDCNDG
-                          entry={entryData!.tdcndg.defs[0]}
-                          refs={entryData!.tdcndg.refs}
-                        />
+                        {entryData!.tdcndg.defs.map((entry, idx) => (
+                          <EntryTDCNDG
+                            key={idx}
+                            entry={entryData!.tdcndg.defs[idx]}
+                            refs={entryData!.tdcndg.refs}
+                          />
+                        ))}
                       </div>
                     )}
                     <div className="mt-10"></div>
