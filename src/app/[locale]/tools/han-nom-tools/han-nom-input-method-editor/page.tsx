@@ -33,7 +33,7 @@ export default function HanNomTranslator() {
 
     const lines = text.split("\n").map((line) => line.trim().split(/\s+/));
     const mappedCandidates = lines.map((line) =>
-      line.map((word) => nomMap[word] || [])
+      line.map((word) => nomMap[word.toLowerCase()] || [])
     );
 
     const mappedSelected = lines.map((line, i) =>
