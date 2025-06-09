@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 
 import { useState } from "react";
@@ -26,6 +25,10 @@ export default function HanNomTranslator() {
     line: number;
     word: number;
   } | null>(null);
+  const [hoveredCandidateIndex, setHoveredCandidateIndex] = useState<
+    number | null
+  >(null);
+  const [isSelecting, setIsSelecting] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
@@ -53,6 +56,8 @@ export default function HanNomTranslator() {
         ? { line: lines.length - 1, word: lines[lines.length - 1].length - 1 }
         : null
     );
+    setHoveredCandidateIndex(null);
+    setIsSelecting(false);
   };
 
   const handleSelect = (lineIndex: number, wordIndex: number, char: string) => {
@@ -60,15 +65,70 @@ export default function HanNomTranslator() {
       line.map((c, j) => (i === lineIndex && j === wordIndex ? char : c))
     );
     setSelectedChars(updated);
+    setIsSelecting(false);
+    setHoveredCandidateIndex(null);
   };
 
   const t = useTranslations();
   const locale = useLocale();
 
   const handleCopy = () => {
-    const textToCopy = selectedChars.map((line) => line.join(" ")).join("\n");
+    const textToCopy = selectedChars.map((line) => line.join("")).join("\n");
     navigator.clipboard.writeText(textToCopy);
     toast.success(t("Toast.copied"));
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (!activeIndex) return;
+
+    const totalCandidates =
+      candidates[activeIndex.line]?.[activeIndex.word]?.length || 0;
+
+    if (isSelecting) {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        setHoveredCandidateIndex((prev) =>
+          prev === null ? 0 : (prev + 1) % totalCandidates
+        );
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        setHoveredCandidateIndex((prev) =>
+          prev === null
+            ? totalCandidates - 1
+            : (prev - 1 + totalCandidates) % totalCandidates
+        );
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        if (hoveredCandidateIndex !== null) {
+          handleSelect(
+            activeIndex.line,
+            activeIndex.word,
+            candidates[activeIndex.line][activeIndex.word][
+              hoveredCandidateIndex
+            ]
+          );
+        }
+      } else if (/^[1-9]$/.test(e.key)) {
+        e.preventDefault();
+        const index = parseInt(e.key, 10) - 1;
+        if (index < totalCandidates) {
+          const char = candidates[activeIndex.line][activeIndex.word][index];
+          const updated = selectedChars.map((line, i) =>
+            line.map((c, j) =>
+              i === activeIndex.line && j === activeIndex.word ? char : c
+            )
+          );
+          setSelectedChars(updated);
+          setHoveredCandidateIndex(index); // Update the highlight
+          // Don't disable selection mode yet — allow more keypresses
+        }
+      }
+    } else {
+      if (e.key === "ArrowDown") {
+        setIsSelecting(true);
+        setHoveredCandidateIndex(0);
+      }
+    }
   };
 
   return (
@@ -95,6 +155,7 @@ export default function HanNomTranslator() {
           <Textarea
             value={inputText}
             onChange={handleChange}
+            onKeyDown={handleKeyDown}
             placeholder={t(
               "Tools.han-nom-tools.tools.han-nom-input-method-editor.type-in-quoc-ngu"
             )}
@@ -109,18 +170,11 @@ export default function HanNomTranslator() {
               <div className="flex justify-between items-start">
                 <div className="text-xl whitespace-pre-line">
                   <LookupableHanNomText
-                    text={selectedChars
-                      .map((line) => line.join(" "))
-                      .join("\n")}
+                    text={selectedChars.map((line) => line.join("")).join("\n")}
                   />
                 </div>
                 <div className="flex h-full justify-stretch items-start">
-                  <Button
-                    // variant="ghost"
-                    size="icon"
-                    className="bg-black"
-                    onClick={handleCopy}
-                  >
+                  <Button size="icon" className="bg-black" onClick={handleCopy}>
                     <Copy className="w-4 h-4" />
                   </Button>
                 </div>
@@ -134,29 +188,40 @@ export default function HanNomTranslator() {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {candidates[activeIndex.line][activeIndex.word]?.map(
-                        (char, i) => (
-                          <Button
-                            key={i}
-                            variant={
-                              selectedChars[activeIndex.line][
-                                activeIndex.word
-                              ] === char
-                                ? "default"
-                                : "ghost"
-                            }
-                            onClick={() =>
-                              handleSelect(
-                                activeIndex.line,
-                                activeIndex.word,
-                                char
-                              )
-                            }
-                          >
-                            <div className={`${NomNaTong.className} text-xl`}>
-                              {char}
-                            </div>
-                          </Button>
-                        )
+                        (char, i) => {
+                          const isHovered =
+                            isSelecting && hoveredCandidateIndex === i;
+                          const isSelected =
+                            selectedChars[activeIndex.line][
+                              activeIndex.word
+                            ] === char;
+
+                          return (
+                            <Button
+                              key={i}
+                              variant={isSelected ? "default" : "ghost"}
+                              onClick={() =>
+                                handleSelect(
+                                  activeIndex.line,
+                                  activeIndex.word,
+                                  char
+                                )
+                              }
+                              className={`relative ${
+                                isHovered ? "ring-2 ring-blue-500" : ""
+                              }`}
+                            >
+                              <div className={`${NomNaTong.className} text-xl`}>
+                                {char}
+                              </div>
+                              {i < 9 && (
+                                <div className="absolute top-0 right-1 text-xs text-gray-400">
+                                  {i + 1}
+                                </div>
+                              )}
+                            </Button>
+                          );
+                        }
                       )}
                     </div>
                   </div>
