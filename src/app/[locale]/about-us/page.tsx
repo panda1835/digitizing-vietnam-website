@@ -127,10 +127,37 @@ const AboutUs = async ({ params: { locale } }) => {
           </div>
           <div className="md:col-span-2">
             <div className={`${merriweather.className}  text-2xl`}>
+              {locale === "en" ? " Predecessor Unit" : "Đơn vị tiền nhiệm"}
+            </div>
+            <div
+              className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"
+              dangerouslySetInnerHTML={renderHtml(
+                aboutUsData["institutional_support_predecessor"]
+              )}
+            />
+            <div className="flex flex-wrap justify-center items-center gap-8 mb-16 mt-8">
+              <Image
+                unoptimized
+                src="/images/logo_icon.gif"
+                alt="VNPF Logo"
+                width={80}
+                height={80}
+                className="object-contain"
+              />
+              <Image
+                unoptimized
+                src="/images/logo.gif"
+                alt="VNPF Logo"
+                width={200}
+                height={80}
+                className="object-contain"
+              />
+            </div>
+            <div className={`${merriweather.className}  text-2xl`}>
               {locale === "en" ? "Core Institutions" : "Các đơn vị chính"}
             </div>
             <div
-              className="font-['Helvetica Neue'] font-light text-lg text-branding-black"
+              className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"
               dangerouslySetInnerHTML={renderHtml(
                 aboutUsData["institutional_support_core_institutions"]
               )}
@@ -138,16 +165,16 @@ const AboutUs = async ({ params: { locale } }) => {
             <div className="flex flex-wrap justify-center items-center gap-16 mb-16 mt-8">
               <Image
                 unoptimized
-                src="/images/vsc-logo.png"
-                alt="Fulbright University Vietnam - Vietnam Studies Center"
-                width={200}
+                src="/images/weatherhead-logo.png"
+                alt="Columbia University WeatherHead East Asian Institute"
+                width={250}
                 height={80}
                 className="object-contain"
               />
               <Image
                 unoptimized
-                src="/images/weatherhead-logo.png"
-                alt="Columbia University WeatherHead East Asian Institute"
+                src="/images/vsc-logo.png"
+                alt="Fulbright University Vietnam - Vietnam Studies Center"
                 width={200}
                 height={80}
                 className="object-contain"
@@ -165,7 +192,7 @@ const AboutUs = async ({ params: { locale } }) => {
               {locale === "en" ? "Partners" : "Đối tác"}
             </div>
             <div
-              className="font-['Helvetica Neue'] font-light text-lg text-branding-black"
+              className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"
               dangerouslySetInnerHTML={renderHtml(
                 aboutUsData["institutional_support_partners"]
               )}
@@ -187,6 +214,24 @@ const AboutUs = async ({ params: { locale } }) => {
         </div>
 
         <Separator />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+          <div className={`${merriweather.className}  text-4xl`}>
+            {locale === "en" ? "Special Acknowledgement" : "Cảm ơn đặc biệt"}
+          </div>
+          <div className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg text-branding-black">
+            {aboutUsData["special_acknowledgement"]
+              ?.split("\n")
+              .map((line, index) => (
+                <p key={index}>
+                  {line}
+                  <br />
+                </p>
+              ))}
+          </div>
+        </div>
+
+        <Separator className="mt-20" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
           <div className={`${merriweather.className}  text-4xl`}>

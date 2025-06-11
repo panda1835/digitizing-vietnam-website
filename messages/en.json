@@ -188,7 +188,7 @@
     },
     "han-nom-tools": {
       "name": "Hán-Nôm Tools",
-      "description": "The Hán-Nôm Toolkit is a collection of specialized digital tools designed to support the analysis and exploration of classical Chinese and Nôm texts within the rich literary heritage of Vietnam. Developed to meet the needs of advanced research, this toolkit offers essential features for processing, searching, and analyzing the structure of texts and scripts. It is particularly valuable for scholars in the fields of linguistics, classical literature, and cultural history. As a digital platform, it plays a vital role in facilitating access to, preserving, and promoting the enduring value of Hán-Nôm heritage in the digital age.",
+      "description": "The Hán-Nôm Toolkit is a suite of digital tools designed to support the analysis of classical Chinese and Nôm texts in Vietnam’s literary heritage. Tailored for advanced research, it enables text processing, search, and structural analysis, making it an essential resource for scholars in linguistics, literature, and cultural history. The platform plays a key role in preserving and promoting Hán-Nôm heritage in the digital era.",
       "tools": {
         "han-nom-input-method-editor": {
           "name": "Hán-Nôm Input Tool",

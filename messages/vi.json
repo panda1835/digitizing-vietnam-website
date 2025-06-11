@@ -189,7 +189,7 @@
     },
     "han-nom-tools": {
       "name": "Công cụ Hán-Nôm",
-      "description": "Công cụ Hán-Nôm là một tập hợp các tiện ích chuyên biệt hỗ trợ phân tích và khám phá các văn bản chữ Hán và chữ Nôm trong kho tàng di sản văn hiến Việt Nam. Được thiết kế nhằm phục vụ nhu cầu nghiên cứu chuyên sâu, công cụ này cung cấp các tính năng hữu ích cho việc xử lý, tra cứu và phân tích cấu trúc văn bản và văn tự, đặc biệt phù hợp với các học giả, nhà nghiên cứu ngôn ngữ, văn học cổ điển và lịch sử văn hóa. Đây là một nền tảng hỗ trợ đắc lực trong việc tiếp cận, bảo tồn và phát huy giá trị của di sản Hán-Nôm trong thời đại số.",
+      "description": "Công cụ Hán-Nôm là tập hợp các tiện ích số hỗ trợ phân tích và khám phá văn bản chữ Hán và chữ Nôm trong di sản văn hóa Việt Nam. Với các tính năng xử lý, tra cứu và phân tích cấu trúc văn bản, công cụ này đặc biệt hữu ích cho các nhà nghiên cứu ngôn ngữ, văn học cổ và lịch sử văn hóa, góp phần bảo tồn và phát huy giá trị di sản Hán-Nôm trong kỷ nguyên số.",
       "tools": {
         "han-nom-input-method-editor": {
           "name": "Bộ gõ Hán-Nôm",

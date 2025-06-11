@@ -121,28 +121,28 @@ const Home = async ({ params: { locale } }) => {
           <div className=" mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light text-lg">
             <p className=" ">
               {locale === "en"
-                ? '"Digitizing Việt Nam" marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration. This joint venture started with a memorandum of understanding between two universities in 2022. Weatherhead East Asian Institute of Columbia and Vietnam Studies Center of Fulbright will accelerate research in the field of Vietnam studies and explore many collaborative endeavors to come in the future.'
-                : '"Số hóa Việt Nam" (Digitizing Việt Nam) đánh dấu một bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác giữa Đại học Columbia và Đại học Fulbright. Sáng kiến chung này bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022. Trong tương lai, Viện Nghiên cứu Đông Á Weatherhead thuộc Đại học Columbia và Trung tâm Nghiên cứu Việt Nam thuộc Đại học Fulbright sẽ cùng nhau thúc đẩy nghiên cứu trong lĩnh vực Việt Nam học, đồng thời khám phá thêm nhiều định hướng hợp tác mới.'}
+                ? "Digitizing Việt Nam marks a digital leap forward in Vietnam Studies through a Columbia–Fulbright collaboration that began with a 2022 memorandum of understanding between the Weatherhead East Asian Institute and the Vietnam Studies Center. In 2023, the Vietnamese Nôm Preservation Foundation (1999–2018) generously donated its complete digital archive to Columbia University and the Digitizing Vietnam project, helping to lay a solid foundation for the project’s development."
+                : '"Số hóa Việt Nam" (Digitizing Việt Nam) đánh dấu một bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác giữa Đại học Columbia và Đại học Fulbright. Sáng kiến chung này bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022. Năm 2023, Quỹ Bảo tồn Chữ Nôm (1999–2018) đã trao tặng toàn bộ kho tư liệu số quý giá cho Đại học Columbia và dự án Số hóa Việt Nam, góp phần đặt nền móng vững chắc cho sự phát triển của dự án.'}
             </p>
             <div className="mt-4 mb-10">
               <LearnMoreButton text={t("Button.learn-more")} url="/about-us" />
             </div>
 
             {/* Partner Logos */}
-            <div className="flex flex-wrap items-center justify-between md:justify-center gap-16 mb-16">
+            <div className="flex flex-wrap items-center justify-between md:justify-center gap-10 mb-16">
               <Image
                 unoptimized
-                src="/images/vsc-logo.png"
-                alt="Fulbright University Vietnam - Vietnam Studies Center"
-                width={200}
+                src="/images/weatherhead-logo.png"
+                alt="Columbia University WeatherHead East Asian Institute"
+                width={190}
                 height={80}
                 className="object-contain"
               />
               <Image
                 unoptimized
-                src="/images/weatherhead-logo.png"
-                alt="Columbia University WeatherHead East Asian Institute"
-                width={200}
+                src="/images/vsc-logo.png"
+                alt="Fulbright University Vietnam - Vietnam Studies Center"
+                width={160}
                 height={80}
                 className="object-contain"
               />
@@ -150,10 +150,28 @@ const Home = async ({ params: { locale } }) => {
                 unoptimized
                 src="/images/henry-luce-foundation-logo.png"
                 alt="Henry Luce Foundation"
-                width={200}
+                width={160}
                 height={80}
                 className="object-contain"
               />
+              <div className="flex flex-wrap gap-4">
+                <Image
+                  unoptimized
+                  src="/images/logo_icon.gif"
+                  alt="VNPF Logo"
+                  width={60}
+                  height={80}
+                  className="object-contain"
+                />
+                <Image
+                  unoptimized
+                  src="/images/logo.gif"
+                  alt="VNPF Logo"
+                  width={140}
+                  height={80}
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
         </section>
