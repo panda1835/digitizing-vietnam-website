@@ -58,9 +58,9 @@ export default async function DictionaryLayout({
             </div>
 
             <nav className="flex flex-col">
-              <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/introduction">
+              {/* <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/introduction">
                 {locale === "en" ? "Introduction" : "Lời dẫn"}
-              </NavLink>
+              </NavLink> */}
 
               <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet">
                 {locale === "en" ? "Dictionary" : "Từ điển"}

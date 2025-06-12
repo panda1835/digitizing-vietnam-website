@@ -11,14 +11,15 @@ export default async function DictionaryPage({
 }) {
   const t = await getTranslations();
   const searchWord = (await searchParams).q;
-  let data = [];
+  let entries = [];
   if (searchWord) {
     const apiUrl =
       process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
-    const entries = await fetch(
+    const result = await fetch(
       `${apiUrl}/han-nom-dictionary/nguyen-trai-quoc-am-tu-dien?q=${searchWord}`
     );
-    data = await entries.json();
+    const data = await result.json();
+    entries = data || [];
   }
   return (
     <div className="">
@@ -45,12 +46,12 @@ export default async function DictionaryPage({
           />
         </div>
       </div>
-      {data.length === 0 && searchWord ? (
+      {entries.length === 0 && searchWord ? (
         <div className="text-center text-lg font-['Helvetica_Neue'] font-light text-branding-black">
           {t("Tools.han-nom-dictionaries.no-result")}
         </div>
       ) : null}
-      {data.map((entry, index) => (
+      {entries.map((entry, index) => (
         <Entry key={index} entry={entry} />
       ))}
     </div>
