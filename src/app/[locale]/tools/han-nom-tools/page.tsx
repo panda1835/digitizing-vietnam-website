@@ -2,8 +2,18 @@ import { ToolList } from "../ToolList";
 import { getTranslations } from "next-intl/server";
 
 import { PageHeader } from "@/components/common/PageHeader";
+import { Metadata } from "next";
 
-const KieuTools = async ({ params: { locale } }) => {
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+
+  return {
+    title: `${t("Tools.han-nom-tools.name")} | Digitizing Việt Nam`,
+    description: t("Tools.han-nom-tools.description"),
+  };
+}
+
+export default async function HanNomTools({ params: { locale } }) {
   const t = await getTranslations();
   const tools = [
     {
@@ -45,6 +55,4 @@ const KieuTools = async ({ params: { locale } }) => {
       </div>
     </div>
   );
-};
-
-export default KieuTools;
+}

@@ -3,6 +3,17 @@ import { getTranslations } from "next-intl/server";
 
 import { PageHeader } from "@/components/common/PageHeader";
 
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+
+  return {
+    title: `${t("Tools.kieu-tools.name")} | Digitizing Việt Nam`,
+    description: t("Tools.kieu-tools.description"),
+  };
+}
+
 const KieuTools = async ({ params: { locale } }) => {
   const t = await getTranslations();
   const tools = [

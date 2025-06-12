@@ -5,7 +5,7 @@ import { Blog } from "@/types/blog";
 import { fetcher } from "@/lib/api";
 import { formatDate } from "@/utils/datetime";
 import { Merriweather } from "next/font/google";
-import SocialMediaSharing from "./SocialMediaSharing";
+import SocialMediaSharing from "../../../../components/common/SocialMediaSharing";
 import { Metadata } from "next";
 import { getImageByKey } from "@/utils/image";
 import algoliasearch from "algoliasearch";
@@ -113,12 +113,6 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
           <div className="self-stretch">
             {post.author && (
               <span>
-                <span className="text-branding-black text-lg font-normal font-['Helvetica Neue'] leading-relaxed">
-                  {/* {locale === "en" ? "By" : "Bởi"} */}
-                </span>
-                <span className="text-branding-black text-lg font-medium font-['Helvetica Neue'] leading-relaxed">
-                  {" "}
-                </span>
                 <span className="text-branding-brown text-lg font-normal font-['Helvetica Neue'] leading-relaxed">
                   {post.author}
                 </span>{" "}

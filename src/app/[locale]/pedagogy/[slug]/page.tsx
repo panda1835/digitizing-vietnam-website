@@ -2,7 +2,7 @@ import { renderHtml } from "@/utils/renderHtml";
 import { getTranslations } from "next-intl/server";
 import { fetcher } from "@/lib/api";
 import { Merriweather } from "next/font/google";
-import SocialMediaSharing from "./SocialMediaSharing";
+import SocialMediaSharing from "@/components/common/SocialMediaSharing";
 import { PedagogyMetadata } from "./Metadata";
 import { Metadata } from "next";
 import algoliasearch from "algoliasearch";
@@ -47,7 +47,7 @@ export async function generateMetadata({
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Pedagogy } from "../page";
-import { populate } from "dotenv";
+
 const PedagogicalResource = async ({ params: { slug, locale } }) => {
   const t = await getTranslations();
   let post: Pedagogy = {
@@ -112,14 +112,9 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
           {post.title}
         </p>
         <div className="h-[26px] flex-col justify-start items-start gap-5 inline-flex mt-8 mb-16">
-          <div className="self-stretch">
-            <span className="text-[#777777] text-base font-normal font-['Helvetica Neue'] leading-relaxed">
-              {t("Outreach.contributed-by")}
-            </span>
-            <span className="text-branding-black text-base font-medium font-['Helvetica Neue'] leading-relaxed">
-              {" "}
-            </span>
-            <span className="text-branding-brown text-base font-normal font-['Helvetica Neue'] leading-relaxed">
+          <div className="self-stretch font-['Helvetica_Neue'] text-lg">
+            <span className="">{t("Outreach.contributed-by")}</span>{" "}
+            <span className="text-branding-brown font-normal leading-relaxed">
               {post.contributors.join(", ")}
             </span>
           </div>

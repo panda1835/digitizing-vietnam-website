@@ -1,6 +1,20 @@
 import type React from "react";
-import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+
+  return {
+    title: `${t(
+      "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
+    )} | Digitizing Việt Nam`,
+    description: t(
+      "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.description"
+    ),
+  };
+}
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import NavLink from "../NavLink";
@@ -13,7 +27,6 @@ export default async function DictionaryLayout({
 }) {
   const t = await getTranslations();
   return (
-    // <div className="min-h-screen relative overflow-hidden">
     <div className="flex flex-col items-center max-width">
       <div className="flex-col  w-full">
         <BreadcrumbAndSearchBar
