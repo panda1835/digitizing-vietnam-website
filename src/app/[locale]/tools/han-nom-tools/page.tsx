@@ -41,11 +41,11 @@ export default async function HanNomTools({ params: { locale } }) {
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 w-full">
         <PageHeader
-          title={t("Tools.kieu-tools.name")}
-          subtitle={t("Tools.kieu-tools.description")}
+          title={t("Tools.han-nom-tools.name")}
+          subtitle={t("Tools.han-nom-tools.description")}
           breadcrumbItems={[
             { label: t("NavigationBar.tools"), href: "tools" },
-            { label: t("Tools.kieu-tools.name") },
+            { label: t("Tools.han-nom-tools.name") },
           ]}
           locale={locale}
         />
