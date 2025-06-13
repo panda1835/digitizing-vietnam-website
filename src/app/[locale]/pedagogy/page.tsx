@@ -1,12 +1,10 @@
 import { getTranslations } from "next-intl/server";
 
 import { fetcher } from "@/lib/api";
-import { Blog, BlogCategory } from "@/types/blog";
 import { getImageByKey } from "@/utils/image";
 
 import ArticleCard from "@/components/ArticleCard";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { formatDate } from "@/utils/datetime";
 
 import { Metadata } from "next";
 import { PageHeader } from "@/components/common/PageHeader";

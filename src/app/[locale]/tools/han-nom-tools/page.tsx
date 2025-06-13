@@ -2,25 +2,37 @@ import { ToolList } from "../ToolList";
 import { getTranslations } from "next-intl/server";
 
 import { PageHeader } from "@/components/common/PageHeader";
-
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
 
   return {
-    title: `${t("Tools.kieu-tools.name")} | Digitizing Việt Nam`,
-    description: t("Tools.kieu-tools.description"),
+    title: `${t("Tools.han-nom-tools.name")} | Digitizing Việt Nam`,
+    description: t("Tools.han-nom-tools.description"),
   };
 }
 
-const KieuTools = async ({ params: { locale } }) => {
+export default async function HanNomTools({ params: { locale } }) {
   const t = await getTranslations();
   const tools = [
     {
-      href: "/tools/kieu-tools/character-frequency",
-      title: t("Tools.kieu-tools.tools.glossary.name"),
-      description: t("Tools.kieu-tools.tools.glossary.description"),
+      href: "/tools/han-nom-tools/nom-character-classification-and-analysis-tool",
+      title: t(
+        "Tools.han-nom-tools.tools.nom-character-classification-and-analysis-tool.name"
+      ),
+      description: t(
+        "Tools.han-nom-tools.tools.nom-character-classification-and-analysis-tool.description"
+      ),
+      target: "",
+      rel: "",
+    },
+    {
+      href: "/tools/han-nom-tools/han-nom-input-method-editor",
+      title: t("Tools.han-nom-tools.tools.han-nom-input-method-editor.name"),
+      description: t(
+        "Tools.han-nom-tools.tools.han-nom-input-method-editor.description"
+      ),
       target: "",
       rel: "",
     },
@@ -43,6 +55,4 @@ const KieuTools = async ({ params: { locale } }) => {
       </div>
     </div>
   );
-};
-
-export default KieuTools;
+}

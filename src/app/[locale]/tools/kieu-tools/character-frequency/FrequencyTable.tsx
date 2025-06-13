@@ -4,7 +4,7 @@ import SelectVersion from "./SelectVersion";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Separator } from "@/components/ui/separator";
 import { getTranslations } from "next-intl/server";
-
+import { PageHeader } from "@/components/common/PageHeader";
 import localFont from "next/font/local";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
@@ -49,28 +49,17 @@ export default async function FrequencyTable({
 
   return (
     <div className="flex flex-col max-width">
-      <div className="w-full">
-        <BreadcrumbAndSearchBar
-          locale={locale}
-          breadcrumbItems={[
-            { label: t("NavigationBar.tools"), href: "tools" },
-            { label: t("Tools.kieu-tools.name"), href: "tools/kieu-tools" },
-            { label: t("Tools.kieu-tools.tools.glossary.name") },
-          ]}
-        />
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl`}
-        >
-          {t("Tools.kieu-tools.tools.glossary.name")}
-        </div>
-        <div className="md:col-span-2 font-['Helvetica Neue'] text-branding-black max-w-5xl mt-6">
-          {t("Tools.kieu-tools.tools.glossary.description")}
-        </div>
+      <PageHeader
+        title={t("Tools.kieu-tools.tools.glossary.name")}
+        subtitle={t("Tools.kieu-tools.tools.glossary.description")}
+        breadcrumbItems={[
+          { label: t("NavigationBar.tools"), href: "tools" },
+          { label: t("Tools.kieu-tools.name"), href: "tools/kieu-tools" },
+          { label: t("Tools.kieu-tools.tools.glossary.name") },
+        ]}
+        locale={locale}
+      />
 
-        <div className="mt-28">
-          <Separator />
-        </div>
-      </div>
       <div className="flex-col mb-20 max-w-5xl w-full items-start">
         <div className="flex justify-between items-center w-full my-6">
           <SelectVersion currentVersion={version} />

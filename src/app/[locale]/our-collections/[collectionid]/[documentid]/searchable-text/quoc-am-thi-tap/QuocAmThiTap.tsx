@@ -1,18 +1,10 @@
 import { getTranslations } from "next-intl/server";
 
-import NavLink from "../NavLink";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import { Merriweather } from "next/font/google";
 import TipBox from "@/components/common/TipBox";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Typography,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import { TOC } from "./TOC";
 
 export default async function QuocAmThiTap({

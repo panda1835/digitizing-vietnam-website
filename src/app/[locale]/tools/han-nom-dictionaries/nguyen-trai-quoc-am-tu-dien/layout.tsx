@@ -3,7 +3,20 @@ import { getTranslations } from "next-intl/server";
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import NavLink from "../NavLink";
+import { Metadata } from "next";
 
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+
+  return {
+    title: `${t(
+      "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
+    )} | Digitizing Việt Nam`,
+    description: t(
+      "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.description"
+    ),
+  };
+}
 export default async function DictionaryLayout({
   children,
   params: { locale },
@@ -45,9 +58,9 @@ export default async function DictionaryLayout({
             </div>
 
             <nav className="flex flex-col">
-              <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/introduction">
+              {/* <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/introduction">
                 {locale === "en" ? "Introduction" : "Lời dẫn"}
-              </NavLink>
+              </NavLink> */}
 
               <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet">
                 {locale === "en" ? "Dictionary" : "Từ điển"}

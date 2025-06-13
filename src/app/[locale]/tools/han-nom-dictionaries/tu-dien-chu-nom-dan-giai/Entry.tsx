@@ -51,28 +51,30 @@ export default function Entry({
                       <Tooltip>
                         <TooltipTrigger>
                           <div className="text-blue-500 text-base">
-                            {citation.reference_list[0].reference[0]}
+                            {citation.reference_list[0].reference &&
+                              citation.reference_list[0].reference[0]}
                           </div>
                         </TooltipTrigger>
                         <TooltipContent className="max-w-xl">
                           <div>
-                            {refs
-                              .filter(
-                                (r) =>
-                                  r.short_title[0] ===
-                                  citation.reference_list[0].reference[0].split(
-                                    ","
-                                  )[0]
-                              )
-                              .map((r, k) => (
-                                <div key={k}>
-                                  <div>
-                                    <span>{r.details[0].full_title[0]}</span> -{" "}
-                                    <span>{r.details[0].hn_title[0]}</span>
+                            {citation.reference_list[0].reference &&
+                              refs
+                                .filter(
+                                  (r) =>
+                                    r.short_title[0] ===
+                                    citation.reference_list[0].reference[0].split(
+                                      ","
+                                    )[0]
+                                )
+                                .map((r, k) => (
+                                  <div key={k}>
+                                    <div>
+                                      <span>{r.details[0].full_title[0]}</span>{" "}
+                                      - <span>{r.details[0].hn_title[0]}</span>
+                                    </div>
+                                    <div>{r.details[0].desc[0]}</div>
                                   </div>
-                                  <div>{r.details[0].desc[0]}</div>
-                                </div>
-                              ))}
+                                ))}
                           </div>
                         </TooltipContent>
                       </Tooltip>

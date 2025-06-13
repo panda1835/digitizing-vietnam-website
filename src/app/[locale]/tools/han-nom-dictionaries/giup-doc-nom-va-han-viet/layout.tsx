@@ -4,6 +4,21 @@ import { getTranslations } from "next-intl/server";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import NavLink from "../NavLink";
 
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+
+  return {
+    title: `${t(
+      "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
+    )} | Digitizing Việt Nam`,
+    description: t(
+      "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.description"
+    ),
+  };
+}
+
 export default async function DictionaryLayout({
   children,
   params: { locale },

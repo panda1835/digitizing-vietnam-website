@@ -16,11 +16,11 @@ export async function GET(request) {
       `SELECT * FROM nt_qatd WHERE 
       (LOWER(han) = CONVERT(? USING utf8mb4) OR 
       LOWER(nom) = CONVERT(? USING utf8mb4) OR 
-      LOWER(hdwd) = CONVERT(? USING utf8mb4))`,
+      LOWER(hdwd) = ?)`,
       [query.toLowerCase(), query.toLowerCase(), query.toLowerCase()]
     );
 
-    const returnData = await Promise.all(
+    const meaning = await Promise.all(
       (data as Array<any>).map(async (row) => {
         // Parse the XML string
         // const parsedEtym = await parseStringPromise(row.etym);
@@ -35,7 +35,7 @@ export async function GET(request) {
       })
     );
 
-    return NextResponse.json(returnData, { status: 200 });
+    return NextResponse.json(meaning, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

@@ -7,7 +7,6 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import NavLink from "../NavLink";
-
 // Type definitions
 type Item = {
   id: string;
@@ -57,7 +56,7 @@ export function TOC({ groupedData, currentTopic }: TOCProps) {
                     >
                       <AccordionItem value={title}>
                         <AccordionTrigger className="text-left text-lg font-medium">
-                          {title}
+                          {title} ({items.length} bài)
                         </AccordionTrigger>
                         <AccordionContent>
                           {items.map((item) => (
