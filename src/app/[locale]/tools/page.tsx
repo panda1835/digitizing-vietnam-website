@@ -37,6 +37,11 @@ const Tools = async ({ params: { locale } }) => {
       name: t("Tools.kieu-tools.name"),
       description: t("Tools.kieu-tools.description"),
     },
+    {
+      href: "/tools/han-nom-tools",
+      name: t("Tools.han-nom-tools.name"),
+      description: t("Tools.han-nom-tools.description"),
+    },
   ];
   return (
     <div className="flex flex-col items-center max-width">

@@ -2,21 +2,8 @@ import { getTranslations } from "next-intl/server";
 import { Merriweather } from "next/font/google";
 import Entry from "./Entry";
 import DictionarySearchBar from "../DictionarySearchBar";
-import { Metadata } from "next";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations();
-
-  return {
-    title: `${t(
-      "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
-    )} | Digitizing Việt Nam`,
-    description: t(
-      "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.description"
-    ),
-  };
-}
 export default async function DictionaryPage({
   searchParams,
 }: {

@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { formatDate } from "@/utils/datetime";
+import { Link } from "@/i18n/routing";
 
 export async function PedagogyMetadata({ metadata, locale }) {
   const t = await getTranslations();
@@ -87,7 +88,20 @@ export async function PedagogyMetadata({ metadata, locale }) {
                   <strong className="text-[#777777] text-lg font-normal">
                     {t(`Outreach.metadata.${key}`)}:
                   </strong>{" "}
-                  {value as string}
+                  {typeof value === "string" &&
+                  (value.startsWith("http://") ||
+                    value.startsWith("https://")) ? (
+                    <Link
+                      href={value}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 underline"
+                    >
+                      {value}
+                    </Link>
+                  ) : (
+                    (value as string)
+                  )}
                 </div>
               ))}
             </div>

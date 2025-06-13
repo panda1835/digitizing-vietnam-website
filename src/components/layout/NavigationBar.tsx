@@ -39,7 +39,7 @@ const NavigationBar = () => {
           <NavigationMenuList>
             {navItems.map((item) => (
               <NavigationMenuItem key={item.key}>
-                <Link href={item.href} legacyBehavior passHref>
+                <Link href={item.href} passHref>
                   <NavigationMenuLink
                     className={cn(
                       "group bg-transparent inline-flex h-10 w-max",
@@ -83,7 +83,7 @@ const NavigationBar = () => {
 
             {navItems.slice(3, 5).map((item) => (
               <NavigationMenuItem key={item.key}>
-                <Link href={item.href} legacyBehavior passHref>
+                <Link href={item.href} passHref>
                   <NavigationMenuLink
                     className={cn(
                       "group bg-transparent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-base font-['Helvetica Neue'] font-light transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"

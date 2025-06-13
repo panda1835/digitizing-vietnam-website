@@ -2,7 +2,16 @@ import { getTranslations } from "next-intl/server";
 
 import { ToolList } from "../ToolList";
 import { PageHeader } from "@/components/common/PageHeader";
+import { Metadata } from "next";
 
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+
+  return {
+    title: `${t("Tools.han-nom-dictionaries.name")} | Digitizing Việt Nam`,
+    description: t("Tools.han-nom-dictionaries.description"),
+  };
+}
 const HanNomDictionaries = async ({ params: { locale } }) => {
   const t = await getTranslations();
 
