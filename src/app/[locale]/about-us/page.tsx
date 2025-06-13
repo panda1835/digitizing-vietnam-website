@@ -127,7 +127,7 @@ const AboutUs = async ({ params: { locale } }) => {
           </div>
           <div className="md:col-span-2">
             <div className={`${merriweather.className}  text-2xl`}>
-              {locale === "en" ? " Predecessor Unit" : "Đơn vị tiền nhiệm"}
+              {locale === "en" ? " Predecessor" : "Đơn vị tiền nhiệm"}
             </div>
             <div
               className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"

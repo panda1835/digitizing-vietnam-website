@@ -121,8 +121,8 @@ const Home = async ({ params: { locale } }) => {
           <div className=" mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light text-lg">
             <p className=" ">
               {locale === "en"
-                ? "Digitizing Việt Nam marks a digital leap forward in Vietnam Studies through a Columbia–Fulbright collaboration that began with a 2022 memorandum of understanding between the Weatherhead East Asian Institute and the Vietnam Studies Center. In 2023, the Vietnamese Nôm Preservation Foundation (1999–2018) generously donated its complete digital archive to Columbia University and the Digitizing Vietnam project, helping to lay a solid foundation for the project’s development."
-                : '"Số hóa Việt Nam" (Digitizing Việt Nam) đánh dấu một bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác giữa Đại học Columbia và Đại học Fulbright. Sáng kiến chung này bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022. Năm 2023, Quỹ Bảo tồn Chữ Nôm (1999–2018) đã trao tặng toàn bộ kho tư liệu số quý giá cho Đại học Columbia và dự án Số hóa Việt Nam, góp phần đặt nền móng vững chắc cho sự phát triển của dự án.'}
+                ? "Digitizing Việt Nam marks a digital leap forward in Vietnam Studies through a Columbia - Fulbright collaboration, formalized through that began with a 2022 memorandum of understanding between the Weatherhead East Asian Institute and the Vietnam Studies Center. The Digitizing Việt Nam platform began with the generous donation of the complete archive by the Vietnamese Nôm Preservation Foundation to Columbia University in 2017."
+                : '"Số hóa Việt Nam" (Digitizing Việt Nam) đánh dấu một bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác giữa Đại học Columbia và Đại học Fulbright. Sáng kiến chung này bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022. Nền tảng Số hoá Việt Nam được khởi đầu vào năm 2017 với sự đóng góp hào phóng toàn bộ kho tư liệu của Hội Bảo tồn Chữ Nôm Việt Nam cho Đại học Columbia.'}
             </p>
             <div className="mt-4 mb-10">
               <LearnMoreButton text={t("Button.learn-more")} url="/about-us" />
