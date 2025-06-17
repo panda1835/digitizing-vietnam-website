@@ -11,6 +11,7 @@ import NavLink from "../NavLink";
 type Item = {
   id: string;
   num: number;
+  title: string;
   hnTitle: string;
 };
 
@@ -55,8 +56,15 @@ export function TOC({ groupedData, currentTopic }: TOCProps) {
                       className="w-full"
                     >
                       <AccordionItem value={title}>
-                        <AccordionTrigger className="text-left text-lg font-medium">
-                          {title} ({items.length} bài)
+                        <AccordionTrigger className="flex gap-2 text-left text-lg font-medium">
+                          <span className="font-light text-muted-foreground w-28">
+                            {items.length === 1
+                              ? items[0].id
+                              : `${items[0].id}-${items[items.length - 1].id}`}
+                          </span>
+                          <span className="text-left w-full">
+                            {title.replace(/^\d+\s*/, "")} ({items.length} bài)
+                          </span>
                         </AccordionTrigger>
                         <AccordionContent>
                           {items.map((item) => (
@@ -67,10 +75,12 @@ export function TOC({ groupedData, currentTopic }: TOCProps) {
                             >
                               {items.length > 1 ? (
                                 <div className="text-lg">
-                                  {title} bài {item.num}
+                                  {item.id}. {item.title} bài {item.num}
                                 </div>
                               ) : (
-                                <div className="text-lg">{title}</div>
+                                <div className="text-lg">
+                                  {item.id}. {item.title}
+                                </div>
                               )}
                               <LookupableHanNomText
                                 text={item.hnTitle}

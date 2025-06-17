@@ -49,13 +49,29 @@ export default async function QuocAmThiTap({
       groupedData[group] = {};
     }
 
-    if (!groupedData[group][title]) {
+    if (num == 0) {
+      const key = groupedData[group][`${title}`]
+        ? `${id} ${title}`
+        : `${title}`;
+      groupedData[group][key] = [
+        {
+          id,
+          num,
+          title,
+          hnTitle,
+        },
+      ];
+      continue;
+    }
+
+    if (num == 1) {
       groupedData[group][title] = [];
     }
 
-    groupedData[group][title].push({
+    groupedData[group][all_qn_titles[id - num]].push({
       id,
       num,
+      title,
       hnTitle,
     });
   }
@@ -78,6 +94,7 @@ export default async function QuocAmThiTap({
           <div className="mt-5 w-full">
             {/* Title */}
             <div className="text-3xl font-semibold flex flex-col sm:flex-row gap-2">
+              <span className={`${merriweather.className}`}>{id}.</span>
               <span>
                 <LookupableHanNomText text={hn_title} className="text-3xl" />
               </span>
