@@ -14,12 +14,21 @@ export async function GET(request) {
       return NextResponse.json({ error: "Missing query" }, { status: 400 });
     }
 
-    const [defsRows]: any = await db.query(
-      // Convert the query using utf8mb4 encoding to prevent
-      // Illegal mix of collations (utf8mb3_bin,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE)
-      `SELECT * FROM tdcndg WHERE (LOWER(qn) = ? OR LOWER(hn) = CONVERT(? USING utf8mb4))`,
-      [query.toLowerCase(), query.toLowerCase()]
-    );
+    let defsRows: any;
+
+    try {
+      [defsRows] = await db.query(
+        // Convert the query using utf8mb4 encoding to prevent
+        // Illegal mix of collations (utf8mb3_bin,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE)
+        `SELECT * FROM tdcndg WHERE (LOWER(qn) = ? OR LOWER(hn) = CONVERT(? USING utf8mb4))`,
+        [query.toLowerCase(), query.toLowerCase()]
+      );
+    } catch (error) {
+      [defsRows] = await db.query(
+        `SELECT * FROM tdcndg WHERE (LOWER(qn) = CONVERT(? USING utf8mb4) OR LOWER(hn) = CONVERT(? USING utf8mb4))`,
+        [query.toLowerCase(), query.toLowerCase()]
+      );
+    }
 
     const defData = await Promise.all(
       (defsRows as Array<any>).map(async (row) => {
