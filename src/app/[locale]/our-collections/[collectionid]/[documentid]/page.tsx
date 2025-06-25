@@ -198,41 +198,46 @@ const CollectionItemViewer = async ({
           documentId === "truyen-kieu-1866" ? (
           <TruyenKieu
             title={collectionItemData.title}
-            dataApiUrl={`/api/searchable-text/truyen-kieu?version=1866`}
             locale={locale}
-            documentid={`truyen-kieu-1866`}
+            documentid={documentId}
+            version={"1866"}
+            page={currentPage}
           />
         ) : collectionId === "truyen-kieu" &&
           documentId === "truyen-kieu-1870" ? (
           <TruyenKieu
             title={collectionItemData.title}
-            dataApiUrl={`/api/searchable-text/truyen-kieu?version=1870`}
             locale={locale}
-            documentid={`truyen-kieu-1870`}
+            documentid={documentId}
+            version={"1870"}
+            page={currentPage}
           />
         ) : collectionId === "truyen-kieu" &&
           documentId === "truyen-kieu-1871" ? (
           <TruyenKieu
             title={collectionItemData.title}
-            dataApiUrl={`/api/searchable-text/truyen-kieu?version=1871`}
             locale={locale}
-            documentid={`truyen-kieu-1871`}
+            documentid={documentId}
+            version={"1871"}
+            page={currentPage}
           />
         ) : collectionId === "truyen-kieu" &&
           documentId === "truyen-kieu-1872" ? (
           <TruyenKieu
             title={collectionItemData.title}
-            dataApiUrl={`/api/searchable-text/truyen-kieu?version=1872`}
             locale={locale}
-            documentid={`truyen-kieu-1872`}
+            documentid={documentId}
+            version={"1872"}
+            page={currentPage}
           />
         ) : collectionId === "truyen-kieu" &&
           documentId === "truyen-kieu-1902" ? (
           <TruyenKieu
             title={collectionItemData.title}
-            dataApiUrl={`/api/searchable-text/truyen-kieu?version=1902`}
             locale={locale}
-            documentid={`truyen-kieu-1902`}
+            documentid={documentId}
+            version={"1902"}
+            page={currentPage}
           />
         ) : (
           <div className="flex flex-row">

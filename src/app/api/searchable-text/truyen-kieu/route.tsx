@@ -8,6 +8,7 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
 
     const version = searchParams.get("version");
+    const page = searchParams.get("page");
 
     if (!version) {
       return NextResponse.json(
@@ -30,8 +31,9 @@ export async function GET(request) {
       );
 
       returnData = {
-        rawText: jsonKieuRawText.TEI.text[0].body[0].page,
-        text: jsonKieuText.TEI.text[0].body[0].page,
+        count: jsonKieuRawText.TEI.text[0].body[0].page.length,
+        rawText: jsonKieuRawText.TEI.text[0].body[0].page[Number(page) - 1],
+        text: jsonKieuText.TEI.text[0].body[0].page[Number(page) - 1],
       };
     } else {
       return NextResponse.json(

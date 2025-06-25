@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { TruyenKieuRaw, TruyenKieuText } from "../truyen-kieu/types";
+import type { LucVanTienRaw, LucVanTienText } from "./types";
 import { getTranslations } from "next-intl/server";
 
 import localFont from "next/font/local";
@@ -25,8 +25,8 @@ export default async function LucVanTienText({
 }) {
   const t = await getTranslations();
   const currentPage = Number(page) || 1;
-  let textData: TruyenKieuText;
-  let rawData: TruyenKieuRaw;
+  let textData: LucVanTienText;
+  let rawData: LucVanTienRaw;
   let totalPages = 0;
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";

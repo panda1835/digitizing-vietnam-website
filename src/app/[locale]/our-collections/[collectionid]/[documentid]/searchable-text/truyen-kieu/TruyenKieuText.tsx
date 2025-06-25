@@ -1,83 +1,58 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import LoadingSpinner from "@/components/layout/LoadingSpinner";
+
 import type { TruyenKieuRaw, TruyenKieuText } from "./types";
-import { useTranslations } from "next-intl";
 import localFont from "next/font/local";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import TipBox from "@/components/common/TipBox";
 import PaginationSection from "../PaginationSection";
 import PageInput from "../PageInput";
+import { getTranslations } from "next-intl/server";
 
 const NomNaTong = localFont({
   src: "../../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
-export default function TruyenKieu({ title, dataApiUrl, locale, documentid }) {
-  // params: { locale: string; collectionid: string; documentid: string }
-  // const { locale, collectionid } = params;
-  const t = useTranslations();
-  const [rawData, setRawData] = useState<TruyenKieuRaw>();
-  const [textData, setTextData] = useState<TruyenKieuText>();
-  const [totalPages, setTotalPages] = useState(0);
-  const [loading, setLoading] = useState(true);
+export default async function TruyenKieu({
+  title,
+  locale,
+  documentid,
+  page,
+  version,
+}) {
+  const t = await getTranslations();
+  const currentPage = Number(page) || 1;
+  let textData: TruyenKieuText;
+  let rawData: TruyenKieuRaw;
+  let totalPages = 0;
 
-  const searchParams = useSearchParams();
-  const currentPage = Number(searchParams.get("page")) || 1;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const data = await fetch(
+    `${apiUrl}/searchable-text/truyen-kieu?version=${version}&page=${currentPage}`
+  );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch(`${dataApiUrl}`);
-        const result = await res.json();
-        setTextData(result.text);
-        setRawData(result.rawText);
-        setTotalPages(result.text.length);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const { count, text, rawText } = await data.json();
 
-    fetchData();
-  }, [dataApiUrl]);
-
-  // Ensure page is within valid range
-  const pageIndex = Math.min(Math.max(0, currentPage - 1), totalPages - 1);
-
-  if (loading || !textData || !rawData) {
-    return (
-      <div className="flex flex-col max-width justify-center items-center">
-        <div className="mt-20">
-          <LoadingSpinner />
-        </div>
-      </div>
-    );
-  }
+  textData = text;
+  rawData = rawText;
+  totalPages = count;
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className="flex-col mb-20 w-full">
+      <div className="flex-col w-full">
         {/* Content */}
         <div className="flex flex-col mt-16">
           {/* Image and Text */}
           <div className="flex flex-col md:flex-row md:justify-center space-x-4">
             {/* Image */}
             <div>
-              {textData[pageIndex] &&
-                textData[pageIndex].$ &&
-                (textData[pageIndex].$.pi !== "NA" ? (
+              {textData &&
+                textData.$ &&
+                (textData.$.pi !== "NA" ? (
                   <Image
                     unoptimized
                     // src="/page01a.jpg"
-                    src={`https://backend.digitizingvietnam.com/images/iiif/2/${documentid}/${textData[pageIndex].$.pi}/full/full/0/default.jpg`}
+                    src={`https://backend.digitizingvietnam.com/images/iiif/2/${documentid}/${textData.$.pi}/full/full/0/default.jpg`}
                     alt={`${title}`}
                     width={200}
                     height={300}
@@ -108,47 +83,43 @@ export default function TruyenKieu({ title, dataApiUrl, locale, documentid }) {
                 <TipBox text={t("Tips.lookupable-text")} />
               </div>
 
-              {textData[pageIndex].div[1].lg[0].l.map((line, index) => (
+              {textData.div[1].lg[0].l.map((line, index) => (
                 <div
                   key={`line-${index}`}
                   className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center"
                 >
                   <div>
-                    {textData[pageIndex].div[0].lg[0] && (
+                    {textData.div[0].lg[0] && (
                       <LookupableHanNomText
                         className="text-2xl"
-                        text={textData[pageIndex].div[0].lg[0].l[index]._}
+                        text={textData.div[0].lg[0].l[index]._}
                       />
                     )}
                   </div>
 
                   {(() => {
                     let highlightedLine = line._;
-                    if (rawData[pageIndex].div[1].lg[0].l[index].seg) {
-                      rawData[pageIndex].div[1].lg[0].l[index].seg.forEach(
-                        (s) => {
-                          const correspondingNote = rawData[
-                            pageIndex
-                          ].noteg[0].note.find(
-                            (note) => note.$.id === s.$.corresp
-                          );
-                          highlightedLine = highlightedLine.replace(
-                            new RegExp(
-                              `(?<!<div[^>]*?>[^<]*)\\b${s._}\\b(?![^<]*?</div>)`,
-                              "g"
-                            ),
-                            `<span class="text-branding-brown relative group"="${
-                              s._
-                            }">
+                    if (rawData.div[1].lg[0].l[index].seg) {
+                      rawData.div[1].lg[0].l[index].seg.forEach((s) => {
+                        const correspondingNote = rawData.noteg[0].note.find(
+                          (note) => note.$.id === s.$.corresp
+                        );
+                        highlightedLine = highlightedLine.replace(
+                          new RegExp(
+                            `(?<!<div[^>]*?>[^<]*)\\b${s._}\\b(?![^<]*?</div>)`,
+                            "g"
+                          ),
+                          `<span class="text-branding-brown relative group"="${
+                            s._
+                          }">
                             ${s._}
                             <div class="z-50 absolute w-60 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black text-sm p-2 rounded border border-black shadow-lg">
                             ${correspondingNote ? correspondingNote._ : s._}
                             </div>
                             </span>
                             `
-                          );
-                        }
-                      );
+                        );
+                      });
                     }
                     return (
                       <div
@@ -176,16 +147,16 @@ export default function TruyenKieu({ title, dataApiUrl, locale, documentid }) {
                 </tr>
               </thead>
               <tbody>
-                {rawData[pageIndex].noteg[0].note.map((note, index) => (
+                {rawData.noteg[0].note.map((note, index) => (
                   <tr key={`note-${note.$.id}`}>
                     <td className="border border-gray-300 px-4 py-2 text-branding-brown w-32">
                       {
-                        rawData[pageIndex].div[1].lg[0].l
+                        rawData.div[1].lg[0].l
                           .flatMap(
                             (l: { seg?: { $: { corresp: string } }[] }) =>
                               l.seg ?? []
                           )
-                          .find((seg) => seg.$.corresp === note.$.id)?._
+                          .find((seg) => seg.$.corresp === note.$.id)?.["_"]
                       }
                     </td>
                     <td className="border border-gray-300 px-4 py-2">
