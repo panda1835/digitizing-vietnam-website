@@ -48,6 +48,13 @@ export async function GET(request) {
       })
     );
 
+    // Order the results by hdwd length
+    meaning.sort((a, b) => {
+      const aLength = a.hdwd ? a.hdwd.length : 0;
+      const bLength = b.hdwd ? b.hdwd.length : 0;
+      return aLength - bLength; // Sort ascending by length
+    });
+
     return NextResponse.json(meaning, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

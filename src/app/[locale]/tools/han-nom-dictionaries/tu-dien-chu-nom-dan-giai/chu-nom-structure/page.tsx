@@ -21,7 +21,7 @@ export default function ChuNomStructure({
           >
             Chữ Nôm Structure
           </div>
-          <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
+          <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <Image
               unoptimized
               src="/images/tu-dien-chu-nom-dan-giai/Chu_Nom_Structure.jpg"
@@ -125,7 +125,7 @@ export default function ChuNomStructure({
           >
             Sơ đồ phân loại cấu trúc chữ Nôm
           </div>
-          <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
+          <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <Image
               unoptimized
               src="/images/tu-dien-chu-nom-dan-giai/Chu_Nom_Structure.jpg"

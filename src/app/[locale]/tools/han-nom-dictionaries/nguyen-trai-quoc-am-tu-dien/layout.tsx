@@ -72,6 +72,9 @@ export default async function DictionaryLayout({
               >
                 {locale === "en" ? "Quốc Âm Thi Tập" : "Quốc Âm Thi Tập"}
               </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/references">
+                {locale === "en" ? "References" : "Tài liệu tham khảo"}
+              </NavLink>
             </nav>
           </div>
         </aside>

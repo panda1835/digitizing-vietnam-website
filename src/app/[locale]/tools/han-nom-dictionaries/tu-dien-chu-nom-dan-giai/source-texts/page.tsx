@@ -33,7 +33,7 @@ export default async function SourceTexts({
       <div className={`${merriweather.className} text-branding-black text-4xl`}>
         {locale === "en" ? "Source Texts" : "Nguồn dẫn chữ Nôm"}
       </div>
-      <table className="relative z-50 font-['Helvetica_Neue'] font-light table-auto w-full border-collapse mt-10">
+      <table className="relative z-50 font-['Helvetica Neue'] font-light table-auto w-full border-collapse mt-10">
         <thead>
           <tr>
             <th className="bg-branding-brown text-white text-lg  border-b-2 px-4 py-2">

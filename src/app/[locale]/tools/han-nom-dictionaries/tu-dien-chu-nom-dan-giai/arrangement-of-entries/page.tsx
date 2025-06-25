@@ -20,7 +20,7 @@ export default function ArrangementOfEntries({
           >
             Editorial Guide
           </div>
-          <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
+          <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <p className="pt-5">
               <b>1.</b> This <i>Chữ Nôm</i> dictionary is organized into two
               columns: the <strong>Chữ Nôm</strong> column and the{" "}
@@ -229,7 +229,7 @@ export default function ArrangementOfEntries({
           >
             Thể lệ biên soạn
           </div>
-          <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
+          <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <p className="pt-5">
               <b>1.</b> Đây là một bộ tự điển chữ Nôm được trình bày theo hai
               cột: cột CHỮ NÔM và cột DẪN GIẢI. Ở cột “Chữ Nôm” ghi rõ hình chữ

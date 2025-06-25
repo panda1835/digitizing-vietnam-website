@@ -21,7 +21,7 @@ export default function AboutDigitalVersion({
           >
             About the Digital Version
           </div>
-          <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
+          <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <p className="pt-5">
               <b>
                 <i>
@@ -115,7 +115,7 @@ export default function AboutDigitalVersion({
           >
             Về phiên bản số thức
           </div>
-          <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
+          <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <p className="pt-5">
               Cuốn{" "}
               <b>

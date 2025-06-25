@@ -21,7 +21,7 @@ export default function Abbreviations({
       <div className={`${merriweather.className} text-branding-black text-4xl`}>
         {locale === "en" ? "Symbols and Abbreviations" : "Ký hiệu chữ viết tắt"}
       </div>
-      <div className="mt-4">
+      <div className="mt-10">
         <Table>
           <TableHeader>
             <TableRow>
