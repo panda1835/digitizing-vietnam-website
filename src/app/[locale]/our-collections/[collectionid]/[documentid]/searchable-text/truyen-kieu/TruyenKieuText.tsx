@@ -2,24 +2,15 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import LoadingSpinner from "@/components/layout/LoadingSpinner";
 import type { TruyenKieuRaw, TruyenKieuText } from "./types";
 import { useTranslations } from "next-intl";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
-
 import localFont from "next/font/local";
-import { Button } from "@/components/ui/button";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import TipBox from "@/components/common/TipBox";
+import PaginationSection from "../PaginationSection";
+import PageInput from "../PageInput";
 
 const NomNaTong = localFont({
   src: "../../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -34,7 +25,6 @@ export default function TruyenKieu({ title, dataApiUrl, locale, documentid }) {
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  const router = useRouter();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
@@ -72,70 +62,6 @@ export default function TruyenKieu({ title, dataApiUrl, locale, documentid }) {
     );
   }
 
-  // Generate pagination items
-  const generatePaginationItems = () => {
-    const items: JSX.Element[] = [];
-    const maxVisiblePages = 5;
-
-    // Always show first page
-    items.push(
-      <PaginationItem key="first">
-        <PaginationLink href={`?page=1`} isActive={currentPage === 1}>
-          1
-        </PaginationLink>
-      </PaginationItem>
-    );
-
-    // Add ellipsis if needed
-    if (currentPage > maxVisiblePages - 1) {
-      items.push(
-        <PaginationItem key="ellipsis-start">
-          <PaginationEllipsis />
-        </PaginationItem>
-      );
-    }
-
-    // Add pages around current page
-    const startPage = Math.max(2, currentPage - 1);
-    const endPage = Math.min(totalPages - 1, currentPage + 1);
-
-    for (let i = startPage; i <= endPage; i++) {
-      if (i === 1 || i === totalPages) continue; // Skip first and last page as they're always shown
-      items.push(
-        <PaginationItem key={i}>
-          <PaginationLink href={`?page=${i}`} isActive={currentPage === i}>
-            {i}
-          </PaginationLink>
-        </PaginationItem>
-      );
-    }
-
-    // Add ellipsis if needed
-    if (currentPage < totalPages - (maxVisiblePages - 2)) {
-      items.push(
-        <PaginationItem key="ellipsis-end">
-          <PaginationEllipsis />
-        </PaginationItem>
-      );
-    }
-
-    // Always show last page
-    if (totalPages > 1) {
-      items.push(
-        <PaginationItem key="last">
-          <PaginationLink
-            href={`?page=${totalPages}`}
-            isActive={currentPage === totalPages}
-          >
-            {totalPages}
-          </PaginationLink>
-        </PaginationItem>
-      );
-    }
-
-    return items;
-  };
-
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex-col mb-20 w-full">
@@ -166,68 +92,15 @@ export default function TruyenKieu({ title, dataApiUrl, locale, documentid }) {
                 {t("CollectionItem.page")} {currentPage} / {totalPages}
               </div>
 
-              <div className="mt-4 flex justify-center items-center space-x-2">
-                <Button
-                  onClick={() => {
-                    const input = document.querySelector<HTMLInputElement>(
-                      'input[type="number"]'
-                    );
-                    const page = input ? Number(input.value) : 1;
-                    if (page >= 1 && page <= totalPages) {
-                      router.push(`?page=${page}`);
-                    }
-                  }}
-                  // className="bg-branding-brown text-white px-4 py-2 rounded"
-                >
-                  {t("Button.go-to-page")}
-                </Button>
-                <input
-                  type="number"
-                  min="1"
-                  max={totalPages}
-                  placeholder={currentPage.toString()}
-                  className="border border-gray-300 rounded px-2 py-1 w-20 text-center"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      const page = Number(e.currentTarget.value);
-                      if (page >= 1 && page <= totalPages) {
-                        router.push(`?page=${page}`);
-                      }
-                    }
-                  }}
-                />
+              <div className="mt-4 ">
+                <PageInput totalPages={totalPages} currentPage={currentPage} />
               </div>
 
               {/* Pagination */}
-              <Pagination className="mt-4 mb-6">
-                <PaginationContent>
-                  <PaginationItem>
-                    <PaginationPrevious
-                      href={`?page=${Math.max(1, currentPage - 1)}`}
-                      aria-disabled={currentPage === 1}
-                      className={
-                        currentPage === 1
-                          ? "pointer-events-none opacity-50"
-                          : ""
-                      }
-                    />
-                  </PaginationItem>
-
-                  {generatePaginationItems()}
-
-                  <PaginationItem>
-                    <PaginationNext
-                      href={`?page=${Math.min(totalPages, currentPage + 1)}`}
-                      aria-disabled={currentPage === totalPages}
-                      className={
-                        currentPage === totalPages
-                          ? "pointer-events-none opacity-50"
-                          : ""
-                      }
-                    />
-                  </PaginationItem>
-                </PaginationContent>
-              </Pagination>
+              <PaginationSection
+                currentPage={currentPage}
+                totalPages={totalPages}
+              />
             </div>
             {/* Text */}
             <div className={`text-center ${NomNaTong.className}`}>
