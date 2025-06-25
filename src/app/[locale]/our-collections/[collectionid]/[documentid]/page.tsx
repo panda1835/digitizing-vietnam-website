@@ -1,4 +1,3 @@
-// "use client";
 import { getTranslations } from "next-intl/server";
 import qs from "qs";
 

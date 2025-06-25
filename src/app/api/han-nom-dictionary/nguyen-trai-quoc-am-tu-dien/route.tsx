@@ -13,21 +13,23 @@ export async function GET(request) {
     }
 
     let data;
+    const lowerQuery = query.toLowerCase();
+    const regexPattern = `(^|[^\\w])${lowerQuery}([^\\w]|$)`;
     try {
       [data] = await db.query(
         `SELECT * FROM nt_qatd WHERE 
-          (LOWER(han) = CONVERT(? USING utf8mb4) OR 
+          LOWER(han) = CONVERT(? USING utf8mb4) OR 
           LOWER(nom) = CONVERT(? USING utf8mb4) OR 
-          LOWER(hdwd) = ?)`,
-        [query.toLowerCase(), query.toLowerCase(), query.toLowerCase()]
+          LOWER(hdwd) REGEXP ?`,
+        [lowerQuery, lowerQuery, regexPattern]
       );
     } catch (error) {
       [data] = await db.query(
         `SELECT * FROM nt_qatd WHERE 
-          (LOWER(han) = CONVERT(? USING utf8mb4) OR 
+          LOWER(han) = CONVERT(? USING utf8mb4) OR 
           LOWER(nom) = CONVERT(? USING utf8mb4) OR 
-          LOWER(hdwd) = CONVERT(? USING utf8mb4))`,
-        [query.toLowerCase(), query.toLowerCase(), query.toLowerCase()]
+          LOWER(hdwd) REGEXP CONVERT(? USING utf8mb4)`,
+        [lowerQuery, lowerQuery, regexPattern]
       );
     }
 

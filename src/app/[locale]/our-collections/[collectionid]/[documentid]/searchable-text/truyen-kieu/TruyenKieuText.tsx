@@ -1,12 +1,11 @@
 import Image from "next/image";
-
+import { getTranslations } from "next-intl/server";
 import type { TruyenKieuRaw, TruyenKieuText } from "./types";
 import localFont from "next/font/local";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import TipBox from "@/components/common/TipBox";
 import PaginationSection from "../PaginationSection";
 import PageInput from "../PageInput";
-import { getTranslations } from "next-intl/server";
 
 const NomNaTong = localFont({
   src: "../../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -113,7 +112,7 @@ export default async function TruyenKieu({
                             s._
                           }">
                             ${s._}
-                            <div class="z-50 absolute w-60 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black text-sm p-2 rounded border border-black shadow-lg">
+                            <div class="z-50 absolute w-60 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black text-lg p-2 rounded border border-black shadow-lg">
                             ${correspondingNote ? correspondingNote._ : s._}
                             </div>
                             </span>
