@@ -67,6 +67,7 @@ const CollectionItemViewer = async ({
     canvasId?: string;
     page?: string;
     topic?: string;
+    line?: string;
   };
 }) => {
   const locale = params.locale;
@@ -75,6 +76,7 @@ const CollectionItemViewer = async ({
   const originalCanvasId = searchParams?.canvasId || "";
   const currentPage = searchParams?.page || "1";
   const currentTopic = searchParams?.topic || "";
+  const highlightedLine = searchParams?.line || "";
 
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -192,7 +194,11 @@ const CollectionItemViewer = async ({
           <TinhHoaMuaXuan locale={locale} topic={currentTopic || "Cảnh thu"} />
         ) : collectionId === "quoc-am-thi-tap" &&
           documentId === "nguyen-trai-quoc-am-thi-tap" ? (
-          <QuocAmThiTap locale={locale} topic={currentTopic || "1"} />
+          <QuocAmThiTap
+            locale={locale}
+            topic={currentTopic || "1"}
+            highlightedLine={Number(highlightedLine)}
+          />
         ) : collectionId === "truyen-kieu" &&
           documentId === "truyen-kieu-1866" ? (
           <TruyenKieu

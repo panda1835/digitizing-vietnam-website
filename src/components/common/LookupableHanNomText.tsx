@@ -22,9 +22,11 @@ const NomNaTong = localFont({
 export default function LookupableHanNomText({
   text,
   className,
+  highlight,
 }: {
   text: string;
   className?: string;
+  highlight?: boolean;
 }) {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState("");
@@ -73,7 +75,7 @@ export default function LookupableHanNomText({
           >
             <PopoverTrigger asChild>
               <span
-                className="cursor-pointer hover:text-branding-brown"
+                className={`cursor-pointer hover:text-branding-brown`}
                 onClick={() => handleDictionarySearch(word)}
               >
                 {word}

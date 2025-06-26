@@ -10,14 +10,15 @@ import { TOC } from "./TOC";
 export default async function QuocAmThiTap({
   locale,
   topic,
+  highlightedLine,
 }: {
   locale: string;
   topic: string;
+  highlightedLine?: number;
 }) {
   const t = await getTranslations();
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
-  console.log(topic);
   const data = await fetch(
     `${apiUrl}/searchable-text/quoc-am-thi-tap?topicId=${topic}`
   );
@@ -76,7 +77,16 @@ export default async function QuocAmThiTap({
     });
   }
 
-  // console.log(groupedData);
+  let hnTexts: string[] = [];
+  let qnTexts: string[] = [];
+  hn_body.body.lg[0].l.map((line: any) => {
+    hnTexts.push(line.seg[0]?.split("|").join(""));
+    hnTexts.push(line.seg[1]?.split("|").join(""));
+  });
+  qn_body.body.lg[0].l.map((line: any) => {
+    qnTexts.push(line.seg[0]?.split("|").join(" "));
+    qnTexts.push(line.seg[1]?.split("|").join(" "));
+  });
 
   return (
     <div className="flex flex-col w-full items-center">
@@ -106,16 +116,16 @@ export default async function QuocAmThiTap({
             {/* Han Nom */}
             <div className="w-full mt-8">
               <div className="bg-branding-gray rounded-lg p-4 mt-2 w-full">
-                {hn_body.body.lg[0].l.map((line: any, index: number) => (
+                {hnTexts.map((line: any, index: number) => (
                   <div key={index} className="">
-                    <div>
+                    <div
+                      className={`${
+                        highlightedLine == index + 1 ? "bg-yellow-200" : ""
+                      }`}
+                    >
                       <LookupableHanNomText
-                        text={line.seg[0].split("|").join("")}
-                      />
-                    </div>
-                    <div>
-                      <LookupableHanNomText
-                        text={line.seg[1].split("|").join("")}
+                        text={line}
+                        highlight={highlightedLine == index + 1}
                       />
                     </div>
                   </div>
@@ -126,10 +136,15 @@ export default async function QuocAmThiTap({
             {/* Quoc Ngu */}
             <div className="w-full mt-8">
               <div className="bg-branding-gray rounded-lg p-4 mt-2 w-full font-['Helvetica Neue'] font-light text-xl">
-                {qn_body.body.lg[0].l.map((line: any, index: number) => (
+                {qnTexts.map((line: any, index: number) => (
                   <div key={index} className="">
-                    <div> {line.seg[0].split("|").join(" ")} </div>
-                    <div>{line.seg[1].split("|").join(" ")} </div>
+                    <div
+                      className={`${
+                        highlightedLine == index + 1 ? "bg-yellow-200" : ""
+                      }`}
+                    >
+                      {line}{" "}
+                    </div>
                   </div>
                 ))}
               </div>
