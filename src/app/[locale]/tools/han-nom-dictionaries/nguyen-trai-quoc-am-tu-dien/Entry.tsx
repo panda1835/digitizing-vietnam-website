@@ -54,8 +54,8 @@ export default function Entry({ entry }: { entry: any }) {
     });
 
     const decimalRegex = /(\d+)\.(\d+)/g;
-    processedText = processedText.replace(decimalRegex, (match, a) => {
-      return `<a href="/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap?topic=${a}" class="text-blue-500 underline" target="_blank" rel="noopener noreferrer">${match}</a>`;
+    processedText = processedText.replace(decimalRegex, (match, a, b) => {
+      return `<a href="/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap?topic=${a}&line=${b}" class="text-blue-500 underline" target="_blank" rel="noopener noreferrer">${match}</a>`;
     });
 
     return processedText;

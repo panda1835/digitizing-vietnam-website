@@ -58,6 +58,12 @@ export default async function DictionaryLayout({
             </div>
 
             <nav className="flex flex-col">
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/foreword">
+                {locale === "en" ? "Foreword" : "Lời tựa"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/explanatory_notes">
+                {locale === "en" ? "Explanatory Notes" : "Phàm lệ"}
+              </NavLink>
               <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/abbreviations">
                 {locale === "en"
                   ? "Symbols and Abbreviations"
@@ -65,6 +71,9 @@ export default async function DictionaryLayout({
               </NavLink>
               <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien">
                 {locale === "en" ? "Dictionary" : "Từ điển"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/index">
+                {locale === "en" ? "Index" : "Sách dẫn"}
               </NavLink>
               <NavLink
                 newTab={true}

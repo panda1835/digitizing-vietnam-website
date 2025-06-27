@@ -123,10 +123,7 @@ export default async function QuocAmThiTap({
                         highlightedLine == index + 1 ? "bg-yellow-200" : ""
                       }`}
                     >
-                      <LookupableHanNomText
-                        text={line}
-                        highlight={highlightedLine == index + 1}
-                      />
+                      <LookupableHanNomText text={line} />
                     </div>
                   </div>
                 ))}

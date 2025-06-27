@@ -22,11 +22,9 @@ const NomNaTong = localFont({
 export default function LookupableHanNomText({
   text,
   className,
-  highlight,
 }: {
   text: string;
   className?: string;
-  highlight?: boolean;
 }) {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState("");
@@ -71,7 +69,6 @@ export default function LookupableHanNomText({
             key={index}
             open={popoverOpen && selectedCharacter === word}
             onOpenChange={(open) => setPopoverOpen(open)}
-            // modal={true}
           >
             <PopoverTrigger asChild>
               <span

@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { parseStringPromise } from "xml2js";
 import db from "@/lib/db";
 
 export async function GET(request) {
@@ -7,29 +6,39 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
 
     const query = searchParams.get("q");
-
-    if (!query) {
-      return NextResponse.json({ error: "Missing query" }, { status: 400 });
-    }
+    const index = searchParams.get("id");
 
     let data;
-    const lowerQuery = query.toLowerCase();
-    const regexPattern = `(^|[^\\w])${lowerQuery}([^\\w]|$)`;
-    try {
+    if (query) {
+      const lowerQuery = query.toLowerCase();
+      const regexPattern = `(^|[^\\w])${lowerQuery}([^\\w]|$)`;
+      try {
+        [data] = await db.query(
+          `SELECT * FROM nt_qatd WHERE 
+            LOWER(han) = CONVERT(? USING utf8mb4) OR 
+            LOWER(nom) = CONVERT(? USING utf8mb4) OR 
+            LOWER(hdwd) REGEXP ?`,
+          [lowerQuery, lowerQuery, regexPattern]
+        );
+      } catch (error) {
+        [data] = await db.query(
+          `SELECT * FROM nt_qatd WHERE 
+            LOWER(han) = CONVERT(? USING utf8mb4) OR 
+            LOWER(nom) = CONVERT(? USING utf8mb4) OR 
+            LOWER(hdwd) REGEXP CONVERT(? USING utf8mb4)`,
+          [lowerQuery, lowerQuery, regexPattern]
+        );
+      }
+    } else if (index) {
       [data] = await db.query(
         `SELECT * FROM nt_qatd WHERE 
-          LOWER(han) = CONVERT(? USING utf8mb4) OR 
-          LOWER(nom) = CONVERT(? USING utf8mb4) OR 
-          LOWER(hdwd) REGEXP ?`,
-        [lowerQuery, lowerQuery, regexPattern]
+          id IN (?)`,
+        [index.split(",")]
       );
-    } catch (error) {
-      [data] = await db.query(
-        `SELECT * FROM nt_qatd WHERE 
-          LOWER(han) = CONVERT(? USING utf8mb4) OR 
-          LOWER(nom) = CONVERT(? USING utf8mb4) OR 
-          LOWER(hdwd) REGEXP CONVERT(? USING utf8mb4)`,
-        [lowerQuery, lowerQuery, regexPattern]
+    } else {
+      return NextResponse.json(
+        { error: "Missing query or index" },
+        { status: 400 }
       );
     }
 

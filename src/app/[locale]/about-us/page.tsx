@@ -220,14 +220,20 @@ const AboutUs = async ({ params: { locale } }) => {
             {locale === "en" ? "Special Acknowledgement" : "Cảm ơn đặc biệt"}
           </div>
           <div className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg text-branding-black">
-            {aboutUsData["special_acknowledgement"]
+            {/* {aboutUsData["special_acknowledgement"]
               ?.split("\n")
               .map((line, index) => (
                 <p key={index}>
                   {line}
                   <br />
                 </p>
-              ))}
+              ))} */}
+            <div
+              className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"
+              dangerouslySetInnerHTML={renderHtml(
+                aboutUsData["special_acknowledgement"]
+              )}
+            />
           </div>
         </div>
 
