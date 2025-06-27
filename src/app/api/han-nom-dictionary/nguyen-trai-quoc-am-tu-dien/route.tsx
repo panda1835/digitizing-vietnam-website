@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { parseStringPromise } from "xml2js";
 import db from "@/lib/db";
 
 export async function GET(request) {
@@ -7,18 +6,41 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
 
     const query = searchParams.get("q");
+    const index = searchParams.get("id");
 
-    if (!query) {
-      return NextResponse.json({ error: "Missing query" }, { status: 400 });
+    let data;
+    if (query) {
+      const lowerQuery = query.toLowerCase();
+      const regexPattern = `(^|[^\\w])${lowerQuery}([^\\w]|$)`;
+      try {
+        [data] = await db.query(
+          `SELECT * FROM nt_qatd WHERE 
+            LOWER(han) = CONVERT(? USING utf8mb4) OR 
+            LOWER(nom) = CONVERT(? USING utf8mb4) OR 
+            LOWER(hdwd) REGEXP ?`,
+          [lowerQuery, lowerQuery, regexPattern]
+        );
+      } catch (error) {
+        [data] = await db.query(
+          `SELECT * FROM nt_qatd WHERE 
+            LOWER(han) = CONVERT(? USING utf8mb4) OR 
+            LOWER(nom) = CONVERT(? USING utf8mb4) OR 
+            LOWER(hdwd) REGEXP CONVERT(? USING utf8mb4)`,
+          [lowerQuery, lowerQuery, regexPattern]
+        );
+      }
+    } else if (index) {
+      [data] = await db.query(
+        `SELECT * FROM nt_qatd WHERE 
+          id IN (?)`,
+        [index.split(",")]
+      );
+    } else {
+      return NextResponse.json(
+        { error: "Missing query or index" },
+        { status: 400 }
+      );
     }
-
-    const [data]: any = await db.query(
-      `SELECT * FROM nt_qatd WHERE 
-      (LOWER(han) = CONVERT(? USING utf8mb4) OR 
-      LOWER(nom) = CONVERT(? USING utf8mb4) OR 
-      LOWER(hdwd) = ?)`,
-      [query.toLowerCase(), query.toLowerCase(), query.toLowerCase()]
-    );
 
     const meaning = await Promise.all(
       (data as Array<any>).map(async (row) => {
@@ -34,6 +56,13 @@ export async function GET(request) {
         };
       })
     );
+
+    // Order the results by hdwd length
+    meaning.sort((a, b) => {
+      const aLength = a.hdwd ? a.hdwd.length : 0;
+      const bLength = b.hdwd ? b.hdwd.length : 0;
+      return aLength - bLength; // Sort ascending by length
+    });
 
     return NextResponse.json(meaning, { status: 200 });
   } catch (error) {

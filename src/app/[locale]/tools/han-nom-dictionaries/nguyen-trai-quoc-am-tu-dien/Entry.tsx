@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "@/i18n/routing";
 import localFont from "next/font/local";
 import { abbreviations } from "./abbreviations";
 const NomNaTong = localFont({
@@ -7,55 +6,61 @@ const NomNaTong = localFont({
 });
 
 export default function Entry({ entry }: { entry: any }) {
-  const processText = (text: string, hdwd: string) => {
+  const processText = (text: string, hdwd?: string) => {
     let processedText = text;
+
+    if (hdwd) {
+      const quoteRegex = new RegExp(
+        `(<(?:quote|hi)>[^<]*?)(${hdwd})([^<]*?</(?:quote|hi)>)`,
+        "g"
+      );
+      processedText = processedText.replaceAll(
+        quoteRegex,
+        `$1<span class="text-branding-brown font-bold">$2</span>$3`
+      );
+    }
+
     processedText = processedText
       .replaceAll("<sense_area", "<div")
       .replaceAll("</sense_area", "</div")
       .replaceAll("<sense", "<div")
       .replaceAll("</sense", "</div")
-      .replaceAll("</cit>‖", "</cit>")
-      .replaceAll("<cit", "<div")
-      .replaceAll("</cit", "</div")
+      // .replaceAll("</cit>‖", "</cit>")
+      .replaceAll("<cit", "<span")
+      .replaceAll("</cit", "</span")
       .replaceAll("<quote>", "<span class='italic'>")
       .replaceAll("</quote>", "</span>")
       .replaceAll("<bibl>", " <span>(")
       .replaceAll("</bibl>", ")</span>")
-      .replaceAll("‖", ", ");
+      // .replaceAll("‖", ", ")
+      .replaceAll("<hi>", "<span class='italic'>")
+      .replaceAll("</hi>", "</span>")
+      .replaceAll("<etym>", "<div>◎ ")
+      .replaceAll("</etym>", "</div>");
 
     abbreviations.forEach((abbr) => {
       const regex = new RegExp(`<abbr>${abbr.abbr}<\\/abbr>`, "g");
       processedText = processedText.replace(
         regex,
-        // `<span class="hover-component" title="${abbr.qn}">${abbr.abbr}</span>`
         `
-          <span class="text-branding-brown relative group"="${abbr.abbr}">
+          <span class="text-blue-500 relative group cursor-pointer"="${abbr.abbr}">
             ${abbr.abbr}
-            <div class="z-50 absolute w-40 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black text-sm p-2 rounded border border-black shadow-lg">
+            <div class="z-50 text-lg absolute w-40 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black p-2 rounded border border-black shadow-lg">
               ${abbr.qn}
             </div>
-          </span>
+          </span> 
         `
       );
     });
 
     const decimalRegex = /(\d+)\.(\d+)/g;
-    processedText = processedText.replace(decimalRegex, (match, a) => {
-      return `<a href="/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap?topic=${a}" class="text-blue-500 underline" target="_blank" rel="noopener noreferrer">${match}</a>`;
+    processedText = processedText.replace(decimalRegex, (match, a, b) => {
+      return `<a href="/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap?topic=${a}&line=${b}" class="text-blue-500 underline" target="_blank" rel="noopener noreferrer">${match}</a>`;
     });
 
-    processedText = processedText.replace(
-      hdwd,
-      `<span class="text-branding-brown font-bold">${hdwd}</span>`
-    );
     return processedText;
   };
-  console.log("hello", processText(entry.text, entry.hdwd));
 
-  const processEtym = (etym: string) => {
-    let processedEtym = etym;
-    return processedEtym;
-  };
   return (
     <div className="">
       <Card className={`${NomNaTong.className} mb-4 p-4 pb-0`}>
@@ -67,9 +72,9 @@ export default function Entry({ entry }: { entry: any }) {
               {entry.nom})
             </span>
           </div>
-          <div className="text-lg flex flex-col gap-2">
+          <div className="text-xl flex flex-col gap-2">
             <div
-              dangerouslySetInnerHTML={{ __html: processEtym(entry.etym) }}
+              dangerouslySetInnerHTML={{ __html: processText(entry.etym) }}
             ></div>
             <div
               dangerouslySetInnerHTML={{

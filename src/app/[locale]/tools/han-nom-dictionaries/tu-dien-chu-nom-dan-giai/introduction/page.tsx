@@ -15,7 +15,7 @@ export default function Introduction({
           >
             Introduction
           </div>
-          <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
+          <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <p className="pt-5">
               To date, research and compilations of Nôm characters have obtained
               many important achievements. I would like to discuss briefly two
@@ -182,7 +182,7 @@ export default function Introduction({
           >
             Lời dẫn
           </div>
-          <div className="font-['Helvetica_Neue'] font-light text-lg mt-6">
+          <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <p className="pt-5">
               Cho đến hiện nay, công cuộc nghiên cứu và biên soạn về chữ Nôm đã
               đạt được nhiều thành tựu khả quan. Để giản tiện, chỉ xin điểm qua

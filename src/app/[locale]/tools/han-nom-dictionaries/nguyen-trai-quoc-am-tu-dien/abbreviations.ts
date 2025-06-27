@@ -1,5 +1,3 @@
-// replace const [abbre]: any = await db.query(`SELECT * FROM abbreviations`);
-
 export const abbreviations = [
   {
     id: 1,

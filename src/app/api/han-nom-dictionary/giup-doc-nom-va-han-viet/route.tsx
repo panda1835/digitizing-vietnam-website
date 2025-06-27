@@ -11,11 +11,18 @@ export async function GET(request) {
     if (!query) {
       return NextResponse.json({ error: "Missing query" }, { status: 400 });
     }
-
-    const [data]: any = await db.query(
-      `SELECT * FROM giupdoc WHERE (LOWER(qn) = CONVERT(? USING utf8mb4) OR LOWER(uni) = CONVERT(? USING utf8mb4))`,
-      [query.toLowerCase(), query.toLowerCase()]
-    );
+    let data;
+    try {
+      [data] = await db.query(
+        `SELECT * FROM giupdoc WHERE (LOWER(qn) = ? OR LOWER(uni) = CONVERT(? USING utf8mb4))`,
+        [query.toLowerCase(), query.toLowerCase()]
+      );
+    } catch (error) {
+      [data] = await db.query(
+        `SELECT * FROM giupdoc WHERE (LOWER(qn) = CONVERT(? USING utf8mb4) OR LOWER(uni) = CONVERT(? USING utf8mb4))`,
+        [query.toLowerCase(), query.toLowerCase()]
+      );
+    }
 
     const returnData = await Promise.all(
       (data as Array<any>).map(async (row) => {

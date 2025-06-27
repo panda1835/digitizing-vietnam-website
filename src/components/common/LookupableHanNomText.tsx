@@ -69,11 +69,10 @@ export default function LookupableHanNomText({
             key={index}
             open={popoverOpen && selectedCharacter === word}
             onOpenChange={(open) => setPopoverOpen(open)}
-            // modal={true}
           >
             <PopoverTrigger asChild>
               <span
-                className="cursor-pointer hover:text-branding-brown"
+                className={`cursor-pointer hover:text-branding-brown`}
                 onClick={() => handleDictionarySearch(word)}
               >
                 {word}

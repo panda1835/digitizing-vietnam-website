@@ -1,4 +1,3 @@
-// "use client";
 import { getTranslations } from "next-intl/server";
 import qs from "qs";
 
@@ -68,6 +67,7 @@ const CollectionItemViewer = async ({
     canvasId?: string;
     page?: string;
     topic?: string;
+    line?: string;
   };
 }) => {
   const locale = params.locale;
@@ -76,6 +76,7 @@ const CollectionItemViewer = async ({
   const originalCanvasId = searchParams?.canvasId || "";
   const currentPage = searchParams?.page || "1";
   const currentTopic = searchParams?.topic || "";
+  const highlightedLine = searchParams?.line || "";
 
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -121,93 +122,6 @@ const CollectionItemViewer = async ({
   if (!collectionItemData) {
     return <NotFound />;
   }
-
-  if (collectionId === "truyen-kieu") {
-    if (documentId === "truyen-kieu-1866") {
-      return (
-        <TruyenKieu
-          version="1866"
-          locale={locale}
-          documentid={`truyen-kieu-1866`}
-          collectionid={collectionId}
-          collectionTitle={collectionTitle}
-        />
-      );
-    } else if (documentId === "truyen-kieu-1870") {
-      return (
-        <TruyenKieu
-          version="1870"
-          locale={locale}
-          documentid={`truyen-kieu-1870`}
-          collectionid={collectionId}
-          collectionTitle={collectionTitle}
-        />
-      );
-    } else if (documentId === "truyen-kieu-1871") {
-      return (
-        <TruyenKieu
-          version="1871"
-          locale={locale}
-          documentid={`truyen-kieu-1871`}
-          collectionid={collectionId}
-          collectionTitle={collectionTitle}
-        />
-      );
-    } else if (documentId === "truyen-kieu-1872") {
-      return (
-        <TruyenKieu
-          version="1872"
-          locale={locale}
-          documentid={`truyen-kieu-1872`}
-          collectionid={collectionId}
-          collectionTitle={collectionTitle}
-        />
-      );
-    } else if (documentId === "truyen-kieu-1902") {
-      return (
-        <TruyenKieu
-          version="1902"
-          locale={locale}
-          documentid={`truyen-kieu-1902`}
-          collectionid={collectionId}
-          collectionTitle={collectionTitle}
-        />
-      );
-    }
-    // Do not have else because the documentid can be different for other items
-  }
-
-  // if (collectionId === "luc-van-tien") {
-  //   if (documentId === "van-tien-co-tich-tan-truyen") {
-  //     return (
-  //       <LucVanTienText
-  //         collectionTitle={collectionTitle}
-  //         title={collectionItemData.title}
-  //         abstract={collectionItemData.abstract}
-  //         locale={locale}
-  //         documentid={`van-tien-co-tich-tan-truyen`}
-  //         collectionid={collectionId}
-  //         page={currentPage}
-  //       />
-  //     );
-  //   }
-  // }
-
-  // if (collectionId === "chinh-phu-ngam-khuc") {
-  //   if (documentId === "chinh-phu-ngam-khuc") {
-  //     return (
-  //       <ChinhPhuNgamText
-  //         collectionTitle={collectionTitle}
-  //         title={collectionItemData?.title}
-  //         abstract={collectionItemData?.abstract}
-  //         locale={locale}
-  //         documentid={`chinh-phu-ngam-khuc`}
-  //         collectionid={collectionId}
-  //         page={currentPage}
-  //       />
-  //     );
-  //   }
-  // }
 
   let documentType = "document";
   if (collectionItemData.item_url[0]) {
@@ -280,7 +194,56 @@ const CollectionItemViewer = async ({
           <TinhHoaMuaXuan locale={locale} topic={currentTopic || "Cảnh thu"} />
         ) : collectionId === "quoc-am-thi-tap" &&
           documentId === "nguyen-trai-quoc-am-thi-tap" ? (
-          <QuocAmThiTap locale={locale} topic={currentTopic || "1"} />
+          <QuocAmThiTap
+            locale={locale}
+            topic={currentTopic || "1"}
+            highlightedLine={Number(highlightedLine)}
+          />
+        ) : collectionId === "truyen-kieu" &&
+          documentId === "truyen-kieu-1866" ? (
+          <TruyenKieu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            version={"1866"}
+            page={currentPage}
+          />
+        ) : collectionId === "truyen-kieu" &&
+          documentId === "truyen-kieu-1870" ? (
+          <TruyenKieu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            version={"1870"}
+            page={currentPage}
+          />
+        ) : collectionId === "truyen-kieu" &&
+          documentId === "truyen-kieu-1871" ? (
+          <TruyenKieu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            version={"1871"}
+            page={currentPage}
+          />
+        ) : collectionId === "truyen-kieu" &&
+          documentId === "truyen-kieu-1872" ? (
+          <TruyenKieu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            version={"1872"}
+            page={currentPage}
+          />
+        ) : collectionId === "truyen-kieu" &&
+          documentId === "truyen-kieu-1902" ? (
+          <TruyenKieu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            version={"1902"}
+            page={currentPage}
+          />
         ) : (
           <div className="flex flex-row">
             {/* Item viewer */}

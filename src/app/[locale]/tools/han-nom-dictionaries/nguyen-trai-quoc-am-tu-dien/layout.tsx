@@ -39,7 +39,7 @@ export default async function DictionaryLayout({
             },
             {
               label: t(
-                "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
+                "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
               ),
             },
           ]}
@@ -58,12 +58,31 @@ export default async function DictionaryLayout({
             </div>
 
             <nav className="flex flex-col">
-              {/* <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/introduction">
-                {locale === "en" ? "Introduction" : "Lời dẫn"}
-              </NavLink> */}
-
-              <NavLink href="/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet">
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/foreword">
+                {locale === "en" ? "Foreword" : "Lời tựa"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/explanatory_notes">
+                {locale === "en" ? "Explanatory Notes" : "Phàm lệ"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/abbreviations">
+                {locale === "en"
+                  ? "Symbols and Abbreviations"
+                  : "Ký hiệu chữ viết tắt"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien">
                 {locale === "en" ? "Dictionary" : "Từ điển"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/index">
+                {locale === "en" ? "Index" : "Sách dẫn"}
+              </NavLink>
+              <NavLink
+                newTab={true}
+                href="/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap"
+              >
+                {locale === "en" ? "Quốc Âm Thi Tập" : "Quốc Âm Thi Tập"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/references">
+                {locale === "en" ? "References" : "Tài liệu tham khảo"}
               </NavLink>
             </nav>
           </div>
