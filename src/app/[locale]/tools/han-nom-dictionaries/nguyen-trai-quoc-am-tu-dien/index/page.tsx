@@ -23,7 +23,7 @@ export default async function Introduction({
 }) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
   const data = await fetch(
-    `${apiUrl}/han-nom-dictionary/nguyen-trai-quoc-am-tu-dien/index`
+    `${apiUrl}/han-nom-dictionary/nguyen-trai-quoc-am-tu-dien/sach-dan`
   );
 
   const list = await data.json();
