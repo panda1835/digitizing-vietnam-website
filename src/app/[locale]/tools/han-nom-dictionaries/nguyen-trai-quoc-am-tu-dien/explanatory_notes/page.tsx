@@ -14,7 +14,6 @@ export default async function Abbreviations({
   try {
     const queryParams = {
       fields: "*",
-      populate: "*",
       locale: locale,
     };
 

@@ -75,6 +75,11 @@ export default async function DictionaryLayout({
               <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/index">
                 {locale === "en" ? "Index" : "Sách dẫn"}
               </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/orthography">
+                {locale === "en"
+                  ? "Translation & Orthography"
+                  : "Quy ước phiên âm"}
+              </NavLink>
               <NavLink
                 newTab={true}
                 href="/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap"
@@ -83,6 +88,9 @@ export default async function DictionaryLayout({
               </NavLink>
               <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/references">
                 {locale === "en" ? "References" : "Tài liệu tham khảo"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/afterword">
+                {locale === "en" ? "Afterword" : "Lời bạt"}
               </NavLink>
             </nav>
           </div>

@@ -64,8 +64,45 @@ export async function GET(request) {
       })
     );
 
+    // Nguyen Trai Quoc Am Tu Dien
+    let qatdData;
+
+    const lowerQuery = query.toLowerCase();
+    const regexPattern = `(^|[^\\w])${lowerQuery}([^\\w]|$)`;
+
+    [qatdData] = await db.query(
+      `SELECT * FROM nt_qatd WHERE 
+            LOWER(han) = CONVERT(? USING utf8mb4) OR 
+            LOWER(nom) = CONVERT(? USING utf8mb4) OR 
+            LOWER(hdwd) REGEXP CONVERT(? USING utf8mb4)`,
+      [lowerQuery, lowerQuery, regexPattern]
+    );
+
+    const meaning = await Promise.all(
+      (qatdData as Array<any>).map(async (row) => {
+        return {
+          han: row.han,
+          nom: row.nom,
+          hdwd: row.hdwd,
+          etym: row.etym,
+          text: row.sense_area,
+        };
+      })
+    );
+
+    // Order the results by hdwd length
+    meaning.sort((a, b) => {
+      const aLength = a.hdwd ? a.hdwd.length : 0;
+      const bLength = b.hdwd ? b.hdwd.length : 0;
+      return aLength - bLength; // Sort ascending by length
+    });
+
     return NextResponse.json(
-      { tdcndg: { defs: defData, refs: [] }, giupdoc: returnData },
+      {
+        tdcndg: { defs: defData, refs: [] },
+        giupdoc: returnData,
+        qatd: meaning,
+      },
       { status: 200 }
     );
   } catch (error) {
