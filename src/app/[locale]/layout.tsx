@@ -29,35 +29,33 @@ export default async function LocaleLayout({
     // backgroundSize: "auto 80px", // Assuming you want the "height" of the repeating image to be 80px
   };
   return (
-    <html lang={locale}>
-      <body className="min-h-screen flex flex-col bg-[#f7f7f7]">
-        <NextIntlClientProvider messages={messages}>
-          <NavigationBar />
+    <div className="min-h-screen flex flex-col bg-[#f7f7f7]">
+      <NextIntlClientProvider messages={messages}>
+        <NavigationBar />
+        <div
+          className="flex-grow bg-repeat bg-opacity-90 px-5 sm:px-8 md:px-[50px] relative"
+          style={style}
+        >
           <div
-            className="flex-grow bg-repeat bg-opacity-90 px-5 sm:px-8 md:px-[50px] relative"
-            style={style}
-          >
-            <div
-              className="absolute inset-0 bg-[url('/images/smudge-1.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
+            className="absolute inset-0 bg-[url('/images/smudge-1.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
               top-[161px] left-[242px] 
               md:top-[100px] md:left-[600px]
               "
-            />
-            <div
-              className="absolute inset-0 bg-[url('/images/smudge-2.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
+          />
+          <div
+            className="absolute inset-0 bg-[url('/images/smudge-2.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
               top-[2000px] left-[400px]
               md:top-[1500px] md:left-[1100px]
               sm:top-[1500px] sm:left-[400px]
               
               "
-            />
-            <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
-          </div>
-          <Toaster />
-          <BackToTopButton />
-          <Footer locale={locale} />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+          />
+          <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+        </div>
+        <Toaster />
+        <BackToTopButton />
+        <Footer locale={locale} />
+      </NextIntlClientProvider>
+    </div>
   );
 }
