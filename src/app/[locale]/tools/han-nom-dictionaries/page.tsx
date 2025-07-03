@@ -38,6 +38,17 @@ const HanNomDictionaries = async ({ params: { locale } }) => {
       target: "",
       rel: "",
     },
+    // {
+    //   href: "/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien",
+    //   title: t(
+    //     "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
+    //   ),
+    //   description: t(
+    //     "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.description"
+    //   ),
+    //   target: "",
+    //   rel: "",
+    // },
   ];
 
   return (
