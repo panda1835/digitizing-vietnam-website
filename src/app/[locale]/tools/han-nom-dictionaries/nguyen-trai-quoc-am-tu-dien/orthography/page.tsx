@@ -31,12 +31,12 @@ export default async function Abbreviations({
   return (
     <div>
       <div className={`${merriweather.className} text-branding-black text-4xl`}>
-        {locale === "en" ? "Foreword" : "Lời tựa"}
+        {locale === "en" ? "Translation & Orthography" : "Quy ước phiên âm"}
       </div>
       <div className="mt-10">
         <div
           className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg text-branding-black"
-          dangerouslySetInnerHTML={renderHtml(data["foreword"])}
+          dangerouslySetInnerHTML={renderHtml(data["orthography"])}
         />
       </div>
     </div>

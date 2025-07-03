@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import localFont from "next/font/local";
 import EntryTDCNDG from "@/app/[locale]/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/Entry";
 import EntryGDNVHV from "@/app/[locale]/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/Entry";
+import EntryQATD from "@/app/[locale]/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/Entry";
+
 import {
   Popover,
   PopoverContent,
@@ -34,9 +36,11 @@ export default function LookupableHanNomText({
       refs: [];
     };
     giupdoc: GDNVHVDictionaryEntry[];
+    qatd: any[];
   } | null>({
     tdcndg: { defs: [], refs: [] },
     giupdoc: [],
+    qatd: [],
   });
   const [loading, setLoading] = useState(false);
   const t = useTranslations();
@@ -140,6 +144,25 @@ export default function LookupableHanNomText({
                           </div>
                         </Link>
                         <EntryGDNVHV entry={entryData!.giupdoc[0]} />
+                      </div>
+                    )}
+                    <div className="mt-10"></div>
+                    {entryData!.qatd && entryData!.qatd.length > 0 && (
+                      <div>
+                        <Link
+                          href={`/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien?q=${selectedCharacter}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <div
+                            className={`text-xl text-branding-brown mb-4 hover:underline ${merriweather.className}`}
+                          >
+                            {t(
+                              "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
+                            )}
+                          </div>
+                        </Link>
+                        <EntryQATD entry={entryData!.qatd[0]} />
                       </div>
                     )}
                   </>

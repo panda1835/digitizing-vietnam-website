@@ -5,7 +5,7 @@ const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
-export default function Entry({ entry }: { entry: any }) {
+export default function EntryQATD({ entry }: { entry: any }) {
   const processText = (text: string, hdwd?: string) => {
     let processedText = text;
 

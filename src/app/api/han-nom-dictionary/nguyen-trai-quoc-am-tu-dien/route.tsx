@@ -44,9 +44,6 @@ export async function GET(request) {
 
     const meaning = await Promise.all(
       (data as Array<any>).map(async (row) => {
-        // Parse the XML string
-        // const parsedEtym = await parseStringPromise(row.etym);
-        // const parsedText = await parseStringPromise(row.sense_area);
         return {
           han: row.han,
           nom: row.nom,
