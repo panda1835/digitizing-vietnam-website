@@ -1,10 +1,8 @@
-import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { getTranslations } from "next-intl/server";
 
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
 
-import { Separator } from "@/components/ui/separator";
 import { InfoCard } from "@/components/common/InfoCard";
 import { PageHeader } from "@/components/common/PageHeader";
 
@@ -15,6 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export const dynamic = "force-static";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const Tools = async ({ params: { locale } }) => {

@@ -13,6 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export const dynamic = "force-static";
+
 export default async function HanNomTools({ params: { locale } }) {
   const t = await getTranslations();
   const tools = [

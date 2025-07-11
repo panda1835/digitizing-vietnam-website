@@ -1,6 +1,5 @@
 import { fetcher } from "@/lib/api";
 import { renderHtml } from "@/utils/renderHtml";
-import { populate } from "dotenv";
 import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });

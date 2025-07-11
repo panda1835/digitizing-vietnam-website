@@ -12,6 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t("Tools.han-nom-dictionaries.description"),
   };
 }
+
+export const dynamic = "force-static";
+
 const HanNomDictionaries = async ({ params: { locale } }) => {
   const t = await getTranslations();
 
