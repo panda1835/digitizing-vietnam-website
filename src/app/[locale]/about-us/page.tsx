@@ -37,7 +37,7 @@ const AboutUs = async ({ params: { locale } }) => {
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/about-us?${queryString}`;
 
-    const data = await fetcher(url);
+    const data = await fetcher(url, { cache: "force-cache" });
     aboutUsData = data.data;
   } catch (error) {
     console.error("Error fetching online resources:", error);
