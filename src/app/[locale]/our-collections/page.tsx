@@ -14,6 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export const dynamic = "force-static";
+
 const OurCollections = async ({ params: { locale } }) => {
   let collections: Collection[] = [];
 
@@ -29,7 +31,7 @@ const OurCollections = async ({ params: { locale } }) => {
     const queryString = new URLSearchParams(queryParams).toString();
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
-    const data = await fetcher(url);
+    const data = await fetcher(url, { cache: "force-cache" });
     const collectionData = data.data;
 
     // console.log("collectionData", collectionData);

@@ -14,6 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export const dynamic = "force-static";
+
 const KieuTools = async ({ params: { locale } }) => {
   const t = await getTranslations();
   const tools = [

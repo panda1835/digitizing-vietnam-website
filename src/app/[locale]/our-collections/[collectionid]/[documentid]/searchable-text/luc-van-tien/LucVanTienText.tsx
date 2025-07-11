@@ -56,7 +56,7 @@ export default async function LucVanTienText({
                   <Image
                     unoptimized
                     // src="/page01a.jpg"
-                    src={`https://backend.digitizingvietnam.com/images/iiif/2/${documentid}/${textData.page.$.pi}/full/full/0/default.jpg`}
+                    src={`https://iiif.digitizingvietnam.com/iiif/2/${documentid}/${textData.page.$.pi}/full/full/0/default.jpg`}
                     alt={`${title}`}
                     width={200}
                     height={300}
