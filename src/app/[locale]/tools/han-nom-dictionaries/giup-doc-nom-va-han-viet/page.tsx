@@ -5,8 +5,6 @@ import DictionarySearchBar from "../DictionarySearchBar";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-export const dynamic = "force-static";
-
 export default async function DictionaryPage({
   searchParams,
 }: {

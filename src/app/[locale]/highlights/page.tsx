@@ -35,7 +35,10 @@ const Blogs = async ({ params: { locale } }) => {
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blog-categories?${queryString}`;
 
-    const data = await fetcher(url);
+    const data = await fetcher(url, {
+      cache: "force-cache",
+      next: { revalidate: 60 * 60 }, // 1 hour cache
+    });
     const allCategories = data.data;
 
     const blogCategories: BlogCategory[] = [];

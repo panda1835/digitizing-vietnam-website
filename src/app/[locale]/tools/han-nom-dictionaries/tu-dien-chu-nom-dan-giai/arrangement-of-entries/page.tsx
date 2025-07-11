@@ -18,7 +18,7 @@ export default function ArrangementOfEntries({
           <div
             className={`${merriweather.className} text-branding-black text-4xl`}
           >
-            Editorial Guide
+            Arrangement of Entries
           </div>
           <div className="font-['Helvetica Neue'] font-light text-lg mt-6">
             <p className="pt-5">

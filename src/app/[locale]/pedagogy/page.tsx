@@ -15,6 +15,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
   };
 }
+
+export const dynamic = "force-dynamic";
+
 export interface Pedagogy {
   slug: string;
   title: string;

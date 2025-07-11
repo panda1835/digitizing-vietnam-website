@@ -29,7 +29,7 @@ export async function generateMetadata({
       indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
       query: params.collectionid,
       params: {
-        restrictSearchableAttributes: ["slug"], // Only search in slug field
+        restrictSearchableAttributes: ["slug"],
       },
     },
   ]);
@@ -49,7 +49,41 @@ export async function generateMetadata({
   }
 }
 
-const OurCollections = async ({ params: { locale, collectionid } }) => {
+export async function generateStaticParams() {
+  const locales = ["en", "vi"]; // Your supported locales
+
+  const allParams: { locale: string; collectionid: string }[] = [];
+
+  for (const locale of locales) {
+    const queryParams = {
+      fields: "*",
+      populate: "*",
+      locale,
+    };
+
+    const queryString = new URLSearchParams(queryParams).toString();
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
+
+    const data = await fetch(url).then((res) => res.json());
+    const collectionData = data.data;
+
+    const paramsForLocale = collectionData.map((collection: any) => ({
+      locale,
+      collectionid: collection.slug,
+    }));
+
+    allParams.push(...paramsForLocale);
+  }
+
+  return allParams;
+}
+
+const OurCollections = async ({
+  params,
+}: {
+  params: { locale: string; collectionid: string };
+}) => {
+  const { locale, collectionid } = params;
   const collectionId = collectionid;
 
   const t = await getTranslations();

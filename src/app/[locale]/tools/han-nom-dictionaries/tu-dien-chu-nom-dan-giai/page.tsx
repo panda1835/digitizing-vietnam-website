@@ -3,8 +3,6 @@ import { Merriweather } from "next/font/google";
 import Entry from "./Entry";
 import DictionarySearchBar from "../DictionarySearchBar";
 
-export const dynamic = "force-static";
-
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export default async function DictionaryPage({
