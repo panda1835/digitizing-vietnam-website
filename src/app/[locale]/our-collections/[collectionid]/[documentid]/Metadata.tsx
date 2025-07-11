@@ -3,6 +3,54 @@ import { useTranslations } from "next-intl";
 
 export default function DocumentMetadata({ locale, collectionItemData }) {
   const t = useTranslations();
+
+  let createdDateNew;
+  if (collectionItemData.date_created_new) {
+    createdDateNew = collectionItemData.date_created_new;
+  }
+  let createdDate = createdDateNew || "N/A";
+
+  const isValidDateFormat = (date: string) => /^\d{4}-\d{2}-\d{2}$/.test(date);
+  const isValidYearMonthFormat = (date: string) => /^\d{4}-\d{2}$/.test(date);
+  const isValidYearFormat = (date: string) => /^\d{4}$/.test(date);
+  const isValidApproximateDateFormat = (date: string) => /^~\d{4}$/.test(date);
+
+  if (
+    collectionItemData.date_created?.full_date ||
+    isValidDateFormat(createdDateNew)
+  ) {
+    createdDate = new Date(
+      collectionItemData.date_created?.full_date || createdDateNew
+    ).toLocaleDateString(locale);
+  } else if (
+    collectionItemData.date_created?.year_month_only ||
+    isValidYearMonthFormat(createdDateNew)
+  ) {
+    createdDate = new Date(
+      collectionItemData.date_created?.year_month_only || createdDateNew
+    ).toLocaleDateString(locale, {
+      year: "numeric",
+      month: "long",
+    });
+  } else if (
+    collectionItemData.date_created?.year_only ||
+    isValidYearFormat(createdDateNew)
+  ) {
+    createdDate = new Date(
+      collectionItemData.date_created?.year_only || createdDateNew
+    ).toLocaleDateString(locale, {
+      year: "numeric",
+    });
+  } else if (
+    collectionItemData.date_created?.approximate_date ||
+    isValidApproximateDateFormat(createdDateNew)
+  ) {
+    // Assuming approximate_date is in the format ~YYYY
+    createdDate = ((locale === "vi" ? "Khoảng năm " : "Around the year ") +
+      (collectionItemData.date_created?.approximate_date ||
+        createdDateNew.replace("~", ""))) as string;
+  }
+
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">
@@ -64,28 +112,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
             {t("CollectionMetadata.date-created")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.date_created?.full_date
-              ? new Date(
-                  collectionItemData.date_created.full_date
-                ).toLocaleDateString(locale)
-              : collectionItemData.date_created?.year_month_only
-              ? new Date(
-                  collectionItemData.date_created.year_month_only
-                ).toLocaleDateString(locale, {
-                  year: "numeric",
-                  month: "long",
-                })
-              : collectionItemData.date_created?.year_only
-              ? new Date(
-                  collectionItemData.date_created.year_only
-                ).toLocaleDateString(locale, {
-                  year: "numeric",
-                })
-              : collectionItemData.date_created?.approximate_date
-              ? new Date(
-                  collectionItemData.date_created.approximate_date
-                ).toLocaleDateString(locale)
-              : "N/A"}
+            {createdDate}
           </div>
         </div>
         {/* Format */}
