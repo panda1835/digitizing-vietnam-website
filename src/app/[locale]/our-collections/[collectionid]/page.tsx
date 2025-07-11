@@ -78,6 +78,8 @@ export async function generateStaticParams() {
   return allParams;
 }
 
+export const dynamic = "force-static";
+
 const OurCollections = async ({
   params,
 }: {
