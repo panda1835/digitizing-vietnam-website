@@ -13,6 +13,8 @@ import { Metadata } from "next";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
+export const dynamic = "force-static";
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
