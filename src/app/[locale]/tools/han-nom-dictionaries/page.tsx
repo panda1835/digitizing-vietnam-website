@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 const HanNomDictionaries = async ({ params: { locale } }) => {
   const t = await getTranslations();

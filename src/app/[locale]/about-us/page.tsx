@@ -10,10 +10,10 @@ import Avatars from "./Avatars";
 import LearnMoreButton from "@/components/LearnMoreButton";
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
-
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-export const dynamic = "force-static";
+// Disable due to error with locale
+// export const dynamic = "force-static";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -22,11 +22,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+import { routing } from "@/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 const AboutUs = async ({ params: { locale } }) => {
   let aboutUsData = [];
 
   const t = await getTranslations();
-
+  // Enable static rendering
   try {
     const queryParams = {
       fields: "*",

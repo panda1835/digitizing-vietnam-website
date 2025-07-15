@@ -14,7 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const dynamic = "force-static";
+export async function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "vi" }];
+}
+
+// export const dynamic = "force-static";
 
 const OurCollections = async ({ params: { locale } }) => {
   let collections: Collection[] = [];

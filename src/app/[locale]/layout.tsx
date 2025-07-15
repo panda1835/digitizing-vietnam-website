@@ -13,6 +13,11 @@ export const metadata = {
   description:
     "Digitizing Việt Nam, a central hub for resources about Vietnam Studies.",
 };
+import { routing } from "@/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function LocaleLayout({
   children,
@@ -28,6 +33,7 @@ export default async function LocaleLayout({
     backgroundImage: `url(/images/paper-textual.png)`,
     // backgroundSize: "auto 80px", // Assuming you want the "height" of the repeating image to be 80px
   };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#f7f7f7]">
       <NextIntlClientProvider messages={messages}>

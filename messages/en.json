@@ -180,9 +180,18 @@
       "description": "The Kiều Tools is a collection of tools that allow users to analyze and explore the text of Nguyễn Du's Truyện Kiều. This tool is especially useful for researchers who need to analyze the text of Truyện Kiều in detail.",
       "tools": {
         "glossary": {
-          "name": "Glossary of Nôm characters",
+          "name": "Glossary of Nôm characters in a version of Kiều",
           "description": "This page lists occurrences of all Nôm characters and their frequencies in a selected version of Kiều.",
-          "version-not-found": "Version not found"
+          "version-not-found": "Version not found",
+          "version": "Version",
+          "nom": "Nôm",
+          "quoc-ngu": "Quốc Ngữ",
+          "frequency": "Frequency",
+          "entries": "entries"
+        },
+        "glossary-all": {
+          "name": "Glossary of Nôm characters in all versions of Kiều",
+          "description": "This page lists occurrences of all Nôm characters and their frequencies in all versions of Kiều."
         }
       }
     },

@@ -51,33 +51,25 @@ export async function generateMetadata({
 
 // export async function generateStaticParams() {
 //   const locales = ["en", "vi"]; // Your supported locales
-
 //   const allParams: { locale: string; collectionid: string }[] = [];
-
 //   for (const locale of locales) {
 //     const queryParams = {
 //       fields: "*",
 //       populate: "*",
 //       locale,
 //     };
-
 //     const queryString = new URLSearchParams(queryParams).toString();
 //     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
-
 //     const data = await fetch(url).then((res) => res.json());
 //     const collectionData = data.data;
-
 //     const paramsForLocale = collectionData.map((collection: any) => ({
 //       locale,
 //       collectionid: collection.slug,
 //     }));
-
 //     allParams.push(...paramsForLocale);
 //   }
-
 //   return allParams;
 // }
-
 // export const dynamic = "force-static";
 
 const OurCollections = async ({
