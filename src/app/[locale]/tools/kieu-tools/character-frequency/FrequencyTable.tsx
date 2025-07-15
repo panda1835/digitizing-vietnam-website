@@ -1,24 +1,13 @@
-import { Merriweather } from "next/font/google";
-
 import SelectVersion from "./SelectVersion";
-import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-import { Separator } from "@/components/ui/separator";
 import { getTranslations } from "next-intl/server";
 import { PageHeader } from "@/components/common/PageHeader";
-import localFont from "next/font/local";
-
-const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
-
-const NomNaTong = localFont({
-  src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
-});
 
 import glossaryData1866 from "./1866_glossary.json";
 import glossaryData1870 from "./1870_glossary.json";
 import glossaryData1871 from "./1871_glossary.json";
 import glossaryData1872 from "./1872_glossary.json";
 import glossaryData1902 from "./1902_glossary.json";
-
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 export default async function FrequencyTable({
   version,
   locale,
@@ -66,7 +55,8 @@ export default async function FrequencyTable({
 
           {glossaryData && (
             <div className="text-xl font-['Helvetica Neue'] text-muted-foreground">
-              {glossaryData.summary.total_entries} entries
+              {glossaryData.summary.total_entries}{" "}
+              {t("Tools.kieu-tools.tools.glossary.entries")}
             </div>
           )}
         </div>
@@ -77,13 +67,13 @@ export default async function FrequencyTable({
               <thead>
                 <tr>
                   <th className="bg-branding-brown text-white p-3 text-lg font-[Helvetica Neue] font-light">
-                    Nôm
+                    {t("Tools.kieu-tools.tools.glossary.nom")}
                   </th>
                   <th className="bg-branding-brown text-white p-3 text-lg text-left font-[Helvetica Neue] font-light">
-                    Quốc ngữ
+                    {t("Tools.kieu-tools.tools.glossary.quoc-ngu")}
                   </th>
                   <th className="bg-branding-brown text-white p-3 text-lg text-right font-[Helvetica Neue] font-light">
-                    Frequency
+                    {t("Tools.kieu-tools.tools.glossary.frequency")}
                   </th>
                 </tr>
               </thead>
@@ -93,10 +83,11 @@ export default async function FrequencyTable({
                     key={index}
                     className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
                   >
-                    <td
-                      className={`${NomNaTong.className} border p-4 text-2xl text-center`}
-                    >
-                      {entry.character}
+                    <td className={`border p-4 text-center`}>
+                      <LookupableHanNomText
+                        text={entry.character}
+                        className="text-2xl"
+                      />
                     </td>
                     <td className="border p-4">{entry.meaning.join(", ")}</td>
                     <td className="border p-4 text-right">{entry.frequency}</td>

@@ -183,7 +183,16 @@
         "glossary": {
           "name": "Bảng chú các chữ Nôm trong mỗi bản Kiều",
           "description": "Danh sách tất cả các chữ Nôm và số lần xuất hiện trong một bản Kiều.",
-          "version-not-found": "Không tìm thấy phiên bản Kiều tương ứng"
+          "version-not-found": "Không tìm thấy phiên bản Kiều tương ứng",
+          "version": "Phiên bản",
+          "nom": "Nôm",
+          "quoc-ngu": "Quốc Ngữ",
+          "frequency": "Tần suất",
+          "entries": "mục từ"
+        },
+        "glossary-all": {
+          "name": "Bảng chú các chữ Nôm trong tất cả bản Kiều",
+          "description": "Danh sách tất cả các chữ Nôm và số lần xuất hiện trong tất cả bản Kiều."
         }
       }
     },

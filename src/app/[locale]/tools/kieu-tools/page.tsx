@@ -26,6 +26,13 @@ const KieuTools = async ({ params: { locale } }) => {
       target: "",
       rel: "",
     },
+    {
+      href: "/tools/kieu-tools/character-frequency-all-versions",
+      title: t("Tools.kieu-tools.tools.glossary-all.name"),
+      description: t("Tools.kieu-tools.tools.glossary-all.description"),
+      target: "",
+      rel: "",
+    },
   ];
   return (
     <div className="flex flex-col items-center max-width">
