@@ -22,8 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "vi" }];
+import { routing } from "@/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 const AboutUs = async ({ params: { locale } }) => {
