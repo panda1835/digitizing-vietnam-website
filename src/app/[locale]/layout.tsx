@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 
 import NavigationBar from "@/components/layout/NavigationBar";
 import Footer from "@/components/layout/Footer";
@@ -33,9 +33,6 @@ export default async function LocaleLayout({
     backgroundImage: `url(/images/paper-textual.png)`,
     // backgroundSize: "auto 80px", // Assuming you want the "height" of the repeating image to be 80px
   };
-
-  // Enable static rendering
-  setRequestLocale(locale);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f7f7f7]">

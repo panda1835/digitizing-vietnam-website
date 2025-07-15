@@ -18,7 +18,7 @@ export async function generateStaticParams() {
   return [{ locale: "en" }, { locale: "vi" }];
 }
 
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 const OurCollections = async ({ params: { locale } }) => {
   let collections: Collection[] = [];

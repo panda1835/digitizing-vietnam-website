@@ -10,10 +10,10 @@ import Avatars from "./Avatars";
 import LearnMoreButton from "@/components/LearnMoreButton";
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-export const dynamic = "force-static";
+// Disable due to error with locale
+// export const dynamic = "force-static";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -33,7 +33,6 @@ const AboutUs = async ({ params: { locale } }) => {
 
   const t = await getTranslations();
   // Enable static rendering
-  setRequestLocale(locale);
   try {
     const queryParams = {
       fields: "*",

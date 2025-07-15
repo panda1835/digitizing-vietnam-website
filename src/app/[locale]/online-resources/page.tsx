@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const OnlineResources = async ({
