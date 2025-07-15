@@ -49,36 +49,36 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams() {
-  const locales = ["en", "vi"]; // Your supported locales
+// export async function generateStaticParams() {
+//   const locales = ["en", "vi"]; // Your supported locales
 
-  const allParams: { locale: string; collectionid: string }[] = [];
+//   const allParams: { locale: string; collectionid: string }[] = [];
 
-  for (const locale of locales) {
-    const queryParams = {
-      fields: "*",
-      populate: "*",
-      locale,
-    };
+//   for (const locale of locales) {
+//     const queryParams = {
+//       fields: "*",
+//       populate: "*",
+//       locale,
+//     };
 
-    const queryString = new URLSearchParams(queryParams).toString();
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
+//     const queryString = new URLSearchParams(queryParams).toString();
+//     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
 
-    const data = await fetch(url).then((res) => res.json());
-    const collectionData = data.data;
+//     const data = await fetch(url).then((res) => res.json());
+//     const collectionData = data.data;
 
-    const paramsForLocale = collectionData.map((collection: any) => ({
-      locale,
-      collectionid: collection.slug,
-    }));
+//     const paramsForLocale = collectionData.map((collection: any) => ({
+//       locale,
+//       collectionid: collection.slug,
+//     }));
 
-    allParams.push(...paramsForLocale);
-  }
+//     allParams.push(...paramsForLocale);
+//   }
 
-  return allParams;
-}
+//   return allParams;
+// }
 
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 const OurCollections = async ({
   params,
