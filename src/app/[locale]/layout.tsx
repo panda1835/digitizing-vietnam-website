@@ -8,16 +8,12 @@ import Footer from "@/components/layout/Footer";
 import BackToTopButton from "@/components/layout/BackToTopButton";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+
 export const metadata = {
   title: "Digitizing Việt Nam",
   description:
     "Digitizing Việt Nam, a central hub for resources about Vietnam Studies.",
 };
-import { routing } from "@/i18n/routing";
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export default async function LocaleLayout({
   children,
