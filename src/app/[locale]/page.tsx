@@ -18,7 +18,6 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 import { formatDate } from "@/utils/datetime";
 import { getImageByKey } from "@/utils/image";
 
-export const dynamic = "force-static";
 const Home = async ({ params: { locale } }) => {
   const t = await getTranslations();
 

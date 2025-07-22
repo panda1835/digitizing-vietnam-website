@@ -9,6 +9,7 @@ import SocialMediaSharing from "../../../../components/common/SocialMediaSharing
 import { Metadata } from "next";
 import { getImageByKey } from "@/utils/image";
 import algoliasearch from "algoliasearch";
+import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
@@ -48,7 +49,6 @@ export async function generateMetadata({
   }
 }
 
-import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 const BlogArticle = async ({ params: { slug, locale } }) => {
   let post: Blog = {
     title: "",

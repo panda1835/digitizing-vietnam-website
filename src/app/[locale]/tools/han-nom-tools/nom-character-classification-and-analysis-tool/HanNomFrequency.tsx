@@ -155,7 +155,11 @@ export default function HanNomFrequencyPage() {
           <Textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Nhập văn bản Nôm ở đây..."
+            placeholder={
+              locale == "vi"
+                ? "Nhập văn bản Nôm ở đây..."
+                : "Enter Nom text here..."
+            }
             className={`text-lg h-40 md:w-1/2 ${NomNaTong.className}`}
           />
           <div className="flex flex-col md:w-1/2 space-y-4">
