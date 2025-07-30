@@ -59,10 +59,10 @@ export default async function DaiVietSuKyToanThu({
     if (chuThichNumbers.length > 0) {
       processedQuocNgu = processedQuocNgu.replace(/\{(\d+)\}/g, (_, number) => {
         const tooltipText = chuThich
-          .filter((ct) => ct.ma_chuthich === number)
+          .filter((ct) => ct.ma_chuthich == number)
           .map((ct) => ct.chu_thich)
           .join("<br>");
-        return `<span class="text-branding-brown hover:underline relative group" data-chuthich="${number}">
+        return `<span class="text-branding-brown text-xl hover:underline relative group" data-chuthich="${number}">
         ${locale === "en" ? `[Note]` : `[Chú thích]`}
         <div class="z-50 absolute w-60 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black text-lg p-2 rounded border border-black shadow-lg">
           ${tooltipText}

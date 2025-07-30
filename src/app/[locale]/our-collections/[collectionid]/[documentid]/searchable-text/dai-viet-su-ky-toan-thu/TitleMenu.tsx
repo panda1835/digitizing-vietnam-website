@@ -27,9 +27,6 @@ export function NestedDropdownMenu({
     flatItems.map((item) => [item.title, item.index])
   );
 
-  console.log(flattenItems(menuData));
-  console.log("Title to Index Map:", titleToIndex);
-
   const handleClick = (title: string) => {
     const index = titleToIndex[title];
     router.push(`?topic=${index + 1}`);
