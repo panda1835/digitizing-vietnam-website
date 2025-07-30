@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { useSearchParams } from "next/navigation";
 import {
   Pagination,
   PaginationContent,
@@ -20,13 +22,21 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({
   totalPages,
   maxVisiblePages = 5,
 }) => {
+  const searchParams = useSearchParams();
+
+  const createPageUrl = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", page.toString());
+    return `?${params.toString()}`;
+  };
+
   const generatePaginationItems = () => {
     const items: JSX.Element[] = [];
 
     // Always show first page
     items.push(
       <PaginationItem key="first">
-        <PaginationLink href={`?page=1`} isActive={currentPage === 1}>
+        <PaginationLink href={createPageUrl(1)} isActive={currentPage === 1}>
           1
         </PaginationLink>
       </PaginationItem>
@@ -49,7 +59,7 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({
       if (i === 1 || i === totalPages) continue; // Skip first and last page as they're always shown
       items.push(
         <PaginationItem key={i}>
-          <PaginationLink href={`?page=${i}`} isActive={currentPage === i}>
+          <PaginationLink href={createPageUrl(i)} isActive={currentPage === i}>
             {i}
           </PaginationLink>
         </PaginationItem>
@@ -70,7 +80,7 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({
       items.push(
         <PaginationItem key="last">
           <PaginationLink
-            href={`?page=${totalPages}`}
+            href={createPageUrl(totalPages)}
             isActive={currentPage === totalPages}
           >
             {totalPages}
@@ -87,7 +97,7 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href={`?page=${Math.max(1, currentPage - 1)}`}
+            href={createPageUrl(Math.max(1, currentPage - 1))}
             aria-disabled={currentPage === 1}
             className={
               currentPage === 1 ? "pointer-events-none opacity-50" : ""
@@ -99,7 +109,7 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({
 
         <PaginationItem>
           <PaginationNext
-            href={`?page=${Math.min(totalPages, currentPage + 1)}`}
+            href={createPageUrl(Math.min(totalPages, currentPage + 1))}
             aria-disabled={currentPage === totalPages}
             className={
               currentPage === totalPages ? "pointer-events-none opacity-50" : ""

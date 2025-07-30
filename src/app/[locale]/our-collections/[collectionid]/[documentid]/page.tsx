@@ -18,6 +18,7 @@ import LucVanTienText from "./searchable-text/luc-van-tien/LucVanTienText";
 import ChinhPhuNgamText from "./searchable-text/chinh-phu-ngam-khuc/ChinhPhuNgamText";
 import TinhHoaMuaXuan from "./searchable-text/tinh-hoa-mua-xuan/TinhHoaMuaXuan";
 import QuocAmThiTap from "./searchable-text/quoc-am-thi-tap/QuocAmThiTap";
+import DaiVietSuKyToanThu from "./searchable-text/dai-viet-su-ky-toan-thu/DaiVietSuKyToanThu";
 import NotFound from "@/app/not-found";
 
 const searchClient = algoliasearch(
@@ -198,6 +199,56 @@ const CollectionItemViewer = async ({
             locale={locale}
             topic={currentTopic || "1"}
             highlightedLine={Number(highlightedLine)}
+          />
+        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+          documentId === "quyen-thu" ? (
+          <DaiVietSuKyToanThu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            book="0"
+            page={currentPage}
+            topic={currentTopic || "1"}
+          />
+        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+          documentId === "ngoai-ky" ? (
+          <DaiVietSuKyToanThu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            book="1"
+            page={currentPage}
+            topic={currentTopic || "1"}
+          />
+        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+          documentId === "ban-ky-toan-thu" ? (
+          <DaiVietSuKyToanThu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            book="2"
+            page={currentPage}
+            topic={currentTopic || "1"}
+          />
+        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+          documentId === "ban-ky-thuc-luc" ? (
+          <DaiVietSuKyToanThu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            book="3"
+            page={currentPage}
+            topic={currentTopic || "1"}
+          />
+        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+          documentId === "ban-ky-tuc-bien" ? (
+          <DaiVietSuKyToanThu
+            title={collectionItemData.title}
+            locale={locale}
+            documentid={documentId}
+            book="4"
+            page={currentPage}
+            topic={currentTopic || "1"}
           />
         ) : collectionId === "truyen-kieu" &&
           documentId === "truyen-kieu-1866" ? (

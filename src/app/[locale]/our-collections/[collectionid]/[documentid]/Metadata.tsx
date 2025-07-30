@@ -55,7 +55,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">
         {/* Title */}
-        <div className="items-center gap-3">
+        <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.title")}:
           </div>
@@ -64,7 +64,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
           </div>
         </div>
         {/* Authors */}
-        <div className="items-center gap-3">
+        <div className="items-center gap-3 mt-4">
           <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.authors")}:
           </div>
