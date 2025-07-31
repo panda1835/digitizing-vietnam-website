@@ -32,28 +32,78 @@ export default function HanNomTranslator() {
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
-    setInputText(text);
 
     const lines = text.split("\n").map((line) => line.trim().split(/\s+/));
-    const mappedCandidates = lines.map((line) =>
-      line.map((word) => nomMap[word.toLowerCase()] || [])
-    );
 
-    const mappedSelected = lines.map((line, i) =>
-      line.map((word, j) => {
-        if (words[i]?.[j] === word && selectedChars[i]?.[j]) {
-          return selectedChars[i][j];
+    // Process words to handle number shortcuts (e.g., "nhà4" -> select 4th character)
+    const processedLines = lines.map((line) =>
+      line.map((word) => {
+        const match = word.match(/^(.+?)([1-9])$/);
+        if (match) {
+          const [, baseWord, numberStr] = match;
+          return {
+            original: word,
+            base: baseWord,
+            selectIndex: parseInt(numberStr, 10) - 1,
+          };
         }
-        return mappedCandidates[i][j]?.[0] || "";
+        return { original: word, base: word, selectIndex: null };
       })
     );
 
-    setWords(lines);
+    // Check if any numbers were found and need to be removed from input
+    let hasNumberShortcuts = false;
+    const cleanedLines = processedLines.map((line) =>
+      line.map((wordObj) => {
+        if (wordObj.selectIndex !== null) {
+          hasNumberShortcuts = true;
+          return wordObj.base;
+        }
+        return wordObj.original;
+      })
+    );
+
+    // Update input text to remove numbers if any were found
+    const cleanedText = cleanedLines.map((line) => line.join(" ")).join("\n");
+    if (hasNumberShortcuts) {
+      setInputText(cleanedText);
+    } else {
+      setInputText(text);
+    }
+
+    const mappedCandidates = processedLines.map((line) =>
+      line.map((wordObj) => nomMap[wordObj.base.toLowerCase()] || [])
+    );
+
+    const mappedSelected = processedLines.map((line, i) =>
+      line.map((wordObj, j) => {
+        const candidates = mappedCandidates[i][j];
+
+        // If there's a number shortcut, try to select that index
+        if (wordObj.selectIndex !== null && candidates[wordObj.selectIndex]) {
+          return candidates[wordObj.selectIndex];
+        }
+
+        // Otherwise, keep existing selection or use first candidate
+        if (words[i]?.[j] === wordObj.original && selectedChars[i]?.[j]) {
+          return selectedChars[i][j];
+        }
+        return candidates[0] || "";
+      })
+    );
+
+    // Store the cleaned words for display purposes
+    const originalWords = cleanedLines;
+
+    setWords(originalWords);
     setCandidates(mappedCandidates);
     setSelectedChars(mappedSelected);
     setActiveIndex(
-      lines.length > 0
-        ? { line: lines.length - 1, word: lines[lines.length - 1].length - 1 }
+      cleanedLines.length > 0
+        ? {
+            line: cleanedLines.length - 1,
+            word: cleanedLines[cleanedLines.length - 1].length - 1,
+          }
         : null
     );
     setHoveredCandidateIndex(null);
