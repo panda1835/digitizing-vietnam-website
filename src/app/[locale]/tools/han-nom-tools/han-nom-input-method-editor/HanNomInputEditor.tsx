@@ -205,7 +205,7 @@ export default function HanNomTranslator() {
 
       // Replace the word at wordIndex with the selected compound word
       wordsInLine[wordIndex] = selectedQn;
-      lines[lineIndex] = wordsInLine.join(" ");
+      lines[lineIndex] = wordsInLine.join(" ") + " "; // Add a space at the end to maintain formatting
 
       const newInputText = lines.join("\n");
       setInputText(newInputText);
