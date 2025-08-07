@@ -173,6 +173,12 @@
           "description": "Nguyễn Trãi Quốc âm Từ điển là công trình của Tiến sĩ Trần Trọng Dương, chuyên khảo ngôn ngữ trong Quốc âm thi tập — tập thơ chữ Nôm duy nhất còn lại của Nguyễn Trãi, sáng tác thế kỷ 15. Từ điển không chỉ nghiên cứu từ vựng cổ mà còn ghi lại nhiều nét văn hóa, phong tục thời trung đại. Tác phẩm tập trung giải nghĩa, truy nguyên hơn 2.500 mục từ, thành ngữ, điển cố qua 12.000 lượt âm tiết trong thơ Nguyễn Trãi, giúp người đọc hiểu sâu hơn về ngôn ngữ và văn hóa thời đại ông. Với giá trị khoa học và thực tiễn, cuốn từ điển là tài liệu quý cho nghiên cứu, giảng dạy và học tập văn học cổ Việt Nam.",
           "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
           "author": "Trần Trọng Dương"
+        },
+        "nhat-dung-thuong-dam": {
+          "name": "Từ Điển Nhật Dụng Thường Đàm",
+          "description": "...",
+          "search-placeholder": "Tra cứu Hán Nôm, Quốc Ngữ, Hán Việt, hoặc tiếng Anh",
+          "author": "Lê Văn Cường (phiên âm, khảo dị), Giáp Thị Hải Chi (tiếng Anh)"
         }
       }
     },

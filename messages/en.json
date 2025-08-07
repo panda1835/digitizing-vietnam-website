@@ -172,6 +172,12 @@
           "description": "Nguyễn Trãi Quốc Âm Dictionary is a work by Dr. Trần Trọng Dương, dedicated to the study of the language used in Quốc Âm Thi Tập — the only surviving collection of Nôm poems by Nguyễn Trãi, composed in the 15th century. The dictionary not only examines ancient Vietnamese vocabulary but also preserves many aspects of medieval Vietnamese culture and customs. The work focuses on explaining and tracing the origins of over 2,500 entries, including words, idioms, and allusions, across 12,000 syllable occurrences in Nguyễn Trãi’s poetry, helping readers gain deeper insights into the language and culture of his time. With both scholarly and practical value, this dictionary is a valuable resource for the study, teaching, and learning of Vietnam's classical literature.",
           "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
           "author": "Trần Trọng Dương"
+        },
+        "nhat-dung-thuong-dam": {
+          "name": "Nhật Dụng Thường Đàm Dictionary",
+          "description": "...",
+          "search-placeholder": "Search Hán Nôm, Quốc Ngữ, Hán Việt, or English",
+          "author": "Lê Văn Cường (phiên âm, khảo dị), Giáp Thị Hải Chi (English)"
         }
       }
     },
