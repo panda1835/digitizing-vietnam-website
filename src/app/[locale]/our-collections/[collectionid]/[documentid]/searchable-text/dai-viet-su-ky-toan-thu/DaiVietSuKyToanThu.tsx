@@ -154,18 +154,16 @@ export default async function DaiVietSuKyToanThu({
                   </div>
                 ))}
               </div>
-              <div
+              {/* <div
                 className={`text-2xl ${NomNaTong.className} mt-8 text-branding-brown`}
               >
                 {locale == "vi" ? "Dịch Quốc Ngữ" : "Vietnamese Translation"}
               </div>
-              {/* <div className={`text-2xl ${NomNaTong.className} mt-4`}>
-                {processedQuocNgu}
-              </div> */}
+
               <div
                 className={`text-2xl ${NomNaTong.className} mt-4`}
                 dangerouslySetInnerHTML={{ __html: processedQuocNgu }}
-              />
+              /> */}
             </div>
           </div>
         </div>
