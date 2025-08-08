@@ -52,6 +52,17 @@ const HanNomDictionaries = async ({ params: { locale } }) => {
       target: "",
       rel: "",
     },
+    {
+      href: "/tools/han-nom-dictionaries/nhat-dung-thuong-dam",
+      title: t(
+        "Tools.han-nom-dictionaries.dictionaries.nhat-dung-thuong-dam.name"
+      ),
+      description: t(
+        "Tools.han-nom-dictionaries.dictionaries.nhat-dung-thuong-dam.description"
+      ),
+      target: "",
+      rel: "",
+    },
   ];
 
   return (
