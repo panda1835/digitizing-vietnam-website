@@ -149,6 +149,7 @@
         "tooltip": "Draw a Han Nom character",
         "title": "Draw a Han Nom character",
         "description": "Use your finger or mouse to draw a Han Nom character in the box below. When you're done, click Recognize to see matching results. Select the correct character to input it into the search box. Click Clear to erase the writing canvas.",
+        "note": "Currently, this feature only supports writing Han characters and phonetic-loan Nôm characters.",
         "clear": "Clear",
         "recognize": "Recognize",
         "recognizing": "Recognizing..."
@@ -175,7 +176,7 @@
         },
         "nhat-dung-thuong-dam": {
           "name": "Nhật Dụng Thường Đàm Dictionary",
-          "description": "...",
+          "description": "Nhật Dụng Thường Đàm is a small Sino-Vietnamese bilingual dictionary compiled by Phạm Đình Hổ (1768–1839), consisting of 32 thematic categories such as Astronomy, Morality, Confucianism, Food, and Beasts, with Han characters explained through Nom script. Though limited in scope, it effectively introduces common words and phrases and serves as a valuable resource for comparing Hán and Nôm scripts. The dictionary, engraved in the 4th year of Tự Đức by Đồng Văn Trai printing house, is currently preserved at the National Library of Vietnam (catalog number R.1726) and contains 52 sheets printed on dó paper. Each entry includes a Hán character and its corresponding explanation in Nôm script, illustrating the structure and function of bilingual entries.",
           "search-placeholder": "Search Hán Nôm, Quốc Ngữ, Hán Việt, or English",
           "author": "Lê Văn Cường (phiên âm, khảo dị), Giáp Thị Hải Chi (English)"
         }
