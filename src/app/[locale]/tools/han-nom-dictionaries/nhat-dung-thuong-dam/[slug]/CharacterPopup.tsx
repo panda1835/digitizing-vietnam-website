@@ -129,7 +129,7 @@ export default function CharacterPopup({
 
                 <div className="text-lg">
                   <span className="font-['Helvetica Neue'] font-semibold ">
-                    {locale == "en" ? "Book Section" : "Mục sách"}:
+                    {locale == "en" ? "Book section" : "Mục sách"}:
                   </span>
                   <span className="ml-2 font-['Helvetica Neue']">
                     <Link

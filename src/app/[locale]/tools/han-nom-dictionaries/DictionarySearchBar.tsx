@@ -97,6 +97,10 @@ export default function DictionarySearchBar({
             <DialogDescription>
               {t("Tools.han-nom-dictionaries.writing-pad.description")}
             </DialogDescription>
+            <DialogDescription>
+              <span className="font-semibold text-gray-600">Lưu ý: </span>
+              <span>{t("Tools.han-nom-dictionaries.writing-pad.note")}</span>
+            </DialogDescription>
           </DialogHeader>
 
           <HandwritingPad onSelect={handleCandidateSelected} />
