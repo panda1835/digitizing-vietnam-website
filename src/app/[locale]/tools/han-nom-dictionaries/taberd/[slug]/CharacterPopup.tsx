@@ -9,7 +9,7 @@ import { useLocale } from "next-intl";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import { toc } from "../toc";
 import Link from "next/link";
-import { NDTDDictionaryEntry } from "../types"; // Adjust the import path as necessary
+import { TaberdDictionaryEntry } from "../types"; // Adjust the import path as necessary
 const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
@@ -17,7 +17,7 @@ const NomNaTong = localFont({
 interface CharacterPopupProps {
   isOpen: boolean;
   onClose: () => void;
-  character: NDTDDictionaryEntry | null;
+  character: TaberdDictionaryEntry | null;
   imageUrl: string[];
 }
 

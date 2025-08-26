@@ -2,7 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import localFont from "next/font/local";
-import { NDTDDictionaryEntry } from "./types";
+import { TaberdDictionaryEntry } from "./types";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import { useLocale } from "next-intl";
 import { getImageUrl } from "./utils";
@@ -13,7 +13,7 @@ const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
-export default function Entry({ entry }: { entry: NDTDDictionaryEntry }) {
+export default function Entry({ entry }: { entry: TaberdDictionaryEntry }) {
   const locale = useLocale();
   const [fullImageUrl, setFullImageUrl] = useState<string | null>(null);
 

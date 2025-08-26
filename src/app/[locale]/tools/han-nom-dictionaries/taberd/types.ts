@@ -1,4 +1,4 @@
-export type NDTDDictionaryEntry = {
+export type TaberdDictionaryEntry = {
   id: number;
   nom: string;
   qn: string;

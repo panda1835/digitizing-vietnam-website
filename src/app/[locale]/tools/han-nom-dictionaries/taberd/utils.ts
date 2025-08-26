@@ -1,7 +1,7 @@
-import { NDTDDictionaryEntry } from "./types";
+import { TaberdDictionaryEntry } from "./types";
 
 export const getImageUrl = (
-  character: NDTDDictionaryEntry | null,
+  character: TaberdDictionaryEntry | null,
   height: number | null = null
 ) => {
   if (!character || !character.pages) {
