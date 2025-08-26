@@ -109,14 +109,15 @@ export default function CharacterPopup({
                   </span>
                 </div>
 
-                <div className="text-lg">
+                {/* Temporary remove this as it's more like a personal note than official*/}
+                {/* <div className="text-lg">
                   <span className="font-['Helvetica Neue'] font-semibold ">
                     {locale == "en" ? "English" : "Tiếng Anh"}:
                   </span>
                   <span className="ml-2 font-['Helvetica Neue']">
                     {character.english}
                   </span>
-                </div>
+                </div> */}
 
                 <div className="text-lg">
                   <span className="font-['Helvetica Neue'] font-semibold ">

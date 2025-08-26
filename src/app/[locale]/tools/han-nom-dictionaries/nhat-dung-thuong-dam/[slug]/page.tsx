@@ -84,6 +84,11 @@ export default async function Page({
         <LookupableHanNomText text={tocItem.han_nom} className="text-4xl" /> -{" "}
         {tocItem[locale]}
       </div>
+      <div className="text-muted-foreground mt-5 font-['Helvetica Neue'] font-light">
+        {locale == "en"
+          ? "Click on each row to view details."
+          : "Nhấp vào từng hàng để xem chi tiết."}
+      </div>
       <div className="mt-10">
         <InteractiveTable data={data} locale={locale} />
       </div>

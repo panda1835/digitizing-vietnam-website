@@ -57,10 +57,10 @@ export default function InteractiveTable({
               #
             </TableHead>
             <TableHead className="w-[200px] text-lg font-['Helvetica Neue'] font-bold">
-              {locale == "en" ? "Han Nom" : "Hán Nôm"}
+              {locale == "en" ? "Han text" : "Chữ Hán"}
             </TableHead>
             <TableHead className="text-lg font-['Helvetica Neue'] font-bold">
-              {locale == "en" ? "English" : "Âm Hán Việt"}
+              {locale == "vi" ? "Âm Hán Việt" : "Hán-Việt reading"}
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -80,7 +80,7 @@ export default function InteractiveTable({
                 </span>
               </TableCell>
               <TableCell className="text-lg font-['Helvetica Neue'] font-light">
-                {locale == "vi" ? item.han_viet : item.english}
+                {locale == "vi" ? item.han_viet : item.han_viet}
               </TableCell>
             </TableRow>
           ))}
