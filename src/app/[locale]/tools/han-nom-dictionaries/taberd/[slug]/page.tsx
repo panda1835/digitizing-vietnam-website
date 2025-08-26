@@ -3,7 +3,7 @@ import { toc } from "../toc";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import InteractiveTable from "./InteractiveTable";
 import { Merriweather } from "next/font/google";
-import { NDTDDictionaryEntry } from "../types";
+import { TaberdDictionaryEntry } from "../types";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -59,7 +59,7 @@ export default async function Page({
   const tocItem = toc[Number(slug) - 1];
 
   // Server-side data fetching
-  let data: NDTDDictionaryEntry[] = [];
+  let data: TaberdDictionaryEntry[] = [];
   try {
     const apiUrl =
       process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
@@ -83,11 +83,6 @@ export default async function Page({
       >
         <LookupableHanNomText text={tocItem.han_nom} className="text-4xl" /> -{" "}
         {tocItem[locale]}
-      </div>
-      <div className="text-muted-foreground mt-5 font-['Helvetica Neue'] font-light">
-        {locale == "en"
-          ? "Click on each row to view details."
-          : "Nhấp vào từng hàng để xem chi tiết."}
       </div>
       <div className="mt-10">
         <InteractiveTable data={data} locale={locale} />

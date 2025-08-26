@@ -9,16 +9,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import CharacterPopup from "@/app/[locale]/tools/han-nom-dictionaries/nhat-dung-thuong-dam/[slug]/CharacterPopup";
+import CharacterPopup from "./CharacterPopup";
 import localFont from "next/font/local";
 import { getImageUrl } from "../utils";
-import { NDTDDictionaryEntry } from "../types";
+import { TaberdDictionaryEntry } from "../types";
 const NomNaTong = localFont({
   src: "../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
 interface InteractiveTableProps {
-  data: NDTDDictionaryEntry[];
+  data: TaberdDictionaryEntry[];
   locale: string;
 }
 
@@ -27,21 +27,17 @@ export default function InteractiveTable({
   locale,
 }: InteractiveTableProps) {
   const [selectedCharacter, setSelectedCharacter] =
-    useState<NDTDDictionaryEntry | null>(null);
+    useState<TaberdDictionaryEntry | null>(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const handleRowClick = (item: NDTDDictionaryEntry) => {
-    // Convert Entry to NDTDDictionaryEntry format
-    const characterData: NDTDDictionaryEntry = {
-      id: typeof item.id === "string" ? parseInt(item.id) : item.id,
-      ma_loai: item.ma_loai ? item.ma_loai : 1,
-      han_viet: item.han_viet,
-      han_nom: item.han_nom,
-      nom: item.nom || item.han_nom,
-      quoc_ngu: item.quoc_ngu || item.han_viet,
-      english: item.english || "",
-      trang: item.trang || "",
-      cot: item.cot || "",
+  const handleRowClick = (item: TaberdDictionaryEntry) => {
+    // Convert Entry to TaberdDictionaryEntry format
+    const characterData: TaberdDictionaryEntry = {
+      id: item.id,
+      nom: item.nom,
+      qn: item.qn,
+      pages: item.pages,
+      cols: item.cols,
     };
 
     setSelectedCharacter(characterData);
@@ -57,10 +53,7 @@ export default function InteractiveTable({
               #
             </TableHead>
             <TableHead className="w-[200px] text-lg font-['Helvetica Neue'] font-bold">
-              {locale == "en" ? "Han text" : "Chữ Hán"}
-            </TableHead>
-            <TableHead className="text-lg font-['Helvetica Neue'] font-bold">
-              {locale == "vi" ? "Âm Hán Việt" : "Hán-Việt reading"}
+              {locale == "en" ? "Han Nom" : "Hán Nôm"}
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -76,11 +69,8 @@ export default function InteractiveTable({
               </TableCell>
               <TableCell className="text-lg font-['Helvetica Neue'] font-light">
                 <span className={`text-xl ${NomNaTong.className}`}>
-                  {item.han_nom}
+                  {item.nom}
                 </span>
-              </TableCell>
-              <TableCell className="text-lg font-['Helvetica Neue'] font-light">
-                {locale == "vi" ? item.han_viet : item.han_viet}
               </TableCell>
             </TableRow>
           ))}

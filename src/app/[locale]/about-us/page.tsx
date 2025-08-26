@@ -38,6 +38,7 @@ const AboutUs = async ({ params: { locale } }) => {
       fields: "*",
       "populate[0]": "core_team.avatar",
       "populate[1]": "advisor.avatar",
+      "populate[2]": "manager.avatar",
       locale: locale,
     };
 
@@ -105,6 +106,18 @@ const AboutUs = async ({ params: { locale } }) => {
           </div>
         </div>
 
+        <div className="mt-20">
+          <Separator />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
+          <div className={`${merriweather.className}  text-4xl`}>
+            {locale === "en"
+              ? "Principle Investigators and Program Directors"
+              : "Trưởng dự án"}{" "}
+          </div>
+          <Avatars teamMember={aboutUsData["manager"]} />
+        </div>
         <div className="mt-20">
           <Separator />
         </div>
