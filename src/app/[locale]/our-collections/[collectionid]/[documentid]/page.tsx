@@ -296,14 +296,14 @@ const CollectionItemViewer = async ({
             page={currentPage}
           />
         ) : (
-          <div className="flex flex-row">
+          <div className="flex flex-row mt-10">
             {/* Item viewer */}
             <div className="w-full relative">
               {/* Video/audio type */}
               {documentType === "embed" && (
                 <div className="flex">
                   <div
-                    className=""
+                    className="w-full"
                     dangerouslySetInnerHTML={renderHtml(
                       collectionItemData.item_url[0].media_embed
                     )}

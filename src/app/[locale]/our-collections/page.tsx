@@ -35,7 +35,7 @@ const OurCollections = async ({ params: { locale } }) => {
     const queryString = new URLSearchParams(queryParams).toString();
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
-    const data = await fetcher(url, { cache: "force-cache" });
+    const data = await fetcher(url);
     const collectionData = data.data;
 
     // console.log("collectionData", collectionData);
