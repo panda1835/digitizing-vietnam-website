@@ -10,3 +10,4 @@ src-react
 netlify.toml
 run_tailwindcss.sh
 *.ipynb
+test
