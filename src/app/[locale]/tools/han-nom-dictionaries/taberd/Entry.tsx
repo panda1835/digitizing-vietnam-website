@@ -1,17 +1,12 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import localFont from "next/font/local";
 import { TaberdDictionaryEntry } from "./types";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import { useLocale } from "next-intl";
 import { getImageUrl } from "./utils";
 import { useState } from "react";
 import TaberdImagePopup from "../../../../../components/common/FullImagePopup";
-
-const NomNaTong = localFont({
-  src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
-});
 
 export default function Entry({ entry }: { entry: TaberdDictionaryEntry }) {
   const locale = useLocale();

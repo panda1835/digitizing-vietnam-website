@@ -61,8 +61,11 @@ export default function TaberdImagePopup({
 
   const handleWheel = useCallback(
     (e: React.WheelEvent) => {
+      // Always prevent the event from bubbling to the background
+      e.preventDefault();
+      e.stopPropagation();
+
       if (scale > 1) {
-        e.preventDefault();
         const factor = 0.5;
         const img = imageRef.current;
         const container = containerRef.current;
@@ -134,6 +137,21 @@ export default function TaberdImagePopup({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
+  // Prevent background scrolling when popup is open
+  useEffect(() => {
+    if (isOpen) {
+      // Store the original overflow style
+      const originalStyle = window.getComputedStyle(document.body).overflow;
+      // Prevent scrolling
+      document.body.style.overflow = "hidden";
+
+      // Cleanup function to restore scrolling
+      return () => {
+        document.body.style.overflow = originalStyle;
+      };
+    }
+  }, [isOpen]);
+
   const getCursorStyle = useCallback(() => {
     if (scale > 1) return "zoom-out";
     return "zoom-in";
@@ -145,6 +163,14 @@ export default function TaberdImagePopup({
     <div
       className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
       onClick={handleBackdropClick}
+      onWheel={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+      onTouchMove={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
     >
       <div className="relative w-full h-full overflow-hidden">
         {/* Only keep the close button */}

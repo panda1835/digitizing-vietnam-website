@@ -6,6 +6,7 @@ import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import TipBox from "@/components/common/TipBox";
 import PaginationSection from "../PaginationSection";
 import PageInput from "../PageInput";
+import ClickableImage from "@/components/common/ClickableImage";
 
 const NomNaTong = localFont({
   src: "../../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -48,9 +49,7 @@ export default async function TruyenKieu({
               {textData &&
                 textData.$ &&
                 (textData.$.pi !== "NA" ? (
-                  <Image
-                    unoptimized
-                    // src="/page01a.jpg"
+                  <ClickableImage
                     src={`https://iiif.digitizingvietnam.com/iiif/2/${documentid}/${textData.$.pi}/full/full/0/default.jpg`}
                     alt={`${title}`}
                     width={200}
