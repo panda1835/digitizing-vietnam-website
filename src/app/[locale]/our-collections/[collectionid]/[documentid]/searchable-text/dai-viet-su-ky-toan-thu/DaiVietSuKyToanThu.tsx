@@ -6,6 +6,7 @@ import PageInput from "../PageInput";
 import PaginationSection from "../PaginationSection";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import TipBox from "@/components/common/TipBox";
+import ClickableImage from "@/components/common/ClickableImage";
 import { NestedDropdownMenu } from "./TitleMenu";
 import { topicIdToImage, titleToTopicId, titles } from "./utils";
 import { flattenItems } from "./utils";
@@ -93,8 +94,7 @@ export default async function DaiVietSuKyToanThu({
           <div className="flex flex-col md:flex-row space-x-8">
             {/* Image */}
             <div className="">
-              <Image
-                unoptimized
+              <ClickableImage
                 src={`https://iiif.digitizingvietnam.com/iiif/2/${imagePath}${image}.jpg/full/full/0/default.jpg`}
                 alt={`${title}`}
                 width={200}

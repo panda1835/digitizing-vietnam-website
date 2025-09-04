@@ -1,28 +1,19 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import localFont from "next/font/local";
 import { TaberdDictionaryEntry } from "./types";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import { useLocale } from "next-intl";
 import { getImageUrl } from "./utils";
 import { useState } from "react";
-import { X } from "lucide-react";
-
-const NomNaTong = localFont({
-  src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
-});
+import TaberdImagePopup from "../../../../../components/common/FullImagePopup";
 
 export default function Entry({ entry }: { entry: TaberdDictionaryEntry }) {
   const locale = useLocale();
-  const [fullImageUrl, setFullImageUrl] = useState<string | null>(null);
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
 
   const handleImageClick = (index: number) => {
-    setFullImageUrl(getImageUrl(entry, 800)[index]);
-  };
-
-  const handleCloseFullImage = () => {
-    setFullImageUrl(null);
+    setSelectedImageUrl(getImageUrl(entry, 800)[index]);
   };
 
   return (
@@ -45,6 +36,15 @@ export default function Entry({ entry }: { entry: TaberdDictionaryEntry }) {
                   {locale == "en" ? "Quốc Ngữ" : "Quốc Ngữ"}:
                 </span>
                 <span className="ml-2 font-['Helvetica Neue']">{entry.qn}</span>
+              </div>
+
+              <div className="text-lg">
+                <span className="font-['Helvetica Neue'] font-semibold ">
+                  {locale == "en" ? "Page" : "Trang"}:
+                </span>
+                <span className="ml-2 font-['Helvetica Neue']">
+                  {entry.pages}
+                </span>
               </div>
 
               <div className="text-lg">
@@ -74,30 +74,26 @@ export default function Entry({ entry }: { entry: TaberdDictionaryEntry }) {
         </CardContent>
       </Card>
 
-      {/* Full-Size Image Popup */}
-      {fullImageUrl && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={handleCloseFullImage}
-        >
-          <div className="relative">
-            <button
-              onClick={handleCloseFullImage}
-              className="absolute top-2 right-2 z-10 bg-gray-200 rounded-lg p-2 hover:bg-gray-300"
-            >
-              <X className="h-6 w-6 text-black" />
-            </button>
-            <Image
-              src={fullImageUrl}
-              alt="Full-size image"
-              width={800}
-              height={1000}
-              className="rounded-lg border h-screen w-full"
-              unoptimized
-            />
+      <TaberdImagePopup
+        isOpen={!!selectedImageUrl}
+        onClose={() => setSelectedImageUrl(null)}
+        imageUrl={selectedImageUrl || ""}
+      >
+        <div className="space-y-2">
+          <div className="flex gap-4">
+            <span className="font-semibold">
+              {locale === "en" ? "Pages:" : "Trang:"}
+            </span>
+            <span>{entry.pages}</span>
+          </div>
+          <div className="flex gap-4">
+            <span className="font-semibold">
+              {locale === "en" ? "Columns:" : "Cột:"}
+            </span>
+            <span>{entry.cols}</span>
           </div>
         </div>
-      )}
+      </TaberdImagePopup>
     </div>
   );
 }

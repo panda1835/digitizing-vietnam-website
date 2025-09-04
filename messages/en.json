@@ -156,6 +156,12 @@
       },
       "no-result": "No results found.",
       "dictionaries": {
+        "general": {
+          "name": "Hán Nôm Dictionary",
+          "description": "...",
+          "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
+          "author": ""
+        },
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải (The Dictionary of Nôm Characters with Quotations and Annotations)",
           "description": "To date, The Dictionary of Nôm Characters with Quotations and Annotations by Prof. Nguyễn Quang Hồng is the largest dictionary on Chữ Nôm, containing nearly 10,000 entries extracted by the author from 124 ancient works and texts from various periods, fields, and genres. The dictionary is systematically and scientifically structured into two columns: one column identifies the character form, pronunciation, and code of the character, while the other analyzes the structure of the Chữ Nôm character, provides its meaning, and includes relevant contextual examples. Special attention is given to the variations of Chữ Nôm characters, with each entry possibly having one or more variant forms that are clearly recorded from specific textual sources. This is a significant highlight of this dictionary.",
@@ -177,7 +183,7 @@
         "nhat-dung-thuong-dam": {
           "name": "Nhật Dụng Thường Đàm Dictionary",
           "description": "Nhật Dụng Thường Đàm is a small Sino-Vietnamese bilingual dictionary compiled by Phạm Đình Hổ (1768–1839), consisting of 32 thematic categories such as Astronomy, Morality, Confucianism, Food, and Beasts, with Han characters explained through Nom script. Though limited in scope, it effectively introduces common words and phrases and serves as a valuable resource for comparing Hán and Nôm scripts. The dictionary, engraved in the 4th year of Tự Đức by Đồng Văn Trai printing house, is currently preserved at the National Library of Vietnam (catalog number R.1726) and contains 52 sheets printed on dó paper. Each entry includes a Hán character and its corresponding explanation in Nôm script, illustrating the structure and function of bilingual entries.",
-          "search-placeholder": "Search Hán Nôm, Quốc Ngữ, Hán Việt, or English",
+          "search-placeholder": "Search Hán Nôm, Quốc Ngữ or Hán Việt",
           "author": "Lê Văn Cường (phiên âm, khảo dị), Giáp Thị Hải Chi (English)"
         },
         "taberd": {

@@ -7,6 +7,7 @@ import PageInput from "../PageInput";
 import PaginationSection from "../PaginationSection";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import TipBox from "@/components/common/TipBox";
+import ClickableImage from "@/components/common/ClickableImage";
 const NomNaTong = localFont({
   src: "../../../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
@@ -52,9 +53,7 @@ export default async function ChinhPhuNgamKhucText({
               {textData.page &&
                 textData.page.$ &&
                 (textData.page.$.pi !== "NA" ? (
-                  <Image
-                    unoptimized
-                    // src="/page01a.jpg"
+                  <ClickableImage
                     src={`https://iiif.digitizingvietnam.com/iiif/2/${documentid}/${textData.page.$.pi}/full/full/0/default.jpg`}
                     alt={`${title}`}
                     width={200}

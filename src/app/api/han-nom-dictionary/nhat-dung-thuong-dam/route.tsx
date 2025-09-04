@@ -31,7 +31,7 @@ export async function GET(request) {
     if (query) {
       try {
         [data] = await db.query(
-          `SELECT * FROM ndtd_dic WHERE (LOWER(han_nom) = ? OR LOWER(han_viet) = ? OR LOWER(english) REGEXP ?)`,
+          `SELECT * FROM ndtd_dic WHERE (LOWER(han_nom) = ? OR LOWER(han_viet) = ? OR LOWER(quoc_ngu) REGEXP ?)`,
           [
             query.toLowerCase(),
             query.toLowerCase(),

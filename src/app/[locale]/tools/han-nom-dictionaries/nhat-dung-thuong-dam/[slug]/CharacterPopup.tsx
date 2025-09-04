@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import localFont from "next/font/local";
 import { useLocale } from "next-intl";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
+import FullImagePopup from "@/components/common/FullImagePopup";
 import { toc } from "../toc";
 import Link from "next/link";
 import { NDTDDictionaryEntry } from "../types"; // Adjust the import path as necessary
@@ -28,6 +29,7 @@ export default function CharacterPopup({
   imageUrl,
 }: CharacterPopupProps) {
   const locale = useLocale();
+  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
 
   if (!isOpen || !character) return null;
 
@@ -38,6 +40,11 @@ export default function CharacterPopup({
       onClose();
     }
   };
+
+  const handleImageClick = () => {
+    setIsImagePopupOpen(true);
+  };
+
   const topic = toc.find((item) => item.id === character.ma_loai);
   return (
     <div
@@ -59,8 +66,9 @@ export default function CharacterPopup({
               alt={`Character ${character.han_nom}`}
               width={400}
               height={500}
-              className="rounded-lg border"
+              className="rounded-lg border cursor-pointer hover:opacity-80 transition-opacity"
               unoptimized
+              onClick={handleImageClick}
             />
           </div>
 
@@ -148,6 +156,13 @@ export default function CharacterPopup({
           </div>
         </div>
       </div>
+
+      {/* Full Image Popup */}
+      <FullImagePopup
+        isOpen={isImagePopupOpen}
+        onClose={() => setIsImagePopupOpen(false)}
+        imageUrl={imageUrl}
+      />
     </div>
   );
 }
