@@ -72,14 +72,14 @@ export default function Entry({ entry }: { entry: NDTDDictionaryEntry }) {
                 </span>
               </div>
 
-              <div className="text-lg">
+              {/* <div className="text-lg">
                 <span className="font-['Helvetica Neue'] font-semibold ">
                   {locale == "en" ? "English" : "Tiếng Anh"}:
                 </span>
                 <span className="ml-2 font-['Helvetica Neue']">
                   {entry.english}
                 </span>
-              </div>
+              </div> */}
               <div className="text-lg">
                 <span className="font-['Helvetica Neue'] font-semibold ">
                   {locale == "en" ? "Book section" : "Mục sách"}:
