@@ -157,6 +157,12 @@
       },
       "no-result": "Không tìm thấy kết quả nào.",
       "dictionaries": {
+        "general": {
+          "name": "Tự Điển Hán Nôm",
+          "description": "...",
+          "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
+          "author": ""
+        },
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải",
           "description": "Cho đến nay, Tự điển chữ Nôm dẫn giải của tác giả GS.TSKH Nguyễn Quang Hồng là cuốn tự điển lớn nhất về chữ Nôm với gần 1 vạn mục từ được tác giả trích dẫn từ 124 tác phẩm cổ, văn bản cổ khác nhau thuộc nhiều thời kỳ, nhiều lĩnh vực, nhiều loại hình. Tự điển được cấu trúc có tính hệ thống, khoa học theo hai cột: một cột xác định hình chữ, âm đọc và kí mã của chữ, cột thứ hai có phần phân tích cấu trúc chữ Nôm, giải nghĩa chữ kèm theo văn cảnh cụ thể. Chú trọng tới các biến thể chữ Nôm, một mục từ có thể có một hoặc nhiều chữ Nôm với các cách viết khác nhau được ghi rõ từ các nguồn văn bản cụ thể. Đây là một điểm nhấn quan trọng của cuốn tự điển này.",
@@ -178,7 +184,7 @@
         "nhat-dung-thuong-dam": {
           "name": "Từ Điển Nhật Dụng Thường Đàm",
           "description": "Nhật Dụng Thường Đàm là một từ điển song ngữ Hán–Việt nhỏ, do Phạm Đình Hổ (1768–1839) biên soạn, gồm 32 chủ đề như Thiên văn, Luân lý, Nho giáo, Ẩm thực, và Loài vật, trong đó chữ Hán được giải nghĩa bằng chữ Nôm. Mặc dù có quy mô hạn chế, cuốn từ điển này giới thiệu hiệu quả các từ ngữ và cụm từ thông dụng, đồng thời là nguồn tư liệu quý giá để so sánh giữa chữ Hán và chữ Nôm. Từ điển được khắc in vào năm Tự Đức thứ tư bởi nhà in Đồng Văn Trai, hiện đang được lưu giữ tại Thư viện Quốc gia Việt Nam với ký hiệu R.1726, gồm 52 tờ được in trên giấy dó. Mỗi mục từ gồm một chữ Hán và phần giải nghĩa tương ứng bằng chữ Nôm, thể hiện rõ cấu trúc và chức năng của một từ điển song ngữ.",
-          "search-placeholder": "Tra cứu Hán Nôm, Quốc Ngữ, Hán Việt, hoặc tiếng Anh",
+          "search-placeholder": "Tra cứu Hán Nôm, Quốc Ngữ hoặc Hán Việt",
           "author": "Lê Văn Cường (phiên âm, khảo dị), Giáp Thị Hải Chi (tiếng Anh)"
         },
         "taberd": {
