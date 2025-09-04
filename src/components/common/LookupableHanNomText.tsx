@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import EntryTDCNDG from "@/app/[locale]/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/Entry";
 import EntryGDNVHV from "@/app/[locale]/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/Entry";
 import EntryQATD from "@/app/[locale]/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/Entry";
-
+import EntryTaberd from "@/app/[locale]/tools/han-nom-dictionaries/taberd/Entry";
 import {
   Popover,
   PopoverContent,
@@ -15,6 +15,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import { Merriweather } from "next/font/google";
+import { TaberdDictionaryEntry } from "@/app/[locale]/tools/han-nom-dictionaries/taberd/types";
+import { NDTDDictionaryEntry } from "@/app/[locale]/tools/han-nom-dictionaries/nhat-dung-thuong-dam/types";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const NomNaTong = localFont({
@@ -37,10 +39,12 @@ export default function LookupableHanNomText({
     };
     giupdoc: GDNVHVDictionaryEntry[];
     qatd: any[];
+    taberd: TaberdDictionaryEntry[];
   } | null>({
     tdcndg: { defs: [], refs: [] },
     giupdoc: [],
     qatd: [],
+    taberd: [],
   });
   const [loading, setLoading] = useState(false);
   const t = useTranslations();
@@ -50,7 +54,7 @@ export default function LookupableHanNomText({
     setPopoverOpen(true);
     try {
       const response = await fetch(
-        `/api/han-nom-dictionary/all?q=${character}`
+        `/api/han-nom-dictionary/all/nom?q=${character}`
       );
       if (!response.ok) throw new Error("Failed to fetch dictionary entry");
       const data = await response.json();
@@ -98,7 +102,11 @@ export default function LookupableHanNomText({
                     {entryData!.tdcndg &&
                       entryData!.tdcndg.defs.length == 0 &&
                       entryData!.giupdoc &&
-                      entryData!.giupdoc.length == 0 && (
+                      entryData!.giupdoc.length == 0 &&
+                      entryData!.qatd &&
+                      entryData!.qatd.length == 0 &&
+                      entryData!.taberd &&
+                      entryData!.taberd.length == 0 && (
                         <div className="text-center text-muted-foreground">
                           {t("Tools.han-nom-dictionaries.no-result")}
                         </div>
@@ -163,6 +171,25 @@ export default function LookupableHanNomText({
                           </div>
                         </Link>
                         <EntryQATD entry={entryData!.qatd[0]} />
+                      </div>
+                    )}
+                    <div className="mt-10"></div>
+                    {entryData!.taberd && entryData!.taberd.length > 0 && (
+                      <div>
+                        <Link
+                          href={`/tools/han-nom-dictionaries/taberd?q=${selectedCharacter}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <div
+                            className={`text-xl text-branding-brown mb-4 hover:underline ${merriweather.className}`}
+                          >
+                            {t(
+                              "Tools.han-nom-dictionaries.dictionaries.taberd.name"
+                            )}
+                          </div>
+                        </Link>
+                        <EntryTaberd entry={entryData!.taberd[0]} />
                       </div>
                     )}
                   </>
