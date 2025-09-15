@@ -189,9 +189,15 @@
         },
         "taberd": {
           "name": "Từ Điển Taberd",
-          "description": "",
+          "description": "Từ điển Dictionarium Anamitico Latinum, lần đầu xuất bản năm 1884 và được tái bản năm 2004, do Giám mục người Pháp A.J.L. Taberd biên soạn, ghi chép cả chữ Nôm và chữ Quốc Ngữ thời kì đầu. Từ điển này lưu giữ nhiều từ cổ của tiếng Việt, trở thành nguồn tư liệu quan trọng để nghiên cứu và bảo tồn lịch sử chữ viết Việt Nam. Phiên bản trực tuyến, được số hóa từ ấn bản năm 2004, cho phép tra cứu theo bộ thủ theo nét hoặc theo chữ Quốc Ngữ, đồng thời bao gồm các tham chiếu về thực vật, thảo dược và chi tiết lịch sử khác. Dù có thể còn sai sót, đây vẫn là công cụ hữu ích cho các học giả và người yêu thích ngôn ngữ, và rất cần sự góp ý từ độc giả để hoàn thiện hơn.",
           "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
           "author": "Aditum A J. L. Taberd"
+        },
+        "tu-dien-chu-nom-tay": {
+          "name": "Từ điển chữ Nôm Tày",
+          "description": "...",
+          "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
+          "author": "Hoàng Triều Ân (chủ biên), Dương Nhật Thanh, Hoàng Tuấn Nam"
         }
       }
     },

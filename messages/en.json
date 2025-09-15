@@ -188,9 +188,15 @@
         },
         "taberd": {
           "name": "Taberd Dictionary",
-          "description": "",
+          "description": "The Dictionarium Anamitico Latinum, first published in 1884 and reprinted in 2004, was compiled by French bishop A.J.L. Taberd and records both Nom and early Quốc Ngữ scripts. It preserves many archaic Vietnamese words, serving as an essential resource for studying and safeguarding the history of Vietnamese writing. The online version, digitized from the 2004 edition, allows searches by radical-stroke or Quốc Ngữ glyphs and includes references to plants, herbs, and other historical details. Though some errors may occur, it remains a practical tool for scholars and language enthusiasts, with reader feedback encouraged for improvement.",
           "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
           "author": "Aditum A J. L. Taberd"
+        },
+        "tu-dien-chu-nom-tay": {
+          "name": "A Dictionary of Nôm Tày",
+          "description": "...",
+          "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
+          "author": "Hoàng Triều Ân (ed.), Dương Nhật Thanh - Hoàng Tuấn Nam"
         }
       }
     },
