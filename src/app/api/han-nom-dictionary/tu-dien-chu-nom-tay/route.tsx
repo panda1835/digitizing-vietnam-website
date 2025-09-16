@@ -14,16 +14,16 @@ export async function GET(request) {
       try {
         [data] = await db.query(
           `SELECT * FROM tdcnt WHERE 
-            LOWER(hdwd_tay) = ? OR 
-            LOWER(hdwd_nom) = CONVERT(? USING utf8mb4)`,
-          [lowerQuery, lowerQuery]
+            (LOWER(hdwd_tay) = ? OR LOWER(hdwd_tay) REGEXP CONCAT('(^|[[:space:]])', ?, '([[:space:]]|$)')) OR 
+            (LOWER(hdwd_nom) = CONVERT(? USING utf8mb4) OR LOWER(hdwd_nom) REGEXP CONCAT('(^|[[:space:]])', CONVERT(? USING utf8mb4), '([[:space:]]|$)'))`,
+          [lowerQuery, lowerQuery, lowerQuery, lowerQuery]
         );
       } catch (error) {
         [data] = await db.query(
           `SELECT * FROM tdcnt WHERE 
-            LOWER(hdwd_nom) = CONVERT(? USING utf8mb4) OR 
-            LOWER(hdwd_tay) = CONVERT(? USING utf8mb4)`,
-          [lowerQuery, lowerQuery]
+            (LOWER(hdwd_tay) = CONVERT(? USING utf8mb4) OR LOWER(hdwd_tay) REGEXP CONCAT('(^|[[:space:]])', CONVERT(? USING utf8mb4), '([[:space:]]|$)')) OR 
+            (LOWER(hdwd_nom) = CONVERT(? USING utf8mb4) OR LOWER(hdwd_nom) REGEXP CONCAT('(^|[[:space:]])', CONVERT(? USING utf8mb4), '([[:space:]]|$)'))`,
+          [lowerQuery, lowerQuery, lowerQuery, lowerQuery]
         );
       }
     } else {

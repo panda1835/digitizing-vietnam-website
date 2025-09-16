@@ -158,7 +158,7 @@
       "dictionaries": {
         "general": {
           "name": "Hán Nôm Dictionary",
-          "description": "...",
+          "description": "This is a collection of significant dictionaries and lexicons on Vietnamese Chữ Nôm that have been digitized. The collection includes: Tự điển Chữ Nôm Dẫn giải (Nguyễn Quang Hồng), Giúp đọc Nôm và Hán Việt (Anthony Trần Văn Kiệm), Nguyễn Trãi Quốc âm Từ điển (Trần Trọng Dương), Từ điển Taberd (A.J.L. Taberd), and Nhật dụng Thường đàm (Phạm Đình Hổ).",
           "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
           "author": ""
         },
@@ -194,7 +194,7 @@
         },
         "tu-dien-chu-nom-tay": {
           "name": "A Dictionary of Nôm Tày",
-          "description": "...",
+          "description": "The Tày people have their own form of Nôm script, developed from adaptations of Chinese characters to record the Tày language, and it has been used in literary creation for centuries. Tày Nôm once played an important role in cultural and linguistic life, and many valuable manuscripts are still preserved today in the northern mountainous provinces. In the early 2000s, a group of authors in Cao Bằng compiled the Dictionary of Nôm Tày, which was reviewed and supported for publication by the Institute of Hán-Nôm Studies, providing a useful research tool for the academic community. The book reflects the authors’ dedication to preserving and promoting the cultural heritage of the Tày people. The digitized version of this dictionary was produced as part of the Vietnam Nôm Preservation Foundation's (USA) effort to preserve the Nôm script heritage.",
           "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
           "author": "Hoàng Triều Ân (ed.), Dương Nhật Thanh - Hoàng Tuấn Nam"
         }
