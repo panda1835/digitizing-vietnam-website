@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import localFont from "next/font/local";
 import { abbreviations } from "./abbreviations";
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
@@ -114,11 +115,6 @@ export default function EntryTDCNT({ entry }: { entry: any }) {
       );
     });
 
-    const decimalRegex = /(\d+)\.(\d+)/g;
-    processedText = processedText.replace(decimalRegex, (match, a, b) => {
-      return `<a href="/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap?topic=${a}&line=${b}" class="text-blue-500 underline" target="_blank" rel="noopener noreferrer">${match}</a>`;
-    });
-
     return processedText;
   };
 
@@ -126,10 +122,8 @@ export default function EntryTDCNT({ entry }: { entry: any }) {
     <div className="">
       <Card className={`${NomNaTong.className} mb-4 p-4 pb-0`}>
         <CardContent>
-          <div className="text-2xl font-semibold text-branding-brown mb-4">
-            <span>
-              {entry.nom} {entry.tay}
-            </span>
+          <div className="flex gap-3 text-2xl font-semibold text-branding-brown mb-4">
+            <LookupableHanNomText text={entry.nom} /> {entry.tay}
           </div>
           <div className="text-xl flex flex-col gap-2">
             <div
