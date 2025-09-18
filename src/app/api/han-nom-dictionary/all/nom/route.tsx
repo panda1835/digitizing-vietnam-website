@@ -32,18 +32,6 @@ export async function GET(request) {
       })
     );
 
-    // const xmlRefData = await fs.readFile(
-    //   path.join(
-    //     process.cwd(),
-    //     "data/dictionaries/tu-dien-chu-nom-dan-giai/tdcndg_refs.xml"
-    //   ),
-    //   "utf-8"
-    // );
-    // const jsonRefData = await parseStringPromise(
-    //   xmlRefData.replace(/<\/?i>/g, "")
-    // );
-    // const refData = jsonRefData.reference_list.reference;
-
     // Giup Doc Nom Va Han Viet
     const [data]: any = await db.query(
       `SELECT * FROM giupdoc WHERE (LOWER(qn) = CONVERT(? USING utf8mb4) OR LOWER(uni) = CONVERT(? USING utf8mb4))`,
