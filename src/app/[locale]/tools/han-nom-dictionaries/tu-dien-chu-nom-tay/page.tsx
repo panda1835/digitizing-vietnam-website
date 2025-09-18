@@ -13,24 +13,28 @@ export default async function DictionaryPage({
 }) {
   const t = await getTranslations();
   const searchWord = (await searchParams).q;
-  let data = [];
+  let entries = [];
   if (searchWord) {
     const apiUrl =
       process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
-    const entries = await fetch(
-      `${apiUrl}/han-nom-dictionary/taberd?q=${searchWord}`
+    const result = await fetch(
+      `${apiUrl}/han-nom-dictionary/tu-dien-chu-nom-tay?q=${searchWord}`
     );
-    data = await entries.json();
+    const data = await result.json();
+    entries = data || [];
   }
+
   return (
     <div className="">
       <div className={`${merriweather.className} text-branding-black text-4xl`}>
-        {t("Tools.han-nom-dictionaries.dictionaries.taberd.name")}
+        {t("Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.name")}
       </div>
 
       <div className={`font-['Helvetica_Neue'] font-light text-base my-6`}>
         <span>
-          {t("Tools.han-nom-dictionaries.dictionaries.taberd.author")}
+          {t(
+            "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.author"
+          )}
         </span>
       </div>
       <div className="mx-auto">
@@ -38,18 +42,18 @@ export default async function DictionaryPage({
           <DictionarySearchBar
             searchWord={searchWord}
             placeholder={t(
-              "Tools.han-nom-dictionaries.dictionaries.taberd.search-placeholder"
+              "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.search-placeholder"
             )}
             hdwd_list={hdwd}
           />
         </div>
       </div>
-      {data.length === 0 && searchWord ? (
+      {entries.length === 0 && searchWord ? (
         <div className="text-center text-lg font-['Helvetica_Neue'] font-light text-branding-black">
           {t("Tools.han-nom-dictionaries.no-result")}
         </div>
       ) : null}
-      {data.map((entry, index) => (
+      {entries.map((entry, index) => (
         <Entry key={index} entry={entry} />
       ))}
     </div>

@@ -10,10 +10,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: `${t(
-      "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
+      "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.name"
     )} | Digitizing Việt Nam`,
     description: t(
-      "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.description"
+      "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.description"
     ),
   };
 }
@@ -39,7 +39,7 @@ export default async function DictionaryLayout({
             },
             {
               label: t(
-                "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
+                "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.name"
               ),
             },
           ]}
@@ -52,45 +52,27 @@ export default async function DictionaryLayout({
             <div className="p-6 border-b border-gray-200">
               <div className="text-lg font-normal text-branding-brown">
                 {t(
-                  "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
+                  "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.name"
                 )}
               </div>
             </div>
 
             <nav className="flex flex-col">
-              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/foreword">
-                {locale === "en" ? "Foreword" : "Lời tựa"}
+              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-tay/introduction">
+                {locale === "en" ? "Introduction" : "Lời giới thiệu"}
               </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/explanatory_notes">
-                {locale === "en" ? "Explanatory Notes" : "Phàm lệ"}
+              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-tay/first-step-study-nom-tay">
+                {locale === "en"
+                  ? "First Steps in the Study of the Nôm Tày Script"
+                  : "Bước đầu khảo cứu chữ Nôm Tày"}
               </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/abbreviations">
+              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-tay">
+                {locale === "en" ? "Dictionary" : "Từ điển"}
+              </NavLink>
+              <NavLink href="/tools/han-nom-dictionaries/tu-dien-chu-nom-tay/abbreviations">
                 {locale === "en"
                   ? "Symbols and Abbreviations"
                   : "Ký hiệu chữ viết tắt"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien">
-                {locale === "en" ? "Dictionary" : "Từ điển"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/index">
-                {locale === "en" ? "Index" : "Sách dẫn"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/orthography">
-                {locale === "en"
-                  ? "Translation & Orthography"
-                  : "Quy ước phiên âm"}
-              </NavLink>
-              <NavLink
-                newTab={true}
-                href="/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap"
-              >
-                {locale === "en" ? "Quốc Âm Thi Tập" : "Quốc Âm Thi Tập"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/references">
-                {locale === "en" ? "References" : "Tài liệu tham khảo"}
-              </NavLink>
-              <NavLink href="/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/afterword">
-                {locale === "en" ? "Afterword" : "Lời bạt"}
               </NavLink>
             </nav>
           </div>

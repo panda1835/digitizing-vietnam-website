@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram, Mail } from "lucide-react";
+import { Instagram, Mail, Facebook } from "lucide-react";
 const Footer = ({ locale }) => {
   const currentYear = new Date().getFullYear();
 
@@ -31,14 +31,25 @@ const Footer = ({ locale }) => {
               <div className="text-branding-black text-lg lg:text-lg font-light font-['Helvetica Neue']">
                 {locale === "en" ? "Follow Us" : "Theo dõi chúng tôi"}
               </div>
-              <a
-                href="https://www.instagram.com/digitizing.vietnam/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-block hover:text-gray-600 transition-colors"
-              >
-                <Instagram className="size-5" />
-              </a>
+              <div className="flex gap-4 mt-2">
+                <a
+                  href="https://www.instagram.com/digitizing.vietnam/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block hover:text-gray-600 transition-colors"
+                >
+                  <Instagram className="size-5" />
+                </a>
+
+                <a
+                  href="https://www.facebook.com/digitizingvietnam/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block hover:text-gray-600 transition-colors"
+                >
+                  <Facebook className="size-5" />
+                </a>
+              </div>
             </div>
           </div>
 

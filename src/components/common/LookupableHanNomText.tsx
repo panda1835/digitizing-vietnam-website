@@ -6,6 +6,7 @@ import EntryTDCNDG from "@/app/[locale]/tools/han-nom-dictionaries/tu-dien-chu-n
 import EntryGDNVHV from "@/app/[locale]/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/Entry";
 import EntryQATD from "@/app/[locale]/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/Entry";
 import EntryTaberd from "@/app/[locale]/tools/han-nom-dictionaries/taberd/Entry";
+import { searchDictionary } from "@/app/actions/dictionary";
 import {
   Popover,
   PopoverContent,
@@ -53,11 +54,8 @@ export default function LookupableHanNomText({
     setLoading(true);
     setPopoverOpen(true);
     try {
-      const response = await fetch(
-        `/api/han-nom-dictionary/all/nom?q=${character}`
-      );
-      if (!response.ok) throw new Error("Failed to fetch dictionary entry");
-      const data = await response.json();
+      // This calls the server action - no API endpoint visible to users
+      const data = await searchDictionary(character);
       setEntryData(data);
       setSelectedCharacter(character);
     } catch (err: any) {

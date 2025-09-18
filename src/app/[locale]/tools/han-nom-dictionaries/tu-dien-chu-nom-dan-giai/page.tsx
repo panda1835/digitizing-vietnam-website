@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Merriweather } from "next/font/google";
 import Entry from "./Entry";
 import DictionarySearchBar from "../DictionarySearchBar";
+import { hdwd } from "./hdwd";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -45,6 +46,7 @@ export default async function DictionaryPage({
             placeholder={t(
               "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.search-placeholder"
             )}
+            hdwd_list={hdwd}
           />
         </div>
       </div>

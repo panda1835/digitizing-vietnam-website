@@ -48,7 +48,7 @@ export default async function LucVanTienText({
         {/* Content */}
         <div className="flex flex-col mt-16">
           {/* Image and Text */}
-          <div className="flex flex-col md:flex-row md:justify-center space-x-4">
+          <div className="flex flex-col md:flex-row md:justify-center space-x-4 w-full">
             {/* Image */}
             <div>
               {textData.page &&

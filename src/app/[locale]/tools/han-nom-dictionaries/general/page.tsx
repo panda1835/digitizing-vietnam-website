@@ -3,6 +3,12 @@ import { Merriweather } from "next/font/google";
 import Entry from "./Entry";
 import DictionarySearchBar from "../DictionarySearchBar";
 
+import { hdwd as giupdocHdwd } from "../giup-doc-nom-va-han-viet/hdwd";
+import { hdwd as qatdHdwd } from "../nguyen-trai-quoc-am-tu-dien/hdwd";
+import { hdwd as taberdHdwd } from "../taberd/hdwd";
+import { hdwd as tdcndgHdwd } from "../tu-dien-chu-nom-dan-giai/hdwd";
+// Note: ndtd (nhat-dung-thuong-dam) doesn't have hdwd file
+
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 interface GeneralDictionaryData {
@@ -40,6 +46,18 @@ export default async function DictionaryPage({
       (data.qatd && data.qatd.length > 0) ||
       (data.taberd && data.taberd.length > 0) ||
       (data.ndtd && data.ndtd.length > 0));
+
+  // Combine all headwords from different dictionaries for lookup
+  const combinedHeadwords = Array.from(
+    new Set([
+      ...tdcndgHdwd,
+      ...giupdocHdwd,
+      ...qatdHdwd,
+      ...taberdHdwd,
+      // ndtd (nhat-dung-thuong-dam) doesn't have hdwd file
+    ])
+  ).sort();
+
   return (
     <div className="">
       <div className={`${merriweather.className} text-branding-black text-4xl`}>
@@ -58,6 +76,7 @@ export default async function DictionaryPage({
             placeholder={t(
               "Tools.han-nom-dictionaries.dictionaries.general.search-placeholder"
             )}
+            hdwd_list={combinedHeadwords}
           />
         </div>
       </div>
