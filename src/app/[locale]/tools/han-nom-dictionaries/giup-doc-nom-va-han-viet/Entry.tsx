@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 import localFont from "next/font/local";
 
 const NomNaTong = localFont({
@@ -11,8 +11,8 @@ export default function Entry({ entry }: { entry: GDNVHVDictionaryEntry }) {
     <div className="">
       <Card className={`${NomNaTong.className} mb-4 p-4 pb-0`}>
         <CardContent>
-          <div className="text-2xl font-semibold text-branding-brown mb-4">
-            <span className={``}>{entry.uni}</span> -{" "}
+          <div className="text-2xl flex gap-3 font-semibold text-branding-brown mb-4">
+            <LookupableHanNomText text={entry.uni} />
             <span>
               {entry.qn} ({entry.pinyin.origin._})
             </span>

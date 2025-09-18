@@ -7,6 +7,11 @@ import { useLocale } from "next-intl";
 import { getImageUrl } from "./utils";
 import { useState } from "react";
 import TaberdImagePopup from "../../../../../components/common/FullImagePopup";
+import localFont from "next/font/local";
+
+const NomNaTong = localFont({
+  src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+});
 
 export default function Entry({ entry }: { entry: TaberdDictionaryEntry }) {
   const locale = useLocale();
@@ -22,21 +27,12 @@ export default function Entry({ entry }: { entry: TaberdDictionaryEntry }) {
         <CardContent>
           <div className="flex justify-between gap-4 mt-4">
             <div className="flex flex-col gap-2">
-              <div className="flex gap-2 items-end text-lg">
-                <div className="font-['Helvetica Neue'] font-semibold  whitespace-nowrap">
-                  {locale == "en" ? "Nôm text" : "Chữ Nôm"}:
-                </div>
-                <div className="">
-                  <LookupableHanNomText text={entry.nom!} className="text-xl" />
-                </div>
-              </div>
-
-              <div className="text-lg">
-                <span className="font-['Helvetica Neue'] font-semibold ">
-                  {locale == "en" ? "Quốc Ngữ" : "Quốc Ngữ"}:
-                </span>
-                <span className="ml-2 font-['Helvetica Neue']">{entry.qn}</span>
-              </div>
+              <h3
+                className={`text-2xl flex gap-3 ${NomNaTong.className} font-semibold text-branding-brown mb-4`}
+              >
+                <LookupableHanNomText text={entry.nom} />
+                {entry.qn}
+              </h3>
 
               <div className="text-lg">
                 <span className="font-['Helvetica Neue'] font-semibold ">

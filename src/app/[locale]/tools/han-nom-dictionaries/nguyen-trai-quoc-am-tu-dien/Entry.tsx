@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import localFont from "next/font/local";
 import { abbreviations } from "./abbreviations";
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
@@ -65,12 +66,12 @@ export default function EntryQATD({ entry }: { entry: any }) {
     <div className="">
       <Card className={`${NomNaTong.className} mb-4 p-4 pb-0`}>
         <CardContent>
-          <div className="text-2xl font-semibold text-branding-brown mb-4">
-            <span className={``}>{entry.hdwd}</span>{" "}
+          <div className="text-2xl flex gap-3 font-semibold text-branding-brown mb-4">
             <span>
-              ({entry.han}
-              {entry.nom})
+              {entry.han}
+              <LookupableHanNomText text={entry.nom} />
             </span>
+            <span className={``}>{entry.hdwd}</span>{" "}
           </div>
           <div className="text-xl flex flex-col gap-2">
             <div

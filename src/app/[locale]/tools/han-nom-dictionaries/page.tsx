@@ -20,6 +20,15 @@ const HanNomDictionaries = async ({ params: { locale } }) => {
 
   const dictionaries = [
     {
+      href: "/tools/han-nom-dictionaries/general",
+      title: t("Tools.han-nom-dictionaries.dictionaries.general.name"),
+      description: t(
+        "Tools.han-nom-dictionaries.dictionaries.general.description"
+      ),
+      target: "",
+      rel: "",
+    },
+    {
       href: "/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai",
       title: t(
         "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"

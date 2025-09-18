@@ -15,26 +15,42 @@ export default function EntryTDCNT({ entry }: { entry: any }) {
       .map((citation: any, index: number) => {
         let formattedCitation = "";
 
-        // Source text (Nom characters)
-        if (citation.source_text && citation.source_text[0]?.lg?.[0]?.l?.[0]) {
-          formattedCitation += citation.source_text[0].lg[0].l[0];
+        // Source text (Nom characters) - handle multiple lines
+        if (citation.source_text && citation.source_text[0]?.lg?.[0]?.l) {
+          const sourceLines = citation.source_text[0].lg[0].l;
+          if (Array.isArray(sourceLines)) {
+            formattedCitation += sourceLines.join("<br/>");
+          } else {
+            formattedCitation += sourceLines;
+          }
         }
 
-        // Transliteration in parentheses
+        // Transliteration in parentheses - handle multiple lines
         if (
           citation.transliteration &&
-          citation.transliteration[0]?.lg?.[0]?.l?.[0]
+          citation.transliteration[0]?.lg?.[0]?.l
         ) {
-          let translit = citation.transliteration[0].lg[0].l[0];
+          const translitLines = citation.transliteration[0].lg[0].l;
+          let translit = "";
+
+          if (Array.isArray(translitLines)) {
+            translit = translitLines.join("<br/>");
+          } else {
+            translit = translitLines;
+          }
+
           // Highlight the headword if present
           if (entry.tay) {
-            const headwordRegex = new RegExp(`\\b(${entry.tay})\\b`, "gi");
-            translit = translit.replace(
-              headwordRegex,
+            // Try exact match first
+            const exactRegex = new RegExp(`\\b(${entry.tay})\\b`, "gi");
+            let highlighted = translit.replace(
+              exactRegex,
               `<span class="text-branding-brown font-bold">$1</span>`
             );
+
+            translit = highlighted;
           }
-          formattedCitation += `<br/>${translit}`;
+          formattedCitation += `<div class="italic">${translit}</div>`;
         }
 
         // Reference in parentheses
@@ -43,7 +59,7 @@ export default function EntryTDCNT({ entry }: { entry: any }) {
           const abbrObj = abbreviations.find((abbr) => abbr.abbr === ref);
           const hoverText = abbrObj ? abbrObj.full : ref;
           formattedCitation += `
-            <br/>(<span class="text-blue-500 relative group cursor-pointer">
+            (<span class="text-blue-500 relative group cursor-pointer">
               ${ref}
               <div class="z-50 text-lg absolute w-40 left-0 top-full mt-1 hidden group-hover:block bg-branding-gray text-black p-2 rounded border border-black shadow-lg">
               ${hoverText}
@@ -56,7 +72,7 @@ export default function EntryTDCNT({ entry }: { entry: any }) {
         if (citation.translation && citation.translation[0]?._) {
           const translation = citation.translation[0]._.trim();
           if (translation) {
-            formattedCitation += `<br/><span class="text-gray-700">${translation}</span>`;
+            formattedCitation += `<br/><span class="font-bold">${translation}</span>`;
           }
         }
 
@@ -131,6 +147,7 @@ export default function EntryTDCNT({ entry }: { entry: any }) {
                 __html: processText(entry.sense, entry.tay),
               }}
             ></div>
+            <div className="mt-2"></div>
             {entry.citations && (
               <div
                 dangerouslySetInnerHTML={{
