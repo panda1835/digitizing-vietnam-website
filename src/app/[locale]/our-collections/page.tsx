@@ -59,11 +59,16 @@ const OurCollections = async ({ params: { locale } }) => {
       resourceTypes:
         collection.resource_types?.map((resourceType) => resourceType.name) ||
         [], // Default to an empty array
+      collection_categories:
+        collection.collection_categories?.map((category) => ({
+          name: category.name,
+          display_order: category.display_order,
+        })) || [],
     }));
   } catch (error) {
     console.error("Error fetching collections:", error);
   }
-
+  console.log("collections", collections);
   return (
     <div className="flex flex-col max-width items-center">
       <PageHeader

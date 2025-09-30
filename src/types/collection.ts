@@ -15,6 +15,11 @@ export interface Collection {
   collectionLocation: string;
   accessCondition: string;
   collectionItems: CollectionItem[];
+  collection_categories: {
+    name: string;
+    display_order: string;
+    description?: string;
+  }[];
 }
 
 export interface CollectionItem {
