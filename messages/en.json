@@ -247,6 +247,11 @@
           "type-in-han-nom": "Type in Hán Nôm..."
         }
       }
+    },
+    "digital-humanities-tools": {
+      "name": "Digital Humanities Tools",
+      "description": "The Digital Humanities Tools is a collection of tools that allow users to analyze and explore various aspects of digital humanities research. This tool is especially useful for researchers who need to analyze large datasets or perform complex analyses.",
+      "no-tools-message": "No digital humanities tools available at the moment."
     }
   },
 

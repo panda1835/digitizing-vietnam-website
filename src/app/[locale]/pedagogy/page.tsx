@@ -1,11 +1,8 @@
 import { getTranslations } from "next-intl/server";
-
 import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
-
 import ArticleCard from "@/components/ArticleCard";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-
 import { Metadata } from "next";
 import { PageHeader } from "@/components/common/PageHeader";
 
@@ -100,6 +97,12 @@ const Pedagogies = async ({ params: { locale } }) => {
   } catch (error) {
     console.error("Error fetching blogs:", error);
   }
+
+  // Filter out digital-humanities-tool category
+  const filteredPedagogyData = pedagogyData.filter(
+    (category) => category.slug !== "digital-humanities-tool"
+  );
+
   return (
     <div className="flex flex-col max-width items-center">
       <div className="flex-col mb-20 w-full">
@@ -111,13 +114,13 @@ const Pedagogies = async ({ params: { locale } }) => {
         />
         {/* Tab */}
         <Tabs
-          defaultValue={pedagogyData[0].category_name
+          defaultValue={filteredPedagogyData[0]?.category_name
             .replace(/\s/g, "")
             .toLowerCase()}
           className="w-full mt-10"
         >
           <TabsList className="h-auto p-0 bg-transparent gap-8">
-            {pedagogyData.map((category) => (
+            {filteredPedagogyData.map((category) => (
               <TabsTrigger
                 key={category.category_name}
                 value={category.category_name.replace(/\s/g, "").toLowerCase()}
@@ -134,7 +137,7 @@ const Pedagogies = async ({ params: { locale } }) => {
             ))}
           </TabsList>
 
-          {pedagogyData.map((category) => (
+          {filteredPedagogyData.map((category) => (
             <TabsContent
               value={category.category_name.replace(/\s/g, "").toLowerCase()}
               className="mt-6 space-y-4"

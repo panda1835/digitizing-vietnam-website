@@ -248,6 +248,11 @@
           "type-in-han-nom": "Nhập văn bản Hán Nôm..."
         }
       }
+    },
+    "digital-humanities-tools": {
+      "name": "Công cụ Nhân văn Số",
+      "description": "Công cụ Nhân văn Số là tập hợp các công cụ cho phép người dùng phân tích và khám phá các khía cạnh khác nhau của nghiên cứu nhân văn số. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích các tập dữ liệu lớn hoặc thực hiện các phân tích phức tạp.",
+      "no-tools-message": "Hiện tại không có công cụ nào có sẵn."
     }
   },
 
