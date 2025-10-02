@@ -68,6 +68,36 @@ export async function PedagogyMetadata({ metadata, locale }) {
           "N/A",
         "access-url": metadata.access_url,
       };
+    } else if (metadata.__component === "pedagogy.textbook") {
+      formattedMetadata = {
+        name:
+          metadata.title + (metadata.subtitle ? " - " + metadata.subtitle : ""),
+        creators:
+          (metadata.creators &&
+            metadata.creators
+              .map(
+                (author) =>
+                  `${author.author.name} (${author.author_role_term.name})`
+              )
+              .join(", ")) ||
+          "N/A",
+        publisher: metadata.publisher.name || "N/A",
+        publication_year: metadata.publication_year,
+        identifier: metadata.identifier,
+        languages:
+          (metadata.languages &&
+            metadata.languages
+              .map((language) => `${language.name}`)
+              .join(", ")) ||
+          "N/A",
+        subjects:
+          (metadata.subjects &&
+            metadata.subjects.map((subject) => `${subject.name}`).join(", ")) ||
+          "N/A",
+        access_condition: metadata.access_condition.description || "N/A",
+        place_of_publication: metadata.place_of_publication.name || "N/A",
+        item_size: metadata.item_size || "N/A",
+      };
     }
   }
 
@@ -80,30 +110,33 @@ export async function PedagogyMetadata({ metadata, locale }) {
           </AccordionTrigger>
           <AccordionContent>
             <div>
-              {Object.entries(formattedMetadata).map(([key, value]) => (
-                <div
-                  key={key}
-                  className="font-['Helvetica Neue'] text-base font-light mt-2"
-                >
-                  <strong className="text-[#777777] text-lg font-normal">
-                    {t(`Outreach.metadata.${key}`)}:
-                  </strong>{" "}
-                  {typeof value === "string" &&
-                  (value.startsWith("http://") ||
-                    value.startsWith("https://")) ? (
-                    <Link
-                      href={value}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline"
-                    >
-                      {value}
-                    </Link>
-                  ) : (
-                    (value as string)
-                  )}
-                </div>
-              ))}
+              {Object.entries(formattedMetadata).map(([key, value]) => {
+                if (value === "N/A" || value === "") return null;
+                return (
+                  <div
+                    key={key}
+                    className="font-['Helvetica Neue'] text-base font-light mt-2"
+                  >
+                    <strong className="text-[#777777] text-lg font-normal">
+                      {t(`Outreach.metadata.${key}`)}:
+                    </strong>{" "}
+                    {typeof value === "string" &&
+                    (value.startsWith("http://") ||
+                      value.startsWith("https://")) ? (
+                      <Link
+                        href={value}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline"
+                      >
+                        {value}
+                      </Link>
+                    ) : (
+                      (value as string)
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </AccordionContent>
         </AccordionItem>

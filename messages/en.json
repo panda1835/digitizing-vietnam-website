@@ -117,7 +117,19 @@
       "name": "Name",
       "creators": "Creators",
       "supported-languages": "Supported Languages",
-      "access-url": "Access URL"
+      "access-url": "Access URL",
+
+      "publisher": "Publisher",
+      "place_of_publication": "Place of Publication",
+      "edition": "Edition",
+      "resource_types": "Resource Types",
+      "format": "Formats",
+      "subjects": "Subjects",
+      "access_condition": "Access Condition",
+      "publication_year": "Publication Year",
+      "identifier": "Identifier",
+      "languages": "Languages",
+      "item_size": "Item Size"
     }
   },
 
