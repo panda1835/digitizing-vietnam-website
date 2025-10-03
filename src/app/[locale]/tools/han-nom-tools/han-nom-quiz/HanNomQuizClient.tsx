@@ -16,6 +16,13 @@ import type {
   HoXuanHuongPoemData,
   NguyenTraiPoemData,
 } from "./types";
+import {
+  fetchLucVanTienData,
+  fetchHoXuanHuongData,
+  fetchAvailableHoXuanHuongPoems,
+  fetchNguyenTraiData,
+  fetchAvailableNguyenTraiPoems,
+} from "./actions";
 
 export default function HanNomQuizClient({ locale }: { locale: string }) {
   const [quizzes, setQuizzes] = useState<Quiz[]>([]);
@@ -62,100 +69,72 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
   // Fetch available Ho Xuan Huong poems on mount
   useEffect(() => {
     if (selectedBook === "ho-xuan-huong") {
-      fetchAvailablePoems();
+      loadAvailablePoems();
     } else if (selectedBook === "nguyen-trai") {
-      fetchAvailableNguyenTraiPoems();
+      loadAvailableNguyenTraiPoems();
     }
   }, [selectedBook]);
 
-  const fetchAvailablePoems = async () => {
-    try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api";
-      // Fetch any poem to get the list of all poems
-      const response = await fetch(
-        `${apiUrl}/searchable-text/tinh-hoa-mua-xuan?topic=Cảnh thu`
-      );
-      const data = await response.json();
-      setAvailablePoems(data.all_qn_topic || []);
-      if (data.all_qn_topic && data.all_qn_topic.length > 0) {
-        setSelectedPoem(data.all_qn_topic[0]);
-      }
-    } catch (error) {
-      console.error("Error fetching poems:", error);
+  const loadAvailablePoems = async () => {
+    const poems = await fetchAvailableHoXuanHuongPoems();
+    setAvailablePoems(poems);
+    if (poems.length > 0) {
+      setSelectedPoem(poems[0]);
     }
   };
 
-  const fetchAvailableNguyenTraiPoems = async () => {
-    try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api";
-      // Fetch any poem to get the list of all poems
-      const response = await fetch(
-        `${apiUrl}/searchable-text/quoc-am-thi-tap?topicId=1`
-      );
-      const data = await response.json();
-      const poems = data.all_ids.map((id: number, index: number) => ({
-        id,
-        title: data.all_qn_titles[index],
-        titleNum: data.all_title_nums[index],
-      }));
-      setAvailableNguyenTraiPoems(poems);
-      if (poems.length > 0) {
-        setSelectedNguyenTraiPoem(poems[0].id.toString());
-      }
-    } catch (error) {
-      console.error("Error fetching Nguyen Trai poems:", error);
+  const loadAvailableNguyenTraiPoems = async () => {
+    const poems = await fetchAvailableNguyenTraiPoems();
+    setAvailableNguyenTraiPoems(poems);
+    if (poems.length > 0) {
+      setSelectedNguyenTraiPoem(poems[0].id.toString());
     }
   };
 
-  const fetchLucVanTienData = async (pageNumber: number) => {
+  const loadLucVanTienData = async (pageNumber: number) => {
     setIsLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api";
-      const response = await fetch(
-        `${apiUrl}/searchable-text/luc-van-tien?page=${pageNumber}`
-      );
-      const data = await response.json();
-      setPageData(data);
+      const data = await fetchLucVanTienData(pageNumber);
+      if (data) {
+        setPageData(data);
+      }
       return data;
     } catch (error) {
       console.error("Error fetching page data:", error);
+      return null;
     } finally {
       setIsLoading(false);
     }
   };
 
-  const fetchHoXuanHuongData = async (poemTitle: string) => {
+  const loadHoXuanHuongData = async (poemTitle: string) => {
     setIsLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api";
-      const response = await fetch(
-        `${apiUrl}/searchable-text/tinh-hoa-mua-xuan?topic=${encodeURIComponent(
-          poemTitle
-        )}`
-      );
-      const data = await response.json();
-      setPageData(data);
+      const data = await fetchHoXuanHuongData(poemTitle);
+      if (data) {
+        setPageData(data);
+      }
       return data;
     } catch (error) {
       console.error("Error fetching poem data:", error);
+      return null;
     } finally {
       setIsLoading(false);
     }
   };
 
-  const fetchNguyenTraiData = async (poemId: string) => {
+  const loadNguyenTraiData = async (poemId: string) => {
     setIsLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api";
-      const response = await fetch(
-        `${apiUrl}/searchable-text/quoc-am-thi-tap?topicId=${poemId}`
-      );
-      const data = await response.json();
-      setPageData(data);
-      setCurrentNguyenTraiData(data);
+      const data = await fetchNguyenTraiData(poemId);
+      if (data) {
+        setPageData(data);
+        setCurrentNguyenTraiData(data);
+      }
       return data;
     } catch (error) {
       console.error("Error fetching Nguyen Trai data:", error);
+      return null;
     } finally {
       setIsLoading(false);
     }
@@ -271,17 +250,17 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
     let lines: LineData[] = [];
 
     if (selectedBook === "luc-van-tien") {
-      data = await fetchLucVanTienData(selectedPage);
+      data = await loadLucVanTienData(selectedPage);
       if (data) {
         lines = extractLinesFromLucVanTien(data as LucVanTienPageData);
       }
     } else if (selectedBook === "ho-xuan-huong") {
-      data = await fetchHoXuanHuongData(selectedPoem);
+      data = await loadHoXuanHuongData(selectedPoem);
       if (data) {
         lines = extractLinesFromHoXuanHuong(data as HoXuanHuongPoemData);
       }
     } else if (selectedBook === "nguyen-trai") {
-      data = await fetchNguyenTraiData(selectedNguyenTraiPoem);
+      data = await loadNguyenTraiData(selectedNguyenTraiPoem);
       if (data) {
         lines = extractLinesFromNguyenTrai(data as NguyenTraiPoemData);
       }
