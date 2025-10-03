@@ -1,13 +1,17 @@
-import type { Quiz, LineData, QuizType } from "./types";
+import type { Quiz, LineData, QuizType, QuizMode } from "./types";
 
-export function generateQuizzes(lines: LineData[], count: number = 10): Quiz[] {
+export function generateQuizzes(
+  lines: LineData[],
+  count: number = 10,
+  mode: QuizMode = "mixed"
+): Quiz[] {
   const quizzes: Quiz[] = [];
   const usedIndices = new Set<number>();
 
   // Ensure we don't try to generate more quizzes than available lines
   const actualCount = Math.min(count, lines.length);
 
-  // Generate quizzes ensuring we have a mix
+  // Generate quizzes based on the selected mode
   for (let i = 0; i < actualCount; i++) {
     let randomIndex: number;
     do {
@@ -16,7 +20,17 @@ export function generateQuizzes(lines: LineData[], count: number = 10): Quiz[] {
     usedIndices.add(randomIndex);
 
     const line = lines[randomIndex];
-    const quizType: QuizType = i % 2 === 0 ? "full-sentence" : "fill-in-blank";
+
+    // Determine quiz type based on mode
+    let quizType: QuizType;
+    if (mode === "sentences") {
+      quizType = "full-sentence";
+    } else if (mode === "missing-words") {
+      quizType = "fill-in-blank";
+    } else {
+      // Mixed mode: alternate between types
+      quizType = i % 2 === 0 ? "full-sentence" : "fill-in-blank";
+    }
 
     if (quizType === "full-sentence") {
       quizzes.push({

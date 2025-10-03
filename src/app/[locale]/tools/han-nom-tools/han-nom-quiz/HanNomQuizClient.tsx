@@ -53,6 +53,9 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
     useState<NguyenTraiPoemData | null>(null);
 
   const [quizCount, setQuizCount] = useState<number>(10);
+  const [quizMode, setQuizMode] = useState<
+    "sentences" | "missing-words" | "mixed"
+  >("mixed");
   const [pageData, setPageData] = useState<PageData | null>(null);
   const [isQuizStarted, setIsQuizStarted] = useState(false);
 
@@ -267,7 +270,7 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
     }
 
     if (lines.length > 0) {
-      const generatedQuizzes = generateQuizzes(lines, quizCount);
+      const generatedQuizzes = generateQuizzes(lines, quizCount, quizMode);
 
       // Set metadata for all quizzes
       if (selectedBook === "luc-van-tien") {
@@ -360,6 +363,8 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
         availableNguyenTraiPoems={availableNguyenTraiPoems}
         quizCount={quizCount}
         setQuizCount={setQuizCount}
+        quizMode={quizMode}
+        setQuizMode={setQuizMode}
         totalPages={totalPages}
         isLoading={isLoading}
         onStartQuiz={startQuiz}

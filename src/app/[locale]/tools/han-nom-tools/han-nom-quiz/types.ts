@@ -2,6 +2,8 @@ export type BookType = "luc-van-tien" | "ho-xuan-huong" | "nguyen-trai";
 
 export type QuizType = "full-sentence" | "fill-in-blank";
 
+export type QuizMode = "sentences" | "missing-words" | "mixed";
+
 export type Quiz = {
   id: number;
   type: QuizType;

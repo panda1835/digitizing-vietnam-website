@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { BookOpen, ExternalLink } from "lucide-react";
-import type { BookType } from "./types";
+import type { BookType, QuizMode } from "./types";
 
 type QuizSetupProps = {
   locale: string;
@@ -25,6 +25,8 @@ type QuizSetupProps = {
   availableNguyenTraiPoems: { id: number; title: string; titleNum: number }[];
   quizCount: number;
   setQuizCount: (count: number) => void;
+  quizMode: QuizMode;
+  setQuizMode: (mode: QuizMode) => void;
   totalPages: number;
   isLoading: boolean;
   onStartQuiz: () => void;
@@ -44,6 +46,8 @@ export default function QuizSetup({
   availableNguyenTraiPoems,
   quizCount,
   setQuizCount,
+  quizMode,
+  setQuizMode,
   totalPages,
   isLoading,
   onStartQuiz,
@@ -186,6 +190,45 @@ export default function QuizSetup({
               ))}
             </SelectContent>
           </Select>
+        </div>
+
+        {/* Quiz Mode Selection */}
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            {locale === "vi" ? "Chế độ luyện tập:" : "Quiz mode:"}
+          </label>
+          <Select
+            value={quizMode}
+            onValueChange={(value: QuizMode) => setQuizMode(value)}
+          >
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="sentences">
+                {locale === "vi" ? "Chỉ dịch câu hoàn chỉnh" : "Sentences only"}
+              </SelectItem>
+              <SelectItem value="missing-words">
+                {locale === "vi" ? "Chỉ điền từ thiếu" : "Missing words only"}
+              </SelectItem>
+              <SelectItem value="mixed">
+                {locale === "vi" ? "Kết hợp cả hai" : "Mixed"}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <p className="text-xs text-gray-500 mt-2">
+            {locale === "vi"
+              ? quizMode === "sentences"
+                ? "Tất cả câu hỏi sẽ yêu cầu dịch toàn bộ câu từ Hán Nôm sang Quốc Ngữ"
+                : quizMode === "missing-words"
+                ? "Tất cả câu hỏi sẽ yêu cầu điền từ bị thiếu trong câu dịch"
+                : "Câu hỏi sẽ xen kẽ giữa dịch câu hoàn chỉnh và điền từ thiếu"
+              : quizMode === "sentences"
+              ? "All questions will ask you to translate the entire sentence from Han Nom to Vietnamese"
+              : quizMode === "missing-words"
+              ? "All questions will ask you to fill in the missing word in the translation"
+              : "Questions will alternate between full sentence translations and fill-in-the-blank"}
+          </p>
         </div>
 
         {/* Quick Links */}
