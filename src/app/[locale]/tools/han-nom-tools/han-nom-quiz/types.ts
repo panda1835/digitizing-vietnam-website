@@ -4,6 +4,8 @@ export type QuizType = "full-sentence" | "fill-in-blank";
 
 export type QuizMode = "sentences" | "missing-words" | "mixed";
 
+export type QuizOrder = "sequential" | "random";
+
 export type Quiz = {
   id: number;
   type: QuizType;

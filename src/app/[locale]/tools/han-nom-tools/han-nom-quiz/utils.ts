@@ -1,9 +1,10 @@
-import type { Quiz, LineData, QuizType, QuizMode } from "./types";
+import type { Quiz, LineData, QuizType, QuizMode, QuizOrder } from "./types";
 
 export function generateQuizzes(
   lines: LineData[],
   count: number = 10,
-  mode: QuizMode = "mixed"
+  mode: QuizMode = "mixed",
+  order: QuizOrder = "random"
 ): Quiz[] {
   const quizzes: Quiz[] = [];
   const usedIndices = new Set<number>();
@@ -11,15 +12,22 @@ export function generateQuizzes(
   // Ensure we don't try to generate more quizzes than available lines
   const actualCount = Math.min(count, lines.length);
 
-  // Generate quizzes based on the selected mode
+  // Generate quizzes based on the selected mode and order
   for (let i = 0; i < actualCount; i++) {
-    let randomIndex: number;
-    do {
-      randomIndex = Math.floor(Math.random() * lines.length);
-    } while (usedIndices.has(randomIndex));
-    usedIndices.add(randomIndex);
+    let lineIndex: number;
 
-    const line = lines[randomIndex];
+    if (order === "sequential") {
+      // Sequential: use lines in order
+      lineIndex = i;
+    } else {
+      // Random: pick random lines
+      do {
+        lineIndex = Math.floor(Math.random() * lines.length);
+      } while (usedIndices.has(lineIndex));
+      usedIndices.add(lineIndex);
+    }
+
+    const line = lines[lineIndex];
 
     // Determine quiz type based on mode
     let quizType: QuizType;

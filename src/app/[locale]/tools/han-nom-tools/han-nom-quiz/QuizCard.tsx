@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 import type { Quiz } from "./types";
+import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 
 const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -42,9 +43,16 @@ export default function QuizCard({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className={`text-3xl mb-6 text-center ${NomNaTong.className}`}>
-          {quiz.hanNomText}
-        </div>
+        {/* Show regular text before answering, lookupable text after entering answer */}
+        {quiz.userAnswer.trim() ? (
+          <div className="mb-6 text-center">
+            <LookupableHanNomText text={quiz.hanNomText} className="text-3xl" />
+          </div>
+        ) : (
+          <div className={`text-3xl mb-6 text-center ${NomNaTong.className}`}>
+            {quiz.hanNomText}
+          </div>
+        )}
 
         {quiz.type === "fill-in-blank" && (
           <div className="mb-4 text-lg text-center text-gray-700">

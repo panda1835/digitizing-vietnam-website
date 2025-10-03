@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { BookOpen, ExternalLink } from "lucide-react";
-import type { BookType, QuizMode } from "./types";
+import type { BookType, QuizMode, QuizOrder } from "./types";
 
 type QuizSetupProps = {
   locale: string;
@@ -27,6 +27,8 @@ type QuizSetupProps = {
   setQuizCount: (count: number) => void;
   quizMode: QuizMode;
   setQuizMode: (mode: QuizMode) => void;
+  quizOrder: QuizOrder;
+  setQuizOrder: (order: QuizOrder) => void;
   totalPages: number;
   isLoading: boolean;
   onStartQuiz: () => void;
@@ -48,6 +50,8 @@ export default function QuizSetup({
   setQuizCount,
   quizMode,
   setQuizMode,
+  quizOrder,
+  setQuizOrder,
   totalPages,
   isLoading,
   onStartQuiz,
@@ -228,6 +232,38 @@ export default function QuizSetup({
               : quizMode === "missing-words"
               ? "All questions will ask you to fill in the missing word in the translation"
               : "Questions will alternate between full sentence translations and fill-in-the-blank"}
+          </p>
+        </div>
+
+        {/* Quiz Order Selection */}
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            {locale === "vi" ? "Thứ tự câu hỏi:" : "Question order:"}
+          </label>
+          <Select
+            value={quizOrder}
+            onValueChange={(value: QuizOrder) => setQuizOrder(value)}
+          >
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="sequential">
+                {locale === "vi" ? "Theo thứ tự" : "Sequential"}
+              </SelectItem>
+              <SelectItem value="random">
+                {locale === "vi" ? "Ngẫu nhiên" : "Random"}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <p className="text-xs text-gray-500 mt-2">
+            {locale === "vi"
+              ? quizOrder === "sequential"
+                ? "Câu hỏi sẽ xuất hiện theo thứ tự các dòng trong tác phẩm"
+                : "Câu hỏi sẽ được chọn ngẫu nhiên từ các dòng trong tác phẩm"
+              : quizOrder === "sequential"
+              ? "Questions will appear in the order of lines in the text"
+              : "Questions will be randomly selected from the lines in the text"}
           </p>
         </div>
 

@@ -56,6 +56,7 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
   const [quizMode, setQuizMode] = useState<
     "sentences" | "missing-words" | "mixed"
   >("mixed");
+  const [quizOrder, setQuizOrder] = useState<"sequential" | "random">("random");
   const [pageData, setPageData] = useState<PageData | null>(null);
   const [isQuizStarted, setIsQuizStarted] = useState(false);
 
@@ -270,7 +271,12 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
     }
 
     if (lines.length > 0) {
-      const generatedQuizzes = generateQuizzes(lines, quizCount, quizMode);
+      const generatedQuizzes = generateQuizzes(
+        lines,
+        quizCount,
+        quizMode,
+        quizOrder
+      );
 
       // Set metadata for all quizzes
       if (selectedBook === "luc-van-tien") {
@@ -365,6 +371,8 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
         setQuizCount={setQuizCount}
         quizMode={quizMode}
         setQuizMode={setQuizMode}
+        quizOrder={quizOrder}
+        setQuizOrder={setQuizOrder}
         totalPages={totalPages}
         isLoading={isLoading}
         onStartQuiz={startQuiz}
