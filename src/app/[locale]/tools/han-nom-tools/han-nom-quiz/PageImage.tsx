@@ -1,25 +1,42 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import type { LucVanTienPageData } from "./types";
+import type { LucVanTienPageData, BookType } from "./types";
 
 type PageImageProps = {
   locale: string;
   pageData: LucVanTienPageData | null;
   selectedPage: number;
+  selectedBook: BookType;
 };
 
 export default function PageImage({
   locale,
   pageData,
   selectedPage,
+  selectedBook,
 }: PageImageProps) {
+  // Determine the collection path based on the selected book
+  const getCollectionPath = () => {
+    if (selectedBook === "luc-van-tien") {
+      return "van-tien-co-tich-tan-truyen";
+    } else if (selectedBook.startsWith("truyen-kieu")) {
+      const version = selectedBook.split("-")[2];
+      return `truyen-kieu-${version}`;
+    }
+    return "";
+  };
+
+  const collectionPath = getCollectionPath();
+
   return (
     <div className="lg:w-1/3">
       <Card>
         <CardContent className="p-4">
-          {pageData?.text?.page?.$ && pageData.text.page.$.pi !== "NA" ? (
+          {pageData?.text?.page?.$ &&
+          pageData.text.page.$.pi !== "NA" &&
+          collectionPath ? (
             <Image
-              src={`https://iiif.digitizingvietnam.com/iiif/2/van-tien-co-tich-tan-truyen/${pageData.text.page.$.pi}/full/full/0/default.jpg`}
+              src={`https://iiif.digitizingvietnam.com/iiif/2/${collectionPath}/${pageData.text.page.$.pi}/full/full/0/default.jpg`}
               alt={`Page ${selectedPage}`}
               width={400}
               height={600}

@@ -82,6 +82,31 @@ export default function QuizSetup({
                   ? "Lục Vân Tiên - Nguyễn Đình Chiểu"
                   : "Luc Van Tien - Nguyen Dinh Chieu"}
               </SelectItem>
+              <SelectItem value="truyen-kieu-1866">
+                {locale === "vi"
+                  ? "Truyện Kiều - Nguyễn Du - Bản 1866"
+                  : "Truyen Kieu - 1866 Edition"}
+              </SelectItem>
+              <SelectItem value="truyen-kieu-1870">
+                {locale === "vi"
+                  ? "Truyện Kiều - Nguyễn Du - Bản 1870"
+                  : "Truyen Kieu - 1870 Edition"}
+              </SelectItem>
+              <SelectItem value="truyen-kieu-1871">
+                {locale === "vi"
+                  ? "Truyện Kiều - Nguyễn Du - Bản 1871"
+                  : "Truyen Kieu - 1871 Edition"}
+              </SelectItem>
+              <SelectItem value="truyen-kieu-1872">
+                {locale === "vi"
+                  ? "Truyện Kiều - Nguyễn Du - Bản 1872"
+                  : "Truyen Kieu - 1872 Edition"}
+              </SelectItem>
+              <SelectItem value="truyen-kieu-1902">
+                {locale === "vi"
+                  ? "Truyện Kiều - Nguyễn Du - Bản 1902"
+                  : "Truyen Kieu - 1902 Edition"}
+              </SelectItem>
               <SelectItem value="ho-xuan-huong">
                 {locale === "vi"
                   ? "Tinh Hoa Mùa Xuân - Hồ Xuân Hương"
@@ -97,7 +122,8 @@ export default function QuizSetup({
         </div>
 
         {/* Page/Poem Selection */}
-        {selectedBook === "luc-van-tien" ? (
+        {selectedBook === "luc-van-tien" ||
+        selectedBook.startsWith("truyen-kieu") ? (
           <div>
             <label className="block text-sm font-medium mb-2">
               {locale === "vi" ? "Chọn trang để học:" : "Select page to study:"}
@@ -292,6 +318,20 @@ export default function QuizSetup({
                 {locale === "vi"
                   ? "Xem toàn bộ Lục Vân Tiên"
                   : "View full Luc Van Tien"}
+                <ExternalLink className="w-3 h-3" />
+              </Link>
+            ) : selectedBook.startsWith("truyen-kieu") ? (
+              <Link
+                href={`/${locale}/our-collections/truyen-kieu/kieu-${
+                  selectedBook.split("-")[2]
+                }`}
+                className="flex items-center gap-2 text-blue-600 hover:underline"
+                target="_blank"
+              >
+                <BookOpen className="w-4 h-4" />
+                {locale === "vi"
+                  ? "Xem toàn bộ Truyện Kiều"
+                  : "View full Truyen Kieu"}
                 <ExternalLink className="w-3 h-3" />
               </Link>
             ) : selectedBook === "ho-xuan-huong" ? (

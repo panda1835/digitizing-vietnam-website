@@ -94,3 +94,20 @@ export async function fetchAvailableNguyenTraiPoems(): Promise<
     return [];
   }
 }
+
+export async function fetchTruyenKieuData(
+  version: string,
+  pageNumber: number
+): Promise<LucVanTienPageData | null> {
+  try {
+    const response = await fetch(
+      `${apiUrl}/searchable-text/truyen-kieu?version=${version}&page=${pageNumber}`,
+      { cache: "no-store" }
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Truyen Kieu data:", error);
+    return null;
+  }
+}

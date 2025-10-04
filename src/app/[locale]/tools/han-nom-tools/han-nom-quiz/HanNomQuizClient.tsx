@@ -22,6 +22,7 @@ import {
   fetchAvailableHoXuanHuongPoems,
   fetchNguyenTraiData,
   fetchAvailableNguyenTraiPoems,
+  fetchTruyenKieuData,
 } from "./actions";
 
 export default function HanNomQuizClient({ locale }: { locale: string }) {
@@ -35,9 +36,9 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
   // Book selection
   const [selectedBook, setSelectedBook] = useState<BookType>("luc-van-tien");
 
-  // Luc Van Tien specific
+  // Luc Van Tien and Truyen Kieu specific (page-based books)
   const [selectedPage, setSelectedPage] = useState<number>(1);
-  const [totalPages] = useState<number>(104);
+  const [totalPages, setTotalPages] = useState<number>(104);
 
   // Ho Xuan Huong specific
   const [selectedPoem, setSelectedPoem] = useState<string>("");
@@ -62,6 +63,14 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
 
   const currentQuiz = quizzes[currentQuizIndex];
 
+  // Helper function to get Truyen Kieu version from book type
+  const getTruyenKieuVersion = (bookType: BookType): string | null => {
+    if (bookType.startsWith("truyen-kieu-")) {
+      return bookType.split("-")[2];
+    }
+    return null;
+  };
+
   // Helper function to format Nguyen Trai poem title
   const formatNguyenTraiPoemTitle = (title: string, titleNum: number) => {
     if (titleNum === 0) {
@@ -69,6 +78,25 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
     }
     return `${title} (Bài ${titleNum})`;
   };
+
+  // Update total pages when book changes
+  useEffect(() => {
+    const version = getTruyenKieuVersion(selectedBook);
+    if (selectedBook === "luc-van-tien") {
+      setTotalPages(104);
+    } else if (version) {
+      // Truyen Kieu page counts based on the XML files
+      const pageCounts: { [key: string]: number } = {
+        "1866": 136,
+        "1870": 233,
+        "1871": 136,
+        "1872": 163,
+        "1902": 163,
+      };
+      setTotalPages(pageCounts[version] || 136);
+    }
+    setSelectedPage(1); // Reset to page 1 when book changes
+  }, [selectedBook]);
 
   // Fetch available Ho Xuan Huong poems on mount
   useEffect(() => {
@@ -105,6 +133,33 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
       return data;
     } catch (error) {
       console.error("Error fetching page data:", error);
+      return null;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const loadTruyenKieuData = async (version: string, pageNumber: number) => {
+    setIsLoading(true);
+    try {
+      const data = await fetchTruyenKieuData(version, pageNumber);
+      if (data) {
+        // Wrap the data to match LucVanTienPageData structure
+        // Truyen Kieu API returns the page directly in text/rawText
+        // Luc Van Tien wraps it in { text: { page: {...} } }
+        const wrappedData: LucVanTienPageData = {
+          text: {
+            page: data.text as any,
+          },
+          rawText: data.rawText as any,
+          count: data.count,
+        };
+        setPageData(wrappedData);
+        return wrappedData;
+      }
+      return null;
+    } catch (error) {
+      console.error("Error fetching Truyen Kieu data:", error);
       return null;
     } finally {
       setIsLoading(false);
@@ -253,8 +308,15 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
     let data;
     let lines: LineData[] = [];
 
+    const truyenKieuVersion = getTruyenKieuVersion(selectedBook);
+
     if (selectedBook === "luc-van-tien") {
       data = await loadLucVanTienData(selectedPage);
+      if (data) {
+        lines = extractLinesFromLucVanTien(data as LucVanTienPageData);
+      }
+    } else if (truyenKieuVersion) {
+      data = await loadTruyenKieuData(truyenKieuVersion, selectedPage);
       if (data) {
         lines = extractLinesFromLucVanTien(data as LucVanTienPageData);
       }
@@ -279,7 +341,7 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
       );
 
       // Set metadata for all quizzes
-      if (selectedBook === "luc-van-tien") {
+      if (selectedBook === "luc-van-tien" || truyenKieuVersion) {
         generatedQuizzes.forEach((q) => (q.pageNumber = selectedPage));
       } else if (selectedBook === "ho-xuan-huong") {
         generatedQuizzes.forEach((q) => {
@@ -426,18 +488,24 @@ export default function HanNomQuizClient({ locale }: { locale: string }) {
 
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Page Image (if shown and applicable) */}
-        {showPageImage && pageData && selectedBook === "luc-van-tien" && (
-          <PageImage
-            locale={locale}
-            pageData={pageData as LucVanTienPageData}
-            selectedPage={selectedPage}
-          />
-        )}
+        {showPageImage &&
+          pageData &&
+          (selectedBook === "luc-van-tien" ||
+            getTruyenKieuVersion(selectedBook)) && (
+            <PageImage
+              locale={locale}
+              pageData={pageData as LucVanTienPageData}
+              selectedPage={selectedPage}
+              selectedBook={selectedBook}
+            />
+          )}
 
         {/* Quiz Card */}
         <div
           className={
-            showPageImage && selectedBook === "luc-van-tien"
+            showPageImage &&
+            (selectedBook === "luc-van-tien" ||
+              getTruyenKieuVersion(selectedBook))
               ? "lg:w-2/3"
               : "w-full"
           }

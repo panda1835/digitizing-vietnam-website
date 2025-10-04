@@ -93,7 +93,15 @@ export default function QuizCard({
             </Button>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div
+            className="space-y-4"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onNextQuiz();
+              }
+            }}
+            tabIndex={0}
+          >
             <div
               className={`p-4 rounded-lg ${
                 quiz.isCorrect
@@ -137,7 +145,7 @@ export default function QuizCard({
               )}
             </div>
 
-            <Button onClick={onNextQuiz} className="w-full" size="lg">
+            <Button onClick={onNextQuiz} className="w-full" size="lg" autoFocus>
               {currentQuizIndex < totalQuizzes - 1
                 ? locale === "vi"
                   ? "Câu tiếp theo"

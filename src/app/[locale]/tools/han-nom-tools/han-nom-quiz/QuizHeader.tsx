@@ -49,7 +49,8 @@ export default function QuizHeader({
             {locale === "vi" ? "Điểm:" : "Score:"} {score}
           </div>
           <div className="text-sm text-gray-600">
-            {selectedBook === "luc-van-tien"
+            {selectedBook === "luc-van-tien" ||
+            selectedBook.startsWith("truyen-kieu")
               ? locale === "vi"
                 ? `Trang ${selectedPage}`
                 : `Page ${selectedPage}`
@@ -59,7 +60,8 @@ export default function QuizHeader({
           </div>
         </div>
         <div className="flex gap-2">
-          {selectedBook === "luc-van-tien" && (
+          {(selectedBook === "luc-van-tien" ||
+            selectedBook.startsWith("truyen-kieu")) && (
             <Button variant="outline" size="sm" onClick={onTogglePageImage}>
               {showPageImage ? (
                 <>
@@ -102,6 +104,18 @@ export default function QuizHeader({
             {locale === "vi" ? "Xem trong bản thảo" : "View in manuscript"}
             <ExternalLink className="w-3 h-3" />
           </Link>
+        ) : selectedBook.startsWith("truyen-kieu") ? (
+          <Link
+            href={`/${locale}/our-collections/truyen-kieu/truyen-kieu-${
+              selectedBook.split("-")[2]
+            }?page=${currentQuizPageNumber}&line=${currentQuizLineNumber}`}
+            className="flex items-center gap-1 text-blue-600 hover:underline"
+            target="_blank"
+          >
+            <BookOpen className="w-4 h-4" />
+            {locale === "vi" ? "Xem trong bản thảo" : "View in manuscript"}
+            <ExternalLink className="w-3 h-3" />
+          </Link>
         ) : selectedBook === "ho-xuan-huong" ? (
           <Link
             href={`/${locale}/our-collections/tho-ho-xuan-huong/tinh-hoa-mua-xuan?topic=${encodeURIComponent(
@@ -114,7 +128,7 @@ export default function QuizHeader({
             {locale === "vi" ? "Xem bài thơ" : "View poem"}
             <ExternalLink className="w-3 h-3" />
           </Link>
-        ) : (
+        ) : selectedBook === "nguyen-trai" ? (
           <Link
             href={`/${locale}/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap?topic=${
               currentQuizPoemId || ""
@@ -126,7 +140,7 @@ export default function QuizHeader({
             {locale === "vi" ? "Xem bài thơ" : "View poem"}
             <ExternalLink className="w-3 h-3" />
           </Link>
-        )}
+        ) : null}
       </div>
     </>
   );

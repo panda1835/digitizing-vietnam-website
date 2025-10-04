@@ -1,4 +1,12 @@
-export type BookType = "luc-van-tien" | "ho-xuan-huong" | "nguyen-trai";
+export type BookType =
+  | "luc-van-tien"
+  | "ho-xuan-huong"
+  | "nguyen-trai"
+  | "truyen-kieu-1866"
+  | "truyen-kieu-1870"
+  | "truyen-kieu-1871"
+  | "truyen-kieu-1872"
+  | "truyen-kieu-1902";
 
 export type QuizType = "full-sentence" | "fill-in-blank";
 
