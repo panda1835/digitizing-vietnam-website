@@ -46,7 +46,13 @@ export default function RadicalsClient({
     setSelectedRadical(radical);
     setSelectedStroke(null);
     setLoading(true);
-
+    // Scroll to characters section after loading
+    setTimeout(() => {
+      const element = document.getElementById("characters-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
     try {
       const data = await getCharactersForRadical(radical.URN);
       setCharactersByStroke(data);
@@ -113,8 +119,8 @@ export default function RadicalsClient({
                           text-lg border-2 transition-all duration-200
                           ${
                             selectedRadical?.id === radical.id
-                              ? "bg-blue-500 text-white border-blue-600 shadow-md scale-110"
-                              : "bg-white hover:bg-blue-50 border-gray-300 hover:border-blue-400"
+                              ? "bg-branding-brown text-white border-branding-brown shadow-md scale-110"
+                              : "bg-white hover:bg-branding-brown/10 border-gray-300 hover:border-branding-brown text-branding-black"
                           }
                         `}
                         title={`${radical.name} (${radical.definition}) - ${radical.strokes} strokes`}
@@ -131,9 +137,9 @@ export default function RadicalsClient({
 
         {/* Character display section */}
         {selectedRadical && (
-          <div>
+          <div id="characters-section">
             {/* Radical info header */}
-            <div className="bg-blue-50 border-2 border-gray-300 rounded-lg p-4 mb-4">
+            <div className="bg-branding-brown/10 border-2 border-branding-brown rounded-lg p-4 mb-4">
               <div className="flex items-center gap-4">
                 <div className={`${NomNaTong.className} text-5xl`}>
                   {selectedRadical.hn}
@@ -181,8 +187,8 @@ export default function RadicalsClient({
                             px-3 py-1 border rounded text-sm font-medium transition-colors
                             ${
                               selectedStroke === stroke
-                                ? "bg-blue-500 text-white border-blue-600"
-                                : "bg-white border-gray-400 hover:bg-blue-50 hover:border-blue-500"
+                                ? "bg-branding-brown text-white border-branding-brown shadow-md scale-110"
+                                : "bg-white hover:bg-branding-brown/10 border-gray-300 hover:border-branding-brown text-branding-black"
                             }
                           `}
                         >
@@ -203,7 +209,8 @@ export default function RadicalsClient({
                             ${NomNaTong.className}
                             w-12 h-12 flex items-center justify-center
                             text-2xl border border-gray-300 bg-white
-                            hover:bg-yellow-50 hover:border-yellow-500 cursor-pointer
+                            hover:bg-branding-brown/10 hover:border-branding-brown
+                            cursor-pointer
                             transition-all
                           `}
                           title={char.definition || "No definition"}

@@ -27,5 +27,9 @@ async function getRadicals(): Promise<Radical[]> {
 export default async function RadicalsPage() {
   const radicals = await getRadicals();
 
-  return <RadicalsClient initialRadicals={radicals} />;
+  return (
+    <div className="my-20">
+      <RadicalsClient initialRadicals={radicals} />
+    </div>
+  );
 }
