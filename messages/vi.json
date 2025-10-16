@@ -228,6 +228,16 @@
         "han-nom-input-method-editor": {
           "name": "Bộ gõ Hán-Nôm",
           "description": "Khác với các bộ gõ Hán-Nôm truyền thống, bộ gõ này cho phép người dùng nhập trực tiếp chữ Hán và chữ Nôm ngay trên trình duyệt web, mà không cần cài đặt bất kỳ phần mềm nào. Nhờ tính linh hoạt cao, công cụ có thể được sử dụng trên mọi thiết bị có kết nối internet, mang lại sự thuận tiện tối đa cho người dùng trong quá trình tra cứu và soạn thảo văn bản Hán-Nôm. Đây là một giải pháp hữu ích cho cả người học lẫn các nhà nghiên cứu cần thao tác nhanh chóng và hiệu quả với văn bản cổ.",
+          "type-in-quoc-ngu": "Nhập chữ Quốc Ngữ...",
+          "input-method": "Phương thức nhập",
+          "quoc-ngu": "Quốc Ngữ",
+          "handwriting": "Viết tay",
+          "radical": "Bộ thủ",
+          "output-placeholder": "Văn bản Hán-Nôm sẽ hiển thị ở đây..."
+        },
+        "han-nom-from-quoc-ngu": {
+          "name": "Hán-Nôm từ Quốc Ngữ",
+          "description": "Chuyển đổi văn bản Quốc Ngữ thành chữ Hán-Nôm bằng phương pháp nhập liệu thông minh theo câu. Gõ toàn bộ câu bằng chữ Quốc Ngữ và nhận gợi ý ký tự ngay lập tức với hỗ trợ từ ghép.",
           "type-in-quoc-ngu": "Nhập chữ Quốc Ngữ..."
         },
         "nom-character-classification-and-analysis-tool": {

@@ -227,6 +227,16 @@
         "han-nom-input-method-editor": {
           "name": "Hán-Nôm Input Tool",
           "description": "Unlike traditional Han-Nom input methods, this tool allows users to type Hán and Nôm characters directly in a web browser without the need to install any software. Thanks to its high flexibility, the tool can be used on any internet-connected device, offering maximum convenience for users in searching and composing Hán-Nôm texts. It serves as a practical solution for both learners and researchers who require quick and efficient interaction with classical texts. ",
+          "type-in-quoc-ngu": "Type in Quốc Ngữ",
+          "input-method": "Input Method",
+          "quoc-ngu": "Quốc Ngữ",
+          "handwriting": "Handwriting",
+          "radical": "Radical",
+          "output-placeholder": "Hán-Nôm output will appear here..."
+        },
+        "han-nom-from-quoc-ngu": {
+          "name": "Hán-Nôm from Quốc Ngữ",
+          "description": "Convert Quốc Ngữ text to Hán-Nôm characters using an intelligent sentence-based input method. Type full sentences in Vietnamese romanization and get instant character suggestions with compound word support.",
           "type-in-quoc-ngu": "Type in Quốc Ngữ"
         },
         "nom-character-classification-and-analysis-tool": {
