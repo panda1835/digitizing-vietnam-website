@@ -4,6 +4,11 @@ import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ReactSketchCanvas, ReactSketchCanvasRef } from "react-sketch-canvas";
 import { Button } from "@/components/ui/button";
+import localFont from "next/font/local";
+
+const NomNaTong = localFont({
+  src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+});
 
 type Props = {
   onSelect: (char: string) => void;
@@ -76,6 +81,10 @@ export default function HandwritingPad({ onSelect }: Props) {
 
   return (
     <div className="flex items-center flex-col gap-4">
+      <div className="text-sm text-muted-foreground mb-2">
+        <span className="font-semibold text-gray-600">Lưu ý: </span>
+        <span>{t("Tools.han-nom-dictionaries.writing-pad.note")}</span>
+      </div>
       <ReactSketchCanvas
         ref={canvasRef}
         width="280px"
@@ -105,7 +114,7 @@ export default function HandwritingPad({ onSelect }: Props) {
               onClick={() => onSelect(char)}
               className="text-2xl p-2 border rounded hover:bg-gray-100 transition duration-200"
             >
-              {char}
+              <div className={NomNaTong.className}>{char}</div>
             </button>
           ))}
         </div>
