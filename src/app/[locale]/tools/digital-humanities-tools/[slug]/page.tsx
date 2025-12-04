@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { fetcher } from "@/lib/api";
 import { Merriweather } from "next/font/google";
 import SocialMediaSharing from "@/components/common/SocialMediaSharing";
-import { PedagogyMetadata } from "@/app/[locale]/pedagogy/[slug]/Metadata";
+import { PedagogyMetadata } from "@/app/[locale]/pedagogy/[collectionSlug]/[itemSlug]/Metadata";
 import { Metadata } from "next";
 import algoliasearch from "algoliasearch";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
