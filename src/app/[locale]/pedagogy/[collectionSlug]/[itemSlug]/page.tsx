@@ -17,16 +17,16 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string; slug: string };
+  params: { locale: string; collectionSlug: string; itemSlug: string };
 }): Promise<Metadata> {
   const t = await getTranslations();
 
   const { results } = await searchClient.search([
     {
       indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
-      query: params.slug,
+      query: params.itemSlug,
       params: {
-        restrictSearchableAttributes: ["slug"], // Only search in slug field
+        restrictSearchableAttributes: ["slug"],
       },
     },
   ]);
@@ -46,11 +46,24 @@ export async function generateMetadata({
 }
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-import { Pedagogy } from "../page";
+import { Pedagogy } from "../../page";
 
-const PedagogicalResource = async ({ params: { slug, locale } }) => {
+interface PedagogyWithCollection extends Pedagogy {
+  pedagogy_collection?: {
+    slug: string;
+    title: string;
+  };
+}
+
+const PedagogicalResource = async ({
+  params,
+}: {
+  params: { locale: string; collectionSlug: string; itemSlug: string };
+}) => {
+  const { locale, collectionSlug, itemSlug } = params;
   const t = await getTranslations();
-  let post: Pedagogy = {
+
+  let post: PedagogyWithCollection = {
     title: "",
     description: "",
     contributors: [""],
@@ -58,10 +71,11 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
     slug: "",
     metadata: {},
   };
+
   try {
     const queryParams = {
       fields: "*",
-      "filters[slug][$eq]": slug,
+      "filters[slug][$eq]": itemSlug,
       "populate[0]": "thumbnail",
       "populate[1]": "contributors",
       "populate[2]": "languages",
@@ -70,7 +84,7 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
       "populate[5]": "metadata",
       "populate[6]": "metadata.affiliation",
       "populate[7]": "metadata.supported_languages",
-
+      "populate[8]": "pedagogy_collections",
       locale: locale,
     };
 
@@ -79,7 +93,6 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/pedagogies?${queryString}`;
     const data = await fetcher(url);
     const blogPost = data.data[0];
-
     post = {
       title: blogPost.title,
       description: blogPost.description,
@@ -89,24 +102,41 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
       ],
       content: blogPost.content,
       slug: blogPost.slug,
-      metadata: blogPost.metadata[0],
+      metadata: blogPost.metadata?.[0],
+      pedagogy_collection: blogPost.pedagogy_collection
+        ? {
+            slug: blogPost.pedagogy_collection.slug,
+            title: blogPost.pedagogy_collection.title,
+          }
+        : undefined,
     };
   } catch (error) {
-    console.error("Error fetching blog:", error);
+    console.error("Error fetching pedagogy item:", error);
   }
+
+  // Build breadcrumb items
+  const breadcrumbItems = [
+    {
+      label: t("NavigationBar.outreach"),
+      href: `pedagogy`,
+    },
+  ];
+
+  if (post.pedagogy_collection) {
+    breadcrumbItems.push({
+      label: post.pedagogy_collection.title,
+      href: `pedagogy/${post.pedagogy_collection.slug}`,
+    });
+  }
+
+  breadcrumbItems.push({ label: post.title, href: "" });
 
   return (
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-5 max-w-5xl">
         <BreadcrumbAndSearchBar
           locale={locale}
-          breadcrumbItems={[
-            {
-              label: t("NavigationBar.outreach"),
-              href: `pedagogy`,
-            },
-            { label: post.title },
-          ]}
+          breadcrumbItems={breadcrumbItems}
         />
         <p className={`${merriweather.className} text-branding-black text-4xl`}>
           {post.title}
@@ -129,8 +159,6 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
         <div className="flex justify-end mt-12">
           <SocialMediaSharing title={post.title} />
         </div>
-
-        {/* <div>Related Highlights</div> */}
       </div>
     </div>
   );
