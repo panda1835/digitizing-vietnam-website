@@ -243,6 +243,28 @@
           "name": "Nôm Character Classification and Analysis Tool",
           "description": "This is a cutting-edge tool designed to assist researchers working with Hán-Nôm texts in compiling statistics and classifying Nôm characters based on the criteria outlined in Tự điển Chữ Nôm Dẫn giải (Explained Dictionary of Nom Characters) by scholar Nguyễn Quang Hồng. Users simply upload a Hán-Nôm text, and the tool automatically processes it to generate a detailed statistical report along with classifications of the Nôm characters found in the document. It serves as a valuable resource for linguistic, scriptural, and textual studies related to the Hán-Nôm heritage.",
           "type-in-han-nom": "Type in Hán Nôm..."
+        },
+        "radicals": {
+          "name": "Nom Radical Lookup",
+          "select-radical": "Select a radical:",
+          "stroke": "stroke",
+          "strokes": "strokes",
+          "stroke-label": "Strokes:",
+          "name-label": "Name:",
+          "definition-label": "Definition:",
+          "radical-strokes": "Radical strokes:",
+          "loading-characters": "Loading characters...",
+          "no-characters-found": "No characters found for this radical.",
+          "select-strokes": "Select strokes:",
+          "select-stroke-to-view": "Select a stroke count to view characters",
+          "copied-to-clipboard": "Copied to clipboard",
+          "failed-to-copy": "Failed to copy to clipboard",
+          "failed-to-load-characters": "Failed to load characters",
+          "no-definition": "No definition"
+        },
+        "quoc-ngu-input": {
+          "placeholder": "Type a word in Quốc Ngữ...",
+          "select-character": "Select character (press 1-9 or click):"
         }
       }
     }

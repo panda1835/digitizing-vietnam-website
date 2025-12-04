@@ -244,6 +244,28 @@
           "name": "Công cụ Thống kê và Phân loại Chữ Nôm",
           "description": "Đây là một công cụ hiện đại và hiệu quả, hỗ trợ các nhà nghiên cứu văn bản Hán Nôm trong việc thống kê và phân loại chữ Nôm dựa trên hệ thống tiêu chí được trình bày trong Tự điển Chữ Nôm Dẫn giải của học giả Nguyễn Quang Hồng. Người dùng chỉ cần tải văn bản Hán Nôm lên hệ thống; công cụ sẽ tự động xử lý, cung cấp bảng thống kê chi tiết cùng các phân loại chữ Nôm xuất hiện trong văn bản. Đây là một trợ thủ đắc lực trong các nghiên cứu ngôn ngữ, văn tự và văn bản học liên quan đến di sản Hán Nôm.",
           "type-in-han-nom": "Nhập văn bản Hán Nôm..."
+        },
+        "radicals": {
+          "name": "Tra cứu bộ thủ Nôm",
+          "select-radical": "Chọn một bộ thủ:",
+          "stroke": "nét",
+          "strokes": "nét",
+          "stroke-label": "Nét:",
+          "name-label": "Tên:",
+          "definition-label": "Nghĩa:",
+          "radical-strokes": "Số nét bộ thủ:",
+          "loading-characters": "Đang tải chữ...",
+          "no-characters-found": "Không tìm thấy chữ nào cho bộ thủ này.",
+          "select-strokes": "Chọn số nét:",
+          "select-stroke-to-view": "Chọn số nét để xem các chữ",
+          "copied-to-clipboard": "Đã sao chép vào bộ nhớ tạm",
+          "failed-to-copy": "Sao chép không thành công",
+          "failed-to-load-characters": "Không thể tải chữ",
+          "no-definition": "Không có định nghĩa"
+        },
+        "quoc-ngu-input": {
+          "placeholder": "Nhập từ Quốc Ngữ...",
+          "select-character": "Chọn chữ (nhấn 1-9 hoặc bấm):"
         }
       }
     }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import localFont from "next/font/local";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 import { getCharactersForRadical } from "./actions";
 
 const NomNaTong = localFont({
@@ -33,6 +34,7 @@ export default function CompactRadicals({
   radicals,
   onCharacterSelect,
 }: CompactRadicalsProps) {
+  const t = useTranslations("Tools.han-nom-tools.tools.radicals");
   const [selectedRadical, setSelectedRadical] = useState<Radical | null>(null);
   const [charactersByStroke, setCharactersByStroke] = useState<
     Record<string, Character[]>
@@ -51,7 +53,7 @@ export default function CompactRadicals({
       setCharactersByStroke(data);
     } catch (err) {
       console.error("Error fetching characters:", err);
-      toast.error("Failed to load characters");
+      toast.error(t("failed-to-load-characters"));
     } finally {
       setLoading(false);
     }
@@ -80,12 +82,12 @@ export default function CompactRadicals({
     <div className="space-y-4">
       {/* Radical Selection - Compact Version */}
       <div>
-        <h3 className="text-sm font-semibold mb-2">Select a radical:</h3>
+        <h3 className="text-sm font-semibold mb-2">{t("select-radical")}</h3>
         <div className="border rounded-lg p-3 max-h-[300px] overflow-y-auto">
           {strokeCounts.map((strokeCount) => (
             <div key={strokeCount} className="mb-3">
               <div className="text-xs font-semibold text-gray-600 mb-1">
-                {strokeCount} {strokeCount === 1 ? "stroke" : "strokes"}
+                {strokeCount} {strokeCount === 1 ? t("stroke") : t("strokes")}
               </div>
               <div className="flex flex-wrap gap-1">
                 {radicalsByStroke[strokeCount].map((radical) => (
@@ -124,11 +126,11 @@ export default function CompactRadicals({
               </div>
               <div>
                 <div>
-                  <span className="font-semibold">Name:</span>{" "}
+                  <span className="font-semibold">{t("name-label")}</span>{" "}
                   {selectedRadical.name}
                 </div>
                 <div>
-                  <span className="font-semibold">Strokes:</span>{" "}
+                  <span className="font-semibold">{t("stroke-label")}</span>{" "}
                   {selectedRadical.strokes}
                 </div>
               </div>
@@ -137,18 +139,18 @@ export default function CompactRadicals({
 
           {loading ? (
             <div className="text-center py-4 text-sm text-gray-500 border rounded-lg">
-              Loading characters...
+              {t("loading-characters")}
             </div>
           ) : Object.keys(charactersByStroke).length === 0 ? (
             <div className="text-center py-4 text-sm text-gray-500 border rounded-lg">
-              No characters found for this radical.
+              {t("no-characters-found")}
             </div>
           ) : (
             <>
               {/* Stroke count selector */}
               <div>
                 <div className="text-xs font-semibold mb-1">
-                  Select strokes:
+                  {t("select-strokes")}
                 </div>
                 <div className="flex flex-wrap gap-1">
                   {Object.keys(charactersByStroke)
@@ -187,7 +189,7 @@ export default function CompactRadicals({
                           cursor-pointer
                           transition-all
                         `}
-                        title={char.definition || "No definition"}
+                        title={char.definition || t("no-definition")}
                         onClick={() => {
                           onCharacterSelect(char.nom);
                         }}
@@ -198,7 +200,7 @@ export default function CompactRadicals({
                   </div>
                 ) : (
                   <div className="text-center text-gray-500 text-sm py-4">
-                    Select a stroke count to view characters
+                    {t("select-stroke-to-view")}
                   </div>
                 )}
               </div>

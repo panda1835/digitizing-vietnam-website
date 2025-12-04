@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Merriweather } from "next/font/google";
 import localFont from "next/font/local";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 import { getCharactersForRadical } from "./actions";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
@@ -33,6 +34,7 @@ interface RadicalsClientProps {
 export default function RadicalsClient({
   initialRadicals,
 }: RadicalsClientProps) {
+  const t = useTranslations("Tools.han-nom-tools.tools.radicals");
   const [radicals] = useState<Radical[]>(initialRadicals);
   const [selectedRadical, setSelectedRadical] = useState<Radical | null>(null);
   const [charactersByStroke, setCharactersByStroke] = useState<
@@ -58,7 +60,7 @@ export default function RadicalsClient({
       setCharactersByStroke(data);
     } catch (err) {
       console.error("Error fetching characters:", err);
-      toast.error("Failed to load characters");
+      toast.error(t("failed-to-load-characters"));
     } finally {
       setLoading(false);
     }
@@ -88,14 +90,14 @@ export default function RadicalsClient({
       <div
         className={`${merriweather.className} text-branding-black text-4xl mb-8`}
       >
-        Nom Radical Lookup
+        {t("name")}
       </div>
 
       {/* Main content area */}
       <div className="space-y-8">
         {/* Radicals organized by stroke count */}
         <div>
-          <h2 className="text-xl font-semibold mb-4">Select a radical:</h2>
+          <h2 className="text-xl font-semibold mb-4">{t("select-radical")}</h2>
           <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
             {/* Radicals display area */}
             <div className="bg-white p-6 min-h-[400px]">
@@ -106,7 +108,8 @@ export default function RadicalsClient({
                   data-stroke={strokeCount}
                 >
                   <div className="text-sm font-semibold text-gray-600 mb-2">
-                    {strokeCount} {strokeCount === 1 ? "stroke" : "strokes"}:
+                    {strokeCount}{" "}
+                    {strokeCount === 1 ? t("stroke") : t("strokes")}:
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {radicalsByStroke[strokeCount].map((radical) => (
@@ -146,15 +149,19 @@ export default function RadicalsClient({
                 </div>
                 <div className="text-sm">
                   <div>
-                    <span className="font-semibold">Name:</span>{" "}
+                    <span className="font-semibold">{t("name-label")}</span>{" "}
                     {selectedRadical.name}
                   </div>
                   <div>
-                    <span className="font-semibold">Definition:</span>{" "}
+                    <span className="font-semibold">
+                      {t("definition-label")}
+                    </span>{" "}
                     {selectedRadical.definition}
                   </div>
                   <div>
-                    <span className="font-semibold">Radical strokes:</span>{" "}
+                    <span className="font-semibold">
+                      {t("radical-strokes")}
+                    </span>{" "}
                     {selectedRadical.strokes}
                   </div>
                 </div>
@@ -163,18 +170,18 @@ export default function RadicalsClient({
 
             {loading ? (
               <div className="text-center py-8 text-gray-500 border-2 border-gray-300 rounded-lg">
-                Loading characters...
+                {t("loading-characters")}
               </div>
             ) : Object.keys(charactersByStroke).length === 0 ? (
               <div className="text-center py-8 text-gray-500 border-2 border-gray-300 rounded-lg">
-                No characters found for this radical.
+                {t("no-characters-found")}
               </div>
             ) : (
               <>
                 {/* Stroke count selector */}
                 <div className="mb-4">
                   <div className="text-sm font-semibold mb-2">
-                    Select strokes:
+                    {t("select-strokes")}
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {Object.keys(charactersByStroke)
@@ -213,15 +220,15 @@ export default function RadicalsClient({
                             cursor-pointer
                             transition-all
                           `}
-                          title={char.definition || "No definition"}
+                          title={char.definition || t("no-definition")}
                           onClick={() => {
                             navigator.clipboard
                               .writeText(char.nom)
                               .then(() => {
-                                toast.success(`Copied to clipboard`);
+                                toast.success(t("copied-to-clipboard"));
                               })
                               .catch(() => {
-                                toast.error("Failed to copy to clipboard");
+                                toast.error(t("failed-to-copy"));
                               });
                           }}
                         >
@@ -231,7 +238,7 @@ export default function RadicalsClient({
                     </div>
                   ) : (
                     <div className="text-center text-gray-500 py-8">
-                      Select a stroke count to view characters
+                      {t("select-stroke-to-view")}
                     </div>
                   )}
                 </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import localFont from "next/font/local";
+import { useTranslations } from "next-intl";
 import nomMap from "./qn_nom.json";
 import hanNomList from "./han-nom-list.json";
 
@@ -24,6 +25,7 @@ interface QuocNguSingleCharProps {
 export default function QuocNguSingleChar({
   onCharacterSelect,
 }: QuocNguSingleCharProps) {
+  const t = useTranslations("Tools.han-nom-tools.tools.quoc-ngu-input");
   const [inputWord, setInputWord] = useState("");
   const [candidates, setCandidates] = useState<HanNomItem[]>([]);
 
@@ -116,7 +118,7 @@ export default function QuocNguSingleChar({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onKeyPress={handleKeyPress}
-          placeholder="Type a word in Quốc Ngữ..."
+          placeholder={t("placeholder")}
           className="text-lg"
           autoFocus
         />
@@ -125,7 +127,7 @@ export default function QuocNguSingleChar({
       {candidates.length > 0 && (
         <div className="border rounded-lg p-4">
           <div className="text-sm font-semibold mb-2">
-            Select character (press 1-9 or click):
+            {t("select-character")}
           </div>
           <div className="flex flex-wrap gap-2">
             {candidates.map((item, i) => (
