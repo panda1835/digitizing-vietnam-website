@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import { CollectionItem } from "./CollectionItem";
 import { CollectionTOC } from "./CollectionTOC";
+import { CollectionList } from "./CollectionList";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 import FilterSidebar from "@/components/FilterSidebar";
@@ -14,7 +15,7 @@ const OurCollections = ({ collections, locale }) => {
   const t = useTranslations();
 
   const [filteredResults, setFilteredResults] = useState(collections);
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [viewMode, setViewMode] = useState<"grid" | "toc" | "list">("grid");
 
   //   console.log("collections", collections);
   const filter = generateCollectionFilters(collections);
@@ -117,6 +118,19 @@ const OurCollections = ({ collections, locale }) => {
               </svg>
             </button>
             <button
+              onClick={() => setViewMode("toc")}
+              className={`p-2 rounded-md transition-colors ${
+                viewMode === "toc"
+                  ? "bg-branding-brown text-white"
+                  : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+              }`}
+              title="Table of Contents View"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z" />
+              </svg>
+            </button>
+            <button
               onClick={() => setViewMode("list")}
               className={`p-2 rounded-md transition-colors ${
                 viewMode === "list"
@@ -126,7 +140,7 @@ const OurCollections = ({ collections, locale }) => {
               title="List View"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
+                <path d="M3 4h18v2H3V4zm0 5h18v2H3V9zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
               </svg>
             </button>
           </div>
@@ -206,8 +220,10 @@ const OurCollections = ({ collections, locale }) => {
                 ))}
               </div>
             )
-          ) : (
+          ) : viewMode === "toc" ? (
             <CollectionTOC collections={filteredResults} />
+          ) : (
+            <CollectionList collections={filteredResults} />
           )}
         </div>
       </div>

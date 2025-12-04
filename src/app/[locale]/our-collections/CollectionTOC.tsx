@@ -93,11 +93,11 @@ export const CollectionTOC = ({ collections }: CollectionTOCProps) => {
                 >
                   {categoryName}
                 </h2>
-                {category.description && (
+                {/* {category.description && (
                   <p className="text-gray-600 text-sm font-['Helvetica Neue'] font-light">
                     {category.description}
                   </p>
-                )}
+                )} */}
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-sm text-gray-500">
@@ -127,44 +127,46 @@ export const CollectionTOC = ({ collections }: CollectionTOCProps) => {
             {/* Collections List */}
             {expandedCategories.has(categoryName) && (
               <div className="mt-4 ml-4 space-y-2">
-                {collections.map((collection) => {
-                  const thumbnail = getImageByKey(
-                    collection.thumbnail.formats,
-                    "large"
-                  );
-                  return (
-                    <div key={collection.slug} className="py-2">
-                      <HoverCard>
-                        <HoverCardTrigger>
-                          <Link href={`/our-collections/${collection.slug}`}>
-                            <div
-                              className={`${merriweather.className} text-lg text-branding-black hover:text-branding-brown hover:underline cursor-pointer`}
-                            >
-                              {collection.title}
-                            </div>
-                          </Link>
-                        </HoverCardTrigger>
-                        <HoverCardContent className="w-[400px] p-4">
-                          <div className="flex flex-col gap-4">
-                            <Image
-                              unoptimized
-                              src={thumbnail!.url}
-                              alt={collection.title}
-                              width={thumbnail!.width}
-                              height={thumbnail!.height}
-                              className="object-cover rounded w-full h-48"
-                            />
-                            <ScrollArea className="h-[150px]">
-                              <div className="font-['Helvetica Neue'] font-light text-sm">
-                                {collection.abstract}
+                {collections
+                  .sort((a, b) => a.title.localeCompare(b.title))
+                  .map((collection) => {
+                    const thumbnail = getImageByKey(
+                      collection.thumbnail.formats,
+                      "large"
+                    );
+                    return (
+                      <div key={collection.slug} className="py-2">
+                        <HoverCard>
+                          <HoverCardTrigger>
+                            <Link href={`/our-collections/${collection.slug}`}>
+                              <div
+                                className={`${merriweather.className} text-lg text-branding-black hover:text-branding-brown hover:underline cursor-pointer`}
+                              >
+                                {collection.title}
                               </div>
-                            </ScrollArea>
-                          </div>
-                        </HoverCardContent>
-                      </HoverCard>
-                    </div>
-                  );
-                })}
+                            </Link>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="w-[400px] p-4">
+                            <div className="flex flex-col gap-4">
+                              <Image
+                                unoptimized
+                                src={thumbnail!.url}
+                                alt={collection.title}
+                                width={thumbnail!.width}
+                                height={thumbnail!.height}
+                                className="object-cover rounded w-full h-48"
+                              />
+                              <ScrollArea className="h-[150px]">
+                                <div className="font-['Helvetica Neue'] font-light text-sm">
+                                  {collection.abstract}
+                                </div>
+                              </ScrollArea>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
+                      </div>
+                    );
+                  })}
               </div>
             )}
           </div>

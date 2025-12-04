@@ -68,7 +68,7 @@ const OurCollections = async ({ params: { locale } }) => {
   } catch (error) {
     console.error("Error fetching collections:", error);
   }
-  console.log("collections", collections);
+  // console.log("collections", collections);
   return (
     <div className="flex flex-col max-width items-center">
       <PageHeader
