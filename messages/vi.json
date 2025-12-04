@@ -119,7 +119,19 @@
       "name": "Tên",
       "creators": "Tác giả",
       "supported-languages": "Ngôn ngữ hỗ trợ",
-      "access-url": "Liên kết truy cập"
+      "access-url": "Liên kết truy cập",
+
+      "publisher": "Nhà xuất bản",
+      "place_of_publication": "Nơi xuất bản",
+      "edition": "Phiên bản",
+      "resource_types": "Loại tài nguyên",
+      "format": "Định dạng",
+      "subjects": "Chủ đề",
+      "access_condition": "Điều kiện truy cập",
+      "publication_year": "Năm xuất bản",
+      "identifier": "Mã định danh",
+      "languages": "Ngôn ngữ",
+      "item_size": "Kích thước tài liệu"
     }
   },
 
@@ -268,6 +280,11 @@
           "select-character": "Chọn chữ (nhấn 1-9 hoặc bấm):"
         }
       }
+    },
+    "digital-humanities-tools": {
+      "name": "Công cụ Nhân văn Số",
+      "description": "Công cụ Nhân văn Số là tập hợp các công cụ cho phép người dùng phân tích và khám phá các khía cạnh khác nhau của nghiên cứu nhân văn số. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích các tập dữ liệu lớn hoặc thực hiện các phân tích phức tạp.",
+      "no-tools-message": "Hiện tại không có công cụ nào có sẵn."
     }
   },
 

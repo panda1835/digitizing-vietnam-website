@@ -117,7 +117,19 @@
       "name": "Name",
       "creators": "Creators",
       "supported-languages": "Supported Languages",
-      "access-url": "Access URL"
+      "access-url": "Access URL",
+
+      "publisher": "Publisher",
+      "place_of_publication": "Place of Publication",
+      "edition": "Edition",
+      "resource_types": "Resource Types",
+      "format": "Formats",
+      "subjects": "Subjects",
+      "access_condition": "Access Condition",
+      "publication_year": "Publication Year",
+      "identifier": "Identifier",
+      "languages": "Languages",
+      "item_size": "Item Size"
     }
   },
 
@@ -267,6 +279,11 @@
           "select-character": "Select character (press 1-9 or click):"
         }
       }
+    },
+    "digital-humanities-tools": {
+      "name": "Digital Humanities Tools",
+      "description": "The Digital Humanities Tools is a collection of tools that allow users to analyze and explore various aspects of digital humanities research. This tool is especially useful for researchers who need to analyze large datasets or perform complex analyses.",
+      "no-tools-message": "No digital humanities tools available at the moment."
     }
   },
 

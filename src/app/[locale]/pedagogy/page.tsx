@@ -1,10 +1,8 @@
 import { getTranslations } from "next-intl/server";
-
 import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-
 import { Metadata } from "next";
 import { PageHeader } from "@/components/common/PageHeader";
 import { PedagogyCollectionItem } from "./PedagogyCollectionItem";
@@ -113,6 +111,12 @@ const Pedagogies = async ({ params: { locale } }) => {
   } catch (error) {
     console.error("Error fetching pedagogy categories:", error);
   }
+
+  // Filter out digital-humanities-tool category
+  const filteredPedagogyData = pedagogyData.filter(
+    (category) => category.slug !== "digital-humanities-tool"
+  );
+
   return (
     <div className="flex flex-col max-width items-center">
       <div className="flex-col mb-20 w-full">
