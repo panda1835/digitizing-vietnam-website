@@ -127,15 +127,15 @@ const Pedagogies = async ({ params: { locale } }) => {
           locale={locale}
         />
         {/* Tab */}
-        {pedagogyData.length > 0 && (
+        {filteredPedagogyData.length > 0 && (
           <Tabs
-            defaultValue={pedagogyData[0].category_name
+            defaultValue={filteredPedagogyData[0].category_name
               .replace(/\s/g, "")
               .toLowerCase()}
             className="w-full mt-10"
           >
             <TabsList className="h-auto p-0 bg-transparent gap-8">
-              {pedagogyData.map((category) => (
+              {filteredPedagogyData.map((category) => (
                 <TabsTrigger
                   key={category.category_name}
                   value={category.category_name
@@ -154,7 +154,7 @@ const Pedagogies = async ({ params: { locale } }) => {
               ))}
             </TabsList>
 
-            {pedagogyData.map((category) => (
+            {filteredPedagogyData.map((category) => (
               <TabsContent
                 value={category.category_name.replace(/\s/g, "").toLowerCase()}
                 className="mt-6 space-y-4"
