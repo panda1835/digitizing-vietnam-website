@@ -99,7 +99,7 @@ export async function GET(request) {
       );
     }
 
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         tdcndg: { defs: defData, refs: [] },
         giupdoc: returnData,
@@ -108,7 +108,35 @@ export async function GET(request) {
       },
       { status: 200 }
     );
+
+    // Add CORS headers for Chrome extension
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    response.headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+    response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+    return response;
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const errorResponse = NextResponse.json(
+      { error: error.message },
+      { status: 500 }
+    );
+
+    // Add CORS headers to error response too
+    errorResponse.headers.set("Access-Control-Allow-Origin", "*");
+    errorResponse.headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+    errorResponse.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+    return errorResponse;
   }
+}
+
+// Handle OPTIONS request for CORS preflight
+export async function OPTIONS(request) {
+  const response = new NextResponse(null, { status: 200 });
+
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  response.headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+  return response;
 }

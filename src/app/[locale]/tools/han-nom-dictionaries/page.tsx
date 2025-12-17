@@ -81,6 +81,17 @@ const HanNomDictionaries = async ({ params: { locale } }) => {
       target: "",
       rel: "",
     },
+    {
+      href: "/tools/han-nom-dictionaries/tu-dien-chu-nom-tay",
+      title: t(
+        "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.name"
+      ),
+      description: t(
+        "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.description"
+      ),
+      target: "",
+      rel: "",
+    },
   ];
 
   return (

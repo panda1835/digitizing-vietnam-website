@@ -5,6 +5,8 @@ import { Metadata } from "next";
 
 import { InfoCard } from "@/components/common/InfoCard";
 import { PageHeader } from "@/components/common/PageHeader";
+import { fetcher } from "@/lib/api";
+import { getImageByKey } from "@/utils/image";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -18,6 +20,7 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const Tools = async ({ params: { locale } }) => {
   const t = await getTranslations();
+
   const tools = [
     {
       href: "https://ocr.digitizingvietnam.com",
@@ -41,7 +44,13 @@ const Tools = async ({ params: { locale } }) => {
       name: t("Tools.han-nom-tools.name"),
       description: t("Tools.han-nom-tools.description"),
     },
+    {
+      href: "/tools/digital-humanities-tools",
+      name: t("Tools.digital-humanities-tools.name"),
+      description: t("Tools.digital-humanities-tools.description"),
+    },
   ];
+
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 w-full">
@@ -63,14 +72,6 @@ const Tools = async ({ params: { locale } }) => {
             </div>
           ))}
         </div>
-
-        {/* <iframe
-          src="https://kimtudien.com.vn"
-          width="100%"
-          height="600"
-          frameBorder="0"
-          title="Embedded Website"
-        ></iframe> */}
       </div>
     </div>
   );

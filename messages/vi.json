@@ -35,7 +35,7 @@
     "home": "Trang chủ",
     "about-us": "Về chúng tôi",
     "our-collections": "Bộ sưu tập",
-    "tools": "Công cụ",
+    "tools": "Công cụ số",
     "highlights": "Bài viết",
     "online-resources": "Tài nguyên",
     "outreach": "Thư viện",
@@ -119,7 +119,19 @@
       "name": "Tên",
       "creators": "Tác giả",
       "supported-languages": "Ngôn ngữ hỗ trợ",
-      "access-url": "Liên kết truy cập"
+      "access-url": "Liên kết truy cập",
+
+      "publisher": "Nhà xuất bản",
+      "place_of_publication": "Nơi xuất bản",
+      "edition": "Phiên bản",
+      "resource_types": "Loại tài nguyên",
+      "format": "Định dạng",
+      "subjects": "Chủ đề",
+      "access_condition": "Điều kiện truy cập",
+      "publication_year": "Năm xuất bản",
+      "identifier": "Mã định danh",
+      "languages": "Ngôn ngữ",
+      "item_size": "Kích thước tài liệu"
     }
   },
 
@@ -228,14 +240,51 @@
         "han-nom-input-method-editor": {
           "name": "Bộ gõ Hán-Nôm",
           "description": "Khác với các bộ gõ Hán-Nôm truyền thống, bộ gõ này cho phép người dùng nhập trực tiếp chữ Hán và chữ Nôm ngay trên trình duyệt web, mà không cần cài đặt bất kỳ phần mềm nào. Nhờ tính linh hoạt cao, công cụ có thể được sử dụng trên mọi thiết bị có kết nối internet, mang lại sự thuận tiện tối đa cho người dùng trong quá trình tra cứu và soạn thảo văn bản Hán-Nôm. Đây là một giải pháp hữu ích cho cả người học lẫn các nhà nghiên cứu cần thao tác nhanh chóng và hiệu quả với văn bản cổ.",
+          "type-in-quoc-ngu": "Nhập chữ Quốc Ngữ...",
+          "input-method": "Phương thức nhập",
+          "quoc-ngu": "Quốc Ngữ",
+          "handwriting": "Viết tay",
+          "radical": "Bộ thủ",
+          "output-placeholder": "Văn bản Hán-Nôm sẽ hiển thị ở đây..."
+        },
+        "han-nom-from-quoc-ngu": {
+          "name": "Hán-Nôm từ Quốc Ngữ",
+          "description": "Chuyển đổi văn bản Quốc Ngữ thành chữ Hán-Nôm bằng phương pháp nhập liệu thông minh theo câu. Gõ toàn bộ câu bằng chữ Quốc Ngữ và nhận gợi ý ký tự ngay lập tức với hỗ trợ từ ghép.",
           "type-in-quoc-ngu": "Nhập chữ Quốc Ngữ..."
         },
         "nom-character-classification-and-analysis-tool": {
           "name": "Công cụ Thống kê và Phân loại Chữ Nôm",
           "description": "Đây là một công cụ hiện đại và hiệu quả, hỗ trợ các nhà nghiên cứu văn bản Hán Nôm trong việc thống kê và phân loại chữ Nôm dựa trên hệ thống tiêu chí được trình bày trong Tự điển Chữ Nôm Dẫn giải của học giả Nguyễn Quang Hồng. Người dùng chỉ cần tải văn bản Hán Nôm lên hệ thống; công cụ sẽ tự động xử lý, cung cấp bảng thống kê chi tiết cùng các phân loại chữ Nôm xuất hiện trong văn bản. Đây là một trợ thủ đắc lực trong các nghiên cứu ngôn ngữ, văn tự và văn bản học liên quan đến di sản Hán Nôm.",
           "type-in-han-nom": "Nhập văn bản Hán Nôm..."
+        },
+        "radicals": {
+          "name": "Tra cứu bộ thủ Nôm",
+          "select-radical": "Chọn một bộ thủ:",
+          "stroke": "nét",
+          "strokes": "nét",
+          "stroke-label": "Nét:",
+          "name-label": "Tên:",
+          "definition-label": "Nghĩa:",
+          "radical-strokes": "Số nét bộ thủ:",
+          "loading-characters": "Đang tải chữ...",
+          "no-characters-found": "Không tìm thấy chữ nào cho bộ thủ này.",
+          "select-strokes": "Chọn số nét:",
+          "select-stroke-to-view": "Chọn số nét để xem các chữ",
+          "copied-to-clipboard": "Đã sao chép vào bộ nhớ tạm",
+          "failed-to-copy": "Sao chép không thành công",
+          "failed-to-load-characters": "Không thể tải chữ",
+          "no-definition": "Không có định nghĩa"
+        },
+        "quoc-ngu-input": {
+          "placeholder": "Nhập từ Quốc Ngữ...",
+          "select-character": "Chọn chữ (nhấn 1-9 hoặc bấm):"
         }
       }
+    },
+    "digital-humanities-tools": {
+      "name": "Công cụ Nhân văn Số",
+      "description": "Công cụ Nhân văn Số là tập hợp các công cụ cho phép người dùng phân tích và khám phá các khía cạnh khác nhau của nghiên cứu nhân văn số. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích các tập dữ liệu lớn hoặc thực hiện các phân tích phức tạp.",
+      "no-tools-message": "Hiện tại không có công cụ nào có sẵn."
     }
   },
 
