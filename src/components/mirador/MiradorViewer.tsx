@@ -1,12 +1,40 @@
 "use client";
+import { useEffect, useRef } from "react";
 import Mirador from "@/components/mirador/Mirador";
 import MiradorURLSyncPlugin from "../../lib/mirador-plugins/MiradorURLSyncPlugin";
+import { useMirador } from "@/components/mirador/MiradorContext";
+import mirador from "mirador";
 
-const MiradorViewer = ({ manifestUrl, canvasId }) => {
+const MiradorViewer = ({ manifestUrl, canvasId: initialCanvasId }) => {
+  const { canvasId, setCanvasId } = useMirador();
+  const viewerRef = useRef(null);
+
+  useEffect(() => {
+    if (initialCanvasId) {
+      setCanvasId(initialCanvasId);
+    }
+  }, [initialCanvasId, setCanvasId]);
+
+  useEffect(() => {
+    if (canvasId && viewerRef.current?.viewer?.store) {
+      // Navigate to new canvas using Mirador's action creators
+      const state = viewerRef.current.viewer.store.getState();
+      const windowId = Object.keys(state.windows)[0];
+      if (windowId) {
+        // Use Mirador's setCanvas action creator
+        const action = mirador.actions.setCanvas(windowId, canvasId);
+        viewerRef.current.viewer.store.dispatch(action);
+      }
+    }
+  }, [canvasId]);
+
+  const activeCanvasId = canvasId || initialCanvasId;
+
   return (
     <div className="mirador ">
       {/* Mirador */}
       <Mirador
+        ref={viewerRef}
         // className=""
         config={{
           id: "mirador",
@@ -30,7 +58,7 @@ const MiradorViewer = ({ manifestUrl, canvasId }) => {
           windows: [
             {
               loadedManifest: manifestUrl,
-              canvasId: canvasId,
+              canvasId: activeCanvasId,
               thumbnailNavigationPosition: "far-right",
             },
           ],

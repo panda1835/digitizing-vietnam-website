@@ -5,7 +5,9 @@ import MiradorViewer from "@/components/mirador/MiradorViewer";
 import CollectionPermalink from "@/components/CollectionPermalink";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import DocumentMetadata from "./Metadata";
+import Chatbot from "@/components/Chatbot";
 import { Separator } from "@/components/ui/separator";
+import { MiradorProvider } from "@/components/mirador/MiradorContext";
 
 import { fetcher } from "@/lib/api";
 import { renderHtml } from "@/utils/renderHtml";
@@ -133,205 +135,212 @@ const CollectionItemViewer = async ({
   }
 
   return (
-    <div className="flex flex-col w-full items-center">
-      <div className="flex-col mb-20 w-full">
-        {/* Breadcrumbs */}
+    <MiradorProvider>
+      <div className="flex flex-col w-full items-center">
+        <div className="flex-col mb-20 w-full">
+          {/* Breadcrumbs */}
 
-        <BreadcrumbAndSearchBar
-          locale={locale}
-          breadcrumbItems={[
-            {
-              label: t("NavigationBar.our-collections"),
-              href: "/our-collections",
-            },
-            {
-              label: collectionTitle,
-              href: "/our-collections/" + collectionId,
-            },
-            { label: collectionItemData.title },
-          ]}
-        />
+          <BreadcrumbAndSearchBar
+            locale={locale}
+            breadcrumbItems={[
+              {
+                label: t("NavigationBar.our-collections"),
+                href: "/our-collections",
+              },
+              {
+                label: collectionTitle,
+                href: "/our-collections/" + collectionId,
+              },
+              { label: collectionItemData.title },
+            ]}
+          />
 
-        {/* Headline */}
-        <div
-          className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
-        >
-          {collectionItemData.title}
-        </div>
-
-        {/* Subheadline */}
-        <div
-          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
-        >
-          {collectionItemData.abstract}
-        </div>
-
-        {/* Share links */}
-        <CollectionPermalink />
-
-        <div className="mt-16">
-          <Separator />
-        </div>
-
-        {/* Content */}
-        {collectionId === "luc-van-tien" &&
-        documentId === "van-tien-co-tich-tan-truyen" ? (
-          <LucVanTienText
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            page={currentPage}
-          />
-        ) : collectionId === "chinh-phu-ngam-khuc" &&
-          documentId === "chinh-phu-ngam-khuc" ? (
-          <ChinhPhuNgamText
-            title={collectionItemData?.title}
-            locale={locale}
-            documentid={documentId}
-            page={currentPage}
-          />
-        ) : collectionId === "tho-ho-xuan-huong" &&
-          documentId === "tinh-hoa-mua-xuan" ? (
-          <TinhHoaMuaXuan locale={locale} topic={currentTopic || "Cảnh thu"} />
-        ) : collectionId === "quoc-am-thi-tap" &&
-          documentId === "nguyen-trai-quoc-am-thi-tap" ? (
-          <QuocAmThiTap
-            locale={locale}
-            topic={currentTopic || "1"}
-            highlightedLine={Number(highlightedLine)}
-          />
-        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
-          documentId === "quyen-thu" ? (
-          <DaiVietSuKyToanThu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            book="0"
-            page={currentPage}
-            topic={currentTopic || "1"}
-          />
-        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
-          documentId === "ngoai-ky" ? (
-          <DaiVietSuKyToanThu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            book="1"
-            page={currentPage}
-            topic={currentTopic || "1"}
-          />
-        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
-          documentId === "ban-ky-toan-thu" ? (
-          <DaiVietSuKyToanThu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            book="2"
-            page={currentPage}
-            topic={currentTopic || "1"}
-          />
-        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
-          documentId === "ban-ky-thuc-luc" ? (
-          <DaiVietSuKyToanThu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            book="3"
-            page={currentPage}
-            topic={currentTopic || "1"}
-          />
-        ) : collectionId === "dai-viet-su-ky-toan-thu" &&
-          documentId === "ban-ky-tuc-bien" ? (
-          <DaiVietSuKyToanThu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            book="4"
-            page={currentPage}
-            topic={currentTopic || "1"}
-          />
-        ) : collectionId === "truyen-kieu" &&
-          documentId === "truyen-kieu-1866" ? (
-          <TruyenKieu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            version={"1866"}
-            page={currentPage}
-          />
-        ) : collectionId === "truyen-kieu" &&
-          documentId === "truyen-kieu-1870" ? (
-          <TruyenKieu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            version={"1870"}
-            page={currentPage}
-          />
-        ) : collectionId === "truyen-kieu" &&
-          documentId === "truyen-kieu-1871" ? (
-          <TruyenKieu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            version={"1871"}
-            page={currentPage}
-          />
-        ) : collectionId === "truyen-kieu" &&
-          documentId === "truyen-kieu-1872" ? (
-          <TruyenKieu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            version={"1872"}
-            page={currentPage}
-          />
-        ) : collectionId === "truyen-kieu" &&
-          documentId === "truyen-kieu-1902" ? (
-          <TruyenKieu
-            title={collectionItemData.title}
-            locale={locale}
-            documentid={documentId}
-            version={"1902"}
-            page={currentPage}
-          />
-        ) : (
-          <div className="flex flex-row mt-10">
-            {/* Item viewer */}
-            <div className="w-full relative">
-              {/* Video/audio type */}
-              {documentType === "embed" && (
-                <div className="flex">
-                  <div
-                    className="w-full"
-                    dangerouslySetInnerHTML={renderHtml(
-                      collectionItemData.item_url[0].media_embed
-                    )}
-                  ></div>
-                </div>
-              )}
-
-              {/* Automatic IIIF Manifest */}
-              {documentType === "document" && (
-                <MiradorViewer
-                  manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
-                  canvasId={originalCanvasId}
-                />
-              )}
-            </div>
+          {/* Headline */}
+          <div
+            className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
+          >
+            {collectionItemData.title}
           </div>
-        )}
-        <div className="mt-16">
-          <Separator />
-        </div>
 
-        {/* Metadata */}
-        <DocumentMetadata
-          locale={locale}
-          collectionItemData={collectionItemData}
-        />
+          {/* Subheadline */}
+          <div
+            className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+          >
+            {collectionItemData.abstract}
+          </div>
+
+          {/* Share links */}
+          <CollectionPermalink />
+
+          <div className="mt-16">
+            <Separator />
+          </div>
+
+          {/* Content */}
+          {collectionId === "luc-van-tien" &&
+          documentId === "van-tien-co-tich-tan-truyen" ? (
+            <LucVanTienText
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              page={currentPage}
+            />
+          ) : collectionId === "chinh-phu-ngam-khuc" &&
+            documentId === "chinh-phu-ngam-khuc" ? (
+            <ChinhPhuNgamText
+              title={collectionItemData?.title}
+              locale={locale}
+              documentid={documentId}
+              page={currentPage}
+            />
+          ) : collectionId === "tho-ho-xuan-huong" &&
+            documentId === "tinh-hoa-mua-xuan" ? (
+            <TinhHoaMuaXuan
+              locale={locale}
+              topic={currentTopic || "Cảnh thu"}
+            />
+          ) : collectionId === "quoc-am-thi-tap" &&
+            documentId === "nguyen-trai-quoc-am-thi-tap" ? (
+            <QuocAmThiTap
+              locale={locale}
+              topic={currentTopic || "1"}
+              highlightedLine={Number(highlightedLine)}
+            />
+          ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+            documentId === "quyen-thu" ? (
+            <DaiVietSuKyToanThu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              book="0"
+              page={currentPage}
+              topic={currentTopic || "1"}
+            />
+          ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+            documentId === "ngoai-ky" ? (
+            <DaiVietSuKyToanThu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              book="1"
+              page={currentPage}
+              topic={currentTopic || "1"}
+            />
+          ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+            documentId === "ban-ky-toan-thu" ? (
+            <DaiVietSuKyToanThu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              book="2"
+              page={currentPage}
+              topic={currentTopic || "1"}
+            />
+          ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+            documentId === "ban-ky-thuc-luc" ? (
+            <DaiVietSuKyToanThu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              book="3"
+              page={currentPage}
+              topic={currentTopic || "1"}
+            />
+          ) : collectionId === "dai-viet-su-ky-toan-thu" &&
+            documentId === "ban-ky-tuc-bien" ? (
+            <DaiVietSuKyToanThu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              book="4"
+              page={currentPage}
+              topic={currentTopic || "1"}
+            />
+          ) : collectionId === "truyen-kieu" &&
+            documentId === "truyen-kieu-1866" ? (
+            <TruyenKieu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              version={"1866"}
+              page={currentPage}
+            />
+          ) : collectionId === "truyen-kieu" &&
+            documentId === "truyen-kieu-1870" ? (
+            <TruyenKieu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              version={"1870"}
+              page={currentPage}
+            />
+          ) : collectionId === "truyen-kieu" &&
+            documentId === "truyen-kieu-1871" ? (
+            <TruyenKieu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              version={"1871"}
+              page={currentPage}
+            />
+          ) : collectionId === "truyen-kieu" &&
+            documentId === "truyen-kieu-1872" ? (
+            <TruyenKieu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              version={"1872"}
+              page={currentPage}
+            />
+          ) : collectionId === "truyen-kieu" &&
+            documentId === "truyen-kieu-1902" ? (
+            <TruyenKieu
+              title={collectionItemData.title}
+              locale={locale}
+              documentid={documentId}
+              version={"1902"}
+              page={currentPage}
+            />
+          ) : (
+            <div className="flex flex-row mt-10">
+              {/* Item viewer */}
+              <div className="w-full relative">
+                {/* Video/audio type */}
+                {documentType === "embed" && (
+                  <div className="flex">
+                    <div
+                      className="w-full"
+                      dangerouslySetInnerHTML={renderHtml(
+                        collectionItemData.item_url[0].media_embed
+                      )}
+                    ></div>
+                  </div>
+                )}
+
+                {/* Automatic IIIF Manifest */}
+                {documentType === "document" && (
+                  <MiradorViewer
+                    manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
+                    canvasId={originalCanvasId}
+                  />
+                )}
+              </div>
+            </div>
+          )}
+          <div className="mt-16">
+            <Separator />
+          </div>
+
+          {/* Metadata */}
+          <DocumentMetadata
+            locale={locale}
+            collectionItemData={collectionItemData}
+          />
+
+          <Chatbot documentId={documentId} />
+        </div>
       </div>
-    </div>
+    </MiradorProvider>
   );
 };
 
