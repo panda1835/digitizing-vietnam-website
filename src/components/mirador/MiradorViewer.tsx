@@ -7,7 +7,7 @@ import mirador from "mirador";
 
 const MiradorViewer = ({ manifestUrl, canvasId: initialCanvasId }) => {
   const { canvasId, setCanvasId } = useMirador();
-  const viewerRef = useRef(null);
+  const viewerRef = useRef<Mirador>(null);
 
   useEffect(() => {
     if (initialCanvasId) {
