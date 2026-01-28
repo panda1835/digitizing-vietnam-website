@@ -19,7 +19,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const isVietnamese = locale === "vi";
 
-  const title = isVietnamese ? "Số hóa Việt Nam" : "Digitizing Việt Nam";
+  const title = "Digitizing Việt Nam";
 
   const description = isVietnamese
     ? "Một không gian số sáng tạo về Nghiên cứu Việt Nam, cung cấp bản thảo Hán-Nôm và các bộ sưu tập số hóa khác, cùng các tài liệu giảng dạy và công cụ nghiên cứu dành cho các học giả, giảng viên và công chúng."

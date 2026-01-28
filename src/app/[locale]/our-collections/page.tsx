@@ -18,7 +18,8 @@ export async function generateStaticParams() {
   return [{ locale: "en" }, { locale: "vi" }];
 }
 
-// export const dynamic = "force-static";
+// Revalidate every hour for ISR
+export const revalidate = 3600;
 
 const OurCollections = async ({ params: { locale } }) => {
   let collections: Collection[] = [];
@@ -35,7 +36,9 @@ const OurCollections = async ({ params: { locale } }) => {
     const queryString = new URLSearchParams(queryParams).toString();
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
-    const data = await fetcher(url);
+    const data = await fetcher(url, {
+      next: { revalidate: 3600 }, // Cache for 1 hour
+    });
     const collectionData = data.data;
 
     // console.log("collectionData", collectionData);

@@ -15,7 +15,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// export const dynamic = "force-static";
+// Revalidate every 24 hours for ISR (tools page is mostly static)
+export const revalidate = 60 * 60 * 24; // 1 day
+
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const Tools = async ({ params: { locale } }) => {

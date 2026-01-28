@@ -12,6 +12,39 @@ import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
+// Generate static pages at build time and revalidate every day
+export const revalidate = 60 * 60 * 24; // Revalidate every day (ISR)
+
+// Pre-generate all blog post pages at build time
+export async function generateStaticParams() {
+  const locales = ["en", "vi"];
+  const allParams: { locale: string; slug: string }[] = [];
+
+  for (const locale of locales) {
+    try {
+      const queryParams = {
+        fields: "slug",
+        locale: locale,
+      };
+      const queryString = new URLSearchParams(queryParams).toString();
+      const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?${queryString}`;
+      const data = await fetch(url).then((res) => res.json());
+
+      if (data.data) {
+        const paramsForLocale = data.data.map((blog: any) => ({
+          locale,
+          slug: blog.slug,
+        }));
+        allParams.push(...paramsForLocale);
+      }
+    } catch (error) {
+      console.error(`Error fetching blogs for locale ${locale}:`, error);
+    }
+  }
+
+  return allParams;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -28,7 +61,9 @@ export async function generateMetadata({
 
     const queryString = new URLSearchParams(queryParams).toString();
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?${queryString}`;
-    const data = await fetcher(url);
+    const data = await fetcher(url, {
+      next: { revalidate: 60 * 60 * 24 }, // Cache metadata for 1 day
+    });
 
     if (data.data && data.data.length > 0) {
       return {
@@ -70,7 +105,9 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
     const queryString = new URLSearchParams(queryParams).toString();
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?${queryString}`;
-    const data = await fetcher(url);
+    const data = await fetcher(url, {
+      next: { revalidate: 60 * 60 * 24 }, // Cache blog content for 1 day
+    });
     const blogPost = data.data[0];
     post = {
       title: blogPost.title,

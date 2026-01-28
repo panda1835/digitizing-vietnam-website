@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import { parseStringPromise } from "xml2js";
 import db from "@/lib/db";
 
+// Cache dictionary results on the edge for 1 hour
+export const revalidate = 3600;
+
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -113,6 +116,11 @@ export async function GET(request) {
     response.headers.set("Access-Control-Allow-Origin", "*");
     response.headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+    // Add cache headers for CDN/browser caching (1 hour)
+    response.headers.set(
+      "Cache-Control",
+      "public, s-maxage=3600, stale-while-revalidate=86400"
+    );
 
     return response;
   } catch (error) {

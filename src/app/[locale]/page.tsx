@@ -18,6 +18,9 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 import { formatDate } from "@/utils/datetime";
 import { getImageByKey } from "@/utils/image";
 
+// Revalidate home page every hour for ISR
+export const revalidate = 3600;
+
 const Home = async ({ params: { locale } }) => {
   const t = await getTranslations();
 
@@ -33,7 +36,9 @@ const Home = async ({ params: { locale } }) => {
 
   const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?${queryString}`;
 
-  const data = await fetcher(url);
+  const data = await fetcher(url, {
+    next: { revalidate: 3600 }, // Cache for 1 hour
+  });
   const highlights = data.data.slice(0, 3);
 
   const outlines = [
