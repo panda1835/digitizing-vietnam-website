@@ -7,13 +7,7 @@ import ArticleCard from "@/components/ArticleCard";
 import { PageHeader } from "@/components/common/PageHeader";
 
 import { Metadata } from "next";
-import algoliasearch from "algoliasearch";
 import { Pedagogy, PedagogyCollection } from "../page";
-
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
-  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
-);
 
 export async function generateMetadata({
   params,
@@ -22,29 +16,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations();
 
-  const { results } = await searchClient.search([
-    {
-      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
-      query: params.collectionSlug,
-      params: {
-        restrictSearchableAttributes: ["slug"],
-      },
-    },
-  ]);
-
-  const hits = (results[0] as any).hits.filter(
-    (hit) => hit.locale === params.locale && hit.slug === params.collectionSlug
-  );
-
-  if (hits.length > 0) {
-    return {
-      title: `${hits[0].title} | Digitizing Việt Nam`,
+  try {
+    const queryParams = {
+      fields: "title",
+      "filters[slug][$eq]": params.collectionSlug,
+      locale: params.locale,
     };
-  } else {
-    return {
-      title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
-    };
+    const queryString = new URLSearchParams(queryParams).toString();
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/pedagogy-collections?${queryString}`;
+    const data = await fetcher(url);
+
+    if (data.data && data.data.length > 0) {
+      return {
+        title: `${data.data[0].title} | Digitizing Việt Nam`,
+      };
+    }
+  } catch (error) {
+    console.error("Error fetching pedagogy collection metadata:", error);
   }
+
+  return {
+    title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
+  };
 }
 
 const PedagogyCollectionPage = async ({

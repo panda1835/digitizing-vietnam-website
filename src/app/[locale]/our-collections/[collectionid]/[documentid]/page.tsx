@@ -11,7 +11,6 @@ import { fetcher } from "@/lib/api";
 import { renderHtml } from "@/utils/renderHtml";
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
-import algoliasearch from "algoliasearch";
 
 import TruyenKieu from "./searchable-text/truyen-kieu/TruyenKieuText";
 import LucVanTienText from "./searchable-text/luc-van-tien/LucVanTienText";
@@ -20,11 +19,6 @@ import TinhHoaMuaXuan from "./searchable-text/tinh-hoa-mua-xuan/TinhHoaMuaXuan";
 import QuocAmThiTap from "./searchable-text/quoc-am-thi-tap/QuocAmThiTap";
 import DaiVietSuKyToanThu from "./searchable-text/dai-viet-su-ky-toan-thu/DaiVietSuKyToanThu";
 import NotFound from "@/app/not-found";
-
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
-  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
-);
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -35,28 +29,29 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations();
 
-  const { results } = await searchClient.search([
-    {
-      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
-      query: params.documentid,
-      params: {
-        restrictSearchableAttributes: ["slug"], // Only search in slug field
-      },
-    },
-  ]);
+  try {
+    const queryParams = {
+      fields: "title",
+      "filters[slug][$eq]": params.documentid,
+      locale: params.locale,
+    };
+    const queryStringParam = qs.stringify(queryParams);
+    const queryString = new URLSearchParams(queryStringParam).toString();
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
+    const data = await fetcher(url);
 
-  const hits = (results[0] as any).hits.filter(
-    (hit) => hit.locale === params.locale
-  );
-  if (hits.length > 0) {
-    return {
-      title: `${hits[0].title} | Digitizing Việt Nam`,
-    };
-  } else {
-    return {
-      title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
-    };
+    if (data.data && data.data.length > 0) {
+      return {
+        title: `${data.data[0].title} | Digitizing Việt Nam`,
+      };
+    }
+  } catch (error) {
+    console.error("Error fetching collection item metadata:", error);
   }
+
+  return {
+    title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
+  };
 }
 
 const CollectionItemViewer = async ({
