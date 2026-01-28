@@ -1,5 +1,5 @@
 import { renderHtml } from "@/utils/renderHtml";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Blog } from "@/types/blog";
 import { fetcher } from "@/lib/api";
@@ -80,6 +80,9 @@ export async function generateMetadata({
 }
 
 const BlogArticle = async ({ params: { slug, locale } }) => {
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   let post: Blog = {
     title: "",
     author: "",

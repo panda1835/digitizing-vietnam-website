@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
@@ -7,6 +7,7 @@ import { InfoCard } from "@/components/common/InfoCard";
 import { PageHeader } from "@/components/common/PageHeader";
 import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
+import { routing } from "@/i18n/routing";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -15,12 +16,20 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 // Revalidate every 24 hours for ISR (tools page is mostly static)
 export const revalidate = 60 * 60 * 24; // 1 day
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 const Tools = async ({ params: { locale } }) => {
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   const t = await getTranslations();
 
   const tools = [

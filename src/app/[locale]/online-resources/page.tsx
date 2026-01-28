@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { OnlineResource, ResourceCategory } from "@/types/online-resource";
 import CategoryDialog from "./CategoryDialog";
@@ -7,12 +7,18 @@ import { fetcher } from "@/lib/api";
 
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
+import { routing } from "@/i18n/routing";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
     title: `${t("NavigationBar.online-resources")} | Digitizing Việt Nam`,
   };
+}
+
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 // Revalidate every hour for ISR
@@ -26,6 +32,9 @@ const OnlineResources = async ({
   params: { locale: string };
   searchParams: { category?: string };
 }) => {
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   const t = await getTranslations();
 
   let onlineResources: ResourceCategory[] = [];

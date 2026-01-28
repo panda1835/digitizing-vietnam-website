@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { fetcher } from "@/lib/api";
 import { Blog, BlogCategory } from "@/types/blog";
@@ -10,6 +10,7 @@ import { formatDate } from "@/utils/datetime";
 
 import { Metadata } from "next";
 import { PageHeader } from "@/components/common/PageHeader";
+import { routing } from "@/i18n/routing";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -18,7 +19,18 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+// Revalidate every hour for ISR
+export const revalidate = 3600;
+
 const Blogs = async ({ params: { locale } }) => {
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   const t = await getTranslations();
 
   let blogData: BlogCategory[] = [];
@@ -36,8 +48,7 @@ const Blogs = async ({ params: { locale } }) => {
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blog-categories?${queryString}`;
 
     const data = await fetcher(url, {
-      cache: "force-cache",
-      next: { revalidate: 60 * 60 }, // 1 hour cache
+      next: { revalidate: 3600 }, // 1 hour cache
     });
     const allCategories = data.data;
 

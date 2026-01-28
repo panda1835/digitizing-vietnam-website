@@ -1,7 +1,16 @@
 "use client";
 import { Instagram, Facebook, Mail } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
 export default function SocialMediaSharing({ title }) {
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    // Only access window after component mounts (client-side)
+    setCurrentUrl(window.location.href);
+  }, []);
+
   return (
     <div className="flex gap-4">
       <Link
@@ -21,9 +30,9 @@ export default function SocialMediaSharing({ title }) {
         <Facebook className="text-branding-black w-6 h-6" />
       </Link>
       <Link
-        href={`mailto:?subject=${encodeURIComponent(
+        href={currentUrl ? `mailto:?subject=${encodeURIComponent(
           title
-        )}&body=${encodeURIComponent(window.location.href)}`}
+        )}&body=${encodeURIComponent(currentUrl)}` : "#"}
         aria-label="Share via Email"
       >
         <Mail className="text-branding-black w-6 h-6" />
