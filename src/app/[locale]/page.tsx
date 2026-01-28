@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
 import { Merriweather } from "next/font/google";
@@ -12,16 +12,25 @@ import ArticleCard from "@/components/ArticleCard";
 
 import { fetcher } from "@/lib/api";
 import { generateHomePageCarouselItems } from "@/utils/home-slides";
+import { routing } from "@/i18n/routing";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 import { formatDate } from "@/utils/datetime";
 import { getImageByKey } from "@/utils/image";
 
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 // Revalidate home page every hour for ISR
 export const revalidate = 3600;
 
 const Home = async ({ params: { locale } }) => {
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   const t = await getTranslations();
 
   const queryParams = {

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import qs from "qs";
 
 import { fetcher } from "@/lib/api";
@@ -79,6 +79,9 @@ const OurCollections = async ({
   params: { locale: string; collectionid: string };
 }) => {
   const { locale, collectionid } = params;
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   const collectionId = collectionid;
 
   const t = await getTranslations();

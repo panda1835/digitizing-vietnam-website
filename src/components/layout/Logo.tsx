@@ -19,7 +19,7 @@ export const Logo = () => {
         <div
           className={`text-black text-[22px] font-semibold ${logoFont.className} leading-tight`}
         >
-          DIGITiZING
+          DIGITIZING
           <br />
           VIỆTNAM
         </div>

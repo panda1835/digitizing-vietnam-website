@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import Image from "next/image";
 
@@ -31,6 +31,9 @@ export function generateStaticParams() {
 }
 
 const AboutUs = async ({ params: { locale } }) => {
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   let aboutUsData = [];
 
   const t = await getTranslations();

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
 
@@ -6,12 +6,18 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Metadata } from "next";
 import { PageHeader } from "@/components/common/PageHeader";
 import { PedagogyCollectionItem } from "./PedagogyCollectionItem";
+import { routing } from "@/i18n/routing";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
     title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
   };
+}
+
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 // Revalidate every hour for ISR
@@ -60,6 +66,9 @@ export interface PedagogyCategory {
 }
 
 const Pedagogies = async ({ params: { locale } }) => {
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   const t = await getTranslations();
 
   let pedagogyData: PedagogyCategory[] = [];

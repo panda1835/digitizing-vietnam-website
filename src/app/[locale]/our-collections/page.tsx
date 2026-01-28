@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { fetcher } from "@/lib/api";
 import { formatDate } from "@/utils/datetime";
@@ -22,6 +22,9 @@ export async function generateStaticParams() {
 export const revalidate = 3600;
 
 const OurCollections = async ({ params: { locale } }) => {
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   let collections: Collection[] = [];
 
   const t = await getTranslations();
