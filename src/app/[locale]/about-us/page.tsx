@@ -12,8 +12,10 @@ import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-// Disable due to error with locale
-// export const dynamic = "force-static";
+// Revalidate every 6 hours for ISR (about page rarely changes)
+// export const revalidate = 21600;
+
+export const dynamic = "force-static";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();

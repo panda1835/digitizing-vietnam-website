@@ -11,7 +11,7 @@ export async function searchDictionary(character: string) {
         headers: {
           "User-Agent": "DigitizingVietnam-Internal",
         },
-        cache: "no-store", // Ensure fresh data for dictionary lookups
+        next: { revalidate: 3600 }, // Cache dictionary lookups for 1 hour
       }
     );
 

@@ -14,7 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// export const dynamic = "force-dynamic";
+// Revalidate every hour for ISR
+export const revalidate = 3600;
 
 export interface Pedagogy {
   slug: string;
@@ -74,7 +75,9 @@ const Pedagogies = async ({ params: { locale } }) => {
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/pedagogy-categories?${queryString}`;
 
-    const data = await fetcher(url);
+    const data = await fetcher(url, {
+      next: { revalidate: 3600 }, // Cache for 1 hour
+    });
     const allCategories = data.data;
 
     const pedagogyCategories: PedagogyCategory[] = [];

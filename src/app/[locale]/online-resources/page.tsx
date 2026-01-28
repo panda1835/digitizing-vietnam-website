@@ -15,7 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// export const dynamic = "force-static";
+// Revalidate every hour for ISR
+export const revalidate = 60 * 60 * 24; // 1 day
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const OnlineResources = async ({
@@ -41,7 +42,9 @@ const OnlineResources = async ({
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/online-resource-types?${queryString}`;
 
-    const data = await fetcher(url);
+    const data = await fetcher(url, {
+      next: { revalidate: 60 * 60 * 24 }, // Cache for 1 day
+    });
     const allCategories = data.data;
     // console.log(allCategories);
     const resourceCategories: ResourceCategory[] = [];

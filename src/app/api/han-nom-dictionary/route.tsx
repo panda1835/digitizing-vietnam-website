@@ -3,6 +3,9 @@ import fs from "fs/promises";
 import { parseStringPromise } from "xml2js";
 import path from "path";
 
+// Cache dictionary data for 6 hours (XML files rarely change)
+export const revalidate = 21600;
+
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
