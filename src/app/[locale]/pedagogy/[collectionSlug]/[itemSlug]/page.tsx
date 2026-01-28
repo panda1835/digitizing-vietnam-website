@@ -5,12 +5,6 @@ import { Merriweather } from "next/font/google";
 import SocialMediaSharing from "@/components/common/SocialMediaSharing";
 import { PedagogyMetadata } from "./Metadata";
 import { Metadata } from "next";
-import algoliasearch from "algoliasearch";
-
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID! || "",
-  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY! || ""
-);
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -21,28 +15,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations();
 
-  const { results } = await searchClient.search([
-    {
-      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME!,
-      query: params.itemSlug,
-      params: {
-        restrictSearchableAttributes: ["slug"],
-      },
-    },
-  ]);
+  try {
+    const queryParams = {
+      fields: "title",
+      "filters[slug][$eq]": params.itemSlug,
+      locale: params.locale,
+    };
+    const queryString = new URLSearchParams(queryParams).toString();
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/pedagogies?${queryString}`;
+    const data = await fetcher(url);
 
-  const hits = (results[0] as any).hits.filter(
-    (hit) => hit.locale === params.locale
-  );
-  if (hits.length > 0) {
-    return {
-      title: `${hits[0].title} | Digitizing Việt Nam`,
-    };
-  } else {
-    return {
-      title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
-    };
+    if (data.data && data.data.length > 0) {
+      return {
+        title: `${data.data[0].title} | Digitizing Việt Nam`,
+      };
+    }
+  } catch (error) {
+    console.error("Error fetching pedagogy item metadata:", error);
   }
+
+  return {
+    title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
+  };
 }
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";

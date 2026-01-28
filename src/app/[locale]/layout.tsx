@@ -1,7 +1,8 @@
 import "@/app/globals.css";
 
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
+import { Metadata } from "next";
 
 import NavigationBar from "@/components/layout/NavigationBar";
 import Footer from "@/components/layout/Footer";
@@ -9,11 +10,42 @@ import BackToTopButton from "@/components/layout/BackToTopButton";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-export const metadata = {
-  title: "Digitizing Việt Nam",
-  description:
-    "Digitizing Việt Nam, a central hub for resources about Vietnam Studies.",
-};
+const BASE_URL = "https://digitizingvietnam.com";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const isVietnamese = locale === "vi";
+
+  const title = isVietnamese ? "Số hóa Việt Nam" : "Digitizing Việt Nam";
+
+  const description = isVietnamese
+    ? "Một không gian số sáng tạo về Nghiên cứu Việt Nam, cung cấp bản thảo Hán-Nôm và các bộ sưu tập số hóa khác, cùng các tài liệu giảng dạy và công cụ nghiên cứu dành cho các học giả, giảng viên và công chúng."
+    : "A cutting-edge digital hub for Vietnam Studies, offering Hán-Nôm manuscripts and other digitized collections, pedagogical resources, and research tools for scholars, educators and the public.";
+  return {
+    title: {
+      default: title,
+      template: `%s | Digitizing Việt Nam`,
+    },
+    description,
+    alternates: {
+      canonical: `${BASE_URL}/${locale}`,
+      languages: {
+        en: `${BASE_URL}/en`,
+        vi: `${BASE_URL}/vi`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${BASE_URL}/${locale}`,
+      locale: isVietnamese ? "vi_VN" : "en_US",
+      alternateLocale: isVietnamese ? "en_US" : "vi_VN",
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,
