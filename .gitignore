@@ -11,3 +11,4 @@ netlify.toml
 run_tailwindcss.sh
 *.ipynb
 test
+og.tsx
