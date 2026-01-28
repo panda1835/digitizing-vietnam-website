@@ -30,9 +30,13 @@ export default function SocialMediaSharing({ title }) {
         <Facebook className="text-branding-black w-6 h-6" />
       </Link>
       <Link
-        href={currentUrl ? `mailto:?subject=${encodeURIComponent(
-          title
-        )}&body=${encodeURIComponent(currentUrl)}` : "#"}
+        href={
+          currentUrl
+            ? `mailto:?subject=${encodeURIComponent(
+                title
+              )}&body=${encodeURIComponent(currentUrl)}`
+            : "#"
+        }
         aria-label="Share via Email"
       >
         <Mail className="text-branding-black w-6 h-6" />
