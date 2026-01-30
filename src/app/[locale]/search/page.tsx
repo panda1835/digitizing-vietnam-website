@@ -45,9 +45,17 @@ const SearchResultsPage = async ({
   ]);
 
   const hits = (results[0] as any).hits.filter((hit) => hit.locale === locale);
+  const seenSlugs = new Set();
+  const uniqueHits = hits.filter((hit) => {
+    const slug = hit?.slug;
+    if (!slug) return true;
+    if (seenSlugs.has(slug)) return false;
+    seenSlugs.add(slug);
+    return true;
+  });
 
   // console.log("Hits", hits[0]);
-  const processedHits = preprocessSearchResults(hits);
+  const processedHits = preprocessSearchResults(uniqueHits);
   // console.log("Result", hits[0]);
 
   return (

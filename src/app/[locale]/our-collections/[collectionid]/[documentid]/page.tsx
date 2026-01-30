@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import qs from "qs";
 
 import MiradorViewer from "@/components/mirador/MiradorViewer";
@@ -22,6 +22,9 @@ import NotFound from "@/app/not-found";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
+// Revalidate every hour for ISR
+export const revalidate = 60 * 30; // 30 minutes
+
 export async function generateMetadata({
   params,
 }: {
@@ -38,7 +41,9 @@ export async function generateMetadata({
     const queryStringParam = qs.stringify(queryParams);
     const queryString = new URLSearchParams(queryStringParam).toString();
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
-    const data = await fetcher(url);
+    const data = await fetcher(url, {
+      next: { revalidate: 60 * 30 }, // Cache for 30 minutes
+    });
 
     if (data.data && data.data.length > 0) {
       return {
@@ -67,6 +72,9 @@ const CollectionItemViewer = async ({
   };
 }) => {
   const locale = params.locale;
+  // Enable static rendering for this page
+  setRequestLocale(locale);
+
   const collectionId = params.collectionid;
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
@@ -105,7 +113,9 @@ const CollectionItemViewer = async ({
     const queryString = new URLSearchParams(queryStringParam).toString();
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
-    const data = await fetcher(url);
+    const data = await fetcher(url, {
+      next: { revalidate: 60 * 30 }, // Cache for 30 minutes
+    });
     collectionItemData = data.data[0];
     collectionTitle =
       collectionItemData.collections.find(

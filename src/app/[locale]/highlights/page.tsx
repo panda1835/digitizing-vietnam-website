@@ -25,7 +25,7 @@ export function generateStaticParams() {
 }
 
 // Revalidate every hour for ISR
-export const revalidate = 3600;
+export const revalidate = 60 * 300; // 30 minutes
 
 const Blogs = async ({ params: { locale } }) => {
   // Enable static rendering for this page
@@ -48,7 +48,7 @@ const Blogs = async ({ params: { locale } }) => {
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blog-categories?${queryString}`;
 
     const data = await fetcher(url, {
-      next: { revalidate: 3600 }, // 1 hour cache
+      next: { revalidate: 60 * 30 }, // 30 minutes cache
     });
     const allCategories = data.data;
 

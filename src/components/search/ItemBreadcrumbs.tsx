@@ -31,8 +31,9 @@ const ItemBreadcrumbs = ({ hit }) => {
       {hit.collections && (
         <>
           {t("NavigationBar.our-collections")} &gt;{" "}
-          {hit.collections[0].title || hit.collections[0]} &gt;{" "}
-          {hit.title || hit.name}
+          {hit.collections[0] &&
+            (hit.collections[0].title || hit.collections[0])}{" "}
+          &gt; {hit.title || hit.name}
         </>
       )}
     </div>

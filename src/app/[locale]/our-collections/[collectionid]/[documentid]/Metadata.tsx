@@ -194,18 +194,6 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
           </div>
         )}
 
-        {/* Note */}
-        {collectionItemData.note && (
-          <div className="items-center gap-3 mt-4">
-            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
-              {t("CollectionMetadata.note")}:
-            </div>
-            <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-              {collectionItemData.note || "N/A"}
-            </div>
-          </div>
-        )}
-
         {/* Related Works */}
         {collectionItemData.related_works && (
           <div className="items-center gap-3 mt-4">
@@ -228,6 +216,17 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
           </div>
         </div>
       </div>
+      {/* Note */}
+      {collectionItemData.note && (
+        <div className="items-center gap-3 mt-4 max-w-7xl">
+          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+            {t("CollectionMetadata.note")}:
+          </div>
+          <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+            {collectionItemData.note || "N/A"}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

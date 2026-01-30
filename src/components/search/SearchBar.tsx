@@ -100,23 +100,34 @@ const SearchBar = ({ locale }: { locale: string }) => {
     }
   };
 
-  const CustomHits = connectHits(({ hits }) => (
-    <div className="absolute z-10 left-0 mt-2 sm:px-10 md:px-24 w-full flex justify-center items-center rounded-lg">
-      <ScrollArea
-        className={`h-[0px] w-full rounded-lg py-2 ${
-          hits.length > 0 ? "bg-white h-[300px]" : ""
-        }`}
-      >
-        {hits.map((hit) => (
-          <>
-            {hit.locale === locale && ( // Filter by locale
-              <SearchBarResultItem key={hit.objectID} hit={hit} />
-            )}
-          </>
-        ))}
-      </ScrollArea>
-    </div>
-  ));
+  const CustomHits = connectHits(({ hits }) => {
+    const seenSlugs = new Set();
+    const filteredHits = hits.filter((hit) => {
+      const slug = hit?.slug;
+      if (!slug) return true;
+      if (seenSlugs.has(slug)) return false;
+      seenSlugs.add(slug);
+      return true;
+    });
+
+    return (
+      <div className="absolute z-10 left-0 mt-2 sm:px-10 md:px-24 w-full flex justify-center items-center rounded-lg">
+        <ScrollArea
+          className={`h-[0px] w-full rounded-lg py-2 ${
+            filteredHits.length > 0 ? "bg-white h-[300px]" : ""
+          }`}
+        >
+          {filteredHits.map((hit) => (
+            <>
+              {hit.locale === locale && ( // Filter by locale
+                <SearchBarResultItem key={hit.objectID} hit={hit} />
+              )}
+            </>
+          ))}
+        </ScrollArea>
+      </div>
+    );
+  });
 
   return (
     // <form className="flex" onSubmit={handleSubmit}>
