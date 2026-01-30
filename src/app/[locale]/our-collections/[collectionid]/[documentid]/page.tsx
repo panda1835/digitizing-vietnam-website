@@ -23,7 +23,7 @@ import NotFound from "@/app/not-found";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 // Revalidate every hour for ISR
-export const revalidate = 60 * 30; // 30 minutes
+// export const revalidate = 60 * 30; // 30 minutes
 
 export async function generateMetadata({
   params,
@@ -42,7 +42,7 @@ export async function generateMetadata({
     const queryString = new URLSearchParams(queryStringParam).toString();
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryString}`;
     const data = await fetcher(url, {
-      next: { revalidate: 60 * 30 }, // Cache for 30 minutes
+      next: { revalidate: 60 * 60 }, // Cache for 60 minutes
     });
 
     if (data.data && data.data.length > 0) {

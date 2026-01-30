@@ -25,7 +25,7 @@ export function generateStaticParams() {
 }
 
 // Revalidate every hour for ISR
-export const revalidate = 60 * 300; // 30 minutes
+export const revalidate = 60 * 30; // 30 minutes
 
 const Blogs = async ({ params: { locale } }) => {
   // Enable static rendering for this page
