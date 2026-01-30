@@ -3,23 +3,38 @@ import { Link } from "@/i18n/routing";
 import ItemBreadcrumbs from "./ItemBreadcrumbs";
 
 const SearchBarResultItem = ({ hit }) => {
+  const href = (() => {
+    try {
+      if (hit?.collection_location) {
+        return `/our-collections/${hit.slug}`;
+      }
+      if (hit?.online_resource_types) {
+        return "/online-resources";
+      }
+      if (hit?.collections) {
+        const collectionSlug =
+          hit?.collection_slugs?.[0] || hit?.collections?.[0]?.slug;
+        return collectionSlug && hit?.slug
+          ? `/our-collections/${collectionSlug}/${hit.slug}`
+          : "/";
+      }
+      return "/";
+    } catch (error) {
+      console.warn("[SearchBarResultItem] Failed to build href, skipping hit", {
+        error,
+        hit,
+      });
+      return null;
+    }
+  })();
+
+  if (!href) return null;
+
   return (
     <div className="bg-white hover:bg-gray-100 hover:rounded-lg p-3 px-6">
       <div key={hit} className="mt-1 overflow-hidden flex">
         <Link
-          href={
-            hit.collection_location
-              ? `/our-collections/${hit.slug}`
-              : hit.online_resource_types
-              ? "/online-resources"
-              : hit.collections
-              ? `/our-collections/${
-                  hit.collection_slugs
-                    ? hit.collection_slugs[0]
-                    : hit.collections[0].slug
-                }/${hit.slug}`
-              : "/"
-          }
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
           className="flex gap-2"

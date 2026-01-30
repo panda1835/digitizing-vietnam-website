@@ -17,14 +17,14 @@ const FeatureArticle = ({ highlights, locale }) => {
           {locale === "en" ? "Featured Articles" : "Bài viết chuyên đề"}
         </div>
       </div>
+      {highlights.length === 0 && (
+        <div className="text-lg font-['Helvetica_Neue'] font-light">
+          {locale === "en"
+            ? "No featured articles for this collection."
+            : "Chưa có bài viết chuyên đề nào cho bộ sưu tập này."}
+        </div>
+      )}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-        {highlights.length === 0 && (
-          <div className="text-lg font-['Helvetica_Neue'] font-light">
-            {locale === "en"
-              ? "No featured articles for this collection."
-              : "Chưa có bài viết chuyên đề nào cho bộ sưu tập này."}
-          </div>
-        )}
         {highlights.map((item) => (
           <ArticleCard
             title={item.title}
