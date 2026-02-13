@@ -1,7 +1,9 @@
 import { getTranslations } from "next-intl/server";
+import qs from "qs";
 
 import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
+import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
 
 import ArticleCard from "@/components/ArticleCard";
 import { PageHeader } from "@/components/common/PageHeader";
@@ -18,17 +20,26 @@ export async function generateMetadata({
 
   try {
     const queryParams = {
-      fields: "title",
+      fields: ["title", "abstract"],
       "filters[slug][$eq]": params.collectionSlug,
+      "populate[0]": "thumbnail",
       locale: params.locale,
     };
-    const queryString = new URLSearchParams(queryParams).toString();
+    const queryString = qs.stringify(queryParams);
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/pedagogy-collections?${queryString}`;
     const data = await fetcher(url);
 
     if (data.data && data.data.length > 0) {
+      const collection = data.data[0];
+      const description = stripHtmlTags(collection.abstract);
+      const ogImage = getStrapiImageUrl(collection.thumbnail?.url);
+
       return {
-        title: `${data.data[0].title} | Digitizing Việt Nam`,
+        title: `${collection.title} | Digitizing Việt Nam`,
+        description,
+        openGraph: {
+          ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+        },
       };
     }
   } catch (error) {

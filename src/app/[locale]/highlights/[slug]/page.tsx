@@ -5,9 +5,11 @@ import { Blog } from "@/types/blog";
 import { fetcher } from "@/lib/api";
 import { formatDate } from "@/utils/datetime";
 import { Merriweather } from "next/font/google";
+import qs from "qs";
 import SocialMediaSharing from "../../../../components/common/SocialMediaSharing";
 import { Metadata } from "next";
 import { getImageByKey } from "@/utils/image";
+import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
@@ -54,20 +56,32 @@ export async function generateMetadata({
 
   try {
     const queryParams = {
-      fields: "title",
+      fields: ["title", "content"],
       "filters[slug][$eq]": params.slug,
+      "populate[0]": "thumbnail",
       locale: params.locale,
     };
 
-    const queryString = new URLSearchParams(queryParams).toString();
+    const queryString = qs.stringify(queryParams);
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?${queryString}`;
     const data = await fetcher(url, {
       next: { revalidate: 60 * 60 * 24 }, // Cache metadata for 1 day
     });
 
     if (data.data && data.data.length > 0) {
+      const blog = data.data[0];
+      const description = stripHtmlTags(blog.content || "");
+      const thumbnailData = Array.isArray(blog.thumbnail)
+        ? blog.thumbnail[0]
+        : blog.thumbnail;
+      const ogImage = getStrapiImageUrl(thumbnailData?.url);
+
       return {
-        title: `${data.data[0].title} | Digitizing Việt Nam`,
+        title: `${blog.title} | Digitizing Việt Nam`,
+        description,
+        openGraph: {
+          ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+        },
       };
     }
   } catch (error) {

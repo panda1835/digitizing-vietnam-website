@@ -27,7 +27,7 @@ export async function generateMetadata({
   return {
     title: {
       default: title,
-      template: `%s | Digitizing Việt Nam`,
+      template: `%s`,
     },
     description,
     alternates: {
