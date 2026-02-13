@@ -35,7 +35,11 @@ export async function generateMetadata({
     if (data.data && data.data.length > 0) {
       const collection = data.data[0];
       const description = stripHtmlTags(collection.abstract);
-      const ogImage = getStrapiImageUrl(collection.thumbnail?.url);
+      const ogImage = getStrapiImageUrl(
+        Array.isArray(collection.thumbnail)
+          ? collection.thumbnail[0]?.url
+          : collection.thumbnail?.url
+      );
 
       return {
         title: `${collection.title} | Digitizing Việt Nam`,
