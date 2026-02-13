@@ -5,7 +5,7 @@ export async function searchDictionary(character: string) {
     // This runs on the server - users never see this URL or any headers
     const response = await fetch(
       `${
-        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
       }/han-nom-dictionary/all/nom?q=${character}`,
       {
         headers: {
