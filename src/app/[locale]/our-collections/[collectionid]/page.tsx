@@ -10,6 +10,7 @@ import FeatureArticle from "./FeatureArticle";
 import { PageHeader } from "@/components/common/PageHeader";
 
 import { Metadata } from "next";
+import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
 
 export async function generateMetadata({
   params,
@@ -20,8 +21,9 @@ export async function generateMetadata({
 
   try {
     const queryParams = {
-      fields: "title",
+      fields: ["title", "abstract"],
       "filters[slug][$eq]": params.collectionid,
+      populate: ["thumbnail"],
       locale: params.locale,
     };
     const queryString = qs.stringify(queryParams);
@@ -31,8 +33,20 @@ export async function generateMetadata({
     });
 
     if (data.data && data.data.length > 0) {
+      const collection = data.data[0];
+      const description = stripHtmlTags(collection.abstract);
+      const ogImage = getStrapiImageUrl(
+        Array.isArray(collection.thumbnail)
+          ? collection.thumbnail[0]?.url
+          : collection.thumbnail?.url
+      );
+
       return {
-        title: `${data.data[0].title} | Digitizing Việt Nam`,
+        title: `${collection.title} | Digitizing Việt Nam`,
+        description,
+        openGraph: {
+          ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+        },
       };
     }
   } catch (error) {

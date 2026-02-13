@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
     default: "Digitizing Việt Nam",
-    template: "%s | Digitizing Việt Nam",
+    template: "%s",
   },
   description:
     "A cutting-edge digital hub for Vietnam Studies, offering Hán-Nôm manuscripts and other digitized collections, pedagogical resources, and research tools for scholars, educators and the public.",

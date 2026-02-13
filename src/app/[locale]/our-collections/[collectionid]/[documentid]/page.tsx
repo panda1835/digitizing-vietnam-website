@@ -11,6 +11,7 @@ import { fetcher } from "@/lib/api";
 import { renderHtml } from "@/utils/renderHtml";
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
+import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
 
 import TruyenKieu from "./searchable-text/truyen-kieu/TruyenKieuText";
 import LucVanTienText from "./searchable-text/luc-van-tien/LucVanTienText";
@@ -34,8 +35,9 @@ export async function generateMetadata({
 
   try {
     const queryParams = {
-      fields: "title",
+      fields: ["title", "abstract"],
       "filters[slug][$eq]": params.documentid,
+      populate: ["thumbnail"],
       locale: params.locale,
     };
     const queryStringParam = qs.stringify(queryParams);
@@ -46,8 +48,16 @@ export async function generateMetadata({
     });
 
     if (data.data && data.data.length > 0) {
+      const item = data.data[0];
+      const description = stripHtmlTags(item.abstract);
+      const ogImage = getStrapiImageUrl(item.thumbnail?.url);
+
       return {
-        title: `${data.data[0].title} | Digitizing Việt Nam`,
+        title: `${item.title} | Digitizing Việt Nam`,
+        description,
+        openGraph: {
+          ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+        },
       };
     }
   } catch (error) {

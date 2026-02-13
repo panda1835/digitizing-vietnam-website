@@ -1,10 +1,12 @@
 import { renderHtml } from "@/utils/renderHtml";
 import { getTranslations } from "next-intl/server";
+import qs from "qs";
 import { fetcher } from "@/lib/api";
 import { Merriweather } from "next/font/google";
 import SocialMediaSharing from "@/components/common/SocialMediaSharing";
 import { PedagogyMetadata } from "./Metadata";
 import { Metadata } from "next";
+import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -17,17 +19,28 @@ export async function generateMetadata({
 
   try {
     const queryParams = {
-      fields: "title",
+      fields: ["title", "description", "content"],
       "filters[slug][$eq]": params.itemSlug,
+      "populate[0]": "thumbnail",
       locale: params.locale,
     };
-    const queryString = new URLSearchParams(queryParams).toString();
+    const queryString = qs.stringify(queryParams);
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/pedagogies?${queryString}`;
     const data = await fetcher(url);
 
     if (data.data && data.data.length > 0) {
+      const item = data.data[0];
+      const description = stripHtmlTags(
+        item.description || item.content || ""
+      );
+      const ogImage = getStrapiImageUrl(item.thumbnail?.url);
+
       return {
-        title: `${data.data[0].title} | Digitizing Việt Nam`,
+        title: `${item.title} | Digitizing Việt Nam`,
+        description,
+        openGraph: {
+          ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+        },
       };
     }
   } catch (error) {
