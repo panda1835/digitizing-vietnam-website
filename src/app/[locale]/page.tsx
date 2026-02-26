@@ -3,15 +3,10 @@ import Image from "next/image";
 
 import { Merriweather } from "next/font/google";
 
-import { Separator } from "@/components/ui/separator";
-import SearchBar from "@/components/search/SearchBar";
 import LearnMoreButton from "@/components/LearnMoreButton";
-import { InfoCard } from "@/components/common/InfoCard";
 import ImageSlideshow from "@/components/ImageSlideshow";
-import ArticleCard from "@/components/ArticleCard";
 
 import { fetcher } from "@/lib/api";
-import { generateHomePageCarouselItems } from "@/utils/home-slides";
 import { routing } from "@/i18n/routing";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
@@ -48,207 +43,261 @@ const Home = async ({ params: { locale } }) => {
   const data = await fetcher(url, {
     next: { revalidate: 3600 }, // Cache for 1 hour
   });
-  const highlights = data.data.slice(0, 3);
+  const highlights = data.data.slice(0, 5);
+  const heroSlides = highlights
+    .map((item) => {
+      const formats = item.thumbnail?.[0]?.formats;
+      const image =
+        (formats && getImageByKey(formats, "large")) ||
+        (formats && getImageByKey(formats, "medium")) ||
+        (formats && getImageByKey(formats, "small"));
 
-  const outlines = [
+      if (!image) {
+        return null;
+      }
+
+      return {
+        img: image.url,
+        caption: t("NavigationBar.highlights"),
+        title: item.title,
+        date: formatDate(item.createdAt, locale),
+        href: `/highlights/${item.slug}`,
+      };
+    })
+    .filter(Boolean);
+
+  const studyRows = [
     {
-      name: t("NavigationBar.our-collections"),
+      key: "collections",
+      title: locale === "en" ? "Collections" : "Bộ sưu tập",
       description:
         locale === "en"
           ? "Explore our digital archive dedicated to preserving and academically exploring Vietnam's historical, cultural & intellectual heritage."
           : "Khám phá kho lưu trữ số - nơi dành riêng cho việc bảo tồn và nghiên cứu học thuật về di sản lịch sử, văn hóa & tư tưởng Việt Nam.",
-
+      image: "/images/image-row-collection.png",
       url: "/our-collections",
     },
     {
-      name: t("NavigationBar.tools"),
+      key: "research",
+      title: locale === "en" ? "Research" : "Nghiên cứu",
       description:
         locale === "en"
           ? "Engage creatively with Vietnam Studies — Use Digitizing Vietnam's specialized tools to approach the field with fresh perspectives and critical insight."
           : "Tiếp cận lĩnh vực Nghiên cứu Việt Nam với các công cụ chuyên biệt của Digitizing Việt Nam.",
+      image: "/images/image-row-research.png",
       url: "/tools",
     },
     {
-      name: t("Outreach.title"),
+      key: "pedagogy",
+      title: locale === "en" ? "Pedagogy" : "Sư phạm",
       description:
         locale === "en"
           ? "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences."
           : "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả với tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện.",
+      image: "/images/image-row-pedagogy.png",
+      url: "/pedagogy",
+    },
+    {
+      key: "outreach",
+      title: locale === "en" ? "Outreach" : "Phổ biến tri thức",
+      description:
+        locale === "en"
+          ? "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences."
+          : "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả với tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện.",
+      image: "/images/image-row-outreach.png",
       url: "/pedagogy",
     },
   ];
 
-  const slides = await generateHomePageCarouselItems(locale);
-
   return (
     <div className="flex flex-col items-center max-width w-full">
       <div className="flex-col mb-20 w-full">
-        <SearchBar locale={locale} />
-        {/* Header */}
-        <section className="max-w-7xl justify-center items-center inline-flex mb-10 mt-10">
-          <div className="max-w-6xl">
-            <span
-              className={`text-branding-black text-[52px] font-light ${merriweather.className}`}
-            >
-              {locale === "en"
-                ? "A digital hub to study"
-                : "Không gian số hỗ trợ nghiên cứu Việt Nam"}{" "}
-            </span>
-            <span
-              className={`text-branding-brown text-[52px] font-light ${merriweather.className}`}
-            >
-              {locale === "en" ? "pre-modern and modern" : ""}
-            </span>
-            <span
-              className={`text-branding-brown text-[52px] font-light lg:hidden ${merriweather.className}`}
-            >
-              {locale === "vi" ? "cận đại và hiện đại." : ""}
-            </span>
-            <span
-              className={`text-branding-black text-[52px] font-light ${merriweather.className}`}
-            >
-              {" "}
-              {locale === "en" ? "Vietnam" : ""}
-            </span>
-            <div
-              className={`text-branding-brown text-[52px] font-light lg:block hidden ${merriweather.className}`}
-            >
-              {locale === "vi" ? "cận đại và hiện đại." : ""}
-            </div>
-          </div>
-        </section>
-
-        {/* Slideshow */}
-        <section className="w-full mb-20">
-          <ImageSlideshow slides={slides} />
-        </section>
-
-        {/* Content */}
-        <div className="mt-40 mb-10">
-          <Separator />
-        </div>
-        <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            className={`text-3xl font-medium mb-6 text-branding-black ${merriweather.className}`}
-          >
-            {t("NavigationBar.about-us")}
-          </div>
-          <div className=" mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light text-lg">
-            <p className=" ">
-              {locale === "en"
-                ? "Digitizing Việt Nam marks a digital leap forward in Vietnam Studies through a Columbia - Fulbright collaboration, formalized through that began with a 2022 memorandum of understanding between the Weatherhead East Asian Institute and the Vietnam Studies Center. The Digitizing Việt Nam platform began with the generous donation of the complete archive by the Vietnamese Nôm Preservation Foundation to Columbia University in 2018."
-                : '"Số hóa Việt Nam" (Digitizing Việt Nam) đánh dấu một bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác giữa Đại học Columbia và Đại học Fulbright. Sáng kiến chung này bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022. Nền tảng Số hoá Việt Nam được khởi đầu vào năm 2018 với sự đóng góp hào phóng toàn bộ kho tư liệu của Hội Bảo tồn Chữ Nôm Việt Nam cho Đại học Columbia.'}
-            </p>
-            <div className="mt-4 mb-10">
-              <LearnMoreButton text={t("Button.learn-more")} url="/about-us" />
-            </div>
-
-            {/* Partner Logos */}
-            <div className="flex flex-wrap items-center justify-between md:justify-center gap-10 mb-16">
-              <Image
-                unoptimized
-                src="/images/weatherhead-logo.png"
-                alt="Columbia University WeatherHead East Asian Institute"
-                width={190}
-                height={80}
-                className="object-contain"
-              />
-              <Image
-                unoptimized
-                src="/images/vsc-logo.png"
-                alt="Fulbright University Vietnam - Vietnam Studies Center"
-                width={160}
-                height={80}
-                className="object-contain"
-              />
-              <Image
-                unoptimized
-                src="/images/henry-luce-foundation-logo.png"
-                alt="Henry Luce Foundation"
-                width={160}
-                height={80}
-                className="object-contain"
-              />
-              <div className="flex flex-wrap gap-4">
-                <Image
-                  unoptimized
-                  src="/images/logo_icon.gif"
-                  alt="VNPF Logo"
-                  width={60}
-                  height={80}
-                  className="object-contain"
-                />
-                <Image
-                  unoptimized
-                  src="/images/logo.gif"
-                  alt="VNPF Logo"
-                  width={140}
-                  height={80}
-                  className="object-contain"
-                />
+        {/* Header + News Carousel */}
+        <section className="grid lg:grid-cols-5 gap-10 items-center mb-20 mt-10">
+          <div className="lg:col-span-2 max-w-2xl">
+            <div>
+              <span
+                className={`text-branding-black text-[48px] font-light ${merriweather.className}`}
+              >
+                {locale === "en"
+                  ? "A Digital Hub to Study"
+                  : "Không gian số hỗ trợ nghiên cứu Việt Nam"}{" "}
+              </span>
+              <span
+                className={`text-branding-brown text-[48px] font-light ${merriweather.className}`}
+              >
+                {locale === "en" ? "Pre-modern and Modern" : ""}
+              </span>
+              <span
+                className={`text-branding-brown text-[48px] font-light lg:hidden ${merriweather.className}`}
+              >
+                {locale === "vi" ? "cận đại và hiện đại." : ""}
+              </span>
+              <span
+                className={`text-branding-black text-[48px] font-light ${merriweather.className}`}
+              >
+                {" "}
+                {locale === "en" ? "Vietnam" : ""}
+              </span>
+              <div
+                className={`text-branding-brown text-[48px] font-light lg:block hidden ${merriweather.className}`}
+              >
+                {locale === "vi" ? "cận đại và hiện đại." : ""}
               </div>
             </div>
+            <p className="mt-6 font-['Helvetica Neue'] font-light text-lg text-branding-black">
+              {locale === "en"
+                ? "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration. The joint venture started with the memorandum of understanding between two universities in 2022."
+                : "Số hóa Việt Nam đánh dấu bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác Columbia - Fulbright. Sáng kiến chung bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022."}
+            </p>
+          </div>
+          <div className="lg:col-span-3">
+            <ImageSlideshow slides={heroSlides} />
           </div>
         </section>
-        <Separator className="mb-10" />
+
         {/* Study Vietnam Section */}
-        <section className="mb-24">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div
-              className={`text-3xl font-medium mb-6 text-branding-black ${merriweather.className}`}
-            >
-              {t("Home.studying-vietnam")}
+        <section className="mb-24 mt-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
+            <div className="lg:col-span-6 flex items-start gap-6">
+              <div
+                className={`text-3xl font-medium text-branding-black ${merriweather.className}`}
+              >
+                {locale === "en" ? (
+                  <>
+                    <div className="whitespace-nowrap">
+                      Study Vietnam Through
+                    </div>
+                    <div className="whitespace-nowrap">
+                      the{" "}
+                      <span className="text-branding-brown">Digital Lens</span>
+                    </div>
+                  </>
+                ) : (
+                  t("Home.studying-vietnam")
+                )}
+              </div>
+              <div className="h-px w-full bg-[#cfcfcf] mt-3" />
             </div>
-            <div className=" mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light text-lg">
-              <p className=" ">
+
+            <div className="lg:col-span-6 font-['Helvetica Neue'] font-light text-lg">
+              <p>
                 {locale === "en"
                   ? "Delve into Vietnam's history, culture, and society through cutting-edge tools and curated resources tailored for scholars, students, and educators."
                   : "Khám phá lịch sử, văn hóa và xã hội Việt Nam thông qua các công cụ tiên tiến và nguồn tư liệu được tinh chọn cho học giả, sinh viên và giáo viên."}
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            {outlines.map((item) => (
-              <InfoCard
-                name={item.name}
-                description={item.description}
-                url={item.url}
-                key={item.url}
-              />
+          <div className="mt-8 space-y-8">
+            {studyRows.map((item) => (
+              <div
+                key={item.key}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start"
+              >
+                <div className="lg:col-span-6">
+                  <Image
+                    unoptimized
+                    src={item.image}
+                    alt={item.title}
+                    width={760}
+                    height={420}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="lg:col-span-6 font-['Helvetica Neue'] text-branding-black">
+                  <h3 className="text-[30px] leading-tight font-bold mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-base font-light">{item.description}</p>
+                  <div className="mt-4">
+                    <LearnMoreButton
+                      text={t("Button.learn-more")}
+                      url={item.url}
+                    />
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* Highlights */}
-        <Separator className="mb-10" />
-        <section className="mb-24">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div
-              className={`text-3xl font-medium mb-6 text-branding-black ${merriweather.className}`}
-            >
-              {t("NavigationBar.highlights")}
+        <div className="mt-10" />
+        {/* About Us */}
+        <section className="mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
+            <div className="lg:col-span-6 flex items-center gap-6">
+              <div
+                className={`text-3xl font-medium text-branding-black whitespace-nowrap ${merriweather.className}`}
+              >
+                {t("NavigationBar.about-us")}
+              </div>
+              <div className="h-px w-full bg-[#cfcfcf]" />
             </div>
-            <div className=" mb-8 lg:col-span-2 md:col-span-1 font-['Helvetica Neue'] font-light text-lg">
-              <p className=" ">{t("Highlight.subtitle")}</p>
+            <div className="lg:col-span-6 font-['Helvetica Neue'] font-light text-lg">
+              <p>
+                {locale === "en"
+                  ? "Digitizing Việt Nam marks a digital leap forward in Vietnam Studies through a Columbia - Fulbright collaboration, formalized through that began with a 2022 memorandum of understanding between the Weatherhead East Asian Institute and the Vietnam Studies Center. The Digitizing Việt Nam platform began with the generous donation of the complete archive by the Vietnamese Nôm Preservation Foundation to Columbia University in 2018."
+                  : '"Số hóa Việt Nam" (Digitizing Việt Nam) đánh dấu một bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác giữa Đại học Columbia và Đại học Fulbright. Sáng kiến chung này bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022. Nền tảng Số hoá Việt Nam được khởi đầu vào năm 2018 với sự đóng góp hào phóng toàn bộ kho tư liệu của Hội Bảo tồn Chữ Nôm Việt Nam cho Đại học Columbia.'}
+              </p>
               <div className="mt-4">
                 <LearnMoreButton
                   text={t("Button.learn-more")}
-                  url="/highlights"
+                  url="/about-us"
                 />
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            {highlights.map((item) => (
-              <ArticleCard
-                title={item.title}
-                description={item.content}
-                date={formatDate(item.createdAt, locale)}
-                imageUrl={getImageByKey(item.thumbnail[0].formats, "medium")}
-                link={`/highlights/${item.slug}`}
-                key={`/highlights/${item.slug}`}
+
+          {/* Partner Logos */}
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+            <div className="flex justify-center min-w-0">
+              <Image
+                unoptimized
+                src="/images/vsc-logo.png"
+                alt="Fulbright University Vietnam - Vietnam Studies Center"
+                width={190}
+                height={90}
+                className="object-contain w-full h-auto max-w-[220px] max-h-[72px]"
               />
-            ))}
+            </div>
+            <div className="flex justify-center min-w-0">
+              <Image
+                unoptimized
+                src="/images/weatherhead-logo.png"
+                alt="Columbia University WeatherHead East Asian Institute"
+                width={380}
+                height={90}
+                className="object-contain w-full h-auto max-w-[340px] max-h-[72px]"
+              />
+            </div>
+            <div className="flex justify-center min-w-0">
+              <Image
+                unoptimized
+                src="/images/henry-luce-foundation-logo.png"
+                alt="Henry Luce Foundation"
+                width={280}
+                height={90}
+                className="object-contain w-full h-auto max-w-[280px] max-h-[72px]"
+              />
+            </div>
+            <div className="flex items-center justify-center gap-3 w-full min-w-0">
+              <Image
+                unoptimized
+                src="/images/logo_icon.gif"
+                alt="VNPF Logo"
+                width={60}
+                height={72}
+                className="object-contain h-auto max-h-[64px] w-auto max-w-[30%]"
+              />
+              <Image
+                unoptimized
+                src="/images/logo.gif"
+                alt="VNPF Logo"
+                width={140}
+                height={72}
+                className="object-contain h-auto max-h-[64px] w-auto max-w-[65%]"
+              />
+            </div>
           </div>
         </section>
       </div>

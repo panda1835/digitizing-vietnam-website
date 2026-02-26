@@ -1,4 +1,5 @@
 "use client";
+import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Merriweather } from "next/font/google";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
@@ -12,8 +13,8 @@ export function PageHeader({
   breadcrumbItems,
   locale,
 }: {
-  title: string;
-  subtitle: string;
+  title: ReactNode;
+  subtitle: ReactNode;
   breadcrumbItems: { label: string; href?: string }[];
   locale: string;
 }) {
@@ -39,7 +40,7 @@ export function PageHeader({
         {subtitle}
       </div>
 
-      <div className="mt-28">
+      <div className="mt-12">
         <Separator />
       </div>
     </div>

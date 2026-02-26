@@ -1,13 +1,12 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { OnlineResource, ResourceCategory } from "@/types/online-resource";
-import CategoryDialog from "./CategoryDialog";
 import { PageHeader } from "@/components/common/PageHeader";
-import { fetcher } from "@/lib/api";
+import LearnMoreButton from "@/components/LearnMoreButton";
 
 import { Merriweather } from "next/font/google";
 import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
+import { getCategorySlug, getOnlineResources } from "./resource-utils";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -27,56 +26,18 @@ export const revalidate = 60 * 60 * 24; // 1 day
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const OnlineResources = async ({
   params: { locale },
-  searchParams,
 }: {
   params: { locale: string };
-  searchParams: { category?: string };
 }) => {
   // Enable static rendering for this page
   setRequestLocale(locale);
 
   const t = await getTranslations();
 
-  let onlineResources: ResourceCategory[] = [];
-
-  try {
-    const queryParams = {
-      "pagination[withCount]": "false",
-      fields: "*",
-      populate: "*",
-      locale: locale,
-    };
-
-    const queryString = new URLSearchParams(queryParams).toString();
-
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/online-resource-types?${queryString}`;
-
-    const data = await fetcher(url, {
-      next: { revalidate: 60 * 60 * 24 }, // Cache for 1 day
-    });
-    const allCategories = data.data;
-    // console.log(allCategories);
-    const resourceCategories: ResourceCategory[] = [];
-    // Iterate through each online resource type
-    // add the online resources to the array
-    allCategories.forEach((category) => {
-      resourceCategories.push({
-        category_name: category.name,
-        description: category.description,
-        resources: category.online_resources.map((resource) => {
-          return {
-            title: resource.name,
-            description: resource.description,
-            url: resource.url,
-          } as OnlineResource;
-        }),
-      });
-    });
-    onlineResources = resourceCategories;
-  } catch (error) {
+  const onlineResources = await getOnlineResources(locale).catch((error) => {
     console.error("Error fetching online resources:", error);
-  } finally {
-  }
+    return [];
+  });
 
   return (
     <div className="flex flex-col max-width items-center">
@@ -103,7 +64,13 @@ const OnlineResources = async ({
                 <p className="mt-5 text-base font-light font-['Helvetica Neue'] leading-relaxed text-branding-black text-left">
                   {category.description}
                 </p>
-                <CategoryDialog category={category} />
+                <div className="mt-5">
+                  <LearnMoreButton
+                    url={`/online-resources/${getCategorySlug(category.category_name)}`}
+                    text={t("Button.learn-more")}
+                    newTab={false}
+                  />
+                </div>
               </div>
             </div>
           ))}
