@@ -41,16 +41,15 @@ const getValuesByPattern = (item: Record<string, string>, pattern: RegExp) =>
     .filter(([key, value]) => pattern.test(key) && Boolean(value?.trim()))
     .map(([, value]) => value.trim());
 
-const parseYear = (
-  value: string | undefined,
-  bound: "start" | "end",
-): number | null => {
+const parseYear = (value: string | undefined): number | null => {
   if (!value) return null;
   const trimmed = value.trim();
   if (!trimmed) return null;
 
-  const normalized = trimmed.replace(/[xX]/g, bound === "start" ? "0" : "9");
-  const match = normalized.match(/\d{4}/);
+  // Treat wildcard years (e.g. 16XX, 19XX) as unknown.
+  if (/[xX]/.test(trimmed)) return null;
+
+  const match = trimmed.match(/\d{4}/);
   if (!match) return null;
   return Number.parseInt(match[0], 10);
 };
@@ -76,8 +75,8 @@ const HAN_NOM_MANIFEST_ENTRIES: HanNomManifestEntry[] =
         names: getValuesByPattern(item, /^name-\d+:name_term\.value$/),
         formats: getValuesByPattern(item, /^form-\d+:form_term\.value$/),
         languages: getValuesByPattern(item, /^language-\d+:language_term\.value$/),
-        yearStart: parseYear(item["date_issued-1:date_issued_start_value"], "start"),
-        yearEnd: parseYear(item["date_issued-1:date_issued_end_value"], "end"),
+        yearStart: parseYear(item["date_issued-1:date_issued_start_value"]),
+        yearEnd: parseYear(item["date_issued-1:date_issued_end_value"]),
       };
     });
 
