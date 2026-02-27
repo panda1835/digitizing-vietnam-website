@@ -8,6 +8,7 @@ export interface HanNomManifestEntry {
   pid: string;
   doi: string;
   title: string;
+  otherTitles: string[];
   thumbnailUrl: string;
   manifestUrl: string;
   names: string[];
@@ -57,19 +58,28 @@ const parseYear = (
 const HAN_NOM_MANIFEST_ENTRIES: HanNomManifestEntry[] =
   hanNomColumbiaDlcMetadata
     .filter((item) => Boolean(item._doi))
-    .map((item) => ({
-      itemId: getItemIdFromDoi(item._doi),
-      pid: item._pid,
-      doi: normalizeDoi(item._doi),
-      title: getTitleFromMetadata(item),
-      thumbnailUrl: item._thumbnail_url,
-      manifestUrl: getManifestUrlFromDoi(item._doi),
-      names: getValuesByPattern(item, /^name-\d+:name_term\.value$/),
-      formats: getValuesByPattern(item, /^form-\d+:form_term\.value$/),
-      languages: getValuesByPattern(item, /^language-\d+:language_term\.value$/),
-      yearStart: parseYear(item["date_issued-1:date_issued_start_value"], "start"),
-      yearEnd: parseYear(item["date_issued-1:date_issued_end_value"], "end"),
-    }));
+    .map((item) => {
+      const title = getTitleFromMetadata(item);
+      const otherTitles = getValuesByPattern(
+        item,
+        /^alternative_title-\d+:alternative_title_value$/,
+      ).filter((alternativeTitle) => alternativeTitle !== title);
+
+      return {
+        itemId: getItemIdFromDoi(item._doi),
+        pid: item._pid,
+        doi: normalizeDoi(item._doi),
+        title,
+        otherTitles,
+        thumbnailUrl: item._thumbnail_url,
+        manifestUrl: getManifestUrlFromDoi(item._doi),
+        names: getValuesByPattern(item, /^name-\d+:name_term\.value$/),
+        formats: getValuesByPattern(item, /^form-\d+:form_term\.value$/),
+        languages: getValuesByPattern(item, /^language-\d+:language_term\.value$/),
+        yearStart: parseYear(item["date_issued-1:date_issued_start_value"], "start"),
+        yearEnd: parseYear(item["date_issued-1:date_issued_end_value"], "end"),
+      };
+    });
 
 export const getHanNomManifestEntries = (): HanNomManifestEntry[] =>
   HAN_NOM_MANIFEST_ENTRIES;

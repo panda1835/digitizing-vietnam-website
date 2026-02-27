@@ -40,6 +40,19 @@ const normalizeSearchText = (value: string) =>
     .toLowerCase()
     .trim();
 
+const matchesSearchQuery = (
+  item: HanNomManifestEntry,
+  normalizedQuery: string
+) => {
+  if (!normalizedQuery) return true;
+
+  if (normalizeSearchText(item.title).includes(normalizedQuery)) return true;
+
+  return item.otherTitles.some((otherTitle) =>
+    normalizeSearchText(otherTitle).includes(normalizedQuery)
+  );
+};
+
 const HanNomCollectionItemView = ({
   items,
   pageSize = PAGE_SIZE_DEFAULT,
@@ -116,10 +129,7 @@ const HanNomCollectionItemView = ({
   const filteredItems = useMemo(
     () =>
       items.filter((item) => {
-        const titleMatches = normalizedQuery
-          ? normalizeSearchText(item.title).includes(normalizedQuery)
-          : true;
-        if (!titleMatches) return false;
+        if (!matchesSearchQuery(item, normalizedQuery)) return false;
 
         if (!matchesDateRange(item)) return false;
         return matchesFacetFilters(item);
@@ -133,10 +143,7 @@ const HanNomCollectionItemView = ({
         const counts = new Map<string, number>();
 
         items.forEach((item) => {
-          const titleMatches = normalizedQuery
-            ? normalizeSearchText(item.title).includes(normalizedQuery)
-            : true;
-          if (!titleMatches) return;
+          if (!matchesSearchQuery(item, normalizedQuery)) return;
           if (!matchesDateRange(item)) return;
           if (!matchesFacetFilters(item, filter.key)) return;
 
@@ -367,6 +374,11 @@ const HanNomCollectionItemView = ({
                       {item.title}
                     </div>
                   </Link>
+                  {item.otherTitles[0] && (
+                    <div className="text-sm text-[#777777] mt-2">
+                      {item.otherTitles[0]}
+                    </div>
+                  )}
                   <div className="mt-3">
                     <LearnMoreButton
                       url={`/our-collections/han-nom-collection/${item.itemId}`}
