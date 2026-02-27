@@ -63,6 +63,15 @@ const OurCollections = ({ collections, locale }) => {
     }
   );
 
+  // Sort items within each category by display_order
+  sortedCategories.forEach(([, categoryGroup]) => {
+    const { collections } = categoryGroup as {
+      category: any;
+      collections: any[];
+    };
+    collections.sort((a, b) => a.display_order - b.display_order);
+  });
+
   const handleFilterChange = (selectedFilters: Record<string, string[]>) => {
     const filtered = collections.filter((item) => {
       return Object.entries(selectedFilters).every(

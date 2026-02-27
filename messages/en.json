@@ -74,19 +74,35 @@
   "CollectionMetadata": {
     "title": "Title",
     "authors": "Authors",
+    "other-titles": "Other Titles",
     "resource-types": "Resource Types",
     "languages": "Languages",
     "subjects": "Subjects",
     "format": "Formats",
+    "genre": "Genre",
+    "date": "Date",
+    "physical-description": "Physical Description",
+    "publication-information": "Publication Information",
+    "origin-information": "Origin Information",
     "place-of-publication": "Place of Publication",
     "date-created": "Date Created",
     "publisher": "Publisher",
     "edition": "Edition",
     "identifier": "Identifier",
+    "catalog-record": "Catalog Record",
+    "location": "Location",
     "url": "URL",
     "note": "Note",
+    "note-language": "Note (Language)",
+    "note-original-location": "Note (Original location)",
+    "note-statement-of-responsibility": "Note (Statement of responsibility)",
     "access-condition": "Access Condition",
     "related-works": "Related Works"
+  },
+  "HanNomCollection": {
+    "collection-title": "Hán-Nôm Collection",
+    "item-not-found": "Item not found.",
+    "untitled": "Untitled"
   },
 
   "Outreach": {
@@ -300,7 +316,15 @@
   "Filter": {
     "result": "results",
     "apply-filters": "Apply Filters",
+    "refine-your-search": "Refine Your Search",
+    "search-title-placeholder": "Search title...",
+    "search-title-label": "Search by title",
+    "year-range": "Year Range",
+    "year-placeholder": "YYYY",
+    "clear-filters": "Clear filters",
+    "no-items-match": "No items match your current filters.",
     "category": {
+      "names": "Name",
       "part_of": "Part of",
       "collections": "Collections",
       "authors": "Authors",

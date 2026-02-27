@@ -74,19 +74,35 @@
   "CollectionMetadata": {
     "title": "Tiêu đề",
     "authors": "Tác giả",
+    "other-titles": "Nhan đề khác",
     "resource-types": "Loại tài nguyên",
     "languages": "Ngôn ngữ",
     "subjects": "Chủ đề",
     "format": "Định dạng",
+    "genre": "Thể loại",
+    "date": "Niên đại",
+    "physical-description": "Mô tả vật lý",
+    "publication-information": "Thông tin xuất bản",
+    "origin-information": "Thông tin xuất xứ",
     "place-of-publication": "Nơi xuất bản",
     "date-created": "Ngày tạo",
     "publisher": "Nhà xuất bản",
     "edition": "Phiên bản",
     "identifier": "Mã định danh",
+    "catalog-record": "Biểu ghi thư mục",
+    "location": "Nơi lưu trữ",
     "url": "Liên kết",
     "note": "Ghi chú",
+    "note-language": "Ghi chú (Ngôn ngữ)",
+    "note-original-location": "Ghi chú (Nơi lưu trữ gốc)",
+    "note-statement-of-responsibility": "Ghi chú (Trách nhiệm biên soạn)",
     "access-condition": "Điều kiện truy cập",
     "related-works": "Tác phẩm liên quan"
+  },
+  "HanNomCollection": {
+    "collection-title": "Bộ sưu tập Hán-Nôm",
+    "item-not-found": "Không tìm thấy tài liệu.",
+    "untitled": "Không có tiêu đề"
   },
 
   "Outreach": {
@@ -301,7 +317,15 @@
   "Filter": {
     "result": "kết quả",
     "apply-filters": "Áp dụng bộ lọc",
+    "refine-your-search": "Tìm kiếm",
+    "search-title-placeholder": "Tìm theo tiêu đề...",
+    "search-title-label": "Tìm theo tiêu đề",
+    "year-range": "Khoảng năm",
+    "year-placeholder": "YYYY",
+    "clear-filters": "Xóa bộ lọc",
+    "no-items-match": "Không có kết quả phù hợp với bộ lọc hiện tại.",
     "category": {
+      "names": "Tên",
       "part_of": "Thuộc về",
       "collections": "Bộ sưu tập",
       "authors": "Tác giả",

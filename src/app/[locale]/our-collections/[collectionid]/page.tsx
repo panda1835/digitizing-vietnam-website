@@ -4,10 +4,11 @@ import qs from "qs";
 import { fetcher } from "@/lib/api";
 
 import { Separator } from "@/components/ui/separator";
-// import HanNomCollectionItemView from "./HanNomCollectionItemView";
+import HanNomCollectionItemView from "./HanNomCollectionItemView";
 import CollectionItemView from "./CollectionItemView";
 import FeatureArticle from "./FeatureArticle";
 import { PageHeader } from "@/components/common/PageHeader";
+import { getHanNomManifestEntries } from "@/lib/han-nom-collection";
 
 import { Metadata } from "next";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
@@ -89,14 +90,18 @@ export async function generateStaticParams() {
 
 const OurCollections = async ({
   params,
+  searchParams,
 }: {
   params: { locale: string; collectionid: string };
+  searchParams?: { page?: string };
 }) => {
   const { locale, collectionid } = params;
   // Enable static rendering for this page
   setRequestLocale(locale);
 
   const collectionId = collectionid;
+  const requestedPage = Number.parseInt(searchParams?.page || "1", 10);
+  const safeRequestedPage = Number.isNaN(requestedPage) ? 1 : requestedPage;
 
   const t = await getTranslations();
 
@@ -149,6 +154,8 @@ const OurCollections = async ({
     console.error("Error fetching collection:", error);
   }
 
+  const hanNomManifestEntries = getHanNomManifestEntries();
+
   return (
     <div className="flex flex-col w-full items-center">
       <PageHeader
@@ -163,14 +170,19 @@ const OurCollections = async ({
         ]}
         locale={locale}
       />
-      {/* {collectionId != "han-nom-collection" ? ( */}
-      <CollectionItemView
-        collectionItems={collectionItems}
-        collectionMetadata={collectionMetadata}
-      />
-      {/* ) : (
-        <HanNomCollectionItemView />
-      )} */}
+      {collectionId != "han-nom-collection" ? (
+        <CollectionItemView
+          collectionItems={collectionItems}
+          collectionMetadata={collectionMetadata}
+        />
+      ) : (
+        <HanNomCollectionItemView
+          items={hanNomManifestEntries}
+          initialPage={safeRequestedPage}
+          pageSize={20}
+          learnMoreLabel={t("Button.learn-more")}
+        />
+      )}
       <Separator className="mt-10 w-full" />
       <FeatureArticle highlights={featuredBlogs} locale={locale} />
     </div>
