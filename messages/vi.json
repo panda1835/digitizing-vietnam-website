@@ -180,10 +180,16 @@
         "tooltip": "Vẽ kí tự Hán Nôm",
         "title": "Vẽ kí tự Hán Nôm",
         "description": "Dùng tay hoặc chuột để vẽ một chữ Hán Nôm vào ô bên dưới. Khi vẽ xong, nhấn Nhận dạng để xem các kết quả gợi ý. Chọn đúng chữ để nhập vào ô tìm kiếm. Nhấn Xoá để làm mới bảng vẽ.",
-        "note": "Hiện nay chức năng này chỉ hỗ trợ viết chữ Hán và chữ Nôm giả tá.",
+        "notenote": "Lưu ý:",
+        "note": "Dùng tay hoặc chuột để vẽ một chữ Hán Nôm vào ô bên dưới. Khi vẽ xong, nhấn Nhận dạng để xem các kết quả gợi ý. Chọn đúng chữ để nhập vào ô tìm kiếm. Nhấn Xoá để làm mới bảng vẽ. Hiện nay chức năng này chỉ hỗ trợ viết chữ Hán và chữ Nôm giả tá.",
         "clear": "Xoá",
         "recognize": "Nhận diện",
         "recognizing": "Đang nhận diện..."
+      },
+      "alternative-input-methods": {
+        "tooltip": "Phương thức nhập khác",
+        "title": "Phương thức nhập khác",
+        "description": "Chọn phương thức để nhập ký tự Hán-Nôm từ chữ Quốc ngữ, chữ viết tay hoặc bộ thủ."
       },
       "no-result": "Không tìm thấy kết quả nào.",
       "dictionaries": {

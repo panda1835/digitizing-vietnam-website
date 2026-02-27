@@ -179,10 +179,16 @@
         "tooltip": "Draw a Han Nom character",
         "title": "Draw a Han Nom character",
         "description": "Use your finger or mouse to draw a Han Nom character in the box below. When you're done, click Recognize to see matching results. Select the correct character to input it into the search box. Click Clear to erase the writing canvas.",
-        "note": "Currently, this feature only supports writing Han characters and phonetic-loan Nôm characters.",
+        "notenote": "Note:",
+        "note": "Use your finger or mouse to draw a Han Nom character in the box below. When you're done, click Recognize to see matching results. Select the correct character to input it into the search box. Click Clear to erase the writing canvas. Currently, this feature only supports writing Han characters and phonetic-loan Nôm characters.",
         "clear": "Clear",
         "recognize": "Recognize",
         "recognizing": "Recognizing..."
+      },
+      "alternative-input-methods": {
+        "tooltip": "Other input methods",
+        "title": "Other input methods",
+        "description": "Select an input method to add Hán-Nôm characters from Quốc Ngữ, handwriting, or radicals."
       },
       "no-result": "No results found.",
       "dictionaries": {

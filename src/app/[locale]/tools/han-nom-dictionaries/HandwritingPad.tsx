@@ -12,9 +12,10 @@ const NomNaTong = localFont({
 
 type Props = {
   onSelect: (char: string) => void;
+  showNote?: boolean;
 };
 
-export default function HandwritingPad({ onSelect }: Props) {
+export default function HandwritingPad({ onSelect, showNote = true }: Props) {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
   const [ink, setInk] = useState<number[][][]>([]);
   const [candidates, setCandidates] = useState<string[]>([]);
@@ -81,10 +82,14 @@ export default function HandwritingPad({ onSelect }: Props) {
 
   return (
     <div className="flex items-center flex-col gap-4">
-      <div className="text-sm text-muted-foreground mb-2">
-        <span className="font-semibold text-gray-600">Lưu ý: </span>
-        <span>{t("Tools.han-nom-dictionaries.writing-pad.note")}</span>
-      </div>
+      {showNote && (
+        <div className="text-sm text-muted-foreground mb-2">
+          <span className="font-semibold text-gray-600">
+            {t("Tools.han-nom-dictionaries.writing-pad.notenote")}{" "}
+          </span>
+          <span>{t("Tools.han-nom-dictionaries.writing-pad.note")}</span>
+        </div>
+      )}
       <ReactSketchCanvas
         ref={canvasRef}
         width="280px"

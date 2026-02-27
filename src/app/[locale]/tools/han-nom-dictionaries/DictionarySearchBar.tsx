@@ -10,10 +10,17 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { PencilIcon } from "lucide-react";
+import { Keyboard } from "lucide-react";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import HandwritingPad from "./HandwritingPad";
 import { useTranslations } from "next-intl";
+import InputMethodSelector from "@/app/[locale]/tools/han-nom-tools/han-nom-input-method-editor/InputMethodSelector";
+import CompactRadicals from "@/app/[locale]/tools/han-nom-tools/han-nom-input-method-editor/CompactRadicals";
+import QuocNguSingleChar from "@/app/[locale]/tools/han-nom-tools/han-nom-input-method-editor/QuocNguSingleChar";
+import {
+  getRadicals,
+  type Radical,
+} from "@/app/[locale]/tools/han-nom-tools/han-nom-input-method-editor/actions";
 import {
   Tooltip,
   TooltipContent,
@@ -25,6 +32,8 @@ import localFont from "next/font/local";
 const NomNaTong = localFont({
   src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
+
+type InputMethod = "quoc-ngu" | "handwriting" | "radical";
 export default function DictionarySearchBar({
   placeholder,
   searchWord,
@@ -187,6 +196,12 @@ export default function DictionarySearchBar({
   };
 
   const [open, setOpen] = useState(false);
+  const [inputMethod, setInputMethod] = useState<InputMethod>("handwriting");
+  const [radicals, setRadicals] = useState<Radical[]>([]);
+
+  useEffect(() => {
+    getRadicals().then(setRadicals);
+  }, []);
 
   const handleCandidateSelected = (char: string) => {
     const newKeyword = searchKeyword + char;
@@ -250,27 +265,62 @@ export default function DictionarySearchBar({
                     width={20}
                     height={20}
                   /> */}
-                  <PencilIcon className="w-4 h-4" />
+                  <Keyboard className="w-4 h-4" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{t("Tools.han-nom-dictionaries.writing-pad.tooltip")}</p>
+                  <p>
+                    {t(
+                      "Tools.han-nom-dictionaries.alternative-input-methods.tooltip"
+                    )}
+                  </p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           </div>
         </DialogTrigger>
 
-        <DialogContent className="max-w-md">
+        <DialogContent className="w-[95vw] max-w-2xl h-[85vh] max-h-[85vh] flex flex-col">
           <DialogHeader>
             <DialogTitle>
-              {t("Tools.han-nom-dictionaries.writing-pad.title")}
+              {t("Tools.han-nom-dictionaries.alternative-input-methods.title")}
             </DialogTitle>
             <DialogDescription>
-              {t("Tools.han-nom-dictionaries.writing-pad.description")}
+              {t(
+                "Tools.han-nom-dictionaries.alternative-input-methods.description"
+              )}
             </DialogDescription>
           </DialogHeader>
-
-          <HandwritingPad onSelect={handleCandidateSelected} />
+          <div className="flex-1 min-h-0 flex flex-col gap-3">
+            <InputMethodSelector
+              value={inputMethod}
+              onChange={setInputMethod}
+            />
+            <div
+              className={`border rounded-lg bg-gray-50 flex-1 min-h-0 p-3 ${
+                inputMethod === "radical"
+                  ? "overflow-hidden"
+                  : "overflow-y-auto"
+              }`}
+            >
+              {inputMethod === "quoc-ngu" && (
+                <QuocNguSingleChar
+                  onCharacterSelect={handleCandidateSelected}
+                />
+              )}
+              {inputMethod === "handwriting" && (
+                <HandwritingPad onSelect={handleCandidateSelected} />
+              )}
+              {inputMethod === "radical" && (
+                <div className="h-full overflow-y-auto">
+                  <CompactRadicals
+                    radicals={radicals}
+                    onCharacterSelect={handleCandidateSelected}
+                    autoScrollToStroke
+                  />
+                </div>
+              )}
+            </div>
+          </div>
         </DialogContent>
       </Dialog>
 
