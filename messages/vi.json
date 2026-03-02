@@ -343,5 +343,19 @@
       "access_condition": "Điều kiện truy cập",
       "online_resource_types": "Loại tài nguyên trực tuyến"
     }
+  },
+  "Chatbot": {
+    "launcher-tooltip": "Hỏi tôi bất kỳ điều gì về tài liệu này!",
+    "title": "Hỏi Lê Quý Đôn AI",
+    "assistant-alt": "Ảnh đại diện trợ lý",
+    "settings-title": "Chế độ trả lời",
+    "mode-specific": "Theo tài liệu",
+    "mode-general": "Kiến thức tổng quát",
+    "empty-specific": "Hãy hỏi về tài liệu này, tôi sẽ trả lời dựa trên nội dung của tài liệu.",
+    "empty-general": "Hãy hỏi câu hỏi tổng quát về Digitizing Vietnam và nội dung của dự án.",
+    "sources": "Nguồn",
+    "input-placeholder": "Hỏi về tài liệu này...",
+    "error-generic": "Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại.",
+    "error-fallback-answer": "Xin lỗi, tôi chưa thể hoàn thành câu trả lời này. Vui lòng thử lại."
   }
 }

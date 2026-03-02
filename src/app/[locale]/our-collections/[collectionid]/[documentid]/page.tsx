@@ -2,8 +2,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import qs from "qs";
 
 import MiradorViewer from "@/components/mirador/MiradorViewer";
+import { MiradorProvider } from "@/components/mirador/MiradorContext";
 import CollectionPermalink from "@/components/CollectionPermalink";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
+import Chatbot from "@/components/chatbot/Chatbot";
 import DocumentMetadata from "./Metadata";
 import { Separator } from "@/components/ui/separator";
 
@@ -138,6 +140,55 @@ const CollectionItemViewer = async ({
   if (!collectionItemData) {
     return <NotFound />;
   }
+
+  const toStringList = (value: any): string[] => {
+    if (!Array.isArray(value)) {
+      return [];
+    }
+
+    return value
+      .map((item) => {
+        if (typeof item === "string") {
+          return item;
+        }
+
+        return (
+          item?.title ||
+          item?.name ||
+          item?.label ||
+          item?.slug ||
+          item?.author?.name ||
+          item?.author?.title ||
+          ""
+        );
+      })
+      .filter(Boolean);
+  };
+
+  const extractPublicationYears = (value: any): string[] => {
+    const raw = toStringList(value);
+    return raw
+      .map((item) => {
+        const yearMatch = item.match(/\b(1[0-9]{3}|20[0-9]{2})\b/);
+        return yearMatch ? yearMatch[1] : item;
+      })
+      .filter(Boolean);
+  };
+
+  const documentMetadataForChatbot = {
+    title: collectionItemData?.title || "",
+    author: toStringList(collectionItemData?.contributor),
+    abstract:
+      typeof collectionItemData?.abstract === "string"
+        ? collectionItemData.abstract
+        : "",
+    resourceType: toStringList(collectionItemData?.resource_types),
+    publicationLocation: toStringList(collectionItemData?.place_of_publication),
+    publicationYear: extractPublicationYears(collectionItemData?.date_created),
+    format: toStringList(collectionItemData?.format),
+    topic: toStringList(collectionItemData?.subjects),
+    language: toStringList(collectionItemData?.languages),
+  };
 
   let documentType = "document";
   if (collectionItemData.item_url[0]) {
@@ -326,13 +377,19 @@ const CollectionItemViewer = async ({
                 </div>
               )}
 
-              {/* Automatic IIIF Manifest */}
-              {documentType === "document" && (
-                <MiradorViewer
-                  manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
-                  canvasId={originalCanvasId}
+              <MiradorProvider>
+                {/* Automatic IIIF Manifest */}
+                {documentType === "document" && (
+                  <MiradorViewer
+                    manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
+                    canvasId={originalCanvasId}
+                  />
+                )}
+                <Chatbot
+                  documentId={documentId}
+                  documentMetadata={documentMetadataForChatbot}
                 />
-              )}
+              </MiradorProvider>
             </div>
           </div>
         )}

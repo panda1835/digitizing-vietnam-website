@@ -343,4 +343,19 @@
       "online_resource_types": "Online resource types"
     }
   }
+  ,
+  "Chatbot": {
+    "launcher-tooltip": "Ask me anything about this document!",
+    "title": "Ask Lê Quý Đôn AI",
+    "assistant-alt": "Assistant avatar",
+    "settings-title": "Answer Mode",
+    "mode-specific": "Document specific",
+    "mode-general": "Broad knowledge",
+    "empty-specific": "Ask about this document and I will ground answers in its content.",
+    "empty-general": "Ask any general question about Digitizing Vietnam and its content.",
+    "sources": "Sources",
+    "input-placeholder": "Ask about this document...",
+    "error-generic": "Sorry, something went wrong. Please try again.",
+    "error-fallback-answer": "Sorry, I could not complete that answer. Please try again."
+  }
 }
