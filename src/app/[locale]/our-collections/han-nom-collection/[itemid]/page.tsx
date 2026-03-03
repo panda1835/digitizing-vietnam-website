@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 
 import MiradorViewer from "@/components/mirador/MiradorViewer";
+import { MiradorProvider } from "@/components/mirador/MiradorContext";
 import CollectionPermalink from "@/components/CollectionPermalink";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Separator } from "@/components/ui/separator";
@@ -141,10 +142,12 @@ const HanNomItemViewer = async ({
         {/* Mirador Viewer */}
         <div className="flex flex-row mt-10">
           <div className="w-full relative">
-            <MiradorViewer
-              manifestUrl={manifestUrl}
-              canvasId={originalCanvasId}
-            />
+            <MiradorProvider>
+              <MiradorViewer
+                manifestUrl={manifestUrl}
+                canvasId={originalCanvasId}
+              />
+            </MiradorProvider>
           </div>
         </div>
 
