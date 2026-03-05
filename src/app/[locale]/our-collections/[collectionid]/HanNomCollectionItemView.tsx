@@ -369,7 +369,7 @@ const HanNomCollectionItemView = ({
                     href={`/our-collections/han-nom-collection/${item.itemId}`}
                   >
                     <div
-                      className={`${merriweather.className} text-branding-black text-xl mt-6 hover:text-branding-brown hover:underline`}
+                      className={`font-['Helvetica Neue'] font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
                     >
                       {item.title}
                     </div>
@@ -379,13 +379,13 @@ const HanNomCollectionItemView = ({
                       {item.otherTitles[0]}
                     </div>
                   )}
-                  <div className="mt-3">
+                  {/* <div className="mt-3">
                     <LearnMoreButton
                       url={`/our-collections/han-nom-collection/${item.itemId}`}
                       text={learnMoreLabel}
                       newTab={false}
                     />
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>

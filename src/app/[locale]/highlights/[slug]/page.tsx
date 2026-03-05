@@ -155,21 +155,23 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
             { label: post.title },
           ]}
         />
-        <p className={`${merriweather.className} text-branding-black text-4xl`}>
+        <p
+          className={`${merriweather.className} text-branding-black text-[32px]`}
+        >
           {post.title}
         </p>
-        <div className="h-[26px] flex-col justify-start items-start gap-5 inline-flex mt-8 mb-16">
+        <div className=" flex-col justify-start items-start gap-5 inline-flex mt-3 mb-5">
           <div className="self-stretch">
             {post.author && (
               <span>
-                <span className="text-branding-brown text-lg font-normal font-['Helvetica Neue'] leading-relaxed">
+                <span className="text-branding-brown text-[16px] font-normal font-['Helvetica Neue'] leading-relaxed">
                   {post.author}
                 </span>{" "}
                 ·{" "}
               </span>
             )}
 
-            <span className="text-branding-black text-lg font-light font-['Helvetica Neue'] leading-relaxed">
+            <span className="text-branding-black text-[16px] font-light font-['Helvetica Neue'] leading-relaxed">
               {formatDate(post.date, locale)}
             </span>
           </div>
@@ -185,7 +187,7 @@ const BlogArticle = async ({ params: { slug, locale } }) => {
         />
         <div
           dangerouslySetInnerHTML={renderHtml(post.content)}
-          className="mt-10 text-branding-black text-lg font-light font-['Helvetica Neue'] leading-[30px]"
+          className="mt-6 text-branding-black text-[16px] font-light font-['Helvetica Neue'] leading-[30px]"
         />
         <div className="flex justify-end mt-12">
           <SocialMediaSharing title={post.title} />

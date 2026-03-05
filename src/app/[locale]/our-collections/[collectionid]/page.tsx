@@ -120,6 +120,7 @@ const OurCollections = async ({
       "filters[slug][$eq]": collectionId,
       populate: [
         "featured_blogs.thumbnail",
+        "featured_blogs.blog_authors",
 
         "collection_items.thumbnail",
         "collection_items.date_created",
@@ -183,7 +184,7 @@ const OurCollections = async ({
           learnMoreLabel={t("Button.learn-more")}
         />
       )}
-      <Separator className="mt-10 w-full" />
+      <Separator className=" w-full" />
       <FeatureArticle highlights={featuredBlogs} locale={locale} />
     </div>
   );

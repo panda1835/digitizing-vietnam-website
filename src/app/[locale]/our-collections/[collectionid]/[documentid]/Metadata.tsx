@@ -56,7 +56,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">
         {/* Title */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.title")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -65,7 +65,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         </div>
         {/* Authors */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.authors")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -88,7 +88,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         </div>
         {/* Resource Types */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.resource-types")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -99,7 +99,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         </div>
         {/* Place of Publication */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.place-of-publication")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -108,7 +108,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         </div>
         {/* Date Created */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.date-created")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -117,7 +117,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         </div>
         {/* Format */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.format")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -126,7 +126,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         </div>
         {/* Languages */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.languages")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -137,7 +137,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         </div>
         {/* Subjects */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.subjects")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -149,7 +149,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         {/* Publisher */}
         {collectionItemData.publisher && (
           <div className="items-center gap-3 mt-4">
-            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+            <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
               {t("CollectionMetadata.publisher")}:
             </div>
             <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -161,7 +161,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         {/* Edition */}
         {collectionItemData.edition && (
           <div className="items-center gap-3 mt-4">
-            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+            <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
               {t("CollectionMetadata.edition")}:
             </div>
             <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -173,7 +173,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         {/* Identifier */}
         {collectionItemData.identifier && (
           <div className="items-center gap-3 mt-4">
-            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+            <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
               {t("CollectionMetadata.identifier")}:
             </div>
             <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -185,7 +185,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         {/* URL */}
         {collectionItemData.url && (
           <div className="items-center gap-3 mt-4">
-            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+            <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
               {t("CollectionMetadata.url")}:
             </div>
             <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -197,7 +197,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
         {/* Related Works */}
         {collectionItemData.related_works && (
           <div className="items-center gap-3 mt-4">
-            <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+            <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
               {t("CollectionMetadata.related-works")}:
             </div>
             <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -208,7 +208,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
 
         {/* Access Condition */}
         <div className="items-center gap-3 mt-4">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.access-condition")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
@@ -219,7 +219,7 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
       {/* Note */}
       {collectionItemData.note && (
         <div className="items-center gap-3 mt-4 max-w-7xl">
-          <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+          <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
             {t("CollectionMetadata.note")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">

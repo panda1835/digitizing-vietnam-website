@@ -5,7 +5,7 @@ import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
 
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/ArticleCardShort";
 import { PageHeader } from "@/components/common/PageHeader";
 
 import { Metadata } from "next";

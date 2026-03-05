@@ -20,9 +20,7 @@ export default function LearnMoreButton({
             className,
           ].join(" ")}
         >
-          <div className=" font-['Helvetica Neue'] font-light text-lg">
-            {text}
-          </div>
+          <div className=" font-['Helvetica Neue'] font-light">{text}</div>
           <MoveRight
             size={16}
             className="group-hover:translate-x-[+4px] transition-transform"

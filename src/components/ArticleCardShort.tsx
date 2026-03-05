@@ -20,13 +20,10 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
       />
 
       <div className="">
-        {/* Date */}
-        <div className="text-muted-foreground mt-6">{date}</div>
-
         {/* Title */}
         <Link href={link} className="">
           <div
-            className={`text-branding-black text-xl font-normal ${merriweather.className} mt-2 line-clamp-2 hover:text-branding-brown hover:underline`}
+            className={`t-['Helvetica Neue'] line-clamp-2 font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
             title={title}
           >
             {title}
@@ -50,11 +47,16 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
           </div>
         </div> */}
 
-        {/* Abstract */}
-        <div
-          className="text-branding-black text-base font-light font-['Helvetica Neue']  mt-4 line-clamp-4"
-          dangerouslySetInnerHTML={renderHtml(description)}
-        ></div>
+        {/* Author */}
+        <div className="flex flex-col lg:flex-row mt-[4px] gap-1">
+          <div
+            className="line-clamp-3  font-light font-['Helvetica Neue'] "
+            dangerouslySetInnerHTML={renderHtml(description)}
+          ></div>
+          <div className="hidden lg:block">·</div>
+          {/* Date */}
+          <div className="text-muted-foreground">{date}</div>
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import LearnMoreButton from "@/components/LearnMoreButton";
 import ImageSlideshow from "@/components/ImageSlideshow";
 
 import { fetcher } from "@/lib/api";
-import { routing } from "@/i18n/routing";
+import { Link, routing } from "@/i18n/routing";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -117,35 +117,35 @@ const Home = async ({ params: { locale } }) => {
           <div className="lg:col-span-2 max-w-2xl">
             <div>
               <span
-                className={`text-branding-black text-[48px] font-light ${merriweather.className}`}
+                className={`text-branding-black text-[36px] font-light ${merriweather.className}`}
               >
                 {locale === "en"
                   ? "A Digital Hub to Study"
                   : "Không gian số hỗ trợ nghiên cứu Việt Nam"}{" "}
               </span>
               <span
-                className={`text-branding-brown text-[48px] font-light ${merriweather.className}`}
+                className={`text-branding-brown text-[36px] font-light ${merriweather.className}`}
               >
                 {locale === "en" ? "Pre-modern and Modern" : ""}
               </span>
               <span
-                className={`text-branding-brown text-[48px] font-light lg:hidden ${merriweather.className}`}
+                className={`text-branding-brown text-[36px] font-light lg:hidden ${merriweather.className}`}
               >
                 {locale === "vi" ? "cận đại và hiện đại." : ""}
               </span>
               <span
-                className={`text-branding-black text-[48px] font-light ${merriweather.className}`}
+                className={`text-branding-black text-[36px] font-light ${merriweather.className}`}
               >
                 {" "}
                 {locale === "en" ? "Vietnam" : ""}
               </span>
               <div
-                className={`text-branding-brown text-[48px] font-light lg:block hidden ${merriweather.className}`}
+                className={`text-branding-brown text-[36px] font-light lg:block hidden ${merriweather.className}`}
               >
                 {locale === "vi" ? "cận đại và hiện đại." : ""}
               </div>
             </div>
-            <p className="mt-6 font-['Helvetica Neue'] font-light text-lg text-branding-black">
+            <p className="mt-6 font-['Helvetica Neue'] font-light text-[16px] text-branding-black">
               {locale === "en"
                 ? "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration. The joint venture started with the memorandum of understanding between two universities in 2022."
                 : "Số hóa Việt Nam đánh dấu bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác Columbia - Fulbright. Sáng kiến chung bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022."}
@@ -158,29 +158,16 @@ const Home = async ({ params: { locale } }) => {
 
         {/* Study Vietnam Section */}
         <section className="mb-24 mt-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
-            <div className="lg:col-span-6 flex items-start gap-6">
+          <div className=" gap-8 lg:gap-6 items-start">
+            <div className=" flex items-start gap-6">
               <div
                 className={`text-3xl font-medium text-branding-black ${merriweather.className}`}
               >
-                {locale === "en" ? (
-                  <>
-                    <div className="whitespace-nowrap">
-                      Study Vietnam Through
-                    </div>
-                    <div className="whitespace-nowrap">
-                      the{" "}
-                      <span className="text-branding-brown">Digital Lens</span>
-                    </div>
-                  </>
-                ) : (
-                  t("Home.studying-vietnam")
-                )}
+                {t("Home.studying-vietnam")}
               </div>
-              <div className="h-px w-full bg-[#cfcfcf] mt-3" />
             </div>
 
-            <div className="lg:col-span-6 font-['Helvetica Neue'] font-light text-lg">
+            <div className="mt-2 font-['Helvetica Neue'] font-light">
               <p>
                 {locale === "en"
                   ? "Delve into Vietnam's history, culture, and society through cutting-edge tools and curated resources tailored for scholars, students, and educators."
@@ -188,34 +175,39 @@ const Home = async ({ params: { locale } }) => {
               </p>
             </div>
           </div>
-          <div className="mt-8 space-y-8">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-6">
             {studyRows.map((item) => (
               <div
                 key={item.key}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start"
+                className="font-['Helvetica Neue'] text-branding-black"
               >
-                <div className="lg:col-span-6">
+                <div className="mb-4">
                   <Image
                     unoptimized
                     src={item.image}
                     alt={item.title}
-                    width={760}
-                    height={420}
+                    width={480}
+                    height={320}
                     className="w-full h-auto object-cover"
                   />
                 </div>
-                <div className="lg:col-span-6 font-['Helvetica Neue'] text-branding-black">
-                  <h3 className="text-[30px] leading-tight font-bold mb-3">
+                <Link
+                  href={item.url}
+                  className={`text-lg font-medium text-branding-black hover:text-branding-brown hover:underline ${merriweather.className}`}
+                >
+                  <h3
+                    className={`${merriweather.className} text-[20px] leading-tight font-medium mb-3`}
+                  >
                     {item.title}
                   </h3>
-                  <p className="text-base font-light">{item.description}</p>
-                  <div className="mt-4">
-                    <LearnMoreButton
-                      text={t("Button.learn-more")}
-                      url={item.url}
-                    />
-                  </div>
-                </div>
+                </Link>
+                <p className="text-[14px] font-light">{item.description}</p>
+                {/* <div className="mt-4">
+                  <LearnMoreButton
+                    text={t("Button.learn-more")}
+                    url={item.url}
+                  />
+                </div> */}
               </div>
             ))}
           </div>
@@ -233,7 +225,7 @@ const Home = async ({ params: { locale } }) => {
               </div>
               <div className="h-px w-full bg-[#cfcfcf]" />
             </div>
-            <div className="lg:col-span-6 font-['Helvetica Neue'] font-light text-lg">
+            <div className="lg:col-span-6 font-['Helvetica Neue'] font-light">
               <p>
                 {locale === "en"
                   ? "Digitizing Việt Nam marks a digital leap forward in Vietnam Studies through a Columbia - Fulbright collaboration, formalized through that began with a 2022 memorandum of understanding between the Weatherhead East Asian Institute and the Vietnam Studies Center. The Digitizing Việt Nam platform began with the generous donation of the complete archive by the Vietnamese Nôm Preservation Foundation to Columbia University in 2018."

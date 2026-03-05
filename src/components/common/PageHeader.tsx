@@ -28,19 +28,19 @@ export function PageHeader({
 
       {/* Headline */}
       <div
-        className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
+        className={`${merriweather.className} text-branding-black text-[32px]`}
       >
         {title}
       </div>
 
       {/* Subheadline */}
       <div
-        className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+        className={`text-base text-[#191919] font-light font-['Helvetica Neue'] mt-[12px]`}
       >
         {subtitle}
       </div>
 
-      <div className="mt-12">
+      <div className="mt-[32px]">
         <Separator />
       </div>
     </div>

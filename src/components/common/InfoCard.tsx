@@ -20,7 +20,7 @@ export async function InfoCard({ name, description, url, newTab = false }) {
       <Card className="bg-branding-gray flex flex-col h-full">
         <CardHeader>
           <CardTitle
-            className={`text-4xl font-light h-12 ${merriweather.className} text-branding-brown hover:underline`}
+            className={`text-[32px] font-light h-12 ${merriweather.className} text-branding-brown hover:underline`}
           >
             <Link
               href={url}
@@ -32,7 +32,7 @@ export async function InfoCard({ name, description, url, newTab = false }) {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-end mt-5">
-          <p className="font-['Helvetica Neue'] font-light text-muted-foreground text-lg">
+          <p className="font-['Helvetica Neue'] font-light text-muted-foreground text-[16px]">
             {description}
           </p>
         </CardContent>

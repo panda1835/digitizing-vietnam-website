@@ -72,24 +72,24 @@ const AboutUs = async ({ params: { locale } }) => {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
-          <div className={`${merriweather.className}  text-4xl`}>
+          <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en" ? "Our Mission" : "Sứ mệnh"}
           </div>
           <div
-            className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg text-branding-black"
+            className="md:col-span-2 font-['Helvetica Neue'] font-light text-[16px] text-branding-black"
             dangerouslySetInnerHTML={renderHtml(aboutUsData["mission"])}
           />
         </div>
 
-        <div className="mt-20">
+        <div className="mt-10">
           <Separator />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
-          <div className={`${merriweather.className}  text-4xl`}>
+          <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en" ? "Our Collections" : "Bộ sưu tập"}
           </div>
-          <div className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg">
+          <div className="md:col-span-2 font-['Helvetica Neue'] font-light text-[16px]">
             <div
               className="  text-branding-black"
               dangerouslySetInnerHTML={renderHtml(
@@ -104,44 +104,44 @@ const AboutUs = async ({ params: { locale } }) => {
           </div>
         </div>
 
-        <div className="mt-20">
+        <div className="mt-10">
           <Separator />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
-          <div className={`${merriweather.className}  text-4xl`}>
+          <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en"
               ? "Principle Investigators and Program Directors"
               : "Trưởng dự án"}{" "}
           </div>
           <Avatars teamMember={aboutUsData["manager"]} />
         </div>
-        <div className="mt-20">
+        <div className="mt-10">
           <Separator />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
-          <div className={`${merriweather.className}  text-4xl`}>
+          <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en" ? "Core Team" : "Nhóm vận hành chính"}{" "}
           </div>
           <Avatars teamMember={aboutUsData["core_team"]} />
         </div>
-        <div className="mt-20">
+        <div className="mt-10">
           <Separator />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-          <div className={`${merriweather.className}  text-4xl`}>
+          <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en" ? "Advisors" : "Cố vấn"}
           </div>
           <Avatars teamMember={aboutUsData["advisor"]} />
         </div>
-        <div className="mt-20">
+        <div className="mt-10">
           <Separator />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-          <div className={`${merriweather.className}  text-4xl`}>
+          <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en" ? "Institutional Support" : "Đơn vị hỗ trợ"}
           </div>
           <div className="md:col-span-2">
@@ -149,7 +149,7 @@ const AboutUs = async ({ params: { locale } }) => {
               {locale === "en" ? " Predecessor" : "Đơn vị tiền nhiệm"}
             </div>
             <div
-              className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"
+              className="font-['Helvetica Neue'] font-light text-[16px] text-branding-black mt-2"
               dangerouslySetInnerHTML={renderHtml(
                 aboutUsData["institutional_support_predecessor"]
               )}
@@ -176,7 +176,7 @@ const AboutUs = async ({ params: { locale } }) => {
               {locale === "en" ? "Core Institutions" : "Các đơn vị chính"}
             </div>
             <div
-              className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"
+              className="font-['Helvetica Neue'] font-light text-[16px] text-branding-black mt-2"
               dangerouslySetInnerHTML={renderHtml(
                 aboutUsData["institutional_support_core_institutions"]
               )}
@@ -211,7 +211,7 @@ const AboutUs = async ({ params: { locale } }) => {
               {locale === "en" ? "Partners" : "Đối tác"}
             </div>
             <div
-              className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"
+              className="font-['Helvetica Neue'] font-light text-[16px] text-branding-black mt-2"
               dangerouslySetInnerHTML={renderHtml(
                 aboutUsData["institutional_support_partners"]
               )}
@@ -235,10 +235,10 @@ const AboutUs = async ({ params: { locale } }) => {
         <Separator />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-          <div className={`${merriweather.className}  text-4xl`}>
+          <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en" ? "Special Acknowledgement" : "Cảm ơn đặc biệt"}
           </div>
-          <div className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg text-branding-black">
+          <div className="md:col-span-2 font-['Helvetica Neue'] font-light text-[16px] text-branding-black">
             {/* {aboutUsData["special_acknowledgement"]
               ?.split("\n")
               .map((line, index) => (
@@ -248,7 +248,7 @@ const AboutUs = async ({ params: { locale } }) => {
                 </p>
               ))} */}
             <div
-              className="font-['Helvetica Neue'] font-light text-lg text-branding-black mt-2"
+              className="font-['Helvetica Neue'] font-light text-[16px] text-branding-black mt-2"
               dangerouslySetInnerHTML={renderHtml(
                 aboutUsData["special_acknowledgement"]
               )}
@@ -256,14 +256,14 @@ const AboutUs = async ({ params: { locale } }) => {
           </div>
         </div>
 
-        <Separator className="mt-20" />
+        <Separator className="mt-10" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-          <div className={`${merriweather.className}  text-4xl`}>
+          <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en" ? "Funding" : "Nguồn tài trợ"}
           </div>
           <div
-            className="md:col-span-2 font-['Helvetica Neue'] font-light text-lg text-branding-black"
+            className="md:col-span-2 font-['Helvetica Neue'] font-light text-[16px] text-branding-black"
             dangerouslySetInnerHTML={renderHtml(aboutUsData["funding"])}
           />
         </div>
