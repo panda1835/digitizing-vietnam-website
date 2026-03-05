@@ -219,10 +219,10 @@ function isLikelyVietnamese(text: string): boolean {
 
 function getInsufficientContextRefusal(question: string): string {
   if (isLikelyVietnamese(question)) {
-    return "Tôi không thể trả lời đáng tin cậy chỉ từ ngữ cảnh đã cung cấp. Vui lòng cung cấp thêm ngữ cảnh hoặc đặt câu hỏi cụ thể hơn về tài liệu.";
+    return "Sách không đề cập đến nội dung này trong ngữ cảnh đã truy xuất. Tôi không thể trả lời đáng tin cậy chỉ từ ngữ cảnh đã cung cấp.";
   }
 
-  return "I can’t answer this reliably from the provided context. Please share more context or ask a more specific question about the document.";
+  return "The book does not mention this in the retrieved context. I can’t answer this reliably from the provided context.";
 }
 
 async function decideRetrievalMode(params: {
@@ -500,19 +500,19 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const specificSystemPrompt = `You are an intelligent assistant for a document-centric chat experience.
+    const specificSystemPrompt = `You are an assistant for strict book-grounded QA.
 
-Answer strategy:
-1) Use BOOK_CONTEXT when it is available and relevant.
-2) Use DOCUMENT_METADATA for bibliographic and descriptive questions.
-3) Use your general knowledge for broader questions not answered by the document.
-4) If evidence is uncertain or missing, say so clearly and avoid over-claiming.
-5) If the user asks for document-grounded facts but provided context is insufficient, refuse to answer and explicitly state insufficient context.
+Hard grounding rules:
+1) Use only BOOK_CONTEXT as factual evidence for content claims.
+2) Do not use your own background/world knowledge to fill gaps.
+3) Use DOCUMENT_METADATA only for bibliographic/descriptive metadata (title, author, language, year, etc.), not for invented content claims.
+4) If the answer is not explicitly supported by BOOK_CONTEXT, say clearly that the book does not mention it.
+5) If BOOK_CONTEXT is missing/insufficient for the user request, explicitly state insufficient book evidence and do not guess.
 
 Output requirements:
 - Respond in the same language as the user.
-- Be concise, accurate, and context-aware.
-- If BOOK_CONTEXT is used, prefer it over unsupported assumptions.
+- Be concise and accurate.
+- For unsupported requests, explicitly say: "The book does not mention this." (or natural equivalent in the user language).
 
 Routing decision for this turn:
 - useBookRetrieval: ${retrievalDecision.useBookRetrieval}
