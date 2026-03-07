@@ -38,10 +38,12 @@ export default function DictionarySearchBar({
   placeholder,
   searchWord,
   hdwd_list = [], // default empty array
+  searchPath = "",
 }: {
   placeholder: string;
   searchWord: string | undefined;
   hdwd_list?: string[];
+  searchPath?: string;
 }) {
   const t = useTranslations();
 
@@ -139,7 +141,8 @@ export default function DictionarySearchBar({
     const searchTerm = term || searchKeyword;
     if (searchTerm.trim()) {
       setUserIsTyping(false); // Reset typing state before navigation
-      window.location.href = `?q=${encodeURIComponent(searchTerm)}`;
+      const query = `?q=${encodeURIComponent(searchTerm)}`;
+      window.location.href = searchPath ? `${searchPath}${query}` : query;
     }
   };
 

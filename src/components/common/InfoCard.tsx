@@ -13,7 +13,14 @@ import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
-export async function InfoCard({ name, description, url, newTab = false }) {
+export async function InfoCard({
+  name,
+  description,
+  url,
+  newTab = false,
+  ctaText,
+  ctaIsLink = true,
+}) {
   const t = await getTranslations();
   return (
     <div className="h-full">
@@ -38,11 +45,19 @@ export async function InfoCard({ name, description, url, newTab = false }) {
         </CardContent>
         <CardFooter>
           <div>
-            <LearnMoreButton
-              url={url}
-              newTab={newTab}
-              text={t("Button.learn-more")}
-            />
+            {ctaIsLink ? (
+              <LearnMoreButton
+                url={url}
+                newTab={newTab}
+                text={ctaText ?? t("Button.learn-more")}
+              />
+            ) : (
+              <div className="h-[22px] inline-flex items-center text-branding-brown text-base font-normal">
+                <div className="font-['Helvetica Neue'] font-light">
+                  {ctaText ?? t("Button.learn-more")}
+                </div>
+              </div>
+            )}
           </div>
         </CardFooter>
       </Card>

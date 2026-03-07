@@ -85,7 +85,7 @@ const Home = async ({ params: { locale } }) => {
           ? "Engage creatively with Vietnam Studies — Use Digitizing Vietnam's specialized tools to approach the field with fresh perspectives and critical insight."
           : "Tiếp cận lĩnh vực Nghiên cứu Việt Nam với các công cụ chuyên biệt của Digitizing Việt Nam.",
       image: "/images/image-row-research.png",
-      url: "/tools",
+      url: "/research",
     },
     {
       key: "pedagogy",

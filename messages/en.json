@@ -311,6 +311,149 @@
     }
   },
 
+  "ResearchHub": {
+    "title": "Research",
+    "subtitle": "",
+    "hubs-title": "Research Hubs",
+    "hubs": {
+      "han-nom": {
+        "title": "Hán-Nôm Studies",
+        "description": "Research on Sino-Vietnamese scripts, texts, and cultural heritage."
+      },
+      "vietnam-war": {
+        "title": "Vietnam War Studies",
+        "description": "Archival materials and digital resources on the Second Indochina War."
+      },
+      "linguistics": {
+        "title": "Linguistics",
+        "description": "Computational linguistics, phonology, and language preservation tools."
+      }
+    },
+    "tools-section": {
+      "title": "Digital Tools",
+      "description": "Explore our collection of digital tools designed for Vietnamese studies."
+    },
+    "HanNomHub": {
+      "hero": {
+        "title": "Hán-Nôm Research Hub",
+        "subtitle": ""
+      },
+      "intro": {
+        "title": "The Digital Gateway to Hán-Nôm Studies",
+        "description": "The Hán-Nôm Research Hub is DVN's flagship research initiative, bridging classical scholarship with modern digital humanities.",
+        "goal": "Our Mission",
+        "features": {
+          "archives": "Digital Archives & Manuscript Catalogs",
+          "ocr": "State-of-the-art OCR for Hán-Nôm Texts",
+          "lookup": "Unified Multi-Dictionary Lookup",
+          "resources": "Scholarly Periodicals & Books"
+        }
+      },
+      "sidebar": {
+        "digital-archives": "Digital Archives",
+        "resources": "Resources"
+      },
+      "digital-archives": {
+        "title": "DVN Premodern Archives",
+        "external-archives": {
+          "title": "External Collections"
+        }
+      },
+      "unified-lookup": {
+        "vietnamese-title": "Other Dictionaries"
+      },
+      "resources": {
+        "periodicals": "Periodicals",
+        "fonts": "Nôm Fonts"
+      }
+    }
+  },
+
+  "ExternalArchives": {
+    "title": "External Collections",
+    "online-archives": {
+      "title": "Online Collections",
+      "description": ""
+    },
+    "physical-archives": {
+      "title": "Physical Collections",
+      "description": ""
+    }
+  },
+
+  "Periodicals": {
+    "title": "Periodicals",
+    "description": "A curated collection of academic journals and magazines essential for Hán-Nôm and pre-modern Vietnamese studies.",
+    "list": {
+      "tap-chi-han-nom": {
+        "name": "Tạp chí Hán Nôm",
+        "description": "The primary scholarly journal of the Institute of Hán-Nôm Studies in Hanoi, featuring research on manuscripts, linguistics, and historical texts.",
+        "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
+      },
+      "befeo": {
+        "name": "BEFEO",
+        "description": "Bulletin de l'École française d'Extrême-Orient, a world-renowned journal for the study of Asian civilizations, with extensive archives on Vietnamese history.",
+        "url": "https://www.persee.fr/collection/befeo"
+      },
+      "jvs": {
+        "name": "Journal of Vietnamese Studies",
+        "description": "A peer-reviewed academic journal published by the University of California Press, covering all aspects of Vietnamese history, culture, and society.",
+        "url": "https://online.ucpress.edu/jvs"
+      }
+    }
+  },
+
+  "NomFonts": {
+    "title": "Nôm Fonts",
+    "description": "",
+    "fonts": {
+      "title": "Recommended Fonts",
+      "nom-na-tong": {
+        "name": "Nôm Na Tống",
+        "description": "The standard font from the Nôm Preservation Foundation, designed for readability and accuracy in historical texts.",
+        "url": "https://github.com/nomfoundation/font/releases/tag/v5.16"
+      }
+    },
+    "instructions": {
+      "title": "How to Download & Install",
+      "windows": "1. Download: On the GitHub page, find the 'Assets' section and click on the .ttf file. 2. Install: Right-click the downloaded file and select 'Install'.",
+      "mac": "1. Download: On the GitHub page, find the 'Assets' section and click the .ttf file. 2. Install: Double-click the downloaded file and click 'Install Font' in Font Book.",
+      "linux": "1. Download: Click the .ttf file under 'Assets' on the GitHub page. 2. Install: Copy files to ~/.local/share/fonts and run 'fc-cache -f'."
+    }
+  },
+
+  "OtherDictionaries": {
+    "title": "Other Dictionaries",
+    "description": "A collection of useful online dictionaries and tools for Hán-Nôm research.",
+    "list": {
+      "zi-tools": {
+        "name": "Zi.tools",
+        "description": "A comprehensive tool for analyzing Chinese character components, etymology, and phonology.",
+        "url": "https://zi.tools/"
+      },
+      "thivien": {
+        "name": "Hán Việt Từ Điển Trích Dẫn (Thi Viện)",
+        "description": "A popular online dictionary for Sino-Vietnamese characters, featuring detailed definitions and compound word lookups.",
+        "url": "https://hvdic.thivien.net/"
+      },
+      "zdic": {
+        "name": "Zdic (Handian)",
+        "description": "A comprehensive online Chinese character dictionary featuring detailed explanations, etymology, calligraphy, and phonology.",
+        "url": "https://www.zdic.net/"
+      },
+      "pleco": {
+        "name": "Pleco",
+        "description": "A widely used Chinese dictionary app with handwriting recognition, OCR, and flashcards.",
+        "url": "https://www.pleco.com/"
+      },
+      "de-rhodes": {
+        "name": "De Rhodes Dictionary (OCR)",
+        "description": "OCR version of the Dictionarium Annamiticum Lusitanum et Latinum on Wikisource.",
+        "url": "https://vi.wikisource.org/wiki/T%E1%BB%AB_%C4%91i%E1%BB%83n_Vi%E1%BB%87t%E2%80%93B%E1%BB%93%E2%80%93La"
+      }
+    }
+  },
+
   "SearchResult": {
     "title": "Search Results",
     "showing": "Showing",

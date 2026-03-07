@@ -312,6 +312,149 @@
     }
   },
 
+  "ResearchHub": {
+    "title": "Nghiên cứu",
+    "subtitle": "",
+    "hubs-title": "Các Trung tâm Nghiên cứu",
+    "hubs": {
+      "han-nom": {
+        "title": "Nghiên cứu Hán-Nôm",
+        "description": "Nghiên cứu về văn tự, văn bản và di sản văn hóa Hán-Nôm."
+      },
+      "vietnam-war": {
+        "title": "Nghiên cứu Chiến tranh Việt Nam",
+        "description": "Tài liệu lưu trữ và nguồn kỹ thuật số về cuộc Chiến tranh Đông Dương lần thứ hai."
+      },
+      "linguistics": {
+        "title": "Ngôn ngữ học",
+        "description": "Ngôn ngữ học máy tính, âm vị học và các công cụ bảo tồn ngôn ngữ."
+      }
+    },
+    "tools-section": {
+      "title": "Công cụ Số",
+      "description": "Khám phá bộ sưu tập các công cụ kỹ thuật số được thiết kế cho nghiên cứu Việt Nam."
+    },
+    "HanNomHub": {
+      "hero": {
+        "title": "Hán-Nôm Hub",
+        "subtitle": ""
+      },
+      "intro": {
+        "title": "Cổng thông tin số cho Nghiên cứu Hán-Nôm",
+        "description": "Hán-Nôm Hub là sáng kiến nghiên cứu hàng đầu của DVN, kết nối học thuật cổ điển với nhân văn số hiện đại.",
+        "goal": "Sứ mệnh của chúng tôi",
+        "features": {
+          "archives": "Kho Lưu trữ Số & Danh mục Bản thảo",
+          "ocr": "Công nghệ OCR cho văn bản Hán-Nôm",
+          "lookup": "Tra cứu Hợp nhất Đa Từ điển",
+          "resources": "Tạp chí Chuyên ngành & Sách Tham khảo"
+        }
+      },
+      "sidebar": {
+        "digital-archives": "Kho lưu trữ số",
+        "resources": "Tài nguyên"
+      },
+      "digital-archives": {
+        "title": "Kho lưu trữ Tiền hiện đại DVN",
+        "external-archives": {
+          "title": "Bộ sưu tập ngoài"
+        }
+      },
+      "unified-lookup": {
+        "vietnamese-title": "Các Từ điển Khác"
+      },
+      "resources": {
+        "periodicals": "Tạp chí chuyên ngành",
+        "fonts": "Phông chữ Nôm"
+      }
+    }
+  },
+
+  "ExternalArchives": {
+    "title": "Bộ sưu tập ngoài",
+    "online-archives": {
+      "title": "Bộ sưu tập trực tuyến",
+      "description": ""
+    },
+    "physical-archives": {
+      "title": "Bộ sưu tập vật lý",
+      "description": ""
+    }
+  },
+
+  "Periodicals": {
+    "title": "Tạp chí",
+    "description": "Danh mục các tạp chí học thuật và ấn phẩm quan trọng phục vụ nghiên cứu Hán Nôm và Việt Nam học tiền hiện đại.",
+    "list": {
+      "tap-chi-han-nom": {
+        "name": "Tạp chí Hán Nôm",
+        "description": "Tạp chí học thuật chính của Viện Nghiên cứu Hán Nôm, đăng tải các nghiên cứu về văn bản, ngôn ngữ và lịch sử.",
+        "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
+      },
+      "befeo": {
+        "name": "BEFEO",
+        "description": "Tập san của Trường Viễn Đông Bác cổ Pháp, một tạp chí nổi tiếng thế giới về nghiên cứu các nền văn minh châu Á, với kho lưu trữ phong phú về lịch sử Việt Nam.",
+        "url": "https://www.persee.fr/collection/befeo"
+      },
+      "jvs": {
+        "name": "Journal of Vietnamese Studies",
+        "description": "Tạp chí học thuật được bình duyệt bởi Đại học California, bao gồm tất cả các khía cạnh của lịch sử, văn hóa và xã hội Việt Nam.",
+        "url": "https://online.ucpress.edu/jvs"
+      }
+    }
+  },
+
+  "NomFonts": {
+    "title": "Phông chữ Nôm",
+    "description": "",
+    "fonts": {
+      "title": "Phông chữ Đề xuất",
+      "nom-na-tong": {
+        "name": "Nôm Na Tống",
+        "description": "Phông chữ tiêu chuẩn từ Hội Bảo tồn Di sản chữ Nôm, được thiết kế để dễ đọc và chính xác cho các văn bản lịch sử.",
+        "url": "https://github.com/nomfoundation/font/releases/tag/v5.16"
+      }
+    },
+    "instructions": {
+      "title": "Cách Tải về & Cài đặt",
+      "windows": "1. Tải về: Trên trang GitHub, tìm phần 'Assets' và nhấp vào tệp .ttf. 2. Cài đặt: Nhấp chuột phải vào tệp đã tải và chọn 'Install'.",
+      "mac": "1. Tải về: Trên trang GitHub, tìm phần 'Assets' và nhấp vào tệp .ttf. 2. Cài đặt: Nhấp đúp vào tệp đã tải và nhấn 'Install Font' trong Font Book.",
+      "linux": "1. Tải về: Lấy tệp .ttf từ phần 'Assets' trên GitHub. 2. Cài đặt: Sao chép tệp vào thư mục ~/.local/share/fonts và chạy lệnh 'fc-cache -f'."
+    }
+  },
+
+  "OtherDictionaries": {
+    "title": "Các Từ điển Khác",
+    "description": "Tuyển tập các từ điển và công cụ trực tuyến hữu ích khác cho nghiên cứu Hán-Nôm.",
+    "list": {
+      "zi-tools": {
+        "name": "Zi.tools",
+        "description": "Công cụ toàn diện để phân tích cấu trúc, từ nguyên và âm vận của chữ Hán.",
+        "url": "https://zi.tools/"
+      },
+      "thivien": {
+        "name": "Hán Việt Từ Điển Trích Dẫn (Thi Viện)",
+        "description": "Từ điển trực tuyến phổ biến cho chữ Hán-Nôm, cung cấp định nghĩa chi tiết và tra cứu từ ghép.",
+        "url": "https://hvdic.thivien.net/"
+      },
+      "zdic": {
+        "name": "Zdic (Handian)",
+        "description": "Từ điển chữ Hán trực tuyến toàn diện với giải thích chi tiết, từ nguyên, thư pháp và âm vận.",
+        "url": "https://www.zdic.net/"
+      },
+      "pleco": {
+        "name": "Pleco",
+        "description": "Ứng dụng từ điển tiếng Trung phổ biến, hỗ trợ nhận dạng chữ viết tay, OCR và thẻ ghi nhớ.",
+        "url": "https://www.pleco.com/"
+      },
+      "de-rhodes": {
+        "name": "Từ điển De Rhodes (OCR)",
+        "description": "Bản OCR của từ điển Việt–Bồ–La trên Wikisource.",
+        "url": "https://vi.wikisource.org/wiki/T%E1%BB%AB_%C4%91i%E1%BB%83n_Vi%E1%BB%87t%E2%80%93B%E1%BB%93%E2%80%93La"
+      }
+    }
+  },
+
   "SearchResult": {
     "title": "Kết quả tìm kiếm",
     "showing": "Hiển thị",
