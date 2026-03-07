@@ -13,6 +13,15 @@ import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
+interface InfoCardProps {
+  name: string;
+  description: string;
+  url: string;
+  newTab?: boolean;
+  ctaText?: string;
+  ctaIsLink?: boolean;
+}
+
 export async function InfoCard({
   name,
   description,
@@ -20,7 +29,7 @@ export async function InfoCard({
   newTab = false,
   ctaText,
   ctaIsLink = true,
-}) {
+}: InfoCardProps) {
   const t = await getTranslations();
   return (
     <div className="h-full">

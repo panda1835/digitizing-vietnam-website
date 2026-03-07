@@ -4,6 +4,15 @@ import { parseStringPromise } from "xml2js";
 import pool from "@/lib/db";
 import { titles, flattenItems, titleToTopicId, topicIdToImage, isDvskttSlug, topicIdToTitle, topicIdToBookAndTopic, topicIdToSlug } from "./dvsktt-utils";
 
+type QueryRow = Record<string, any>;
+
+async function queryRows<T extends QueryRow = QueryRow>(query: string, params: any[] = []): Promise<T[]> {
+    const result: any = await (pool as any).query(query, params);
+    if (Array.isArray(result)) return (result[0] || []) as T[];
+    if (result?.rows && Array.isArray(result.rows)) return result.rows as T[];
+    return [];
+}
+
 export interface CorpusLine {
     n: string;
     text: string;
@@ -302,7 +311,7 @@ export async function getCorpusRegistry() {
 
     // 1. Fetch from v2 corpus_works
     try {
-        const { rows }: any = await pool.query(
+        const rows = await queryRows<any>(
             "SELECT slug, title, metadata FROM public.corpus_works ORDER BY title ASC"
         );
         rows.forEach((row: any) => {
@@ -322,7 +331,7 @@ export async function getCorpusRegistry() {
 
     // 2. Fetch from research_texts
     try {
-        const { rows }: any = await pool.query(
+        const rows = await queryRows<any>(
             "SELECT id, title, slug, page_count, created_at FROM research_texts WHERE is_public = TRUE ORDER BY updated_at DESC"
         );
         rows.forEach((row: any) => {
@@ -373,7 +382,7 @@ export async function getWorkBySlug(slug: string) {
     if (slug.startsWith("text-")) {
         const id = slug.replace("text-", "");
         try {
-            const { rows }: any = await pool.query(
+            const rows = await queryRows<any>(
                 "SELECT id, title, slug, page_count, created_at FROM research_texts WHERE id = $1",
                 [id]
             );
@@ -406,7 +415,7 @@ export async function parseCorpusPage(slug: string, pageNumber: number, options?
     if (work.type === "research" && slug.startsWith("text-")) {
         const id = slug.replace("text-", "");
         try {
-            const { rows }: any = await pool.query(
+            const rows = await queryRows<any>(
                 "SELECT transcription, metadata FROM research_texts WHERE id = $1",
                 [id]
             );
@@ -504,8 +513,8 @@ async function parseDvskttPage(pageNumber: number, options?: any): Promise<Corpu
 
             if (book === "0") {
                 // Try to find by topicId (Quyen column)
-                const checkRes = await pool.query(`SELECT count(*) FROM tbl_quyenthu WHERE "Quyen" = $1`, [topicId]);
-                if (parseInt(checkRes.rows[0].count) > 0) {
+                const checkRows = await queryRows<any>(`SELECT count(*) as count FROM tbl_quyenthu WHERE "Quyen" = $1`, [topicId]);
+                if (parseInt(checkRows?.[0]?.count || "0", 10) > 0) {
                     query = `SELECT * FROM tbl_quyenthu WHERE "Quyen" = $1 ORDER BY "id"`;
                     params = [topicId];
                 } else {
@@ -520,8 +529,7 @@ async function parseDvskttPage(pageNumber: number, options?: any): Promise<Corpu
                 params = [topicId];
             }
 
-            const res = await pool.query(query, params);
-            data = res.rows;
+            data = await queryRows<any>(query, params);
         } catch (dbError) {
             console.warn("Database query failed, falling back to local Wikisource data", dbError);
         }
@@ -683,9 +691,9 @@ export async function searchCorpus(query: string) {
             LIMIT 1000
         `;
 
-        const dbRes = await pool.query(queryStr, [`%${query}%`]);
+        const dbRows = await queryRows<any>(queryStr, [`%${query}%`]);
 
-        dbRes.rows.forEach(row => {
+        dbRows.forEach(row => {
             const workSlug = row.source_work;
             const work = workMap.get(workSlug);
             // Determine clean work title

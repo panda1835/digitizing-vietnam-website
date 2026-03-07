@@ -23,7 +23,7 @@ const NavigationBar = ({ locale }: { locale: string }) => {
   const navItems = [
     { key: "about-us", href: "/about-us" },
     { key: "our-collections", href: "/our-collections" },
-    { key: "tools", href: "/tools" },
+    { key: "tools", href: "/research" },
     { key: "outreach", href: "/pedagogy", hasDropdown: true },
     { key: "highlights", href: "/highlights" },
     { key: "online-resources", href: "/online-resources" },
@@ -53,7 +53,9 @@ const NavigationBar = ({ locale }: { locale: string }) => {
                     key={item.key}
                     className={item.hasDropdown ? "relative group" : undefined}
                     onMouseEnter={
-                      item.hasDropdown ? () => setIsLibraryOpen(true) : undefined
+                      item.hasDropdown
+                        ? () => setIsLibraryOpen(true)
+                        : undefined
                     }
                     onMouseLeave={
                       item.hasDropdown
@@ -94,7 +96,7 @@ const NavigationBar = ({ locale }: { locale: string }) => {
                     )}
                   </NavigationMenuItem>
                 ))}
-              {/* <NavigationMenuItem>
+                {/* <NavigationMenuItem>
               <NavigationMenuTrigger className="bg-transparent text-base font-['Helvetica Neue'] font-light">
                 {t("outreach")}
               </NavigationMenuTrigger>
@@ -171,7 +173,7 @@ const NavigationBar = ({ locale }: { locale: string }) => {
                     )}
                   </div>
                 ))}
-              {/* <div className="py-2">
+                {/* <div className="py-2">
                 <div className="text-lg font-['Helvetica Neue'] font-light">
                   {t("outreach")}
                 </div>
