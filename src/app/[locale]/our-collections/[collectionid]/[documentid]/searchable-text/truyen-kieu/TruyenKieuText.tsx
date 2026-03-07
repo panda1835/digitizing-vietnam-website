@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { TruyenKieuRaw, TruyenKieuText } from "./types";
 import localFont from "next/font/local";
@@ -18,6 +17,12 @@ export default async function TruyenKieu({
   documentid,
   page,
   version,
+}: {
+  title: string;
+  locale: string;
+  documentid: string;
+  page: string;
+  version: string;
 }) {
   const t = await getTranslations();
   const currentPage = Number(page) || 1;
@@ -104,7 +109,7 @@ export default async function TruyenKieu({
                         );
                         highlightedLine = highlightedLine.replace(
                           new RegExp(
-                            `(?<!<div[^>]*?>[^<]*)\\b${s._}\\b(?![^<]*?</div>)`,
+                            `(?<!<div[^>]*?>[^<]*)\\b${s._}\\b(?![^<]*?<\\/div>)`,
                             "g"
                           ),
                           `<span class="text-branding-brown relative group"="${
@@ -145,7 +150,7 @@ export default async function TruyenKieu({
                 </tr>
               </thead>
               <tbody>
-                {rawData.noteg[0].note.map((note, index) => (
+                {rawData.noteg[0].note.map((note) => (
                   <tr key={`note-${note.$.id}`}>
                     <td className="border border-gray-300 px-4 py-2 text-branding-brown w-32">
                       {
