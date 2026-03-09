@@ -513,6 +513,10 @@ function getSmartSnippet(
   if (!text) return "";
 
   const queryLower = query.toLowerCase();
+  const isQn = type === "qn";
+  const hasHanChars = (s: string): boolean => /[\p{Script=Han}]/u.test(s);
+  const isMatch = (s: string): boolean =>
+    isQn ? containsWholeWord(s, query) : s.toLowerCase().includes(queryLower);
 
   const highlight = (s: string): string => {
     const escaped = s.replace(/[&<>"']/g, (m) => {
@@ -525,8 +529,17 @@ function getSmartSnippet(
       };
       return map[m];
     });
-    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const escapedQuery = escapeRegExp(query);
     try {
+      if (isQn) {
+        return escaped.replace(
+          new RegExp(
+            `(^|[^\\p{L}\\p{N}_])(${escapedQuery})(?=$|[^\\p{L}\\p{N}_])`,
+            "giu"
+          ),
+          "$1<mark class='bg-yellow-200 dark:bg-yellow-800/50 text-branding-black dark:text-zinc-100 rounded px-0.5'>$2</mark>"
+        );
+      }
       return escaped.replace(
         new RegExp(`(${escapedQuery})`, "gi"),
         "<mark class='bg-yellow-200 dark:bg-yellow-800/50 text-branding-black dark:text-zinc-100 rounded px-0.5'>$1</mark>"
@@ -548,8 +561,9 @@ function getSmartSnippet(
           .trim()
       )
       .filter(Boolean);
-    const match = segments.find((s) => s.toLowerCase().includes(queryLower));
-    return highlight(match || segments[0] || "");
+    const match = segments.find(isMatch);
+    const fallback = isQn ? segments.find((s) => !hasHanChars(s)) : undefined;
+    return highlight(match || fallback || segments[0] || "");
   }
 
   // 2. XML <l> line elements (Truyen Kieu XML, Chinh Phu Ngam, Luc Van Tien, Quoc Am Thi Tap)
@@ -565,8 +579,9 @@ function getSmartSnippet(
     if (inner) lLines.push(inner);
   }
   if (lLines.length > 0) {
-    const matchLine = lLines.find((l) => l.toLowerCase().includes(queryLower));
-    return highlight(matchLine || lLines[0]);
+    const matchLine = lLines.find(isMatch);
+    const fallback = isQn ? lLines.find((l) => !hasHanChars(l)) : undefined;
+    return highlight(matchLine || fallback || lLines[0]);
   }
 
   // 3. Clean text — if already short, return as-is (single-line data like HXH, Kieu rows)
@@ -584,22 +599,37 @@ function getSmartSnippet(
     .map((l) => l.replace(/\s+/g, " ").trim())
     .filter(Boolean);
   if (newlineLines.length > 1) {
-    const matchLine = newlineLines.find((l) =>
-      l.toLowerCase().includes(queryLower)
-    );
+    const matchLine = newlineLines.find(isMatch);
     if (matchLine)
       return highlight(
         matchLine.length > 200 ? matchLine.substring(0, 200) + "…" : matchLine
       );
+    if (isQn) {
+      const fallback = newlineLines.find((l) => !hasHanChars(l));
+      if (fallback)
+        return highlight(
+          fallback.length > 200 ? fallback.substring(0, 200) + "…" : fallback
+        );
+    }
   }
 
   // 5. Character-window fallback
-  const textLower = cleanText.toLowerCase();
-  const idx = textLower.indexOf(queryLower);
-  if (idx === -1)
+  let idx = -1;
+  if (isQn) {
+    const exactWord = new RegExp(
+      `(^|[^\\p{L}\\p{N}_])(${escapeRegExp(query)})(?=$|[^\\p{L}\\p{N}_])`,
+      "iu"
+    ).exec(cleanText);
+    if (exactWord) idx = (exactWord.index || 0) + (exactWord[1]?.length || 0);
+  } else {
+    idx = cleanText.toLowerCase().indexOf(queryLower);
+  }
+  if (idx === -1) {
+    if (isQn && hasHanChars(cleanText)) return "";
     return highlight(
       cleanText.substring(0, 100) + (cleanText.length > 100 ? "…" : "")
     );
+  }
   const radius = 60;
   const start = Math.max(0, idx - radius);
   const end = Math.min(cleanText.length, idx + query.length + radius);
@@ -680,17 +710,18 @@ export async function searchCorpus(query: string) {
       try {
         // Increased limit for Kiều editions
         const kieuRows = await queryRows<any>(
-          `SELECT id, qn, unicode, special, text1, page FROM ${ed.table} WHERE LOWER(qn) LIKE ? OR LOWER(unicode) LIKE ? OR LOWER(special) LIKE ? OR LOWER(text1) LIKE ? LIMIT 200`,
-          [wildcard, wildcard, wildcard, wildcard]
+          `SELECT id, qn, unicode, special, page FROM ${ed.table}
+           WHERE CONVERT(qn USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+              OR CONVERT(unicode USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+              OR CONVERT(special USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+           LIMIT 200`,
+          [wildcard, wildcard, wildcard]
         );
         kieuRows.forEach((row) => {
           const isNomMatch =
             (row.unicode || "").toLowerCase().includes(normalizedQuery) ||
             (row.special || "").toLowerCase().includes(normalizedQuery);
-          const isQnMatch = containsWholeWord(
-            `${row.qn || ""} ${row.text1 || ""}`,
-            query
-          );
+          const isQnMatch = containsWholeWord(row.qn || "", query);
           if (!isNomMatch && !isQnMatch) return;
           results.push({
             work: ed.title,
@@ -698,7 +729,7 @@ export async function searchCorpus(query: string) {
             slug: ed.slug,
             type: isNomMatch ? "nom" : "qn",
             text: getSmartSnippet(
-              isNomMatch ? row.unicode || row.special : row.qn || row.text1,
+              isNomMatch ? row.unicode || row.special : row.qn,
               query,
               isNomMatch ? "nom" : "qn"
             ),
@@ -735,7 +766,8 @@ export async function searchCorpus(query: string) {
                          THEN (SELECT COUNT(*) FROM tbl_dvsk_data s WHERE s.MaTenHieu = t.MaTenHieu)
                          ELSE NULL END AS total_th
                  FROM tbl_dvsk_data t
-                 WHERE LOWER(t.nom) LIKE ? OR LOWER(COALESCE(t.phien_am, '')) LIKE ?
+                 WHERE CONVERT(t.nom USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+                    OR CONVERT(COALESCE(t.phien_am, '') USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
                  LIMIT 1000`,
         [wildcard, wildcard]
       );
@@ -789,7 +821,7 @@ export async function searchCorpus(query: string) {
         `SELECT qt.*,
                     (SELECT COUNT(*) FROM tbl_quyenthu s WHERE s.Quyen = qt.Quyen AND s.MaQN < qt.MaQN) + 1 AS local_page
                  FROM tbl_quyenthu qt
-                 WHERE LOWER(COALESCE(qt.phien_am, '')) LIKE ?
+                 WHERE CONVERT(COALESCE(qt.phien_am, '') USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
                  LIMIT 200`,
         [wildcard]
       );
@@ -834,17 +866,21 @@ export async function searchCorpus(query: string) {
     for (const w of otherWorks) {
       try {
         const rows = await queryRows<any>(
-          `SELECT * FROM ${w.table} WHERE LOWER(${w.col}) LIKE ? LIMIT 100`,
+          `SELECT * FROM ${w.table}
+           WHERE CONVERT(${w.col} USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+           LIMIT 100`,
           [wildcard]
         );
         rows.forEach((row) => {
           if (!containsWholeWord(row[w.col] || "", query)) return;
+          const snippet = getSmartSnippet(row[w.col], query, w.type);
+          if (!snippet) return;
           const pageNum = row.textNo || row.id || 1;
           results.push({
             work: w.title,
             location: `Page ${pageNum}`,
             type: w.type,
-            text: getSmartSnippet(row[w.col], query, w.type),
+            text: snippet,
             externalPath: `${w.path}?page=${pageNum}`,
           });
         });
@@ -856,7 +892,10 @@ export async function searchCorpus(query: string) {
     // 4. Search Hồ Xuân Hương (tho_hxh)
     try {
       const hxhRows = await queryRows<any>(
-        "SELECT * FROM tho_hxh WHERE LOWER(qn) LIKE ? OR LOWER(nom) LIKE ? LIMIT 100",
+        `SELECT * FROM tho_hxh
+         WHERE CONVERT(qn USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+            OR CONVERT(nom USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+         LIMIT 100`,
         [wildcard, wildcard]
       );
       hxhRows.forEach((row) => {
@@ -887,7 +926,10 @@ export async function searchCorpus(query: string) {
     // 5. Search Quốc âm Thi tập (qatt)
     try {
       const qattRows = await queryRows<any>(
-        "SELECT * FROM qatt WHERE LOWER(qn_body) LIKE ? OR LOWER(hn_body) LIKE ? LIMIT 100",
+        `SELECT * FROM qatt
+         WHERE CONVERT(qn_body USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+            OR CONVERT(hn_body USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+         LIMIT 100`,
         [wildcard, wildcard]
       );
       qattRows.forEach((row) => {
