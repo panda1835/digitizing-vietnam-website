@@ -514,7 +514,25 @@ function getSmartSnippet(
 
   const queryLower = query.toLowerCase();
   const isQn = type === "qn";
-  const hasHanChars = (s: string): boolean => /[\p{Script=Han}]/u.test(s);
+  const hasHanChars = (s: string): boolean => {
+    for (const ch of s) {
+      const cp = ch.codePointAt(0) || 0;
+      if (
+        (cp >= 0x3400 && cp <= 0x4dbf) || // CJK Ext A
+        (cp >= 0x4e00 && cp <= 0x9fff) || // CJK Unified
+        (cp >= 0xf900 && cp <= 0xfaff) || // CJK Compatibility Ideographs
+        (cp >= 0x20000 && cp <= 0x2a6df) || // CJK Ext B
+        (cp >= 0x2a700 && cp <= 0x2b73f) || // CJK Ext C
+        (cp >= 0x2b740 && cp <= 0x2b81f) || // CJK Ext D
+        (cp >= 0x2b820 && cp <= 0x2ceaf) || // CJK Ext E
+        (cp >= 0x2ceb0 && cp <= 0x2ebef) || // CJK Ext F
+        (cp >= 0x30000 && cp <= 0x3134f) // CJK Ext G
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
   const isMatch = (s: string): boolean =>
     isQn ? containsWholeWord(s, query) : s.toLowerCase().includes(queryLower);
 
