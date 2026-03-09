@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LocaleSwitcher from "@/components/layout/LocaleSwitcher";
@@ -18,20 +17,15 @@ import { Logo } from "@/components/layout/Logo";
 import SearchBar from "@/components/search/SearchBar";
 const NavigationBar = ({ locale }: { locale: string }) => {
   const t = useTranslations("NavigationBar");
-  const [isLibraryOpen, setIsLibraryOpen] = useState(false);
 
   const navItems = [
     { key: "about-us", href: "/about-us" },
     { key: "our-collections", href: "/our-collections" },
     { key: "tools", href: "/research" },
-    { key: "outreach", href: "/pedagogy", hasDropdown: true },
+    { key: "pedagogy-menu", href: "/pedagogy" },
+    { key: "outreach-menu", href: "/outreach" },
     { key: "highlights", href: "/highlights" },
     { key: "online-resources", href: "/online-resources" },
-  ];
-
-  const libraryItems = [
-    { key: "pedagogy-menu", href: "/pedagogy" },
-    { key: "outreach-menu", href: "/pedagogy" },
   ];
 
   return (
@@ -49,20 +43,7 @@ const NavigationBar = ({ locale }: { locale: string }) => {
             <NavigationMenu className="shrink-0">
               <NavigationMenuList>
                 {navItems.map((item) => (
-                  <NavigationMenuItem
-                    key={item.key}
-                    className={item.hasDropdown ? "relative group" : undefined}
-                    onMouseEnter={
-                      item.hasDropdown
-                        ? () => setIsLibraryOpen(true)
-                        : undefined
-                    }
-                    onMouseLeave={
-                      item.hasDropdown
-                        ? () => setIsLibraryOpen(false)
-                        : undefined
-                    }
-                  >
+                  <NavigationMenuItem key={item.key}>
                     <Link href={item.href} passHref>
                       <NavigationMenuLink
                         className={cn(
@@ -79,21 +60,6 @@ const NavigationBar = ({ locale }: { locale: string }) => {
                         {t(item.key)}
                       </NavigationMenuLink>
                     </Link>
-                    {item.hasDropdown && isLibraryOpen && (
-                      <div className="absolute left-0 top-full pt-2 z-50">
-                        <div className="min-w-[180px] bg-white rounded-md shadow-[0px_4px_55px_0px_rgba(0,0,0,0.10)] py-2">
-                          {libraryItems.map((subItem) => (
-                            <Link
-                              key={subItem.key}
-                              href={subItem.href}
-                              className="block px-4 py-2 text-sm font-['Helvetica Neue'] hover:text-branding-brown hover:underline"
-                            >
-                              {t(subItem.key)}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </NavigationMenuItem>
                 ))}
                 {/* <NavigationMenuItem>
@@ -151,27 +117,13 @@ const NavigationBar = ({ locale }: { locale: string }) => {
             <SheetContent side="right">
               <nav className="flex flex-col gap-4">
                 {navItems.map((item) => (
-                  <div key={item.key}>
-                    <Link
-                      href={item.href}
-                      className="block py-2 text-lg font-['Helvetica Neue'] font-light"
-                    >
-                      {t(item.key)}
-                    </Link>
-                    {item.hasDropdown && (
-                      <div className="pl-4 pb-2 flex flex-col gap-1">
-                        {libraryItems.map((subItem) => (
-                          <Link
-                            key={subItem.key}
-                            href={subItem.href}
-                            className="block py-1 text-base font-['Helvetica Neue'] font-light"
-                          >
-                            {t(subItem.key)}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    className="block py-2 text-lg font-['Helvetica Neue'] font-light"
+                  >
+                    {t(item.key)}
+                  </Link>
                 ))}
                 {/* <div className="py-2">
                 <div className="text-lg font-['Helvetica Neue'] font-light">

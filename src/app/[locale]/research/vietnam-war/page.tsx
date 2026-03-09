@@ -31,13 +31,14 @@ export default async function VietnamWarResearchPage({
           locale={locale}
         />
 
-        <div className="mt-10 rounded-lg border bg-branding-gray p-8">
-          <p className="font-['Helvetica Neue'] font-light text-base text-branding-black">
-            {locale === "vi" ? "Nội dung đang được cập nhật." : "Content is coming soon."}
+        <div className="mt-10">
+          <p className="font-['Helvetica Neue'] font-light text-base text-muted-foreground">
+            {locale === "vi"
+              ? "Nội dung đang được cập nhật."
+              : "Content is coming soon."}
           </p>
         </div>
       </div>
     </div>
   );
 }
-

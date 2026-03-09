@@ -69,43 +69,31 @@ const Home = async ({ params: { locale } }) => {
   const studyRows = [
     {
       key: "collections",
-      title: locale === "en" ? "Collections" : "Bộ sưu tập",
-      description:
-        locale === "en"
-          ? "Explore our digital archive dedicated to preserving and academically exploring Vietnam's historical, cultural & intellectual heritage."
-          : "Khám phá kho lưu trữ số - nơi dành riêng cho việc bảo tồn và nghiên cứu học thuật về di sản lịch sử, văn hóa & tư tưởng Việt Nam.",
-      image: "/images/image-row-collection.png",
+      title: t("NavigationBar.our-collections"),
+      description: t("Collection.subtitle"),
+      image: "/images/image-row-collection.JPG",
       url: "/our-collections",
     },
     {
       key: "research",
-      title: locale === "en" ? "Research" : "Nghiên cứu",
-      description:
-        locale === "en"
-          ? "Engage creatively with Vietnam Studies — Use Digitizing Vietnam's specialized tools to approach the field with fresh perspectives and critical insight."
-          : "Tiếp cận lĩnh vực Nghiên cứu Việt Nam với các công cụ chuyên biệt của Digitizing Việt Nam.",
-      image: "/images/image-row-research.png",
+      title: t("NavigationBar.tools"),
+      description: t("Tools.subtitle"),
+      image: "/images/image-row-research.JPG",
       url: "/research",
     },
     {
       key: "pedagogy",
-      title: locale === "en" ? "Pedagogy" : "Sư phạm",
-      description:
-        locale === "en"
-          ? "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences."
-          : "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả với tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện.",
-      image: "/images/image-row-pedagogy.png",
+      title: t("NavigationBar.pedagogy-menu"),
+      description: t("Outreach.subtitle"),
+      image: "/images/image-row-pedagogy.JPG",
       url: "/pedagogy",
     },
     {
       key: "outreach",
-      title: locale === "en" ? "Outreach" : "Phổ biến tri thức",
-      description:
-        locale === "en"
-          ? "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences."
-          : "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả với tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện.",
-      image: "/images/image-row-outreach.png",
-      url: "/pedagogy",
+      title: t("NavigationBar.outreach-menu"),
+      description: t("Outreach.subtitle"),
+      image: "/images/image-row-outreach.JPG",
+      url: "/outreach",
     },
   ];
 
@@ -188,7 +176,7 @@ const Home = async ({ params: { locale } }) => {
                     alt={item.title}
                     width={480}
                     height={320}
-                    className="w-full h-auto object-cover"
+                    className="w-full aspect-[3/2] object-cover rounded-md"
                   />
                 </div>
                 <Link

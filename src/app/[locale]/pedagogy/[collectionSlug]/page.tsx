@@ -51,7 +51,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
+    title: `${t("NavigationBar.pedagogy-menu")} | Digitizing Việt Nam`,
   };
 }
 
@@ -140,7 +140,7 @@ const PedagogyCollectionPage = async ({
           subtitle={collectionData.abstract}
           breadcrumbItems={[
             {
-              label: t("NavigationBar.outreach"),
+              label: t("NavigationBar.pedagogy-menu"),
               href: "pedagogy",
             },
             { label: collectionData.title },
