@@ -275,7 +275,7 @@ export default function CorpusBrowser() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Search Content */}
         <div className="bg-branding-gray/5 dark:bg-zinc-800/30 p-4 rounded-lg border border-branding-brown/10 dark:border-white/5">
-          <h2 className="text-xs uppercase font-semibold text-branding-brown dark:text-orange-400 mb-3 tracking-wider">
+          <h2 className="text-xs  font-semibold text-branding-brown dark:text-orange-400 mb-3 tracking-wider">
             {t("fullTextKeywords")}
           </h2>
           <form onSubmit={handleSearch} className="flex gap-2">
@@ -303,7 +303,7 @@ export default function CorpusBrowser() {
 
         {/* Instant Title Filter */}
         <div className="bg-branding-gray/5 dark:bg-zinc-800/30 p-4 rounded-lg border border-branding-brown/10 dark:border-white/5">
-          <h2 className="text-xs uppercase font-semibold text-branding-brown dark:text-orange-400 mb-3 tracking-wider">
+          <h2 className="text-xs  font-semibold text-branding-brown dark:text-orange-400 mb-3 tracking-wider">
             {t("instantTitleSearch")}
           </h2>
           <div className="relative">
@@ -389,10 +389,9 @@ export default function CorpusBrowser() {
         </div>
 
         <div className="relative">
-          <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground dark:text-zinc-400" />
           <Input
             placeholder={t("contributorNamePlaceholder")}
-            className="h-8 w-44 pl-7 text-xs border-branding-brown/20 dark:border-white/10 dark:bg-zinc-800 dark:text-zinc-200 dark:placeholder:text-zinc-500"
+            className="h-8 w-44 text-xs border-branding-brown/20 dark:border-white/10 dark:bg-zinc-800 dark:text-zinc-200 dark:placeholder:text-zinc-500"
             value={contributorQuery}
             onChange={(e) => setContributorQuery(e.target.value)}
           />
@@ -452,7 +451,7 @@ export default function CorpusBrowser() {
           </span>
           <table className="w-full border-collapse">
             <thead>
-              <tr className="text-xs uppercase tracking-wide text-muted-foreground dark:text-zinc-400 bg-branding-gray/5 dark:bg-zinc-800/50 border border-branding-brown/10 dark:border-white/10">
+              <tr className="text-xs  tracking-wide text-muted-foreground dark:text-zinc-400 bg-branding-gray/5 dark:bg-zinc-800/50 border border-branding-brown/10 dark:border-white/10">
                 <th className="text-left px-3 py-2 font-semibold w-[44px]">
                   #
                 </th>
@@ -481,9 +480,7 @@ export default function CorpusBrowser() {
                     {t("year")} <SortIcon col="year" />
                   </button>
                 </th>
-                <th className="px-3 py-2 font-semibold text-left w-[80px]">
-                  {t("status")}
-                </th>
+
                 <th className="px-3 py-2 font-semibold text-right w-[80px]">
                   <button
                     className="flex items-center gap-1 ml-auto hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
@@ -491,6 +488,9 @@ export default function CorpusBrowser() {
                   >
                     {t("pages")} <SortIcon col="pages" />
                   </button>
+                </th>
+                <th className="px-3 py-2 font-semibold text-left w-[80px]">
+                  {t("status")}
                 </th>
                 <th className="w-8"></th>
               </tr>
@@ -616,7 +616,7 @@ export default function CorpusBrowser() {
                         </span>
                       )}
                     </td>
-                    <td className="px-3 py-2.5 text-right text-muted-foreground dark:text-zinc-500 tabular-nums">
+                    <td className="px-3 py-2.5 text-muted-foreground dark:text-zinc-500 tabular-nums">
                       {work.pages.toLocaleString()}
                     </td>
                     <td className="px-3 py-2.5">
@@ -695,7 +695,7 @@ export default function CorpusBrowser() {
                   <div className="border-t border-branding-brown/10 dark:border-white/10 overflow-x-auto">
                     <table className="w-full border-collapse text-sm">
                       <thead>
-                        <tr className="text-[10px] uppercase tracking-wider text-muted-foreground dark:text-zinc-400 bg-branding-gray/5 dark:bg-zinc-800/30">
+                        <tr className="text-[10px]  tracking-wider text-muted-foreground dark:text-zinc-400 bg-branding-gray/5 dark:bg-zinc-800/30">
                           <th className="text-left px-4 py-2 font-semibold w-[180px]">
                             {t("location")}
                           </th>
@@ -755,7 +755,7 @@ export default function CorpusBrowser() {
                             <td className="px-4 py-3">
                               <Badge
                                 variant="outline"
-                                className={`text-[9px] px-1.5 uppercase font-medium tracking-normal h-4 ${
+                                className={`text-[9px] px-1.5  font-medium tracking-normal h-4 ${
                                   result.type === "qn"
                                     ? "border-branding-brown/30 text-branding-brown dark:text-orange-300"
                                     : "border-branding-orange/30 text-branding-orange dark:text-orange-400"
