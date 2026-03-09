@@ -14,23 +14,19 @@
     "look-up": "Tra cứu",
     "looking-up": "Đang tra cứu..."
   },
-
   "Toast": {
     "copied": "Đã sao chép!",
     "failed-to-copy": "Sao chép không thành công",
     "error-occurred": "Có lỗi xảy ra. Vui lòng thử lại sau."
   },
-
   "Tips": {
     "lookupable-text": "Nhấp vào kí tự Hán Nôm để tra cứu trong từ điển."
   },
-
   "ErrorPage": {
     "not-found": "Không tìm thấy trang",
     "not-found-message": "Trang bạn đang tìm kiếm không tồn tại.",
     "back-to-home": "Quay lại trang chủ"
   },
-
   "NavigationBar": {
     "home": "Trang chủ",
     "about-us": "Về chúng tôi",
@@ -44,7 +40,6 @@
     "vietnam-for-educators": "Việt Nam cho giáo viên",
     "understanding-vietnam": "Hiểu về Việt Nam"
   },
-
   "Home": {
     "welcome-subtitle": "Trung tâm số hóa nghiên cứu về Việt Nam cận đại và hiện đại",
     "about-digitizing-vietnam": "Về Dự án Số hóa Việt Nam",
@@ -55,11 +50,9 @@
     "our-blog": "Blog của chúng tôi",
     "our-blog-content": "Blog là một phần đặc biệt trong trung tâm số hóa này, với nghiên cứu học thuật và những cái nhìn không chuyên sâu liên quan đến sự tiến hóa văn hóa lịch sử của Việt Nam. Chúng tôi cũng mời bạn đóng góp ý kiến ​​về các bộ sưu tập của chúng tôi và chia sẻ bất kỳ hiểu biết nào bạn có."
   },
-
   "AboutUs": {
     "title": "Về chúng tôi"
   },
-
   "Collection": {
     "title": "Bộ sưu tập của chúng tôi",
     "subtitle": "Khám phá kho lưu trữ số - nơi dành riêng cho việc bảo tồn và nghiên cứu học thuật về di sản lịch sử, văn hóa & tư tưởng Việt Nam.",
@@ -68,9 +61,10 @@
     "no-volume-found": "Không tìm thấy tập nào.",
     "result": "kết quả"
   },
-
-  "CollectionItem": { "page": "Trang", "missing-page": "Trang bị thiếu" },
-
+  "CollectionItem": {
+    "page": "Trang",
+    "missing-page": "Trang bị thiếu"
+  },
   "CollectionMetadata": {
     "title": "Tiêu đề",
     "authors": "Tác giả",
@@ -104,12 +98,10 @@
     "item-not-found": "Không tìm thấy tài liệu.",
     "untitled": "Không có tiêu đề"
   },
-
   "Outreach": {
     "title": "Thư viện giáo dục",
     "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện.",
     "contributed-by": "Đóng góp bởi",
-
     "metadata": {
       "metadata": "Thông tin chi tiết",
       "title": "Tiêu đề",
@@ -118,7 +110,6 @@
       "description": "Mô tả",
       "duration": "Thời lượng",
       "date-created": "Ngày tạo",
-
       "podcast-title": "Podcast",
       "episode-title": "Tập",
       "episode-number": "Tập số",
@@ -128,17 +119,14 @@
       "episode-url": "Liên kết tập",
       "podcast-url": "Liên kết podcast",
       "transcript": "Bản ghi âm",
-
       "course-title": "Khóa học",
       "semester": "Học kỳ",
       "instructor": "Giảng viên",
       "affiliation": "Đơn vị",
-
       "name": "Tên",
       "creators": "Tác giả",
       "supported-languages": "Ngôn ngữ hỗ trợ",
       "access-url": "Liên kết truy cập",
-
       "publisher": "Nhà xuất bản",
       "place_of_publication": "Nơi xuất bản",
       "edition": "Phiên bản",
@@ -152,7 +140,6 @@
       "item_size": "Kích thước tài liệu"
     }
   },
-
   "Highlight": {
     "title": "Bài viết",
     "subtitle": "Những tin tức và khám phá mới nhất về hành trình số hóa, bảo tồn và nghiên cứu di sản Việt Nam.",
@@ -160,13 +147,11 @@
     "highlights": "Tin nổi bật",
     "initiatives": "Các sáng kiến"
   },
-
   "OnlineResource": {
     "title": "Tài nguyên tham khảo",
     "subtitle": "Tuyển tập tài nguyên được tuyển chọn dưới đây là khởi điểm tinh chọn cho các nghiên cứu về Việt Nam, với nguồn tư liệu đa dạng, đáp ứng những mối quan tâm học thuật khác nhau.",
     "no-resource-message": "Hiện không có tài nguyên nào cho danh mục này."
   },
-
   "Tools": {
     "subtitle": "Tiếp cận lĩnh vực Nghiên cứu Việt Nam một cách sáng tạo. Hãy sử dụng các công cụ chuyên biệt của Digitizing Việt Nam để khám phá lĩnh vực này với góc nhìn mới mẻ và tư duy phản biện.",
     "image-ocr-platform": {
@@ -311,7 +296,6 @@
       "no-tools-message": "Hiện tại không có công cụ nào có sẵn."
     }
   },
-
   "ResearchHub": {
     "title": "Nghiên cứu",
     "subtitle": "",
@@ -355,7 +339,7 @@
         "resources": "Tài nguyên"
       },
       "digital-archives": {
-        "title": "Kho lưu trữ Tiền hiện đại DVN",
+        "title": "Bộ sưu tập Cận đại",
         "external-archives": {
           "title": "Bộ sưu tập ngoài"
         }
@@ -366,10 +350,46 @@
       "resources": {
         "periodicals": "Tạp chí chuyên ngành",
         "fonts": "Phông chữ Nôm"
+      },
+      "searchDatabase": {
+        "fullTextKeywords": "Từ khóa toàn văn",
+        "searchAllTextsPlaceholder": "Tìm từ khóa trong toàn bộ văn bản…",
+        "searching": "Đang tìm…",
+        "search": "Tìm kiếm",
+        "searchHelpText": "Quét toàn bộ cơ sở dữ liệu để tìm đoạn trích Hán-Nôm hoặc Quốc ngữ phù hợp.",
+        "instantTitleSearch": "Tìm nhanh theo tiêu đề",
+        "findByTitlePlaceholder": "Tìm văn bản theo tiêu đề…",
+        "titleSearchHelpText": "Lọc danh sách thư mục bên dưới theo thời gian thực.",
+        "genre": "Thể loại",
+        "allGenres": "Tất cả thể loại",
+        "status": "Trạng thái",
+        "allStatuses": "Tất cả trạng thái",
+        "curated": "Đã biên tập",
+        "wiki": "Wiki",
+        "language": "Ngôn ngữ",
+        "allLanguages": "Tất cả ngôn ngữ",
+        "year": "Năm",
+        "from": "Từ",
+        "to": "Đến",
+        "contributorNamePlaceholder": "Tên người đóng góp…",
+        "clear": "Xóa",
+        "browseLibrary": "Duyệt thư mục",
+        "searchResults": "Kết quả tìm kiếm",
+        "worksCount": "{shown} trên {total} tác phẩm",
+        "title": "Tiêu đề",
+        "contributors": "Người đóng góp",
+        "pages": "Số trang",
+        "noWorksMatchFilters": "Không có tác phẩm nào khớp bộ lọc đã chọn.",
+        "unknown": "Không rõ",
+        "booksFoundContaining": "{count, plural, one {Tìm thấy # sách chứa “{query}”} other {Tìm thấy # sách chứa “{query}”}}",
+        "totalMatches": "Tổng cộng {count, plural, one {# kết quả khớp} other {# kết quả khớp}}",
+        "hitsCount": "{count, plural, one {# kết quả} other {# kết quả}}",
+        "location": "Vị trí",
+        "script": "Văn tự",
+        "excerpt": "Đoạn trích"
       }
     }
   },
-
   "ExternalArchives": {
     "title": "Bộ sưu tập ngoài",
     "online-archives": {
@@ -381,7 +401,6 @@
       "description": ""
     }
   },
-
   "Periodicals": {
     "title": "Tạp chí",
     "description": "Danh mục các tạp chí học thuật và ấn phẩm quan trọng phục vụ nghiên cứu Hán Nôm và Việt Nam học tiền hiện đại.",
@@ -403,7 +422,6 @@
       }
     }
   },
-
   "NomFonts": {
     "title": "Phông chữ Nôm",
     "description": "",
@@ -422,7 +440,6 @@
       "linux": "1. Tải về: Lấy tệp .ttf từ phần 'Assets' trên GitHub. 2. Cài đặt: Sao chép tệp vào thư mục ~/.local/share/fonts và chạy lệnh 'fc-cache -f'."
     }
   },
-
   "OtherDictionaries": {
     "title": "Các Từ điển Khác",
     "description": "Tuyển tập các từ điển và công cụ trực tuyến hữu ích khác cho nghiên cứu Hán-Nôm.",
@@ -454,7 +471,6 @@
       }
     }
   },
-
   "SearchResult": {
     "title": "Kết quả tìm kiếm",
     "showing": "Hiển thị",
@@ -462,7 +478,6 @@
     "no-search-result": "Không tìm thấy kết quả nào.",
     "search-across-website": "Tìm kiếm trên trang web Digitizing Việt Nam"
   },
-
   "Filter": {
     "result": "kết quả",
     "apply-filters": "Áp dụng bộ lọc",

@@ -325,6 +325,10 @@ export function topicIdToTitle(topicId: number): string {
     }
 }
 
+export function resolveTopicTitle(topicId: number): string {
+    return topicIdToTitle(topicId);
+}
+
 
 export const topicIdToImage = (topicId: number): string => {
     switch (topicId) {
