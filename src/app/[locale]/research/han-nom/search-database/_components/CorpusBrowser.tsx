@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
 import { Search, ChevronRight, ChevronUp, ChevronDown, X } from "lucide-react";
 import localFont from "next/font/local";
 import { Input } from "@/components/ui/input";
@@ -51,6 +52,8 @@ const NomNaTong = localFont({
 
 export default function CorpusBrowser() {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const t = useTranslations("ResearchHub.HanNomHub.searchDatabase");
   const [works, setWorks] = React.useState<CorpusWork[]>([]);
   const [searchResults, setSearchResults] = React.useState<SearchResult[]>([]);
@@ -89,28 +92,73 @@ export default function CorpusBrowser() {
     fetchWorks();
   }, []);
 
-  const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!searchQuery.trim()) {
+  const executeSearch = React.useCallback(
+    async (query: string) => {
+      const normalizedQuery = query.trim();
+      if (!normalizedQuery) {
+        setSearchResults([]);
+        setActiveTab("library");
+        return;
+      }
+      setIsSearching(true);
+      try {
+        const response = await fetch(
+          `/api/research/han-nom/search-database?q=${encodeURIComponent(
+            normalizedQuery
+          )}`
+        );
+        const data = await response.json();
+        setSearchResults(data);
+        setActiveTab("results");
+      } catch (error) {
+        console.error("Search error:", error);
+      } finally {
+        setIsSearching(false);
+      }
+    },
+    []
+  );
+
+  const lastExecutedQueryRef = React.useRef<string>("");
+
+  React.useEffect(() => {
+    const urlQuery = (searchParams.get("q") || "").trim();
+    setSearchQuery(urlQuery);
+
+    if (!urlQuery) {
+      lastExecutedQueryRef.current = "";
       setSearchResults([]);
       setActiveTab("library");
       return;
     }
-    setIsSearching(true);
-    try {
-      const response = await fetch(
-        `/api/research/han-nom/search-database?q=${encodeURIComponent(
-          searchQuery
-        )}`
-      );
-      const data = await response.json();
-      setSearchResults(data);
-      setActiveTab("results");
-    } catch (error) {
-      console.error("Search error:", error);
-    } finally {
-      setIsSearching(false);
+
+    if (urlQuery === lastExecutedQueryRef.current) return;
+    lastExecutedQueryRef.current = urlQuery;
+    void executeSearch(urlQuery);
+  }, [executeSearch, searchParams]);
+
+  const handleSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const normalizedQuery = searchQuery.trim();
+    const nextParams = new URLSearchParams(searchParams.toString());
+
+    if (!normalizedQuery) {
+      nextParams.delete("q");
+      const nextUrl = nextParams.toString()
+        ? `${pathname}?${nextParams.toString()}`
+        : pathname;
+      lastExecutedQueryRef.current = "";
+      router.replace(nextUrl);
+      setSearchResults([]);
+      setActiveTab("library");
+      return;
     }
+
+    nextParams.set("q", normalizedQuery);
+    const nextUrl = `${pathname}?${nextParams.toString()}`;
+    lastExecutedQueryRef.current = normalizedQuery;
+    router.replace(nextUrl);
+    await executeSearch(normalizedQuery);
   };
 
   const genres = React.useMemo(() => {

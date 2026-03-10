@@ -353,6 +353,32 @@
         "periodicals": "Periodicals",
         "fonts": "Nôm Fonts"
       },
+      "cards": {
+        "featuredCollection": {
+          "label": "Featured Content",
+          "title": "Hán-Nôm Collection",
+          "description": "A vast repository of digitized Hán-Nôm sources from the Vietnamese Nôm Preservation Foundation.",
+          "cta": "Browse Collection"
+        },
+        "featuredBooks": {
+          "label": "Featured Content",
+          "title": "Hán-Nôm Studies Books",
+          "description": "Browse our curated collection of reference books and scholarly works on Hán-Nôm language and literature.",
+          "cta": "Browse Collection"
+        },
+        "quickLookup": {
+          "label": "Quick Lookup",
+          "title": "Unified Hán-Nôm Lookup",
+          "description": "Search across multiple historical dictionaries and reference works simultaneously."
+        },
+        "corpusSearch": {
+          "label": "Corpus Search",
+          "title": "Corpus Search",
+          "placeholder": "Search corpus texts...",
+          "search": "Search",
+          "description": "Full-text search across classical Vietnamese literature and historical documents."
+        }
+      },
       "searchDatabase": {
         "fullTextKeywords": "Full-Text Keywords",
         "searchAllTextsPlaceholder": "Search all texts for terms…",

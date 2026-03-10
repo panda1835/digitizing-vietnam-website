@@ -354,6 +354,32 @@
         "periodicals": "Tạp chí chuyên ngành",
         "fonts": "Phông chữ Nôm"
       },
+      "cards": {
+        "featuredCollection": {
+          "label": "Nội dung nổi bật",
+          "title": "Bộ sưu tập Hán-Nôm",
+          "description": "Kho tư liệu Hán-Nôm số hóa phong phú từ Quỹ Bảo tồn Di sản chữ Nôm Việt Nam.",
+          "cta": "Xem bộ sưu tập"
+        },
+        "featuredBooks": {
+          "label": "Nội dung nổi bật",
+          "title": "Sách nghiên cứu Hán-Nôm",
+          "description": "Khám phá bộ sưu tập tuyển chọn gồm sách tham khảo và công trình học thuật về ngôn ngữ, văn học Hán-Nôm.",
+          "cta": "Xem bộ sưu tập"
+        },
+        "quickLookup": {
+          "label": "Tra cứu nhanh",
+          "title": "Tra cứu Hán-Nôm hợp nhất",
+          "description": "Tra cứu đồng thời qua nhiều từ điển lịch sử và nguồn tư liệu tham khảo."
+        },
+        "corpusSearch": {
+          "label": "Tìm kiếm ngữ liệu",
+          "title": "Tìm kiếm ngữ liệu",
+          "placeholder": "Tìm trong kho ngữ liệu...",
+          "search": "Tìm kiếm",
+          "description": "Tìm toàn văn trong văn học cổ điển Việt Nam và các tư liệu lịch sử."
+        }
+      },
       "searchDatabase": {
         "fullTextKeywords": "Từ khóa toàn văn",
         "searchAllTextsPlaceholder": "Tìm từ khóa trong toàn bộ văn bản…",

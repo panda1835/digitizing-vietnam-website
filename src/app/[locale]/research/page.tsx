@@ -54,7 +54,7 @@ const ResearchPage = async ({ params: { locale } }) => {
         />
 
         <section className="mt-10">
-          <h2 className="text-[28px] text-branding-black font-['Merriweather']">
+          <h2 className="text-[28px] text-branding-black font-['Helvetica Neue']">
             {t("ResearchHub.hubs-title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -73,7 +73,7 @@ const ResearchPage = async ({ params: { locale } }) => {
         </section>
 
         <section className="mt-16">
-          <h2 className="text-[28px] text-branding-black font-['Merriweather']">
+          <h2 className="text-[28px] text-branding-black font-['Helvetica Neue']">
             {t("ResearchHub.tools-section.title")}
           </h2>
           <p className="font-['Helvetica Neue'] font-light text-base text-branding-black mt-4">
