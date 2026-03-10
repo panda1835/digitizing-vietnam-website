@@ -145,7 +145,7 @@ const Pedagogies = async ({ params: { locale } }) => {
       <div className="flex-col mb-20 w-full">
         <PageHeader
           title={t("NavigationBar.pedagogy-menu")}
-          subtitle={t("Outreach.subtitle")}
+          subtitle={t("Pedagogy.subtitle")}
           breadcrumbItems={[{ label: t("NavigationBar.pedagogy-menu") }]}
           locale={locale}
         />

@@ -84,7 +84,7 @@ const Home = async ({ params: { locale } }) => {
     {
       key: "pedagogy",
       title: t("NavigationBar.pedagogy-menu"),
-      description: t("Outreach.subtitle"),
+      description: t("Pedagogy.subtitle"),
       image: "/images/image-row-pedagogy.JPG",
       url: "/pedagogy",
     },

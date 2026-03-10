@@ -100,7 +100,7 @@
   },
   "Outreach": {
     "title": "Pedagogical Library",
-    "subtitle": "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences.",
+    "subtitle": "Our outreach initiatives aim to bridge academic research with broader communities. Through podcasts and digital humanities (DH) tools, we share research, invite participation, and make Vietnamese cultural heritage more accessible to scholars, students, and the wider public.",
     "contributed-by": "Contributed by",
     "metadata": {
       "metadata": "Metadata",
@@ -138,6 +138,9 @@
       "languages": "Languages",
       "item_size": "Item Size"
     }
+  },
+  "Pedagogy": {
+    "subtitle": "Discover and teach Vietnam Studies with impact. Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences."
   },
   "Highlight": {
     "title": "What's new",

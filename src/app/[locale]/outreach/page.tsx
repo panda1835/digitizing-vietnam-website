@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import { PageHeader } from "@/components/common/PageHeader";
 import { PedagogyCollectionItem } from "../pedagogy/PedagogyCollectionItem";
 import { routing } from "@/i18n/routing";
+import ArticleCard from "@/components/ArticleCardShort";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -61,6 +62,7 @@ export interface OutreachCategory {
   description: string;
   display_order: number;
   pedagogy_collections: OutreachCollection[];
+  pedagogies: Outreach[];
 }
 
 const TAB_ORDER = ["digital-humanities-tool", "podcast"];
@@ -69,6 +71,12 @@ const humanizeSlug = (slug: string) =>
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
+const getOutreachItemLink = (categorySlug: string, itemSlug: string) => {
+  if (categorySlug === "digital-humanities-tool") {
+    return `/tools/digital-humanities-tools/${itemSlug}`;
+  }
+  return "#";
+};
 
 const OutreachPage = async ({ params: { locale } }) => {
   setRequestLocale(locale);
@@ -81,6 +89,7 @@ const OutreachPage = async ({ params: { locale } }) => {
     const queryParams = {
       fields: "*",
       "populate[0]": "pedagogy_collections.thumbnail",
+      "populate[1]": "pedagogies.thumbnail",
       locale: locale,
     };
 
@@ -120,6 +129,27 @@ const OutreachPage = async ({ params: { locale } }) => {
                 : undefined,
             } as OutreachCollection;
           }) || [],
+        pedagogies:
+          category.pedagogies?.map((item) => {
+            const thumbnail = item.thumbnail
+              ? getImageByKey(item.thumbnail.formats, "medium")
+              : null;
+            return {
+              slug: item.slug,
+              title: item.title,
+              description: item.description,
+              content: item.content,
+              contributors: item.contributors || [],
+              thumbnail: thumbnail
+                ? {
+                    url: thumbnail.url,
+                    width: thumbnail.width,
+                    height: thumbnail.height,
+                  }
+                : undefined,
+              metadata: item.metadata,
+            } as Outreach;
+          }) || [],
       });
     });
 
@@ -132,7 +162,8 @@ const OutreachPage = async ({ params: { locale } }) => {
     .filter(
       (category) =>
         TAB_ORDER.includes(category.slug) &&
-        category.pedagogy_collections.length > 0
+        (category.pedagogy_collections.length > 0 ||
+          category.pedagogies.length > 0)
     )
     .sort((a, b) => TAB_ORDER.indexOf(a.slug) - TAB_ORDER.indexOf(b.slug));
 
@@ -168,13 +199,27 @@ const OutreachPage = async ({ params: { locale } }) => {
             {visibleOutreachData.map((category) => (
               <TabsContent value={category.slug} className="mt-6 space-y-4" key={category.slug}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
-                  {category.pedagogy_collections.map((collection) => (
-                    <PedagogyCollectionItem
-                      collection={collection}
-                      key={collection.slug}
-                      basePath="/outreach"
-                    />
-                  ))}
+                  {category.pedagogy_collections.length > 0 &&
+                    category.pedagogy_collections.map((collection) => (
+                      <PedagogyCollectionItem
+                        collection={collection}
+                        key={collection.slug}
+                        basePath="/outreach"
+                      />
+                    ))}
+                  {category.pedagogy_collections.length === 0 &&
+                    category.pedagogies
+                      .filter((item) => item.thumbnail)
+                      .map((item) => (
+                        <ArticleCard
+                          key={`${category.slug}/${item.slug}`}
+                          title={item.title}
+                          description={item.description}
+                          date=""
+                          imageUrl={item.thumbnail}
+                          link={getOutreachItemLink(category.slug, item.slug)}
+                        />
+                      ))}
                 </div>
               </TabsContent>
             ))}

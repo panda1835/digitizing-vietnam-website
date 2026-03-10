@@ -100,7 +100,7 @@
   },
   "Outreach": {
     "title": "Thư viện giáo dục",
-    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện.",
+    "subtitle": "Các sáng kiến kết nối của chúng tôi nhằm thu hẹp khoảng cách giữa nghiên cứu học thuật và cộng đồng rộng lớn hơn. Thông qua podcast và các công cụ nhân văn số (DH), chúng tôi chia sẻ nghiên cứu, mời gọi sự tham gia, và giúp di sản văn hóa Việt Nam trở nên dễ tiếp cận hơn với học giả, sinh viên và công chúng.",
     "contributed-by": "Đóng góp bởi",
     "metadata": {
       "metadata": "Thông tin chi tiết",
@@ -139,6 +139,9 @@
       "languages": "Ngôn ngữ",
       "item_size": "Kích thước tài liệu"
     }
+  },
+  "Pedagogy": {
+    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện."
   },
   "Highlight": {
     "title": "Bài viết",
