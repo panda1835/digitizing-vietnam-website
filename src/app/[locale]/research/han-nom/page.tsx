@@ -74,7 +74,7 @@ export default async function HanNomPage({
       title: locale === "vi" ? "Công cụ số" : "Digital Tools",
       items: [
         {
-          label: locale === "vi" ? "Từ điển Hán Nôm" : "Hán-Nôm Dictionary",
+          label: locale === "vi" ? "Từ điển Hán Nôm" : "Unified Hán-Nôm Lookup",
           href: "/tools/han-nom-dictionaries/general",
         },
         {
@@ -116,7 +116,7 @@ export default async function HanNomPage({
       <div className="w-full mb-20">
         <PageHeader
           title={t("ResearchHub.HanNomHub.hero.title")}
-          subtitle={t("ResearchHub.HanNomHub.intro.description")}
+          subtitle={""}
           breadcrumbItems={[
             { label: t("ResearchHub.title"), href: "/research" },
             { label: t("ResearchHub.HanNomHub.hero.title") },
@@ -135,7 +135,7 @@ export default async function HanNomPage({
                     >
                       {group.title}
                     </p>
-                    <ul className="mt-5 pl-5 pr-4 py-4 space-y-2 border-l-2 border-branding-brown/80">
+                    <ul className="mt-5 pl-5 pr-4 py-1 space-y-2 border-l border-branding-brown/30">
                       {group.items.map((item) => (
                         <li key={item.label} className="list-none">
                           {item.href ? (
