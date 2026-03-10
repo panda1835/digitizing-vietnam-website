@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LocaleSwitcher from "@/components/layout/LocaleSwitcher";
@@ -17,6 +18,7 @@ import { Logo } from "@/components/layout/Logo";
 import SearchBar from "@/components/search/SearchBar";
 const NavigationBar = ({ locale }: { locale: string }) => {
   const t = useTranslations("NavigationBar");
+  const [open, setOpen] = useState(false);
 
   const navItems = [
     { key: "about-us", href: "/about-us" },
@@ -107,7 +109,7 @@ const NavigationBar = ({ locale }: { locale: string }) => {
             </NavigationMenu>
           </div>
 
-          <Sheet>
+          <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="outline" size="icon">
                 <Menu className="h-6 w-6" />
@@ -121,6 +123,7 @@ const NavigationBar = ({ locale }: { locale: string }) => {
                     key={item.key}
                     href={item.href}
                     className="block py-2 text-lg font-['Helvetica Neue'] font-light"
+                    onClick={() => setOpen(false)}
                   >
                     {t(item.key)}
                   </Link>
