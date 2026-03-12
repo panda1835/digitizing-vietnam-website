@@ -131,8 +131,9 @@ const Home = async ({ params: { locale } }) => {
                   to expanding the digital and AI frontiers of Vietnamese
                   Studies, through novel{" "}
                   <strong className="font-bold">digital collections</strong>,
-                  innovative <strong className="font-bold">research hubs</strong>{" "}
-                  focused on digital and AI tools of analysis, a pedagogical{" "}
+                  innovative{" "}
+                  <strong className="font-bold">research hubs</strong> focused
+                  on digital and AI tools of analysis, a pedagogical{" "}
                   <strong className="font-bold">archive</strong> for teaching
                   Vietnam at all levels, and an{" "}
                   <strong className="font-bold">outreach portal</strong> to
@@ -151,8 +152,9 @@ const Home = async ({ params: { locale } }) => {
                   tạo, hình thành một{" "}
                   <strong className="font-bold">kho tư liệu sư phạm</strong>{" "}
                   phục vụ việc giảng dạy về Việt Nam ở mọi cấp học, và thiết lập
-                  một <strong className="font-bold">cổng kết nối</strong> để chia
-                  sẻ hiểu biết về mọi khía cạnh của Việt Nam với công chúng.
+                  một <strong className="font-bold">cổng kết nối</strong> để
+                  chia sẻ hiểu biết về mọi khía cạnh của Việt Nam với công
+                  chúng.
                 </>
               )}
             </p>
@@ -251,21 +253,21 @@ const Home = async ({ params: { locale } }) => {
             <div className="flex justify-center min-w-0">
               <Image
                 unoptimized
-                src="/images/vsc-logo.png"
-                alt="Fulbright University Vietnam - Vietnam Studies Center"
-                width={190}
-                height={90}
-                className="object-contain w-full h-auto max-w-[220px] max-h-[72px]"
-              />
-            </div>
-            <div className="flex justify-center min-w-0">
-              <Image
-                unoptimized
                 src="/images/weatherhead-logo.png"
                 alt="Columbia University WeatherHead East Asian Institute"
                 width={380}
                 height={90}
                 className="object-contain w-full h-auto max-w-[340px] max-h-[72px]"
+              />
+            </div>
+            <div className="flex justify-center min-w-0">
+              <Image
+                unoptimized
+                src="/images/vsc-logo.png"
+                alt="Fulbright University Vietnam - Vietnam Studies Center"
+                width={190}
+                height={90}
+                className="object-contain w-full h-auto max-w-[220px] max-h-[72px]"
               />
             </div>
             <div className="flex justify-center min-w-0">
