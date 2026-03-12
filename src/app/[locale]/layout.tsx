@@ -65,9 +65,9 @@ export default async function LocaleLayout({
   return (
     <div className="min-h-screen flex flex-col bg-[#f7f7f7]">
       <NextIntlClientProvider messages={messages}>
-        <NavigationBar />
+        <NavigationBar locale={locale} />
         <div
-          className="flex-grow bg-repeat bg-opacity-90 px-5 sm:px-8 md:px-[50px] relative"
+          className="flex-grow bg-repeat bg-opacity-90 px-[20px] md:px-[50px] relative"
           style={style}
         >
           <div
@@ -84,7 +84,9 @@ export default async function LocaleLayout({
               
               "
           />
-          <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+          <div className="max-w-7xl mx-auto w-full">
+            <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+          </div>
         </div>
         <Toaster />
         <BackToTopButton />

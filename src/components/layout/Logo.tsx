@@ -11,18 +11,17 @@ export const Logo = () => {
       <Link href="/" className="flex items-center gap-2">
         <Image
           unoptimized
-          src="/images/logo.svg"
+          src="/logo-final.svg"
           alt="Logo"
-          width={45}
-          height={45}
+          width={150}
+          height={150}
         />
-        <div
+        {/* <div
           className={`text-black text-[22px] font-semibold ${logoFont.className} leading-tight`}
         >
-          DIGITIZING
-          <br />
-          VIỆTNAM
-        </div>
+          <div>DIGITIZING</div>
+          <div>VIỆTNAM</div>
+        </div> */}
       </Link>
     </div>
   );

@@ -14,35 +14,32 @@
     "look-up": "Tra cứu",
     "looking-up": "Đang tra cứu..."
   },
-
   "Toast": {
     "copied": "Đã sao chép!",
     "failed-to-copy": "Sao chép không thành công",
     "error-occurred": "Có lỗi xảy ra. Vui lòng thử lại sau."
   },
-
   "Tips": {
     "lookupable-text": "Nhấp vào kí tự Hán Nôm để tra cứu trong từ điển."
   },
-
   "ErrorPage": {
     "not-found": "Không tìm thấy trang",
     "not-found-message": "Trang bạn đang tìm kiếm không tồn tại.",
     "back-to-home": "Quay lại trang chủ"
   },
-
   "NavigationBar": {
     "home": "Trang chủ",
     "about-us": "Về chúng tôi",
     "our-collections": "Bộ sưu tập",
-    "tools": "Công cụ số",
+    "tools": "Nghiên cứu",
     "highlights": "Bài viết",
     "online-resources": "Tài nguyên",
     "outreach": "Thư viện",
+    "pedagogy-menu": "Giảng dạy",
+    "outreach-menu": "Kết nối",
     "vietnam-for-educators": "Việt Nam cho giáo viên",
     "understanding-vietnam": "Hiểu về Việt Nam"
   },
-
   "Home": {
     "welcome-subtitle": "Trung tâm số hóa nghiên cứu về Việt Nam cận đại và hiện đại",
     "about-digitizing-vietnam": "Về Dự án Số hóa Việt Nam",
@@ -53,45 +50,58 @@
     "our-blog": "Blog của chúng tôi",
     "our-blog-content": "Blog là một phần đặc biệt trong trung tâm số hóa này, với nghiên cứu học thuật và những cái nhìn không chuyên sâu liên quan đến sự tiến hóa văn hóa lịch sử của Việt Nam. Chúng tôi cũng mời bạn đóng góp ý kiến ​​về các bộ sưu tập của chúng tôi và chia sẻ bất kỳ hiểu biết nào bạn có."
   },
-
   "AboutUs": {
     "title": "Về chúng tôi"
   },
-
   "Collection": {
     "title": "Bộ sưu tập của chúng tôi",
-    "subtitle": "Khám phá kho lưu trữ số - nơi dành riêng cho việc bảo tồn và nghiên cứu học thuật về di sản lịch sử, văn hóa & tư tưởng Việt Nam.",
+    "subtitle": "Khám phá các bộ sưu tập số truy cập mở, tập trung vào nhiều khía cạnh của Việt Nam tiền hiện đại, hiện đại và đương đại.",
     "our-volumes": "Các Tập",
     "featured-articles": "Bài báo nổi bật",
     "no-volume-found": "Không tìm thấy tập nào.",
     "result": "kết quả"
   },
-
-  "CollectionItem": { "page": "Trang", "missing-page": "Trang bị thiếu" },
-
+  "CollectionItem": {
+    "page": "Trang",
+    "missing-page": "Trang bị thiếu"
+  },
   "CollectionMetadata": {
     "title": "Tiêu đề",
     "authors": "Tác giả",
+    "other-titles": "Nhan đề khác",
     "resource-types": "Loại tài nguyên",
     "languages": "Ngôn ngữ",
     "subjects": "Chủ đề",
     "format": "Định dạng",
+    "genre": "Thể loại",
+    "date": "Niên đại",
+    "physical-description": "Mô tả vật lý",
+    "publication-information": "Thông tin xuất bản",
+    "origin-information": "Thông tin xuất xứ",
     "place-of-publication": "Nơi xuất bản",
     "date-created": "Ngày tạo",
     "publisher": "Nhà xuất bản",
     "edition": "Phiên bản",
     "identifier": "Mã định danh",
+    "catalog-record": "Biểu ghi thư mục",
+    "location": "Nơi lưu trữ",
     "url": "Liên kết",
     "note": "Ghi chú",
+    "note-language": "Ghi chú (Ngôn ngữ)",
+    "note-original-location": "Ghi chú (Nơi lưu trữ gốc)",
+    "note-statement-of-responsibility": "Ghi chú (Trách nhiệm biên soạn)",
     "access-condition": "Điều kiện truy cập",
     "related-works": "Tác phẩm liên quan"
   },
-
+  "HanNomCollection": {
+    "collection-title": "Bộ sưu tập Hán-Nôm",
+    "item-not-found": "Không tìm thấy tài liệu.",
+    "untitled": "Không có tiêu đề"
+  },
   "Outreach": {
     "title": "Thư viện giáo dục",
-    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện.",
+    "subtitle": "Những sáng kiến kết nối của chúng tôi nhằm bắt một nhịp cầu giữa nghiên cứu học thuật với công chúng thông qua nhiều loại hình tư liệu khác nhau, bao gồm podcast, bài giảng video, các tư liệu nguồn được tuyển chọn và các cuộc phỏng vấn nổi bật với nhiều học giả nghiên cứu về Việt Nam.",
     "contributed-by": "Đóng góp bởi",
-
     "metadata": {
       "metadata": "Thông tin chi tiết",
       "title": "Tiêu đề",
@@ -100,7 +110,6 @@
       "description": "Mô tả",
       "duration": "Thời lượng",
       "date-created": "Ngày tạo",
-
       "podcast-title": "Podcast",
       "episode-title": "Tập",
       "episode-number": "Tập số",
@@ -110,17 +119,14 @@
       "episode-url": "Liên kết tập",
       "podcast-url": "Liên kết podcast",
       "transcript": "Bản ghi âm",
-
       "course-title": "Khóa học",
       "semester": "Học kỳ",
       "instructor": "Giảng viên",
       "affiliation": "Đơn vị",
-
       "name": "Tên",
       "creators": "Tác giả",
       "supported-languages": "Ngôn ngữ hỗ trợ",
       "access-url": "Liên kết truy cập",
-
       "publisher": "Nhà xuất bản",
       "place_of_publication": "Nơi xuất bản",
       "edition": "Phiên bản",
@@ -134,7 +140,9 @@
       "item_size": "Kích thước tài liệu"
     }
   },
-
+  "Pedagogy": {
+    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện."
+  },
   "Highlight": {
     "title": "Bài viết",
     "subtitle": "Những tin tức và khám phá mới nhất về hành trình số hóa, bảo tồn và nghiên cứu di sản Việt Nam.",
@@ -142,15 +150,13 @@
     "highlights": "Tin nổi bật",
     "initiatives": "Các sáng kiến"
   },
-
   "OnlineResource": {
     "title": "Tài nguyên tham khảo",
     "subtitle": "Tuyển tập tài nguyên được tuyển chọn dưới đây là khởi điểm tinh chọn cho các nghiên cứu về Việt Nam, với nguồn tư liệu đa dạng, đáp ứng những mối quan tâm học thuật khác nhau.",
     "no-resource-message": "Hiện không có tài nguyên nào cho danh mục này."
   },
-
   "Tools": {
-    "subtitle": "Tiếp cận lĩnh vực Nghiên cứu Việt Nam một cách sáng tạo. Hãy sử dụng các công cụ chuyên biệt của Digitizing Việt Nam để khám phá lĩnh vực này với góc nhìn mới mẻ và tư duy phản biện.",
+    "subtitle": "Khám phá, xây dựng hoặc đóng góp vào các không gian nghiên cứu đổi mới, mỗi không gian được tổ chức xoay quanh một chủ đề hoặc hướng nghiên cứu học thuật. Các không gian này bao gồm những bộ sưu tập được tuyển chọn, các nguồn tư liệu đa dạng, và những công cụ số tiên tiến do cộng đồng học giả của chúng tôi phát triển nhằm phục vụ nghiên cứu bằng các phương pháp số, tính toán và thử nghiệm với trí tuệ nhân tạo.",
     "image-ocr-platform": {
       "name": "Image OCR Platform",
       "description": "Image OCR Platform là một công cụ cho phép người dùng trích xuất văn bản từ hình ảnh. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần trích xuất văn bản từ các tài liệu lịch sử hoặc các loại hình ảnh khác."
@@ -162,16 +168,22 @@
         "tooltip": "Vẽ kí tự Hán Nôm",
         "title": "Vẽ kí tự Hán Nôm",
         "description": "Dùng tay hoặc chuột để vẽ một chữ Hán Nôm vào ô bên dưới. Khi vẽ xong, nhấn Nhận dạng để xem các kết quả gợi ý. Chọn đúng chữ để nhập vào ô tìm kiếm. Nhấn Xoá để làm mới bảng vẽ.",
-        "note": "Hiện nay chức năng này chỉ hỗ trợ viết chữ Hán và chữ Nôm giả tá.",
+        "notenote": "Lưu ý:",
+        "note": "Dùng tay hoặc chuột để vẽ một chữ Hán Nôm vào ô bên dưới. Khi vẽ xong, nhấn Nhận dạng để xem các kết quả gợi ý. Chọn đúng chữ để nhập vào ô tìm kiếm. Nhấn Xoá để làm mới bảng vẽ. Hiện nay chức năng này chỉ hỗ trợ viết chữ Hán và chữ Nôm giả tá.",
         "clear": "Xoá",
         "recognize": "Nhận diện",
         "recognizing": "Đang nhận diện..."
       },
+      "alternative-input-methods": {
+        "tooltip": "Phương thức nhập khác",
+        "title": "Phương thức nhập khác",
+        "description": "Chọn phương thức để nhập ký tự Hán-Nôm từ chữ Quốc ngữ, chữ viết tay hoặc bộ thủ."
+      },
       "no-result": "Không tìm thấy kết quả nào.",
       "dictionaries": {
         "general": {
-          "name": "Tự Điển Hán Nôm",
-          "description": "Đây là bộ sưu tập những từ điển và tự điển quan trọng về chữ Nôm của người Việt đã được số hoá. Bộ sưu tập bao gồm: Tự điển Chữ Nôm Dẫn giải (Nguyễn Quang Hồng), Giúp đọc Nôm và Hán Việt (Anthony Trần Văn Kiệm), Nguyễn Trãi Quốc âm Từ điển (Trần Trọng Dương), Từ điển Taberd (A.J.L. Taberd), và Nhật dụng Thường đàm (Phạm Đình Hổ).",
+          "name": "Tra Cứu Hán-Nôm Đa Từ Điển",
+          "description": "Công cụ Tra cứu Hán-Nôm đa từ điển là bộ sưu tập các từ điển cung cấp định nghĩa và giải thích cho các ký tự Hán-Nôm. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần tra cứu ý nghĩa của các ký tự Hán-Nôm trong các văn bản lịch sử.",
           "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
           "author": ""
         },
@@ -287,7 +299,207 @@
       "no-tools-message": "Hiện tại không có công cụ nào có sẵn."
     }
   },
-
+  "ResearchHub": {
+    "title": "Nghiên cứu",
+    "subtitle": "",
+    "hubs-title": "Các Trung tâm Nghiên cứu",
+    "hubs": {
+      "han-nom": {
+        "title": "Nghiên cứu Hán-Nôm",
+        "description": "Một sáng kiến thí điểm của chúng tôi, Không gian nghiên cứu Hán–Nôm, tích hợp đầy đủ bản sao của Kho dữ liệu Văn bản Hán–Nôm từ Bộ sưu tập Thư viện số (DLC)  thuộc  Đại học Columbia, đồng thời cung cấp một bộ công cụ số phục vụ phân tích văn bản, bao gồm: hệ thống OCR tự động, nền tảng từ điển tra cứu, công cụ chú giải và ghi chú bản thảo, cùng giao diện kết nối với các công cụ MARKUS và IMMARKUS dành cho nghiên cứu Hán học."
+      },
+      "vietnam-war": {
+        "title": "Nghiên cứu Chiến tranh Việt Nam",
+        "description": "Tài liệu lưu trữ và nguồn kỹ thuật số về cuộc Chiến tranh Đông Dương lần thứ hai."
+      },
+      "linguistics": {
+        "title": "Ngôn ngữ học",
+        "description": "Ngôn ngữ học máy tính, âm vị học và các công cụ bảo tồn ngôn ngữ."
+      }
+    },
+    "tools-section": {
+      "title": "Công cụ Số",
+      "description": "Digitizing Việt Nam đặt trọng tâm vào việc phát triển các công cụ số và công cụ AI mới nhằm phục vụ những nghiên cứu tiên tiến trong lĩnh vực khoa học xã hội và nhân văn. Chúng tôi hoan nghênh những hợp tác với các trung tâm đổi mới về công nghệ số và trí tuệ nhân tạo, đồng thời mời các học giả có dự án riêng cùng hợp tác với chúng tôi để phát triển các công cụ của họ thông qua nền tảng Digitizing Việt Nam. Tất cả các công cụ được giới thiệu tại đây cũng xuất hiện trong các không gian nghiên cứu theo chủ đề tương ứng."
+    },
+    "HanNomHub": {
+      "hero": {
+        "title": "Hán-Nôm Hub",
+        "subtitle": ""
+      },
+      "intro": {
+        "title": "Cổng thông tin số cho Nghiên cứu Hán-Nôm",
+        "description": "Hán-Nôm Hub là sáng kiến nghiên cứu hàng đầu của DVN, kết nối học thuật cổ điển với nhân văn số hiện đại.",
+        "goal": "Sứ mệnh của chúng tôi",
+        "features": {
+          "archives": "Kho Lưu trữ Số & Danh mục Bản thảo",
+          "ocr": "Công nghệ OCR cho văn bản Hán-Nôm",
+          "lookup": "Tra cứu Đa Từ điển",
+          "resources": "Tạp chí Chuyên ngành & Sách Tham khảo"
+        }
+      },
+      "sidebar": {
+        "digital-archives": "Kho lưu trữ số",
+        "resources": "Tài nguyên"
+      },
+      "digital-archives": {
+        "title": "Bộ sưu tập Cận đại",
+        "external-archives": {
+          "title": "Bộ sưu tập ngoài"
+        }
+      },
+      "unified-lookup": {
+        "vietnamese-title": "Các Từ điển Khác"
+      },
+      "resources": {
+        "periodicals": "Tạp chí chuyên ngành",
+        "fonts": "Phông chữ Nôm"
+      },
+      "cards": {
+        "featuredCollection": {
+          "label": "Nội dung nổi bật",
+          "title": "Bộ sưu tập Hán-Nôm",
+          "description": "Kho tư liệu Hán-Nôm số hóa phong phú từ Quỹ Bảo tồn Di sản chữ Nôm Việt Nam.",
+          "cta": "Xem bộ sưu tập"
+        },
+        "featuredBooks": {
+          "label": "Nội dung nổi bật",
+          "title": "Sách nghiên cứu Hán-Nôm",
+          "description": "Khám phá bộ sưu tập tuyển chọn gồm sách tham khảo và công trình học thuật về ngôn ngữ, văn học Hán-Nôm.",
+          "cta": "Xem bộ sưu tập"
+        },
+        "quickLookup": {
+          "label": "Tra cứu nhanh",
+          "title": "Tra cứu Hán-Nôm đa từ điển",
+          "description": "Tra cứu đồng thời qua nhiều từ điển lịch sử và nguồn tư liệu tham khảo."
+        },
+        "corpusSearch": {
+          "label": "Tìm kiếm ngữ liệu",
+          "title": "Tìm kiếm ngữ liệu",
+          "placeholder": "Tìm trong kho ngữ liệu...",
+          "search": "Tìm kiếm",
+          "description": "Tìm toàn văn trong văn học cổ điển Việt Nam và các tư liệu lịch sử."
+        }
+      },
+      "searchDatabase": {
+        "fullTextKeywords": "Từ khóa toàn văn",
+        "searchAllTextsPlaceholder": "Tìm từ khóa trong toàn bộ văn bản…",
+        "searching": "Đang tìm…",
+        "search": "Tìm kiếm",
+        "searchHelpText": "Quét toàn bộ cơ sở dữ liệu để tìm đoạn trích Hán-Nôm hoặc Quốc ngữ phù hợp.",
+        "instantTitleSearch": "Tìm nhanh theo tiêu đề",
+        "findByTitlePlaceholder": "Tìm văn bản theo tiêu đề…",
+        "titleSearchHelpText": "Lọc danh sách thư mục bên dưới theo thời gian thực.",
+        "genre": "Thể loại",
+        "allGenres": "Tất cả thể loại",
+        "status": "Trạng thái",
+        "allStatuses": "Tất cả trạng thái",
+        "curated": "Đã biên tập",
+        "wiki": "Wiki",
+        "language": "Ngôn ngữ",
+        "allLanguages": "Tất cả ngôn ngữ",
+        "year": "Năm",
+        "from": "Từ",
+        "to": "Đến",
+        "contributorNamePlaceholder": "Tên người đóng góp…",
+        "clear": "Xóa",
+        "browseLibrary": "Duyệt thư mục",
+        "searchResults": "Kết quả tìm kiếm",
+        "worksCount": "{shown} trên {total} tác phẩm",
+        "title": "Tiêu đề",
+        "contributors": "Người đóng góp",
+        "pages": "Số trang",
+        "noWorksMatchFilters": "Không có tác phẩm nào khớp bộ lọc đã chọn.",
+        "unknown": "Không rõ",
+        "booksFoundContaining": "{count, plural, one {Tìm thấy # sách chứa “{query}”} other {Tìm thấy # sách chứa “{query}”}}",
+        "totalMatches": "Tổng cộng {count, plural, one {# kết quả khớp} other {# kết quả khớp}}",
+        "hitsCount": "{count, plural, one {# kết quả} other {# kết quả}}",
+        "location": "Vị trí",
+        "script": "Văn tự",
+        "excerpt": "Đoạn trích"
+      }
+    }
+  },
+  "ExternalArchives": {
+    "title": "Bộ sưu tập ngoài",
+    "online-archives": {
+      "title": "Bộ sưu tập trực tuyến",
+      "description": ""
+    },
+    "physical-archives": {
+      "title": "Bộ sưu tập vật lý",
+      "description": ""
+    }
+  },
+  "Periodicals": {
+    "title": "Tạp chí",
+    "description": "Danh mục các tạp chí học thuật và ấn phẩm quan trọng phục vụ nghiên cứu Hán Nôm và Việt Nam học tiền hiện đại.",
+    "list": {
+      "tap-chi-han-nom": {
+        "name": "Tạp chí Hán Nôm",
+        "description": "Tạp chí học thuật chính của Viện Nghiên cứu Hán Nôm, đăng tải các nghiên cứu về văn bản, ngôn ngữ và lịch sử.",
+        "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
+      },
+      "befeo": {
+        "name": "BEFEO",
+        "description": "Tập san của Trường Viễn Đông Bác cổ Pháp, một tạp chí nổi tiếng thế giới về nghiên cứu các nền văn minh châu Á, với kho lưu trữ phong phú về lịch sử Việt Nam.",
+        "url": "https://www.persee.fr/collection/befeo"
+      },
+      "jvs": {
+        "name": "Journal of Vietnamese Studies",
+        "description": "Tạp chí học thuật được bình duyệt bởi Đại học California, bao gồm tất cả các khía cạnh của lịch sử, văn hóa và xã hội Việt Nam.",
+        "url": "https://online.ucpress.edu/jvs"
+      }
+    }
+  },
+  "NomFonts": {
+    "title": "Phông chữ Nôm",
+    "description": "",
+    "fonts": {
+      "title": "Phông chữ Đề xuất",
+      "nom-na-tong": {
+        "name": "Nôm Na Tống",
+        "description": "Phông chữ tiêu chuẩn từ Hội Bảo tồn Di sản chữ Nôm, được thiết kế để dễ đọc và chính xác cho các văn bản lịch sử.",
+        "url": "https://github.com/nomfoundation/font/releases/tag/v5.16"
+      }
+    },
+    "instructions": {
+      "title": "Cách Tải về & Cài đặt",
+      "windows": "1. Tải về: Trên trang GitHub, tìm phần 'Assets' và nhấp vào tệp .ttf. 2. Cài đặt: Nhấp chuột phải vào tệp đã tải và chọn 'Install'.",
+      "mac": "1. Tải về: Trên trang GitHub, tìm phần 'Assets' và nhấp vào tệp .ttf. 2. Cài đặt: Nhấp đúp vào tệp đã tải và nhấn 'Install Font' trong Font Book.",
+      "linux": "1. Tải về: Lấy tệp .ttf từ phần 'Assets' trên GitHub. 2. Cài đặt: Sao chép tệp vào thư mục ~/.local/share/fonts và chạy lệnh 'fc-cache -f'."
+    }
+  },
+  "OtherDictionaries": {
+    "title": "Các Từ điển Khác",
+    "description": "Tuyển tập các từ điển và công cụ trực tuyến hữu ích khác cho nghiên cứu Hán-Nôm.",
+    "list": {
+      "zi-tools": {
+        "name": "Zi.tools",
+        "description": "Công cụ toàn diện để phân tích cấu trúc, từ nguyên và âm vận của chữ Hán.",
+        "url": "https://zi.tools/"
+      },
+      "thivien": {
+        "name": "Hán Việt Từ Điển Trích Dẫn (Thi Viện)",
+        "description": "Từ điển trực tuyến phổ biến cho chữ Hán-Nôm, cung cấp định nghĩa chi tiết và tra cứu từ ghép.",
+        "url": "https://hvdic.thivien.net/"
+      },
+      "zdic": {
+        "name": "Zdic (Handian)",
+        "description": "Từ điển chữ Hán trực tuyến toàn diện với giải thích chi tiết, từ nguyên, thư pháp và âm vận.",
+        "url": "https://www.zdic.net/"
+      },
+      "pleco": {
+        "name": "Pleco",
+        "description": "Ứng dụng từ điển tiếng Trung phổ biến, hỗ trợ nhận dạng chữ viết tay, OCR và thẻ ghi nhớ.",
+        "url": "https://www.pleco.com/"
+      },
+      "de-rhodes": {
+        "name": "Từ điển De Rhodes (OCR)",
+        "description": "Bản OCR của từ điển Việt–Bồ–La trên Wikisource.",
+        "url": "https://vi.wikisource.org/wiki/T%E1%BB%AB_%C4%91i%E1%BB%83n_Vi%E1%BB%87t%E2%80%93B%E1%BB%93%E2%80%93La"
+      }
+    }
+  },
   "SearchResult": {
     "title": "Kết quả tìm kiếm",
     "showing": "Hiển thị",
@@ -295,11 +507,18 @@
     "no-search-result": "Không tìm thấy kết quả nào.",
     "search-across-website": "Tìm kiếm trên trang web Digitizing Việt Nam"
   },
-
   "Filter": {
     "result": "kết quả",
     "apply-filters": "Áp dụng bộ lọc",
+    "refine-your-search": "Tìm kiếm",
+    "search-title-placeholder": "Tìm theo tiêu đề...",
+    "search-title-label": "Tìm theo tiêu đề",
+    "year-range": "Khoảng năm",
+    "year-placeholder": "YYYY",
+    "clear-filters": "Xóa bộ lọc",
+    "no-items-match": "Không có kết quả phù hợp với bộ lọc hiện tại.",
     "category": {
+      "names": "Tên",
       "part_of": "Thuộc về",
       "collections": "Bộ sưu tập",
       "authors": "Tác giả",

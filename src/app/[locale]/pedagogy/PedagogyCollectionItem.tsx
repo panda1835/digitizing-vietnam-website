@@ -19,8 +19,10 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export const PedagogyCollectionItem = ({
   collection,
+  basePath = "/pedagogy",
 }: {
   collection: PedagogyCollection;
+  basePath?: string;
 }) => {
   const thumbnail = collection.thumbnail?.formats
     ? getImageByKey(collection.thumbnail.formats, "large")
@@ -29,7 +31,7 @@ export const PedagogyCollectionItem = ({
 
   return (
     <div className="">
-      <Link href={`/pedagogy/${collection.slug}`}>
+      <Link href={`${basePath}/${collection.slug}`}>
         {thumbnail && (
           <Image
             unoptimized
@@ -42,16 +44,17 @@ export const PedagogyCollectionItem = ({
         )}
       </Link>
 
-      <Link href={`/pedagogy/${collection.slug}`}>
+      <Link href={`${basePath}/${collection.slug}`}>
         <div
-          className={`${merriweather.className} text-branding-black text-xl mt-6 hover:text-branding-brown hover:underline`}
+          className={`font-['Helvetica Neue'] font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
         >
           {collection.title}
         </div>
       </Link>
+
       <HoverCard>
         <HoverCardTrigger>
-          <div className="line-clamp-3 mt-3 font-['Helvetica Neue'] font-light">
+          <div className="line-clamp-3 mt-[4px] font-light font-['Helvetica Neue']">
             {collection.abstract}
           </div>
         </HoverCardTrigger>
@@ -61,12 +64,12 @@ export const PedagogyCollectionItem = ({
           </ScrollArea>
         </HoverCardContent>
       </HoverCard>
-      <div className="mt-3">
+      {/* <div className="mt-3">
         <LearnMoreButton
           url={`/pedagogy/${collection.slug}`}
           text={t("Button.learn-more")}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

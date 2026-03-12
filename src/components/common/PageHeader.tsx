@@ -1,4 +1,5 @@
 "use client";
+import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Merriweather } from "next/font/google";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
@@ -12,8 +13,8 @@ export function PageHeader({
   breadcrumbItems,
   locale,
 }: {
-  title: string;
-  subtitle: string;
+  title: ReactNode;
+  subtitle: ReactNode;
   breadcrumbItems: { label: string; href?: string }[];
   locale: string;
 }) {
@@ -27,19 +28,19 @@ export function PageHeader({
 
       {/* Headline */}
       <div
-        className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
+        className={`${merriweather.className} text-branding-black text-[32px]`}
       >
         {title}
       </div>
 
       {/* Subheadline */}
       <div
-        className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+        className={`text-base text-[#191919] font-light font-['Helvetica Neue'] mt-[12px]`}
       >
         {subtitle}
       </div>
 
-      <div className="mt-28">
+      <div className="mt-[32px]">
         <Separator />
       </div>
     </div>

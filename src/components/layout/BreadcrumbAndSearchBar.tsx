@@ -7,7 +7,6 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-import SearchBar from "@/components/search/SearchBar";
 import { House } from "lucide-react";
 
 export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {
@@ -38,9 +37,6 @@ export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="flex justify-center items-center w-full mb-8">
-        <SearchBar locale={locale} />
-      </div>
     </div>
   );
 }

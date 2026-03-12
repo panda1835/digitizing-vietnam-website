@@ -4,7 +4,7 @@ import { fetcher } from "@/lib/api";
 import { Blog, BlogCategory } from "@/types/blog";
 import { getImageByKey } from "@/utils/image";
 
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/ArticleCardLong";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { formatDate } from "@/utils/datetime";
 

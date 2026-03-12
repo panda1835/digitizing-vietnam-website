@@ -1,4 +1,4 @@
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/ArticleCardShort";
 
 import { formatDate } from "@/utils/datetime";
 import { getImageByKey } from "@/utils/image";
@@ -24,11 +24,11 @@ const FeatureArticle = ({ highlights, locale }) => {
             : "Chưa có bài viết chuyên đề nào cho bộ sưu tập này."}
         </div>
       )}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {highlights.map((item) => (
           <ArticleCard
             title={item.title}
-            description={item.content}
+            description={item.blog_authors[0]?.name || ""}
             date={formatDate(item.publishedAt, locale)}
             imageUrl={getImageByKey(item.thumbnail[0].formats, "medium")}
             link={`/highlights/${item.slug}`}

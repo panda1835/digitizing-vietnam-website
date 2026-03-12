@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import localFont from "next/font/local";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
@@ -28,11 +28,13 @@ interface Character {
 interface CompactRadicalsProps {
   radicals: Radical[];
   onCharacterSelect: (char: string) => void;
+  autoScrollToStroke?: boolean;
 }
 
 export default function CompactRadicals({
   radicals,
   onCharacterSelect,
+  autoScrollToStroke = false,
 }: CompactRadicalsProps) {
   const t = useTranslations("Tools.han-nom-tools.tools.radicals");
   const [selectedRadical, setSelectedRadical] = useState<Radical | null>(null);
@@ -41,12 +43,15 @@ export default function CompactRadicals({
   >({});
   const [selectedStroke, setSelectedStroke] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [pendingAutoScroll, setPendingAutoScroll] = useState(false);
+  const strokeSelectorRef = useRef<HTMLDivElement>(null);
 
   // Fetch characters when a radical is selected
   const handleRadicalClick = async (radical: Radical) => {
     setSelectedRadical(radical);
     setSelectedStroke(null);
     setLoading(true);
+    setPendingAutoScroll(autoScrollToStroke);
 
     try {
       const data = await getCharactersForRadical(radical.URN);
@@ -77,6 +82,22 @@ export default function CompactRadicals({
   const strokeCounts = Object.keys(radicalsByStroke)
     .map(Number)
     .sort((a, b) => a - b);
+
+  useEffect(() => {
+    if (!autoScrollToStroke || !pendingAutoScroll || loading || !selectedRadical) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        strokeSelectorRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        setPendingAutoScroll(false);
+      });
+    });
+  }, [autoScrollToStroke, pendingAutoScroll, loading, selectedRadical]);
 
   return (
     <div className="space-y-4">
@@ -148,7 +169,7 @@ export default function CompactRadicals({
           ) : (
             <>
               {/* Stroke count selector */}
-              <div>
+              <div ref={strokeSelectorRef}>
                 <div className="text-xs font-semibold mb-1">
                   {t("select-strokes")}
                 </div>

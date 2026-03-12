@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ReactSketchCanvas, ReactSketchCanvasRef } from "react-sketch-canvas";
 import { Button } from "@/components/ui/button";
@@ -12,14 +12,28 @@ const NomNaTong = localFont({
 
 type Props = {
   onSelect: (char: string) => void;
+  showNote?: boolean;
 };
 
-export default function HandwritingPad({ onSelect }: Props) {
+export default function HandwritingPad({ onSelect, showNote = true }: Props) {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
+  const candidatesRef = useRef<HTMLDivElement>(null);
   const [ink, setInk] = useState<number[][][]>([]);
   const [candidates, setCandidates] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const t = useTranslations();
+
+  useEffect(() => {
+    if (candidates.length === 0 || typeof window === "undefined") return;
+    if (window.innerWidth >= 1024) return;
+
+    requestAnimationFrame(() => {
+      candidatesRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    });
+  }, [candidates]);
   const recognize = async () => {
     if (ink.length === 0) return;
 
@@ -81,10 +95,14 @@ export default function HandwritingPad({ onSelect }: Props) {
 
   return (
     <div className="flex items-center flex-col gap-4">
-      <div className="text-sm text-muted-foreground mb-2">
-        <span className="font-semibold text-gray-600">Lưu ý: </span>
-        <span>{t("Tools.han-nom-dictionaries.writing-pad.note")}</span>
-      </div>
+      {showNote && (
+        <div className="text-sm text-muted-foreground mb-2">
+          <span className="font-semibold text-gray-600">
+            {t("Tools.han-nom-dictionaries.writing-pad.notenote")}{" "}
+          </span>
+          <span>{t("Tools.han-nom-dictionaries.writing-pad.note")}</span>
+        </div>
+      )}
       <ReactSketchCanvas
         ref={canvasRef}
         width="280px"
@@ -107,7 +125,7 @@ export default function HandwritingPad({ onSelect }: Props) {
       </div>
 
       {candidates.length > 0 && (
-        <div className="grid grid-cols-5 gap-2 text-center">
+        <div ref={candidatesRef} className="grid grid-cols-5 gap-2 text-center">
           {candidates.map((char, i) => (
             <button
               key={i}

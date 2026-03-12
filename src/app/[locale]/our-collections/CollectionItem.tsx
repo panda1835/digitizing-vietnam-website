@@ -33,14 +33,14 @@ export const CollectionItem = ({ collection }: { collection: Collection }) => {
 
       <Link href={`/our-collections/${collection.slug}`}>
         <div
-          className={`${merriweather.className} text-branding-black text-xl mt-6 hover:text-branding-brown hover:underline`}
+          className={`font-['Helvetica Neue'] font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
         >
           {collection.title}
         </div>
       </Link>
       <HoverCard>
         <HoverCardTrigger>
-          <div className="line-clamp-3 mt-3 font-['Helvetica Neue'] font-light">
+          <div className="line-clamp-3 mt-[4px] font-light font-['Helvetica Neue']">
             {collection.abstract}
           </div>
         </HoverCardTrigger>
@@ -50,12 +50,12 @@ export const CollectionItem = ({ collection }: { collection: Collection }) => {
           </ScrollArea>
         </HoverCardContent>
       </HoverCard>
-      <div className="mt-3">
+      {/* <div className="mt-3">
         <LearnMoreButton
           url={`/our-collections/${collection.slug}`}
           text={t("Button.learn-more")}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

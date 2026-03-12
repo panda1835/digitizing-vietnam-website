@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import { CollectionItem } from "./CollectionItem";
 import { CollectionTOC } from "./CollectionTOC";
@@ -13,6 +14,7 @@ import { generateCollectionFilters } from "./filter";
 
 const OurCollections = ({ collections, locale }) => {
   const t = useTranslations();
+  const searchParams = useSearchParams();
 
   const [filteredResults, setFilteredResults] = useState(collections);
   const [viewMode, setViewMode] = useState<"grid" | "toc" | "list">("grid");
@@ -62,6 +64,28 @@ const OurCollections = ({ collections, locale }) => {
       return orderA - orderB;
     }
   );
+
+  // Sort items within each category by display_order
+  sortedCategories.forEach(([, categoryGroup]) => {
+    const { collections } = categoryGroup as {
+      category: any;
+      collections: any[];
+    };
+    collections.sort((a, b) => a.display_order - b.display_order);
+  });
+
+  const toTabValue = (name: string) => name.replace(/\s/g, "").toLowerCase();
+  const requestedCategory = searchParams.get("category");
+  const requestedTabValue = requestedCategory
+    ? toTabValue(requestedCategory)
+    : null;
+  const availableTabValues = sortedCategories.map(([categoryName]) =>
+    toTabValue(categoryName)
+  );
+  const defaultTabValue =
+    requestedTabValue && availableTabValues.includes(requestedTabValue)
+      ? requestedTabValue
+      : availableTabValues[0];
 
   const handleFilterChange = (selectedFilters: Record<string, string[]>) => {
     const filtered = collections.filter((item) => {
@@ -158,9 +182,7 @@ const OurCollections = ({ collections, locale }) => {
           {viewMode === "grid" ? (
             sortedCategories.length > 0 ? (
               <Tabs
-                defaultValue={sortedCategories[0][0]
-                  .replace(/\s/g, "")
-                  .toLowerCase()}
+                defaultValue={defaultTabValue}
                 className="w-full mt-10"
               >
                 <TabsList className="h-auto p-0 bg-transparent gap-8">
@@ -172,7 +194,7 @@ const OurCollections = ({ collections, locale }) => {
                     return (
                       <TabsTrigger
                         key={categoryName}
-                        value={categoryName.replace(/\s/g, "").toLowerCase()}
+                        value={toTabValue(categoryName)}
                         className={[
                           "px-4 py-2 h-auto",
                           "data-[state=active]:bg-branding-white data-[state=active]:shadow-none",
@@ -194,7 +216,7 @@ const OurCollections = ({ collections, locale }) => {
                   };
                   return (
                     <TabsContent
-                      value={categoryName.replace(/\s/g, "").toLowerCase()}
+                      value={toTabValue(categoryName)}
                       className="mt-6 space-y-4"
                       key={categoryName}
                     >

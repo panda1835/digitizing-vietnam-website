@@ -1,12 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import { Link } from "@/i18n/routing";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
 // eslint-disable-next-line import/no-unresolved
 import { useRouter } from "@/i18n/routing";
-import { useState } from "react";
 
 import {
   InstantSearch,
@@ -17,6 +15,7 @@ import {
 import algoliasearch from "algoliasearch/lite";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import SearchBarResultItem from "./SearchBarResultItem";
+import { cn } from "@/lib/utils";
 
 const originalSearchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || "",
@@ -58,9 +57,14 @@ const searchClient = {
 //   );
 // };
 
-const CustomSearchBox = ({ currentRefinement, refine }: any) => {
+const CustomSearchBox = ({
+  currentRefinement,
+  refine,
+  variant = "default",
+}: any) => {
   const t = useTranslations();
   const router = useRouter();
+  const isNavVariant = variant === "nav";
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && currentRefinement.trim()) {
@@ -71,7 +75,7 @@ const CustomSearchBox = ({ currentRefinement, refine }: any) => {
 
   return (
     <div className="relative w-full">
-      <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-700" />
+      <MagnifyingGlassIcon className="absolute bg-branding-white right-4 top-1/2 transform -translate-y-1/2 pl-2 h-7 w-7 text-gray-700" />
       <input
         type="text"
         name="search-query"
@@ -79,7 +83,10 @@ const CustomSearchBox = ({ currentRefinement, refine }: any) => {
         value={currentRefinement}
         onChange={(e) => refine(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="h-[54px] font-light font-['Helvetica Neue'] w-full px-5 py-2 pl-12 bg-branding-white shadow-lg rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
+        className={cn(
+          "font-light font-['Helvetica Neue'] w-full px-5 py-2 bg-branding-white border justify-start items-center gap-4 inline-flex overflow-hidden",
+          isNavVariant ? "h-11 rounded-full" : "h-[54px] rounded-[26px]"
+        )}
       />
     </div>
   );
@@ -87,18 +94,34 @@ const CustomSearchBox = ({ currentRefinement, refine }: any) => {
 
 const SearchInput = connectSearchBox(CustomSearchBox);
 
-const SearchBar = ({ locale }: { locale: string }) => {
-  const t = useTranslations("Button");
-  const [query, setQuery] = useState("");
+const SearchBar = ({
+  locale,
+  variant = "default",
+}: {
+  locale: string;
+  variant?: "default" | "nav";
+}) => {
+  const isNavVariant = variant === "nav";
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const [navDropdownTop, setNavDropdownTop] = useState<number | null>(null);
 
-  const router = useRouter();
+  useEffect(() => {
+    if (!isNavVariant) return;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (query.trim()) {
-      router.push(`/search?query=${query.trim()}&page=1`);
-    }
-  };
+    const updatePosition = () => {
+      const rect = wrapperRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      setNavDropdownTop(rect.bottom + window.scrollY + 4);
+    };
+
+    updatePosition();
+    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", updatePosition, { passive: true });
+    return () => {
+      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", updatePosition);
+    };
+  }, [isNavVariant]);
 
   const CustomHits = connectHits(({ hits }) => {
     const seenSlugs = new Set();
@@ -111,7 +134,15 @@ const SearchBar = ({ locale }: { locale: string }) => {
     });
 
     return (
-      <div className="absolute z-10 left-0 mt-2 sm:px-10 md:px-24 w-full flex justify-center items-center rounded-lg">
+      <div
+        className={cn(
+          "z-10 mt-2 rounded-lg",
+          isNavVariant
+            ? "fixed left-1/2 -translate-x-1/2 w-[min(80rem,calc(100vw-40px))] md:w-[min(80rem,calc(100vw-100px))]"
+            : "sm:px-10 md:px-24 flex justify-center items-center"
+        )}
+        style={isNavVariant ? { top: navDropdownTop ?? undefined } : undefined}
+      >
         <ScrollArea
           className={`h-[0px] w-full rounded-lg py-2 ${
             filteredHits.length > 0 ? "bg-white h-[300px]" : ""
@@ -147,13 +178,16 @@ const SearchBar = ({ locale }: { locale: string }) => {
     //     className="border-2 border-black rounded-lg px-5 mx-2 bg-primary-blue text-white cursor-pointer"
     //   />
     // </form>
-    <div className="w-full px-4 py-8">
+    <div
+      ref={wrapperRef}
+      className={cn("w-full relative", isNavVariant ? "p-0" : "px-4 py-8")}
+    >
       <InstantSearch
         searchClient={searchClient}
         indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
       >
-        <div className="px-4 pt-4">
-          <SearchInput />
+        <div className={cn(isNavVariant ? "p-0" : "px-4 pt-4")}>
+          <SearchInput variant={variant} />
         </div>
         <CustomHits />
         <Configure

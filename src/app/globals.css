@@ -10,7 +10,8 @@
 }
 
 .max-width {
-  /* max-width: 1200px; */
+  width: 100%;
+  max-width: 80rem; /* Tailwind max-w-7xl */
   margin: auto;
 }
 

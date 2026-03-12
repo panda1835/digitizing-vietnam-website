@@ -31,14 +31,14 @@ export const CollectionItem = ({ collectionItem, collectionSlug }) => {
       </Link>
       <Link href={`/our-collections/${collectionSlug}/${collectionItem.slug}`}>
         <div
-          className={`${merriweather.className} text-branding-black text-xl mt-6 hover:text-branding-brown hover:underline`}
+          className={`font-['Helvetica Neue'] font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
         >
           {collectionItem.title}
         </div>
       </Link>
       <HoverCard>
         <HoverCardTrigger>
-          <div className="line-clamp-3 mt-3 font-light font-['Helvetica Neue'] ">
+          <div className="line-clamp-3 mt-[4px] font-light font-['Helvetica Neue'] ">
             {collectionItem.abstract}
           </div>
         </HoverCardTrigger>
@@ -49,13 +49,13 @@ export const CollectionItem = ({ collectionItem, collectionSlug }) => {
         </HoverCardContent>
       </HoverCard>
 
-      <div className="mt-3">
+      {/* <div className="mt-3">
         <LearnMoreButton
           url={`/our-collections/${collectionSlug}/${collectionItem.slug}`}
           text={t("Button.learn-more")}
           newTab={false}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

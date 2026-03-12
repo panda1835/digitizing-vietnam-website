@@ -9,6 +9,7 @@ const staticPages = [
   "/about-us",
   "/our-collections",
   "/pedagogy",
+  "/outreach",
   "/highlights",
   "/online-resources",
   "/tools",

@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 
 import { PageHeader } from "@/components/common/PageHeader";
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/ArticleCardShort";
 import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
 

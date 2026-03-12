@@ -5,7 +5,7 @@ import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
 
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/ArticleCardShort";
 import { PageHeader } from "@/components/common/PageHeader";
 
 import { Metadata } from "next";
@@ -51,7 +51,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
+    title: `${t("NavigationBar.pedagogy-menu")} | Digitizing Việt Nam`,
   };
 }
 
@@ -140,7 +140,7 @@ const PedagogyCollectionPage = async ({
           subtitle={collectionData.abstract}
           breadcrumbItems={[
             {
-              label: t("NavigationBar.outreach"),
+              label: t("NavigationBar.pedagogy-menu"),
               href: "pedagogy",
             },
             { label: collectionData.title },

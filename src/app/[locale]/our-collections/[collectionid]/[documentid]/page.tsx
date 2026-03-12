@@ -19,6 +19,8 @@ import ChinhPhuNgamText from "./searchable-text/chinh-phu-ngam-khuc/ChinhPhuNgam
 import TinhHoaMuaXuan from "./searchable-text/tinh-hoa-mua-xuan/TinhHoaMuaXuan";
 import QuocAmThiTap from "./searchable-text/quoc-am-thi-tap/QuocAmThiTap";
 import DaiVietSuKyToanThu from "./searchable-text/dai-viet-su-ky-toan-thu/DaiVietSuKyToanThu";
+import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-muong/HundredVietMuongWordsTable";
+import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
 import NotFound from "@/app/not-found";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
@@ -169,14 +171,14 @@ const CollectionItemViewer = async ({
 
         {/* Headline */}
         <div
-          className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
+          className={`${merriweather.className} text-branding-black text-[32px]`}
         >
           {collectionItemData.title}
         </div>
 
         {/* Subheadline */}
         <div
-          className={`font-['Helvetica_Neue'] font-light text-lg mt-8 max-w-5xl`}
+          className={`text-base text-[#191919] font-light font-['Helvetica Neue'] mt-[12px]`}
         >
           {collectionItemData.abstract}
         </div>
@@ -184,7 +186,7 @@ const CollectionItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        <div className="mt-16">
+        <div className="mt-[32px]">
           <Separator />
         </div>
 
@@ -310,6 +312,12 @@ const CollectionItemViewer = async ({
             version={"1902"}
             page={currentPage}
           />
+        ) : collectionId === "du-lieu-ngu-am-tieng-muong" &&
+          documentId === "giai-phap-ngu-am-viet-muong" ? (
+          <HundredVietMuongWordsTable locale={locale} showHeading={false} />
+        ) : collectionId === "du-lieu-ngu-am-tieng-muong" &&
+          documentId === "tu-vung-tieng-muong" ? (
+          <TuVungTiengMuongTable locale={locale} />
         ) : (
           <div className="flex flex-row mt-10">
             {/* Item viewer */}

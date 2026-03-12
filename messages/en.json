@@ -14,82 +14,93 @@
     "look-up": "Look up",
     "looking-up": "Looking up..."
   },
-
   "Toast": {
     "copied": "Copied!",
     "failed-to-copy": "Failed to copy",
     "error-occurred": "An error occurred. Please try again later."
   },
-
   "Tips": {
     "lookupable-text": "Click on any Hán-Nôm character to look it up in the dictionaries."
   },
-
   "ErrorPage": {
     "not-found": "Page Not Found",
     "not-found-message": "The page you are looking for does not exist.",
     "back-to-home": "Back to Home"
   },
-
   "NavigationBar": {
     "home": "Home",
     "about-us": "About Us",
     "our-collections": "Collections",
-    "tools": "Digital Tools",
+    "tools": "Research",
     "highlights": "What's New",
     "online-resources": "Resources",
-    "outreach": "Pedagogical Library",
+    "outreach": "Library",
+    "pedagogy-menu": "Pedagogy",
+    "outreach-menu": "Outreach",
     "vietnam-for-educators": "Việt Nam for Educators",
     "understanding-vietnam": "Understanding Việt Nam"
   },
-
   "Home": {
     "welcome-subtitle": "A digital hub to study pre-modern and modern Vietnam",
     "about-digitizing-vietnam": "About Digitizing Vietnam",
     "about-digitizing-vietnam-content": "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration. The joint venture started with the memorandum of understanding between two universities in 2022. Weatherhead East Asian Institute of Columbia and Vietnam Studies Center of Fulbright will be spearheading research in the field of Vietnam studies, and Digitizing Vietnam will be one among many collaborative endeavors to come in the future.",
     "our-collections": "Our Collections",
-    "studying-vietnam": "Study Vietnam through the Digital Lens",
+    "studying-vietnam": "The Four Pillars",
     "our-collections-content": "Do you want to try reading Hán-Nôm scripts, or to see how chữ quốc ngữ was used in the early 20th century? Our eclectic collections range from pre-modern Hán-Nôm texts to the first Vietnamese women's magazine. While by no means comprehensive, they provide rarely seen snapshots of Vietnamese history.",
     "our-blog": "Our Blog",
     "our-blog-content": "The blog is a special part in this digital hub for studies on both premodern and modern Vietnam. Here, you will find scholarly research as well as non-specialist insights related to Vietnam's historical and cultural evolution. We also invite you to contribute to the discussion on our collections, and share any insights you might have."
   },
-
   "AboutUs": {
     "title": "About Us"
   },
-
   "Collection": {
     "title": "Our Collections",
-    "subtitle": "Explore our digital archive dedicated to preserving and academically exploring Vietnam's historical, cultural & intellectual heritage.",
+    "subtitle": "Explore a range of free-access digitized collections focused on various aspects of premodern, modern, and contemporary Vietnam.",
     "our-volumes": "Items",
     "featured-articles": "Featured Articles",
     "no-volume-found": "No volumes found.",
     "result": "results"
   },
-
-  "CollectionItem": { "page": "Page", "missing-page": "Missing page" },
-
+  "CollectionItem": {
+    "page": "Page",
+    "missing-page": "Missing page"
+  },
   "CollectionMetadata": {
     "title": "Title",
     "authors": "Authors",
+    "other-titles": "Other Titles",
     "resource-types": "Resource Types",
     "languages": "Languages",
     "subjects": "Subjects",
     "format": "Formats",
+    "genre": "Genre",
+    "date": "Date",
+    "physical-description": "Physical Description",
+    "publication-information": "Publication Information",
+    "origin-information": "Origin Information",
     "place-of-publication": "Place of Publication",
     "date-created": "Date Created",
     "publisher": "Publisher",
     "edition": "Edition",
     "identifier": "Identifier",
+    "catalog-record": "Catalog Record",
+    "location": "Location",
     "url": "URL",
     "note": "Note",
+    "note-language": "Note (Language)",
+    "note-original-location": "Note (Original location)",
+    "note-statement-of-responsibility": "Note (Statement of responsibility)",
     "access-condition": "Access Condition",
     "related-works": "Related Works"
   },
-
+  "HanNomCollection": {
+    "collection-title": "Hán-Nôm Collection",
+    "item-not-found": "Item not found.",
+    "untitled": "Untitled"
+  },
   "Outreach": {
     "title": "Pedagogical Library",
-    "subtitle": "Discover and teach Vietnam Studies with impact — Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences.",
+    "subtitle": "Our outreach initiatives aim to bridge academic research with broader communities through diverse resources, including podcasts, video lessons, curated primary materials, and featured interviews with a diversity of scholars on Vietnam.",
     "contributed-by": "Contributed by",
     "metadata": {
       "metadata": "Metadata",
@@ -98,7 +109,6 @@
       "description": "Description",
       "duration": "Duration",
       "date-created": "Created Date",
-
       "podcast-title": "Podcast",
       "episode-title": "Episode",
       "episode-number": "Episode Number",
@@ -108,17 +118,14 @@
       "episode-url": "Episode URL",
       "podcast-url": "Podcast URL",
       "transcript": "Transcript",
-
       "course-title": "Course",
       "semester": "Semester",
       "instructor": "Instructor",
       "affiliation": "Affiliation",
-
       "name": "Name",
       "creators": "Creators",
       "supported-languages": "Supported Languages",
       "access-url": "Access URL",
-
       "publisher": "Publisher",
       "place_of_publication": "Place of Publication",
       "edition": "Edition",
@@ -132,7 +139,9 @@
       "item_size": "Item Size"
     }
   },
-
+  "Pedagogy": {
+    "subtitle": "Discover and teach Vietnam Studies with impact. Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences."
+  },
   "Highlight": {
     "title": "What's new",
     "subtitle": "Latest news and discoveries from the digital front of Vietnamese heritage.",
@@ -140,20 +149,17 @@
     "highlights": "Highlights",
     "initiatives": "Initiatives"
   },
-
   "OnlineResource": {
     "title": "Online Resources",
     "subtitle": "This curated collection offers a solid starting point for research on Vietnam, with materials designed to support diverse academic interests.",
     "no-resource-message": "There are no resources available for this category."
   },
-
   "Tools": {
-    "subtitle": "Engage creatively with Vietnam Studies — Use Digitizing Vietnam's specialized tools to approach the field with fresh perspectives and critical insight.",
+    "subtitle": "Explore, create, or contribute to an innovative research hub, each organized around a scholarly topic or theme. Hubs include curated collections, resources, and cutting-edge digital tools designed by our scholarly community to conduct research using digital, computational, and experimental AI methods.",
     "image-ocr-platform": {
       "name": "Image OCR Platform",
       "description": "The Image OCR Platform is a tool that allows users to upload images of text and convert them into machine-readable text. This tool is especially useful for researchers who need to transcribe text from images of historical documents."
     },
-
     "han-nom-dictionaries": {
       "name": "Hán-Nôm Dictionaries",
       "description": "The Hán-Nôm Dictionaries tool is a collection of dictionaries that provide definitions and explanations for Hán-Nôm characters. This tool is especially useful for researchers who need to look up the meanings of Hán-Nôm characters in historical texts.",
@@ -161,16 +167,22 @@
         "tooltip": "Draw a Han Nom character",
         "title": "Draw a Han Nom character",
         "description": "Use your finger or mouse to draw a Han Nom character in the box below. When you're done, click Recognize to see matching results. Select the correct character to input it into the search box. Click Clear to erase the writing canvas.",
-        "note": "Currently, this feature only supports writing Han characters and phonetic-loan Nôm characters.",
+        "notenote": "Note:",
+        "note": "Use your finger or mouse to draw a Han Nom character in the box below. When you're done, click Recognize to see matching results. Select the correct character to input it into the search box. Click Clear to erase the writing canvas. Currently, this feature only supports writing Han characters and phonetic-loan Nôm characters.",
         "clear": "Clear",
         "recognize": "Recognize",
         "recognizing": "Recognizing..."
       },
+      "alternative-input-methods": {
+        "tooltip": "Other input methods",
+        "title": "Other input methods",
+        "description": "Select an input method to add Hán-Nôm characters from Quốc Ngữ, handwriting, or radicals."
+      },
       "no-result": "No results found.",
       "dictionaries": {
         "general": {
-          "name": "Hán Nôm Dictionary",
-          "description": "This is a collection of significant dictionaries and lexicons on Vietnamese Chữ Nôm that have been digitized. The collection includes: Tự điển Chữ Nôm Dẫn giải (Nguyễn Quang Hồng), Giúp đọc Nôm và Hán Việt (Anthony Trần Văn Kiệm), Nguyễn Trãi Quốc âm Từ điển (Trần Trọng Dương), Từ điển Taberd (A.J.L. Taberd), and Nhật dụng Thường đàm (Phạm Đình Hổ).",
+          "name": "Unified Hán-Nôm Lookup",
+          "description": "The Unified Hán-Nôm Lookup tool is a collection of dictionaries that provide definitions and explanations for Hán-Nôm characters. This tool is especially useful for researchers who need to look up the meanings of Hán-Nôm characters in historical texts.",
           "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
           "author": ""
         },
@@ -286,7 +298,207 @@
       "no-tools-message": "No digital humanities tools available at the moment."
     }
   },
-
+  "ResearchHub": {
+    "title": "Research",
+    "subtitle": "",
+    "hubs-title": "Research Hubs",
+    "hubs": {
+      "han-nom": {
+        "title": "Hán-Nôm Studies",
+        "description": "Our pilot initiative, the Hán-Nôm Research Hub, features a fully integrated mirror of Columbia University’s Hán-Nôm Sino-Vietnamese Textual Library, as well as a suite of digital tools for textual analysis, including automated OCR, a searchable dictionary platform, manuscript notation, and an interface with the MARKUS and IMMARKUS tools for sinological research."
+      },
+      "vietnam-war": {
+        "title": "Vietnam War Studies",
+        "description": "Archival materials and digital resources on the Second Indochina War."
+      },
+      "linguistics": {
+        "title": "Linguistics",
+        "description": "Computational linguistics, phonology, and language preservation tools."
+      }
+    },
+    "tools-section": {
+      "title": "Digital Tools",
+      "description": "The heart of Digitizing Vietnam lies in the development of new digital and AI tools for cutting-edge research on the Humanities and Social Sciences. We welcome collaboration with other centers of digital or AI innovation, and invite scholars with projects of their own to partner with us in developing their own tools through Digitizing Vietnam. All tools listed here may also appear in thematically relevant research hubs."
+    },
+    "HanNomHub": {
+      "hero": {
+        "title": "Hán-Nôm Research Hub",
+        "subtitle": ""
+      },
+      "intro": {
+        "title": "The Digital Gateway to Hán-Nôm Studies",
+        "description": "The Hán-Nôm Research Hub is DVN's flagship research initiative, bridging classical scholarship with modern digital humanities.",
+        "goal": "Our Mission",
+        "features": {
+          "archives": "Digital Archives & Manuscript Catalogs",
+          "ocr": "State-of-the-art OCR for Hán-Nôm Texts",
+          "lookup": "Unified Multi-Dictionary Lookup",
+          "resources": "Scholarly Periodicals & Books"
+        }
+      },
+      "sidebar": {
+        "digital-archives": "Digital Archives",
+        "resources": "Resources"
+      },
+      "digital-archives": {
+        "title": "DVN Premodern Archives",
+        "external-archives": {
+          "title": "External Collections"
+        }
+      },
+      "unified-lookup": {
+        "vietnamese-title": "Other Dictionaries"
+      },
+      "resources": {
+        "periodicals": "Periodicals",
+        "fonts": "Nôm Fonts"
+      },
+      "cards": {
+        "featuredCollection": {
+          "label": "Featured Content",
+          "title": "Hán-Nôm Collection",
+          "description": "A vast repository of digitized Hán-Nôm sources from the Vietnamese Nôm Preservation Foundation.",
+          "cta": "Browse Collection"
+        },
+        "featuredBooks": {
+          "label": "Featured Content",
+          "title": "Hán-Nôm Studies Books",
+          "description": "Browse our curated collection of reference books and scholarly works on Hán-Nôm language and literature.",
+          "cta": "Browse Collection"
+        },
+        "quickLookup": {
+          "label": "Quick Lookup",
+          "title": "Unified Hán-Nôm Lookup",
+          "description": "Search across multiple historical dictionaries and reference works simultaneously."
+        },
+        "corpusSearch": {
+          "label": "Corpus Search",
+          "title": "Corpus Search",
+          "placeholder": "Search corpus texts...",
+          "search": "Search",
+          "description": "Full-text search across classical Vietnamese literature and historical documents."
+        }
+      },
+      "searchDatabase": {
+        "fullTextKeywords": "Full-Text Keywords",
+        "searchAllTextsPlaceholder": "Search all texts for terms…",
+        "searching": "Searching…",
+        "search": "Search",
+        "searchHelpText": "Scans the entire database for matching Hán-Nôm or Quốc ngữ excerpts.",
+        "instantTitleSearch": "Instant Title Search",
+        "findByTitlePlaceholder": "Find a text by title…",
+        "titleSearchHelpText": "Filters the library list below in real-time.",
+        "genre": "Genre",
+        "allGenres": "All genres",
+        "status": "Status",
+        "allStatuses": "All statuses",
+        "curated": "Curated",
+        "wiki": "Wiki",
+        "language": "Language",
+        "allLanguages": "All languages",
+        "year": "Year",
+        "from": "From",
+        "to": "To",
+        "contributorNamePlaceholder": "Contributor name…",
+        "clear": "Clear",
+        "browseLibrary": "Browse Library",
+        "searchResults": "Search Results",
+        "worksCount": "{shown} of {total} works",
+        "title": "Title",
+        "contributors": "Contributors",
+        "pages": "Pages",
+        "noWorksMatchFilters": "No works match the selected filters.",
+        "unknown": "Unknown",
+        "booksFoundContaining": "{count, plural, one {# book found containing “{query}”} other {# books found containing “{query}”}}",
+        "totalMatches": "Total {count, plural, one {# match} other {# matches}}",
+        "hitsCount": "{count, plural, one {# hit} other {# hits}}",
+        "location": "Location",
+        "script": "Script",
+        "excerpt": "Excerpt"
+      }
+    }
+  },
+  "ExternalArchives": {
+    "title": "External Collections",
+    "online-archives": {
+      "title": "Online Collections",
+      "description": ""
+    },
+    "physical-archives": {
+      "title": "Physical Collections",
+      "description": ""
+    }
+  },
+  "Periodicals": {
+    "title": "Periodicals",
+    "description": "A curated collection of academic journals and magazines essential for Hán-Nôm and pre-modern Vietnamese studies.",
+    "list": {
+      "tap-chi-han-nom": {
+        "name": "Tạp chí Hán Nôm",
+        "description": "The primary scholarly journal of the Institute of Hán-Nôm Studies in Hanoi, featuring research on manuscripts, linguistics, and historical texts.",
+        "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
+      },
+      "befeo": {
+        "name": "BEFEO",
+        "description": "Bulletin de l'École française d'Extrême-Orient, a world-renowned journal for the study of Asian civilizations, with extensive archives on Vietnamese history.",
+        "url": "https://www.persee.fr/collection/befeo"
+      },
+      "jvs": {
+        "name": "Journal of Vietnamese Studies",
+        "description": "A peer-reviewed academic journal published by the University of California Press, covering all aspects of Vietnamese history, culture, and society.",
+        "url": "https://online.ucpress.edu/jvs"
+      }
+    }
+  },
+  "NomFonts": {
+    "title": "Nôm Fonts",
+    "description": "",
+    "fonts": {
+      "title": "Recommended Fonts",
+      "nom-na-tong": {
+        "name": "Nôm Na Tống",
+        "description": "The standard font from the Nôm Preservation Foundation, designed for readability and accuracy in historical texts.",
+        "url": "https://github.com/nomfoundation/font/releases/tag/v5.16"
+      }
+    },
+    "instructions": {
+      "title": "How to Download & Install",
+      "windows": "1. Download: On the GitHub page, find the 'Assets' section and click on the .ttf file. 2. Install: Right-click the downloaded file and select 'Install'.",
+      "mac": "1. Download: On the GitHub page, find the 'Assets' section and click the .ttf file. 2. Install: Double-click the downloaded file and click 'Install Font' in Font Book.",
+      "linux": "1. Download: Click the .ttf file under 'Assets' on the GitHub page. 2. Install: Copy files to ~/.local/share/fonts and run 'fc-cache -f'."
+    }
+  },
+  "OtherDictionaries": {
+    "title": "Other Dictionaries",
+    "description": "A collection of useful online dictionaries and tools for Hán-Nôm research.",
+    "list": {
+      "zi-tools": {
+        "name": "Zi.tools",
+        "description": "A comprehensive tool for analyzing Chinese character components, etymology, and phonology.",
+        "url": "https://zi.tools/"
+      },
+      "thivien": {
+        "name": "Hán Việt Từ Điển Trích Dẫn (Thi Viện)",
+        "description": "A popular online dictionary for Sino-Vietnamese characters, featuring detailed definitions and compound word lookups.",
+        "url": "https://hvdic.thivien.net/"
+      },
+      "zdic": {
+        "name": "Zdic (Handian)",
+        "description": "A comprehensive online Chinese character dictionary featuring detailed explanations, etymology, calligraphy, and phonology.",
+        "url": "https://www.zdic.net/"
+      },
+      "pleco": {
+        "name": "Pleco",
+        "description": "A widely used Chinese dictionary app with handwriting recognition, OCR, and flashcards.",
+        "url": "https://www.pleco.com/"
+      },
+      "de-rhodes": {
+        "name": "De Rhodes Dictionary (OCR)",
+        "description": "OCR version of the Dictionarium Annamiticum Lusitanum et Latinum on Wikisource.",
+        "url": "https://vi.wikisource.org/wiki/T%E1%BB%AB_%C4%91i%E1%BB%83n_Vi%E1%BB%87t%E2%80%93B%E1%BB%93%E2%80%93La"
+      }
+    }
+  },
   "SearchResult": {
     "title": "Search Results",
     "showing": "Showing",
@@ -294,11 +506,18 @@
     "no-search-result": "No search results found.",
     "search-across-website": "Search across the Digitizing Việt Nam website"
   },
-
   "Filter": {
     "result": "results",
     "apply-filters": "Apply Filters",
+    "refine-your-search": "Refine Your Search",
+    "search-title-placeholder": "Search title...",
+    "search-title-label": "Search by title",
+    "year-range": "Year Range",
+    "year-placeholder": "YYYY",
+    "clear-filters": "Clear filters",
+    "no-items-match": "No items match your current filters.",
     "category": {
+      "names": "Name",
       "part_of": "Part of",
       "collections": "Collections",
       "authors": "Authors",

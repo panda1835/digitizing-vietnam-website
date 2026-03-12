@@ -11,7 +11,7 @@ import { routing } from "@/i18n/routing";
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
-    title: `${t("NavigationBar.outreach")} | Digitizing Việt Nam`,
+    title: `${t("NavigationBar.pedagogy-menu")} | Digitizing Việt Nam`,
   };
 }
 
@@ -64,6 +64,13 @@ export interface PedagogyCategory {
   display_order: number;
   pedagogy_collections: PedagogyCollection[];
 }
+
+const TAB_ORDER = ["mini-lecture", "textbook", "syllabus"];
+const humanizeSlug = (slug: string) =>
+  slug
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 
 const Pedagogies = async ({ params: { locale } }) => {
   // Enable static rendering for this page
@@ -124,35 +131,35 @@ const Pedagogies = async ({ params: { locale } }) => {
     console.error("Error fetching pedagogy categories:", error);
   }
 
-  // Filter out digital-humanities-tool category
-  const filteredPedagogyData = pedagogyData.filter(
-    (category) => category.slug !== "digital-humanities-tool"
-  );
+  // Only show pedagogy tabs explicitly.
+  const visiblePedagogyData = pedagogyData
+    .filter(
+      (category) =>
+        TAB_ORDER.includes(category.slug) &&
+        category.pedagogy_collections.length > 0
+    )
+    .sort((a, b) => TAB_ORDER.indexOf(a.slug) - TAB_ORDER.indexOf(b.slug));
 
   return (
     <div className="flex flex-col max-width items-center">
       <div className="flex-col mb-20 w-full">
         <PageHeader
-          title={t("NavigationBar.outreach")}
-          subtitle={t("Outreach.subtitle")}
-          breadcrumbItems={[{ label: t("NavigationBar.outreach") }]}
+          title={t("NavigationBar.pedagogy-menu")}
+          subtitle={t("Pedagogy.subtitle")}
+          breadcrumbItems={[{ label: t("NavigationBar.pedagogy-menu") }]}
           locale={locale}
         />
         {/* Tab */}
-        {filteredPedagogyData.length > 0 && (
+        {visiblePedagogyData.length > 0 && (
           <Tabs
-            defaultValue={filteredPedagogyData[0].category_name
-              .replace(/\s/g, "")
-              .toLowerCase()}
+            defaultValue={visiblePedagogyData[0].slug}
             className="w-full mt-10"
           >
             <TabsList className="h-auto p-0 bg-transparent gap-8">
-              {filteredPedagogyData.map((category) => (
+              {visiblePedagogyData.map((category) => (
                 <TabsTrigger
-                  key={category.category_name}
-                  value={category.category_name
-                    .replace(/\s/g, "")
-                    .toLowerCase()}
+                  key={category.slug}
+                  value={category.slug}
                   className={[
                     "px-4 py-2 h-auto",
                     "data-[state=active]:bg-branding-white data-[state=active]:shadow-none",
@@ -161,16 +168,16 @@ const Pedagogies = async ({ params: { locale } }) => {
                     "rounded-t-lg rounded-b-none border border-b-2 border-transparent text-base font-normal",
                   ].join(" ")}
                 >
-                  {category.category_name}
+                  {category.category_name || humanizeSlug(category.slug)}
                 </TabsTrigger>
               ))}
             </TabsList>
 
-            {filteredPedagogyData.map((category) => (
+            {visiblePedagogyData.map((category) => (
               <TabsContent
-                value={category.category_name.replace(/\s/g, "").toLowerCase()}
+                value={category.slug}
                 className="mt-6 space-y-4"
-                key={category.category_name}
+                key={category.slug}
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
                   {category.pedagogy_collections.map((collection) => (
