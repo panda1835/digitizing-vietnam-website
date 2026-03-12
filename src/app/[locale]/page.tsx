@@ -165,15 +165,15 @@ const Home = async ({ params: { locale } }) => {
         </section>
 
         {/* Study Vietnam Section */}
-        <section className="mb-24 mt-32">
+        <section className="mb-24 mt-24">
           <div className=" gap-8 lg:gap-6 items-start">
-            <div className=" flex items-start gap-6">
+            {/* <div className=" flex items-start gap-6">
               <div
                 className={`text-3xl font-medium text-branding-black ${merriweather.className}`}
               >
                 {t("Home.studying-vietnam")}
               </div>
-            </div>
+            </div> */}
 
             {/* <div className="mt-2 font-['Helvetica Neue'] font-light">
               <p>

@@ -92,32 +92,29 @@ export default function CorpusBrowser() {
     fetchWorks();
   }, []);
 
-  const executeSearch = React.useCallback(
-    async (query: string) => {
-      const normalizedQuery = query.trim();
-      if (!normalizedQuery) {
-        setSearchResults([]);
-        setActiveTab("library");
-        return;
-      }
-      setIsSearching(true);
-      try {
-        const response = await fetch(
-          `/api/research/han-nom/search-database?q=${encodeURIComponent(
-            normalizedQuery
-          )}`
-        );
-        const data = await response.json();
-        setSearchResults(data);
-        setActiveTab("results");
-      } catch (error) {
-        console.error("Search error:", error);
-      } finally {
-        setIsSearching(false);
-      }
-    },
-    []
-  );
+  const executeSearch = React.useCallback(async (query: string) => {
+    const normalizedQuery = query.trim();
+    if (!normalizedQuery) {
+      setSearchResults([]);
+      setActiveTab("library");
+      return;
+    }
+    setIsSearching(true);
+    try {
+      const response = await fetch(
+        `/api/research/han-nom/search-database?q=${encodeURIComponent(
+          normalizedQuery
+        )}`
+      );
+      const data = await response.json();
+      setSearchResults(data);
+      setActiveTab("results");
+    } catch (error) {
+      console.error("Search error:", error);
+    } finally {
+      setIsSearching(false);
+    }
+  }, []);
 
   const lastExecutedQueryRef = React.useRef<string>("");
 
@@ -373,7 +370,7 @@ export default function CorpusBrowser() {
       </div>
 
       {/* Filter bar */}
-      <div className="flex flex-wrap items-center gap-2 mb-5  dark:bg-zinc-900 sticky top-0 z-10 py-2 border-b border-transparent shadow-sm shadow-black/0">
+      <div className="flex flex-wrap items-center gap-2 mb-5  dark:bg-zinc-900  top-0 z-10 py-2 border-b border-transparent shadow-sm shadow-black/0">
         <Select value={filterGenre} onValueChange={setFilterGenre}>
           <SelectTrigger className="h-8 text-xs w-36 border-branding-brown/20 dark:border-white/10 dark:bg-zinc-800 dark:text-zinc-200">
             <SelectValue placeholder={t("genre")} />
