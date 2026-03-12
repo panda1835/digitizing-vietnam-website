@@ -104,39 +104,57 @@ const Home = async ({ params: { locale } }) => {
         <section className="grid lg:grid-cols-5 gap-10 items-center mb-20 mt-10">
           <div className="lg:col-span-2 max-w-2xl">
             <div>
-              <span
-                className={`text-branding-black text-[36px] font-light ${merriweather.className}`}
-              >
-                {locale === "en"
-                  ? "A Digital Hub to Study"
-                  : "Không gian số hỗ trợ nghiên cứu Việt Nam"}{" "}
-              </span>
-              <span
-                className={`text-branding-brown text-[36px] font-light ${merriweather.className}`}
-              >
-                {locale === "en" ? "Pre-modern and Modern" : ""}
-              </span>
-              <span
-                className={`text-branding-brown text-[36px] font-light lg:hidden ${merriweather.className}`}
-              >
-                {locale === "vi" ? "cận đại và hiện đại." : ""}
-              </span>
-              <span
-                className={`text-branding-black text-[36px] font-light ${merriweather.className}`}
-              >
-                {" "}
-                {locale === "en" ? "Vietnam" : ""}
-              </span>
-              <div
-                className={`text-branding-brown text-[36px] font-light lg:block hidden ${merriweather.className}`}
-              >
-                {locale === "vi" ? "cận đại và hiện đại." : ""}
-              </div>
+              {locale === "en" ? (
+                <h1
+                  className={`text-branding-black text-[36px] font-light leading-tight ${merriweather.className}`}
+                >
+                  Vietnamese Studies in the Age of{" "}
+                  <span className="text-branding-brown">
+                    Digital Humanities
+                  </span>{" "}
+                  and <span className="text-branding-brown">AI</span>:
+                </h1>
+              ) : (
+                <h1
+                  className={`text-branding-black text-[36px] font-light leading-tight ${merriweather.className}`}
+                >
+                  Việt Nam học trong thời đại{" "}
+                  <span className="text-branding-brown">Nhân văn số</span> và{" "}
+                  <span className="text-branding-brown">Trí tuệ nhân tạo</span>:
+                </h1>
+              )}
             </div>
             <p className="mt-6 font-['Helvetica Neue'] font-light text-[16px] text-branding-black">
-              {locale === "en"
-                ? "Digitizing Vietnam marks a digital leap forward in Vietnam Studies with the Columbia-Fulbright collaboration. The joint venture started with the memorandum of understanding between two universities in 2022."
-                : "Số hóa Việt Nam đánh dấu bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác Columbia - Fulbright. Sáng kiến chung bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022."}
+              {locale === "en" ? (
+                <>
+                  Digitizing Vietnam is a new inter-institutional hub dedicated
+                  to expanding the digital and AI frontiers of Vietnamese
+                  Studies, through novel{" "}
+                  <strong className="font-bold">digital collections</strong>,
+                  innovative <strong className="font-bold">research hubs</strong>{" "}
+                  focused on digital and AI tools of analysis, a pedagogical{" "}
+                  <strong className="font-bold">archive</strong> for teaching
+                  Vietnam at all levels, and an{" "}
+                  <strong className="font-bold">outreach portal</strong> to
+                  share knowledge on all aspects of Vietnam with the general
+                  public.
+                </>
+              ) : (
+                <>
+                  Digitizing Việt Nam là một không gian liên kết các
+                  trường-viện, nhằm mở rộng các biên giới số và trí tuệ nhân tạo
+                  của ngành Việt Nam học thông qua việc xây dựng các{" "}
+                  <strong className="font-bold">bộ sưu tập số mới</strong>, phát
+                  triển các{" "}
+                  <strong className="font-bold">không gian nghiên cứu</strong>{" "}
+                  sáng tạo tập trung vào công cụ phân tích số và trí tuệ nhân
+                  tạo, hình thành một{" "}
+                  <strong className="font-bold">kho tư liệu sư phạm</strong>{" "}
+                  phục vụ việc giảng dạy về Việt Nam ở mọi cấp học, và thiết lập
+                  một <strong className="font-bold">cổng kết nối</strong> để chia
+                  sẻ hiểu biết về mọi khía cạnh của Việt Nam với công chúng.
+                </>
+              )}
             </p>
           </div>
           <div className="lg:col-span-3">
@@ -155,13 +173,13 @@ const Home = async ({ params: { locale } }) => {
               </div>
             </div>
 
-            <div className="mt-2 font-['Helvetica Neue'] font-light">
+            {/* <div className="mt-2 font-['Helvetica Neue'] font-light">
               <p>
                 {locale === "en"
                   ? "Delve into Vietnam's history, culture, and society through cutting-edge tools and curated resources tailored for scholars, students, and educators."
                   : "Khám phá lịch sử, văn hóa và xã hội Việt Nam thông qua các công cụ tiên tiến và nguồn tư liệu được tinh chọn cho học giả, sinh viên và giáo viên."}
               </p>
-            </div>
+            </div> */}
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-6">
             {studyRows.map((item) => (
@@ -216,8 +234,8 @@ const Home = async ({ params: { locale } }) => {
             <div className="lg:col-span-6 font-['Helvetica Neue'] font-light">
               <p>
                 {locale === "en"
-                  ? "Digitizing Việt Nam marks a digital leap forward in Vietnam Studies through a Columbia - Fulbright collaboration, formalized through that began with a 2022 memorandum of understanding between the Weatherhead East Asian Institute and the Vietnam Studies Center. The Digitizing Việt Nam platform began with the generous donation of the complete archive by the Vietnamese Nôm Preservation Foundation to Columbia University in 2018."
-                  : '"Số hóa Việt Nam" (Digitizing Việt Nam) đánh dấu một bước tiến số quan trọng trong ngành Việt Nam học với sự hợp tác giữa Đại học Columbia và Đại học Fulbright. Sáng kiến chung này bắt đầu từ biên bản ghi nhớ giữa hai trường vào năm 2022. Nền tảng Số hoá Việt Nam được khởi đầu vào năm 2018 với sự đóng góp hào phóng toàn bộ kho tư liệu của Hội Bảo tồn Chữ Nôm Việt Nam cho Đại học Columbia.'}
+                  ? "Digitizing Vietnam is an inter-institutional hub aimed at harnessing the power of digital humanities and AI for the advancement of all aspects of Vietnamese Studies. Funded by the Henry Luce Foundation and housed within Columbia University’s Vietnamese Studies Program, Digitizing Vietnam partners with Fulbright University of Vietnam to press forward the boundaries of Vietnamese Studies, through innovative new digital collections, research hubs focused on development of new digital humanities tools and bibliographic resources, a pedagogical archive for the teaching of Vietnam, and an outreach portal for bringing knowledge of Vietnam to ever wider audiences."
+                  : "Digitizing Việt Nam  là một không gian liên trường-viện nhằm khai thác sức mạnh của nhân văn số và trí tuệ nhân tạo để thúc đẩy sự phát triển của mọi lĩnh vực trong ngành Việt Nam học. Được tài trợ bởi Quỹ Henry Luce và thuộc Chương trình Việt Nam học của Đại học Columbia, Digitizing Việt Nam  hợp tác với Đại học Fulbright Việt Nam để mở rộng biên giới của Việt Nam học thông qua việc xây dựng các bộ sưu tập số mới, phát triển các không gian nghiên cứu tập trung vào việc tạo ra những công cụ nhân văn số và nguồn tư liệu thư mục mới, hình thành một kho tư liệu sư phạm phục vụ việc giảng dạy về Việt Nam, và thiết lập một cổng kết nối nhằm đưa hiểu biết về Việt Nam đến với công chúng."}
               </p>
               <div className="mt-4">
                 <LearnMoreButton

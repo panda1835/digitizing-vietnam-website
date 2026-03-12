@@ -63,9 +63,12 @@ const AboutUs = async ({ params: { locale } }) => {
         <PageHeader
           title={t("AboutUs.title")}
           subtitle={
-            <span
-              dangerouslySetInnerHTML={renderHtml(aboutUsData["subheadline"])}
-            />
+            // <span
+            //   dangerouslySetInnerHTML={renderHtml(aboutUsData["subheadline"])}
+            // />
+            locale === "en"
+              ? "Digitizing Vietnam is an inter-institutional hub aimed at harnessing the power of digital humanities and AI for the advancement of all aspects of Vietnamese Studies. Funded by the Henry Luce Foundation and housed within Columbia University’s Vietnamese Studies Program, Digitizing Vietnam partners with Fulbright University of Vietnam to press forward the boundaries of Vietnamese Studies, through innovative new digital collections, research hubs focused on development of new digital humanities tools and bibliographic resources, a pedagogical archive for the teaching of Vietnam, and an outreach portal for bringing knowledge of Vietnam to ever wider audiences."
+              : "Digitizing Việt Nam  là một không gian liên trường-viện nhằm khai thác sức mạnh của nhân văn số và trí tuệ nhân tạo để thúc đẩy sự phát triển của mọi lĩnh vực trong ngành Việt Nam học. Được tài trợ bởi Quỹ Henry Luce và thuộc Chương trình Việt Nam học của Đại học Columbia, Digitizing Việt Nam  hợp tác với Đại học Fulbright Việt Nam để mở rộng biên giới của Việt Nam học thông qua việc xây dựng các bộ sưu tập số mới, phát triển các không gian nghiên cứu tập trung vào việc tạo ra những công cụ nhân văn số và nguồn tư liệu thư mục mới, hình thành một kho tư liệu sư phạm phục vụ việc giảng dạy về Việt Nam, và thiết lập một cổng kết nối nhằm đưa hiểu biết về Việt Nam đến với công chúng."
           }
           locale={locale}
           breadcrumbItems={[{ label: t("AboutUs.title") }]}

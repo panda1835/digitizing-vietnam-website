@@ -111,6 +111,49 @@ export default async function HanNomPage({
     },
   ];
 
+  const tocList = (
+    <ul className="space-y-6 lg:space-y-11">
+      {tocGroups.map((group) => (
+        <li key={group.title}>
+          <p
+            className={`${merriweather.className} text-base lg:text-lg leading-none tracking-[0.1em] uppercase text-branding-brown font-bold`}
+          >
+            {group.title}
+          </p>
+          <ul className="mt-3 lg:mt-5 pl-4 lg:pl-5 pr-0 lg:pr-4 py-1 space-y-2 border-l border-branding-brown/30">
+            {group.items.map((item) => (
+              <li key={item.label} className="list-none">
+                {item.href ? (
+                  item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                ) : (
+                  <span className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium">
+                    {item.label}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <div className="flex flex-col items-center max-width w-full">
       <div className="w-full mb-20">
@@ -125,49 +168,8 @@ export default async function HanNomPage({
         />
 
         <div className="mt-12 flex flex-col lg:flex-row gap-12 justify-center w-full">
-          <aside className="hidden lg:block w-64 flex-shrink-0">
-            <nav className="sticky top-32">
-              <ul className="space-y-11">
-                {tocGroups.map((group) => (
-                  <li key={group.title}>
-                    <p
-                      className={`${merriweather.className} text-lg leading-none tracking-[0.1em] uppercase text-branding-brown font-bold`}
-                    >
-                      {group.title}
-                    </p>
-                    <ul className="mt-5 pl-5 pr-4 py-1 space-y-2 border-l border-branding-brown/30">
-                      {group.items.map((item) => (
-                        <li key={item.label} className="list-none">
-                          {item.href ? (
-                            item.external ? (
-                              <a
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="font-['Helvetica Neue'] text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
-                              >
-                                {item.label}
-                              </a>
-                            ) : (
-                              <Link
-                                href={item.href}
-                                className="font-['Helvetica Neue'] text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
-                              >
-                                {item.label}
-                              </Link>
-                            )
-                          ) : (
-                            <span className="font-['Helvetica Neue'] text-[16px] leading-[1.35] text-[#747474] font-medium">
-                              {item.label}
-                            </span>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          <aside className="hidden lg:block lg:w-64 lg:flex-shrink-0">
+            <nav className="lg:sticky lg:top-32">{tocList}</nav>
           </aside>
 
           <main className="flex flex-col gap-14 max-w-5xl w-full">
@@ -208,6 +210,12 @@ export default async function HanNomPage({
                   </ul>
                 </div>
               </div>
+            </section>
+
+            <section className="lg:hidden">
+              <nav className="rounded-2xl border border-branding-brown/15 bg-white/60 p-5">
+                {tocList}
+              </nav>
             </section>
 
             <section id="tools-and-featured" className="scroll-mt-32">

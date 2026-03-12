@@ -55,7 +55,7 @@
   },
   "Collection": {
     "title": "Bộ sưu tập của chúng tôi",
-    "subtitle": "Khám phá kho lưu trữ số - nơi dành riêng cho việc bảo tồn và nghiên cứu học thuật về di sản lịch sử, văn hóa & tư tưởng Việt Nam.",
+    "subtitle": "Khám phá các bộ sưu tập số truy cập mở, tập trung vào nhiều khía cạnh của Việt Nam tiền hiện đại, hiện đại và đương đại.",
     "our-volumes": "Các Tập",
     "featured-articles": "Bài báo nổi bật",
     "no-volume-found": "Không tìm thấy tập nào.",
@@ -100,7 +100,7 @@
   },
   "Outreach": {
     "title": "Thư viện giáo dục",
-    "subtitle": "Các sáng kiến kết nối của chúng tôi nhằm thu hẹp khoảng cách giữa nghiên cứu học thuật và cộng đồng rộng lớn hơn. Thông qua podcast và các công cụ nhân văn số (DH), chúng tôi chia sẻ nghiên cứu, mời gọi sự tham gia, và giúp di sản văn hóa Việt Nam trở nên dễ tiếp cận hơn với học giả, sinh viên và công chúng.",
+    "subtitle": "Những sáng kiến kết nối của chúng tôi nhằm bắt một nhịp cầu giữa nghiên cứu học thuật với công chúng thông qua nhiều loại hình tư liệu khác nhau, bao gồm podcast, bài giảng video, các tư liệu nguồn được tuyển chọn và các cuộc phỏng vấn nổi bật với nhiều học giả nghiên cứu về Việt Nam.",
     "contributed-by": "Đóng góp bởi",
     "metadata": {
       "metadata": "Thông tin chi tiết",
@@ -156,7 +156,7 @@
     "no-resource-message": "Hiện không có tài nguyên nào cho danh mục này."
   },
   "Tools": {
-    "subtitle": "Tiếp cận lĩnh vực Nghiên cứu Việt Nam một cách sáng tạo. Hãy sử dụng các công cụ chuyên biệt của Digitizing Việt Nam để khám phá lĩnh vực này với góc nhìn mới mẻ và tư duy phản biện.",
+    "subtitle": "Khám phá, xây dựng hoặc đóng góp vào các không gian nghiên cứu đổi mới, mỗi không gian được tổ chức xoay quanh một chủ đề hoặc hướng nghiên cứu học thuật. Các không gian này bao gồm những bộ sưu tập được tuyển chọn, các nguồn tư liệu đa dạng, và những công cụ số tiên tiến do cộng đồng học giả của chúng tôi phát triển nhằm phục vụ nghiên cứu bằng các phương pháp số, tính toán và thử nghiệm với trí tuệ nhân tạo.",
     "image-ocr-platform": {
       "name": "Image OCR Platform",
       "description": "Image OCR Platform là một công cụ cho phép người dùng trích xuất văn bản từ hình ảnh. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần trích xuất văn bản từ các tài liệu lịch sử hoặc các loại hình ảnh khác."
@@ -182,8 +182,8 @@
       "no-result": "Không tìm thấy kết quả nào.",
       "dictionaries": {
         "general": {
-          "name": "Tự Điển Hán Nôm",
-          "description": "Đây là bộ sưu tập những từ điển và tự điển quan trọng về chữ Nôm của người Việt đã được số hoá. Bộ sưu tập bao gồm: Tự điển Chữ Nôm Dẫn giải (Nguyễn Quang Hồng), Giúp đọc Nôm và Hán Việt (Anthony Trần Văn Kiệm), Nguyễn Trãi Quốc âm Từ điển (Trần Trọng Dương), Từ điển Taberd (A.J.L. Taberd), và Nhật dụng Thường đàm (Phạm Đình Hổ).",
+          "name": "Tra Cứu Hán-Nôm Đa Từ Điển",
+          "description": "Công cụ Tra cứu Hán-Nôm đa từ điển là bộ sưu tập các từ điển cung cấp định nghĩa và giải thích cho các ký tự Hán-Nôm. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần tra cứu ý nghĩa của các ký tự Hán-Nôm trong các văn bản lịch sử.",
           "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
           "author": ""
         },
@@ -306,7 +306,7 @@
     "hubs": {
       "han-nom": {
         "title": "Nghiên cứu Hán-Nôm",
-        "description": "Nghiên cứu về văn tự, văn bản và di sản văn hóa Hán-Nôm."
+        "description": "Một sáng kiến thí điểm của chúng tôi, Không gian nghiên cứu Hán–Nôm, tích hợp đầy đủ bản sao của Kho dữ liệu Văn bản Hán–Nôm từ Bộ sưu tập Thư viện số (DLC)  thuộc  Đại học Columbia, đồng thời cung cấp một bộ công cụ số phục vụ phân tích văn bản, bao gồm: hệ thống OCR tự động, nền tảng từ điển tra cứu, công cụ chú giải và ghi chú bản thảo, cùng giao diện kết nối với các công cụ MARKUS và IMMARKUS dành cho nghiên cứu Hán học."
       },
       "vietnam-war": {
         "title": "Nghiên cứu Chiến tranh Việt Nam",
@@ -319,7 +319,7 @@
     },
     "tools-section": {
       "title": "Công cụ Số",
-      "description": "Khám phá bộ sưu tập các công cụ kỹ thuật số được thiết kế cho nghiên cứu Việt Nam."
+      "description": "Digitizing Việt Nam đặt trọng tâm vào việc phát triển các công cụ số và công cụ AI mới nhằm phục vụ những nghiên cứu tiên tiến trong lĩnh vực khoa học xã hội và nhân văn. Chúng tôi hoan nghênh những hợp tác với các trung tâm đổi mới về công nghệ số và trí tuệ nhân tạo, đồng thời mời các học giả có dự án riêng cùng hợp tác với chúng tôi để phát triển các công cụ của họ thông qua nền tảng Digitizing Việt Nam. Tất cả các công cụ được giới thiệu tại đây cũng xuất hiện trong các không gian nghiên cứu theo chủ đề tương ứng."
     },
     "HanNomHub": {
       "hero": {
@@ -333,7 +333,7 @@
         "features": {
           "archives": "Kho Lưu trữ Số & Danh mục Bản thảo",
           "ocr": "Công nghệ OCR cho văn bản Hán-Nôm",
-          "lookup": "Tra cứu Hợp nhất Đa Từ điển",
+          "lookup": "Tra cứu Đa Từ điển",
           "resources": "Tạp chí Chuyên ngành & Sách Tham khảo"
         }
       },
@@ -369,7 +369,7 @@
         },
         "quickLookup": {
           "label": "Tra cứu nhanh",
-          "title": "Tra cứu Hán-Nôm hợp nhất",
+          "title": "Tra cứu Hán-Nôm đa từ điển",
           "description": "Tra cứu đồng thời qua nhiều từ điển lịch sử và nguồn tư liệu tham khảo."
         },
         "corpusSearch": {
