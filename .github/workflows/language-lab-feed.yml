@@ -1,0 +1,36 @@
+# .github/workflows/language-lab-feed.yml
+#
+# Runs daily at 06:00 UTC (1am EST / midnight Vietnam +7 is 11pm UTC previous day)
+# Calls the feed ingestion endpoint to pull new articles from Vietnamese RSS sources
+# and generate study material for each one.
+#
+# Required repository secrets:
+#   SITE_URL       — your production URL, e.g. https://digitizingvietnam.com
+#   CRON_SECRET    — must match the CRON_SECRET env var set in your Netlify/Vercel env
+
+name: Language Lab – Daily Feed Ingestion
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # 06:00 UTC daily
+  workflow_dispatch:        # allow manual trigger from GitHub Actions UI
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger feed ingestion
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X POST "${{ secrets.SITE_URL }}/api/language-lab/feed" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json")
+
+          echo "Response status: $response"
+
+          if [ "$response" -ne 200 ]; then
+            echo "Feed ingestion failed with status $response"
+            exit 1
+          fi
+
+          echo "Feed ingestion completed successfully."

@@ -1,6 +1,8 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { fetcher } from "@/lib/api";
 import { getImageByKey } from "@/utils/image";
+import Link from "next/link";
+import { FlaskConical } from "lucide-react";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Metadata } from "next";
@@ -149,6 +151,27 @@ const Pedagogies = async ({ params: { locale } }) => {
           breadcrumbItems={[{ label: t("NavigationBar.pedagogy-menu") }]}
           locale={locale}
         />
+        {/* Language Lab feature card */}
+        <div className="mt-10 rounded-2xl border border-red-100 bg-red-50 px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-start gap-4">
+            <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-700 text-white">
+              <FlaskConical className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="font-semibold text-stone-900 text-base leading-tight">Vietnamese Language Lab</p>
+              <p className="text-sm text-stone-500 mt-0.5">
+                Turn any Vietnamese news article into vocabulary lists, grammar notes, and comprehension questions — instantly.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/pedagogy/language-lab"
+            className="shrink-0 rounded-xl bg-red-700 hover:bg-red-800 px-5 py-2.5 text-sm font-medium text-white transition-colors"
+          >
+            Open Language Lab →
+          </Link>
+        </div>
+
         {/* Tab */}
         {visiblePedagogyData.length > 0 && (
           <Tabs

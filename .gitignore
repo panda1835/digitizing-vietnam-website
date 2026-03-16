@@ -12,3 +12,6 @@ run_tailwindcss.sh
 *.ipynb
 test
 og.tsx
+
+# Language Lab feed store
+data/language-lab-feed.json

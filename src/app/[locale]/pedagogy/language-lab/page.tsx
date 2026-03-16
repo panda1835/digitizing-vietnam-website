@@ -1,0 +1,117 @@
+import Link from "next/link";
+import { PenLine } from "lucide-react";
+import ArticleCard from "@/components/language-lab/ArticleCard";
+
+const DIFFICULTIES = ["all", "beginner", "intermediate", "advanced"];
+
+const TOPICS = [
+  { id: "all", label: "All Topics" },
+  { id: "current-events", label: "Thời Sự" },
+  { id: "culture", label: "Văn Hóa" },
+  { id: "entertainment", label: "Giải Trí" },
+  { id: "youth", label: "Giới Trẻ" },
+  { id: "education", label: "Giáo Dục" },
+];
+
+async function getArticles({ difficulty, tag }: { difficulty: string; tag: string }) {
+  const params = new URLSearchParams();
+  if (difficulty && difficulty !== "all") params.set("difficulty", difficulty);
+  if (tag && tag !== "all") params.set("tag", tag);
+  params.set("limit", "24");
+
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const res = await fetch(`${base}/api/language-lab/feed?${params}`, {
+    next: { revalidate: 3600 },
+  });
+
+  if (!res.ok) return [];
+  const data = await res.json();
+  return data.articles ?? [];
+}
+
+export default async function LanguageLabPage({ searchParams }: { searchParams: any }) {
+  const difficulty = searchParams?.difficulty ?? "all";
+  const tag = searchParams?.tag ?? "all";
+  const articles = await getArticles({ difficulty, tag });
+
+  return (
+    <main className="min-h-screen bg-stone-50">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="flex items-start justify-between gap-6 mb-8 flex-wrap">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-widest text-red-700 mb-2">
+              Pedagogy → Vietnamese Language Lab
+            </div>
+            <h1 className="text-3xl font-bold text-stone-900">Study Materials</h1>
+            <p className="text-stone-500 mt-1 max-w-lg">
+              Current Vietnamese news and articles, automatically transformed into structured
+              language study materials.
+            </p>
+          </div>
+          <Link
+            href="./language-lab/generate"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-700 hover:bg-red-800 text-white font-medium text-sm transition-colors"
+          >
+            <PenLine className="w-4 h-4" />
+            Generate from your own source
+          </Link>
+        </div>
+
+        <div className="flex flex-wrap gap-6 mb-8">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium text-stone-500 uppercase tracking-wide">Level:</span>
+            <div className="flex gap-1.5">
+              {DIFFICULTIES.map((d) => (
+                <Link
+                  key={d}
+                  href={`?difficulty=${d}&tag=${tag}`}
+                  className={`text-xs px-3 py-1 rounded-full capitalize transition-colors ${
+                    difficulty === d ? "bg-red-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                  }`}
+                >
+                  {d}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium text-stone-500 uppercase tracking-wide">Topic:</span>
+            <div className="flex gap-1.5 flex-wrap">
+              {TOPICS.map(({ id, label }) => (
+                <Link
+                  key={id}
+                  href={`?difficulty=${difficulty}&tag=${id}`}
+                  className={`text-xs px-3 py-1 rounded-full transition-colors ${
+                    tag === id ? "bg-red-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                  }`}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {articles.length === 0 ? (
+          <div className="text-center py-20 text-stone-400">
+            <p className="text-lg font-medium mb-2">No articles yet</p>
+            <p className="text-sm">The automated feed hasn't run yet, or no articles match your filters.</p>
+            <Link
+              href="./language-lab/generate"
+              className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-xl bg-red-700 hover:bg-red-800 text-white font-medium text-sm transition-colors"
+            >
+              <PenLine className="w-4 h-4" />
+              Generate one manually
+            </Link>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {articles.map((article: any) => (
+              <ArticleCard key={article.id} article={article} href={`/pedagogy/language-lab/${article.id}`} />
+            ))}
+          </div>
+        )}
+      </div>
+    </main>
+  );
+}
