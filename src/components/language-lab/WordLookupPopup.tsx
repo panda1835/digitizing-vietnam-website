@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Volume2, Loader2, X } from "lucide-react";
+import { Volume2, Loader2, X, BookmarkPlus, BookmarkCheck } from "lucide-react";
 
-interface LookupResult {
+export interface LookupResult {
   word: string;
   ipaHanoi: string;
   ipaSaigon?: string;
@@ -23,10 +23,15 @@ interface PopupState {
   error: string | null;
 }
 
+interface WordLookupPopupProps {
+  onSave?: (result: LookupResult) => void;
+  savedWords?: Set<string>;
+}
+
 // Module-level cache survives re-renders
 const resultCache = new Map<string, LookupResult>();
 
-export default function WordLookupPopup() {
+export default function WordLookupPopup({ onSave, savedWords }: WordLookupPopupProps = {}) {
   const [popup, setPopup] = useState<PopupState | null>(null);
   const popupRef = useRef<HTMLDivElement>(null);
   const pendingWord = useRef<string>("");
@@ -114,6 +119,14 @@ export default function WordLookupPopup() {
     u.lang = "vi-VN";
     u.rate = 0.85;
     window.speechSynthesis.speak(u);
+  };
+
+  const isSaved = savedWords?.has(popup.word.toLowerCase());
+
+  const handleSave = () => {
+    if (popup.result && onSave && !isSaved) {
+      onSave(popup.result);
+    }
   };
 
   // Position popup above the selection, clamped to viewport
@@ -204,6 +217,33 @@ export default function WordLookupPopup() {
                 {popup.result.exampleTranslation && (
                   <p className="text-stone-400 text-xs mt-0.5">{popup.result.exampleTranslation}</p>
                 )}
+              </div>
+            )}
+
+            {/* Save button */}
+            {onSave && (
+              <div className="pt-1.5 border-t border-stone-100">
+                <button
+                  onClick={handleSave}
+                  disabled={isSaved}
+                  className={`w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                    isSaved
+                      ? "bg-green-50 text-green-700 cursor-default"
+                      : "bg-stone-100 hover:bg-stone-200 text-stone-700"
+                  }`}
+                >
+                  {isSaved ? (
+                    <>
+                      <BookmarkCheck className="w-3.5 h-3.5" />
+                      Saved to My Vocab
+                    </>
+                  ) : (
+                    <>
+                      <BookmarkPlus className="w-3.5 h-3.5" />
+                      Save to My Vocab
+                    </>
+                  )}
+                </button>
               </div>
             )}
           </>

@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { ExternalLink, BookOpen, AlignLeft, HelpCircle, Globe, ChevronLeft } from "lucide-react";
+import { useState, useCallback, useMemo } from "react";
+import { ExternalLink, BookOpen, AlignLeft, HelpCircle, Globe, ChevronLeft, Trash2, Download } from "lucide-react";
 import VocabList from "./VocabList";
 import { GrammarPoints, CulturalNotes, ComprehensionQuestions } from "./StudyComponents";
-import WordLookupPopup from "./WordLookupPopup";
+import WordLookupPopup, { LookupResult } from "./WordLookupPopup";
 
 const DIFFICULTY_STYLES = {
   beginner: "bg-green-100 text-green-700",
@@ -12,19 +12,48 @@ const DIFFICULTY_STYLES = {
   advanced: "bg-red-100 text-red-700",
 };
 
-const TABS = [
-  { id: "text", label: "Annotated Text", icon: AlignLeft },
-  { id: "vocab", label: "Vocabulary", icon: BookOpen },
-  { id: "grammar", label: "Grammar", icon: BookOpen },
-  { id: "questions", label: "Comprehension", icon: HelpCircle },
-];
+const POS_COLORS: Record<string, string> = {
+  noun: "bg-blue-100 text-blue-700",
+  verb: "bg-green-100 text-green-700",
+  adjective: "bg-purple-100 text-purple-700",
+  adverb: "bg-orange-100 text-orange-700",
+  conjunction: "bg-pink-100 text-pink-700",
+  particle: "bg-teal-100 text-teal-700",
+  classifier: "bg-indigo-100 text-indigo-700",
+  other: "bg-stone-100 text-stone-600",
+};
 
 export default function StudyPage({ material, onReset }) {
   const [activeTab, setActiveTab] = useState("text");
+  const [savedVocab, setSavedVocab] = useState<LookupResult[]>([]);
+
+  const savedWords = useMemo(
+    () => new Set(savedVocab.map((v) => v.word.toLowerCase())),
+    [savedVocab]
+  );
+
+  const handleSave = useCallback((result: LookupResult) => {
+    setSavedVocab((prev) => {
+      if (prev.some((v) => v.word.toLowerCase() === result.word.toLowerCase())) return prev;
+      return [...prev, result];
+    });
+  }, []);
+
+  const handleRemove = useCallback((word: string) => {
+    setSavedVocab((prev) => prev.filter((v) => v.word.toLowerCase() !== word.toLowerCase()));
+  }, []);
+
+  const TABS = [
+    { id: "text", label: "Annotated Text", icon: AlignLeft },
+    { id: "vocab", label: "Vocabulary", icon: BookOpen },
+    { id: "myvocab", label: "My Vocab", icon: BookOpen },
+    { id: "grammar", label: "Grammar", icon: BookOpen },
+    { id: "questions", label: "Comprehension", icon: HelpCircle },
+  ];
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <WordLookupPopup />
+      <WordLookupPopup onSave={handleSave} savedWords={savedWords} />
       {/* Back button */}
       {onReset && (
         <button
@@ -90,6 +119,11 @@ export default function StudyPage({ material, onReset }) {
                 {material.vocabulary.length}
               </span>
             )}
+            {id === "myvocab" && savedVocab.length > 0 && (
+              <span className="ml-1 text-xs bg-red-100 text-red-700 rounded-full px-1.5 py-0.5">
+                {savedVocab.length}
+              </span>
+            )}
           </button>
         ))}
       </div>
@@ -101,6 +135,14 @@ export default function StudyPage({ material, onReset }) {
         )}
         {activeTab === "vocab" && material.vocabulary?.length > 0 && (
           <VocabList vocabulary={material.vocabulary} deckName={material.title} />
+        )}
+        {activeTab === "myvocab" && (
+          <MyVocabTab
+            savedVocab={savedVocab}
+            onRemove={handleRemove}
+            deckName={material.title}
+            posColors={POS_COLORS}
+          />
         )}
         {activeTab === "grammar" && (
           <div className="space-y-6">
@@ -173,6 +215,116 @@ function VocabHoverCard({ vocab }) {
           <p className="text-stone-400 text-xs">{vocab.exampleTranslation}</p>
         </div>
       )}
+    </div>
+  );
+}
+
+function MyVocabTab({
+  savedVocab,
+  onRemove,
+  deckName,
+  posColors,
+}: {
+  savedVocab: LookupResult[];
+  onRemove: (word: string) => void;
+  deckName: string;
+  posColors: Record<string, string>;
+}) {
+  if (savedVocab.length === 0) {
+    return (
+      <div className="text-center py-16 text-stone-400">
+        <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-40" />
+        <p className="text-sm font-medium text-stone-500">No saved vocabulary yet</p>
+        <p className="text-xs mt-1 max-w-xs mx-auto">
+          Highlight any word or phrase in the Annotated Text tab and click{" "}
+          <span className="font-medium text-stone-600">Save to My Vocab</span> to build your personal list.
+        </p>
+      </div>
+    );
+  }
+
+  const exportAnki = () => {
+    const rows = savedVocab.map((v) => {
+      const back = [
+        `<b>${v.partOfSpeech}</b>`,
+        v.definition,
+        v.ipaHanoi ? `IPA (Hà Nội): ${v.ipaHanoi}` : "",
+        v.ipaSaigon ? `IPA (Sài Gòn): ${v.ipaSaigon}` : "",
+        v.example ? `<i>${v.example}</i>` : "",
+        v.exampleTranslation ?? "",
+      ]
+        .filter(Boolean)
+        .join("<br>");
+      const tag = deckName.replace(/\s+/g, "_").replace(/[^\w]/g, "");
+      return `${v.word}\t${back}\t${tag}`;
+    });
+    const content = rows.join("\n");
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "my-vocab.txt";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <p className="text-xs text-stone-500">
+          {savedVocab.length} word{savedVocab.length !== 1 ? "s" : ""} saved — highlight text and click{" "}
+          <span className="font-medium">Save to My Vocab</span> to add more.
+        </p>
+        <button
+          onClick={exportAnki}
+          className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-lg transition-colors"
+        >
+          <Download className="w-3.5 h-3.5" />
+          Export to Anki
+        </button>
+      </div>
+
+      <div className="divide-y divide-stone-100 border border-stone-200 rounded-xl overflow-hidden">
+        {savedVocab.map((item) => (
+          <div key={item.word} className="flex items-start gap-3 px-4 py-3 bg-white">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap mb-0.5">
+                <span className="font-semibold text-stone-900">{item.word}</span>
+                {item.partOfSpeech && (
+                  <span
+                    className={`text-xs rounded-full px-2 py-0.5 ${
+                      posColors[item.partOfSpeech] ?? posColors.other
+                    }`}
+                  >
+                    {item.partOfSpeech}
+                  </span>
+                )}
+                {item.ipaHanoi && (
+                  <span className="font-mono text-xs text-violet-700 bg-violet-50 px-2 py-0.5 rounded">
+                    {item.ipaHanoi}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-stone-700">{item.definition}</p>
+              {item.example && (
+                <p className="text-xs text-stone-400 italic mt-0.5">
+                  {item.example}
+                  {item.exampleTranslation && (
+                    <span className="not-italic"> — {item.exampleTranslation}</span>
+                  )}
+                </p>
+              )}
+            </div>
+            <button
+              onClick={() => onRemove(item.word)}
+              className="shrink-0 text-stone-300 hover:text-red-500 transition-colors mt-0.5"
+              title="Remove"
+            >
+              <Trash2 className="w-4 h-4" />
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
