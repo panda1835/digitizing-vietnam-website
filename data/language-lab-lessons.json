@@ -1,0 +1,2932 @@
+{
+  "lessons": [
+    {
+      "id": "01-chao-hoi",
+      "lessonNumber": 1,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 1: Greetings & Introductions",
+        "titleVi": "Chào Hỏi và Giới Thiệu",
+        "difficulty": "beginner",
+        "summary": "Learn how to greet someone, introduce yourself, ask for someone's name, and say goodbye in Vietnamese. This lesson focuses on basic greetings and introductions.",
+        "text": "A: Xin chào!\n\nB: Chào bạn!\n\nA: Tên tôi là David. Bạn tên là gì?\n\nB: Tên tôi là Lan.\n\nA: Rất vui được gặp bạn, Lan.\n\nB: Rất vui được gặp bạn, David. Bạn là người nước nào?\n\nA: Tôi là người Mỹ. Còn bạn?\n\nB: Tôi là người Việt Nam.\n\nA: Tạm biệt, Lan!\n\nB: Tạm biệt, David!",
+        "vocabulary": [
+          {
+            "id": "01-chao-hoi-xin-chao",
+            "word": "Xin chào!",
+            "pronunciation": "siǹ cào",
+            "partOfSpeech": "other",
+            "definition": "Hello!",
+            "exampleSentence": "Xin chào!",
+            "exampleTranslation": "Hello!"
+          },
+          {
+            "id": "01-chao-hoi-chao-ban",
+            "word": "Chào bạn!",
+            "pronunciation": "cào bạn",
+            "partOfSpeech": "other",
+            "definition": "Hello (to you)!",
+            "exampleSentence": "Chào bạn!",
+            "exampleTranslation": "Hello (to you)!"
+          },
+          {
+            "id": "01-chao-hoi-ten-toi-la",
+            "word": "Tên tôi là",
+            "pronunciation": "tên tôi là",
+            "partOfSpeech": "other",
+            "definition": "My name is",
+            "exampleSentence": "Tên tôi là David.",
+            "exampleTranslation": "My name is David."
+          },
+          {
+            "id": "01-chao-hoi-ban-ten-la-gi",
+            "word": "Bạn tên là gì?",
+            "pronunciation": "Bạn tên lá zì?",
+            "partOfSpeech": "other",
+            "definition": "What is your name?",
+            "exampleSentence": "Bạn tên là gì?",
+            "exampleTranslation": "What is your name?"
+          },
+          {
+            "id": "01-chao-hoi-rat-vui-duoc-gap-ban",
+            "word": "Rất vui được gặp bạn",
+            "pronunciation": "rất vui được gặp bạn",
+            "partOfSpeech": "other",
+            "definition": "Nice to meet you",
+            "exampleSentence": "Rất vui được gặp bạn, Lan.",
+            "exampleTranslation": "Nice to meet you, Lan."
+          },
+          {
+            "id": "01-chao-hoi-nguoi-my",
+            "word": "người Mỹ",
+            "pronunciation": "người Mỹ",
+            "partOfSpeech": "noun",
+            "definition": "American",
+            "exampleSentence": "Tôi là người Mỹ.",
+            "exampleTranslation": "I am American."
+          },
+          {
+            "id": "01-chao-hoi-nguoi-viet-nam",
+            "word": "người Việt Nam",
+            "pronunciation": "người Việt Nam",
+            "partOfSpeech": "noun",
+            "definition": "Vietnamese",
+            "exampleSentence": "Tôi là người Việt Nam.",
+            "exampleTranslation": "I am Vietnamese."
+          },
+          {
+            "id": "01-chao-hoi-tam-biet",
+            "word": "Tạm biệt",
+            "pronunciation": "Tạm biệt",
+            "partOfSpeech": "other",
+            "definition": "Goodbye",
+            "exampleSentence": "Tạm biệt, David!",
+            "exampleTranslation": "Goodbye, David!"
+          },
+          {
+            "id": "01-chao-hoi-ban",
+            "word": "bạn",
+            "pronunciation": "bạn",
+            "partOfSpeech": "noun",
+            "definition": "you",
+            "exampleSentence": "Chào bạn!",
+            "exampleTranslation": "Hello you!"
+          },
+          {
+            "id": "01-chao-hoi-la",
+            "word": "là",
+            "pronunciation": "là",
+            "partOfSpeech": "verb",
+            "definition": "is",
+            "exampleSentence": "Tên tôi là David.",
+            "exampleTranslation": "My name is David."
+          },
+          {
+            "id": "01-chao-hoi-toi",
+            "word": "Tôi",
+            "pronunciation": "tôi",
+            "partOfSpeech": "noun",
+            "definition": "I",
+            "exampleSentence": "Tên tôi là David.",
+            "exampleTranslation": "My name is David."
+          },
+          {
+            "id": "01-chao-hoi-con",
+            "word": "Còn",
+            "pronunciation": "Còn",
+            "partOfSpeech": "conjunction",
+            "definition": "And; As for",
+            "exampleSentence": "Còn bạn?",
+            "exampleTranslation": "And you?"
+          },
+          {
+            "id": "01-chao-hoi-nuoc-nao",
+            "word": "nước nào",
+            "pronunciation": "nước nào",
+            "partOfSpeech": "other",
+            "definition": "which country",
+            "exampleSentence": "Bạn là người nước nào?",
+            "exampleTranslation": "What country are you from?"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "01-chao-hoi-name-la",
+            "pattern": "Tên + [pronoun] + là + [name]",
+            "explanation": "This pattern is used to state your name. 'Tên' means 'name,' followed by a pronoun (like 'tôi' for 'I'), 'là' (is), and then the name.",
+            "exampleFromText": "Tên tôi là David.",
+            "additionalExample": "Tên cô ấy là Hoa. (Her name is Hoa.)"
+          },
+          {
+            "id": "01-chao-hoi-pronoun-la-nationality",
+            "pattern": "[Pronoun] + là + người + [Nationality]",
+            "explanation": "This pattern is used to state your nationality. '[Pronoun]' is the subject, 'là' means 'is', 'người' means 'person', followed by the nationality.",
+            "exampleFromText": "Tôi là người Mỹ.",
+            "additionalExample": "Anh ấy là người Anh. (He is British.)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "01-chao-hoi-age",
+            "term": "Age in Greetings",
+            "note": "In Vietnamese culture, it's common to address people by age-based pronouns (e.g., 'chị' for older sister, 'em' for younger sibling) to show respect. However, in initial interactions with strangers, 'bạn' (you) is perfectly acceptable and polite."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "01-chao-hoi-q1",
+            "question": "David là người nước nào?",
+            "questionTranslation": "What nationality is David?",
+            "type": "multiple-choice",
+            "options": [
+              "người Mỹ",
+              "người Việt Nam",
+              "người Anh"
+            ],
+            "answer": "người Mỹ"
+          },
+          {
+            "id": "01-chao-hoi-q2",
+            "question": "Lan nói gì khi gặp David lần đầu tiên?",
+            "questionTranslation": "What does Lan say when she meets David for the first time?",
+            "type": "multiple-choice",
+            "options": [
+              "Tạm biệt!",
+              "Rất vui được gặp bạn!",
+              "Tôi là người Mỹ."
+            ],
+            "answer": "Rất vui được gặp bạn!"
+          },
+          {
+            "id": "01-chao-hoi-q3",
+            "question": "Tên của bạn là gì?",
+            "questionTranslation": "What is your name?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "learner provides answer"
+          }
+        ],
+        "annotatedHtml": "<p>A: <span class=\"vl-word\" data-id=\"01-chao-hoi-xin-chao\">Xin chào!</span></p>\n<p>B: <span class=\"vl-word\" data-id=\"01-chao-hoi-chao-ban\">Chào bạn!</span></p>\n<p>A: <span class=\"vl-word\" data-id=\"01-chao-hoi-ten-toi-la\">Tên tôi là</span> David. <span class=\"vl-word\" data-id=\"01-chao-hoi-ban-ten-la-gi\">Bạn tên là gì?</span></p>\n<p>B: <span class=\"vl-word\" data-id=\"01-chao-hoi-ten-toi-la\">Tên tôi là</span> Lan.</p>\n<p>A: <span class=\"vl-word\" data-id=\"01-chao-hoi-rat-vui-duoc-gap-ban\">Rất vui được gặp bạn</span>, Lan.</p>\n<p>B: <span class=\"vl-word\" data-id=\"01-chao-hoi-rat-vui-duoc-gap-ban\">Rất vui được gặp bạn</span>, David. Bạn <span class=\"vl-word\" data-id=\"01-chao-hoi-la\">là</span> người <span class=\"vl-word\" data-id=\"01-chao-hoi-nuoc-nao\">nước nào</span>?</p>\n<p>A: <span class=\"vl-word\" data-id=\"01-chao-hoi-toi\">Tôi</span> <span class=\"vl-word\" data-id=\"01-chao-hoi-la\">là</span> <span class=\"vl-word\" data-id=\"01-chao-hoi-nguoi-my\">người Mỹ</span>. <span class=\"vl-word\" data-id=\"01-chao-hoi-con\">Còn</span> <span class=\"vl-word\" data-id=\"01-chao-hoi-ban\">bạn</span>?</p>\n<p>B: <span class=\"vl-word\" data-id=\"01-chao-hoi-toi\">Tôi</span> <span class=\"vl-word\" data-id=\"01-chao-hoi-la\">là</span> <span class=\"vl-word\" data-id=\"01-chao-hoi-nguoi-viet-nam\">người Việt Nam</span>.</p>\n<p>A: <span class=\"vl-word\" data-id=\"01-chao-hoi-tam-biet\">Tạm biệt</span>, Lan!</p>\n<p>B: <span class=\"vl-word\" data-id=\"01-chao-hoi-tam-biet\">Tạm biệt</span>, David!</p>"
+      }
+    },
+    {
+      "id": "02-so-dem",
+      "lessonNumber": 2,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 2: Numbers 1–20",
+        "titleVi": "Bài 2: Số Đếm",
+        "difficulty": "beginner",
+        "summary": "Learn to count from 1 to 20 in Vietnamese. This lesson includes a dialogue at a market, focusing on asking about quantities and using classifiers with numbers.",
+        "text": "A: Chào bạn! Bạn có bao nhiêu quả táo?\n\nB: Chào bạn. Tôi có mười quả táo.\n\nA: Bạn có bao nhiêu con gà?\n\nB: Tôi có năm con gà. Bạn muốn mua không?\n\nA: Vâng. Tôi muốn mua hai quả táo và một con gà.\n\nB: Được thôi. Hai quả táo là bao nhiêu tiền?\n\nA: Hai quả táo là hai mươi nghìn đồng.\n\nB: Một con gà là mười lăm nghìn đồng.\n\nA: Đây là tiền của bạn. Cảm ơn bạn!\n\nB: Cảm ơn bạn!",
+        "vocabulary": [
+          {
+            "id": "02-so-dem-chao-ban",
+            "word": "Chào bạn!",
+            "pronunciation": "t͡ɕaw˨˩ˀ ɓan˧ˀ",
+            "partOfSpeech": "other",
+            "definition": "Hello!",
+            "exampleSentence": "Chào bạn! Bạn có bao nhiêu quả táo?",
+            "exampleTranslation": "Hello! How many apples do you have?"
+          },
+          {
+            "id": "02-so-dem-qua-tao",
+            "word": "quả táo",
+            "pronunciation": "kwa˧ˀ taw˧",
+            "partOfSpeech": "noun",
+            "definition": "apple",
+            "exampleSentence": "Bạn có bao nhiêu quả táo?",
+            "exampleTranslation": "How many apples do you have?"
+          },
+          {
+            "id": "02-so-dem-bao-nhieu",
+            "word": "bao nhiêu",
+            "pronunciation": "ɓaw˧ ɲiəw˧",
+            "partOfSpeech": "adverb",
+            "definition": "how many, how much",
+            "exampleSentence": "Bạn có bao nhiêu quả táo?",
+            "exampleTranslation": "How many apples do you have?"
+          },
+          {
+            "id": "02-so-dem-muoi",
+            "word": "mười",
+            "pronunciation": "mɨəjˀ",
+            "partOfSpeech": "number",
+            "definition": "ten",
+            "exampleSentence": "Tôi có mười quả táo.",
+            "exampleTranslation": "I have ten apples."
+          },
+          {
+            "id": "02-so-dem-con-ga",
+            "word": "con gà",
+            "pronunciation": "kɔn˧ ɣaː˧",
+            "partOfSpeech": "noun",
+            "definition": "chicken",
+            "exampleSentence": "Bạn có bao nhiêu con gà?",
+            "exampleTranslation": "How many chickens do you have?"
+          },
+          {
+            "id": "02-so-dem-nam",
+            "word": "năm",
+            "pronunciation": "năm˧",
+            "partOfSpeech": "number",
+            "definition": "five",
+            "exampleSentence": "Tôi có năm con gà.",
+            "exampleTranslation": "I have five chickens."
+          },
+          {
+            "id": "02-so-dem-mua",
+            "word": "mua",
+            "pronunciation": "muːa˧",
+            "partOfSpeech": "verb",
+            "definition": "to buy",
+            "exampleSentence": "Bạn muốn mua không?",
+            "exampleTranslation": "Do you want to buy?"
+          },
+          {
+            "id": "02-so-dem-vang",
+            "word": "Vâng.",
+            "pronunciation": "vʌŋ˧",
+            "partOfSpeech": "particle",
+            "definition": "Yes.",
+            "exampleSentence": "Vâng. Tôi muốn mua hai quả táo và một con gà.",
+            "exampleTranslation": "Yes. I want to buy two apples and one chicken."
+          },
+          {
+            "id": "02-so-dem-hai",
+            "word": "hai",
+            "pronunciation": "haːj˧",
+            "partOfSpeech": "number",
+            "definition": "two",
+            "exampleSentence": "Tôi muốn mua hai quả táo và một con gà.",
+            "exampleTranslation": "I want to buy two apples and one chicken."
+          },
+          {
+            "id": "02-so-dem-mot",
+            "word": "một",
+            "pronunciation": "mot̚ˀ",
+            "partOfSpeech": "number",
+            "definition": "one",
+            "exampleSentence": "Tôi muốn mua hai quả táo và một con gà.",
+            "exampleTranslation": "I want to buy two apples and one chicken."
+          },
+          {
+            "id": "02-so-dem-duoc-thoi",
+            "word": "Được thôi.",
+            "pronunciation": "ɗɨəkˀ tʰoj˧",
+            "partOfSpeech": "other",
+            "definition": "Okay.",
+            "exampleSentence": "Được thôi. Hai quả táo là bao nhiêu tiền?",
+            "exampleTranslation": "Okay. How much are two apples?"
+          },
+          {
+            "id": "02-so-dem-hai-muoi",
+            "word": "hai mươi",
+            "pronunciation": "haːj˧ mɨəj˧",
+            "partOfSpeech": "number",
+            "definition": "twenty",
+            "exampleSentence": "Hai quả táo là hai mươi nghìn đồng.",
+            "exampleTranslation": "Two apples are twenty thousand dong."
+          },
+          {
+            "id": "02-so-dem-muoi-lam",
+            "word": "mười lăm",
+            "pronunciation": "mɨəjˀ lăm˧",
+            "partOfSpeech": "number",
+            "definition": "fifteen",
+            "exampleSentence": "Một con gà là mười lăm nghìn đồng.",
+            "exampleTranslation": "One chicken is fifteen thousand dong."
+          },
+          {
+            "id": "02-so-dem-cam-on",
+            "word": "Cảm ơn bạn!",
+            "pronunciation": "kaːm˧ ʔən˧ ɓan˧ˀ",
+            "partOfSpeech": "other",
+            "definition": "Thank you!",
+            "exampleSentence": "Cảm ơn bạn!",
+            "exampleTranslation": "Thank you!"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "02-so-dem-classifier-noun",
+            "pattern": "Number + Classifier + Noun",
+            "explanation": "In Vietnamese, you need to use a classifier between a number and a noun. 'Con' is used for animals, and 'quả' is used for round objects like fruit.",
+            "exampleFromText": "hai quả táo",
+            "additionalExample": "ba con mèo (three cats)"
+          },
+          {
+            "id": "02-so-dem-question-bao-nhieu",
+            "pattern": "Bạn có bao nhiêu + Noun?",
+            "explanation": "This pattern is used to ask 'How many [noun] do you have?'",
+            "exampleFromText": "Bạn có bao nhiêu quả táo?",
+            "additionalExample": "Bạn có bao nhiêu tiền? (How much money do you have?)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "02-so-dem-dong",
+            "term": "nghìn đồng",
+            "note": "The 'đồng' is the Vietnamese currency. 'Nghìn' means thousand. So 'hai mươi nghìn đồng' is twenty thousand dong. When speaking, Vietnamese people often omit 'đồng'."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "02-so-dem-question-1",
+            "question": "Người bán có bao nhiêu con gà?",
+            "questionTranslation": "How many chickens does the seller have?",
+            "type": "multiple-choice",
+            "options": [
+              "hai",
+              "năm",
+              "mười"
+            ],
+            "answer": "năm"
+          },
+          {
+            "id": "02-so-dem-question-2",
+            "question": "Người mua muốn mua bao nhiêu quả táo?",
+            "questionTranslation": "How many apples does the buyer want to buy?",
+            "type": "multiple-choice",
+            "options": [
+              "một",
+              "hai",
+              "ba"
+            ],
+            "answer": "hai"
+          },
+          {
+            "id": "02-so-dem-question-3",
+            "question": "Một con gà giá bao nhiêu?",
+            "questionTranslation": "How much is one chicken?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "mười lăm nghìn đồng"
+          }
+        ],
+        "annotatedHtml": "<p>A: <span class=\"vl-word\" data-id=\"02-so-dem-chao-ban\">Chào bạn!</span> Bạn có <span class=\"vl-word\" data-id=\"02-so-dem-bao-nhieu\">bao nhiêu</span> <span class=\"vl-word\" data-id=\"02-so-dem-qua-tao\">quả táo</span>?</p>\n<p>B: Chào bạn. Tôi có <span class=\"vl-word\" data-id=\"02-so-dem-muoi\">mười</span> <span class=\"vl-word\" data-id=\"02-so-dem-qua-tao\">quả táo</span>.</p>\n<p>A: Bạn có <span class=\"vl-word\" data-id=\"02-so-dem-bao-nhieu\">bao nhiêu</span> <span class=\"vl-word\" data-id=\"02-so-dem-con-ga\">con gà</span>?</p>\n<p>B: Tôi có <span class=\"vl-word\" data-id=\"02-so-dem-nam\">năm</span> <span class=\"vl-word\" data-id=\"02-so-dem-con-ga\">con gà</span>. Bạn muốn <span class=\"vl-word\" data-id=\"02-so-dem-mua\">mua</span> không?</p>\n<p>A: <span class=\"vl-word\" data-id=\"02-so-dem-vang\">Vâng.</span> Tôi muốn <span class=\"vl-word\" data-id=\"02-so-dem-mua\">mua</span> <span class=\"vl-word\" data-id=\"02-so-dem-hai\">hai</span> <span class=\"vl-word\" data-id=\"02-so-dem-qua-tao\">quả táo</span> và <span class=\"vl-word\" data-id=\"02-so-dem-mot\">một</span> <span class=\"vl-word\" data-id=\"02-so-dem-con-ga\">con gà</span>.</p>\n<p>B: <span class=\"vl-word\" data-id=\"02-so-dem-duoc-thoi\">Được thôi.</span> Hai <span class=\"vl-word\" data-id=\"02-so-dem-qua-tao\">quả táo</span> là <span class=\"vl-word\" data-id=\"02-so-dem-bao-nhieu\">bao nhiêu</span> tiền?</p>\n<p>A: Hai <span class=\"vl-word\" data-id=\"02-so-dem-qua-tao\">quả táo</span> là <span class=\"vl-word\" data-id=\"02-so-dem-hai-muoi\">hai mươi</span> nghìn đồng.</p>\n<p>B: Một <span class=\"vl-word\" data-id=\"02-so-dem-con-ga\">con gà</span> là <span class=\"vl-word\" data-id=\"02-so-dem-muoi-lam\">mười lăm</span> nghìn đồng.</p>\n<p>A: Đây là tiền của bạn. <span class=\"vl-word\" data-id=\"02-so-dem-cam-on\">Cảm ơn bạn!</span></p>\n<p>B: <span class=\"vl-word\" data-id=\"02-so-dem-cam-on\">Cảm ơn bạn!</span></p>"
+      }
+    },
+    {
+      "id": "03-gia-dinh",
+      "lessonNumber": 3,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 3: Family Members",
+        "titleVi": "Bài 3: Các Thành Viên Trong Gia Đình",
+        "difficulty": "beginner",
+        "summary": "Learn basic Vietnamese vocabulary for family members. Practice describing your family using simple sentences and age-based pronouns.",
+        "text": "Chào các bạn!\n\nTôi là Lan.\n\nGia đình tôi có bốn người: bố, mẹ, em trai và tôi.\n\nBố tôi là bác sĩ. Mẹ tôi là giáo viên.\n\nTôi có một em trai. Em trai tôi mười tuổi. Tôi hai mươi tuổi. Tôi là chị của em trai tôi.\n\nÔng bà tôi sống ở Hà Nội. Tôi yêu gia đình tôi.",
+        "vocabulary": [
+          {
+            "id": "03-gia-dinh-gia-dinh",
+            "word": "Gia đình",
+            "pronunciation": "zaa ɗǐɳ",
+            "partOfSpeech": "noun",
+            "definition": "Family",
+            "exampleSentence": "Gia đình tôi có bốn người: bố, mẹ, em trai và tôi.",
+            "exampleTranslation": "My family has four people: father, mother, younger brother, and me."
+          },
+          {
+            "id": "03-gia-dinh-bo",
+            "word": "bố",
+            "pronunciation": "ɓǒ",
+            "partOfSpeech": "noun",
+            "definition": "Father (more common in the North)",
+            "exampleSentence": "Bố tôi là bác sĩ.",
+            "exampleTranslation": "My father is a doctor."
+          },
+          {
+            "id": "03-gia-dinh-me",
+            "word": "mẹ",
+            "pronunciation": "mɛ̰ˀ",
+            "partOfSpeech": "noun",
+            "definition": "Mother",
+            "exampleSentence": "Mẹ tôi là giáo viên.",
+            "exampleTranslation": "My mother is a teacher."
+          },
+          {
+            "id": "03-gia-dinh-em-trai",
+            "word": "em trai",
+            "pronunciation": "ɛm t͡ɕaːj",
+            "partOfSpeech": "noun",
+            "definition": "Younger brother",
+            "exampleSentence": "Tôi có một em trai.",
+            "exampleTranslation": "I have one younger brother."
+          },
+          {
+            "id": "03-gia-dinh-toi",
+            "word": "tôi",
+            "pronunciation": "tōj",
+            "partOfSpeech": "noun",
+            "definition": "I, me (neutral)",
+            "exampleSentence": "Gia đình tôi có bốn người: bố, mẹ, em trai và tôi.",
+            "exampleTranslation": "My family has four people: father, mother, younger brother, and me."
+          },
+          {
+            "id": "03-gia-dinh-chi",
+            "word": "chị",
+            "pronunciation": "t͡ɕǐˀ",
+            "partOfSpeech": "noun",
+            "definition": "Older sister",
+            "exampleSentence": "Tôi là chị của em trai tôi.",
+            "exampleTranslation": "I am the older sister of my younger brother."
+          },
+          {
+            "id": "03-gia-dinh-ong",
+            "word": "Ông",
+            "pronunciation": "ʔɔŋ",
+            "partOfSpeech": "noun",
+            "definition": "Grandfather",
+            "exampleSentence": "Ông bà tôi sống ở Hà Nội.",
+            "exampleTranslation": "My grandparents live in Hanoi."
+          },
+          {
+            "id": "03-gia-dinh-ba",
+            "word": "bà",
+            "pronunciation": "ɓàː",
+            "partOfSpeech": "noun",
+            "definition": "Grandmother",
+            "exampleSentence": "Ông bà tôi sống ở Hà Nội.",
+            "exampleTranslation": "My grandparents live in Hanoi."
+          },
+          {
+            "id": "03-gia-dinh-mot",
+            "word": "một",
+            "pronunciation": "mǒt",
+            "partOfSpeech": "number",
+            "definition": "One",
+            "exampleSentence": "Tôi có một em trai.",
+            "exampleTranslation": "I have one younger brother."
+          },
+          {
+            "id": "03-gia-dinh-bon",
+            "word": "bốn",
+            "pronunciation": "ɓốn",
+            "partOfSpeech": "number",
+            "definition": "Four",
+            "exampleSentence": "Gia đình tôi có bốn người: bố, mẹ, em trai và tôi.",
+            "exampleTranslation": "My family has four people: father, mother, younger brother, and me."
+          },
+          {
+            "id": "03-gia-dinh-bac-si",
+            "word": "bác sĩ",
+            "pronunciation": "ɓǎk siˀ",
+            "partOfSpeech": "noun",
+            "definition": "Doctor",
+            "exampleSentence": "Bố tôi là bác sĩ.",
+            "exampleTranslation": "My father is a doctor."
+          },
+          {
+            "id": "03-gia-dinh-giao-vien",
+            "word": "giáo viên",
+            "pronunciation": "zǎw viən",
+            "partOfSpeech": "noun",
+            "definition": "Teacher",
+            "exampleSentence": "Mẹ tôi là giáo viên.",
+            "exampleTranslation": "My mother is a teacher."
+          },
+          {
+            "id": "03-gia-dinh-yeu",
+            "word": "yêu",
+            "pronunciation": "jə̄w",
+            "partOfSpeech": "verb",
+            "definition": "To love",
+            "exampleSentence": "Tôi yêu gia đình tôi.",
+            "exampleTranslation": "I love my family."
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "03-gia-dinh-toi-co",
+            "pattern": "Tôi có + [Number] + [Family Member]",
+            "explanation": "This pattern is used to state how many of a specific family member you have. 'Tôi có' means 'I have'.",
+            "exampleFromText": "Tôi có một em trai.",
+            "additionalExample": "Tôi có hai chị gái. (I have two older sisters.)"
+          },
+          {
+            "id": "03-gia-dinh-la",
+            "pattern": "[Person] là [Profession/Description]",
+            "explanation": "This pattern is used to describe someone's profession or relationship. 'Là' means 'is'.",
+            "exampleFromText": "Bố tôi là bác sĩ.",
+            "additionalExample": "Em gái tôi là học sinh. (My younger sister is a student.)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "03-gia-dinh-age-pronouns",
+            "term": "Age-based pronouns",
+            "note": "Vietnamese uses age and social status to determine which pronoun to use. 'Tôi' is a neutral 'I'. When speaking to someone older, you would use 'em' (if you are younger) or 'cháu' (if you are a grandchild). When speaking to someone younger, you would use 'anh' (if you are male) or 'chị' (if you are female)."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "03-gia-dinh-q1",
+            "question": "Gia đình của Lan có bao nhiêu người?",
+            "questionTranslation": "How many people are in Lan's family?",
+            "type": "multiple-choice",
+            "options": [
+              "Hai (2)",
+              "Ba (3)",
+              "Bốn (4)",
+              "Năm (5)"
+            ],
+            "answer": "Bốn (4)"
+          },
+          {
+            "id": "03-gia-dinh-q2",
+            "question": "Bố của Lan làm nghề gì?",
+            "questionTranslation": "What is Lan's father's job?",
+            "type": "multiple-choice",
+            "options": [
+              "Giáo viên",
+              "Bác sĩ",
+              "Học sinh",
+              "Kỹ sư"
+            ],
+            "answer": "Bác sĩ"
+          },
+          {
+            "id": "03-gia-dinh-q3",
+            "question": "Em trai của Lan bao nhiêu tuổi?",
+            "questionTranslation": "How old is Lan's younger brother?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Mười tuổi"
+          },
+          {
+            "id": "03-gia-dinh-q4",
+            "question": "Ông bà của Lan sống ở đâu?",
+            "questionTranslation": "Where do Lan's grandparents live?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Hà Nội"
+          }
+        ],
+        "annotatedHtml": "<p>Chào các bạn!</p>\n<p>Tôi là Lan.</p>\n<p><span class=\"vl-word\" data-id=\"03-gia-dinh-gia-dinh\">Gia đình</span> <span class=\"vl-word\" data-id=\"03-gia-dinh-toi\">tôi</span> có <span class=\"vl-word\" data-id=\"03-gia-dinh-bon\">bốn</span> người: <span class=\"vl-word\" data-id=\"03-gia-dinh-bo\">bố</span>, <span class=\"vl-word\" data-id=\"03-gia-dinh-me\">mẹ</span>, <span class=\"vl-word\" data-id=\"03-gia-dinh-em-trai\">em trai</span> và <span class=\"vl-word\" data-id=\"03-gia-dinh-toi\">tôi</span>.</p>\n<p>Bố <span class=\"vl-word\" data-id=\"03-gia-dinh-toi\">tôi</span> là <span class=\"vl-word\" data-id=\"03-gia-dinh-bac-si\">bác sĩ</span>. Mẹ <span class=\"vl-word\" data-id=\"03-gia-dinh-toi\">tôi</span> là <span class=\"vl-word\" data-id=\"03-gia-dinh-giao-vien\">giáo viên</span>.</p>\n<p>Tôi có <span class=\"vl-word\" data-id=\"03-gia-dinh-mot\">một</span> <span class=\"vl-word\" data-id=\"03-gia-dinh-em-trai\">em trai</span>. Em trai <span class=\"vl-word\" data-id=\"03-gia-dinh-toi\">tôi</span> mười tuổi. Tôi hai mươi tuổi. Tôi là <span class=\"vl-word\" data-id=\"03-gia-dinh-chi\">chị</span> của <span class=\"vl-word\" data-id=\"03-gia-dinh-em-trai\">em trai</span> <span class=\"vl-word\" data-id=\"03-gia-dinh-toi\">tôi</span>.</p>\n<p><span class=\"vl-word\" data-id=\"03-gia-dinh-ong\">Ông</span> <span class=\"vl-word\" data-id=\"03-gia-dinh-ba\">bà</span> <span class=\"vl-word\" data-id=\"03-gia-dinh-toi\">tôi</span> sống ở Hà Nội. Tôi <span class=\"vl-word\" data-id=\"03-gia-dinh-yeu\">yêu</span> gia đình <span class=\"vl-word\" data-id=\"03-gia-dinh-toi\">tôi</span>.</p>"
+      }
+    },
+    {
+      "id": "04-do-an",
+      "lessonNumber": 4,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 4: Food & Drinks",
+        "titleVi": "Bài 4: Đồ Ăn và Thức Uống",
+        "difficulty": "beginner",
+        "summary": "Learn basic vocabulary for food and drinks in Vietnamese, practice ordering at a food stall, and understand the cultural significance of street food.",
+        "text": "A: Chào bạn! Bạn muốn ăn gì?\n\nB: Chào bạn. Tôi muốn ăn phở.\n\nA: Bạn muốn uống gì?\n\nB: Tôi muốn uống trà đá.\n\nA: Phở và trà đá. Ngon quá!\n\nC: Chào bạn. Tôi muốn một bánh mì.\n\nA: Bạn muốn uống gì?\n\nC: Tôi muốn cà phê sữa đá.\n\nA: Bánh mì và cà phê sữa đá. Được thôi.\n\nD: Chào bạn. Tôi muốn cơm.\n\nA: Bạn muốn uống gì?\n\nD: Tôi muốn nước.\n\nA: Cơm và nước. Cảm ơn!",
+        "vocabulary": [
+          {
+            "id": "04-do-an-chao-ban",
+            "word": "Chào bạn!",
+            "pronunciation": "t͡ɕaːw˧˩ ʔɓaːnˀ˧˨ʔ",
+            "partOfSpeech": "other",
+            "definition": "Hello!",
+            "exampleSentence": "Chào bạn! Bạn muốn ăn gì?",
+            "exampleTranslation": "Hello! What do you want to eat?"
+          },
+          {
+            "id": "04-do-an-muon",
+            "word": "muốn",
+            "pronunciation": "muốn˧",
+            "partOfSpeech": "verb",
+            "definition": "to want",
+            "exampleSentence": "Bạn muốn ăn gì?",
+            "exampleTranslation": "What do you want to eat?"
+          },
+          {
+            "id": "04-do-an-an",
+            "word": "ăn",
+            "pronunciation": "ʔaŋ˧",
+            "partOfSpeech": "verb",
+            "definition": "to eat",
+            "exampleSentence": "Bạn muốn ăn gì?",
+            "exampleTranslation": "What do you want to eat?"
+          },
+          {
+            "id": "04-do-an-pho",
+            "word": "phở",
+            "pronunciation": "fəː˧˩",
+            "partOfSpeech": "noun",
+            "definition": "pho (Vietnamese noodle soup)",
+            "exampleSentence": "Tôi muốn ăn phở.",
+            "exampleTranslation": "I want to eat pho."
+          },
+          {
+            "id": "04-do-an-uong",
+            "word": "uống",
+            "pronunciation": "ʔuəŋ˧",
+            "partOfSpeech": "verb",
+            "definition": "to drink",
+            "exampleSentence": "Bạn muốn uống gì?",
+            "exampleTranslation": "What do you want to drink?"
+          },
+          {
+            "id": "04-do-an-tra-da",
+            "word": "trà đá",
+            "pronunciation": "ʈaː˨˩ ʔɗaː˧",
+            "partOfSpeech": "noun",
+            "definition": "iced tea",
+            "exampleSentence": "Tôi muốn uống trà đá.",
+            "exampleTranslation": "I want to drink iced tea."
+          },
+          {
+            "id": "04-do-an-ngon",
+            "word": "Ngon",
+            "pronunciation": "ŋɔn˧",
+            "partOfSpeech": "adjective",
+            "definition": "Delicious",
+            "exampleSentence": "Ngon quá!",
+            "exampleTranslation": "So delicious!"
+          },
+          {
+            "id": "04-do-an-banh-mi",
+            "word": "bánh mì",
+            "pronunciation": "ɓaːɲ˧˩ miː˨˩",
+            "partOfSpeech": "noun",
+            "definition": "Vietnamese baguette/sandwich",
+            "exampleSentence": "Tôi muốn một bánh mì.",
+            "exampleTranslation": "I want a banh mi."
+          },
+          {
+            "id": "04-do-an-ca-phe-sua-da",
+            "word": "cà phê sữa đá",
+            "pronunciation": "kaː˨˩ fe˧ sɨə̃ː˧˩ ʔɗaː˧",
+            "partOfSpeech": "noun",
+            "definition": "Vietnamese iced coffee with milk",
+            "exampleSentence": "Tôi muốn cà phê sữa đá.",
+            "exampleTranslation": "I want Vietnamese iced coffee with milk."
+          },
+          {
+            "id": "04-do-an-duoc-thoi",
+            "word": "Được thôi.",
+            "pronunciation": "ʔɗɨək̚˧˨ θɔj˧",
+            "partOfSpeech": "other",
+            "definition": "Okay.",
+            "exampleSentence": "Bánh mì và cà phê sữa đá. Được thôi.",
+            "exampleTranslation": "Banh mi and iced coffee with milk. Okay."
+          },
+          {
+            "id": "04-do-an-com",
+            "word": "cơm",
+            "pronunciation": "kəːm˧",
+            "partOfSpeech": "noun",
+            "definition": "cooked rice",
+            "exampleSentence": "Tôi muốn cơm.",
+            "exampleTranslation": "I want rice."
+          },
+          {
+            "id": "04-do-an-nuoc",
+            "word": "nước",
+            "pronunciation": "nɨək̚˧",
+            "partOfSpeech": "noun",
+            "definition": "water",
+            "exampleSentence": "Tôi muốn nước.",
+            "exampleTranslation": "I want water."
+          },
+          {
+            "id": "04-do-an-cam-on",
+            "word": "Cảm ơn!",
+            "pronunciation": "kaːm˧ˀ ʔən˧",
+            "partOfSpeech": "other",
+            "definition": "Thank you!",
+            "exampleSentence": "Cơm và nước. Cảm ơn!",
+            "exampleTranslation": "Rice and water. Thank you!"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "04-do-an-muon-verb",
+            "pattern": "Subject + muốn + Verb/Noun",
+            "explanation": "This pattern expresses what someone wants to do or have. 'Muốn' means 'to want'.",
+            "exampleFromText": "Tôi muốn ăn phở.",
+            "additionalExample": "Tôi muốn uống nước cam. (I want to drink orange juice.)"
+          },
+          {
+            "id": "04-do-an-noun-va-noun",
+            "pattern": "Noun + và + Noun",
+            "explanation": "This pattern connects two nouns with 'và' (and).",
+            "exampleFromText": "Phở và trà đá.",
+            "additionalExample": "Cơm và cá. (Rice and fish.)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "04-do-an-street-food",
+            "term": "Street Food",
+            "note": "Street food is a huge part of Vietnamese culture. You can find food stalls everywhere, offering delicious and affordable meals. It's a great way to experience local flavors."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "04-do-an-question-1",
+            "question": "Bạn muốn ăn gì?",
+            "questionTranslation": "What do you want to eat?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "phở / bánh mì / cơm"
+          },
+          {
+            "id": "04-do-an-question-2",
+            "question": "Bạn muốn uống gì?",
+            "questionTranslation": "What do you want to drink?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "trà đá / cà phê sữa đá / nước"
+          },
+          {
+            "id": "04-do-an-question-3",
+            "question": "\"Ngon quá!\" có nghĩa là gì?",
+            "questionTranslation": "What does \"Ngon quá!\" mean?",
+            "type": "multiple-choice",
+            "options": [
+              "Thank you!",
+              "So delicious!",
+              "Goodbye!"
+            ],
+            "answer": "So delicious!"
+          }
+        ],
+        "annotatedHtml": "<p>A: <span class=\"vl-word\" data-id=\"04-do-an-chao-ban\">Chào bạn!</span> Bạn <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-an\">ăn</span> gì?</p>\n<p>B: Chào bạn. Tôi <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-an\">ăn</span> <span class=\"vl-word\" data-id=\"04-do-an-pho\">phở</span>.</p>\n<p>A: Bạn <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-uong\">uống</span> gì?</p>\n<p>B: Tôi <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-uong\">uống</span> <span class=\"vl-word\" data-id=\"04-do-an-tra-da\">trà đá</span>.</p>\n<p>A: Phở và <span class=\"vl-word\" data-id=\"04-do-an-tra-da\">trà đá</span>. <span class=\"vl-word\" data-id=\"04-do-an-ngon\">Ngon</span> quá!</p>\n<p>C: Chào bạn. Tôi <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> một <span class=\"vl-word\" data-id=\"04-do-an-banh-mi\">bánh mì</span>.</p>\n<p>A: Bạn <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-uong\">uống</span> gì?</p>\n<p>C: Tôi <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-ca-phe-sua-da\">cà phê sữa đá</span>.</p>\n<p>A: Bánh mì và <span class=\"vl-word\" data-id=\"04-do-an-ca-phe-sua-da\">cà phê sữa đá</span>. <span class=\"vl-word\" data-id=\"04-do-an-duoc-thoi\">Được thôi.</span></p>\n<p>D: Chào bạn. Tôi <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-com\">cơm</span>.</p>\n<p>A: Bạn <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-uong\">uống</span> gì?</p>\n<p>D: Tôi <span class=\"vl-word\" data-id=\"04-do-an-muon\">muốn</span> <span class=\"vl-word\" data-id=\"04-do-an-nuoc\">nước</span>.</p>\n<p>A: Cơm và <span class=\"vl-word\" data-id=\"04-do-an-nuoc\">nước</span>. <span class=\"vl-word\" data-id=\"04-do-an-cam-on\">Cảm ơn!</span></p>"
+      }
+    },
+    {
+      "id": "05-mau-sac",
+      "lessonNumber": 5,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 5: Colors & Descriptions",
+        "titleVi": "Bài 5: Màu Sắc và Mô Tả",
+        "difficulty": "beginner",
+        "summary": "Learn basic colors and adjectives in Vietnamese. Practice describing objects, particularly clothing, in a simple shopping scenario. Understand the placement of adjectives after nouns.",
+        "text": "A: Chào Mai! Hôm nay mình đi mua sắm nhé.\n\nB: Chào Lan! Ý kiến hay! Mình muốn mua áo mới.\n\nA: Áo này đẹp không? Áo màu đỏ.\n\nB: Cái áo đỏ này đẹp, nhưng hơi to. Mình thích cái áo màu xanh lá.\n\nA: Áo xanh lá này nhỏ hơn. Còn cái váy màu vàng kia thì sao?\n\nB: Váy vàng đẹp quá! Nhưng mình không thích váy ngắn. Mình thích váy dài.\n\nA: Mình thấy cái áo màu trắng kia. Bạn thích không?\n\nB: Áo trắng đẹp! Mình mua áo trắng và váy vàng nhé.\n\nA: Được thôi!",
+        "vocabulary": [
+          {
+            "id": "05-mau-sac-ao",
+            "word": "áo",
+            "pronunciation": "ǎo",
+            "partOfSpeech": "noun",
+            "definition": "shirt, blouse",
+            "exampleSentence": "Mình muốn mua áo mới.",
+            "exampleTranslation": "I want to buy a new shirt."
+          },
+          {
+            "id": "05-mau-sac-mau-do",
+            "word": "màu đỏ",
+            "pronunciation": "màu đỏ",
+            "partOfSpeech": "noun",
+            "definition": "red color",
+            "exampleSentence": "Áo này đẹp không? Áo màu đỏ.",
+            "exampleTranslation": "Is this shirt beautiful? The shirt is red."
+          },
+          {
+            "id": "05-mau-sac-dep",
+            "word": "đẹp",
+            "pronunciation": "đẹp",
+            "partOfSpeech": "adjective",
+            "definition": "beautiful, pretty",
+            "exampleSentence": "Áo này đẹp không?",
+            "exampleTranslation": "Is this shirt beautiful?"
+          },
+          {
+            "id": "05-mau-sac-to",
+            "word": "to",
+            "pronunciation": "to",
+            "partOfSpeech": "adjective",
+            "definition": "big",
+            "exampleSentence": "Cái áo đỏ này đẹp, nhưng hơi to.",
+            "exampleTranslation": "This red shirt is beautiful, but a bit big."
+          },
+          {
+            "id": "05-mau-sac-mau-xanh-la",
+            "word": "màu xanh lá",
+            "pronunciation": "màu xanh lá",
+            "partOfSpeech": "noun",
+            "definition": "green color",
+            "exampleSentence": "Mình thích cái áo màu xanh lá.",
+            "exampleTranslation": "I like the green shirt."
+          },
+          {
+            "id": "05-mau-sac-nho-hon",
+            "word": "nhỏ hơn",
+            "pronunciation": "nhỏ hơn",
+            "partOfSpeech": "adjective",
+            "definition": "smaller",
+            "exampleSentence": "Áo xanh lá này nhỏ hơn.",
+            "exampleTranslation": "This green shirt is smaller."
+          },
+          {
+            "id": "05-mau-sac-vay",
+            "word": "váy",
+            "pronunciation": "váy",
+            "partOfSpeech": "noun",
+            "definition": "dress, skirt",
+            "exampleSentence": "Còn cái váy màu vàng kia thì sao?",
+            "exampleTranslation": "What about that yellow dress over there?"
+          },
+          {
+            "id": "05-mau-sac-mau-vang",
+            "word": "màu vàng",
+            "pronunciation": "màu vàng",
+            "partOfSpeech": "noun",
+            "definition": "yellow color",
+            "exampleSentence": "Váy vàng đẹp quá!",
+            "exampleTranslation": "The yellow dress is so beautiful!"
+          },
+          {
+            "id": "05-mau-sac-ngan",
+            "word": "ngắn",
+            "pronunciation": "ngắn",
+            "partOfSpeech": "adjective",
+            "definition": "short",
+            "exampleSentence": "Nhưng mình không thích váy ngắn.",
+            "exampleTranslation": "But I don't like short dresses."
+          },
+          {
+            "id": "05-mau-sac-dai",
+            "word": "dài",
+            "pronunciation": "dài",
+            "partOfSpeech": "adjective",
+            "definition": "long",
+            "exampleSentence": "Mình thích váy dài.",
+            "exampleTranslation": "I like long dresses."
+          },
+          {
+            "id": "05-mau-sac-mau-trang",
+            "word": "màu trắng",
+            "pronunciation": "màu trắng",
+            "partOfSpeech": "noun",
+            "definition": "white color",
+            "exampleSentence": "Mình thấy cái áo màu trắng kia.",
+            "exampleTranslation": "I see that white shirt over there."
+          },
+          {
+            "id": "05-mau-sac-mua",
+            "word": "mua",
+            "pronunciation": "mua",
+            "partOfSpeech": "verb",
+            "definition": "to buy",
+            "exampleSentence": "Mình mua áo trắng và váy vàng nhé.",
+            "exampleTranslation": "Let's buy the white shirt and yellow dress."
+          },
+          {
+            "id": "05-mau-sac-duoc-thoi",
+            "word": "Được thôi!",
+            "pronunciation": "Được thôi!",
+            "partOfSpeech": "particle",
+            "definition": "Okay! / Alright!",
+            "exampleSentence": "Được thôi!",
+            "exampleTranslation": "Okay!"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "05-mau-sac-noun-adj",
+            "pattern": "Noun + Adjective",
+            "explanation": "In Vietnamese, adjectives usually come *after* the noun they modify. This is different from English where we say 'a red shirt.' In Vietnamese, it's 'shirt red'.",
+            "exampleFromText": "Áo màu đỏ (shirt red)",
+            "additionalExample": "Nhà to (house big)"
+          },
+          {
+            "id": "05-mau-sac-hon",
+            "pattern": "Adjective + hơn",
+            "explanation": "The word 'hơn' is used to make comparisons. It means 'more' or '-er' (like bigger, smaller).",
+            "exampleFromText": "nhỏ hơn (smaller)",
+            "additionalExample": "đẹp hơn (more beautiful)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "05-mau-sac-shopping",
+            "term": "Shopping",
+            "note": "Shopping with friends is a common social activity in Vietnam, especially for women. It's a chance to catch up and get opinions on purchases."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "05-mau-sac-q1",
+            "question": "Lan muốn mua cái gì?",
+            "questionTranslation": "What does Lan want to buy?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "áo mới"
+          },
+          {
+            "id": "05-mau-sac-q2",
+            "question": "Cái áo màu đỏ như thế nào?",
+            "questionTranslation": "How is the red shirt?",
+            "type": "multiple-choice",
+            "options": [
+              "nhỏ",
+              "to",
+              "ngắn",
+              "dài"
+            ],
+            "answer": "to"
+          },
+          {
+            "id": "05-mau-sac-q3",
+            "question": "Mai thích váy như thế nào?",
+            "questionTranslation": "What kind of dress does Mai like?",
+            "type": "multiple-choice",
+            "options": [
+              "váy ngắn",
+              "váy dài",
+              "váy đỏ",
+              "váy xanh"
+            ],
+            "answer": "váy dài"
+          }
+        ],
+        "annotatedHtml": "<p>A: Chào Mai! Hôm nay mình đi <span class=\"vl-word\" data-id=\"05-mau-sac-mua\">mua</span> sắm nhé.</p>\n<p>B: Chào Lan! Ý kiến hay! Mình muốn <span class=\"vl-word\" data-id=\"05-mau-sac-mua\">mua</span> <span class=\"vl-word\" data-id=\"05-mau-sac-ao\">áo</span> mới.</p>\n<p>A: Áo này <span class=\"vl-word\" data-id=\"05-mau-sac-dep\">đẹp</span> không? Áo <span class=\"vl-word\" data-id=\"05-mau-sac-mau-do\">màu đỏ</span>.</p>\n<p>B: Cái <span class=\"vl-word\" data-id=\"05-mau-sac-ao\">áo</span> đỏ này <span class=\"vl-word\" data-id=\"05-mau-sac-dep\">đẹp</span>, nhưng hơi <span class=\"vl-word\" data-id=\"05-mau-sac-to\">to</span>. Mình thích cái <span class=\"vl-word\" data-id=\"05-mau-sac-ao\">áo</span> <span class=\"vl-word\" data-id=\"05-mau-sac-mau-xanh-la\">màu xanh lá</span>.</p>\n<p>A: Áo xanh lá này <span class=\"vl-word\" data-id=\"05-mau-sac-nho-hon\">nhỏ hơn</span>. Còn cái <span class=\"vl-word\" data-id=\"05-mau-sac-vay\">váy</span> <span class=\"vl-word\" data-id=\"05-mau-sac-mau-vang\">màu vàng</span> kia thì sao?</p>\n<p>B: Váy vàng <span class=\"vl-word\" data-id=\"05-mau-sac-dep\">đẹp</span> quá! Nhưng mình không thích <span class=\"vl-word\" data-id=\"05-mau-sac-vay\">váy</span> <span class=\"vl-word\" data-id=\"05-mau-sac-ngan\">ngắn</span>. Mình thích <span class=\"vl-word\" data-id=\"05-mau-sac-vay\">váy</span> <span class=\"vl-word\" data-id=\"05-mau-sac-dai\">dài</span>.</p>\n<p>A: Mình thấy cái <span class=\"vl-word\" data-id=\"05-mau-sac-ao\">áo</span> <span class=\"vl-word\" data-id=\"05-mau-sac-mau-trang\">màu trắng</span> kia. Bạn thích không?</p>\n<p>B: Áo trắng <span class=\"vl-word\" data-id=\"05-mau-sac-dep\">đẹp</span>! Mình <span class=\"vl-word\" data-id=\"05-mau-sac-mua\">mua</span> <span class=\"vl-word\" data-id=\"05-mau-sac-ao\">áo</span> trắng và <span class=\"vl-word\" data-id=\"05-mau-sac-vay\">váy</span> vàng nhé.</p>\n<p>A: <span class=\"vl-word\" data-id=\"05-mau-sac-duoc-thoi\">Được thôi!</span></p>"
+      }
+    },
+    {
+      "id": "06-thoi-gian",
+      "lessonNumber": 6,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 6: Days, Months & Time",
+        "titleVi": "Bài 6: Ngày, Tháng và Thời Gian",
+        "difficulty": "beginner",
+        "summary": "This lesson introduces basic vocabulary for talking about days, months, and time in Vietnamese. You'll learn how to ask what day it is, tell the time, and make simple plans.",
+        "text": "A: Chào bạn! Hôm nay là thứ mấy?\n\nB: Chào bạn. Hôm nay là thứ Tư.\n\nA: Ngày mai bạn có rảnh không?\n\nB: Ngày mai tôi bận. Thứ Sáu tôi rảnh. Mấy giờ?\n\nA: Buổi sáng hay buổi chiều?\n\nB: Buổi chiều. Khoảng 2 giờ.\n\nA: Được. Vậy thứ Sáu, 2 giờ chiều.\n\nB: Tốt. Hẹn gặp lại!\n\nA: Hẹn gặp lại.",
+        "vocabulary": [
+          {
+            "id": "06-thoi-gian-hom-nay",
+            "word": "Hôm nay",
+            "pronunciation": "hoom nay",
+            "partOfSpeech": "noun",
+            "definition": "Today",
+            "exampleSentence": "Hôm nay là thứ mấy?",
+            "exampleTranslation": "What day is today?"
+          },
+          {
+            "id": "06-thoi-gian-thu-may",
+            "word": "thứ mấy",
+            "pronunciation": "thứ mấy",
+            "partOfSpeech": "other",
+            "definition": "Which day (of the week)",
+            "exampleSentence": "Hôm nay là thứ mấy?",
+            "exampleTranslation": "What day is today?"
+          },
+          {
+            "id": "06-thoi-gian-thu-tu",
+            "word": "thứ Tư",
+            "pronunciation": "thứ Tư",
+            "partOfSpeech": "noun",
+            "definition": "Wednesday",
+            "exampleSentence": "Hôm nay là thứ Tư.",
+            "exampleTranslation": "Today is Wednesday."
+          },
+          {
+            "id": "06-thoi-gian-ngay-mai",
+            "word": "Ngày mai",
+            "pronunciation": "Ngày mai",
+            "partOfSpeech": "noun",
+            "definition": "Tomorrow",
+            "exampleSentence": "Ngày mai bạn có rảnh không?",
+            "exampleTranslation": "Are you free tomorrow?"
+          },
+          {
+            "id": "06-thoi-gian-ban",
+            "word": "bạn",
+            "pronunciation": "bạn",
+            "partOfSpeech": "pronoun",
+            "definition": "You",
+            "exampleSentence": "Ngày mai bạn có rảnh không?",
+            "exampleTranslation": "Are you free tomorrow?"
+          },
+          {
+            "id": "06-thoi-gian-co-ranh-khong",
+            "word": "có rảnh không",
+            "pronunciation": "có rảnh không",
+            "partOfSpeech": "verb",
+            "definition": "Are you free?",
+            "exampleSentence": "Ngày mai bạn có rảnh không?",
+            "exampleTranslation": "Are you free tomorrow?"
+          },
+          {
+            "id": "06-thoi-gian-thu-sau",
+            "word": "Thứ Sáu",
+            "pronunciation": "Thứ Sáu",
+            "partOfSpeech": "noun",
+            "definition": "Friday",
+            "exampleSentence": "Thứ Sáu tôi rảnh.",
+            "exampleTranslation": "I am free on Friday."
+          },
+          {
+            "id": "06-thoi-gian-may-gio",
+            "word": "Mấy giờ",
+            "pronunciation": "Mấy giờ",
+            "partOfSpeech": "other",
+            "definition": "What time?",
+            "exampleSentence": "Mấy giờ?",
+            "exampleTranslation": "What time?"
+          },
+          {
+            "id": "06-thoi-gian-buoi-sang",
+            "word": "Buổi sáng",
+            "pronunciation": "Buổi sáng",
+            "partOfSpeech": "noun",
+            "definition": "Morning",
+            "exampleSentence": "Buổi sáng hay buổi chiều?",
+            "exampleTranslation": "Morning or afternoon?"
+          },
+          {
+            "id": "06-thoi-gian-buoi-chieu",
+            "word": "buổi chiều",
+            "pronunciation": "buổi chiều",
+            "partOfSpeech": "noun",
+            "definition": "Afternoon",
+            "exampleSentence": "Buổi sáng hay buổi chiều?",
+            "exampleTranslation": "Morning or afternoon?"
+          },
+          {
+            "id": "06-thoi-gian-khoang",
+            "word": "Khoảng",
+            "pronunciation": "Khoảng",
+            "partOfSpeech": "adverb",
+            "definition": "Around, approximately",
+            "exampleSentence": "Khoảng 2 giờ.",
+            "exampleTranslation": "Around 2 o'clock."
+          },
+          {
+            "id": "06-thoi-gian-gio",
+            "word": "giờ",
+            "pronunciation": "giờ",
+            "partOfSpeech": "noun",
+            "definition": "O'clock, hour",
+            "exampleSentence": "Khoảng 2 giờ.",
+            "exampleTranslation": "Around 2 o'clock."
+          },
+          {
+            "id": "06-thoi-gian-duoc",
+            "word": "Được",
+            "pronunciation": "Được",
+            "partOfSpeech": "adjective",
+            "definition": "Okay, alright",
+            "exampleSentence": "Được. Vậy thứ Sáu, 2 giờ chiều.",
+            "exampleTranslation": "Okay. So Friday, 2 PM."
+          },
+          {
+            "id": "06-thoi-gian-hen-gap-lai",
+            "word": "Hẹn gặp lại!",
+            "pronunciation": "Hẹn gặp lại!",
+            "partOfSpeech": "other",
+            "definition": "See you later!",
+            "exampleSentence": "Hẹn gặp lại!",
+            "exampleTranslation": "See you later!"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "06-thoi-gian-cau-hoi-ngay",
+            "pattern": "Hôm nay là thứ mấy?",
+            "explanation": "This is the basic structure for asking what day of the week it is. 'Hôm nay' means 'today', 'là' means 'is', and 'thứ mấy' means 'which day'.",
+            "exampleFromText": "Hôm nay là thứ mấy?",
+            "additionalExample": "Hôm nay là thứ Hai. (Today is Monday.)"
+          },
+          {
+            "id": "06-thoi-gian-cau-hoi-ranh",
+            "pattern": "Bạn có rảnh không?",
+            "explanation": "This is a simple way to ask if someone is free. 'Bạn' means 'you', 'có' is a particle indicating a question or possibility, 'rảnh' means 'free', and 'không' turns it into a yes/no question.",
+            "exampleFromText": "Ngày mai bạn có rảnh không?",
+            "additionalExample": "Tối nay bạn có rảnh không? (Are you free tonight?)"
+          },
+          {
+            "id": "06-thoi-gian-gio-chieu",
+            "pattern": "X giờ chiều",
+            "explanation": "This is how to specify the time in the afternoon/evening. Replace X with the number of the hour.",
+            "exampleFromText": "Vậy thứ Sáu, 2 giờ chiều.",
+            "additionalExample": "5 giờ chiều (5 PM)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "06-thoi-gian-thu-ngay",
+            "term": "Thứ vs. Ngày",
+            "note": "While 'ngày' can mean 'day', when referring to days of the week, Vietnamese uses 'thứ' followed by a number (2-7) or 'Chủ Nhật' for Sunday. 'Ngày' is used for dates (e.g., 'Ngày 1 tháng 1' - January 1st)."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "06-thoi-gian-q1",
+            "question": "Hôm nay là thứ mấy?",
+            "questionTranslation": "What day is today?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "thứ Tư"
+          },
+          {
+            "id": "06-thoi-gian-q2",
+            "question": "Ngày mai bạn B có rảnh không?",
+            "questionTranslation": "Is person B free tomorrow?",
+            "type": "multiple-choice",
+            "options": [
+              "Có",
+              "Không"
+            ],
+            "answer": "Không"
+          },
+          {
+            "id": "06-thoi-gian-q3",
+            "question": "Bạn A và bạn B gặp nhau vào thứ mấy?",
+            "questionTranslation": "On what day do person A and person B meet?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Thứ Sáu"
+          },
+          {
+            "id": "06-thoi-gian-q4",
+            "question": "Mấy giờ bạn A và bạn B gặp nhau?",
+            "questionTranslation": "What time do person A and person B meet?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "2 giờ chiều"
+          }
+        ],
+        "annotatedHtml": "<p>A: Chào <span class=\"vl-word\" data-id=\"06-thoi-gian-ban\">bạn</span>! <span class=\"vl-word\" data-id=\"06-thoi-gian-hom-nay\">Hôm nay</span> là <span class=\"vl-word\" data-id=\"06-thoi-gian-thu-may\">thứ mấy</span>?</p>\n<p>B: Chào <span class=\"vl-word\" data-id=\"06-thoi-gian-ban\">bạn</span>. <span class=\"vl-word\" data-id=\"06-thoi-gian-hom-nay\">Hôm nay</span> là <span class=\"vl-word\" data-id=\"06-thoi-gian-thu-tu\">thứ Tư</span>.</p>\n<p>A: <span class=\"vl-word\" data-id=\"06-thoi-gian-ngay-mai\">Ngày mai</span> <span class=\"vl-word\" data-id=\"06-thoi-gian-ban\">bạn</span> <span class=\"vl-word\" data-id=\"06-thoi-gian-co-ranh-khong\">có rảnh không</span>?</p>\n<p>B: <span class=\"vl-word\" data-id=\"06-thoi-gian-ngay-mai\">Ngày mai</span> tôi bận. <span class=\"vl-word\" data-id=\"06-thoi-gian-thu-sau\">Thứ Sáu</span> tôi rảnh. <span class=\"vl-word\" data-id=\"06-thoi-gian-may-gio\">Mấy giờ</span>?</p>\n<p>A: <span class=\"vl-word\" data-id=\"06-thoi-gian-buoi-sang\">Buổi sáng</span> hay <span class=\"vl-word\" data-id=\"06-thoi-gian-buoi-chieu\">buổi chiều</span>?</p>\n<p>B: Buổi chiều. <span class=\"vl-word\" data-id=\"06-thoi-gian-khoang\">Khoảng</span> 2 <span class=\"vl-word\" data-id=\"06-thoi-gian-gio\">giờ</span>.</p>\n<p>A: <span class=\"vl-word\" data-id=\"06-thoi-gian-duoc\">Được</span>. Vậy thứ Sáu, 2 <span class=\"vl-word\" data-id=\"06-thoi-gian-gio\">giờ</span> chiều.</p>\n<p>B: Tốt. <span class=\"vl-word\" data-id=\"06-thoi-gian-hen-gap-lai\">Hẹn gặp lại!</span></p>\n<p>A: Hẹn gặp lại.</p>"
+      }
+    },
+    {
+      "id": "07-di-lai",
+      "lessonNumber": 7,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 7: Getting Around",
+        "titleVi": "Bài 7: Đi Lại",
+        "difficulty": "beginner",
+        "summary": "This lesson teaches you how to ask for and give simple directions in Vietnamese. You'll learn vocabulary related to transportation and locations, and how to ask 'How do I get to X?'",
+        "text": "A: Xin chào! Cho tôi hỏi, làm thế nào để đi đến chợ Bến Thành?\n\nB: Chợ Bến Thành? Đi thẳng đường này. Sau đó, rẽ trái.\n\nA: Rẽ trái? Có xa không?\n\nB: Không xa lắm. Gần thôi. Bạn có thể đi bộ.\n\nA: Đi bộ được không? Mất bao lâu?\n\nB: Khoảng mười lăm phút. Hoặc bạn có thể đi xe buýt số 4.\n\nA: Xe buýt số 4? Trạm xe buýt ở đâu?\n\nB: Trạm xe buýt ở bên phải, gần ngân hàng.\n\nA: Cảm ơn bạn rất nhiều!\n\nB: Không có gì.",
+        "vocabulary": [
+          {
+            "id": "07-di-lai-xin-chao",
+            "word": "Xin chào!",
+            "pronunciation": "sin t͡ɕaːw˨˩",
+            "partOfSpeech": "other",
+            "definition": "Hello!",
+            "exampleSentence": "Xin chào! Cho tôi hỏi, làm thế nào để đi đến chợ Bến Thành?",
+            "exampleTranslation": "Hello! Can I ask, how do I get to Ben Thanh market?"
+          },
+          {
+            "id": "07-di-lai-cho-toi-hoi",
+            "word": "Cho tôi hỏi",
+            "pronunciation": "t͡ɕɔ˧ tɔj˧˩ hɔi˧˩",
+            "partOfSpeech": "verb",
+            "definition": "Excuse me / Can I ask",
+            "exampleSentence": "Xin chào! Cho tôi hỏi, làm thế nào để đi đến chợ Bến Thành?",
+            "exampleTranslation": "Hello! Can I ask, how do I get to Ben Thanh market?"
+          },
+          {
+            "id": "07-di-lai-lam-the-nao-de",
+            "word": "làm thế nào để",
+            "pronunciation": "laːm˨˩ tʰɛ˧ naːw tˀe˧˩",
+            "partOfSpeech": "other",
+            "definition": "how to",
+            "exampleSentence": "Xin chào! Cho tôi hỏi, làm thế nào để đi đến chợ Bến Thành?",
+            "exampleTranslation": "Hello! Can I ask, how do I get to Ben Thanh market?"
+          },
+          {
+            "id": "07-di-lai-di-den",
+            "word": "đi đến",
+            "pronunciation": "ɗi˧ ɗən˧",
+            "partOfSpeech": "verb",
+            "definition": "to go to, to get to",
+            "exampleSentence": "Xin chào! Cho tôi hỏi, làm thế nào để đi đến chợ Bến Thành?",
+            "exampleTranslation": "Hello! Can I ask, how do I get to Ben Thanh market?"
+          },
+          {
+            "id": "07-di-lai-cho-ben-thanh",
+            "word": "chợ Bến Thành",
+            "pronunciation": "t͡ɕʰəˀ˨ʔ bən˧ tʰaːn˧",
+            "partOfSpeech": "noun",
+            "definition": "Ben Thanh Market",
+            "exampleSentence": "Xin chào! Cho tôi hỏi, làm thế nào để đi đến chợ Bến Thành?",
+            "exampleTranslation": "Hello! Can I ask, how do I get to Ben Thanh market?"
+          },
+          {
+            "id": "07-di-lai-di-thang",
+            "word": "Đi thẳng",
+            "pronunciation": "ɗi˧ tʰaŋ˧",
+            "partOfSpeech": "verb",
+            "definition": "Go straight",
+            "exampleSentence": "Đi thẳng đường này.",
+            "exampleTranslation": "Go straight on this road."
+          },
+          {
+            "id": "07-di-lai-re-trai",
+            "word": "rẽ trái",
+            "pronunciation": "ʐɛ̰ˀ t͡ɕaːj˧",
+            "partOfSpeech": "verb",
+            "definition": "turn left",
+            "exampleSentence": "Sau đó, rẽ trái.",
+            "exampleTranslation": "After that, turn left."
+          },
+          {
+            "id": "07-di-lai-xa",
+            "word": "xa",
+            "pronunciation": "saː˧",
+            "partOfSpeech": "adjective",
+            "definition": "far",
+            "exampleSentence": "Có xa không?",
+            "exampleTranslation": "Is it far?"
+          },
+          {
+            "id": "07-di-lai-khong-xa-lam",
+            "word": "Không xa lắm",
+            "pronunciation": "kʰoŋ͡m˧ saː˧ ləm˧",
+            "partOfSpeech": "adjective",
+            "definition": "Not too far",
+            "exampleSentence": "Không xa lắm. Gần thôi.",
+            "exampleTranslation": "Not too far. It's near."
+          },
+          {
+            "id": "07-di-lai-gan",
+            "word": "Gần",
+            "pronunciation": "ɣən˨˩",
+            "partOfSpeech": "adjective",
+            "definition": "near",
+            "exampleSentence": "Không xa lắm. Gần thôi.",
+            "exampleTranslation": "Not too far. It's near."
+          },
+          {
+            "id": "07-di-lai-di-bo",
+            "word": "đi bộ",
+            "pronunciation": "ɗi˧ boˀ˧˨",
+            "partOfSpeech": "verb",
+            "definition": "to walk",
+            "exampleSentence": "Bạn có thể đi bộ.",
+            "exampleTranslation": "You can walk."
+          },
+          {
+            "id": "07-di-lai-xe-buyt",
+            "word": "xe buýt",
+            "pronunciation": "sɛ˧ buːt˧˥",
+            "partOfSpeech": "noun",
+            "definition": "bus",
+            "exampleSentence": "Hoặc bạn có thể đi xe buýt số 4.",
+            "exampleTranslation": "Or you can take bus number 4."
+          },
+          {
+            "id": "07-di-lai-ben-phai",
+            "word": "bên phải",
+            "pronunciation": "ɓən˧ pʰaːj˧˩",
+            "partOfSpeech": "noun",
+            "definition": "right side",
+            "exampleSentence": "Trạm xe buýt ở bên phải, gần ngân hàng.",
+            "exampleTranslation": "The bus stop is on the right side, near the bank."
+          },
+          {
+            "id": "07-di-lai-cam-on",
+            "word": "Cảm ơn",
+            "pronunciation": "kaːm˧ ʔən˧",
+            "partOfSpeech": "verb",
+            "definition": "Thank you",
+            "exampleSentence": "Cảm ơn bạn rất nhiều!",
+            "exampleTranslation": "Thank you very much!"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "07-di-lai-how-to-get-to",
+            "pattern": "làm thế nào để + đi đến + [place]?",
+            "explanation": "This pattern is used to ask 'How do I get to [place]?'",
+            "exampleFromText": "làm thế nào để đi đến chợ Bến Thành?",
+            "additionalExample": "Làm thế nào để đi đến bưu điện?"
+          },
+          {
+            "id": "07-di-lai-location-prepositions",
+            "pattern": "ở + [location]",
+            "explanation": "This pattern is used to indicate location. 'ở' is similar to 'at' or 'in'.",
+            "exampleFromText": "Trạm xe buýt ở bên phải, gần ngân hàng.",
+            "additionalExample": "Nhà tôi ở Hà Nội."
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "07-di-lai-forms-of-address",
+            "term": "Bạn",
+            "note": "In this dialogue, 'bạn' is used as a general, polite way to address someone of similar age or younger. Using appropriate forms of address is important in Vietnamese culture."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "07-di-lai-q1",
+            "question": "Người A muốn đi đâu?",
+            "questionTranslation": "Where does person A want to go?",
+            "type": "multiple-choice",
+            "options": [
+              "Nhà hàng",
+              "Chợ Bến Thành",
+              "Ngân hàng"
+            ],
+            "answer": "Chợ Bến Thành"
+          },
+          {
+            "id": "07-di-lai-q2",
+            "question": "Người B nói chợ Bến Thành có xa không?",
+            "questionTranslation": "Does person B say Ben Thanh Market is far?",
+            "type": "multiple-choice",
+            "options": [
+              "Có, rất xa.",
+              "Không, gần thôi."
+            ],
+            "answer": "Không, gần thôi."
+          },
+          {
+            "id": "07-di-lai-q3",
+            "question": "Người A có thể đi bằng phương tiện gì?",
+            "questionTranslation": "What transportation can person A take?",
+            "type": "multiple-choice",
+            "options": [
+              "Xe máy",
+              "Xe buýt số 4",
+              "Taxi"
+            ],
+            "answer": "Xe buýt số 4"
+          },
+          {
+            "id": "07-di-lai-q4",
+            "question": "Trạm xe buýt ở đâu?",
+            "questionTranslation": "Where is the bus stop?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Bên phải, gần ngân hàng."
+          }
+        ],
+        "annotatedHtml": "<p>A: <span class=\"vl-word\" data-id=\"07-di-lai-xin-chao\">Xin chào!</span> <span class=\"vl-word\" data-id=\"07-di-lai-cho-toi-hoi\">Cho tôi hỏi</span>, <span class=\"vl-word\" data-id=\"07-di-lai-lam-the-nao-de\">làm thế nào để</span> <span class=\"vl-word\" data-id=\"07-di-lai-di-den\">đi đến</span> <span class=\"vl-word\" data-id=\"07-di-lai-cho-ben-thanh\">chợ Bến Thành</span>?</p>\n<p>B: Chợ Bến Thành? <span class=\"vl-word\" data-id=\"07-di-lai-di-thang\">Đi thẳng</span> đường này. Sau đó, <span class=\"vl-word\" data-id=\"07-di-lai-re-trai\">rẽ trái</span>.</p>\n<p>A: Rẽ trái? Có <span class=\"vl-word\" data-id=\"07-di-lai-xa\">xa</span> không?</p>\n<p>B: <span class=\"vl-word\" data-id=\"07-di-lai-khong-xa-lam\">Không xa lắm</span>. <span class=\"vl-word\" data-id=\"07-di-lai-gan\">Gần</span> thôi. Bạn có thể <span class=\"vl-word\" data-id=\"07-di-lai-di-bo\">đi bộ</span>.</p>\n<p>A: Đi bộ được không? Mất bao lâu?</p>\n<p>B: Khoảng mười lăm phút. Hoặc bạn có thể đi <span class=\"vl-word\" data-id=\"07-di-lai-xe-buyt\">xe buýt</span> số 4.</p>\n<p>A: Xe buýt số 4? Trạm <span class=\"vl-word\" data-id=\"07-di-lai-xe-buyt\">xe buýt</span> ở đâu?</p>\n<p>B: Trạm <span class=\"vl-word\" data-id=\"07-di-lai-xe-buyt\">xe buýt</span> ở <span class=\"vl-word\" data-id=\"07-di-lai-ben-phai\">bên phải</span>, gần ngân hàng.</p>\n<p>A: <span class=\"vl-word\" data-id=\"07-di-lai-cam-on\">Cảm ơn</span> bạn rất nhiều!</p>\n<p>B: Không có gì.</p>"
+      }
+    },
+    {
+      "id": "08-mua-sam",
+      "lessonNumber": 8,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 8: Shopping & Money",
+        "titleVi": "Bài 8: Mua Sắm và Tiền Bạc",
+        "difficulty": "beginner",
+        "summary": "This lesson teaches basic vocabulary and phrases for shopping in Vietnamese, focusing on asking about prices and bargaining. You'll learn how to say 'how much,' 'expensive,' 'cheap,' and other useful terms for navigating a market.",
+        "text": "A: Chào cô! Cái áo này bao nhiêu tiền?\n\nB: Chào bạn. Cái áo này 200 nghìn đồng.\n\nA: 200 nghìn đồng? Đắt quá!\n\nB: Không đắt đâu. Áo đẹp mà.\n\nA: Có giảm giá không?\n\nB: Được thôi. Giảm 20 nghìn nhé.\n\nA: 150 nghìn đồng được không?\n\nB: Không được. 180 nghìn đồng.\n\nA: Thôi được. Tôi mua.\n\nB: Cảm ơn bạn. Bạn trả tiền ở đây nhé.",
+        "vocabulary": [
+          {
+            "id": "08-mua-sam-bao-nhieu-tien",
+            "word": "bao nhiêu tiền",
+            "pronunciation": "baw nhieu tihn",
+            "partOfSpeech": "other",
+            "definition": "how much (money)",
+            "exampleSentence": "Cái áo này bao nhiêu tiền?",
+            "exampleTranslation": "How much is this shirt?"
+          },
+          {
+            "id": "08-mua-sam-dat",
+            "word": "Đắt",
+            "pronunciation": "daht",
+            "partOfSpeech": "adjective",
+            "definition": "expensive",
+            "exampleSentence": "Đắt quá!",
+            "exampleTranslation": "Too expensive!"
+          },
+          {
+            "id": "08-mua-sam-giam-gia",
+            "word": "giảm giá",
+            "pronunciation": "zahm zah",
+            "partOfSpeech": "verb",
+            "definition": "to reduce the price, to give a discount",
+            "exampleSentence": "Có giảm giá không?",
+            "exampleTranslation": "Is there a discount?"
+          },
+          {
+            "id": "08-mua-sam-tra-tien",
+            "word": "trả tiền",
+            "pronunciation": "chah tihn",
+            "partOfSpeech": "verb",
+            "definition": "to pay (money)",
+            "exampleSentence": "Bạn trả tiền ở đây nhé.",
+            "exampleTranslation": "Please pay here."
+          },
+          {
+            "id": "08-mua-sam-mua",
+            "word": "mua",
+            "pronunciation": "mooa",
+            "partOfSpeech": "verb",
+            "definition": "to buy",
+            "exampleSentence": "Tôi mua.",
+            "exampleTranslation": "I'll buy it."
+          },
+          {
+            "id": "08-mua-sam-dong",
+            "word": "đồng",
+            "pronunciation": "dong",
+            "partOfSpeech": "noun",
+            "definition": "Vietnamese currency (VND)",
+            "exampleSentence": "200 nghìn đồng?",
+            "exampleTranslation": "200 thousand dong?"
+          },
+          {
+            "id": "08-mua-sam-nghin",
+            "word": "nghìn",
+            "pronunciation": "nghin",
+            "partOfSpeech": "noun",
+            "definition": "thousand",
+            "exampleSentence": "200 nghìn đồng",
+            "exampleTranslation": "200 thousand dong"
+          },
+          {
+            "id": "08-mua-sam-re",
+            "word": "rẻ",
+            "pronunciation": "re",
+            "partOfSpeech": "adjective",
+            "definition": "cheap",
+            "exampleSentence": "(Not in text)",
+            "exampleTranslation": "(Not in text)"
+          },
+          {
+            "id": "08-mua-sam-ban",
+            "word": "bán",
+            "pronunciation": "bahn",
+            "partOfSpeech": "verb",
+            "definition": "to sell",
+            "exampleSentence": "(Not in text)",
+            "exampleTranslation": "(Not in text)"
+          },
+          {
+            "id": "08-mua-sam-qua",
+            "word": "quá",
+            "pronunciation": "kwah",
+            "partOfSpeech": "adverb",
+            "definition": "too; too much",
+            "exampleSentence": "Đắt quá!",
+            "exampleTranslation": "Too expensive!"
+          },
+          {
+            "id": "08-mua-sam-ao",
+            "word": "áo",
+            "pronunciation": "ah-ow",
+            "partOfSpeech": "noun",
+            "definition": "shirt; clothes",
+            "exampleSentence": "Cái áo này bao nhiêu tiền?",
+            "exampleTranslation": "How much is this shirt?"
+          },
+          {
+            "id": "08-mua-sam-duoc-khong",
+            "word": "được không",
+            "pronunciation": "duhk khong",
+            "partOfSpeech": "other",
+            "definition": "is it okay?; is it possible?",
+            "exampleSentence": "150 nghìn đồng được không?",
+            "exampleTranslation": "Is 150 thousand dong okay?"
+          },
+          {
+            "id": "08-mua-sam-thoi-duoc",
+            "word": "Thôi được",
+            "pronunciation": "thoy duhk",
+            "partOfSpeech": "other",
+            "definition": "Okay; Alright",
+            "exampleSentence": "Thôi được. Tôi mua.",
+            "exampleTranslation": "Okay. I'll buy it."
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "08-mua-sam-noun-nay",
+            "pattern": "Noun + này",
+            "explanation": "This pattern is used to point out a specific noun. 'Này' means 'this'. It always comes after the noun it modifies.",
+            "exampleFromText": "Cái áo này bao nhiêu tiền?",
+            "additionalExample": "Quyển sách này hay lắm. (This book is very good.)"
+          },
+          {
+            "id": "08-mua-sam-question-khong",
+            "pattern": "Statement + không?",
+            "explanation": "Adding 'không' at the end of a statement turns it into a yes/no question.",
+            "exampleFromText": "Có giảm giá không?",
+            "additionalExample": "Bạn khỏe không? (Are you healthy/well?)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "08-mua-sam-bargaining",
+            "term": "Bargaining",
+            "note": "Bargaining is common in Vietnamese markets and smaller shops. It's expected to negotiate the price, especially if you're buying multiple items. Start by offering a lower price than you're willing to pay and be polite."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "08-mua-sam-q1",
+            "question": "Cái áo giá bao nhiêu lúc đầu?",
+            "questionTranslation": "How much was the shirt initially?",
+            "type": "multiple-choice",
+            "options": [
+              "150 nghìn đồng",
+              "180 nghìn đồng",
+              "200 nghìn đồng"
+            ],
+            "answer": "200 nghìn đồng"
+          },
+          {
+            "id": "08-mua-sam-q2",
+            "question": "Người mua trả bao nhiêu tiền sau khi giảm giá?",
+            "questionTranslation": "How much did the buyer pay after the discount?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "180 nghìn đồng"
+          },
+          {
+            "id": "08-mua-sam-q3",
+            "question": "Người bán có giảm giá không?",
+            "questionTranslation": "Did the seller give a discount?",
+            "type": "multiple-choice",
+            "options": [
+              "Có",
+              "Không"
+            ],
+            "answer": "Có"
+          }
+        ],
+        "annotatedHtml": "<p>A: Chào cô! Cái <span class=\"vl-word\" data-id=\"08-mua-sam-ao\">áo</span> này <span class=\"vl-word\" data-id=\"08-mua-sam-bao-nhieu-tien\">bao nhiêu tiền</span>?</p>\n<p>B: Chào bạn. Cái <span class=\"vl-word\" data-id=\"08-mua-sam-ao\">áo</span> này 200 <span class=\"vl-word\" data-id=\"08-mua-sam-nghin\">nghìn</span> <span class=\"vl-word\" data-id=\"08-mua-sam-dong\">đồng</span>.</p>\n<p>A: 200 <span class=\"vl-word\" data-id=\"08-mua-sam-nghin\">nghìn</span> <span class=\"vl-word\" data-id=\"08-mua-sam-dong\">đồng</span>? <span class=\"vl-word\" data-id=\"08-mua-sam-dat\">Đắt</span> <span class=\"vl-word\" data-id=\"08-mua-sam-qua\">quá</span>!</p>\n<p>B: Không đắt đâu. Áo đẹp mà.</p>\n<p>A: Có <span class=\"vl-word\" data-id=\"08-mua-sam-giam-gia\">giảm giá</span> không?</p>\n<p>B: Được thôi. Giảm 20 <span class=\"vl-word\" data-id=\"08-mua-sam-nghin\">nghìn</span> nhé.</p>\n<p>A: 150 <span class=\"vl-word\" data-id=\"08-mua-sam-nghin\">nghìn</span> <span class=\"vl-word\" data-id=\"08-mua-sam-dong\">đồng</span> <span class=\"vl-word\" data-id=\"08-mua-sam-duoc-khong\">được không</span>?</p>\n<p>B: Không được. 180 <span class=\"vl-word\" data-id=\"08-mua-sam-nghin\">nghìn</span> <span class=\"vl-word\" data-id=\"08-mua-sam-dong\">đồng</span>.</p>\n<p>A: <span class=\"vl-word\" data-id=\"08-mua-sam-thoi-duoc\">Thôi được</span>. Tôi <span class=\"vl-word\" data-id=\"08-mua-sam-mua\">mua</span>.</p>\n<p>B: Cảm ơn bạn. Bạn <span class=\"vl-word\" data-id=\"08-mua-sam-tra-tien\">trả tiền</span> ở đây nhé.</p>"
+      }
+    },
+    {
+      "id": "09-co-the",
+      "lessonNumber": 9,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 9: The Human Body",
+        "titleVi": "Bài 9: Cơ Thể Người",
+        "difficulty": "beginner",
+        "summary": "Learn basic Vietnamese vocabulary for body parts and common ailments. Practice describing symptoms using simple sentence structures.",
+        "text": "A: Chào bạn! Tôi không khỏe.\n\nB: Chào bạn. Bạn bị gì?\n\nA: Tôi bị đau đầu và mệt.\n\nB: Bạn có bị sốt không?\n\nA: Có, tôi bị sốt.\n\nB: Bạn có bị ho không?\n\nA: Không, tôi không bị ho. Nhưng tôi bị đau bụng.\n\nB: Bạn bị bệnh bao lâu rồi?\n\nA: Tôi bị bệnh một ngày rồi.\n\nB: Bạn cần thuốc gì?\n\nA: Tôi cần thuốc đau đầu và thuốc sốt. Cảm ơn bạn!\n\nB: Không có gì.",
+        "vocabulary": [
+          {
+            "id": "09-co-the-dau-dau",
+            "word": "đau đầu",
+            "pronunciation": "đau đầu",
+            "partOfSpeech": "noun",
+            "definition": "headache",
+            "exampleSentence": "Tôi bị đau đầu và mệt.",
+            "exampleTranslation": "I have a headache and am tired."
+          },
+          {
+            "id": "09-co-the-met",
+            "word": "mệt",
+            "pronunciation": "mệt",
+            "partOfSpeech": "adjective",
+            "definition": "tired",
+            "exampleSentence": "Tôi bị đau đầu và mệt.",
+            "exampleTranslation": "I have a headache and am tired."
+          },
+          {
+            "id": "09-co-the-sot",
+            "word": "sốt",
+            "pronunciation": "sốt",
+            "partOfSpeech": "verb",
+            "definition": "to have a fever",
+            "exampleSentence": "Bạn có bị sốt không?",
+            "exampleTranslation": "Do you have a fever?"
+          },
+          {
+            "id": "09-co-the-ho",
+            "word": "ho",
+            "pronunciation": "ho",
+            "partOfSpeech": "verb",
+            "definition": "to cough",
+            "exampleSentence": "Bạn có bị ho không?",
+            "exampleTranslation": "Do you have a cough?"
+          },
+          {
+            "id": "09-co-the-dau-bung",
+            "word": "đau bụng",
+            "pronunciation": "đau bụng",
+            "partOfSpeech": "noun",
+            "definition": "stomachache",
+            "exampleSentence": "Nhưng tôi bị đau bụng.",
+            "exampleTranslation": "But I have a stomachache."
+          },
+          {
+            "id": "09-co-the-benh",
+            "word": "bệnh",
+            "pronunciation": "bệnh",
+            "partOfSpeech": "noun",
+            "definition": "illness, sickness",
+            "exampleSentence": "Bạn bị bệnh bao lâu rồi?",
+            "exampleTranslation": "How long have you been sick?"
+          },
+          {
+            "id": "09-co-the-thuoc",
+            "word": "thuốc",
+            "pronunciation": "thuốc",
+            "partOfSpeech": "noun",
+            "definition": "medicine",
+            "exampleSentence": "Bạn cần thuốc gì?",
+            "exampleTranslation": "What medicine do you need?"
+          },
+          {
+            "id": "09-co-the-bi",
+            "word": "bị",
+            "pronunciation": "bị",
+            "partOfSpeech": "verb",
+            "definition": "to suffer from, to have",
+            "exampleSentence": "Tôi bị đau đầu và mệt.",
+            "exampleTranslation": "I have a headache and am tired."
+          },
+          {
+            "id": "09-co-the-dau",
+            "word": "đau",
+            "pronunciation": "đau",
+            "partOfSpeech": "adjective",
+            "definition": "painful, to hurt",
+            "exampleSentence": "Tôi bị đau đầu và mệt.",
+            "exampleTranslation": "I have a headache and am tired."
+          },
+          {
+            "id": "09-co-the-dau-dau-thuoc",
+            "word": "thuốc đau đầu",
+            "pronunciation": "thwốc đau đầu",
+            "partOfSpeech": "noun",
+            "definition": "headache medicine",
+            "exampleSentence": "Tôi cần thuốc đau đầu và thuốc sốt.",
+            "exampleTranslation": "I need headache medicine and fever medicine."
+          },
+          {
+            "id": "09-co-the-thuoc-sot",
+            "word": "thuốc sốt",
+            "pronunciation": "thwốc sốt",
+            "partOfSpeech": "noun",
+            "definition": "fever medicine",
+            "exampleSentence": "Tôi cần thuốc đau đầu và thuốc sốt.",
+            "exampleTranslation": "I need headache medicine and fever medicine."
+          },
+          {
+            "id": "09-co-the-khong-khoe",
+            "word": "không khỏe",
+            "pronunciation": "khwông khỏe",
+            "partOfSpeech": "adjective",
+            "definition": "not well, unwell",
+            "exampleSentence": "Tôi không khỏe.",
+            "exampleTranslation": "I am not well."
+          },
+          {
+            "id": "09-co-the-bao-lau-roi",
+            "word": "bao lâu rồi",
+            "pronunciation": "bao lâu rồi",
+            "partOfSpeech": "other",
+            "definition": "for how long",
+            "exampleSentence": "Bạn bị bệnh bao lâu rồi?",
+            "exampleTranslation": "How long have you been sick?"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "09-co-the-bi-dau",
+            "pattern": "Tôi/Bạn + bị + đau + [body part]",
+            "explanation": "This pattern is used to express that you are experiencing pain in a specific body part. 'Bị' indicates that you are suffering from something.",
+            "exampleFromText": "Tôi bị đau đầu",
+            "additionalExample": "Tôi bị đau lưng. (I have a backache.)"
+          },
+          {
+            "id": "09-co-the-co-khong",
+            "pattern": "Bạn + có + bị + [symptom] + không?",
+            "explanation": "This is a common question structure to ask if someone has a particular symptom. 'Có...không?' turns a statement into a yes/no question.",
+            "exampleFromText": "Bạn có bị sốt không?",
+            "additionalExample": "Bạn có bị mệt không? (Are you tired?)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "09-co-the-pharmacies",
+            "term": "Pharmacies",
+            "note": "Pharmacies are common in Vietnam, and pharmacists often provide basic medical advice. It's normal to describe your symptoms and ask for recommendations."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "09-co-the-q1",
+            "question": "Người A bị gì?",
+            "questionTranslation": "What is wrong with person A?",
+            "type": "multiple-choice",
+            "options": [
+              "Người A bị đau mắt.",
+              "Người A bị đau đầu và sốt.",
+              "Người A bị đau tay."
+            ],
+            "answer": "Người A bị đau đầu và sốt."
+          },
+          {
+            "id": "09-co-the-q2",
+            "question": "Người A có bị ho không?",
+            "questionTranslation": "Does person A have a cough?",
+            "type": "multiple-choice",
+            "options": [
+              "Có, người A bị ho.",
+              "Không, người A không bị ho."
+            ],
+            "answer": "Không, người A không bị ho."
+          },
+          {
+            "id": "09-co-the-q3",
+            "question": "Người A cần thuốc gì?",
+            "questionTranslation": "What medicine does person A need?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Người A cần thuốc đau đầu và thuốc sốt."
+          }
+        ],
+        "annotatedHtml": "<p>A: Chào bạn! Tôi <span class=\"vl-word\" data-id=\"09-co-the-khong-khoe\">không khỏe</span>.</p>\n<p>B: Chào bạn. Bạn <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> gì?</p>\n<p>A: Tôi <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> <span class=\"vl-word\" data-id=\"09-co-the-dau-dau\">đau đầu</span> và <span class=\"vl-word\" data-id=\"09-co-the-met\">mệt</span>.</p>\n<p>B: Bạn có <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> <span class=\"vl-word\" data-id=\"09-co-the-sot\">sốt</span> không?</p>\n<p>A: Có, tôi <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> <span class=\"vl-word\" data-id=\"09-co-the-sot\">sốt</span>.</p>\n<p>B: Bạn có <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> <span class=\"vl-word\" data-id=\"09-co-the-ho\">ho</span> không?</p>\n<p>A: Không, tôi không <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> <span class=\"vl-word\" data-id=\"09-co-the-ho\">ho</span>. Nhưng tôi <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> <span class=\"vl-word\" data-id=\"09-co-the-dau-bung\">đau bụng</span>.</p>\n<p>B: Bạn <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> <span class=\"vl-word\" data-id=\"09-co-the-benh\">bệnh</span> <span class=\"vl-word\" data-id=\"09-co-the-bao-lau-roi\">bao lâu rồi</span>?</p>\n<p>A: Tôi <span class=\"vl-word\" data-id=\"09-co-the-bi\">bị</span> <span class=\"vl-word\" data-id=\"09-co-the-benh\">bệnh</span> một ngày rồi.</p>\n<p>B: Bạn cần <span class=\"vl-word\" data-id=\"09-co-the-thuoc\">thuốc</span> gì?</p>\n<p>A: Tôi cần <span class=\"vl-word\" data-id=\"09-co-the-dau-dau-thuoc\">thuốc đau đầu</span> và <span class=\"vl-word\" data-id=\"09-co-the-thuoc-sot\">thuốc sốt</span>. Cảm ơn bạn!</p>\n<p>B: Không có gì.</p>"
+      }
+    },
+    {
+      "id": "10-thoi-quen",
+      "lessonNumber": 10,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 10: Daily Routines",
+        "titleVi": "Bài 10: Thói Quen Hằng Ngày",
+        "difficulty": "beginner",
+        "summary": "Learn to describe your daily routine in Vietnamese. This lesson covers common verbs for daily activities and how to use adverbs of frequency.",
+        "text": "Chào mọi người!\n\nTôi là Lan.\n\nMỗi ngày, tôi thức dậy lúc 6 giờ sáng. Tôi thường đánh răng và rửa mặt. Sau đó, tôi ăn sáng với gia đình. Tôi thường ăn phở hoặc bánh mì.\n\nTôi đi làm lúc 7 giờ. Tôi làm việc ở văn phòng. Buổi trưa, tôi ăn trưa với đồng nghiệp. Chúng tôi thường ăn cơm ở quán ăn gần văn phòng.\n\nTôi về nhà lúc 5 giờ chiều. Tôi nấu ăn và ăn tối với gia đình. Sau khi ăn tối, tôi xem TV hoặc đọc sách. Tôi đi ngủ lúc 10 giờ đêm.\n\nĐây là một ngày của tôi. Còn bạn?",
+        "vocabulary": [
+          {
+            "id": "10-thoi-quen-thuc-day",
+            "word": "thức dậy",
+            "pronunciation": "thức dậy",
+            "partOfSpeech": "verb",
+            "definition": "to wake up",
+            "exampleSentence": "Mỗi ngày, tôi thức dậy lúc 6 giờ sáng.",
+            "exampleTranslation": "Every day, I wake up at 6 AM."
+          },
+          {
+            "id": "10-thoi-quen-danh-rang",
+            "word": "đánh răng",
+            "pronunciation": "đánh răng",
+            "partOfSpeech": "verb",
+            "definition": "to brush teeth",
+            "exampleSentence": "Tôi thường đánh răng và rửa mặt.",
+            "exampleTranslation": "I usually brush my teeth and wash my face."
+          },
+          {
+            "id": "10-thoi-quen-an-sang",
+            "word": "ăn sáng",
+            "pronunciation": "ăn sáng",
+            "partOfSpeech": "verb",
+            "definition": "to eat breakfast",
+            "exampleSentence": "Sau đó, tôi ăn sáng với gia đình.",
+            "exampleTranslation": "After that, I eat breakfast with my family."
+          },
+          {
+            "id": "10-thoi-quen-di-lam",
+            "word": "đi làm",
+            "pronunciation": "đi làm",
+            "partOfSpeech": "verb",
+            "definition": "to go to work",
+            "exampleSentence": "Tôi đi làm lúc 7 giờ.",
+            "exampleTranslation": "I go to work at 7 o'clock."
+          },
+          {
+            "id": "10-thoi-quen-an-trua",
+            "word": "ăn trưa",
+            "pronunciation": "ăn trưa",
+            "partOfSpeech": "verb",
+            "definition": "to eat lunch",
+            "exampleSentence": "Buổi trưa, tôi ăn trưa với đồng nghiệp.",
+            "exampleTranslation": "At noon, I eat lunch with colleagues."
+          },
+          {
+            "id": "10-thoi-quen-ve-nha",
+            "word": "về nhà",
+            "pronunciation": "về nhà",
+            "partOfSpeech": "verb",
+            "definition": "to go home",
+            "exampleSentence": "Tôi về nhà lúc 5 giờ chiều.",
+            "exampleTranslation": "I go home at 5 PM."
+          },
+          {
+            "id": "10-thoi-quen-an-toi",
+            "word": "ăn tối",
+            "pronunciation": "ăn tối",
+            "partOfSpeech": "verb",
+            "definition": "to eat dinner",
+            "exampleSentence": "Tôi nấu ăn và ăn tối với gia đình.",
+            "exampleTranslation": "I cook and eat dinner with my family."
+          },
+          {
+            "id": "10-thoi-quen-ngu",
+            "word": "ngủ",
+            "pronunciation": "ngủ",
+            "partOfSpeech": "verb",
+            "definition": "to sleep",
+            "exampleSentence": "Tôi đi ngủ lúc 10 giờ đêm.",
+            "exampleTranslation": "I go to sleep at 10 PM."
+          },
+          {
+            "id": "10-thoi-quen-thuong",
+            "word": "thường",
+            "pronunciation": "thường",
+            "partOfSpeech": "adverb",
+            "definition": "usually, often",
+            "exampleSentence": "Tôi thường đánh răng và rửa mặt.",
+            "exampleTranslation": "I usually brush my teeth and wash my face."
+          },
+          {
+            "id": "10-thoi-quen-moi-ngay",
+            "word": "Mỗi ngày",
+            "pronunciation": "Mỗi ngày",
+            "partOfSpeech": "other",
+            "definition": "Every day",
+            "exampleSentence": "Mỗi ngày, tôi thức dậy lúc 6 giờ sáng.",
+            "exampleTranslation": "Every day, I wake up at 6 AM."
+          },
+          {
+            "id": "10-thoi-quen-buoi-trua",
+            "word": "Buổi trưa",
+            "pronunciation": "Buổi trưa",
+            "partOfSpeech": "noun",
+            "definition": "Noon, midday",
+            "exampleSentence": "Buổi trưa, tôi ăn trưa với đồng nghiệp.",
+            "exampleTranslation": "At noon, I eat lunch with colleagues."
+          },
+          {
+            "id": "10-thoi-quen-gio-sang",
+            "word": "giờ sáng",
+            "pronunciation": "giờ sáng",
+            "partOfSpeech": "noun",
+            "definition": "AM (o'clock in the morning)",
+            "exampleSentence": "Mỗi ngày, tôi thức dậy lúc 6 giờ sáng.",
+            "exampleTranslation": "Every day, I wake up at 6 AM."
+          },
+          {
+            "id": "10-thoi-quen-gio-chieu",
+            "word": "giờ chiều",
+            "pronunciation": "giờ chiều",
+            "partOfSpeech": "noun",
+            "definition": "PM (o'clock in the afternoon)",
+            "exampleSentence": "Tôi về nhà lúc 5 giờ chiều.",
+            "exampleTranslation": "I go home at 5 PM."
+          },
+          {
+            "id": "10-thoi-quen-gio-dem",
+            "word": "giờ đêm",
+            "pronunciation": "giờ đêm",
+            "partOfSpeech": "noun",
+            "definition": "PM (o'clock at night)",
+            "exampleSentence": "Tôi đi ngủ lúc 10 giờ đêm.",
+            "exampleTranslation": "I go to sleep at 10 PM."
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "10-thoi-quen-time-at",
+            "pattern": "Subject + Verb + Time",
+            "explanation": "To express 'at what time' something happens, place the time phrase after the verb.",
+            "exampleFromText": "Tôi thức dậy lúc 6 giờ sáng.",
+            "additionalExample": "Tôi ăn tối lúc 7 giờ tối."
+          },
+          {
+            "id": "10-thoi-quen-adv-of-freq",
+            "pattern": "Subject + Thường + Verb",
+            "explanation": "The adverb 'thường' (usually, often) is placed after the subject and before the verb to indicate a habitual action.",
+            "exampleFromText": "Tôi thường đánh răng và rửa mặt.",
+            "additionalExample": "Chúng tôi thường ăn cơm ở quán ăn."
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "10-thoi-quen-pho",
+            "term": "Phở",
+            "note": "Phở is a popular Vietnamese noodle soup, often eaten for breakfast. It's a national dish."
+          },
+          {
+            "id": "10-thoi-quen-com-bua",
+            "term": "Cơm",
+            "note": "Cơm refers to cooked rice, and a 'cơm' meal often refers to a standard meal with rice, meat, and vegetables."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "10-thoi-quen-q1",
+            "question": "Lan thức dậy lúc mấy giờ?",
+            "questionTranslation": "What time does Lan wake up?",
+            "type": "multiple-choice",
+            "options": [
+              "5 giờ sáng",
+              "6 giờ sáng",
+              "7 giờ sáng",
+              "8 giờ sáng"
+            ],
+            "answer": "6 giờ sáng"
+          },
+          {
+            "id": "10-thoi-quen-q2",
+            "question": "Lan ăn trưa với ai?",
+            "questionTranslation": "Who does Lan eat lunch with?",
+            "type": "multiple-choice",
+            "options": [
+              "Gia đình",
+              "Bạn bè",
+              "Đồng nghiệp",
+              "Không ai cả"
+            ],
+            "answer": "Đồng nghiệp"
+          },
+          {
+            "id": "10-thoi-quen-q3",
+            "question": "Lan thường ăn gì vào buổi sáng?",
+            "questionTranslation": "What does Lan usually eat in the morning?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Phở hoặc bánh mì"
+          },
+          {
+            "id": "10-thoi-quen-q4",
+            "question": "Lan đi ngủ lúc mấy giờ?",
+            "questionTranslation": "What time does Lan go to sleep?",
+            "type": "multiple-choice",
+            "options": [
+              "9 giờ đêm",
+              "10 giờ đêm",
+              "11 giờ đêm",
+              "12 giờ đêm"
+            ],
+            "answer": "10 giờ đêm"
+          }
+        ],
+        "annotatedHtml": "<p>Chào mọi người!</p>\n<p>Tôi là Lan.</p>\n<p><span class=\"vl-word\" data-id=\"10-thoi-quen-moi-ngay\">Mỗi ngày</span>, tôi <span class=\"vl-word\" data-id=\"10-thoi-quen-thuc-day\">thức dậy</span> lúc 6 <span class=\"vl-word\" data-id=\"10-thoi-quen-gio-sang\">giờ sáng</span>. Tôi <span class=\"vl-word\" data-id=\"10-thoi-quen-thuong\">thường</span> <span class=\"vl-word\" data-id=\"10-thoi-quen-danh-rang\">đánh răng</span> và rửa mặt. Sau đó, tôi <span class=\"vl-word\" data-id=\"10-thoi-quen-an-sang\">ăn sáng</span> với gia đình. Tôi <span class=\"vl-word\" data-id=\"10-thoi-quen-thuong\">thường</span> ăn phở hoặc bánh mì.</p>\n<p>Tôi <span class=\"vl-word\" data-id=\"10-thoi-quen-di-lam\">đi làm</span> lúc 7 giờ. Tôi làm việc ở văn phòng. <span class=\"vl-word\" data-id=\"10-thoi-quen-buoi-trua\">Buổi trưa</span>, tôi <span class=\"vl-word\" data-id=\"10-thoi-quen-an-trua\">ăn trưa</span> với đồng nghiệp. Chúng tôi <span class=\"vl-word\" data-id=\"10-thoi-quen-thuong\">thường</span> ăn cơm ở quán ăn gần văn phòng.</p>\n<p>Tôi <span class=\"vl-word\" data-id=\"10-thoi-quen-ve-nha\">về nhà</span> lúc 5 <span class=\"vl-word\" data-id=\"10-thoi-quen-gio-chieu\">giờ chiều</span>. Tôi nấu ăn và <span class=\"vl-word\" data-id=\"10-thoi-quen-an-toi\">ăn tối</span> với gia đình. Sau khi <span class=\"vl-word\" data-id=\"10-thoi-quen-an-toi\">ăn tối</span>, tôi xem TV hoặc đọc sách. Tôi đi <span class=\"vl-word\" data-id=\"10-thoi-quen-ngu\">ngủ</span> lúc 10 <span class=\"vl-word\" data-id=\"10-thoi-quen-gio-dem\">giờ đêm</span>.</p>\n<p>Đây là một ngày của tôi. Còn bạn?</p>"
+      }
+    },
+    {
+      "id": "11-thoi-tiet",
+      "lessonNumber": 11,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 11: Weather",
+        "titleVi": "Bài 11: Thời Tiết",
+        "difficulty": "beginner",
+        "summary": "This lesson introduces basic Vietnamese vocabulary for describing the weather. You'll learn to say what the weather is like today and express your feelings about it.",
+        "text": "A: Chào Mai!\n\nB: Chào Nam!\n\nA: Hôm nay trời thế nào?\n\nB: Hôm nay trời nắng. Thời tiết đẹp quá!\n\nA: Đúng vậy. Hôm qua trời mưa.\n\nB: Bạn thích thời tiết nào?\n\nA: Mình thích trời mát. Mình không thích trời nóng.\n\nB: Mình cũng vậy. Trời nóng quá!\n\nA: Cuối tuần này, mình đi công viên nhé?\n\nB: Được! Nếu trời không mưa.\n\nA: Tốt!\n\nB: Hẹn gặp lại!\n\nA: Hẹn gặp lại!",
+        "vocabulary": [
+          {
+            "id": "11-thoi-tiet-hom-nay",
+            "word": "Hôm nay",
+            "pronunciation": "hôm nay",
+            "partOfSpeech": "noun",
+            "definition": "today",
+            "exampleSentence": "Hôm nay trời thế nào?",
+            "exampleTranslation": "How is the weather today?"
+          },
+          {
+            "id": "11-thoi-tiet-troi",
+            "word": "trời",
+            "pronunciation": "t͡ɕəːj",
+            "partOfSpeech": "noun",
+            "definition": "sky, weather",
+            "exampleSentence": "Hôm nay trời nắng.",
+            "exampleTranslation": "Today the weather is sunny."
+          },
+          {
+            "id": "11-thoi-tiet-nang",
+            "word": "nắng",
+            "pronunciation": "nǎŋ",
+            "partOfSpeech": "adjective",
+            "definition": "sunny",
+            "exampleSentence": "Hôm nay trời nắng.",
+            "exampleTranslation": "Today the weather is sunny."
+          },
+          {
+            "id": "11-thoi-tiet-thoi-tiet",
+            "word": "Thời tiết",
+            "pronunciation": "tʰə̀ːj tiə́t",
+            "partOfSpeech": "noun",
+            "definition": "weather",
+            "exampleSentence": "Thời tiết đẹp quá!",
+            "exampleTranslation": "The weather is so beautiful!"
+          },
+          {
+            "id": "11-thoi-tiet-dep",
+            "word": "đẹp",
+            "pronunciation": "ɗɛ̀p",
+            "partOfSpeech": "adjective",
+            "definition": "beautiful",
+            "exampleSentence": "Thời tiết đẹp quá!",
+            "exampleTranslation": "The weather is so beautiful!"
+          },
+          {
+            "id": "11-thoi-tiet-qua",
+            "word": "quá",
+            "pronunciation": "kwá",
+            "partOfSpeech": "adverb",
+            "definition": "too, so, very",
+            "exampleSentence": "Thời tiết đẹp quá!",
+            "exampleTranslation": "The weather is so beautiful!"
+          },
+          {
+            "id": "11-thoi-tiet-hom-qua",
+            "word": "Hôm qua",
+            "pronunciation": "hôm kwa",
+            "partOfSpeech": "noun",
+            "definition": "yesterday",
+            "exampleSentence": "Hôm qua trời mưa.",
+            "exampleTranslation": "Yesterday it rained."
+          },
+          {
+            "id": "11-thoi-tiet-mua",
+            "word": "mưa",
+            "pronunciation": "mɨə",
+            "partOfSpeech": "verb",
+            "definition": "to rain",
+            "exampleSentence": "Hôm qua trời mưa.",
+            "exampleTranslation": "Yesterday it rained."
+          },
+          {
+            "id": "11-thoi-tiet-thich",
+            "word": "thích",
+            "pronunciation": "tʰík",
+            "partOfSpeech": "verb",
+            "definition": "to like",
+            "exampleSentence": "Bạn thích thời tiết nào?",
+            "exampleTranslation": "What kind of weather do you like?"
+          },
+          {
+            "id": "11-thoi-tiet-mat",
+            "word": "mát",
+            "pronunciation": "mát",
+            "partOfSpeech": "adjective",
+            "definition": "cool",
+            "exampleSentence": "Mình thích trời mát.",
+            "exampleTranslation": "I like cool weather."
+          },
+          {
+            "id": "11-thoi-tiet-nong",
+            "word": "nóng",
+            "pronunciation": "nǎŋ",
+            "partOfSpeech": "adjective",
+            "definition": "hot",
+            "exampleSentence": "Mình không thích trời nóng.",
+            "exampleTranslation": "I don't like hot weather."
+          },
+          {
+            "id": "11-thoi-tiet-cuoi-tuan",
+            "word": "Cuối tuần",
+            "pronunciation": "kuôi tuə̀n",
+            "partOfSpeech": "noun",
+            "definition": "weekend",
+            "exampleSentence": "Cuối tuần này, mình đi công viên nhé?",
+            "exampleTranslation": "This weekend, let's go to the park?"
+          },
+          {
+            "id": "11-thoi-tiet-neu",
+            "word": "Nếu",
+            "pronunciation": "nə́ʊ",
+            "partOfSpeech": "conjunction",
+            "definition": "if",
+            "exampleSentence": "Nếu trời không mưa.",
+            "exampleTranslation": "If it doesn't rain."
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "11-thoi-tiet-hom-nay-troi",
+            "pattern": "Hôm nay trời + [weather adjective]",
+            "explanation": "This pattern is used to describe the weather today. For example, 'Hôm nay trời nắng' means 'Today the weather is sunny'.",
+            "exampleFromText": "Hôm nay trời nắng.",
+            "additionalExample": "Hôm nay trời lạnh. (Today the weather is cold.)"
+          },
+          {
+            "id": "11-thoi-tiet-thoi-tiet-adj-qua",
+            "pattern": "Thời tiết + [adjective] + quá!",
+            "explanation": "This pattern expresses how strongly you feel about the weather. 'Quá' means 'too' or 'so'.",
+            "exampleFromText": "Thời tiết đẹp quá!",
+            "additionalExample": "Thời tiết nóng quá! (The weather is too hot!)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "11-thoi-tiet-weather-small-talk",
+            "term": "Weather as conversation starter",
+            "note": "Talking about the weather is a common way to start a conversation in Vietnam, just like in many other cultures. It's a safe and easy topic to begin with."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "11-thoi-tiet-q1",
+            "question": "Hôm nay trời thế nào?",
+            "questionTranslation": "How is the weather today?",
+            "type": "multiple-choice",
+            "options": [
+              "Trời mưa.",
+              "Trời nắng.",
+              "Trời lạnh."
+            ],
+            "answer": "Trời nắng."
+          },
+          {
+            "id": "11-thoi-tiet-q2",
+            "question": "Nam thích thời tiết nào?",
+            "questionTranslation": "What kind of weather does Nam like?",
+            "type": "multiple-choice",
+            "options": [
+              "Trời nóng.",
+              "Trời mưa.",
+              "Trời mát."
+            ],
+            "answer": "Trời mát."
+          },
+          {
+            "id": "11-thoi-tiet-q3",
+            "question": "Hôm qua trời thế nào?",
+            "questionTranslation": "How was the weather yesterday?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Hôm qua trời mưa."
+          }
+        ],
+        "annotatedHtml": "<p>A: Chào Mai!</p>\n<p>B: Chào Nam!</p>\n<p>A: <span class=\"vl-word\" data-id=\"11-thoi-tiet-hom-nay\">Hôm nay</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-troi\">trời</span> thế nào?</p>\n<p>B: <span class=\"vl-word\" data-id=\"11-thoi-tiet-hom-nay\">Hôm nay</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-troi\">trời</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-nang\">nắng</span>. <span class=\"vl-word\" data-id=\"11-thoi-tiet-thoi-tiet\">Thời tiết</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-dep\">đẹp</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-qua\">quá</span>!</p>\n<p>A: Đúng vậy. <span class=\"vl-word\" data-id=\"11-thoi-tiet-hom-qua\">Hôm qua</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-troi\">trời</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-mua\">mưa</span>.</p>\n<p>B: Bạn <span class=\"vl-word\" data-id=\"11-thoi-tiet-thich\">thích</span> thời tiết nào?</p>\n<p>A: Mình <span class=\"vl-word\" data-id=\"11-thoi-tiet-thich\">thích</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-troi\">trời</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-mat\">mát</span>. Mình không <span class=\"vl-word\" data-id=\"11-thoi-tiet-thich\">thích</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-troi\">trời</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-nong\">nóng</span>.</p>\n<p>B: Mình cũng vậy. Trời <span class=\"vl-word\" data-id=\"11-thoi-tiet-nong\">nóng</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-qua\">quá</span>!</p>\n<p>A: <span class=\"vl-word\" data-id=\"11-thoi-tiet-cuoi-tuan\">Cuối tuần</span> này, mình đi công viên nhé?</p>\n<p>B: Được! <span class=\"vl-word\" data-id=\"11-thoi-tiet-neu\">Nếu</span> <span class=\"vl-word\" data-id=\"11-thoi-tiet-troi\">trời</span> không <span class=\"vl-word\" data-id=\"11-thoi-tiet-mua\">mưa</span>.</p>\n<p>A: Tốt!</p>\n<p>B: Hẹn gặp lại!</p>\n<p>A: Hẹn gặp lại!</p>"
+      }
+    },
+    {
+      "id": "12-so-thich",
+      "lessonNumber": 12,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 12: Hobbies & Free Time",
+        "titleVi": "Bài 12: Sở Thích và Thời Gian Rảnh",
+        "difficulty": "beginner",
+        "summary": "In this lesson, you'll learn how to talk about your hobbies and free-time activities in Vietnamese. You'll practice using verbs like 'thích' (like), 'không thích' (dislike), 'yêu' (love), and 'ghét' (hate), along with common hobbies.",
+        "text": "A: Chào bạn! Bạn khỏe không?\n\nB: Chào bạn! Mình khỏe. Còn bạn?\n\nA: Mình cũng khỏe. Bạn thích làm gì vào thời gian rảnh?\n\nB: Mình thích đọc sách và nghe nhạc. Mình cũng thích nấu ăn. Còn bạn?\n\nA: Mình thích chơi thể thao. Mình không thích đọc sách. Mình yêu du lịch!\n\nB: Du lịch thú vị! Bạn thích đi đâu?\n\nA: Mình thích đi biển. Mình ghét xem phim ở nhà.\n\nB: Mình hiểu. Vậy, cuối tuần này mình đi chơi không?\n\nA: Được! Đi đâu?\n\nB: Mình chưa biết. Mình sẽ nghĩ.\n\nA: Ok!",
+        "vocabulary": [
+          {
+            "id": "12-so-thich-chao-ban",
+            "word": "Chào bạn!",
+            "pronunciation": "t͡ɕaːw˧˩ ʔɓaːnˀ˧˩",
+            "partOfSpeech": "other",
+            "definition": "Hello!",
+            "exampleSentence": "Chào bạn! Bạn khỏe không?",
+            "exampleTranslation": "Hello! How are you?"
+          },
+          {
+            "id": "12-so-thich-thich",
+            "word": "thích",
+            "pronunciation": "tʰɪtɕ˧˥",
+            "partOfSpeech": "verb",
+            "definition": "to like",
+            "exampleSentence": "Mình thích đọc sách và nghe nhạc.",
+            "exampleTranslation": "I like reading books and listening to music."
+          },
+          {
+            "id": "12-so-thich-khong-thich",
+            "word": "không thích",
+            "pronunciation": "xəwŋ͡m˧ kʰɪtɕ˧˥",
+            "partOfSpeech": "verb",
+            "definition": "to dislike",
+            "exampleSentence": "Mình không thích đọc sách.",
+            "exampleTranslation": "I don't like reading books."
+          },
+          {
+            "id": "12-so-thich-yeu",
+            "word": "yêu",
+            "pronunciation": "ʔiəw˧",
+            "partOfSpeech": "verb",
+            "definition": "to love",
+            "exampleSentence": "Mình yêu du lịch!",
+            "exampleTranslation": "I love traveling!"
+          },
+          {
+            "id": "12-so-thich-ghet",
+            "word": "ghét",
+            "pronunciation": "ɣɛt˧˥",
+            "partOfSpeech": "verb",
+            "definition": "to hate",
+            "exampleSentence": "Mình ghét xem phim ở nhà.",
+            "exampleTranslation": "I hate watching movies at home."
+          },
+          {
+            "id": "12-so-thich-choi-the-thao",
+            "word": "chơi thể thao",
+            "pronunciation": "t͡ɕəːj˧ tʰɛ˧˩ tʰaːw˧",
+            "partOfSpeech": "verb",
+            "definition": "to play sports",
+            "exampleSentence": "Mình thích chơi thể thao.",
+            "exampleTranslation": "I like to play sports."
+          },
+          {
+            "id": "12-so-thich-nghe-nhac",
+            "word": "nghe nhạc",
+            "pronunciation": "ŋɛ˧ ɲaʔːk̚˧˨ʔ",
+            "partOfSpeech": "verb",
+            "definition": "to listen to music",
+            "exampleSentence": "Mình thích đọc sách và nghe nhạc.",
+            "exampleTranslation": "I like reading books and listening to music."
+          },
+          {
+            "id": "12-so-thich-xem-phim",
+            "word": "xem phim",
+            "pronunciation": "sɛm˧ pʰim˧",
+            "partOfSpeech": "verb",
+            "definition": "to watch movies",
+            "exampleSentence": "Mình ghét xem phim ở nhà.",
+            "exampleTranslation": "I hate watching movies at home."
+          },
+          {
+            "id": "12-so-thich-doc-sach",
+            "word": "đọc sách",
+            "pronunciation": "ɗɔʔːk̚˧˨ʔ saʔːk̚˧",
+            "partOfSpeech": "verb",
+            "definition": "to read books",
+            "exampleSentence": "Mình thích đọc sách và nghe nhạc.",
+            "exampleTranslation": "I like reading books and listening to music."
+          },
+          {
+            "id": "12-so-thich-nau-an",
+            "word": "nấu ăn",
+            "pronunciation": "nəw˧˥ ʔǎn˧",
+            "partOfSpeech": "verb",
+            "definition": "to cook",
+            "exampleSentence": "Mình cũng thích nấu ăn.",
+            "exampleTranslation": "I also like to cook."
+          },
+          {
+            "id": "12-so-thich-du-lich",
+            "word": "du lịch",
+            "pronunciation": "ju˧ lɪk̚˧˨ʔ",
+            "partOfSpeech": "verb",
+            "definition": "to travel",
+            "exampleSentence": "Mình yêu du lịch!",
+            "exampleTranslation": "I love traveling!"
+          },
+          {
+            "id": "12-so-thich-thoi-gian-ranh",
+            "word": "thời gian rảnh",
+            "pronunciation": "tʰəːj˧ ʒaːn˧ raɲ˧˩",
+            "partOfSpeech": "noun",
+            "definition": "free time",
+            "exampleSentence": "Bạn thích làm gì vào thời gian rảnh?",
+            "exampleTranslation": "What do you like to do in your free time?"
+          },
+          {
+            "id": "12-so-thich-cuoi-tuan",
+            "word": "cuối tuần",
+            "pronunciation": "kuj˧˥ twən˧",
+            "partOfSpeech": "noun",
+            "definition": "weekend",
+            "exampleSentence": "Vậy, cuối tuần này mình đi chơi không?",
+            "exampleTranslation": "So, shall we go out this weekend?"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "12-so-thich-toi-thich",
+            "pattern": "Tôi + thích + verb/noun",
+            "explanation": "This pattern is used to express what you like. 'Tôi' means 'I', 'thích' means 'like', and you can follow it with a verb or a noun representing the activity or thing you enjoy.",
+            "exampleFromText": "Mình thích đọc sách và nghe nhạc.",
+            "additionalExample": "Tôi thích ăn phở. (I like eating pho.)"
+          },
+          {
+            "id": "12-so-thich-question-words",
+            "pattern": "Question word + subject + verb?",
+            "explanation": "Vietnamese often uses question words at the beginning of the sentence. For example, 'gì' (what) is used to ask about activities or things.",
+            "exampleFromText": "Bạn thích làm gì vào thời gian rảnh?",
+            "additionalExample": "Bạn ăn gì? (What are you eating?)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "12-so-thich-weekend-plans",
+            "term": "Đi chơi",
+            "note": "The phrase 'đi chơi' is a common way to suggest going out for leisure activities. It's a general term that can encompass various activities like going to a cafe, park, or event."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "12-so-thich-q1",
+            "question": "Bạn B thích làm gì?",
+            "questionTranslation": "What does Person B like to do?",
+            "type": "multiple-choice",
+            "options": [
+              "Chơi thể thao",
+              "Đọc sách và nghe nhạc",
+              "Xem phim",
+              "Du lịch"
+            ],
+            "answer": "Đọc sách và nghe nhạc"
+          },
+          {
+            "id": "12-so-thich-q2",
+            "question": "Bạn A yêu thích gì?",
+            "questionTranslation": "What does Person A love?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Du lịch"
+          },
+          {
+            "id": "12-so-thich-q3",
+            "question": "Bạn A ghét làm gì ở nhà?",
+            "questionTranslation": "What does Person A hate doing at home?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Xem phim"
+          }
+        ],
+        "annotatedHtml": "<p>A: <span class=\"vl-word\" data-id=\"12-so-thich-chao-ban\">Chào bạn!</span> Bạn khỏe không?</p>\n<p>B: <span class=\"vl-word\" data-id=\"12-so-thich-chao-ban\">Chào bạn!</span> Mình khỏe. Còn bạn?</p>\n<p>A: Mình cũng khỏe. Bạn <span class=\"vl-word\" data-id=\"12-so-thich-thich\">thích</span> làm gì vào <span class=\"vl-word\" data-id=\"12-so-thich-thoi-gian-ranh\">thời gian rảnh</span>?</p>\n<p>B: Mình <span class=\"vl-word\" data-id=\"12-so-thich-thich\">thích</span> <span class=\"vl-word\" data-id=\"12-so-thich-doc-sach\">đọc sách</span> và <span class=\"vl-word\" data-id=\"12-so-thich-nghe-nhac\">nghe nhạc</span>. Mình cũng <span class=\"vl-word\" data-id=\"12-so-thich-thich\">thích</span> <span class=\"vl-word\" data-id=\"12-so-thich-nau-an\">nấu ăn</span>. Còn bạn?</p>\n<p>A: Mình <span class=\"vl-word\" data-id=\"12-so-thich-thich\">thích</span> <span class=\"vl-word\" data-id=\"12-so-thich-choi-the-thao\">chơi thể thao</span>. Mình <span class=\"vl-word\" data-id=\"12-so-thich-khong-thich\">không thích</span> <span class=\"vl-word\" data-id=\"12-so-thich-doc-sach\">đọc sách</span>. Mình <span class=\"vl-word\" data-id=\"12-so-thich-yeu\">yêu</span> <span class=\"vl-word\" data-id=\"12-so-thich-du-lich\">du lịch</span>!</p>\n<p>B: Du lịch thú vị! Bạn <span class=\"vl-word\" data-id=\"12-so-thich-thich\">thích</span> đi đâu?</p>\n<p>A: Mình <span class=\"vl-word\" data-id=\"12-so-thich-thich\">thích</span> đi biển. Mình <span class=\"vl-word\" data-id=\"12-so-thich-ghet\">ghét</span> <span class=\"vl-word\" data-id=\"12-so-thich-xem-phim\">xem phim</span> ở nhà.</p>\n<p>B: Mình hiểu. Vậy, <span class=\"vl-word\" data-id=\"12-so-thich-cuoi-tuan\">cuối tuần</span> này mình đi chơi không?</p>\n<p>A: Được! Đi đâu?</p>\n<p>B: Mình chưa biết. Mình sẽ nghĩ.</p>\n<p>A: Ok!</p>"
+      }
+    },
+    {
+      "id": "13-nha-hang",
+      "lessonNumber": 13,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 13: At the Restaurant",
+        "titleVi": "Bài 13: Ở Nhà Hàng",
+        "difficulty": "beginner",
+        "summary": "This lesson teaches basic phrases for ordering food and paying at a Vietnamese restaurant. You'll learn how to ask for the menu, order dishes, and understand common restaurant vocabulary.",
+        "text": "A: Chào bạn! Mời vào. Bạn có mấy người?\n\nB: Chào bạn. Tôi có một người.\n\nA: Mời bạn ngồi ở đây.\n\nB: Cảm ơn.\n\nA: Bạn muốn uống gì?\n\nB: Cho tôi một ly trà đá.\n\nA: Bạn muốn ăn gì?\n\nB: Tôi muốn gọi món phở bò.\n\nA: Dạ. Chờ một chút.\n\n(Một lát sau)\n\nA: Đây là phở của bạn. Chúc bạn ngon miệng!\n\nB: Cảm ơn bạn!\n\n(Sau khi ăn xong)\n\nB: Tính tiền!\n\nA: Dạ. Tổng cộng là năm mươi nghìn đồng.\n\nB: Đây ạ. Cảm ơn.\n\nA: Cảm ơn bạn. Hẹn gặp lại!",
+        "vocabulary": [
+          {
+            "id": "13-nha-hang-chao-ban",
+            "word": "Chào bạn!",
+            "pronunciation": "t͡ɕaːw˧˨ ʔɓaːnˀ˧˨ʔ",
+            "partOfSpeech": "other",
+            "definition": "Hello!",
+            "exampleSentence": "A: Chào bạn! Mời vào.",
+            "exampleTranslation": "A: Hello! Welcome."
+          },
+          {
+            "id": "13-nha-hang-moi-vao",
+            "word": "Mời vào.",
+            "pronunciation": "mɨəjˀ˨˩ vaːw˨˩",
+            "partOfSpeech": "verb",
+            "definition": "Welcome / Please come in.",
+            "exampleSentence": "A: Chào bạn! Mời vào.",
+            "exampleTranslation": "A: Hello! Welcome."
+          },
+          {
+            "id": "13-nha-hang-may-nguoi",
+            "word": "mấy người?",
+            "pronunciation": "məːjˀ˧ ŋɨəj˨˩",
+            "partOfSpeech": "other",
+            "definition": "How many people?",
+            "exampleSentence": "A: Bạn có mấy người?",
+            "exampleTranslation": "A: How many people are in your party?"
+          },
+          {
+            "id": "13-nha-hang-moi-ngoi",
+            "word": "Mời bạn ngồi",
+            "pronunciation": "mɨəjˀ˨˩ ʔɓaːnˀ˧˨ʔ ŋɔj˨˩",
+            "partOfSpeech": "verb",
+            "definition": "Please sit.",
+            "exampleSentence": "A: Mời bạn ngồi ở đây.",
+            "exampleTranslation": "A: Please sit here."
+          },
+          {
+            "id": "13-nha-hang-uong-gi",
+            "word": "uống gì?",
+            "pronunciation": "ʔuəŋ˧ˀ ʒiː˨˩",
+            "partOfSpeech": "verb",
+            "definition": "What would you like to drink?",
+            "exampleSentence": "A: Bạn muốn uống gì?",
+            "exampleTranslation": "A: What would you like to drink?"
+          },
+          {
+            "id": "13-nha-hang-tra-da",
+            "word": "trà đá",
+            "pronunciation": "t͡ɕaː˨˩ ʔɗaːˀ˧˥",
+            "partOfSpeech": "noun",
+            "definition": "Iced tea",
+            "exampleSentence": "B: Cho tôi một ly trà đá.",
+            "exampleTranslation": "B: Give me a glass of iced tea."
+          },
+          {
+            "id": "13-nha-hang-an-gi",
+            "word": "ăn gì?",
+            "pronunciation": "ʔaŋ˧ ʒiː˨˩",
+            "partOfSpeech": "verb",
+            "definition": "What would you like to eat?",
+            "exampleSentence": "A: Bạn muốn ăn gì?",
+            "exampleTranslation": "A: What would you like to eat?"
+          },
+          {
+            "id": "13-nha-hang-goi-mon",
+            "word": "gọi món",
+            "pronunciation": "ɣɔjˀ˧˨ʔ mɔn˧˥",
+            "partOfSpeech": "verb",
+            "definition": "to order food",
+            "exampleSentence": "B: Tôi muốn gọi món phở bò.",
+            "exampleTranslation": "B: I want to order pho bo (beef noodle soup)."
+          },
+          {
+            "id": "13-nha-hang-pho-bo",
+            "word": "phở bò",
+            "pronunciation": "fəː˧˥ ʔɓɔː˨˩",
+            "partOfSpeech": "noun",
+            "definition": "Beef noodle soup (pho)",
+            "exampleSentence": "B: Tôi muốn gọi món phở bò.",
+            "exampleTranslation": "B: I want to order pho bo (beef noodle soup)."
+          },
+          {
+            "id": "13-nha-hang-chuc-ngon-mieng",
+            "word": "ngon miệng!",
+            "pronunciation": "ŋɔn˧ mɨəŋˀ˨",
+            "partOfSpeech": "adjective",
+            "definition": "Delicious!",
+            "exampleSentence": "A: Đây là phở của bạn. Chúc bạn ngon miệng!",
+            "exampleTranslation": "A: Here is your pho. Enjoy your meal!"
+          },
+          {
+            "id": "13-nha-hang-tinh-tien",
+            "word": "Tính tiền!",
+            "pronunciation": "ʔtiŋ˧˥ tiən˨˩",
+            "partOfSpeech": "verb",
+            "definition": "Check, please! / Bill, please!",
+            "exampleSentence": "B: Tính tiền!",
+            "exampleTranslation": "B: Check, please!"
+          },
+          {
+            "id": "13-nha-hang-tong-cong",
+            "word": "Tổng cộng",
+            "pronunciation": "təwŋ˧˥ kɔŋˀ˧˨ʔ",
+            "partOfSpeech": "adjective",
+            "definition": "Total",
+            "exampleSentence": "A: Dạ. Tổng cộng là năm mươi nghìn đồng.",
+            "exampleTranslation": "A: Yes. The total is fifty thousand dong."
+          },
+          {
+            "id": "13-nha-hang-nam-muoi-nghin-dong",
+            "word": "năm mươi nghìn đồng",
+            "pronunciation": "naːm˧ mɨəj˧ ŋin˨˩ ʔɗɔŋ˨˩",
+            "partOfSpeech": "noun",
+            "definition": "Fifty thousand dong",
+            "exampleSentence": "A: Dạ. Tổng cộng là năm mươi nghìn đồng.",
+            "exampleTranslation": "A: Yes. The total is fifty thousand dong."
+          },
+          {
+            "id": "13-nha-hang-hen-gap-lai",
+            "word": "Hẹn gặp lại!",
+            "pronunciation": "hɛŋˀ˨ ɣaːpˀ˨ ʔlaːjˀ˨",
+            "partOfSpeech": "other",
+            "definition": "See you again!",
+            "exampleSentence": "A: Cảm ơn bạn. Hẹn gặp lại!",
+            "exampleTranslation": "A: Thank you. See you again!"
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "13-nha-hang-ban-muon-gi",
+            "pattern": "Bạn muốn + Verb + gì?",
+            "explanation": "This pattern is used to ask someone what they want to do. 'Bạn' means 'you,' 'muốn' means 'want,' and 'gì' means 'what.'",
+            "exampleFromText": "A: Bạn muốn uống gì?",
+            "additionalExample": "Bạn muốn xem gì? (What do you want to watch?)"
+          },
+          {
+            "id": "13-nha-hang-cho-toi-mot",
+            "pattern": "Cho tôi + Number + Classifier + Noun",
+            "explanation": "This pattern is used to ask for something. 'Cho tôi' means 'give me,' followed by a number, a classifier (like 'ly' for drinks), and the noun you want.",
+            "exampleFromText": "B: Cho tôi một ly trà đá.",
+            "additionalExample": "Cho tôi một bát phở. (Give me a bowl of pho.)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "13-nha-hang-chao-etiquette",
+            "term": "Chào",
+            "note": "In Vietnam, it's polite to greet people when entering a restaurant. The server will usually greet you with 'Chào bạn!' and you should respond in kind."
+          },
+          {
+            "id": "13-nha-hang-tra-da-culture",
+            "term": "Trà đá",
+            "note": "Iced tea (trà đá) is often served automatically and is usually free. Don't be surprised if it appears on your table without you ordering it."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "13-nha-hang-co-may-nguoi",
+            "question": "Người khách có mấy người?",
+            "questionTranslation": "How many people are in the customer's party?",
+            "type": "multiple-choice",
+            "options": [
+              "Một người",
+              "Hai người",
+              "Ba người",
+              "Năm người"
+            ],
+            "answer": "Một người"
+          },
+          {
+            "id": "13-nha-hang-khach-uong-gi",
+            "question": "Người khách muốn uống gì?",
+            "questionTranslation": "What does the customer want to drink?",
+            "type": "multiple-choice",
+            "options": [
+              "Cà phê",
+              "Trà đá",
+              "Nước cam",
+              "Bia"
+            ],
+            "answer": "Trà đá"
+          },
+          {
+            "id": "13-nha-hang-khach-an-gi",
+            "question": "Người khách muốn ăn gì?",
+            "questionTranslation": "What does the customer want to eat?",
+            "type": "multiple-choice",
+            "options": [
+              "Cơm",
+              "Bún chả",
+              "Phở bò",
+              "Gỏi cuốn"
+            ],
+            "answer": "Phở bò"
+          },
+          {
+            "id": "13-nha-hang-tinh-tien-bao-nhieu",
+            "question": "Tổng cộng là bao nhiêu tiền?",
+            "questionTranslation": "How much is the total?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Năm mươi nghìn đồng"
+          }
+        ],
+        "annotatedHtml": "<p>A: <span class=\"vl-word\" data-id=\"13-nha-hang-chao-ban\">Chào bạn!</span> <span class=\"vl-word\" data-id=\"13-nha-hang-moi-vao\">Mời vào.</span> Bạn có <span class=\"vl-word\" data-id=\"13-nha-hang-may-nguoi\">mấy người?</span></p>\n<p>B: Chào bạn. Tôi có một người.</p>\n<p>A: <span class=\"vl-word\" data-id=\"13-nha-hang-moi-ngoi\">Mời bạn ngồi</span> ở đây.</p>\n<p>B: Cảm ơn.</p>\n<p>A: Bạn muốn <span class=\"vl-word\" data-id=\"13-nha-hang-uong-gi\">uống gì?</span></p>\n<p>B: Cho tôi một ly <span class=\"vl-word\" data-id=\"13-nha-hang-tra-da\">trà đá</span>.</p>\n<p>A: Bạn muốn <span class=\"vl-word\" data-id=\"13-nha-hang-an-gi\">ăn gì?</span></p>\n<p>B: Tôi muốn <span class=\"vl-word\" data-id=\"13-nha-hang-goi-mon\">gọi món</span> <span class=\"vl-word\" data-id=\"13-nha-hang-pho-bo\">phở bò</span>.</p>\n<p>A: Dạ. Chờ một chút.</p>\n<p>(Một lát sau)</p>\n<p>A: Đây là phở của bạn. Chúc bạn <span class=\"vl-word\" data-id=\"13-nha-hang-chuc-ngon-mieng\">ngon miệng!</span></p>\n<p>B: Cảm ơn bạn!</p>\n<p>(Sau khi ăn xong)</p>\n<p>B: <span class=\"vl-word\" data-id=\"13-nha-hang-tinh-tien\">Tính tiền!</span></p>\n<p>A: Dạ. <span class=\"vl-word\" data-id=\"13-nha-hang-tong-cong\">Tổng cộng</span> là <span class=\"vl-word\" data-id=\"13-nha-hang-nam-muoi-nghin-dong\">năm mươi nghìn đồng</span>.</p>\n<p>B: Đây ạ. Cảm ơn.</p>\n<p>A: Cảm ơn bạn. <span class=\"vl-word\" data-id=\"13-nha-hang-hen-gap-lai\">Hẹn gặp lại!</span></p>"
+      }
+    },
+    {
+      "id": "14-nghe-nghiep",
+      "lessonNumber": 14,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 14: Jobs & Occupations",
+        "titleVi": "Bài 14: Nghề Nghiệp",
+        "difficulty": "beginner",
+        "summary": "In this lesson, you'll learn how to ask someone what their job is and how to answer. We'll cover common occupations like teacher, doctor, engineer, and student.",
+        "text": "A: Chào bạn. Mình là Lan.\n\nB: Chào Lan. Mình là Nam.\n\nA: Rất vui được gặp bạn, Nam.\n\nB: Mình cũng rất vui được gặp bạn.\n\nA: Bạn làm nghề gì?\n\nB: Mình là sinh viên. Còn bạn?\n\nA: Mình là giáo viên.\n\nB: Bạn làm việc ở đâu?\n\nA: Mình làm việc ở trường học. Bạn học ở đâu?\n\nB: Mình học ở trường đại học.\n\nA: Tạm biệt, Nam.\n\nB: Tạm biệt, Lan.",
+        "vocabulary": [
+          {
+            "id": "14-nghe-nghiep-ban",
+            "word": "bạn",
+            "pronunciation": "bạn",
+            "partOfSpeech": "noun",
+            "definition": "you",
+            "exampleSentence": "Chào bạn.",
+            "exampleTranslation": "Hello you."
+          },
+          {
+            "id": "14-nghe-nghiep-minh",
+            "word": "Mình",
+            "pronunciation": "mình",
+            "partOfSpeech": "noun",
+            "definition": "I (friendly, informal)",
+            "exampleSentence": "Mình là Lan.",
+            "exampleTranslation": "I am Lan."
+          },
+          {
+            "id": "14-nghe-nghiep-lam-nghe-gi",
+            "word": "làm nghề gì?",
+            "pronunciation": "làm nghề gì?",
+            "partOfSpeech": "verb",
+            "definition": "What is your job?",
+            "exampleSentence": "Bạn làm nghề gì?",
+            "exampleTranslation": "What is your job?"
+          },
+          {
+            "id": "14-nghe-nghiep-sinh-vien",
+            "word": "sinh viên",
+            "pronunciation": "sinh viên",
+            "partOfSpeech": "noun",
+            "definition": "student",
+            "exampleSentence": "Mình là sinh viên.",
+            "exampleTranslation": "I am a student."
+          },
+          {
+            "id": "14-nghe-nghiep-giao-vien",
+            "word": "giáo viên",
+            "pronunciation": "giáo viên",
+            "partOfSpeech": "noun",
+            "definition": "teacher",
+            "exampleSentence": "Mình là giáo viên.",
+            "exampleTranslation": "I am a teacher."
+          },
+          {
+            "id": "14-nghe-nghiep-lam-viec",
+            "word": "làm việc",
+            "pronunciation": "làm việc",
+            "partOfSpeech": "verb",
+            "definition": "to work",
+            "exampleSentence": "Bạn làm việc ở đâu?",
+            "exampleTranslation": "Where do you work?"
+          },
+          {
+            "id": "14-nghe-nghiep-o-dau",
+            "word": "ở đâu",
+            "pronunciation": "ở đâu",
+            "partOfSpeech": "adverb",
+            "definition": "where",
+            "exampleSentence": "Bạn làm việc ở đâu?",
+            "exampleTranslation": "Where do you work?"
+          },
+          {
+            "id": "14-nghe-nghiep-truong-hoc",
+            "word": "trường học",
+            "pronunciation": "trường học",
+            "partOfSpeech": "noun",
+            "definition": "school",
+            "exampleSentence": "Mình làm việc ở trường học.",
+            "exampleTranslation": "I work at a school."
+          },
+          {
+            "id": "14-nghe-nghiep-hoc",
+            "word": "học",
+            "pronunciation": "học",
+            "partOfSpeech": "verb",
+            "definition": "to study, to learn",
+            "exampleSentence": "Bạn học ở đâu?",
+            "exampleTranslation": "Where do you study?"
+          },
+          {
+            "id": "14-nghe-nghiep-truong-dai-hoc",
+            "word": "trường đại học",
+            "pronunciation": "trường đại học",
+            "partOfSpeech": "noun",
+            "definition": "university",
+            "exampleSentence": "Mình học ở trường đại học.",
+            "exampleTranslation": "I study at university."
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "14-nghe-nghiep-la-noun",
+            "pattern": "Subject + là + Noun (Occupation)",
+            "explanation": "This pattern is used to state someone's occupation. 'Là' acts as a linking verb, similar to 'is' or 'am' in English.",
+            "exampleFromText": "Mình là sinh viên.",
+            "additionalExample": "Cô ấy là bác sĩ. (She is a doctor.)"
+          },
+          {
+            "id": "14-nghe-nghiep-lam-viec-o-dau",
+            "pattern": "làm việc ở + Place",
+            "explanation": "This pattern is used to ask or state where someone works. 'ở' means 'at' or 'in'.",
+            "exampleFromText": "Mình làm việc ở trường học.",
+            "additionalExample": "Anh ấy làm việc ở bệnh viện. (He works at the hospital.)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "14-nghe-nghiep-forms-of-address",
+            "term": "Mình vs. Tôi",
+            "note": "'Mình' is a more friendly and informal way to say 'I' compared to 'Tôi'. 'Tôi' is more formal and neutral."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "14-nghe-nghiep-q1",
+            "question": "Lan làm nghề gì?",
+            "questionTranslation": "What is Lan's job?",
+            "type": "multiple-choice",
+            "options": [
+              "Sinh viên",
+              "Giáo viên",
+              "Bác sĩ"
+            ],
+            "answer": "Giáo viên"
+          },
+          {
+            "id": "14-nghe-nghiep-q2",
+            "question": "Nam học ở đâu?",
+            "questionTranslation": "Where does Nam study?",
+            "type": "multiple-choice",
+            "options": [
+              "Trường học",
+              "Trường đại học",
+              "Bệnh viện"
+            ],
+            "answer": "Trường đại học"
+          },
+          {
+            "id": "14-nghe-nghiep-q3",
+            "question": "Câu hỏi 'Bạn làm nghề gì?' có nghĩa là gì?",
+            "questionTranslation": "What does the question 'Bạn làm nghề gì?' mean?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "What is your job?"
+          }
+        ],
+        "annotatedHtml": "<p>A: Chào <span class=\"vl-word\" data-id=\"14-nghe-nghiep-ban\">bạn</span>. <span class=\"vl-word\" data-id=\"14-nghe-nghiep-minh\">Mình</span> là Lan.</p>\n<p>B: Chào Lan. <span class=\"vl-word\" data-id=\"14-nghe-nghiep-minh\">Mình</span> là Nam.</p>\n<p>A: Rất vui được gặp <span class=\"vl-word\" data-id=\"14-nghe-nghiep-ban\">bạn</span>, Nam.</p>\n<p>B: <span class=\"vl-word\" data-id=\"14-nghe-nghiep-minh\">Mình</span> cũng rất vui được gặp <span class=\"vl-word\" data-id=\"14-nghe-nghiep-ban\">bạn</span>.</p>\n<p>A: Bạn <span class=\"vl-word\" data-id=\"14-nghe-nghiep-lam-nghe-gi\">làm nghề gì?</span></p>\n<p>B: <span class=\"vl-word\" data-id=\"14-nghe-nghiep-minh\">Mình</span> là <span class=\"vl-word\" data-id=\"14-nghe-nghiep-sinh-vien\">sinh viên</span>. Còn <span class=\"vl-word\" data-id=\"14-nghe-nghiep-ban\">bạn</span>?</p>\n<p>A: <span class=\"vl-word\" data-id=\"14-nghe-nghiep-minh\">Mình</span> là <span class=\"vl-word\" data-id=\"14-nghe-nghiep-giao-vien\">giáo viên</span>.</p>\n<p>B: Bạn <span class=\"vl-word\" data-id=\"14-nghe-nghiep-lam-viec\">làm việc</span> <span class=\"vl-word\" data-id=\"14-nghe-nghiep-o-dau\">ở đâu</span>?</p>\n<p>A: <span class=\"vl-word\" data-id=\"14-nghe-nghiep-minh\">Mình</span> <span class=\"vl-word\" data-id=\"14-nghe-nghiep-lam-viec\">làm việc</span> ở <span class=\"vl-word\" data-id=\"14-nghe-nghiep-truong-hoc\">trường học</span>. Bạn <span class=\"vl-word\" data-id=\"14-nghe-nghiep-hoc\">học</span> <span class=\"vl-word\" data-id=\"14-nghe-nghiep-o-dau\">ở đâu</span>?</p>\n<p>B: <span class=\"vl-word\" data-id=\"14-nghe-nghiep-minh\">Mình</span> <span class=\"vl-word\" data-id=\"14-nghe-nghiep-hoc\">học</span> ở <span class=\"vl-word\" data-id=\"14-nghe-nghiep-truong-dai-hoc\">trường đại học</span>.</p>\n<p>A: Tạm biệt, Nam.</p>\n<p>B: Tạm biệt, Lan.</p>"
+      }
+    },
+    {
+      "id": "15-cam-xuc",
+      "lessonNumber": 15,
+      "level": "beginner",
+      "studyMaterial": {
+        "title": "Lesson 15: Emotions & Feelings",
+        "titleVi": "Bài 15: Cảm Xúc",
+        "difficulty": "beginner",
+        "summary": "Learn to express your feelings in Vietnamese and respond empathetically to others. This lesson focuses on common emotion words and the phrase 'Tôi cảm thấy...' to describe how you feel.",
+        "text": "A: Chào Lan! Hôm nay bạn thế nào?\n\nB: Chào Mai. Hôm nay tôi cảm thấy không vui.\n\nA: Tại sao vậy? Có chuyện gì?\n\nB: Tôi mệt mỏi và có một chút lo lắng về công việc.\n\nA: Ồ, tôi hiểu. Đừng lo lắng quá. Mọi chuyện sẽ ổn thôi.\n\nB: Tôi hy vọng vậy. Còn bạn? Bạn cảm thấy thế nào?\n\nA: Tôi cảm thấy rất vui! Hôm nay là một ngày tốt lành.\n\nB: Thật tuyệt vời! Tôi rất vui vì bạn.\n\nA: Cảm ơn bạn, Lan. Bạn đừng buồn nữa nhé!\n\nB: Tôi sẽ cố gắng. Cảm ơn bạn, Mai.",
+        "vocabulary": [
+          {
+            "id": "15-cam-xuc-chao",
+            "word": "Chào",
+            "pronunciation": "t͡ɕaːw˨˩",
+            "partOfSpeech": "verb",
+            "definition": "Hello; to greet",
+            "exampleSentence": "Chào Lan! Hôm nay bạn thế nào?",
+            "exampleTranslation": "Hello Lan! How are you today?"
+          },
+          {
+            "id": "15-cam-xuc-hom-nay",
+            "word": "Hôm nay",
+            "pronunciation": "hoʊm taɪ",
+            "partOfSpeech": "noun",
+            "definition": "Today",
+            "exampleSentence": "Hôm nay bạn thế nào?",
+            "exampleTranslation": "How are you today?"
+          },
+          {
+            "id": "15-cam-xuc-ban",
+            "word": "bạn",
+            "pronunciation": "ɓaːnˀ˧˨",
+            "partOfSpeech": "pronoun",
+            "definition": "You",
+            "exampleSentence": "Hôm nay bạn thế nào?",
+            "exampleTranslation": "How are you today?"
+          },
+          {
+            "id": "15-cam-xuc-the-nao",
+            "word": "thế nào",
+            "pronunciation": "tʰe˧˥ naːw",
+            "partOfSpeech": "adverb",
+            "definition": "How",
+            "exampleSentence": "Hôm nay bạn thế nào?",
+            "exampleTranslation": "How are you today?"
+          },
+          {
+            "id": "15-cam-xuc-toi-cam-thay",
+            "word": "tôi cảm thấy",
+            "pronunciation": "toʲi˧ kɐːm˧˩ tʰeʲˀ˧˥",
+            "partOfSpeech": "verb",
+            "definition": "I feel",
+            "exampleSentence": "Hôm nay tôi cảm thấy không vui.",
+            "exampleTranslation": "Today I feel unhappy."
+          },
+          {
+            "id": "15-cam-xuc-khong-vui",
+            "word": "không vui",
+            "pronunciation": "xɐŋ˧ vuʲ˧",
+            "partOfSpeech": "adjective",
+            "definition": "Unhappy",
+            "exampleSentence": "Hôm nay tôi cảm thấy không vui.",
+            "exampleTranslation": "Today I feel unhappy."
+          },
+          {
+            "id": "15-cam-xuc-tai-sao",
+            "word": "Tại sao",
+            "pronunciation": "taːj˧˩ saːw",
+            "partOfSpeech": "adverb",
+            "definition": "Why",
+            "exampleSentence": "Tại sao vậy? Có chuyện gì?",
+            "exampleTranslation": "Why? What's the matter?"
+          },
+          {
+            "id": "15-cam-xuc-met-moi",
+            "word": "mệt mỏi",
+            "pronunciation": "mɛt̚˧ˀ˨ mɔj˧˩",
+            "partOfSpeech": "adjective",
+            "definition": "Tired",
+            "exampleSentence": "Tôi mệt mỏi và có một chút lo lắng về công việc.",
+            "exampleTranslation": "I am tired and a little worried about work."
+          },
+          {
+            "id": "15-cam-xuc-lo-lang",
+            "word": "lo lắng",
+            "pronunciation": "lɔ˧ laŋ˧˥",
+            "partOfSpeech": "adjective",
+            "definition": "Worried",
+            "exampleSentence": "Tôi mệt mỏi và có một chút lo lắng về công việc.",
+            "exampleTranslation": "I am tired and a little worried about work."
+          },
+          {
+            "id": "15-cam-xuc-dung-lo-lang",
+            "word": "Đừng lo lắng",
+            "pronunciation": "ɗɨŋ˨˩ lɔ˧ laŋ˧˥",
+            "partOfSpeech": "verb",
+            "definition": "Don't worry",
+            "exampleSentence": "Đừng lo lắng quá. Mọi chuyện sẽ ổn thôi.",
+            "exampleTranslation": "Don't worry too much. Everything will be alright."
+          },
+          {
+            "id": "15-cam-xuc-vui",
+            "word": "vui",
+            "pronunciation": "vuʲ˧",
+            "partOfSpeech": "adjective",
+            "definition": "Happy",
+            "exampleSentence": "Tôi cảm thấy rất vui! Hôm nay là một ngày tốt lành.",
+            "exampleTranslation": "I feel very happy! Today is a good day."
+          },
+          {
+            "id": "15-cam-xuc-that-tuyet-voi",
+            "word": "Thật tuyệt vời",
+            "pronunciation": "tʰɐʔt̚˧ˀ˨ tweʔt̚˧ ʋəːj˧˩",
+            "partOfSpeech": "adjective",
+            "definition": "Wonderful",
+            "exampleSentence": "Thật tuyệt vời! Tôi rất vui vì bạn.",
+            "exampleTranslation": "Wonderful! I am very happy for you."
+          },
+          {
+            "id": "15-cam-xuc-cam-on",
+            "word": "Cảm ơn",
+            "pronunciation": "kɐːm˧˩ ʔən˧",
+            "partOfSpeech": "verb",
+            "definition": "Thank you",
+            "exampleSentence": "Cảm ơn bạn, Lan. Bạn đừng buồn nữa nhé!",
+            "exampleTranslation": "Thank you, Lan. Don't be sad anymore!"
+          },
+          {
+            "id": "15-cam-xuc-co-gang",
+            "word": "cố gắng",
+            "pronunciation": "ko˧˥ ɣɐŋ˧˥",
+            "partOfSpeech": "verb",
+            "definition": "To try",
+            "exampleSentence": "Tôi sẽ cố gắng. Cảm ơn bạn, Mai.",
+            "exampleTranslation": "I will try. Thank you, Mai."
+          }
+        ],
+        "grammarPoints": [
+          {
+            "id": "15-cam-xuc-cam-thay",
+            "pattern": "Tôi + cảm thấy + adjective",
+            "explanation": "This pattern is used to express how you feel. 'Tôi' means 'I', 'cảm thấy' means 'feel', and you follow it with an adjective describing the emotion.",
+            "exampleFromText": "Tôi cảm thấy không vui.",
+            "additionalExample": "Tôi cảm thấy mệt mỏi. (I feel tired.)"
+          },
+          {
+            "id": "15-cam-xuc-dung",
+            "pattern": "Đừng + verb",
+            "explanation": "This pattern is used to tell someone not to do something. 'Đừng' means 'don't'.",
+            "exampleFromText": "Đừng lo lắng quá.",
+            "additionalExample": "Đừng khóc. (Don't cry.)"
+          }
+        ],
+        "culturalNotes": [
+          {
+            "id": "15-cam-xuc-quan-tam",
+            "term": "Showing Concern",
+            "note": "In Vietnamese culture, it's common to ask about someone's well-being and offer support when they are feeling down. Offering words of encouragement is a sign of friendship and care."
+          }
+        ],
+        "comprehensionQuestions": [
+          {
+            "id": "15-cam-xuc-q1",
+            "question": "Hôm nay Lan cảm thấy thế nào?",
+            "questionTranslation": "How does Lan feel today?",
+            "type": "multiple-choice",
+            "options": [
+              "Vui",
+              "Buồn",
+              "Mệt mỏi và lo lắng",
+              "Hạnh phúc"
+            ],
+            "answer": "Mệt mỏi và lo lắng"
+          },
+          {
+            "id": "15-cam-xuc-q2",
+            "question": "Mai cảm thấy thế nào?",
+            "questionTranslation": "How does Mai feel?",
+            "type": "multiple-choice",
+            "options": [
+              "Buồn",
+              "Vui",
+              "Tức giận",
+              "Sợ hãi"
+            ],
+            "answer": "Vui"
+          },
+          {
+            "id": "15-cam-xuc-q3",
+            "question": "Mai nói gì để an ủi Lan?",
+            "questionTranslation": "What does Mai say to comfort Lan?",
+            "type": "short-answer",
+            "options": [],
+            "answer": "Đừng lo lắng quá. Mọi chuyện sẽ ổn thôi."
+          }
+        ],
+        "annotatedHtml": "<p>A: <span class=\"vl-word\" data-id=\"15-cam-xuc-chao\">Chào</span> Lan! <span class=\"vl-word\" data-id=\"15-cam-xuc-hom-nay\">Hôm nay</span> <span class=\"vl-word\" data-id=\"15-cam-xuc-ban\">bạn</span> <span class=\"vl-word\" data-id=\"15-cam-xuc-the-nao\">thế nào</span>?</p>\n<p>B: <span class=\"vl-word\" data-id=\"15-cam-xuc-chao\">Chào</span> Mai. <span class=\"vl-word\" data-id=\"15-cam-xuc-hom-nay\">Hôm nay</span> <span class=\"vl-word\" data-id=\"15-cam-xuc-toi-cam-thay\">tôi cảm thấy</span> <span class=\"vl-word\" data-id=\"15-cam-xuc-khong-vui\">không vui</span>.</p>\n<p>A: <span class=\"vl-word\" data-id=\"15-cam-xuc-tai-sao\">Tại sao</span> vậy? Có chuyện gì?</p>\n<p>B: Tôi <span class=\"vl-word\" data-id=\"15-cam-xuc-met-moi\">mệt mỏi</span> và có một chút <span class=\"vl-word\" data-id=\"15-cam-xuc-lo-lang\">lo lắng</span> về công việc.</p>\n<p>A: Ồ, tôi hiểu. <span class=\"vl-word\" data-id=\"15-cam-xuc-dung-lo-lang\">Đừng lo lắng</span> quá. Mọi chuyện sẽ ổn thôi.</p>\n<p>B: Tôi hy vọng vậy. Còn <span class=\"vl-word\" data-id=\"15-cam-xuc-ban\">bạn</span>? Bạn cảm thấy <span class=\"vl-word\" data-id=\"15-cam-xuc-the-nao\">thế nào</span>?</p>\n<p>A: Tôi cảm thấy rất <span class=\"vl-word\" data-id=\"15-cam-xuc-vui\">vui</span>! <span class=\"vl-word\" data-id=\"15-cam-xuc-hom-nay\">Hôm nay</span> là một ngày tốt lành.</p>\n<p>B: <span class=\"vl-word\" data-id=\"15-cam-xuc-that-tuyet-voi\">Thật tuyệt vời</span>! Tôi rất <span class=\"vl-word\" data-id=\"15-cam-xuc-vui\">vui</span> vì <span class=\"vl-word\" data-id=\"15-cam-xuc-ban\">bạn</span>.</p>\n<p>A: <span class=\"vl-word\" data-id=\"15-cam-xuc-cam-on\">Cảm ơn</span> <span class=\"vl-word\" data-id=\"15-cam-xuc-ban\">bạn</span>, Lan. Bạn đừng buồn nữa nhé!</p>\n<p>B: Tôi sẽ <span class=\"vl-word\" data-id=\"15-cam-xuc-co-gang\">cố gắng</span>. <span class=\"vl-word\" data-id=\"15-cam-xuc-cam-on\">Cảm ơn</span> <span class=\"vl-word\" data-id=\"15-cam-xuc-ban\">bạn</span>, Mai.</p>"
+      }
+    }
+  ]
+}

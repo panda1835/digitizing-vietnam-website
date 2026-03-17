@@ -51,12 +51,27 @@ export async function fetchArticleText(url) {
 
   if (!res.ok) throw new Error(`Failed to fetch article: ${url} (${res.status})`);
 
-  const html = await res.text();
+  let html = await res.text();
+
+  // Strip blocks whose text content is never article prose
+  html = html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<nav[\s\S]*?<\/nav>/gi, "")
+    .replace(/<header[\s\S]*?<\/header>/gi, "")
+    .replace(/<footer[\s\S]*?<\/footer>/gi, "")
+    .replace(/<aside[\s\S]*?<\/aside>/gi, "");
 
   // Extract text from <p> tags — covers most Vietnamese news sites
   const paragraphs = Array.from(html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi))
     .map(([, inner]) => stripHtml(inner).trim())
-    .filter((p) => p.length > 40); // discard short captions/boilerplate
+    .filter((p) => {
+      if (p.length < 40) return false;
+      // Discard CSS/JS fragments: too many brace/semicolon characters
+      const codeChars = (p.match(/[{}();]/g) ?? []).length;
+      if (codeChars / p.length > 0.02) return false;
+      return true;
+    });
 
   return paragraphs.join("\n\n");
 }

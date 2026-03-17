@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ExternalLink, BookOpen, AlignLeft, HelpCircle, Globe, ChevronLeft } from "lucide-react";
 import VocabList from "./VocabList";
 import { GrammarPoints, CulturalNotes, ComprehensionQuestions } from "./StudyComponents";
+import WordLookupPopup from "./WordLookupPopup";
 
 const DIFFICULTY_STYLES = {
   beginner: "bg-green-100 text-green-700",
@@ -23,6 +24,7 @@ export default function StudyPage({ material, onReset }) {
 
   return (
     <div className="w-full max-w-4xl mx-auto">
+      <WordLookupPopup />
       {/* Back button */}
       {onReset && (
         <button
