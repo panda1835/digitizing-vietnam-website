@@ -88,7 +88,7 @@ const AboutUs = async ({ params: { locale } }) => {
           <Separator />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
           <div className={`${merriweather.className}  text-[32px]`}>
             {locale === "en" ? "Our Collections" : "Bộ sưu tập"}
           </div>
@@ -109,7 +109,7 @@ const AboutUs = async ({ params: { locale } }) => {
 
         <div className="mt-10">
           <Separator />
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
           <div className={`${merriweather.className}  text-[32px]`}>
