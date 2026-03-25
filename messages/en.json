@@ -327,7 +327,7 @@
       },
       "intro": {
         "title": "The Digital Gateway to Hán-Nôm Studies",
-        "description": "The Hán-Nôm Research Hub is DVN's flagship research initiative, bridging classical scholarship with modern digital humanities.",
+        "description": "Our pilot initiative, the Hán-Nôm Research Hub, features a fully integrated mirror of Columbia University’s Hán-Nôm Sino-Vietnamese Textual Library, as well as a suite of digital tools for textual analysis, including automated OCR, a searchable dictionary platform, manuscript notation, and an interface with the MARKUS and IMMARKUS tools for sinological research.",
         "goal": "Our Mission",
         "features": {
           "archives": "Digital Archives & Manuscript Catalogs",
@@ -347,7 +347,7 @@
         }
       },
       "unified-lookup": {
-        "vietnamese-title": "Other Dictionaries"
+        "vietnamese-title": "External Dictionaries"
       },
       "resources": {
         "periodicals": "Periodicals",
@@ -469,7 +469,7 @@
     }
   },
   "OtherDictionaries": {
-    "title": "Other Dictionaries",
+    "title": "External Dictionaries",
     "description": "A collection of useful online dictionaries and tools for Hán-Nôm research.",
     "list": {
       "zi-tools": {

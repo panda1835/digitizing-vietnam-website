@@ -328,7 +328,7 @@
       },
       "intro": {
         "title": "Cổng thông tin số cho Nghiên cứu Hán-Nôm",
-        "description": "Hán-Nôm Hub là sáng kiến nghiên cứu hàng đầu của DVN, kết nối học thuật cổ điển với nhân văn số hiện đại.",
+        "description": "Một sáng kiến thí điểm của chúng tôi, Không gian nghiên cứu Hán–Nôm, tích hợp đầy đủ bản sao của Kho dữ liệu Văn bản Hán–Nôm từ Bộ sưu tập Thư viện số (DLC)  thuộc  Đại học Columbia, đồng thời cung cấp một bộ công cụ số phục vụ phân tích văn bản, bao gồm: hệ thống OCR tự động, nền tảng từ điển tra cứu, công cụ chú giải và ghi chú bản thảo, cùng giao diện kết nối với các công cụ MARKUS và IMMARKUS dành cho nghiên cứu Hán học.",
         "goal": "Sứ mệnh của chúng tôi",
         "features": {
           "archives": "Kho Lưu trữ Số & Danh mục Bản thảo",
@@ -348,7 +348,7 @@
         }
       },
       "unified-lookup": {
-        "vietnamese-title": "Các Từ điển Khác"
+        "vietnamese-title": "Từ Điển Ngoài"
       },
       "resources": {
         "periodicals": "Tạp chí chuyên ngành",
@@ -470,7 +470,7 @@
     }
   },
   "OtherDictionaries": {
-    "title": "Các Từ điển Khác",
+    "title": "Từ Điển Ngoài",
     "description": "Tuyển tập các từ điển và công cụ trực tuyến hữu ích khác cho nghiên cứu Hán-Nôm.",
     "list": {
       "zi-tools": {
