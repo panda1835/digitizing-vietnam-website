@@ -141,16 +141,17 @@ const Home = async ({ params: { locale } }) => {
                 </>
               ) : (
                 <>
-                  Digitizing Việt Nam là một không gian liên trường-viện nhằm
-                  tận dụng sức mạnh của nhân văn số và trí tuệ nhân tạo để thúc
-                  đẩy tất cả các khía cạnh của Việt Nam học. Chúng tôi mong muốn
-                  củng cố tất cả các lĩnh vực của Việt Nam học thông qua các bộ
-                  sưu tập số mới, các không gian nghiên cứu sáng tạo tập trung
-                  vào công cụ phân tích số và trí tuệ nhân tạo, một kho tư liệu
-                  sư phạm phục vụ việc giảng dạy về Việt Nam ở mọi cấp học, và
-                  một cổng kết nối nhằm chia sẻ hiểu biết về mọi khía cạnh của
-                  Việt Nam với công chúng. Hãy cùng chúng tôi Digitizing Việt
-                  Nam thông qua{" "}
+                  Digitizing Việt Nam là một không gian liên kết giữa các trường
+                  - viện, nhằm khai thác sức mạnh của nhân văn số và AI để thúc
+                  đẩy sự phát triển toàn diện của các lĩnh vực nghiên cứu Việt
+                  Nam. Chúng tôi hướng tới việc tăng cường mọi lĩnh vực của
+                  Nghiên cứu Việt Nam thông qua các bộ sưu tập số mới, các không
+                  gian nghiên cứu sáng tạo tập trung vào công cụ phân tích số và
+                  AI, một kho tư liệu phục vụ giảng dạy về Việt Nam ở mọi cấp
+                  độ, cùng một cổng kết nối tới công chúng nhằm chia sẻ tri thức
+                  về mọi khía cạnh của Việt Nam. Hãy cùng tham gia Digitizing
+                  Việt Nam thông qua việc khám phá bốn lĩnh vực nòng cốt của
+                  chúng tôi, đó là{" "}
                   <strong>Bộ sưu tập, Nghiên cứu, Giảng dạy</strong>, và{" "}
                   <strong>Kết nối</strong>.
                 </>
@@ -235,7 +236,7 @@ const Home = async ({ params: { locale } }) => {
               <p>
                 {locale === "en"
                   ? "Digitizing Vietnam originated with the dissolution of the Vietnamese Nôm Preservation Foundation, and the donation of all its archival materials to the Vietnamese Studies Program and the Department of East Asian Languages & Cultures  at Columbia University in 2018. Subsequently, the Vietnamese Studies Program and the Weatherhead East Asian Institute at Columbia partnered with Fulbright University of Vietnam to begin designing an inter-institutional hub dedicated to advancing digital humanities research in all fields of Vietnamese Studies. In 2023, we were awarded  a Henry Luce Foundation seed grant, and staged a  soft launch of materials in Spring of 2025 at Fulbright University (Hồ Chí Minh City). We are scheduled for a full release of Digitizing Vietnam at Columbia University on April 18th 2026. Our vision is to develop digital and AI technologies for the advancement of all aspects of research on Vietnam."
-                  : "Digitizing Việt Nam bắt nguồn từ việc giải thể Quỹ Bảo tồn Chữ Nôm Việt Nam, và việc tặng tất cả tài liệu lưu trữ của quỹ cho Chương trình Việt Nam học và Khoa Ngôn ngữ & Văn hóa Đông Á tại Đại học Columbia vào năm 2018. Sau đó, Chương trình Việt Nam học và Viện Đông Á Weatherhead tại Columbia đã hợp tác với Đại học Fulbright Việt Nam để bắt đầu thiết kế một trung tâm liên trường-viện dành riêng cho việc thúc đẩy nghiên cứu nhân văn số trong tất cả các lĩnh vực của Việt Nam học. Vào năm 2023, chúng tôi đã được trao một khoản tài trợ khởi nghiệp của Quỹ Henry Luce, và đã tổ chức một buổi ra mắt mềm các tài liệu vào mùa xuân năm 2025 tại Đại học Fulbright (Hồ Chí Minh City). Chúng tôi dự kiến sẽ phát hành đầy đủ Digitizing Việt Nam tại Đại học Columbia vào ngày 18 tháng 4 năm 2026. Tầm nhìn của chúng tôi là phát triển công nghệ số và AI để thúc đẩy tất cả các khía cạnh của nghiên cứu về Việt Nam."}
+                  : "Digitizing Việt Nam khởi nguồn từ việc giải thể của Hội Bảo tồn Di sản Chữ Nôm Việt Nam và việc chuyển giao toàn bộ tư liệu lưu trữ của Hội này cho Chương trình Nghiên cứu Việt Nam và Khoa Ngôn ngữ & Văn hóa Đông Á tại Đại học Columbia vào năm 2018. Sau đó, Chương trình Nghiên cứu Việt Nam và Viện Đông Á Weatherhead tại Columbia đã hợp tác với Trường Đại học Fulbright Việt Nam để bắt đầu thiết kế một không gian  liên kết trường - viện, nhằm thúc đẩy nghiên cứu nhân văn số trong tất cả các lĩnh vực của Nghiên cứu Việt Nam. Năm 2023, chúng tôi nhận được khoản tài trợ khởi động từ Quỹ Henry Luce và đã triển khai ra mắt thử nghiệm các tư liệu vào mùa xuân năm 2025 tại Trường Đại học Fulbright Việt Nam (TP. Hồ Chí Minh). Chúng tôi dự kiến ra mắt chính thức nền tảng Digitizing Việt Nam tại Đại học Columbia vào ngày 18 tháng 4 năm 2026. Tầm nhìn của chúng tôi là phát triển các công nghệ số và trí tuệ nhân tạo nhằm thúc đẩy mọi khía cạnh của nghiên cứu về Việt Nam."}
               </p>
               <div className="mt-4">
                 <LearnMoreButton
