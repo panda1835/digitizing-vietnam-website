@@ -1,9 +1,14 @@
 import type React from "react";
 import { getTranslations } from "next-intl/server";
+import localFont from "next/font/local";
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-import NavLink from "../NavLink";
 import JumpToSourceMenu from "./JumpToSourceMenu";
+
+const NomNaTong = localFont({
+  src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+  variable: "--font-nom-na-tong",
+});
 
 import { Metadata } from "next";
 
@@ -30,7 +35,7 @@ export default async function DictionaryLayout({
   const t = await getTranslations();
   return (
     // <div className="min-h-screen relative overflow-hidden">
-    <div className="flex flex-col items-center max-width">
+    <div className={`${NomNaTong.variable} flex flex-col items-center max-width`}>
       <div className="flex-col  w-full">
         <BreadcrumbAndSearchBar
           locale={locale}
@@ -48,26 +53,8 @@ export default async function DictionaryLayout({
       </div>
       <div className="w-full pb-16 flex flex-col lg:flex-row gap-16 lg:gap-8">
         {/* Sidebar navigation */}
-        <aside className="w-full lg:w-96 shrink-0 font-light font-['Helvetica Neue'] lg:sticky lg:top-20 self-start">
-          <div className="flex flex-col gap-4">
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <div className="p-6 border-b border-gray-200">
-                <div className="text-lg font-normal text-branding-brown">
-                  {t("Tools.han-nom-dictionaries.dictionaries.general.name")}
-                </div>
-              </div>
-
-              <nav className="flex flex-col">
-                <NavLink href="/tools/han-nom-dictionaries/general">
-                  {locale === "en" ? "Dictionary" : "Từ điển"}
-                </NavLink>
-              </nav>
-            </div>
-
-            <div className="hidden lg:block">
-              <JumpToSourceMenu locale={locale} />
-            </div>
-          </div>
+        <aside className="hidden lg:block shrink-0 font-light font-['Helvetica Neue'] lg:sticky lg:top-20 self-start">
+          <JumpToSourceMenu locale={locale} />
         </aside>
 
         {/* Main content area */}

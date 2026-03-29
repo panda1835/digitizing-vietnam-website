@@ -261,13 +261,6 @@ export default function DictionarySearchBar({
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  {/* <Image
-                    unoptimized
-                    src="/images/signature.png"
-                    alt="handwriting"
-                    width={20}
-                    height={20}
-                  /> */}
                   <Keyboard className="w-4 h-4" />
                 </TooltipTrigger>
                 <TooltipContent>

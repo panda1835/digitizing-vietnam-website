@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { parseStringPromise } from "xml2js";
 import db from "@/lib/db";
+import { findCharsByComponents, isCJKChar } from "@/lib/han-nom/componentsIndex";
 
 export async function GET(request) {
   try {
@@ -12,6 +13,13 @@ export async function GET(request) {
       return NextResponse.json({ error: "Missing query" }, { status: 400 });
     }
 
+    // Component-based search: if query is 2+ CJK chars, find characters with those components
+    let componentMatches: string[] = [];
+    const queryChars = Array.from(query);
+    const allCJK = queryChars.length >= 2 && queryChars.every((ch) => isCJKChar(ch));
+    if (allCJK) {
+      componentMatches = findCharsByComponents(query);
+    }
     // Tu Dien Chu Nom Dan Giai
     let defsRows: any = [];
     try {
@@ -75,17 +83,17 @@ export async function GET(request) {
 
     try {
       [qatdData] = await db.query(
-        `SELECT * FROM nt_qatd WHERE 
-              LOWER(han) = ? OR 
-              LOWER(nom) = ? OR 
+        `SELECT * FROM nt_qatd WHERE
+              LOWER(han) = ? OR
+              LOWER(nom) = ? OR
               LOWER(hdwd) REGEXP ?`,
         [lowerQuery, lowerQuery, regexPattern]
       );
     } catch (error) {
       [qatdData] = await db.query(
-        `SELECT * FROM nt_qatd WHERE 
-              LOWER(han) = CONVERT(? USING utf8mb4) OR 
-              LOWER(nom) = CONVERT(? USING utf8mb4) OR 
+        `SELECT * FROM nt_qatd WHERE
+              LOWER(han) = CONVERT(? USING utf8mb4) OR
+              LOWER(nom) = CONVERT(? USING utf8mb4) OR
               LOWER(hdwd) REGEXP CONVERT(? USING utf8mb4)`,
         [lowerQuery, lowerQuery, regexPattern]
       );
@@ -149,6 +157,7 @@ export async function GET(request) {
         qatd: meaning || [],
         taberd: taberdData || [],
         ndtd: ndtdData || [],
+        componentMatches,
       },
       { status: 200 }
     );

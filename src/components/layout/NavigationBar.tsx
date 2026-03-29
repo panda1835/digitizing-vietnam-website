@@ -46,22 +46,23 @@ const NavigationBar = ({ locale }: { locale: string }) => {
               <NavigationMenuList>
                 {navItems.map((item) => (
                   <NavigationMenuItem key={item.key}>
-                    <Link href={item.href} passHref>
-                      <NavigationMenuLink
-                        className={cn(
-                          "bg-transparent inline-flex h-10 w-max",
-                          "items-center justify-center rounded-md px-2 py-2 text-md",
-                          "font-['Helvetica Neue'] transition-colors",
-                          "hover:text-branding-brown  hover:underline",
-                          "focus:text-branding-brown  focus:underline",
-                          "disabled:pointer-events-none disabled:opacity-50",
-                          "data-[active]:text-branding-brown data-[active]:font-bold",
-                          "data-[state=open]:text-branding-brown data-[state=open]:font-bold"
-                        )}
-                      >
+                    <NavigationMenuLink
+                      asChild
+                      className={cn(
+                        "bg-transparent inline-flex h-10 w-max",
+                        "items-center justify-center rounded-md px-2 py-2 text-md",
+                        "font-['Helvetica Neue'] transition-colors",
+                        "hover:text-branding-brown  hover:underline",
+                        "focus:text-branding-brown  focus:underline",
+                        "disabled:pointer-events-none disabled:opacity-50",
+                        "data-[active]:text-branding-brown data-[active]:font-bold",
+                        "data-[state=open]:text-branding-brown data-[state=open]:font-bold"
+                      )}
+                    >
+                      <Link href={item.href}>
                         {t(item.key)}
-                      </NavigationMenuLink>
-                    </Link>
+                      </Link>
+                    </NavigationMenuLink>
                   </NavigationMenuItem>
                 ))}
                 {/* <NavigationMenuItem>

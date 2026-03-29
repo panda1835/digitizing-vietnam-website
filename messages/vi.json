@@ -183,8 +183,8 @@
       "dictionaries": {
         "general": {
           "name": "Tra Cứu Hán-Nôm Đa Từ Điển",
-          "description": "Công cụ Tra cứu Hán-Nôm đa từ điển là bộ sưu tập các từ điển cung cấp định nghĩa và giải thích cho các ký tự Hán-Nôm. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần tra cứu ý nghĩa của các ký tự Hán-Nôm trong các văn bản lịch sử.",
-          "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
+          "description": "Tra cứu đồng thời trên nhiều từ điển Hán-Nôm theo chữ Hán-Nôm, âm Quốc Ngữ, hoặc tổ hợp thành phần.",
+          "search-placeholder": "Hán Nôm, Quốc Ngữ, hoặc Thành Phần",
           "author": ""
         },
         "tu-dien-chu-nom-dan-giai": {
@@ -370,7 +370,7 @@
         "quickLookup": {
           "label": "Tra cứu nhanh",
           "title": "Tra cứu Hán-Nôm đa từ điển",
-          "description": "Tra cứu đồng thời qua nhiều từ điển lịch sử và nguồn tư liệu tham khảo."
+          "description": "Tra cứu theo chữ Hán-Nôm, âm Quốc Ngữ, hoặc tổ hợp thành phần qua nhiều từ điển lịch sử đồng thời."
         },
         "corpusSearch": {
           "label": "Tìm kiếm ngữ liệu",

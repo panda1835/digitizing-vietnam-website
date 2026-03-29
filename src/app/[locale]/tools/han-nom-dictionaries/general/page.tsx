@@ -20,6 +20,7 @@ interface GeneralDictionaryData {
   qatd: any[];
   taberd: any[];
   ndtd: any[];
+  componentMatches?: string[];
 }
 
 export default async function DictionaryPage({
@@ -31,10 +32,14 @@ export default async function DictionaryPage({
   const searchWord = (await searchParams).q;
   let data: GeneralDictionaryData | null = null;
   if (searchWord) {
-    const apiUrl =
-      process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
+    // Use the site's own server for this fetch so that locally-developed API
+    // routes (like component search) are always hit, regardless of what
+    // NEXT_PUBLIC_API_URL points to.
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const response = await fetch(
-      `${apiUrl}/han-nom-dictionary/all/dictionary?q=${searchWord}`
+      `${siteUrl}/api/han-nom-dictionary/all/dictionary?q=${encodeURIComponent(searchWord)}`,
+      { cache: "no-store" }
     );
     data = await response.json();
   }
@@ -45,7 +50,8 @@ export default async function DictionaryPage({
       (data.giupdoc && data.giupdoc.length > 0) ||
       (data.qatd && data.qatd.length > 0) ||
       (data.taberd && data.taberd.length > 0) ||
-      (data.ndtd && data.ndtd.length > 0));
+      (data.ndtd && data.ndtd.length > 0) ||
+      (data.componentMatches && data.componentMatches.length > 0));
 
   // Combine all headwords from different dictionaries for lookup
   const combinedHeadwords = Array.from(

@@ -4,6 +4,8 @@ dist/
 .DS_Store
 coverage/
 .vscode/
+.claude/
+data/language-lab-feed.json
 
 .next/
 src-react
