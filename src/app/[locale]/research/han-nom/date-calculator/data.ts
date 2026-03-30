@@ -280,7 +280,7 @@ export const DYNASTIES: Dynasty[] = [
     startYear: 1778,
     endYear: 1802,
     reigns: [
-      { name: "Thái Đức", han: "泰德", ruler: "Nguyễn Nhạc", startYear: 1778, endYear: 1793 },
+      { name: "Thái Đức", han: "泰德", ruler: "Nguyễn Nhạc", startYear: 1778, endYear: 1788 },
       { name: "Quang Trung", han: "光中", ruler: "Nguyễn Huệ (Emperor Quang Trung)", startYear: 1788, endYear: 1792 },
       { name: "Cảnh Thịnh", han: "景盛", ruler: "Nguyễn Quang Toản", startYear: 1793, endYear: 1801 },
       { name: "Bảo Hưng", han: "寶興", ruler: "Nguyễn Quang Toản", startYear: 1801, endYear: 1802 },

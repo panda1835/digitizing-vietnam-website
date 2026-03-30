@@ -384,9 +384,9 @@
         "subtitle": "Convert between reign names (niên hiệu), sexagenary years (can chi), and CE dates",
         "toggle-chinese": "Include Chinese dynasties (Tang, Song, Yuan, Ming, Qing)",
         "tabs": {
-          "gregorian": "CE Date → Vietnamese",
+          "gregorian": "CE Date → Lunisolar",
           "reign": "Reign Year → CE Date",
-          "sexagenary": "Sexagenary → CE Years"
+          "sexagenary": "Sexagenary → CE Date"
         },
         "calculate": "Calculate",
         "gregorian-tab": {
