@@ -24,7 +24,7 @@ export default function Introduction({
             </p>
             <p className="pt-5">
               (a) <i>Tự điển Chữ Nôm </i>(<i>Dictionary of Nôm characters</i>):
-              The collective work by the Institute of Hán Nôm Studies, under
+              The collective work by the Institute of Sino-Nôm Studies, under
               Nguyễn Quang Hồng as the chief editor, published by the Publisher
               of Education in Hà Nội in 2006. The book contains 1.546 pages, and
               the size is 16x24 cm. This is the first Nôm characters dictionary
@@ -137,7 +137,7 @@ export default function Introduction({
             </p>
             <p className="pt-5">
               The author also sincerely thanks all his colleagues at the
-              Institute of Hán Nôm Studies and the Literature Department of the
+              Institute of Sino-Nôm Studies and the Literature Department of the
               Hanoi University of Humanities and Social Sciences for having
               provided some rare and valuable Nôm characters materials, helping
               to enrich the source of materials of this dictionary.

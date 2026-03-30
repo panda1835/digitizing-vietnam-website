@@ -107,7 +107,17 @@ export default async function HanNomPage({
     },
     {
       title: locale === "vi" ? "Trung tâm học tập" : "Learning Center",
-      items: [{ label: locale === "vi" ? "Sắp ra mắt" : "Coming Soon" }],
+      items: [
+        {
+          label: "NômFlow",
+          href: "https://nomflow.app",
+          external: true,
+        },
+        {
+          label: locale === "vi" ? "Giáo trình Trực tuyến" : "Online Textbook",
+          href: "/our-collections/nghien-cuu-han-nom/ly-thuyet-thuc-hanh-chu-nom",
+        },
+      ],
     },
   ];
 
