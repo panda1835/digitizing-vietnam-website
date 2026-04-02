@@ -26,13 +26,6 @@ export function PageHeader({
         breadcrumbItems={breadcrumbItems}
       />
 
-      {/* Headline */}
-      <div
-        className={`${merriweather.className} text-branding-black text-[32px]`}
-      >
-        {title}
-      </div>
-
       {/* Subheadline */}
       <div
         className={`text-base text-[#191919] font-light font-['Helvetica Neue'] mt-[12px]`}

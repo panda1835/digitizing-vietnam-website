@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import { Merriweather } from "next/font/google";
 import Entry from "./Entry";
 import DictionarySearchBar from "../DictionarySearchBar";
 
@@ -8,8 +7,6 @@ import { hdwd as qatdHdwd } from "../nguyen-trai-quoc-am-tu-dien/hdwd";
 import { hdwd as taberdHdwd } from "../taberd/hdwd";
 import { hdwd as tdcndgHdwd } from "../tu-dien-chu-nom-dan-giai/hdwd";
 // Note: ndtd (nhat-dung-thuong-dam) doesn't have hdwd file
-
-const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 interface GeneralDictionaryData {
   tdcndg: {
@@ -66,11 +63,7 @@ export default async function DictionaryPage({
 
   return (
     <div className="">
-      <div className={`${merriweather.className} text-branding-black text-4xl`}>
-        {t("Tools.han-nom-dictionaries.dictionaries.general.name")}
-      </div>
-
-      <div className={`font-['Helvetica_Neue'] font-light text-base my-6`}>
+<div className={`font-['Helvetica_Neue'] font-light text-base my-6`}>
         <span>
           {t("Tools.han-nom-dictionaries.dictionaries.general.author")}
         </span>

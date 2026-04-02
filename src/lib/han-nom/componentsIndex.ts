@@ -203,6 +203,21 @@ for (const [targetChar, classifications] of Object.entries(classificationData)) 
 console.log("[componentsIndex] Index built with", index.size, "entries");
 
 /**
+ * Returns all characters related to the given character via CHAR_NORM:
+ * the character itself, its canonical form, and all known variants that
+ * share the same canonical. Useful for matching radical stroke-form
+ * variants when filtering a radical list.
+ */
+export function getRelatedChars(char: string): string[] {
+  const canonical = normalize(char);
+  const related = new Set<string>([char, canonical]);
+  for (const [variant, canon] of Object.entries(CHAR_NORM)) {
+    if (canon === canonical) related.add(variant);
+  }
+  return Array.from(related);
+}
+
+/**
  * Find all Han/Nom characters whose IDS decomposition contains the given
  * components (in either order). Supports radical stroke-form variants and
  * simplified↔traditional equivalents derived automatically from the data.

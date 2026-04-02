@@ -26,9 +26,6 @@ export default async function DictionaryPage({
 
   return (
     <div className="">
-      <div className={`${merriweather.className} text-branding-black text-4xl`}>
-        {t("Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-tay.name")}
-      </div>
 
       <div className={`font-['Helvetica_Neue'] font-light text-base my-6`}>
         <span>

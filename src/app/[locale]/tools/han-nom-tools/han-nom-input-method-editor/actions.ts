@@ -1,6 +1,7 @@
 "use server";
 
 import db from "@/lib/db";
+import { getRelatedChars } from "@/lib/han-nom/componentsIndex";
 
 export interface Radical {
   id: number;
@@ -29,6 +30,14 @@ export async function getRadicals(): Promise<Radical[]> {
     console.error("Error fetching radicals:", error);
     return [];
   }
+}
+
+/**
+ * Returns all characters (including radical stroke-form variants) related
+ * to the given character, for use in filtering a radical list.
+ */
+export async function getRelatedRadicalHns(char: string): Promise<string[]> {
+  return getRelatedChars(char);
 }
 
 export async function getCharactersForRadical(

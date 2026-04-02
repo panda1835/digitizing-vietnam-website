@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import localFont from "next/font/local";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
-import { getCharactersForRadical } from "./actions";
+import { getCharactersForRadical, getRelatedRadicalHns } from "./actions";
 
 const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -31,6 +31,37 @@ interface CompactRadicalsProps {
   autoScrollToStroke?: boolean;
 }
 
+function RadicalButton({
+  radical,
+  selected,
+  onClick,
+  fontClass,
+}: {
+  radical: Radical;
+  selected: boolean;
+  onClick: (r: Radical) => void;
+  fontClass: string;
+}) {
+  return (
+    <button
+      onClick={() => onClick(radical)}
+      className={`
+        ${fontClass}
+        w-7 h-7 flex items-center justify-center
+        text-sm border transition-all duration-200
+        ${
+          selected
+            ? "bg-branding-brown text-white border-branding-brown shadow-md"
+            : "bg-white hover:bg-branding-brown/10 border-gray-300 hover:border-branding-brown text-branding-black"
+        }
+      `}
+      title={`${radical.name} (${radical.definition})`}
+    >
+      {radical.hn}
+    </button>
+  );
+}
+
 export default function CompactRadicals({
   radicals,
   onCharacterSelect,
@@ -45,6 +76,27 @@ export default function CompactRadicals({
   const [loading, setLoading] = useState(false);
   const [pendingAutoScroll, setPendingAutoScroll] = useState(false);
   const strokeSelectorRef = useRef<HTMLDivElement>(null);
+
+  const [filterChar, setFilterChar] = useState("");
+  const [relatedChars, setRelatedChars] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const trimmed = filterChar.trim();
+    if (!trimmed) {
+      setRelatedChars(new Set());
+      return;
+    }
+    const timer = setTimeout(async () => {
+      const related = await getRelatedRadicalHns(trimmed);
+      setRelatedChars(new Set(related));
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [filterChar]);
+
+  const filteredRadicals =
+    filterChar.trim() && relatedChars.size > 0
+      ? radicals.filter((r) => relatedChars.has(r.hn))
+      : radicals;
 
   // Fetch characters when a radical is selected
   const handleRadicalClick = async (radical: Radical) => {
@@ -100,45 +152,65 @@ export default function CompactRadicals({
   }, [autoScrollToStroke, pendingAutoScroll, loading, selectedRadical]);
 
   return (
-    <div className="space-y-4">
+    <div className="h-full flex flex-col gap-4">
       {/* Radical Selection - Compact Version */}
-      <div>
-        <h3 className="text-sm font-semibold mb-2">{t("select-radical")}</h3>
-        <div className="border rounded-lg p-3 max-h-[300px] overflow-y-auto">
-          {strokeCounts.map((strokeCount) => (
-            <div key={strokeCount} className="mb-3">
-              <div className="text-xs font-semibold text-gray-600 mb-1">
-                {strokeCount} {strokeCount === 1 ? t("stroke") : t("strokes")}
+      <div className="flex-1 min-h-0 flex flex-col">
+        <div className="flex items-center mb-2 shrink-0 gap-2">
+          <h3 className="text-sm font-semibold">{t("select-radical")}</h3>
+          <input
+            type="text"
+            value={filterChar}
+            onChange={(e) => setFilterChar(e.target.value)}
+            placeholder={t("filter-placeholder")}
+            maxLength={1}
+            className={`${NomNaTong.className} w-44 h-7 px-2 text-sm border rounded bg-white focus:outline-none focus:ring-1 focus:ring-branding-brown`}
+          />
+        </div>
+        <div className="border rounded-lg p-3 flex-1 min-h-0 overflow-y-auto">
+          {filterChar.trim() ? (
+            filteredRadicals.length === 0 ? (
+              <div className="text-center text-gray-500 text-sm py-4">
+                {t("no-radicals-found")}
               </div>
+            ) : (
               <div className="flex flex-wrap gap-1">
-                {radicalsByStroke[strokeCount].map((radical) => (
-                  <button
+                {filteredRadicals.map((radical) => (
+                  <RadicalButton
                     key={radical.id}
-                    onClick={() => handleRadicalClick(radical)}
-                    className={`
-                      ${NomNaTong.className}
-                      w-7 h-7 flex items-center justify-center
-                      text-sm border transition-all duration-200
-                      ${
-                        selectedRadical?.id === radical.id
-                          ? "bg-branding-brown text-white border-branding-brown shadow-md"
-                          : "bg-white hover:bg-branding-brown/10 border-gray-300 hover:border-branding-brown text-branding-black"
-                      }
-                    `}
-                    title={`${radical.name} (${radical.definition})`}
-                  >
-                    {radical.hn}
-                  </button>
+                    radical={radical}
+                    selected={selectedRadical?.id === radical.id}
+                    onClick={handleRadicalClick}
+                    fontClass={NomNaTong.className}
+                  />
                 ))}
               </div>
-            </div>
-          ))}
+            )
+          ) : (
+            strokeCounts.map((strokeCount) => (
+              <div key={strokeCount} className="mb-3">
+                <div className="text-xs font-semibold text-gray-600 mb-1">
+                  {strokeCount} {strokeCount === 1 ? t("stroke") : t("strokes")}
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {radicalsByStroke[strokeCount].map((radical) => (
+                    <RadicalButton
+                      key={radical.id}
+                      radical={radical}
+                      selected={selectedRadical?.id === radical.id}
+                      onClick={handleRadicalClick}
+                      fontClass={NomNaTong.className}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
 
       {/* Character Selection - Compact Version */}
       {selectedRadical && (
-        <div className="space-y-2">
+        <div className="shrink-0 space-y-2">
           {/* Radical info */}
           <div className="bg-branding-brown/10 border border-branding-brown rounded-lg p-2">
             <div className="flex items-center gap-2 text-xs">
@@ -196,7 +268,7 @@ export default function CompactRadicals({
               </div>
 
               {/* Characters display */}
-              <div className="border rounded-lg p-3 max-h-[200px] overflow-y-auto">
+              <div className="border rounded-lg p-3 max-h-48 overflow-y-auto">
                 {selectedStroke ? (
                   <div className="flex flex-wrap gap-1">
                     {charactersByStroke[selectedStroke].map((char, idx) => (

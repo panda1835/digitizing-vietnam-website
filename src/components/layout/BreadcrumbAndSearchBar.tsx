@@ -8,6 +8,9 @@ import {
 } from "@/components/ui/breadcrumb";
 
 import { House } from "lucide-react";
+import { Merriweather } from "next/font/google";
+
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {
   return (
@@ -31,7 +34,7 @@ export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {
             </BreadcrumbList>
           ))}
           <BreadcrumbItem>
-            <BreadcrumbPage>
+            <BreadcrumbPage className={`${merriweather.className} text-2xl text-foreground`}>
               {breadcrumbItems.slice(-1)[0].label}
             </BreadcrumbPage>
           </BreadcrumbItem>

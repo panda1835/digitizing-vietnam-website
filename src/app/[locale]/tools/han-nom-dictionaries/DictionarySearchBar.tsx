@@ -10,7 +10,6 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Keyboard } from "lucide-react";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import HandwritingPad from "./HandwritingPad";
 import { useTranslations } from "next-intl";
@@ -28,10 +27,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import localFont from "next/font/local";
+import { Noto_Serif_SC } from "next/font/google";
 
 const NomNaTong = localFont({
   src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
+
+const notoSerifSC = Noto_Serif_SC({ weight: "500", subsets: ["latin"] });
 
 type InputMethod = "quoc-ngu" | "handwriting" | "radical";
 export default function DictionarySearchBar({
@@ -199,7 +201,7 @@ export default function DictionarySearchBar({
   };
 
   const [open, setOpen] = useState(false);
-  const [inputMethod, setInputMethod] = useState<InputMethod>("handwriting");
+  const [inputMethod, setInputMethod] = useState<InputMethod>("radical");
   const [radicals, setRadicals] = useState<Radical[]>([]);
 
   useEffect(() => {
@@ -257,11 +259,11 @@ export default function DictionarySearchBar({
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-white hover:bg-gray-100 transition-all">
+          <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <Keyboard className="w-4 h-4" />
+                  <span className={`${notoSerifSC.className} text-xl leading-none antialiased text-white`}>部</span>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>
@@ -287,10 +289,17 @@ export default function DictionarySearchBar({
             </DialogDescription>
           </DialogHeader>
           <div className="flex-1 min-h-0 flex flex-col gap-3">
-            <InputMethodSelector
-              value={inputMethod}
-              onChange={setInputMethod}
-            />
+            <div className="flex flex-col gap-2">
+              <InputMethodSelector
+                value={inputMethod}
+                onChange={setInputMethod}
+              />
+              <p className="text-sm text-muted-foreground">
+                {t(
+                  `Tools.han-nom-dictionaries.alternative-input-methods.${inputMethod}-description`
+                )}
+              </p>
+            </div>
             <div
               className={`border rounded-lg bg-gray-50 flex-1 min-h-0 p-3 ${
                 inputMethod === "radical"
@@ -307,7 +316,7 @@ export default function DictionarySearchBar({
                 <HandwritingPad onSelect={handleCandidateSelected} />
               )}
               {inputMethod === "radical" && (
-                <div className="h-full overflow-y-auto">
+                <div className="h-full">
                   <CompactRadicals
                     radicals={radicals}
                     onCharacterSelect={handleCandidateSelected}

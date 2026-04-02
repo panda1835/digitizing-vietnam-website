@@ -176,7 +176,10 @@
       "alternative-input-methods": {
         "tooltip": "Other input methods",
         "title": "Other input methods",
-        "description": "Select an input method to add Hán-Nôm characters from Quốc Ngữ, handwriting, or radicals."
+        "description": "Select an input method to add Hán-Nôm characters from Quốc Ngữ, handwriting, or radicals.",
+        "quoc-ngu-description": "Type a Vietnamese word in Quốc Ngữ to find matching Hán-Nôm characters.",
+        "handwriting-description": "Draw a character on the canvas and use handwriting recognition to find it. Currently supports Hán characters and phonetic-loan Nôm characters.",
+        "radical-description": "Browse characters by selecting a radical component, then narrow by stroke count."
       },
       "no-result": "No results found.",
       "dictionaries": {
@@ -284,7 +287,9 @@
           "copied-to-clipboard": "Copied to clipboard",
           "failed-to-copy": "Failed to copy to clipboard",
           "failed-to-load-characters": "Failed to load characters",
-          "no-definition": "No definition"
+          "no-definition": "No definition",
+          "filter-placeholder": "Input a radical",
+          "no-radicals-found": "No matching radical found."
         },
         "quoc-ngu-input": {
           "placeholder": "Type a word in Quốc Ngữ...",

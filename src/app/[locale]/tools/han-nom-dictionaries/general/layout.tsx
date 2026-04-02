@@ -6,7 +6,7 @@ import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import JumpToSourceMenu from "./JumpToSourceMenu";
 
 const NomNaTong = localFont({
-  src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+  src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
   variable: "--font-nom-na-tong",
 });
 
