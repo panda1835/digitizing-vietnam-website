@@ -9,15 +9,32 @@ interface TextPaneProps {
   slug: string;
   page: number;
   adminPath: string;
+  /** Pre-fetched text from parent — avoids a duplicate network request */
+  text?: string | null;
+  /** Whether the parent is still loading the text */
+  textLoading?: boolean;
 }
 
-export default function TextPane({ slug, page, adminPath }: TextPaneProps) {
-  const [rawText, setRawText] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+export default function TextPane({ slug, page, adminPath, text, textLoading }: TextPaneProps) {
+  // Use parent-provided text when available, otherwise fetch independently
+  const parentProvided = text !== undefined;
+  const [rawText, setRawText] = useState<string | null>(parentProvided ? text : null);
+  const [loading, setLoading] = useState(parentProvided ? !!textLoading : true);
   const [error, setError] = useState(false);
   const [fontSize, setFontSize] = useState(DEFAULT_FONT_SIZE);
 
+  // Sync from parent when it provides text
   useEffect(() => {
+    if (parentProvided) {
+      setRawText(text);
+      setLoading(!!textLoading);
+      setError(false);
+    }
+  }, [text, textLoading, parentProvided]);
+
+  // Only fetch independently when parent doesn't provide text
+  useEffect(() => {
+    if (parentProvided) return;
     let cancelled = false;
     setLoading(true);
     setError(false);
@@ -42,7 +59,7 @@ export default function TextPane({ slug, page, adminPath }: TextPaneProps) {
     return () => {
       cancelled = true;
     };
-  }, [slug, page]);
+  }, [slug, page, parentProvided]);
 
   if (loading) {
     return (

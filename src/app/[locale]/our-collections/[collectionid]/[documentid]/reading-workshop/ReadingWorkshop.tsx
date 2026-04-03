@@ -63,6 +63,7 @@ export default function ReadingWorkshop({
   const [showTools, setShowTools] = useState(false);
   const [selectedText, setSelectedText] = useState("");
   const [rawText, setRawText] = useState<string | null>(null);
+  const [textLoading, setTextLoading] = useState(true);
 
   // Sorted canvas info: id, label, and derived text page number
   interface CanvasInfo { id: string; label: string; textPage: number }
@@ -72,65 +73,77 @@ export default function ReadingWorkshop({
   // Current position in the sorted canvas list (1-based), seeded from URL
   const [currentPos, setCurrentPos] = useState(startPage);
 
-  // Fetch the IIIF manifest, sort canvases numerically, derive text page mapping
+  // Fetch the IIIF manifest — process the first page immediately, then the rest
   useEffect(() => {
     let cancelled = false;
+
+    function parseLabel(label: string): { num: number; side: string } {
+      const m = label.match(/^page0*(\d+)([ab]?)$/i);
+      if (m) return { num: parseInt(m[1], 10), side: m[2].toLowerCase() };
+      const m2 = label.match(/^image\s*0*(\d+)$/i);
+      if (m2) return { num: parseInt(m2[1], 10), side: "" };
+      const m3 = label.match(/(\d+)/);
+      if (m3) return { num: parseInt(m3[1], 10), side: "" };
+      return { num: -1, side: "" };
+    }
+
+    function parseCanvas(c: any): CanvasInfo & { _num: number; _side: string } {
+      const id = c.id ?? c["@id"] ?? "";
+      const label: string = typeof c.label === "string"
+        ? c.label
+        : c.label?.["@value"] ?? c.label?.en?.[0] ?? "";
+      const { num, side } = parseLabel(label);
+      let textPage = 0;
+      if (num > 0) {
+        textPage = side ? (num - 1) * 2 + (side === "a" ? 1 : 2) : num;
+      }
+      return { id, label, textPage, _num: num, _side: side };
+    }
+
+    function sortAndFinalize(infos: (CanvasInfo & { _num: number; _side: string })[]) {
+      infos.sort((a, b) => {
+        if (a._num !== b._num) return a._num - b._num;
+        return a._side < b._side ? -1 : a._side > b._side ? 1 : 0;
+      });
+      const sorted: CanvasInfo[] = infos.map(({ id, label, textPage }) => ({ id, label, textPage }));
+      const lookup: Record<string, number> = {};
+      sorted.forEach((c, i) => { lookup[c.id] = i + 1; });
+      return { sorted, lookup };
+    }
+
     fetch(manifestUrl)
       .then((r) => r.json())
       .then((manifest) => {
         if (cancelled) return;
-        // IIIF Presentation API 3 uses "items", API 2 uses "sequences[0].canvases"
         const rawCanvases: any[] =
           manifest.items ?? manifest.sequences?.[0]?.canvases ?? [];
 
-        // Parse label to extract folio number + side for sorting
-        function parseLabel(label: string): { num: number; side: string } {
-          // Labels like "page000", "page01a", "page011b"
-          const m = label.match(/^page0*(\d+)([ab]?)$/i);
-          if (m) return { num: parseInt(m[1], 10), side: m[2].toLowerCase() };
-          // Labels like "Image 001", "Image 002"
-          const m2 = label.match(/^image\s*0*(\d+)$/i);
-          if (m2) return { num: parseInt(m2[1], 10), side: "" };
-          // Fallback: try to extract any number from the label
-          const m3 = label.match(/(\d+)/);
-          if (m3) return { num: parseInt(m3[1], 10), side: "" };
-          return { num: -1, side: "" };
+        if (rawCanvases.length === 0) return;
+
+        // Parse all canvases into info objects
+        const allInfos = rawCanvases.map(parseCanvas);
+
+        // Immediately finalize the first batch (just the starting page area)
+        // so the UI becomes interactive right away
+        const FIRST_BATCH = Math.min(allInfos.length, startPage + 1);
+        const firstBatch = allInfos.slice(0, FIRST_BATCH);
+        const { sorted: firstSorted, lookup: firstLookup } = sortAndFinalize(firstBatch);
+        setCanvases(firstSorted);
+        setCanvasIdToPos(firstLookup);
+
+        // Then finalize the full list on the next frame so the UI doesn't block
+        if (allInfos.length > FIRST_BATCH) {
+          requestAnimationFrame(() => {
+            if (cancelled) return;
+            const { sorted, lookup } = sortAndFinalize(allInfos);
+            setCanvases(sorted);
+            setCanvasIdToPos(lookup);
+          });
         }
-
-        // Build canvas info list
-        const infos: (CanvasInfo & { _num: number; _side: string })[] = rawCanvases.map((c: any) => {
-          const id = c.id ?? c["@id"] ?? "";
-          const label: string = typeof c.label === "string"
-            ? c.label
-            : c.label?.["@value"] ?? c.label?.en?.[0] ?? "";
-          const { num, side } = parseLabel(label);
-          // Derive text page from label:
-          // - Folio labels with a/b suffix (e.g. page01a): (N-1)*2 + (a=1, b=2)
-          // - Sequential labels without suffix (e.g. page001): N directly
-          // - Cover (num=0): no text page
-          let textPage = 0;
-          if (num > 0) {
-            textPage = side ? (num - 1) * 2 + (side === "a" ? 1 : 2) : num;
-          }
-          return { id, label, textPage, _num: num, _side: side };
-        });
-
-        // Sort by folio number, then side (a before b)
-        infos.sort((a, b) => {
-          if (a._num !== b._num) return a._num - b._num;
-          return a._side < b._side ? -1 : a._side > b._side ? 1 : 0;
-        });
-
-        const sorted: CanvasInfo[] = infos.map(({ id, label, textPage }) => ({ id, label, textPage }));
-        const lookup: Record<string, number> = {};
-        sorted.forEach((c, i) => { lookup[c.id] = i + 1; });
-
-        setCanvases(sorted);
-        setCanvasIdToPos(lookup);
       })
       .catch(() => {});
     return () => { cancelled = true; };
-  }, [manifestUrl]);
+  }, [manifestUrl, startPage]);
 
   // Subscribe to the Mirador Redux store to detect canvas navigation
   useEffect(() => {
@@ -185,14 +198,15 @@ export default function ReadingWorkshop({
   const currentCanvas = canvases[page - 1];
   const textPage = currentCanvas?.textPage ?? page;
 
-  // Fetch text for the current page (shared with ToolsPanel)
+  // Fetch text for the current page (shared with TextPane and ToolsPanel)
   useEffect(() => {
-    if (!textPage) { setRawText(null); return; }
+    if (!textPage) { setRawText(null); setTextLoading(false); return; }
     let cancelled = false;
+    setTextLoading(true);
     fetch(`/api/page-text/${encodeURIComponent(documentSlug)}/${textPage}`)
       .then((r) => r.ok ? r.json() : null)
-      .then((data) => { if (!cancelled) setRawText(data?.text ?? null); })
-      .catch(() => { if (!cancelled) setRawText(null); });
+      .then((data) => { if (!cancelled) { setRawText(data?.text ?? null); setTextLoading(false); } })
+      .catch(() => { if (!cancelled) { setRawText(null); setTextLoading(false); } });
     return () => { cancelled = true; };
   }, [documentSlug, textPage]);
 
@@ -350,6 +364,8 @@ export default function ReadingWorkshop({
                       slug={documentSlug}
                       page={textPage}
                       adminPath={adminPath}
+                      text={rawText}
+                      textLoading={textLoading}
                     />
                   </div>
                 ) : (
@@ -357,6 +373,8 @@ export default function ReadingWorkshop({
                     slug={documentSlug}
                     page={textPage}
                     adminPath={adminPath}
+                    text={rawText}
+                    textLoading={textLoading}
                   />
                 )}
               </div>

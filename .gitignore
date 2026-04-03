@@ -10,7 +10,7 @@ src-react
 netlify.toml
 run_tailwindcss.sh
 *.ipynb
-test
+/test
 og.tsx
 
 # OCR data — ignore PDFs and page images (large), but track index and JSON
