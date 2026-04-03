@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import type { SpatialCharacter } from "@/lib/ocr-store";
 import type { Column } from "./useColumnDetection";
 
@@ -15,6 +15,7 @@ interface OCRImagePaneProps {
   onFocusChar: (offset: number) => void;
   onAddChar: (bbox: Array<{ x: number; y: number }>, text: string) => void;
   onOcrRegion: (rect: { x: number; y: number; w: number; h: number }, engine: "vision" | "paddle") => void;
+  onDeleteChar: (offset: number) => void;
   focusedOffset: number | null;
 }
 
@@ -29,6 +30,7 @@ export default function OCRImagePane({
   onFocusChar,
   onAddChar,
   onOcrRegion,
+  onDeleteChar,
   focusedOffset,
 }: OCRImagePaneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -36,6 +38,48 @@ export default function OCRImagePane({
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [imgDims, setImgDims] = useState({ w: 1, h: 1 });
+  const [deleteArmed, setDeleteArmed] = useState(false);
+
+  // Disarm delete confirmation if the focused character changes
+  useEffect(() => { setDeleteArmed(false); }, [focusedOffset]);
+
+  // Draggable character detail card
+  const CARD_W = 224; // w-56 = 14rem = 224px
+  const CARD_H = 210; // approximate card height
+  const [cardPos, setCardPos] = useState<{ x: number; y: number } | null>(null);
+  const dragOffsetRef = useRef<{ x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    if (cardPos === null) {
+      setCardPos({
+        x: Math.round(window.innerWidth / 2 - CARD_W / 2),
+        y: Math.round(window.innerHeight / 2 - CARD_H / 2),
+      });
+    }
+  }, [cardPos]);
+
+  const handleCardMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    dragOffsetRef.current = {
+      x: e.clientX - (cardPos?.x ?? 0),
+      y: e.clientY - (cardPos?.y ?? 0),
+    };
+    function onMove(me: MouseEvent) {
+      if (!dragOffsetRef.current) return;
+      setCardPos({
+        x: me.clientX - dragOffsetRef.current.x,
+        y: me.clientY - dragOffsetRef.current.y,
+      });
+    }
+    function onUp() {
+      dragOffsetRef.current = null;
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+    }
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+  }, [cardPos]);
+
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawStart, setDrawStart] = useState<{ x: number; y: number } | null>(null);
   const [drawRect, setDrawRect] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
@@ -50,6 +94,26 @@ export default function OCRImagePane({
 
   const selectedColumn =
     selectedColumnIndex !== null ? columns[selectedColumnIndex] ?? null : null;
+
+  // Focused character metadata
+  const focusedChar =
+    focusedOffset !== null
+      ? spatialData.find((c) => c.offset === focusedOffset) ?? null
+      : null;
+
+  const focusedColIdx =
+    focusedChar !== null
+      ? columns.findIndex((col) =>
+          col.chars.some((c) => c.offset === focusedOffset)
+        )
+      : -1;
+
+  const focusedPosInCol =
+    focusedChar !== null && focusedColIdx >= 0
+      ? (columns[focusedColIdx]?.chars.findIndex(
+          (c) => c.offset === focusedOffset
+        ) ?? -1) + 1
+      : null;
 
   function handleImgLoad() {
     if (imgRef.current) {
@@ -321,6 +385,9 @@ export default function OCRImagePane({
                   onFocusChar(next.offset);
                 } else if (selectedColumnIndex !== null && selectedColumnIndex < columns.length - 1) {
                   onSelectColumn(selectedColumnIndex + 1);
+                } else {
+                  // Last char of last column — wrap to first char of first column
+                  onSelectColumn(0);
                 }
               } else if (e.key === "Tab" && e.shiftKey) {
                 e.preventDefault();
@@ -332,6 +399,14 @@ export default function OCRImagePane({
                   onSelectColumn(selectedColumnIndex - 1);
                   const lastChar = prevCol.chars.filter((c) => c.bbox).at(-1);
                   if (lastChar) onFocusChar(lastChar.offset);
+                } else {
+                  // First char of first column — wrap to last char of last column
+                  const lastCol = columns[columns.length - 1];
+                  if (lastCol) {
+                    onSelectColumn(columns.length - 1);
+                    const lastChar = lastCol.chars.filter((c) => c.bbox).at(-1);
+                    if (lastChar) onFocusChar(lastChar.offset);
+                  }
                 }
               } else if (e.key === "Enter") {
                 e.preventDefault();
@@ -353,32 +428,224 @@ export default function OCRImagePane({
               : "border-indigo-300 bg-white/90";
 
             return (
-              <input
-                key={char.offset}
-                data-char-offset={char.offset}
-                type="text"
-                value={char.text}
-                maxLength={4}
-                onChange={(e) => onCharChange(char.offset, e.target.value)}
-                onFocus={() => onFocusChar(char.offset)}
-                onKeyDown={handleKeyDown}
-                title={`confidence: ${Math.round(conf * 100)}%`}
-                style={{
-                  position: "absolute",
-                  left: left - boxW - 4,
-                  top,
-                  width: boxW,
-                  height: boxH,
-                  fontSize: Math.max(10, boxH * 0.7),
-                  lineHeight: 1,
-                  padding: "1px",
-                  zIndex: 10,
-                }}
-                className={`border rounded text-center font-sans shadow-sm outline-none transition-colors ${confBorder}`}
-              />
+              <div key={char.offset} style={{ position: "absolute", left: 0, top: 0, zIndex: isFocused ? 50 : 10 }}>
+                {/* Focused character bounding-box highlight on the image */}
+                {isFocused && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      left,
+                      top,
+                      width: boxW,
+                      height: boxH,
+                      zIndex: 45,
+                    }}
+                    className="pointer-events-none rounded ring-2 ring-offset-1 ring-amber-400 shadow-[0_0_0_3px_rgba(251,191,36,0.4)]"
+                  />
+                )}
+                <input
+                  data-char-offset={char.offset}
+                  type="text"
+                  value={char.text}
+                  maxLength={4}
+                  onChange={(e) => onCharChange(char.offset, e.target.value)}
+                  onFocus={() => onFocusChar(char.offset)}
+                  onKeyDown={handleKeyDown}
+                  title={`confidence: ${Math.round(conf * 100)}%`}
+                  style={{
+                    position: "absolute",
+                    left: left - boxW - 4,
+                    top,
+                    width: boxW,
+                    height: boxH,
+                    fontSize: Math.max(10, boxH * 0.7),
+                    lineHeight: 1,
+                    padding: "1px",
+                    zIndex: isFocused ? 50 : 10,
+                  }}
+                  className={`border rounded text-center font-sans shadow-sm outline-none transition-colors ${confBorder}`}
+                />
+              </div>
             );
           })}
       </div>
+
+      {/* Character detail card — fixed overlay, shown when a character is focused */}
+      {focusedChar && focusedChar.bbox && (() => {
+        const PAD = 0.06;
+        const CARD_IMG_W = 100;
+        const CARD_IMG_H = 80;
+
+        const bx0 = focusedChar.bbox[0].x;
+        const by0 = focusedChar.bbox[0].y;
+        const bx1 = focusedChar.bbox[1].x;
+        const by2 = focusedChar.bbox[2].y;
+
+        const rL = Math.max(0, bx0 - PAD);
+        const rT = Math.max(0, by0 - PAD);
+        const rR = Math.min(1, bx1 + PAD);
+        const rB = Math.min(1, by2 + PAD);
+        const rW = rR - rL || 0.1;
+        const rH = rB - rT || 0.1;
+
+        const iW = imgDims.w || 1;
+        const iH = imgDims.h || 1;
+        const scale = Math.min(CARD_IMG_W / (rW * iW), CARD_IMG_H / (rH * iH));
+        const bgW = iW * scale;
+        const bgH = iH * scale;
+        const centerOffX = (CARD_IMG_W - rW * iW * scale) / 2;
+        const centerOffY = (CARD_IMG_H - rH * iH * scale) / 2;
+        const bgX = -rL * iW * scale + centerOffX;
+        const bgY = -rT * iH * scale + centerOffY;
+
+        // Character highlight position within the card image
+        const hlL = (bx0 - rL) * iW * scale + centerOffX;
+        const hlT = (by0 - rT) * iH * scale + centerOffY;
+        const hlW = (bx1 - bx0) * iW * scale;
+        const hlH = (by2 - by0) * iH * scale;
+
+        const conf = focusedChar.confidence;
+        const confPct = Math.round(conf * 100);
+        const confColor =
+          conf < 0.3
+            ? "text-red-600 bg-red-50"
+            : conf < 0.5
+            ? "text-yellow-700 bg-yellow-50"
+            : "text-emerald-700 bg-emerald-50";
+        const barColor =
+          conf < 0.3 ? "bg-red-400" : conf < 0.5 ? "bg-yellow-400" : "bg-emerald-400";
+
+        const totalInCol =
+          focusedColIdx >= 0 ? columns[focusedColIdx]?.chars.length : null;
+
+        return (
+          <div
+            className="fixed z-[200] w-56 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden select-none"
+            style={{ left: cardPos?.x ?? 0, top: cardPos?.y ?? 0 }}
+          >
+            {/* Drag handle strip */}
+            <div
+              className="flex items-center justify-end px-2 py-1 bg-gray-50 border-b border-gray-100 cursor-grab active:cursor-grabbing"
+              onMouseDown={handleCardMouseDown}
+            >
+              {/* Move icon — 4-way arrow */}
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="5 9 2 12 5 15"/>
+                <polyline points="9 5 12 2 15 5"/>
+                <polyline points="15 19 12 22 9 19"/>
+                <polyline points="19 9 22 12 19 15"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="12" y1="2" x2="12" y2="22"/>
+              </svg>
+            </div>
+
+            {/* Image preview (no longer the drag handle) */}
+            <div
+              className="relative bg-gray-100 overflow-hidden"
+              style={{ width: CARD_IMG_W, height: CARD_IMG_H, margin: "0 auto" }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  backgroundImage: `url(${imageUrl})`,
+                  backgroundSize: `${bgW}px ${bgH}px`,
+                  backgroundPosition: `${bgX}px ${bgY}px`,
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+              {/* Amber highlight box over the character */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: hlL,
+                  top: hlT,
+                  width: hlW,
+                  height: hlH,
+                }}
+                className="border-2 border-amber-400 bg-amber-300/30 rounded-sm shadow-[0_0_6px_2px_rgba(251,191,36,0.6)]"
+              />
+            </div>
+
+            <div className="px-3 py-2.5 space-y-1.5">
+              {/* Character display + confidence badge + delete */}
+              <div className="flex items-center justify-between">
+                <span className="text-3xl font-serif leading-none tracking-wide">
+                  {focusedChar.text}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${confColor}`}>
+                    {confPct}% conf
+                  </span>
+                  {deleteArmed ? (
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => { onDeleteChar(focusedChar.offset); setDeleteArmed(false); }}
+                        className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-red-500 text-white hover:bg-red-600 transition-colors"
+                        style={{ pointerEvents: "auto" }}
+                      >
+                        Confirm
+                      </button>
+                      <button
+                        onClick={() => setDeleteArmed(false)}
+                        className="px-1.5 py-0.5 text-[10px] rounded text-gray-500 hover:text-gray-700 transition-colors"
+                        style={{ pointerEvents: "auto" }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setDeleteArmed(true)}
+                      title="Delete character"
+                      className="p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+                      style={{ pointerEvents: "auto" }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="3 6 5 6 21 6"/>
+                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+                        <path d="M10 11v6M14 11v6"/>
+                        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                      </svg>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Confidence bar */}
+              <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${barColor}`}
+                  style={{ width: `${confPct}%` }}
+                />
+              </div>
+
+              {/* Position info */}
+              <div className="text-[10px] text-gray-500 space-y-0.5">
+                {focusedColIdx >= 0 && (
+                  <div>
+                    <span className="font-medium text-gray-700">
+                      {columns[focusedColIdx]?.isRow ? "Row" : "Column"}{" "}
+                      {focusedColIdx + 1}
+                    </span>
+                    {focusedPosInCol !== null && totalInCol !== null && (
+                      <span className="ml-1">
+                        · position {focusedPosInCol} / {totalInCol}
+                      </span>
+                    )}
+                  </div>
+                )}
+                <div className="font-mono">
+                  bbox ({Math.round(bx0 * 1000) / 10}%,{" "}
+                  {Math.round(by0 * 1000) / 10}%) →{" "}
+                  ({Math.round(bx1 * 1000) / 10}%,{" "}
+                  {Math.round(by2 * 1000) / 10}%)
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

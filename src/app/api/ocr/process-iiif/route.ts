@@ -99,15 +99,18 @@ export async function POST(req: NextRequest) {
         const pageWidth = annotation?.pages?.[0]?.width ?? 1000;
         const pageHeight = annotation?.pages?.[0]?.height ?? 1000;
 
-        const spatialData = annotation
+        const ocrResult = annotation
           ? visionToSpatialData(annotation, pageWidth, pageHeight)
-          : [];
+          : null;
+        const spatialData = ocrResult?.spatialData ?? [];
+        const candidateData = ocrResult?.candidateData ?? [];
         const rawText = computeRawText(spatialData);
 
         await setPage(slug, i + 1, {
           pageNumber: i + 1,
           rawText,
           spatialData,
+          candidateData,
         });
 
         processedCount++;

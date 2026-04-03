@@ -90,8 +90,8 @@ export async function POST(req: NextRequest) {
   const pageWidth = annotation.pages?.[0]?.width ?? 1000;
   const pageHeight = annotation.pages?.[0]?.height ?? 1000;
 
-  const spatialData = visionToSpatialData(annotation, pageWidth, pageHeight);
+  const { spatialData, candidateData } = visionToSpatialData(annotation, pageWidth, pageHeight);
   const rawText = spatialDataToRawText(spatialData);
 
-  return NextResponse.json({ spatialData, rawText, pageWidth, pageHeight });
+  return NextResponse.json({ spatialData, candidateData, rawText, pageWidth, pageHeight });
 }

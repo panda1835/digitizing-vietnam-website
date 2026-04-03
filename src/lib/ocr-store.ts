@@ -26,6 +26,8 @@ export interface OcrPageData {
   pageNumber: number;
   rawText: string;
   spatialData: SpatialCharacter[];
+  /** OCR detections that were filtered out (e.g. too small) but may still be real characters. */
+  candidateData?: SpatialCharacter[];
 }
 
 async function ensureDir(dir: string) {

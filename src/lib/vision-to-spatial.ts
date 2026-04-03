@@ -69,13 +69,16 @@ function bboxArea(bbox: Array<{ x: number; y: number }>): number {
  * Filters:
  * - Only CJK characters are kept (no Latin, Arabic numerals, punctuation)
  * - Whitespace/breaks are preserved for text structure
- * - Tiny symbols (< 15% of median character area) are discarded as noise
+ * - Tiny symbols (< 8% of median character area) are discarded as noise
+ *
+ * Returns both accepted spatialData and candidateData (rejected CJK chars
+ * that might still be real characters the user should review).
  */
 export function visionToSpatialData(
   annotation: VisionTextAnnotation,
   pageWidth: number,
   pageHeight: number
-): SpatialCharacter[] {
+): { spatialData: SpatialCharacter[]; candidateData: SpatialCharacter[] } {
   const raw: Array<{ text: string; bbox: Array<{ x: number; y: number }> | null; confidence: number; breakType?: string }> = [];
 
   const w = pageWidth || 1;
@@ -122,6 +125,7 @@ export function visionToSpatialData(
 
   // Second pass: filter and build result
   const result: SpatialCharacter[] = [];
+  const rejected: Array<{ text: string; bbox: Array<{ x: number; y: number }>; confidence: number }> = [];
   let offset = 0;
 
   for (const s of raw) {
@@ -136,8 +140,6 @@ export function visionToSpatialData(
 
     // Only keep CJK characters and whitespace
     if (text.trim().length > 0 && !isCJK(text)) {
-      // Skip non-CJK visible characters (Latin, digits, punctuation)
-      // But still handle any break after this symbol
       const breakType = s.breakType;
       if (breakType === "LINE_BREAK" || breakType === "SURE_SPACE") {
         result.push({ text: "\n", bbox: null, confidence: 1, offset });
@@ -146,19 +148,20 @@ export function visionToSpatialData(
       continue;
     }
 
-    // Skip tiny symbols (noise)
+    // Skip tiny symbols (noise) — but save CJK ones as candidates
     if (s.bbox && text.trim().length > 0 && minArea > 0 && bboxArea(s.bbox) < minArea) {
+      rejected.push({ text, bbox: s.bbox, confidence: s.confidence });
       continue;
     }
 
-    // Skip characters fully outside the page bounds (likely artifacts)
+    // Skip characters fully outside the page bounds — but save CJK ones as candidates
     if (s.bbox && text.trim().length > 0) {
       const xs = s.bbox.map((v) => v.x);
       const ys = s.bbox.map((v) => v.y);
       const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
       const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
-      // Only drop if the center is outside the page
       if (cx < 0 || cx > 1 || cy < 0 || cy > 1) {
+        rejected.push({ text, bbox: s.bbox, confidence: s.confidence });
         continue;
       }
     }
@@ -171,7 +174,6 @@ export function visionToSpatialData(
     });
     offset += text.length;
 
-    // Handle detected breaks
     const breakType = s.breakType;
     if (breakType === "SPACE" || breakType === "EOL_SURE_SPACE") {
       result.push({ text: " ", bbox: null, confidence: 1, offset });
@@ -209,7 +211,15 @@ export function visionToSpatialData(
     finalOffset += c.text.length;
   }
 
-  return deduped;
+  // Build candidateData: rejected CJK chars, assigned dummy offsets
+  let candOffset = 0;
+  const candidateData: SpatialCharacter[] = rejected.map((r) => {
+    const c: SpatialCharacter = { text: r.text, bbox: r.bbox, confidence: r.confidence, offset: candOffset };
+    candOffset += r.text.length;
+    return c;
+  });
+
+  return { spatialData: deduped, candidateData };
 }
 
 export function spatialDataToRawText(chars: SpatialCharacter[]): string {

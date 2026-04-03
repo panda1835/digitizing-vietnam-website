@@ -99,7 +99,7 @@ export async function POST(req: NextRequest) {
 
   const pageWidth = annotation.pages?.[0]?.width ?? 1000;
   const pageHeight = annotation.pages?.[0]?.height ?? 1000;
-  const spatialData = visionToSpatialData(annotation, pageWidth, pageHeight);
+  const { spatialData, candidateData } = visionToSpatialData(annotation, pageWidth, pageHeight);
   const rawText = spatialDataToRawText(spatialData);
 
   // If a slug is provided, persist the OCR result for this page
@@ -110,6 +110,7 @@ export async function POST(req: NextRequest) {
       pageNumber,
       rawText,
       spatialData,
+      candidateData,
     });
     // Update index pageCount to reflect total canvases
     const index = await getIndex();

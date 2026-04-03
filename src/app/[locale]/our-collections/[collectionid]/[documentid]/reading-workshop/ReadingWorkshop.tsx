@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect, useRef } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 import { getMiradorStore } from "@/components/mirador/Mirador";
 import LayoutToggle, { LayoutMode } from "@/components/reading-workshop/LayoutToggle";
@@ -46,6 +47,14 @@ export default function ReadingWorkshop({
   pageCount,
   initialPage,
 }: ReadingWorkshopProps) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Read page from URL so refresh restores the correct page
+  const urlPage = parseInt(searchParams.get("page") ?? "", 10);
+  const startPage = !isNaN(urlPage) && urlPage > 0 ? urlPage : initialPage;
+
   const [layout, setLayout] = useState<LayoutMode>("side");
   // Auto-enter OCR editor for queued/pending documents that need OCR work
   const [mode, setMode] = useState<WorkshopMode>(
@@ -60,8 +69,8 @@ export default function ReadingWorkshop({
   const [canvases, setCanvases] = useState<CanvasInfo[]>([]);
   // Reverse lookup: canvasId → sorted position (1-based)
   const [canvasIdToPos, setCanvasIdToPos] = useState<Record<string, number>>({});
-  // Current position in the sorted canvas list (1-based)
-  const [currentPos, setCurrentPos] = useState(initialPage);
+  // Current position in the sorted canvas list (1-based), seeded from URL
+  const [currentPos, setCurrentPos] = useState(startPage);
 
   // Fetch the IIIF manifest, sort canvases numerically, derive text page mapping
   useEffect(() => {
@@ -144,6 +153,9 @@ export default function ReadingWorkshop({
         if (!pos) return;
 
         setCurrentPos(pos);
+        const params = new URLSearchParams(window.location.search);
+        params.set("page", String(pos));
+        router.replace(`${pathname}?${params.toString()}`);
       });
     }
 
@@ -188,6 +200,11 @@ export default function ReadingWorkshop({
   // setCanvas is a thunk that computes visibleCanvases before dispatching.
   function setPage(p: number) {
     setCurrentPos(p);
+
+    // Keep URL in sync so refresh restores this page
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", String(p));
+    router.replace(`${pathname}?${params.toString()}`);
 
     if (canvases.length === 0) return;
     const targetCanvasId = canvases[p - 1]?.id;

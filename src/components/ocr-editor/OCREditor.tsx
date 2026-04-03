@@ -37,6 +37,7 @@ export default function OCREditor({
 
   // Core state
   const [spatialData, setSpatialData] = useState<SpatialCharacter[]>([]);
+  const [candidateData, setCandidateData] = useState<SpatialCharacter[]>([]);
   const [rawText, setRawText] = useState("");
   const [editorMode, setEditorMode] = useState<EditorMode>("loading");
   const [error, setError] = useState<string | null>(null);
@@ -121,6 +122,7 @@ export default function OCREditor({
           const reordered = reorderByColumns(data.spatialData);
           setSpatialData(reordered);
           setRawText(reordered.map((c) => c.text).join(""));
+          setCandidateData(data.candidateData ?? []);
           setEditorMode("editing");
           setCompletedPages((prev) => new Set([...prev, page]));
         }
@@ -369,6 +371,7 @@ export default function OCREditor({
       }
 
       let deduped: SpatialCharacter[];
+      let newCandidateData: SpatialCharacter[] = [];
 
       if (thoroughOcr) {
         // Thorough: split into 3 overlapping vertical strips to avoid Vision API skipping regions
@@ -437,6 +440,7 @@ export default function OCREditor({
         }
         const data = await res.json();
         deduped = (data.spatialData ?? []).filter((c: SpatialCharacter) => c.bbox || c.text.trim() === "");
+        newCandidateData = (data.candidateData ?? []) as SpatialCharacter[];
       }
 
       // Recalculate offsets
@@ -446,19 +450,99 @@ export default function OCREditor({
         offset += c.text.length;
       }
 
-      // Save to disk
+      // Save to disk (including candidateData)
       await fetch(`/api/ocr/spatial-data/${encodeURIComponent(slug)}/${page}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           spatialData: deduped,
           rawText: deduped.map((c) => c.text).join(""),
+          candidateData: newCandidateData,
         }),
       });
 
       const reordered = reorderByColumns(deduped);
       setSpatialData(reordered);
       setRawText(reordered.map((c) => c.text).join(""));
+      setCandidateData(newCandidateData);
+      setEditorMode("editing");
+      setCompletedPages((prev) => new Set([...prev, page]));
+    } catch (e: any) {
+      setError(e.message);
+    } finally {
+      setOcrRunning(false);
+    }
+  }
+
+  // ── Run both Vision + Paddle and merge results spatially ──
+  async function handleRunMergedOCR() {
+    const imageUrl = getImageUrl();
+    if (!imageUrl) return;
+    setOcrRunning(true);
+    setError(null);
+
+    try {
+      const imgRes = await fetch(imageUrl);
+      if (!imgRes.ok) throw new Error("Failed to fetch page image");
+      const rawBlob = await imgRes.blob();
+      const blob = await preprocessImage(rawBlob);
+
+      const hasPreprocess = ppInvert || ppGrayscale || ppContrast !== 100 || ppBrightness !== 100 || cropRect !== null;
+      setProcessedImageUrl(hasPreprocess ? URL.createObjectURL(blob) : null);
+
+      // Run Vision and Paddle in parallel
+      const visionForm = new FormData();
+      visionForm.append("image", blob, "page.jpg");
+      const paddleForm = new FormData();
+      paddleForm.append("image", blob, "page.jpg");
+
+      const [visionRes, paddleRes] = await Promise.all([
+        fetch("/api/ocr/process-page", { method: "POST", body: visionForm }),
+        fetch("/api/ocr/process-page-paddle", { method: "POST", body: paddleForm }),
+      ]);
+
+      const visionData = visionRes.ok ? await visionRes.json() : { spatialData: [], candidateData: [] };
+      const paddleData = paddleRes.ok ? await paddleRes.json() : { spatialData: [] };
+
+      const visionChars: SpatialCharacter[] = (visionData.spatialData ?? []).filter((c: SpatialCharacter) => c.bbox);
+      const paddleChars: SpatialCharacter[] = (paddleData.spatialData ?? []).filter((c: SpatialCharacter) => c.bbox);
+
+      // Merge: keep all Vision chars, add Paddle chars whose center doesn't
+      // fall within 0.02 of any Vision char center (spatial deduplication).
+      const merged = [...visionChars];
+      for (const pc of paddleChars) {
+        if (!pc.bbox) continue;
+        const pcx = (pc.bbox[0].x + pc.bbox[2].x) / 2;
+        const pcy = (pc.bbox[0].y + pc.bbox[2].y) / 2;
+        const isDupe = visionChars.some((vc) => {
+          if (!vc.bbox) return false;
+          const vcx = (vc.bbox[0].x + vc.bbox[2].x) / 2;
+          const vcy = (vc.bbox[0].y + vc.bbox[2].y) / 2;
+          return Math.abs(pcx - vcx) < 0.02 && Math.abs(pcy - vcy) < 0.02;
+        });
+        if (!isDupe) merged.push(pc);
+      }
+
+      // Recalculate offsets
+      let offset = 0;
+      for (const c of merged) { c.offset = offset; offset += c.text.length; }
+
+      const newCandidateData: SpatialCharacter[] = visionData.candidateData ?? [];
+
+      await fetch(`/api/ocr/spatial-data/${encodeURIComponent(slug)}/${page}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          spatialData: merged,
+          rawText: merged.map((c) => c.text).join(""),
+          candidateData: newCandidateData,
+        }),
+      });
+
+      const reordered = reorderByColumns(merged);
+      setSpatialData(reordered);
+      setRawText(reordered.map((c) => c.text).join(""));
+      setCandidateData(newCandidateData);
       setEditorMode("editing");
       setCompletedPages((prev) => new Set([...prev, page]));
     } catch (e: any) {
@@ -787,39 +871,49 @@ export default function OCREditor({
             </div>
 
             <div className="border-t border-gray-100 pt-3 flex flex-col gap-2">
-              <button
-                onClick={handleRunQuickOCR}
-                disabled={ocrRunning}
-                className="w-full px-4 py-2 text-sm font-medium rounded bg-branding-black text-white hover:bg-gray-800 disabled:opacity-40"
-              >
-                {ocrRunning ? "Running OCR…" : "Run OCR"}
-              </button>
-              <div className="flex items-center gap-3">
-                <label className="flex items-center gap-1.5 text-xs">
-                  <span className="text-gray-600">Engine:</span>
-                  <select
-                    value={ocrEngine}
-                    onChange={(e) => setOcrEngine(e.target.value as "vision" | "paddle")}
-                    className="text-xs border border-gray-300 rounded px-1.5 py-0.5"
-                  >
-                    <option value="vision">Google Vision</option>
-                    <option value="paddle">PaddleOCR</option>
-                  </select>
-                </label>
-                <label className="flex items-center gap-1.5 text-xs cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={thoroughOcr}
-                    onChange={(e) => setThoroughOcr(e.target.checked)}
-                    className="rounded"
-                  />
-                  Thorough (3 passes)
-                </label>
+              {/* Option 1 & 2: single engine */}
+              <div className="flex gap-2">
+                <select
+                  value={ocrEngine}
+                  onChange={(e) => setOcrEngine(e.target.value as "vision" | "paddle")}
+                  disabled={ocrRunning}
+                  className="text-xs border border-gray-300 rounded px-1.5 py-1 flex-1"
+                >
+                  <option value="vision">Google Vision</option>
+                  <option value="paddle">PaddleOCR</option>
+                </select>
+                <button
+                  onClick={handleRunQuickOCR}
+                  disabled={ocrRunning}
+                  className="flex-1 px-3 py-1.5 text-xs font-medium rounded bg-branding-black text-white hover:bg-gray-800 disabled:opacity-40"
+                >
+                  {ocrRunning ? "Running…" : "Run OCR"}
+                </button>
               </div>
-              <p className="text-[10px] text-gray-400">
-                {ocrEngine === "paddle" ? "Local PaddleOCR — requires server running." : "Google Cloud Vision API."}
-                {thoroughOcr ? " 3x API calls." : ""}
-              </p>
+              <label className="flex items-center gap-1.5 text-xs cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={thoroughOcr}
+                  onChange={(e) => setThoroughOcr(e.target.checked)}
+                  className="rounded"
+                  disabled={ocrRunning}
+                />
+                Thorough (3 overlapping passes)
+              </label>
+
+              {/* Option 3: merged */}
+              <div className="border-t border-gray-100 pt-2 flex flex-col gap-1">
+                <button
+                  onClick={handleRunMergedOCR}
+                  disabled={ocrRunning}
+                  className="w-full px-3 py-1.5 text-xs font-medium rounded bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40"
+                >
+                  {ocrRunning ? "Running…" : "Merged OCR (Vision + Paddle)"}
+                </button>
+                <p className="text-[10px] text-gray-400">
+                  Runs both engines in parallel and merges results — Paddle detections are added where Vision found nothing. Requires PaddleOCR server.
+                </p>
+              </div>
             </div>
 
             <div className="border-t border-gray-100 pt-3">
@@ -869,6 +963,7 @@ export default function OCREditor({
                 onFocusChar={setFocusedOffset}
                 onAddChar={handleAddChar}
                 onOcrRegion={handleOcrRegion}
+                onDeleteChar={handleDeleteChar}
                 focusedOffset={focusedOffset}
               />
             </div>
@@ -890,6 +985,16 @@ export default function OCREditor({
               focusedOffset={focusedOffset}
               onDeleteChar={handleDeleteChar}
               onSuggestApply={handleSuggestApply}
+              spatialData={spatialData}
+              onFocusChar={setFocusedOffset}
+              candidateData={candidateData}
+              onPromoteCandidate={(c) => {
+                setCandidateData((prev) => prev.filter((x) => x.offset !== c.offset));
+                handleAddChar(c.bbox!, c.text);
+              }}
+              onDismissCandidate={(c) => {
+                setCandidateData((prev) => prev.filter((x) => x.offset !== c.offset));
+              }}
             />
           </div>
         </div>
