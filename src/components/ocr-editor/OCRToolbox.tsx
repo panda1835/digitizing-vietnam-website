@@ -10,9 +10,6 @@ interface OCRToolboxProps {
   onSelectColumn: (index: number) => void;
   onDeleteChar: (offset: number) => void;
   spatialDataLength: number;
-  rawText: string;
-  slug: string;
-  page: number;
   focusedOffset: number | null;
   onSuggestApply: (offset: number, suggestion: string) => void;
   spatialData: SpatialCharacter[];
@@ -28,9 +25,6 @@ export default function OCRToolbox({
   onSelectColumn,
   onDeleteChar,
   spatialDataLength,
-  rawText,
-  slug,
-  page,
   focusedOffset,
   onSuggestApply,
   spatialData,
@@ -98,16 +92,6 @@ export default function OCRToolbox({
     } finally {
       setSuggesting(false);
     }
-  }
-
-  function handleDownload() {
-    const blob = new Blob([rawText], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${slug}_page_${page}.txt`;
-    a.click();
-    URL.revokeObjectURL(url);
   }
 
   return (
@@ -390,15 +374,6 @@ export default function OCRToolbox({
         <p><kbd className="px-1 bg-gray-100 border rounded text-[10px]">Esc</kbd> Deselect (draw mode)</p>
       </div>
 
-      {/* Download */}
-      <div className="mt-auto pt-2 border-t border-gray-100">
-        <button
-          onClick={handleDownload}
-          className="w-full px-3 py-1.5 text-xs rounded border border-gray-300 text-gray-600 hover:bg-gray-100"
-        >
-          Download page text (.txt)
-        </button>
-      </div>
     </div>
   );
 }

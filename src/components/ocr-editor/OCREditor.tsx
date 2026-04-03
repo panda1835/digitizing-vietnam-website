@@ -934,8 +934,22 @@ export default function OCREditor({
         <div className="flex flex-1 overflow-hidden">
           {/* Left: full text */}
           <div className="w-1/3 border-r border-gray-200 bg-white overflow-hidden flex flex-col">
-            <div className="px-2 py-1.5 text-xs font-semibold text-gray-500 bg-gray-50 border-b border-gray-100 uppercase tracking-wide">
+            <div className="px-2 py-1.5 text-xs font-semibold text-gray-500 bg-gray-50 border-b border-gray-100 uppercase tracking-wide flex items-center justify-between">
               Full Text
+              <button
+                onClick={() => {
+                  const blob = new Blob([rawText], { type: "text/plain;charset=utf-8" });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = `${slug}_page_${page}.txt`;
+                  a.click();
+                  URL.revokeObjectURL(url);
+                }}
+                className="px-2 py-0.5 text-[10px] font-medium rounded border border-gray-300 text-gray-500 hover:bg-gray-100 uppercase tracking-wide"
+              >
+                Download .txt
+              </button>
             </div>
             <OCRTextPane
               spatialData={spatialData}
@@ -979,9 +993,6 @@ export default function OCREditor({
               selectedColumnIndex={selectedColumnIndex}
               onSelectColumn={handleSelectColumn}
               spatialDataLength={spatialData.filter((c) => c.bbox).length}
-              rawText={rawText}
-              slug={slug}
-              page={page}
               focusedOffset={focusedOffset}
               onDeleteChar={handleDeleteChar}
               onSuggestApply={handleSuggestApply}

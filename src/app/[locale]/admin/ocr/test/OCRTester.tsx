@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, useMemo } from "react";
 import type { SpatialCharacter } from "@/lib/ocr-store";
 import { detectColumns, reorderByColumns, Column } from "@/components/ocr-editor/useColumnDetection";
 
@@ -29,7 +29,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   const [selectedCol, setSelectedCol] = useState<number | null>(null);
   const [focusedOffset, setFocusedOffset] = useState<number | null>(null);
   const [imgDims, setImgDims] = useState({ w: 1, h: 1 });
-  const [zoom, setZoom] = useState(100); // percentage
+  const [zoom, setZoom] = useState(100);
 
   // Drag-to-add state
   const [isDrawing, setIsDrawing] = useState(false);
@@ -37,12 +37,94 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   const [drawRect, setDrawRect] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  // Selection action popup state (replaces prompt())
+  const [selectionRect, setSelectionRect] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
+  const [selectionPixels, setSelectionPixels] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
+  const [manualInput, setManualInput] = useState("");
+
+  // Delete character state
+  const [deleteArmed, setDeleteArmed] = useState(false);
+  const [armedDeleteOffset, setArmedDeleteOffset] = useState<number | null>(null);
+
+  // Low confidence review
+  const [confThreshold, setConfThreshold] = useState(50);
+  const [reviewIndex, setReviewIndex] = useState(0);
+
+  // Draggable character detail card
+  const CARD_W = 224;
+  const CARD_H = 210;
+  const [cardPos, setCardPos] = useState<{ x: number; y: number } | null>(null);
+  const dragOffsetRef = useRef<{ x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    if (cardPos === null) {
+      setCardPos({
+        x: Math.round(window.innerWidth / 2 - CARD_W / 2),
+        y: Math.round(window.innerHeight / 2 - CARD_H / 2),
+      });
+    }
+  }, [cardPos]);
+
+  const handleCardMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    dragOffsetRef.current = {
+      x: e.clientX - (cardPos?.x ?? 0),
+      y: e.clientY - (cardPos?.y ?? 0),
+    };
+    function onMove(me: MouseEvent) {
+      if (!dragOffsetRef.current) return;
+      setCardPos({
+        x: me.clientX - dragOffsetRef.current.x,
+        y: me.clientY - dragOffsetRef.current.y,
+      });
+    }
+    function onUp() {
+      dragOffsetRef.current = null;
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+    }
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+  }, [cardPos]);
+
+  // Disarm delete when focused char changes
+  useEffect(() => { setDeleteArmed(false); }, [focusedOffset]);
+
   const columns = detectColumns(spatialData);
   const charsWithBbox = spatialData.filter((c) => c.bbox && c.text.trim()).length;
   const rawText = spatialData.map((c) => c.text).join("");
 
-  // Selected column object
   const selectedColumn = selectedCol !== null ? columns[selectedCol] ?? null : null;
+
+  // Focused character metadata
+  const focusedChar =
+    focusedOffset !== null
+      ? spatialData.find((c) => c.offset === focusedOffset) ?? null
+      : null;
+
+  const focusedColIdx =
+    focusedChar !== null
+      ? columns.findIndex((col) => col.chars.some((c) => c.offset === focusedOffset))
+      : -1;
+
+  const focusedPosInCol =
+    focusedChar !== null && focusedColIdx >= 0
+      ? (columns[focusedColIdx]?.chars.findIndex((c) => c.offset === focusedOffset) ?? -1) + 1
+      : null;
+
+  // Low-confidence review queue
+  const reviewQueue = useMemo(() => {
+    return spatialData.filter((c) => c.bbox && c.confidence < confThreshold / 100);
+  }, [spatialData, confThreshold]);
+
+  // Text pane refs for scroll-to-focus
+  const spanRefs = useRef<Map<number, HTMLSpanElement>>(new Map());
+
+  useEffect(() => {
+    if (focusedOffset === null) return;
+    const el = spanRefs.current.get(focusedOffset);
+    if (el) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [focusedOffset]);
 
   // Reset when file changes
   const prevFile = useRef(file);
@@ -102,9 +184,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     }
   }
 
-  // Update dims when zoom changes
   useEffect(() => {
-    // Small delay for DOM to update after zoom change
     const t = setTimeout(() => {
       if (imgRef.current) {
         const w = imgRef.current.clientWidth;
@@ -115,7 +195,6 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     return () => clearTimeout(t);
   }, [zoom]);
 
-  // Update dims when result arrives and image is already loaded
   const prevResult = useRef(result);
   if (result && result !== prevResult.current && imgRef.current) {
     const w = imgRef.current.clientWidth;
@@ -136,6 +215,41 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     setSelectedCol(ci);
     const firstChar = columns[ci]?.chars.find((c) => c.bbox);
     if (firstChar) setFocusedOffset(firstChar.offset);
+  }
+
+  function handleDeleteChar(offset: number) {
+    setSpatialData((prev) => {
+      const next = prev.filter((c) => c.offset !== offset);
+      let o = 0;
+      for (const c of next) {
+        c.offset = o;
+        o += c.text.length;
+      }
+      return next;
+    });
+    setFocusedOffset(null);
+  }
+
+  function handleDownload() {
+    const blob = new Blob([rawText], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "ocr_test_result.txt";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function navigateReview(idx: number) {
+    const clamped = Math.max(0, Math.min(reviewQueue.length - 1, idx));
+    setReviewIndex(clamped);
+    const char = reviewQueue[clamped];
+    if (!char) return;
+    const colIdx = columns.findIndex((col) =>
+      col.chars.some((c) => c.offset === char.offset)
+    );
+    if (colIdx >= 0) handleSelectColumn(colIdx);
+    setFocusedOffset(char.offset);
   }
 
   // ── Drag-to-add handlers ──
@@ -162,7 +276,6 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     };
     setDrawRect(newRect);
 
-    // Draw selection rectangle on canvas
     const ctx = canvasRef.current.getContext("2d");
     if (ctx) {
       ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
@@ -177,13 +290,19 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     setIsDrawing(false);
 
     if (drawRect && drawRect.w > 5 && drawRect.h > 5) {
-      // Drag completed — prompt for character
-      const charText = prompt("Enter character for this area:");
-      if (charText && charText.trim()) {
-        addCharAtRect(drawRect, charText.trim());
-      }
+      // Show selection action popup instead of prompt()
+      const sw = scaleX || 1;
+      const sh = scaleY || 1;
+      setSelectionRect({
+        x: drawRect.x / sw,
+        y: drawRect.y / sh,
+        w: drawRect.w / sw,
+        h: drawRect.h / sh,
+      });
+      setSelectionPixels({ ...drawRect });
+      setManualInput("");
     } else {
-      // Simple click — check if it's on a column, otherwise deselect
+      // Simple click — check if on a column, otherwise deselect
       const rect = canvasRef.current?.getBoundingClientRect();
       if (rect) {
         const clickX = (e.clientX - rect.left) / scaleX;
@@ -200,45 +319,48 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
           setFocusedOffset(null);
         }
       }
+      clearSelection();
     }
 
-    // Clear canvas
-    const ctx = canvasRef.current?.getContext("2d");
-    if (ctx && canvasRef.current) {
-      ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    // Don't clear canvas if we have a selection popup to show
+    if (!(drawRect && drawRect.w > 5 && drawRect.h > 5)) {
+      const ctx = canvasRef.current?.getContext("2d");
+      if (ctx && canvasRef.current) {
+        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      }
     }
     setDrawRect(null);
     setDrawStart(null);
   }
 
-  function addCharAtRect(rect: { x: number; y: number; w: number; h: number }, text: string) {
-    const sw = scaleX || 1;
-    const sh = scaleY || 1;
+  function clearSelection() {
+    setSelectionRect(null);
+    setSelectionPixels(null);
+    setManualInput("");
+    const ctx = canvasRef.current?.getContext("2d");
+    if (ctx && canvasRef.current) {
+      ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    }
+  }
 
-    // Convert pixel rect to normalized [0,1] bbox
+  function handleManualAdd() {
+    if (!selectionRect || !manualInput.trim()) return;
+    const r = selectionRect;
     const bbox: Array<{ x: number; y: number }> = [
-      { x: rect.x / sw, y: rect.y / sh },
-      { x: (rect.x + rect.w) / sw, y: rect.y / sh },
-      { x: (rect.x + rect.w) / sw, y: (rect.y + rect.h) / sh },
-      { x: rect.x / sw, y: (rect.y + rect.h) / sh },
+      { x: r.x, y: r.y },
+      { x: r.x + r.w, y: r.y },
+      { x: r.x + r.w, y: r.y + r.h },
+      { x: r.x, y: r.y + r.h },
     ];
+    addCharAtBbox(bbox, manualInput.trim());
+    clearSelection();
+  }
 
+  function addCharAtBbox(bbox: Array<{ x: number; y: number }>, text: string) {
     const newCenter = {
       x: (bbox[0].x + bbox[2].x) / 2,
       y: (bbox[0].y + bbox[2].y) / 2,
     };
-
-    // Find insertion point: RTL (higher X first), then TTB (lower Y first)
-    // We find the last existing character that should come BEFORE the new one,
-    // then insert after it.
-    const validChars = spatialData.filter((c) => c.bbox && c.text.trim());
-    const avgW = validChars.length > 0
-      ? validChars.reduce((s, c) => {
-          const xs = c.bbox!.map((v) => v.x);
-          return s + (Math.max(...xs) - Math.min(...xs));
-        }, 0) / validChars.length
-      : 0.02;
-    const threshold = avgW * 0.5;
 
     // Find the closest column the new char belongs to
     let bestColIdx = -1;
@@ -256,23 +378,19 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     let insertIndex = spatialData.length;
     if (bestColIdx >= 0) {
       const col = columns[bestColIdx];
-      // Find the last char in this column that's above the new char (or all of them if adding at bottom)
       let lastBeforeIdx = -1;
       for (const colChar of col.chars) {
         if (!colChar.bbox) continue;
         const cy = (colChar.bbox[0].y + colChar.bbox[2].y) / 2;
         if (cy <= newCenter.y) {
-          // Find this char's index in spatialData
           const sdIdx = spatialData.findIndex((c) => c.offset === colChar.offset);
           if (sdIdx >= 0) lastBeforeIdx = sdIdx;
         }
       }
 
       if (lastBeforeIdx >= 0) {
-        // Insert right after the last character above us in this column
         insertIndex = lastBeforeIdx + 1;
       } else {
-        // New char is above all chars in the column — insert before the first
         const firstChar = col.chars.find((c) => c.bbox);
         if (firstChar) {
           const sdIdx = spatialData.findIndex((c) => c.offset === firstChar.offset);
@@ -291,7 +409,6 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     setSpatialData((prev) => {
       const next = [...prev];
       next.splice(insertIndex, 0, newChar);
-      // Recalculate offsets
       let offset = 0;
       for (const c of next) {
         c.offset = offset;
@@ -304,7 +421,6 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   // Global keyboard shortcuts
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      // Don't capture keys when typing in an input
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA") return;
 
@@ -350,7 +466,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedCol, columns.length]);
 
-  // Mouse wheel zoom on image container
+  // Mouse wheel zoom
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -372,7 +488,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     }
   }, [imgDims]);
 
-  // Focus management: when focusedOffset changes, focus the corresponding input
+  // Focus management
   useEffect(() => {
     if (focusedOffset === null) return;
     const el = document.querySelector(`[data-char-offset="${focusedOffset}"]`) as HTMLInputElement | null;
@@ -428,6 +544,10 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                   return (
                     <span
                       key={i}
+                      ref={(el) => {
+                        if (el) spanRefs.current.set(char.offset, el);
+                        else spanRefs.current.delete(char.offset);
+                      }}
                       onClick={() => {
                         const colIdx = columns.findIndex((c) =>
                           c.chars.some((ch) => ch.offset === char.offset)
@@ -435,7 +555,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                         if (colIdx >= 0) setSelectedCol(colIdx);
                         setFocusedOffset(char.offset);
                       }}
-                      className={`cursor-pointer transition-colors ${confColor}`}
+                      className={`cursor-pointer transition-colors rounded ${confColor}`}
                       title={`${char.text} — confidence: ${Math.round(conf * 100)}%`}
                     >
                       {char.text}
@@ -491,7 +611,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                   onMouseDown={handleCanvasMouseDown}
                   onMouseMove={handleCanvasMouseMove}
                   onMouseUp={handleCanvasMouseUp}
-                  onMouseLeave={() => { if (isDrawing) handleCanvasMouseUp(); }}
+                  onMouseLeave={() => { if (isDrawing) handleCanvasMouseUp({} as any); }}
                   className="absolute inset-0 z-20 cursor-crosshair"
                   style={{ pointerEvents: "auto" }}
                 />
@@ -509,12 +629,12 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                       key={col.index}
                       onClick={() => handleSelectColumn(col.index)}
                       style={{ left, top, width, height, position: "absolute", zIndex: 5 }}
-                      className={`cursor-pointer border-2 transition-colors ${
+                      className={`pointer-events-none border-2 transition-colors ${
                         isSelected
                           ? "border-red-500 bg-red-500/5"
                           : col.isRow
-                          ? "border-emerald-400 bg-emerald-400/10 hover:bg-emerald-400/20"
-                          : "border-indigo-400 bg-indigo-400/10 hover:bg-indigo-400/20"
+                          ? "border-emerald-400 bg-emerald-400/10"
+                          : "border-indigo-400 bg-indigo-400/10"
                       }`}
                       title={`${col.isRow ? "Row" : "Col"} ${col.index + 1}: ${col.chars.length} characters`}
                     >
@@ -532,6 +652,55 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                     </div>
                   );
                 })}
+
+                {/* Selection action popup */}
+                {selectionPixels && selectionRect && (
+                  <>
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: selectionPixels.x,
+                        top: selectionPixels.y,
+                        width: selectionPixels.w,
+                        height: selectionPixels.h,
+                        zIndex: 25,
+                      }}
+                      className="border-2 border-dashed border-red-500 bg-red-500/10 pointer-events-none"
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: selectionPixels.x,
+                        top: selectionPixels.y + selectionPixels.h + 4,
+                        zIndex: 30,
+                      }}
+                      className="flex items-center gap-1 bg-white border border-gray-300 rounded shadow-lg p-1.5"
+                    >
+                      <input
+                        type="text"
+                        value={manualInput}
+                        onChange={(e) => setManualInput(e.target.value)}
+                        onKeyDown={(e) => { if (e.key === "Enter") handleManualAdd(); if (e.key === "Escape") clearSelection(); }}
+                        placeholder="Type text…"
+                        className="w-24 px-1.5 py-1 text-[10px] border border-gray-300 rounded focus:outline-none focus:border-indigo-400"
+                        autoFocus
+                      />
+                      <button
+                        onClick={handleManualAdd}
+                        disabled={!manualInput.trim()}
+                        className="px-2 py-1 text-[10px] font-medium rounded border border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-30"
+                      >
+                        Add
+                      </button>
+                      <button
+                        onClick={clearSelection}
+                        className="px-1.5 py-1 text-[10px] text-gray-400 hover:text-red-500"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  </>
+                )}
 
                 {/* Character input overlays for selected column */}
                 {selectedColumn &&
@@ -587,29 +756,44 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                       : "border-indigo-300 bg-white/90";
 
                     return (
-                      <input
-                        key={char.offset}
-                        data-char-offset={char.offset}
-                        type="text"
-                        value={char.text}
-                        maxLength={4}
-                        onChange={(e) => handleCharChange(char.offset, e.target.value)}
-                        onFocus={() => setFocusedOffset(char.offset)}
-                        onKeyDown={handleKeyDown}
-                        title={`confidence: ${Math.round(conf * 100)}%`}
-                        style={{
-                          position: "absolute",
-                          left: left - boxW - 4,
-                          top,
-                          width: boxW,
-                          height: boxH,
-                          fontSize: Math.max(10, boxH * 0.7),
-                          lineHeight: 1,
-                          padding: "1px",
-                          zIndex: 10,
-                        }}
-                        className={`border rounded text-center font-sans shadow-sm outline-none transition-colors ${confBorder}`}
-                      />
+                      <div key={char.offset} style={{ position: "absolute", left: 0, top: 0, zIndex: isFocused ? 50 : 10 }}>
+                        {/* Focused character amber highlight */}
+                        {isFocused && (
+                          <div
+                            style={{
+                              position: "absolute",
+                              left,
+                              top,
+                              width: boxW,
+                              height: boxH,
+                              zIndex: 45,
+                            }}
+                            className="pointer-events-none rounded ring-2 ring-offset-1 ring-amber-400 shadow-[0_0_0_3px_rgba(251,191,36,0.4)]"
+                          />
+                        )}
+                        <input
+                          data-char-offset={char.offset}
+                          type="text"
+                          value={char.text}
+                          maxLength={4}
+                          onChange={(e) => handleCharChange(char.offset, e.target.value)}
+                          onFocus={() => setFocusedOffset(char.offset)}
+                          onKeyDown={handleKeyDown}
+                          title={`confidence: ${Math.round(conf * 100)}%`}
+                          style={{
+                            position: "absolute",
+                            left: left - boxW - 4,
+                            top,
+                            width: boxW,
+                            height: boxH,
+                            fontSize: Math.max(10, boxH * 0.7),
+                            lineHeight: 1,
+                            padding: "1px",
+                            zIndex: isFocused ? 50 : 10,
+                          }}
+                          className={`border rounded text-center font-sans shadow-sm outline-none transition-colors ${confBorder}`}
+                        />
+                      </div>
                     );
                   })}
               </div>
@@ -646,15 +830,43 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                 </div>
               </div>
 
-              {/* Selected column text */}
+              {/* Selected column text with click-to-delete */}
               {selectedColumn && (
                 <div>
                   <p className="text-xs font-medium text-gray-600 mb-1">
                     Column {(selectedCol ?? 0) + 1} ({selectedColumn.chars.length} chars)
                   </p>
-                  <p className="text-sm bg-indigo-50 border border-indigo-200 rounded p-3 break-all">
-                    {selectedColumn.chars.map((c) => c.text).join("")}
-                  </p>
+                  <div className="text-sm bg-indigo-50 border border-indigo-200 rounded p-2 break-all flex flex-wrap gap-0.5">
+                    {selectedColumn.chars.map((c) => (
+                      armedDeleteOffset === c.offset ? (
+                        <span key={c.offset} className="flex items-center gap-0.5 bg-red-50 border border-red-200 rounded px-1 py-0.5">
+                          <span className="font-serif">{c.text}</span>
+                          <button
+                            onClick={() => { handleDeleteChar(c.offset); setArmedDeleteOffset(null); }}
+                            className="text-[9px] font-semibold text-white bg-red-500 hover:bg-red-600 rounded px-1 leading-tight"
+                          >
+                            Delete
+                          </button>
+                          <button
+                            onClick={() => setArmedDeleteOffset(null)}
+                            className="text-[9px] text-gray-400 hover:text-gray-600 leading-tight"
+                          >
+                            Cancel
+                          </button>
+                        </span>
+                      ) : (
+                        <span
+                          key={c.offset}
+                          className="group relative cursor-pointer hover:bg-red-100 rounded px-0.5 transition-colors"
+                          title={`Click to delete "${c.text}"`}
+                          onClick={() => setArmedDeleteOffset(c.offset)}
+                        >
+                          {c.text}
+                          <span className="absolute -top-1 -right-1 hidden group-hover:block text-[8px] bg-red-500 text-white rounded-full w-3 h-3 flex items-center justify-center leading-none">×</span>
+                        </span>
+                      )
+                    ))}
+                  </div>
                 </div>
               )}
 
@@ -664,6 +876,75 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                 <p>Spatial items: {spatialData.length}</p>
                 <p>With bbox: {charsWithBbox}</p>
                 <p>Columns: {columns.length}</p>
+              </div>
+
+              {/* Low confidence review queue */}
+              <div className="border-t border-gray-100 pt-3">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                  Low Confidence Review
+                </p>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-[10px] text-gray-400 w-16 shrink-0">
+                    &lt;{confThreshold}% conf
+                  </span>
+                  <input
+                    type="range"
+                    min={10}
+                    max={80}
+                    step={5}
+                    value={confThreshold}
+                    onChange={(e) => { setConfThreshold(Number(e.target.value)); setReviewIndex(0); }}
+                    className="flex-1 accent-amber-500"
+                  />
+                </div>
+                {reviewQueue.length === 0 ? (
+                  <p className="text-[11px] text-gray-400 italic">
+                    No characters below this threshold.
+                  </p>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-1 mb-2">
+                      <button
+                        onClick={() => navigateReview(reviewIndex - 1)}
+                        disabled={reviewIndex === 0}
+                        className="px-2 py-1 text-[11px] rounded border border-gray-300 hover:bg-gray-100 disabled:opacity-30"
+                      >
+                        ← Prev
+                      </button>
+                      <span className="flex-1 text-center text-[11px] text-gray-500">
+                        {reviewIndex + 1} / {reviewQueue.length}
+                      </span>
+                      <button
+                        onClick={() => navigateReview(reviewIndex + 1)}
+                        disabled={reviewIndex >= reviewQueue.length - 1}
+                        className="px-2 py-1 text-[11px] rounded border border-gray-300 hover:bg-gray-100 disabled:opacity-30"
+                      >
+                        Next →
+                      </button>
+                    </div>
+                    <div className="max-h-40 overflow-y-auto space-y-0.5">
+                      {reviewQueue.map((char, i) => {
+                        const conf = Math.round(char.confidence * 100);
+                        const isCurrent = i === reviewIndex;
+                        const confColor = char.confidence < 0.3 ? "text-red-600" : "text-yellow-600";
+                        return (
+                          <button
+                            key={char.offset}
+                            onClick={() => navigateReview(i)}
+                            className={`w-full flex items-center justify-between px-2 py-1 rounded text-left text-[11px] transition-colors ${
+                              isCurrent
+                                ? "bg-amber-100 border border-amber-300"
+                                : "hover:bg-gray-100 border border-transparent"
+                            }`}
+                          >
+                            <span className="font-serif text-base leading-none">{char.text}</span>
+                            <span className={`font-medium ${confColor}`}>{conf}%</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* Keyboard shortcuts */}
@@ -676,10 +957,188 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                 <p><kbd className="px-1 bg-gray-100 border rounded text-[10px]">↑ ↓</kbd> Prev / next character</p>
                 <p><kbd className="px-1 bg-gray-100 border rounded text-[10px]">Esc</kbd> Deselect column (draw mode)</p>
               </div>
+
+              {/* Download */}
+              <div className="mt-auto pt-2 border-t border-gray-100">
+                <button
+                  onClick={handleDownload}
+                  className="w-full px-3 py-1.5 text-xs rounded border border-gray-300 text-gray-600 hover:bg-gray-100"
+                >
+                  Download page text (.txt)
+                </button>
+              </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* Character detail card — fixed overlay when a character is focused */}
+      {result && focusedChar && focusedChar.bbox && (() => {
+        const PAD = 0.06;
+        const CARD_IMG_W = 100;
+        const CARD_IMG_H = 80;
+
+        const bx0 = focusedChar.bbox[0].x;
+        const by0 = focusedChar.bbox[0].y;
+        const bx1 = focusedChar.bbox[1].x;
+        const by2 = focusedChar.bbox[2].y;
+
+        const rL = Math.max(0, bx0 - PAD);
+        const rT = Math.max(0, by0 - PAD);
+        const rR = Math.min(1, bx1 + PAD);
+        const rB = Math.min(1, by2 + PAD);
+        const rW = rR - rL || 0.1;
+        const rH = rB - rT || 0.1;
+
+        const iW = imgDims.w || 1;
+        const iH = imgDims.h || 1;
+        const scale = Math.min(CARD_IMG_W / (rW * iW), CARD_IMG_H / (rH * iH));
+        const bgW = iW * scale;
+        const bgH = iH * scale;
+        const centerOffX = (CARD_IMG_W - rW * iW * scale) / 2;
+        const centerOffY = (CARD_IMG_H - rH * iH * scale) / 2;
+        const bgX = -rL * iW * scale + centerOffX;
+        const bgY = -rT * iH * scale + centerOffY;
+
+        const hlL = (bx0 - rL) * iW * scale + centerOffX;
+        const hlT = (by0 - rT) * iH * scale + centerOffY;
+        const hlW = (bx1 - bx0) * iW * scale;
+        const hlH = (by2 - by0) * iH * scale;
+
+        const conf = focusedChar.confidence;
+        const confPct = Math.round(conf * 100);
+        const confColor =
+          conf < 0.3 ? "text-red-600 bg-red-50"
+          : conf < 0.5 ? "text-yellow-700 bg-yellow-50"
+          : "text-emerald-700 bg-emerald-50";
+        const barColor =
+          conf < 0.3 ? "bg-red-400" : conf < 0.5 ? "bg-yellow-400" : "bg-emerald-400";
+
+        const totalInCol = focusedColIdx >= 0 ? columns[focusedColIdx]?.chars.length : null;
+
+        return (
+          <div
+            className="fixed z-[200] w-56 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden select-none"
+            style={{ left: cardPos?.x ?? 0, top: cardPos?.y ?? 0 }}
+          >
+            {/* Drag handle strip */}
+            <div
+              className="flex items-center justify-end px-2 py-1 bg-gray-50 border-b border-gray-100 cursor-grab active:cursor-grabbing"
+              onMouseDown={handleCardMouseDown}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="5 9 2 12 5 15"/>
+                <polyline points="9 5 12 2 15 5"/>
+                <polyline points="15 19 12 22 9 19"/>
+                <polyline points="19 9 22 12 19 15"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="12" y1="2" x2="12" y2="22"/>
+              </svg>
+            </div>
+
+            {/* Image preview */}
+            <div
+              className="relative bg-gray-100 overflow-hidden"
+              style={{ width: CARD_IMG_W, height: CARD_IMG_H, margin: "0 auto" }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  backgroundImage: `url(${preview})`,
+                  backgroundSize: `${bgW}px ${bgH}px`,
+                  backgroundPosition: `${bgX}px ${bgY}px`,
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: hlL,
+                  top: hlT,
+                  width: hlW,
+                  height: hlH,
+                }}
+                className="border-2 border-amber-400 bg-amber-300/30 rounded-sm shadow-[0_0_6px_2px_rgba(251,191,36,0.6)]"
+              />
+            </div>
+
+            <div className="px-3 py-2.5 space-y-1.5">
+              {/* Character display + confidence + delete */}
+              <div className="flex items-center justify-between">
+                <span className="text-3xl font-serif leading-none tracking-wide">
+                  {focusedChar.text}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${confColor}`}>
+                    {confPct}% conf
+                  </span>
+                  {deleteArmed ? (
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => { handleDeleteChar(focusedChar.offset); setDeleteArmed(false); }}
+                        className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-red-500 text-white hover:bg-red-600 transition-colors"
+                      >
+                        Confirm
+                      </button>
+                      <button
+                        onClick={() => setDeleteArmed(false)}
+                        className="px-1.5 py-0.5 text-[10px] rounded text-gray-500 hover:text-gray-700 transition-colors"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setDeleteArmed(true)}
+                      title="Delete character"
+                      className="p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="3 6 5 6 21 6"/>
+                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+                        <path d="M10 11v6M14 11v6"/>
+                        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                      </svg>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Confidence bar */}
+              <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${barColor}`}
+                  style={{ width: `${confPct}%` }}
+                />
+              </div>
+
+              {/* Position info */}
+              <div className="text-[10px] text-gray-500 space-y-0.5">
+                {focusedColIdx >= 0 && (
+                  <div>
+                    <span className="font-medium text-gray-700">
+                      {columns[focusedColIdx]?.isRow ? "Row" : "Column"}{" "}
+                      {focusedColIdx + 1}
+                    </span>
+                    {focusedPosInCol !== null && totalInCol !== null && (
+                      <span className="ml-1">
+                        · position {focusedPosInCol} / {totalInCol}
+                      </span>
+                    )}
+                  </div>
+                )}
+                <div className="font-mono">
+                  bbox ({Math.round(bx0 * 1000) / 10}%,{" "}
+                  {Math.round(by0 * 1000) / 10}%) →{" "}
+                  ({Math.round(bx1 * 1000) / 10}%,{" "}
+                  {Math.round(by2 * 1000) / 10}%)
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Preview (before OCR) */}
       {preview && !result && (
