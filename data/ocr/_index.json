@@ -1,0 +1,22 @@
+{
+  "han-nom-d8-fajh-8562": {
+    "status": "complete",
+    "pageCount": 19,
+    "collectionSlug": "han-nom-collection",
+    "source": "iiif",
+    "manifestUrl": "https://dlc.library.columbia.edu/iiif/3/presentation/10.7916/d8-fajh-8562/manifest",
+    "title": "Cao Vương Quan Thế Âm kinh",
+    "itemId": "d8-fajh-8562",
+    "updatedAt": "2026-04-02T19:15:35.073Z"
+  },
+  "han-nom-d8-nphy-ht93": {
+    "status": "queued",
+    "pageCount": 0,
+    "collectionSlug": "han-nom-collection",
+    "source": "iiif",
+    "manifestUrl": "https://dlc.library.columbia.edu/iiif/3/presentation/10.7916/d8-nphy-ht93/manifest",
+    "title": "Âm chất văn chú chứng",
+    "itemId": "d8-nphy-ht93",
+    "updatedAt": "2026-04-02T20:35:30.601Z"
+  }
+}

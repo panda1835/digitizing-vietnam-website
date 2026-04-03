@@ -83,6 +83,10 @@ export default async function HanNomPage({
           external: true,
         },
         {
+          label: locale === "vi" ? "Phòng đọc sách" : "Reading Workshop",
+          href: "/reading-workshop",
+        },
+        {
           label: t("ResearchHub.HanNomHub.unified-lookup.vietnamese-title"),
           href: "/research/han-nom/other-dictionaries",
         },

@@ -12,3 +12,13 @@ run_tailwindcss.sh
 *.ipynb
 test
 og.tsx
+
+# OCR data — ignore PDFs and page images (large), but track index and JSON
+data/ocr/**/source.pdf
+data/ocr/**/page_*.jpg
+data/ocr/**/page_*.jpeg
+data/ocr/**/page_*.png
+
+# Local tooling
+.claude/
+tsconfig.tsbuildinfo

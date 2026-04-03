@@ -22,6 +22,7 @@ import DaiVietSuKyToanThu from "./searchable-text/dai-viet-su-ky-toan-thu/DaiVie
 import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-muong/HundredVietMuongWordsTable";
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
 import NotFound from "@/app/not-found";
+import Link from "next/link";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -185,6 +186,16 @@ const CollectionItemViewer = async ({
 
         {/* Share links */}
         <CollectionPermalink />
+
+        {/* Reading Workshop link */}
+        <div className="mt-4">
+          <Link
+            href={`/${locale}/our-collections/${collectionId}/${documentId}/reading-workshop`}
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded border border-branding-black text-branding-black hover:bg-branding-black hover:text-white transition-colors"
+          >
+            <span>📖</span> Reading Workshop
+          </Link>
+        </div>
 
         <div className="mt-[32px]">
           <Separator />
