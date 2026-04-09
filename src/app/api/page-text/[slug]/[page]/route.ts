@@ -135,15 +135,37 @@ export async function GET(
     // fall through to OCR
   }
 
-  // Fall back to OCR data
-  if (!text) {
-    const ocrPage = await getPage(slug, page);
+  // Fall back to OCR data (try both the slug and han-nom-prefixed slug)
+  if (text === null) {
+    let ocrPage = await getPage(slug, page);
+    if (!ocrPage) ocrPage = await getPage(`han-nom-${slug}`, page);
     if (ocrPage) {
-      text = ocrPage.rawText ?? null;
+      text = ocrPage.rawText ?? "";
+
+      // Also return structured column data with commentary sections
+      try {
+        const { detectColumns } = await import("@/components/ocr-editor/useColumnDetection");
+        const columns = detectColumns(ocrPage.spatialData, "commentary");
+        const structuredColumns = columns.map((col) => ({
+          index: col.index,
+          isRow: col.isRow,
+          sections: col.sections.map((sec) => ({
+            type: sec.type,
+            text: sec.chars.map((c) => c.text).join(""),
+          })),
+        }));
+        // Use column-detected order for text (rawText may have wrong order from OCR API)
+        const columnText = structuredColumns
+          .map((col) => col.sections.map((s) => s.text).join(""))
+          .join("\n");
+        return NextResponse.json({ text: columnText || text, columns: structuredColumns });
+      } catch {
+        return NextResponse.json({ text });
+      }
     }
   }
 
-  if (text) {
+  if (text !== null) {
     return NextResponse.json({ text });
   }
 

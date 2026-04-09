@@ -41,6 +41,23 @@ const getValuesByPattern = (item: Record<string, string>, pattern: RegExp) =>
     .filter(([key, value]) => pattern.test(key) && Boolean(value?.trim()))
     .map(([, value]) => value.trim());
 
+const getNoteValuesByType = (
+  item: Record<string, string>,
+  noteType: string,
+) => {
+  const results: string[] = [];
+  for (const [key, value] of Object.entries(item)) {
+    const typeMatch = key.match(/^note-(\d+):note_type$/);
+    if (typeMatch && value?.trim().toLowerCase() === noteType.toLowerCase()) {
+      const noteValue = item[`note-${typeMatch[1]}:note_value`];
+      if (noteValue?.trim()) {
+        results.push(noteValue.trim());
+      }
+    }
+  }
+  return results;
+};
+
 const parseYear = (value: string | undefined): number | null => {
   if (!value) return null;
   const trimmed = value.trim();
@@ -74,7 +91,7 @@ const HAN_NOM_MANIFEST_ENTRIES: HanNomManifestEntry[] =
         manifestUrl: getManifestUrlFromDoi(item._doi),
         names: getValuesByPattern(item, /^name-\d+:name_term\.value$/),
         formats: getValuesByPattern(item, /^form-\d+:form_term\.value$/),
-        languages: getValuesByPattern(item, /^language-\d+:language_term\.value$/),
+        languages: getNoteValuesByType(item, "language"),
         yearStart: parseYear(item["date_issued-1:date_issued_start_value"]),
         yearEnd: parseYear(item["date_issued-1:date_issued_end_value"]),
       };

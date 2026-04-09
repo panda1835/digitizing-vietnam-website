@@ -30,6 +30,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   const [focusedOffset, setFocusedOffset] = useState<number | null>(null);
   const [imgDims, setImgDims] = useState({ w: 1, h: 1 });
   const [zoom, setZoom] = useState(100);
+  const [detMode, setDetMode] = useState<"auto" | "sp" | "hp">("auto");
 
   // Drag-to-add state
   const [isDrawing, setIsDrawing] = useState(false);
@@ -45,6 +46,12 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   // Delete character state
   const [deleteArmed, setDeleteArmed] = useState(false);
   const [armedDeleteOffset, setArmedDeleteOffset] = useState<number | null>(null);
+
+  // Region OCR
+  const [ocrRegionLoading, setOcrRegionLoading] = useState(false);
+
+  const [candidateData, setCandidateData] = useState<SpatialCharacter[]>([]);
+  const [candIndex, setCandIndex] = useState(0);
 
   // Low confidence review
   const [confThreshold, setConfThreshold] = useState(50);
@@ -149,6 +156,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
 
     const formData = new FormData();
     formData.append("image", file);
+    formData.append("det_mode", detMode);
 
     try {
       const res = await fetch("/api/ocr/process-page", {
@@ -250,6 +258,93 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     );
     if (colIdx >= 0) handleSelectColumn(colIdx);
     setFocusedOffset(char.offset);
+  }
+
+  function handleSuggestApply(suggestion: string) {
+    if (focusedOffset === null) return;
+    handleCharChange(focusedOffset, suggestion);
+  }
+
+  async function handleOcrRegion(regionDetMode?: string) {
+    if (!selectionRect || !preview) return;
+    setOcrRegionLoading(true);
+    try {
+      // Fetch the preview image and crop the selected region
+      const imgRes = await fetch(preview);
+      if (!imgRes.ok) throw new Error("Failed to fetch image");
+      const blob = await imgRes.blob();
+
+      const rect = selectionRect;
+      const croppedBlob = await new Promise<Blob>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          const sx = Math.round(rect.x * img.naturalWidth);
+          const sy = Math.round(rect.y * img.naturalHeight);
+          const sw = Math.round(rect.w * img.naturalWidth);
+          const sh = Math.round(rect.h * img.naturalHeight);
+          const canvas = document.createElement("canvas");
+          canvas.width = sw;
+          canvas.height = sh;
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return reject(new Error("Canvas not supported"));
+          ctx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
+          canvas.toBlob((b) => b ? resolve(b) : reject(new Error("Blob failed")), "image/jpeg", 0.95);
+        };
+        img.onerror = () => reject(new Error("Image load failed"));
+        img.src = URL.createObjectURL(blob);
+      });
+
+      // Run OCR on the cropped region
+      const formData = new FormData();
+      formData.append("image", croppedBlob, "region.jpg");
+      formData.append("det_mode", regionDetMode ?? detMode);
+
+      const res = await fetch("/api/ocr/process-page", { method: "POST", body: formData });
+      if (!res.ok) throw new Error(`OCR failed: ${res.status}`);
+      const data = await res.json();
+      const regionChars: SpatialCharacter[] = data.spatialData ?? [];
+
+      if (regionChars.length === 0) {
+        clearSelection();
+        return;
+      }
+
+      // Remap bboxes from region-local coords to full-image coords
+      const remapped: SpatialCharacter[] = regionChars
+        .filter((c: SpatialCharacter) => c.bbox)
+        .map((c: SpatialCharacter) => ({
+          ...c,
+          bbox: c.bbox!.map((v) => ({
+            x: rect.x + v.x * rect.w,
+            y: rect.y + v.y * rect.h,
+          })),
+        }));
+
+      // Merge into existing spatial data
+      setSpatialData((prev) => {
+        const merged = [...prev, ...remapped];
+        return reorderByColumns(merged);
+      });
+
+      clearSelection();
+    } catch (e: any) {
+      setError(e.message);
+    } finally {
+      setOcrRegionLoading(false);
+    }
+  }
+
+  function handlePromoteCandidate(char: SpatialCharacter) {
+    setCandidateData((prev) => prev.filter((c) => c.offset !== char.offset));
+    setCandIndex((prev) => Math.min(prev, candidateData.length - 2));
+    if (char.bbox) {
+      addCharAtBbox(char.bbox, char.text);
+    }
+  }
+
+  function handleDismissCandidate(char: SpatialCharacter) {
+    setCandidateData((prev) => prev.filter((c) => c.offset !== char.offset));
+    setCandIndex((prev) => Math.min(prev, candidateData.length - 2));
   }
 
   // ── Drag-to-add handlers ──
@@ -500,15 +595,27 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Run button */}
+      {/* Run button + detection mode */}
       {file && !result && (
-        <button
-          onClick={handleRun}
-          disabled={!file || loading}
-          className="self-start px-4 py-2 text-sm font-medium rounded bg-branding-black text-white hover:bg-gray-800 disabled:opacity-40"
-        >
-          {loading ? "Running OCR…" : "Run Quick OCR"}
-        </button>
+        <div className="flex items-center gap-2 self-start">
+          <select
+            value={detMode}
+            onChange={(e) => setDetMode(e.target.value as "auto" | "sp" | "hp")}
+            disabled={loading}
+            className="text-sm border border-gray-300 rounded px-2 py-2"
+          >
+            <option value="auto">Auto</option>
+            <option value="sp">Vertical (竖排)</option>
+            <option value="hp">Horizontal (横排)</option>
+          </select>
+          <button
+            onClick={handleRun}
+            disabled={!file || loading}
+            className="px-4 py-2 text-sm font-medium rounded bg-branding-black text-white hover:bg-gray-800 disabled:opacity-40"
+          >
+            {loading ? "Running OCR…" : "Run Quick OCR"}
+          </button>
+        </div>
       )}
 
       {error && (
@@ -653,6 +760,21 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                   );
                 })}
 
+                {/* Candidate highlight overlay */}
+                {candidateData.length > 0 && candidateData[candIndex]?.bbox && (() => {
+                  const c = candidateData[candIndex];
+                  const left = c.bbox![0].x * scaleX;
+                  const top = c.bbox![0].y * scaleY;
+                  const width = Math.abs(c.bbox![1].x - c.bbox![0].x) * scaleX;
+                  const height = Math.abs(c.bbox![2].y - c.bbox![0].y) * scaleY;
+                  return (
+                    <div
+                      style={{ position: "absolute", left, top, width, height, zIndex: 15 }}
+                      className="border-2 border-orange-500 bg-orange-400/20 rounded-sm pointer-events-none shadow-[0_0_8px_2px_rgba(251,146,60,0.5)]"
+                    />
+                  );
+                })()}
+
                 {/* Selection action popup */}
                 {selectionPixels && selectionRect && (
                   <>
@@ -676,6 +798,27 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                       }}
                       className="flex items-center gap-1 bg-white border border-gray-300 rounded shadow-lg p-1.5"
                     >
+                      <button
+                        onClick={() => handleOcrRegion("auto")}
+                        disabled={ocrRegionLoading}
+                        className="px-2 py-1 text-[10px] font-medium rounded bg-branding-black text-white hover:bg-gray-800 disabled:opacity-40"
+                      >
+                        {ocrRegionLoading ? "OCR…" : "Auto"}
+                      </button>
+                      <button
+                        onClick={() => handleOcrRegion("sp")}
+                        disabled={ocrRegionLoading}
+                        className="px-2 py-1 text-[10px] font-medium rounded bg-gray-600 text-white hover:bg-gray-700 disabled:opacity-40"
+                      >
+                        竖排
+                      </button>
+                      <button
+                        onClick={() => handleOcrRegion("hp")}
+                        disabled={ocrRegionLoading}
+                        className="px-2 py-1 text-[10px] font-medium rounded bg-gray-600 text-white hover:bg-gray-700 disabled:opacity-40"
+                      >
+                        横排
+                      </button>
                       <input
                         type="text"
                         value={manualInput}
@@ -683,7 +826,6 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                         onKeyDown={(e) => { if (e.key === "Enter") handleManualAdd(); if (e.key === "Escape") clearSelection(); }}
                         placeholder="Type text…"
                         className="w-24 px-1.5 py-1 text-[10px] border border-gray-300 rounded focus:outline-none focus:border-indigo-400"
-                        autoFocus
                       />
                       <button
                         onClick={handleManualAdd}
@@ -947,6 +1089,35 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                 )}
               </div>
 
+              {/* Alternative characters from OCR choices */}
+              <div className="border-t border-gray-100 pt-3">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                  Alternative Characters
+                </p>
+                {focusedOffset === null ? (
+                  <p className="text-[11px] text-gray-400 italic">Focus a character to see alternatives</p>
+                ) : (() => {
+                  const focusedChar = spatialData.find((c) => c.offset === focusedOffset);
+                  const choices = focusedChar?.choices ?? [];
+                  if (choices.length === 0) return (
+                    <p className="text-[11px] text-gray-400 italic">No alternatives available for this character</p>
+                  );
+                  return (
+                    <div className="flex flex-wrap gap-1">
+                      {choices.map((s, i) => (
+                        <button
+                          key={i}
+                          onClick={() => handleSuggestApply(s)}
+                          className="px-2 py-1 text-base rounded border border-gray-300 hover:bg-indigo-50 hover:border-indigo-400"
+                        >
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  );
+                })()}
+              </div>
+
               {/* Keyboard shortcuts */}
               <div className="text-xs text-gray-400 border-t border-gray-100 pt-3">
                 <p className="font-medium text-gray-500 mb-1">Keyboard</p>
@@ -1142,11 +1313,12 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
 
       {/* Preview (before OCR) */}
       {preview && !result && (
-        <div className="border border-gray-200 rounded overflow-hidden max-w-md">
+        <div className="border border-gray-200 rounded overflow-hidden max-w-4xl">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={preview} alt="Preview" className="w-full h-auto" />
         </div>
       )}
+
     </div>
   );
 }

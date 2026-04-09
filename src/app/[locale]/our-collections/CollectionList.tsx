@@ -36,7 +36,7 @@ export const CollectionList = ({ collections }: CollectionListProps) => {
               className="py-2 border-b border-gray-100 last:border-b-0"
             >
               <HoverCard>
-                <HoverCardTrigger>
+                <HoverCardTrigger asChild>
                   <Link href={`/our-collections/${collection.slug}`}>
                     <div
                       className={`${merriweather.className} text-lg text-branding-black hover:text-branding-brown hover:underline cursor-pointer`}

@@ -2,12 +2,14 @@
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
 
 import { getMiradorStore } from "@/components/mirador/Mirador";
 import LayoutToggle, { LayoutMode } from "@/components/reading-workshop/LayoutToggle";
 import ImagePane from "@/components/reading-workshop/ImagePane";
 import TextPane from "@/components/reading-workshop/TextPane";
 import ToolsPanel from "@/components/reading-workshop/ToolsPanel";
+import SearchHighlightOverlay from "@/components/reading-workshop/SearchHighlightOverlay";
 import dynamic from "next/dynamic";
 
 const OCREditor = dynamic(() => import("@/components/ocr-editor/OCREditor"), {
@@ -55,6 +57,10 @@ export default function ReadingWorkshop({
   const urlPage = parseInt(searchParams.get("page") ?? "", 10);
   const startPage = !isNaN(urlPage) && urlPage > 0 ? urlPage : initialPage;
 
+  // Search query for temporary highlighting (from URL or document search)
+  const urlQuery = searchParams.get("q") || null;
+  const [activeHighlight, setActiveHighlight] = useState<string | null>(urlQuery);
+
   const [layout, setLayout] = useState<LayoutMode>("side");
   // Auto-enter OCR editor for queued/pending documents that need OCR work
   const [mode, setMode] = useState<WorkshopMode>(
@@ -63,27 +69,43 @@ export default function ReadingWorkshop({
   const [showTools, setShowTools] = useState(false);
   const [selectedText, setSelectedText] = useState("");
   const [rawText, setRawText] = useState<string | null>(null);
+  const [textColumns, setTextColumns] = useState<any[] | null>(null);
   const [textLoading, setTextLoading] = useState(true);
+  const [ocrRunning, setOcrRunning] = useState(false);
+  const [ocrMessage, setOcrMessage] = useState<string | null>(null);
+  const ocrAbortRef = useRef<AbortController | null>(null);
 
   // Sorted canvas info: id, label, and derived text page number
   interface CanvasInfo { id: string; label: string; textPage: number }
   const [canvases, setCanvases] = useState<CanvasInfo[]>([]);
   // Reverse lookup: canvasId → sorted position (1-based)
   const [canvasIdToPos, setCanvasIdToPos] = useState<Record<string, number>>({});
+  // Ref for the lookup so Mirador subscription always reads latest
+  const canvasIdToPosRef = useRef(canvasIdToPos);
+  canvasIdToPosRef.current = canvasIdToPos;
   // Current position in the sorted canvas list (1-based), seeded from URL
   const [currentPos, setCurrentPos] = useState(startPage);
+  // Track whether we've navigated Mirador to our target page yet.
+  // Until we do, ignore canvas change events from Mirador's initial load.
+  const miradorSyncedRef = useRef(false);
 
   // Fetch the IIIF manifest — process the first page immediately, then the rest
   useEffect(() => {
     let cancelled = false;
 
     function parseLabel(label: string): { num: number; side: string } {
-      const m = label.match(/^page0*(\d+)([ab]?)$/i);
+      // "page001a", "page2b", "Page 003"
+      const m = label.match(/page\s*0*(\d+)([ab]?)\s*$/i);
       if (m) return { num: parseInt(m[1], 10), side: m[2].toLowerCase() };
-      const m2 = label.match(/^image\s*0*(\d+)$/i);
+      // "Image 001", "q.01-02, Image 003" — extract the Image number specifically
+      const m2 = label.match(/image\s*0*(\d+)/i);
       if (m2) return { num: parseInt(m2[1], 10), side: "" };
-      const m3 = label.match(/(\d+)/);
-      if (m3) return { num: parseInt(m3[1], 10), side: "" };
+      // Last resort: use the last number in the label
+      const allNums = [...label.matchAll(/(\d+)/g)];
+      if (allNums.length > 0) {
+        const last = allNums[allNums.length - 1];
+        return { num: parseInt(last[1], 10), side: "" };
+      }
       return { num: -1, side: "" };
     }
 
@@ -101,11 +123,23 @@ export default function ReadingWorkshop({
     }
 
     function sortAndFinalize(infos: (CanvasInfo & { _num: number; _side: string })[]) {
-      infos.sort((a, b) => {
-        if (a._num !== b._num) return a._num - b._num;
-        return a._side < b._side ? -1 : a._side > b._side ? 1 : 0;
-      });
-      const sorted: CanvasInfo[] = infos.map(({ id, label, textPage }) => ({ id, label, textPage }));
+      // Check if label-based sorting is reliable: all nums must be unique
+      const nums = infos.map((c) => c._num).filter((n) => n > 0);
+      const uniqueNums = new Set(nums);
+      const reliableSort = uniqueNums.size === nums.length && nums.length > 0;
+
+      if (reliableSort) {
+        infos.sort((a, b) => {
+          if (a._num !== b._num) return a._num - b._num;
+          return a._side < b._side ? -1 : a._side > b._side ? 1 : 0;
+        });
+      }
+      // Otherwise keep manifest order — assign textPage by position
+      const sorted: CanvasInfo[] = infos.map(({ id, label, textPage }, i) => ({
+        id,
+        label,
+        textPage: reliableSort ? textPage : i + 1,
+      }));
       const lookup: Record<string, number> = {};
       sorted.forEach((c, i) => { lookup[c.id] = i + 1; });
       return { sorted, lookup };
@@ -147,14 +181,34 @@ export default function ReadingWorkshop({
 
   // Subscribe to the Mirador Redux store to detect canvas navigation
   useEffect(() => {
-    if (canvases.length === 0 || Object.keys(canvasIdToPos).length === 0) return;
+    if (canvases.length === 0) return;
 
     let unsubscribe: (() => void) | null = null;
     let pollTimer: ReturnType<typeof setInterval> | null = null;
 
     function attach(store: any) {
       let prevCanvasId: string | null = null;
+
+      // Navigate Mirador to the target page before subscribing,
+      // so we don't pick up Mirador's default canvas-1 event.
+      const targetCanvasId = canvases[currentPos - 1]?.id;
+      if (targetCanvasId && currentPos !== 1) {
+        import("mirador/dist/es/src/state/actions").then(({ setCanvas }) => {
+          const state = store.getState();
+          const windowIds = Object.keys(state.windows || {});
+          if (windowIds.length > 0) {
+            store.dispatch(setCanvas(windowIds[0], targetCanvasId));
+          }
+          miradorSyncedRef.current = true;
+        });
+      } else {
+        miradorSyncedRef.current = true;
+      }
+
       unsubscribe = store.subscribe(() => {
+        // Ignore canvas changes until we've navigated to our target page
+        if (!miradorSyncedRef.current) return;
+
         const state = store.getState();
         const windowIds = Object.keys(state.windows || {});
         if (windowIds.length === 0) return;
@@ -162,35 +216,32 @@ export default function ReadingWorkshop({
         if (!canvasId || canvasId === prevCanvasId) return;
         prevCanvasId = canvasId;
 
-        const pos = canvasIdToPos[canvasId];
+        const pos = canvasIdToPosRef.current[canvasId];
         if (!pos) return;
 
         setCurrentPos(pos);
         const params = new URLSearchParams(window.location.search);
         params.set("page", String(pos));
-        router.replace(`${pathname}?${params.toString()}`);
+        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
       });
     }
 
-    const store = getMiradorStore();
-    if (store) {
-      attach(store);
-    } else {
-      pollTimer = setInterval(() => {
-        const s = getMiradorStore();
-        if (s) {
-          clearInterval(pollTimer!);
-          pollTimer = null;
-          attach(s);
-        }
-      }, 200);
-    }
+    // Poll until the Mirador store is available (it may not exist yet if
+    // the viewer is still mounting after an OCR-edit → read transition).
+    pollTimer = setInterval(() => {
+      const s = getMiradorStore();
+      if (s) {
+        clearInterval(pollTimer!);
+        pollTimer = null;
+        attach(s);
+      }
+    }, 200);
 
     return () => {
       unsubscribe?.();
       if (pollTimer) clearInterval(pollTimer);
     };
-  }, [canvases, canvasIdToPos]);
+  }, [canvases.length, mode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Current page position and derived text page
   const page = currentPos;
@@ -200,13 +251,15 @@ export default function ReadingWorkshop({
 
   // Fetch text for the current page (shared with TextPane and ToolsPanel)
   useEffect(() => {
-    if (!textPage) { setRawText(null); setTextLoading(false); return; }
+    if (textPage <= 0) { setRawText(null); setTextLoading(false); return; }
     let cancelled = false;
+    setRawText(null);
+    setTextColumns(null);
     setTextLoading(true);
     fetch(`/api/page-text/${encodeURIComponent(documentSlug)}/${textPage}`)
       .then((r) => r.ok ? r.json() : null)
-      .then((data) => { if (!cancelled) { setRawText(data?.text ?? null); setTextLoading(false); } })
-      .catch(() => { if (!cancelled) { setRawText(null); setTextLoading(false); } });
+      .then((data) => { if (!cancelled) { setRawText(data?.text ?? null); setTextColumns(data?.columns ?? null); setTextLoading(false); } })
+      .catch(() => { if (!cancelled) { setRawText(null); setTextColumns(null); setTextLoading(false); } });
     return () => { cancelled = true; };
   }, [documentSlug, textPage]);
 
@@ -218,7 +271,7 @@ export default function ReadingWorkshop({
     // Keep URL in sync so refresh restores this page
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", String(p));
-    router.replace(`${pathname}?${params.toString()}`);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
 
     if (canvases.length === 0) return;
     const targetCanvasId = canvases[p - 1]?.id;
@@ -242,8 +295,79 @@ export default function ReadingWorkshop({
     if (sel) setSelectedText(sel);
   }, []);
 
+  // Navigate to a page from document search, with optional highlight
+  const handleNavigateToPage = useCallback((targetPage: number, query?: string) => {
+    setPage(targetPage);
+    setActiveHighlight(query ?? null);
+  }, []);
+
+  async function handleRerunOcr() {
+    if (ocrRunning) return;
+    const controller = new AbortController();
+    ocrAbortRef.current = controller;
+    setOcrRunning(true);
+    setOcrMessage("Starting…");
+    try {
+      const res = await fetch("/api/ocr/process-iiif", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: documentSlug }),
+        signal: controller.signal,
+      });
+      const reader = res.body?.getReader();
+      if (!reader) throw new Error("No response stream");
+      const decoder = new TextDecoder();
+      let buffer = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() ?? "";
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          try {
+            const msg = JSON.parse(line);
+            if (msg.type === "page_start") {
+              setOcrMessage(`Page ${msg.page}/${msg.totalPages}`);
+            } else if (msg.type === "page_done") {
+              setOcrMessage(`Page ${msg.page}/${msg.totalPages} done`);
+            } else if (msg.type === "done") {
+              setOcrMessage(`OCR complete — ${msg.processedCount}/${msg.totalCanvases} pages`);
+              // Reload text for current page
+              setTextLoading(true);
+              fetch(`/api/page-text/${encodeURIComponent(documentSlug)}/${textPage}`)
+                .then((r) => r.ok ? r.json() : null)
+                .then((d) => { setRawText(d?.text ?? null); setTextColumns(d?.columns ?? null); setTextLoading(false); })
+                .catch(() => { setTextLoading(false); });
+            }
+          } catch { /* skip malformed */ }
+        }
+      }
+    } catch (e: any) {
+      if (e.name === "AbortError") {
+        setOcrMessage("Stopped — progress saved");
+        // Reload text in case some pages were processed
+        setTextLoading(true);
+        fetch(`/api/page-text/${encodeURIComponent(documentSlug)}/${textPage}`)
+          .then((r) => r.ok ? r.json() : null)
+          .then((d) => { setRawText(d?.text ?? null); setTextColumns(d?.columns ?? null); setTextLoading(false); })
+          .catch(() => { setTextLoading(false); });
+      } else {
+        setOcrMessage(`OCR error: ${e.message}`);
+      }
+    } finally {
+      setOcrRunning(false);
+      ocrAbortRef.current = null;
+    }
+  }
+
+  function handleStopOcr() {
+    ocrAbortRef.current?.abort();
+  }
+
   const adminPath = `/en/admin/ocr/${documentSlug}`;
-  const hasOcr = (ocrStatus === "complete" || ocrStatus === "corrected" || ocrStatus === "pending") && pageCount > 0;
+  const hasOcr = (ocrStatus === "partial" || ocrStatus === "complete" || ocrStatus === "corrected" || ocrStatus === "pending") && pageCount > 0;
   const hasPages = hasOcr || pageCount > 0;
 
   // Workshop container height: viewport minus nav + title bar
@@ -284,9 +408,46 @@ export default function ReadingWorkshop({
         )}
 
         <div className="ml-auto flex items-center gap-2">
+          {ocrMessage && (
+            <span className="text-xs text-branding-black/60 font-light max-w-[250px] truncate" title={ocrMessage}>
+              {ocrMessage}
+            </span>
+          )}
+          {ocrRunning ? (
+            <button
+              onClick={handleStopOcr}
+              className="px-3 py-1 text-sm rounded border font-light transition-colors border-red-300 text-red-600 hover:bg-red-50"
+            >
+              Stop OCR
+            </button>
+          ) : (
+            <button
+              onClick={handleRerunOcr}
+              className="px-3 py-1 text-sm rounded border font-light transition-colors border-amber-300 text-amber-700 hover:bg-amber-50"
+            >
+              Re-run OCR
+            </button>
+          )}
+          {hasOcr && (
+            <Link
+              href={`/${pathname.split("/")[1]}/admin/ocr/analyze/${encodeURIComponent(documentSlug)}`}
+              className="px-3 py-1 text-sm rounded border font-light transition-colors border-indigo-300 text-indigo-600 hover:bg-indigo-50"
+            >
+              Analyze
+            </Link>
+          )}
           {hasOcr && (
             <button
-              onClick={() => setMode(mode === "read" ? "ocr-edit" : "read")}
+              onClick={() => {
+                const newMode = mode === "read" ? "ocr-edit" : "read";
+                if (newMode === "ocr-edit") {
+                  // Update URL so OCR editor opens on the current page
+                  const params = new URLSearchParams(searchParams.toString());
+                  params.set("page", String(page));
+                  router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+                }
+                setMode(newMode);
+              }}
               className={`px-3 py-1 text-sm rounded border font-light transition-colors ${
                 mode === "ocr-edit"
                   ? "bg-branding-brown text-white border-branding-brown"
@@ -314,6 +475,7 @@ export default function ReadingWorkshop({
         {mode === "ocr-edit" ? (
           <div style={{ height: paneHeight }}>
             <OCREditor
+              key={`ocr-${page}`}
               slug={documentSlug}
               initialPage={page}
               pageCount={pageCount}
@@ -338,8 +500,16 @@ export default function ReadingWorkshop({
               >
                 <ImagePane
                   manifestUrl={manifestUrl}
+                  canvasId={currentCanvas?.id}
                   paneHeight={layout === "stack" ? `calc(${paneHeight} * 0.55)` : paneHeight}
                 />
+                {activeHighlight && (
+                  <SearchHighlightOverlay
+                    slug={documentSlug}
+                    page={textPage}
+                    query={activeHighlight}
+                  />
+                )}
               </div>
             )}
 
@@ -365,7 +535,9 @@ export default function ReadingWorkshop({
                       page={textPage}
                       adminPath={adminPath}
                       text={rawText}
+                      columns={textColumns}
                       textLoading={textLoading}
+                      highlightQuery={activeHighlight}
                     />
                   </div>
                 ) : (
@@ -374,7 +546,9 @@ export default function ReadingWorkshop({
                     page={textPage}
                     adminPath={adminPath}
                     text={rawText}
+                    columns={textColumns}
                     textLoading={textLoading}
+                    highlightQuery={activeHighlight}
                   />
                 )}
               </div>
@@ -400,6 +574,7 @@ export default function ReadingWorkshop({
                   documentSlug={documentSlug}
                   page={page}
                   rawText={rawText}
+                  onNavigateToPage={handleNavigateToPage}
                 />
               </div>
             )}

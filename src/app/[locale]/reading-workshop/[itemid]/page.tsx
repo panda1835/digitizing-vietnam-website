@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const entry = getHanNomManifestEntryByItemId(params.itemid);
   const title = entry?.title ?? params.itemid;
-  return { title: `${title} — Reading Workshop | Digitizing Việt Nam` };
+  return { title: `${title} — Text Lab | Digitizing Việt Nam` };
 }
 
 export default async function HanNomWorkshopPage({
@@ -35,7 +35,7 @@ export default async function HanNomWorkshopPage({
       <div className="max-w-3xl mx-auto py-20 text-center">
         <p className="text-branding-black/50 font-light">Item not found.</p>
         <Link href={`/${locale}/reading-workshop`} className="text-branding-brown hover:underline text-sm mt-4 inline-block">
-          ← Back to Reading Workshop
+          ← Back to Text Lab
         </Link>
       </div>
     );
@@ -59,13 +59,13 @@ export default async function HanNomWorkshopPage({
           href={`/${locale}/reading-workshop`}
           className="text-xs text-branding-brown hover:underline whitespace-nowrap font-light"
         >
-          ← Back to hub
+          ← Back to lab
         </Link>
         <div className="h-4 w-px bg-[#e1e1de]" />
         <h1 className={`${merriweather.className} text-base text-branding-black truncate`}>
           {hanNomEntry.title}
         </h1>
-        <span className="text-xs text-branding-brown/60 whitespace-nowrap font-light">Reading Workshop</span>
+        <span className="text-xs text-branding-brown/60 whitespace-nowrap font-light">Text Lab</span>
       </div>
 
       {/* Workshop */}

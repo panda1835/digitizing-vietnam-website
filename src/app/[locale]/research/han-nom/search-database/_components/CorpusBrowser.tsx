@@ -27,6 +27,7 @@ interface CorpusWork {
   language?: string;
   attributions?: { name: string; role: string; note?: string }[];
   curationStatus?: "curated" | "wiki";
+  ocrStatus?: "complete" | "corrected";
   externalPath?: string;
 }
 
@@ -665,19 +666,32 @@ export default function CorpusBrowser() {
                       {work.pages.toLocaleString()}
                     </td>
                     <td className="px-3 py-2.5">
-                      {work.curationStatus && (
-                        <span
-                          className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                            work.curationStatus === "curated"
-                              ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400"
-                              : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400"
-                          }`}
-                        >
-                          {work.curationStatus === "curated"
-                            ? t("curated")
-                            : t("wiki")}
-                        </span>
-                      )}
+                      <div className="flex items-center gap-1">
+                        {work.curationStatus && (
+                          <span
+                            className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                              work.curationStatus === "curated"
+                                ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400"
+                                : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400"
+                            }`}
+                          >
+                            {work.curationStatus === "curated"
+                              ? t("curated")
+                              : t("wiki")}
+                          </span>
+                        )}
+                        {work.ocrStatus && (
+                          <span
+                            className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                              work.ocrStatus === "corrected"
+                                ? "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400"
+                                : "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400"
+                            }`}
+                          >
+                            {work.ocrStatus === "corrected" ? "OCR Corrected" : "OCR"}
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="px-2 py-2.5 text-muted-foreground dark:text-zinc-500">
                       <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-60 transition-opacity" />
@@ -731,7 +745,9 @@ export default function CorpusBrowser() {
                     </div>
                   </div>
                   <Badge className="bg-branding-brown/10 text-branding-brown dark:bg-white/10 dark:text-zinc-300 border-none tabular-nums font-semibold">
-                    {t("hitsCount", { count: group.results.length })}
+                    {group.results.length >= 50
+                      ? t("hitsCount", { count: group.results.length }) + "+"
+                      : t("hitsCount", { count: group.results.length })}
                   </Badge>
                 </button>
 

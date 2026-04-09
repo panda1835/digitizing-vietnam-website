@@ -11,7 +11,7 @@ import ReadingWorkshop from "./ReadingWorkshop";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: `Reading Workshop | Digitizing Việt Nam` };
+  return { title: `Text Lab | Digitizing Việt Nam` };
 }
 
 // ---------------------------------------------------------------------------
@@ -132,7 +132,7 @@ export default async function ReadingWorkshopPage({
         <h1 className={`${merriweather.className} text-base text-branding-black truncate`}>
           {collectionItemData?.title || documentid}
         </h1>
-        <span className="text-xs text-branding-brown/60 whitespace-nowrap font-light">Reading Workshop</span>
+        <span className="text-xs text-branding-brown/60 whitespace-nowrap font-light">Text Lab</span>
       </div>
 
       {/* Workshop */}

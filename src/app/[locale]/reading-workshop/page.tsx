@@ -2,14 +2,14 @@ import { setRequestLocale } from "next-intl/server";
 import { Metadata } from "next";
 import { Merriweather } from "next/font/google";
 
-import { getIndex, OcrIndexEntry } from "@/lib/ocr-store";
+import { getIndex, getPagesWithTextCounts, OcrIndexEntry } from "@/lib/ocr-store";
 import { getHanNomManifestEntries, HanNomManifestEntry } from "@/lib/han-nom-collection";
 import WorkshopHubClient from "./WorkshopHubClient";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Reading Workshop | Digitizing Việt Nam" };
+  return { title: "Text Lab | Digitizing Việt Nam" };
 }
 
 // Known documents with existing searchable text
@@ -31,7 +31,7 @@ export default async function ReadingWorkshopHubPage({
   const { locale } = params;
   setRequestLocale(locale);
 
-  const ocrIndex = await getIndex();
+  const [ocrIndex, pagesWithTextCounts] = await Promise.all([getIndex(), getPagesWithTextCounts()]);
   const hanNomEntries = getHanNomManifestEntries();
 
   // Mark which Han-Nom items are already in the OCR index
@@ -40,15 +40,31 @@ export default async function ReadingWorkshopHubPage({
     if (entry.itemId) queuedItemIds.add(entry.itemId);
   }
 
+  // Compute stats
+  const ocrDocs = Object.values(ocrIndex).filter(
+    (e) => e.status === "partial" || e.status === "complete" || e.status === "corrected"
+  );
+  const totalTexts = ocrDocs.length;
+  const totalPages = ocrDocs.reduce((sum, e) => sum + e.pageCount, 0);
+  const totalPagesWithText = Object.values(pagesWithTextCounts).reduce((sum, n) => sum + n, 0);
+
   return (
     <div className="max-w-7xl mx-auto w-full">
       <div className="mb-8">
         <h1 className={`${merriweather.className} text-[32px] text-branding-black`}>
-          Reading Workshop
+          Text Lab
         </h1>
         <p className="text-base text-branding-black/60 font-light mt-2">
           Browse documents, manage OCR processing, and open the reading workshop.
         </p>
+        <div className="flex items-center gap-6 mt-3">
+          <span className="text-sm text-branding-black/50 font-light">
+            <span className="font-medium text-branding-black/70">{totalTexts}</span> texts
+          </span>
+          <span className="text-sm text-branding-black/50 font-light">
+            <span className="font-medium text-branding-black/70">{totalPagesWithText.toLocaleString()}</span> / {totalPages.toLocaleString()} pages with text
+          </span>
+        </div>
       </div>
 
       <WorkshopHubClient
@@ -57,6 +73,7 @@ export default async function ReadingWorkshopHubPage({
         ocrIndex={ocrIndex}
         hanNomEntries={hanNomEntries}
         queuedItemIds={Array.from(queuedItemIds)}
+        pagesWithText={pagesWithTextCounts}
       />
     </div>
   );

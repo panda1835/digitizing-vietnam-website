@@ -15,6 +15,9 @@ class Mirador extends Component<MiradorProps> {
     const instance = mirador.viewer(config, plugins);
     _miradorStore = instance.store;
   }
+  componentWillUnmount() {
+    _miradorStore = null;
+  }
   render() {
     const { config } = this.props;
     return <div id={config.id} />;

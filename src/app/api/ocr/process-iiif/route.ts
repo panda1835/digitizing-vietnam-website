@@ -1,25 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getIndex, setIndexEntry, setPage, computeRawText } from "@/lib/ocr-store";
-import { visionToSpatialData } from "@/lib/vision-to-spatial";
-import { getCanvasesFromManifest } from "@/lib/iiif-utils";
+import { getIndex, setIndexEntry, setPage, getPage, computeRawText, rebuildSearchIndex } from "@/lib/ocr-store";
+import { callKandianguji } from "@/lib/kandianguji-ocr";
+import { getCanvasesFromManifest, resolveOcrImageUrl } from "@/lib/iiif-utils";
 
 /**
  * POST /api/ocr/process-iiif
  *
- * Processes all (or a range of) pages of a IIIF manifest through Vision API.
- * Each canvas image is fetched individually, OCR'd, and saved.
+ * Processes all (or a range of) pages of a IIIF manifest through Kandianguji OCR.
+ * Streams NDJSON progress lines so the client can show live updates.
+ * Checks for an AbortSignal between pages so the request can be cancelled
+ * (already-processed pages are saved).
  *
  * Body: { slug: string, startPage?: number, endPage?: number }
  */
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.GOOGLE_CLOUD_VISION_API_KEY;
-  if (!apiKey) {
-    return NextResponse.json(
-      { error: "GOOGLE_CLOUD_VISION_API_KEY not configured" },
-      { status: 500 }
-    );
-  }
-
   const { slug, startPage, endPage } = await req.json();
   if (!slug) {
     return NextResponse.json({ error: "Missing slug" }, { status: 400 });
@@ -34,106 +28,122 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Update status to processing
   await setIndexEntry(slug, { status: "processing" });
 
+  // Fetch manifest up front (non-streaming part)
+  let manifest: any;
   try {
-    // Fetch manifest
     const manifestRes = await fetch(entry.manifestUrl);
     if (!manifestRes.ok) {
       await setIndexEntry(slug, { status: "error" });
       return NextResponse.json({ error: "Failed to fetch manifest" }, { status: 502 });
     }
-    const manifest = await manifestRes.json();
-    const canvases = getCanvasesFromManifest(manifest);
-
-    const start = startPage ?? 1;
-    const end = Math.min(endPage ?? canvases.length, canvases.length);
-
-    let processedCount = 0;
-    const errors: string[] = [];
-
-    for (let i = start - 1; i < end; i++) {
-      const canvas = canvases[i];
-      if (!canvas.imageUrl) {
-        errors.push(`Page ${i + 1}: no image URL`);
-        continue;
-      }
-
-      try {
-        // Fetch image
-        const imageRes = await fetch(canvas.imageUrl);
-        if (!imageRes.ok) {
-          errors.push(`Page ${i + 1}: image fetch failed (${imageRes.status})`);
-          continue;
-        }
-        const imageBuffer = Buffer.from(await imageRes.arrayBuffer());
-        const imageBase64 = imageBuffer.toString("base64");
-
-        // Call Vision API
-        const visionUrl = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
-        const visionBody = {
-          requests: [
-            {
-              image: { content: imageBase64 },
-              features: [{ type: "DOCUMENT_TEXT_DETECTION" }],
-              imageContext: { languageHints: ["zh-Hant", "vi", "zh"] },
-            },
-          ],
-        };
-
-        const visionRes = await fetch(visionUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(visionBody),
-        });
-
-        if (!visionRes.ok) {
-          errors.push(`Page ${i + 1}: Vision API error (${visionRes.status})`);
-          continue;
-        }
-
-        const visionData = await visionRes.json();
-        const annotation = visionData?.responses?.[0]?.fullTextAnnotation;
-
-        const pageWidth = annotation?.pages?.[0]?.width ?? 1000;
-        const pageHeight = annotation?.pages?.[0]?.height ?? 1000;
-
-        const ocrResult = annotation
-          ? visionToSpatialData(annotation, pageWidth, pageHeight)
-          : null;
-        const spatialData = ocrResult?.spatialData ?? [];
-        const candidateData = ocrResult?.candidateData ?? [];
-        const rawText = computeRawText(spatialData);
-
-        await setPage(slug, i + 1, {
-          pageNumber: i + 1,
-          rawText,
-          spatialData,
-          candidateData,
-        });
-
-        processedCount++;
-      } catch (e: any) {
-        errors.push(`Page ${i + 1}: ${e.message}`);
-      }
-    }
-
-    // Update index
-    await setIndexEntry(slug, {
-      status: errors.length < canvases.length ? "complete" : "error",
-      pageCount: canvases.length,
-    });
-
-    return NextResponse.json({
-      success: true,
-      slug,
-      totalCanvases: canvases.length,
-      processedCount,
-      errors: errors.length > 0 ? errors : undefined,
-    });
+    manifest = await manifestRes.json();
   } catch (e: any) {
     await setIndexEntry(slug, { status: "error" });
     return NextResponse.json({ error: e.message }, { status: 500 });
   }
+
+  const canvases = getCanvasesFromManifest(manifest);
+  const start = startPage ?? 1;
+  const end = Math.min(endPage ?? canvases.length, canvases.length);
+  const totalPages = canvases.length;
+
+  // Stream NDJSON progress
+  const encoder = new TextEncoder();
+  const abortSignal = req.signal;
+
+  const stream = new ReadableStream({
+    async start(controller) {
+      function send(data: Record<string, any>) {
+        try {
+          controller.enqueue(encoder.encode(JSON.stringify(data) + "\n"));
+        } catch {
+          // stream closed
+        }
+      }
+
+      let processedCount = 0;
+      const errors: string[] = [];
+
+      send({ type: "start", totalPages, startPage: start, endPage: end });
+
+      for (let i = start - 1; i < end; i++) {
+        // Check if the client disconnected
+        if (abortSignal.aborted) {
+          send({ type: "stopped", processedCount, totalPages, reason: "aborted" });
+          break;
+        }
+
+        const pageNum = i + 1;
+        const canvas = canvases[i];
+
+        send({ type: "page_start", page: pageNum, totalPages });
+
+        if (!canvas.imageUrl) {
+          errors.push(`Page ${pageNum}: no image URL`);
+          send({ type: "page_error", page: pageNum, error: "no image URL" });
+          continue;
+        }
+
+        try {
+          const resolvedUrl = await resolveOcrImageUrl(canvas.imageUrl!);
+          const imageRes = await fetch(resolvedUrl);
+          if (!imageRes.ok) {
+            errors.push(`Page ${pageNum}: image fetch failed (${imageRes.status})`);
+            send({ type: "page_error", page: pageNum, error: `image fetch failed (${imageRes.status})` });
+            continue;
+          }
+          const imageBuffer = Buffer.from(await imageRes.arrayBuffer());
+          const imageBase64 = imageBuffer.toString("base64");
+
+          const result = await callKandianguji(imageBase64);
+          const rawText = computeRawText(result.spatialData);
+
+          await setPage(slug, pageNum, {
+            pageNumber: pageNum,
+            rawText,
+            spatialData: result.spatialData,
+            candidateData: result.candidateData,
+          });
+
+          processedCount++;
+          send({ type: "page_done", page: pageNum, totalPages, processedCount, chars: rawText.length });
+        } catch (e: any) {
+          errors.push(`Page ${pageNum}: ${e.message}`);
+          send({ type: "page_error", page: pageNum, error: e.message });
+        }
+      }
+
+      // Update index status
+      const allProcessed = !abortSignal.aborted && processedCount === (end - start + 1);
+      const finalStatus = abortSignal.aborted
+        ? (processedCount > 0 ? "partial" : "error")
+        : (allProcessed ? "complete" : (processedCount > 0 ? "partial" : "error"));
+
+      await setIndexEntry(slug, { status: finalStatus, pageCount: totalPages });
+
+      // Rebuild search index so full-text search is fast
+      try { await rebuildSearchIndex(slug, totalPages); } catch { /* non-critical */ }
+
+      send({
+        type: "done",
+        success: true,
+        slug,
+        totalCanvases: totalPages,
+        processedCount,
+        errors: errors.length > 0 ? errors : undefined,
+      });
+
+      controller.close();
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      "Content-Type": "application/x-ndjson",
+      "Cache-Control": "no-cache",
+      "Transfer-Encoding": "chunked",
+    },
+  });
 }

@@ -7,7 +7,8 @@ export async function POST(req: NextRequest) {
   const formData = await req.formData();
   const file = formData.get("pdf") as File | null;
   const slug = (formData.get("slug") as string | null)?.trim();
-  const collectionSlug = (formData.get("collectionSlug") as string | null)?.trim() ?? "";
+  const title = (formData.get("title") as string | null)?.trim() ?? "";
+  const collectionSlug = (formData.get("collectionSlug") as string | null)?.trim() ?? "uploads";
 
   if (!file || !slug) {
     return NextResponse.json(
@@ -34,6 +35,8 @@ export async function POST(req: NextRequest) {
     status: "pending",
     pageCount: 0,
     collectionSlug,
+    source: "pdf",
+    title: title || slug,
   });
 
   return NextResponse.json({ success: true, slug, path: destPath });

@@ -22,6 +22,7 @@ interface WorkshopHubClientProps {
   ocrIndex: Record<string, OcrIndexEntry>;
   hanNomEntries: HanNomManifestEntry[];
   queuedItemIds: string[];
+  pagesWithText: Record<string, number>;
 }
 
 interface TestResult {
@@ -34,7 +35,7 @@ interface TestResult {
   totalChars: number;
 }
 
-type Tab = "documents" | "browse";
+type Tab = "documents" | "browse" | "upload";
 
 export default function WorkshopHubClient({
   locale,
@@ -42,11 +43,14 @@ export default function WorkshopHubClient({
   ocrIndex: initialOcrIndex,
   hanNomEntries,
   queuedItemIds: initialQueuedIds,
+  pagesWithText: initialPagesWithText,
 }: WorkshopHubClientProps) {
   const [tab, setTab] = useState<Tab>("documents");
   const [ocrIndex, setOcrIndex] = useState(initialOcrIndex);
   const [queuedItemIds, setQueuedItemIds] = useState(new Set(initialQueuedIds));
   const [searchQuery, setSearchQuery] = useState("");
+  const [browsePage, setBrowsePage] = useState(1);
+  const ITEMS_PER_PAGE = 20;
 
   // Page test state
   const [testingSlug, setTestingSlug] = useState<string | null>(null);
@@ -78,7 +82,6 @@ export default function WorkshopHubClient({
           title: hanNomEntries.find((e) => e.itemId === itemId)?.title,
         },
       }));
-      setTab("documents");
     }
   }, [hanNomEntries]);
 
@@ -102,6 +105,18 @@ export default function WorkshopHubClient({
       });
     }
   }, [ocrIndex]);
+
+  const handleStatusChange = useCallback(async (slug: string, newStatus: string) => {
+    const res = await fetch(`/api/ocr/status/${encodeURIComponent(slug)}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: newStatus }),
+    });
+    if (res.ok) {
+      const updated = await res.json();
+      setOcrIndex((prev) => ({ ...prev, [slug]: { ...prev[slug], ...updated } }));
+    }
+  }, []);
 
   const handleTestPage = useCallback(async (slug: string, pageIdx: number) => {
     const entry = ocrIndex[slug];
@@ -146,17 +161,152 @@ export default function WorkshopHubClient({
     }
   }, [ocrIndex]);
 
+  const handleRequeueOcr = useCallback(async (slug: string) => {
+    const res = await fetch(`/api/ocr/status/${encodeURIComponent(slug)}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: "queued" }),
+    });
+    if (res.ok) {
+      setOcrIndex((prev) => ({ ...prev, [slug]: { ...prev[slug], status: "queued" } }));
+    }
+  }, []);
+
+  // Upload state
+  const [uploadTitle, setUploadTitle] = useState("");
+  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadMessage, setUploadMessage] = useState<string | null>(null);
+  const [uploadRunningOcr, setUploadRunningOcr] = useState(false);
+  const [uploadOcrProgress, setUploadOcrProgress] = useState<string | null>(null);
+
+  const handleUploadPdf = useCallback(async () => {
+    if (!uploadFile || !uploadTitle.trim()) return;
+    setUploading(true);
+    setUploadMessage(null);
+
+    // Generate slug from title
+    const slug = uploadTitle.trim()
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+
+    const form = new FormData();
+    form.append("pdf", uploadFile);
+    form.append("slug", slug);
+    form.append("title", uploadTitle.trim());
+    form.append("collectionSlug", "uploads");
+
+    try {
+      const res = await fetch("/api/ocr/upload", { method: "POST", body: form });
+      const data = await res.json();
+      if (data.success) {
+        setOcrIndex((prev) => ({
+          ...prev,
+          [slug]: {
+            status: "pending",
+            pageCount: 0,
+            collectionSlug: "uploads",
+            updatedAt: new Date().toISOString(),
+            source: "pdf",
+            title: uploadTitle.trim(),
+          },
+        }));
+        setUploadMessage(`Uploaded "${uploadTitle.trim()}" — now run OCR.`);
+        setUploadFile(null);
+        setUploadTitle("");
+      } else {
+        setUploadMessage(`Upload failed: ${data.error}`);
+      }
+    } catch (e: any) {
+      setUploadMessage(`Upload error: ${e.message}`);
+    } finally {
+      setUploading(false);
+    }
+  }, [uploadFile, uploadTitle]);
+
+  const handleUploadAndOcr = useCallback(async () => {
+    if (!uploadFile || !uploadTitle.trim()) return;
+    setUploading(true);
+    setUploadMessage(null);
+
+    const slug = uploadTitle.trim()
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+
+    const form = new FormData();
+    form.append("pdf", uploadFile);
+    form.append("slug", slug);
+    form.append("title", uploadTitle.trim());
+    form.append("collectionSlug", "uploads");
+
+    try {
+      const res = await fetch("/api/ocr/upload", { method: "POST", body: form });
+      const data = await res.json();
+      if (!data.success) {
+        setUploadMessage(`Upload failed: ${data.error}`);
+        setUploading(false);
+        return;
+      }
+
+      setOcrIndex((prev) => ({
+        ...prev,
+        [slug]: {
+          status: "processing",
+          pageCount: 0,
+          collectionSlug: "uploads",
+          updatedAt: new Date().toISOString(),
+          source: "pdf",
+          title: uploadTitle.trim(),
+        },
+      }));
+
+      // Run OCR
+      setUploadRunningOcr(true);
+      setUploadOcrProgress("Starting OCR…");
+      const ocrRes = await fetch("/api/ocr/process", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug }),
+      });
+      const ocrData = await ocrRes.json();
+      if (ocrData.success) {
+        setOcrIndex((prev) => ({
+          ...prev,
+          [slug]: { ...prev[slug], status: "complete", pageCount: ocrData.pageCount },
+        }));
+        setUploadMessage(`"${uploadTitle.trim()}" — OCR complete, ${ocrData.pageCount} pages processed.`);
+      } else {
+        setOcrIndex((prev) => ({
+          ...prev,
+          [slug]: { ...prev[slug], status: "error" },
+        }));
+        setUploadMessage(`OCR failed: ${ocrData.error}`);
+      }
+      setUploadFile(null);
+      setUploadTitle("");
+    } catch (e: any) {
+      setUploadMessage(`Error: ${e.message}`);
+    } finally {
+      setUploading(false);
+      setUploadRunningOcr(false);
+      setUploadOcrProgress(null);
+    }
+  }, [uploadFile, uploadTitle]);
+
   const closeTest = () => {
     setTestingSlug(null);
     setTestResult(null);
     setTestError(null);
   };
 
-  // ── OCR entries from index ──
-  const ocrEntries = Object.entries(ocrIndex).map(([slug, entry]) => ({
-    slug,
-    ...entry,
-  }));
+  // ── OCR entries from index (sorted alphabetically by title) ──
+  const ocrEntries = Object.entries(ocrIndex)
+    .map(([slug, entry]) => ({ slug, ...entry }))
+    .sort((a, b) => (a.title ?? a.slug).localeCompare(b.title ?? b.slug, "vi"));
 
   // ── Filtered Han-Nom items ──
   const normalizeSearch = (s: string) =>
@@ -196,6 +346,16 @@ export default function WorkshopHubClient({
         >
           Browse Han-Nôm Collection
         </button>
+        <button
+          onClick={() => setTab("upload")}
+          className={`px-4 py-2 text-sm font-light transition-colors border-b-2 -mb-px ${
+            tab === "upload"
+              ? "border-branding-brown text-branding-brown"
+              : "border-transparent text-branding-black/50 hover:text-branding-brown"
+          }`}
+        >
+          Upload PDF
+        </button>
       </div>
 
       {tab === "documents" && (
@@ -203,7 +363,7 @@ export default function WorkshopHubClient({
           {/* Known text documents */}
           <section>
             <h2 className={`${merriweather.className} text-lg text-branding-black mb-3`}>
-              Documents with Existing Text
+              Curated Texts
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {knownDocs.map((doc) => (
@@ -227,10 +387,24 @@ export default function WorkshopHubClient({
           </section>
 
           {/* OCR queue */}
-          <section>
-            <h2 className={`${merriweather.className} text-lg text-branding-black mb-3`}>
-              OCR Documents
-            </h2>
+          <section className="pb-12">
+            <div className="flex items-center gap-4 mb-3">
+              <h2 className={`${merriweather.className} text-lg text-branding-black`}>
+                OCR Documents
+              </h2>
+              <Link
+                href={`/${locale}/admin/ocr/pipeline`}
+                className="text-xs font-light text-branding-brown hover:underline transition-colors"
+              >
+                Batch OCR pipeline →
+              </Link>
+              <Link
+                href={`/${locale}/admin/ocr/test`}
+                className="text-xs font-light text-branding-brown hover:underline transition-colors"
+              >
+                Single-image OCR tester →
+              </Link>
+            </div>
             {ocrEntries.length === 0 ? (
               <div className="text-sm text-branding-black/40 font-light py-6 text-center border border-dashed border-[#e1e1de] rounded-lg">
                 No documents in the OCR queue yet. Browse the Han-Nôm collection to add items.
@@ -247,51 +421,76 @@ export default function WorkshopHubClient({
                         {entry.title || entry.slug}
                       </p>
                       <div className="flex items-center gap-2 mt-1">
-                        <StatusBadge status={entry.status} />
-                        {entry.pageCount > 0 && (
-                          <span className="text-[10px] text-branding-black/40">
-                            {entry.pageCount} pages
-                          </span>
-                        )}
+                        <select
+                          value={entry.status}
+                          onChange={(e) => handleStatusChange(entry.slug, e.target.value)}
+                          className="text-[10px] font-medium rounded-full px-2 py-0.5 uppercase tracking-wide border-none cursor-pointer bg-transparent"
+                          style={{ appearance: "auto" }}
+                        >
+                          {["queued", "pending", "processing", "partial", "complete", "corrected", "error"].map((s) => (
+                            <option key={s} value={s}>{s}</option>
+                          ))}
+                        </select>
+                        {entry.pageCount > 0 && (() => {
+                          const withText = initialPagesWithText[entry.slug] ?? 0;
+                          const total = entry.pageCount;
+                          const allGood = withText >= Math.floor(total * 0.9);
+                          return (
+                            <span className={`text-[10px] ${allGood ? "text-branding-black/40" : "text-amber-600"}`}>
+                              {withText}/{total} pages with text
+                            </span>
+                          );
+                        })()}
                       </div>
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
-                      {(entry.status === "queued" || entry.status === "pending" || entry.status === "error") && entry.itemId && (
+                      {entry.itemId && (
+                        <Link
+                          href={`/${locale}/reading-workshop/${entry.itemId}`}
+                          className="px-3 py-1 text-xs font-light rounded border border-branding-brown/30 text-branding-brown hover:bg-branding-brown/10 transition-colors"
+                        >
+                          Open →
+                        </Link>
+                      )}
+                      <button
+                        onClick={() => handleRequeueOcr(entry.slug)}
+                        disabled={entry.status === "queued" || entry.status === "processing"}
+                        className="px-3 py-1 text-xs font-light rounded border border-amber-300 text-amber-700 hover:bg-amber-50 disabled:opacity-40 transition-colors"
+                      >
+                        {entry.status === "queued" ? "Queued" : "Re-queue OCR"}
+                      </button>
+                      {(entry.status === "partial" || entry.status === "complete" || entry.status === "corrected") && (
                         <>
                           <Link
-                            href={`/${locale}/reading-workshop/${entry.itemId}`}
-                            className="px-3 py-1 text-xs font-light rounded border border-branding-brown/30 text-branding-brown hover:bg-branding-brown/10 transition-colors"
+                            href={`/${locale}/admin/ocr/analyze/${encodeURIComponent(entry.slug)}`}
+                            className="px-3 py-1 text-xs font-light rounded border border-indigo-300 text-indigo-600 hover:bg-indigo-50 transition-colors"
                           >
-                            Open Workshop →
+                            Analyze
                           </Link>
                           <button
-                            onClick={() => handleRemove(entry.slug)}
-                            className="px-2 py-1 text-xs font-light text-branding-black/30 hover:text-red-500 transition-colors"
+                            onClick={() => {
+                              const a = document.createElement("a");
+                              a.href = `/api/ocr/download/${encodeURIComponent(entry.slug)}`;
+                              a.click();
+                            }}
+                            className="px-3 py-1 text-xs font-light rounded border border-[#e1e1de] text-branding-black/60 hover:border-branding-brown hover:text-branding-brown transition-colors"
                           >
-                            Remove
+                            Download .txt
                           </button>
-                        </>
-                      )}
-                      {(entry.status === "complete" || entry.status === "corrected") && entry.itemId && (
-                        <>
                           <button
                             onClick={() => handleTestPage(entry.slug, 0)}
                             className="px-3 py-1 text-xs font-light rounded border border-[#e1e1de] text-branding-black/60 hover:border-branding-brown hover:text-branding-brown transition-colors"
                           >
                             Test Page
                           </button>
-                          <Link
-                            href={`/${locale}/reading-workshop/${entry.itemId}`}
-                            className={`px-3 py-1 text-xs font-light rounded border transition-colors ${
-                              entry.status === "corrected"
-                                ? "border-purple-300 text-purple-700 hover:bg-purple-50"
-                                : "border-green-300 text-green-700 hover:bg-green-50"
-                            }`}
-                          >
-                            Open Workshop →
-                          </Link>
                         </>
                       )}
+                      <button
+                        onClick={() => handleRemove(entry.slug)}
+                        className="px-2 py-1 text-xs font-light text-branding-black/30 hover:text-red-500 transition-colors"
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
 
@@ -365,15 +564,6 @@ export default function WorkshopHubClient({
             )}
           </section>
 
-          {/* Standalone OCR tester link */}
-          <div className="pt-2">
-            <Link
-              href={`/${locale}/admin/ocr/test`}
-              className="text-xs font-light text-branding-brown hover:underline transition-colors"
-            >
-              Single-image OCR tester →
-            </Link>
-          </div>
         </div>
       )}
 
@@ -383,16 +573,34 @@ export default function WorkshopHubClient({
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => { setSearchQuery(e.target.value); setBrowsePage(1); }}
               placeholder="Search by title…"
               className="w-full max-w-md px-3 py-2 text-sm font-light border border-[#e1e1de] rounded-lg bg-white focus:outline-none focus:border-branding-brown transition-colors"
             />
           </div>
-          <p className="text-xs text-branding-black/40 font-light mb-4">
-            {filteredHanNom.length} items
-          </p>
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-xs text-branding-black/40 font-light">
+              {filteredHanNom.length} items — page {browsePage} of {Math.max(1, Math.ceil(filteredHanNom.length / ITEMS_PER_PAGE))}
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setBrowsePage((p) => Math.max(1, p - 1))}
+                disabled={browsePage <= 1}
+                className="px-2 py-1 text-xs font-light rounded border border-[#e1e1de] text-branding-black/60 hover:border-branding-brown disabled:opacity-30"
+              >
+                ← Prev
+              </button>
+              <button
+                onClick={() => setBrowsePage((p) => Math.min(Math.ceil(filteredHanNom.length / ITEMS_PER_PAGE), p + 1))}
+                disabled={browsePage >= Math.ceil(filteredHanNom.length / ITEMS_PER_PAGE)}
+                className="px-2 py-1 text-xs font-light rounded border border-[#e1e1de] text-branding-black/60 hover:border-branding-brown disabled:opacity-30"
+              >
+                Next →
+              </button>
+            </div>
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {filteredHanNom.slice(0, 60).map((item) => {
+            {filteredHanNom.slice((browsePage - 1) * ITEMS_PER_PAGE, browsePage * ITEMS_PER_PAGE).map((item) => {
               const isQueued = queuedItemIds.has(item.itemId);
               return (
                 <div
@@ -419,9 +627,15 @@ export default function WorkshopHubClient({
                     >
                       {item.title}
                     </a>
-                    {item.yearStart && (
+                    {(item.yearStart || item.languages.length > 0) && (
                       <p className="text-[10px] text-branding-black/40 font-light">
-                        {item.yearStart}{item.yearEnd && item.yearEnd !== item.yearStart ? `–${item.yearEnd}` : ""}
+                        {item.languages.length > 0 && (
+                          <span>{item.languages.join(", ")}</span>
+                        )}
+                        {item.languages.length > 0 && item.yearStart && <span> · </span>}
+                        {item.yearStart && (
+                          <span>{item.yearStart}{item.yearEnd && item.yearEnd !== item.yearStart ? `–${item.yearEnd}` : ""}</span>
+                        )}
                       </p>
                     )}
                     <div className="mt-auto">
@@ -443,11 +657,89 @@ export default function WorkshopHubClient({
               );
             })}
           </div>
-          {filteredHanNom.length > 60 && (
-            <p className="text-xs text-branding-black/40 font-light mt-4 text-center">
-              Showing 60 of {filteredHanNom.length} items. Use search to narrow results.
-            </p>
-          )}
+        </div>
+      )}
+
+      {tab === "upload" && (
+        <div className="max-w-xl">
+          <p className="text-sm text-branding-black/60 font-light mb-4">
+            Upload a PDF document to OCR and add to the searchable corpus.
+          </p>
+
+          <div className="flex flex-col gap-4">
+            <div>
+              <label className="block text-xs font-light text-branding-black/60 mb-1">Document title</label>
+              <input
+                type="text"
+                value={uploadTitle}
+                onChange={(e) => setUploadTitle(e.target.value)}
+                placeholder="e.g. Truyện Kiều (1866)"
+                className="w-full px-3 py-2 text-sm font-light border border-[#e1e1de] rounded bg-white focus:outline-none focus:border-branding-brown transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-light text-branding-black/60 mb-1">PDF file</label>
+              <div
+                onDragOver={(e) => { e.preventDefault(); e.currentTarget.classList.add("border-branding-brown", "bg-branding-brown/5"); }}
+                onDragLeave={(e) => { e.currentTarget.classList.remove("border-branding-brown", "bg-branding-brown/5"); }}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  e.currentTarget.classList.remove("border-branding-brown", "bg-branding-brown/5");
+                  const file = e.dataTransfer.files?.[0];
+                  if (file && file.name.toLowerCase().endsWith(".pdf")) {
+                    setUploadFile(file);
+                  }
+                }}
+                className="border-2 border-dashed border-[#e1e1de] rounded-lg p-6 text-center transition-colors cursor-pointer"
+                onClick={() => document.getElementById("pdf-file-input")?.click()}
+              >
+                {uploadFile ? (
+                  <p className="text-sm font-light text-branding-black">
+                    {uploadFile.name} <span className="text-branding-black/40">({(uploadFile.size / 1024 / 1024).toFixed(1)} MB)</span>
+                  </p>
+                ) : (
+                  <p className="text-sm font-light text-branding-black/40">
+                    Drag & drop a PDF here, or click to browse
+                  </p>
+                )}
+                <input
+                  id="pdf-file-input"
+                  type="file"
+                  accept=".pdf"
+                  className="hidden"
+                  onChange={(e) => setUploadFile(e.target.files?.[0] ?? null)}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleUploadPdf}
+                disabled={!uploadFile || !uploadTitle.trim() || uploading}
+                className="px-4 py-2 text-sm font-light rounded border border-[#e1e1de] text-branding-black hover:border-branding-brown hover:text-branding-brown disabled:opacity-30 transition-colors"
+              >
+                {uploading && !uploadRunningOcr ? "Uploading…" : "Upload Only"}
+              </button>
+              <button
+                onClick={handleUploadAndOcr}
+                disabled={!uploadFile || !uploadTitle.trim() || uploading}
+                className="px-4 py-2 text-sm font-light rounded bg-branding-brown text-white hover:bg-branding-brown/90 disabled:opacity-30 transition-colors"
+              >
+                {uploadRunningOcr ? "Running OCR…" : uploading ? "Uploading…" : "Upload & Run OCR"}
+              </button>
+            </div>
+
+            {uploadOcrProgress && (
+              <p className="text-xs text-branding-black/50 font-light">{uploadOcrProgress}</p>
+            )}
+
+            {uploadMessage && (
+              <div className="p-3 rounded bg-branding-brown/5 border border-branding-brown/20 text-sm text-branding-black/70 font-light">
+                {uploadMessage}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

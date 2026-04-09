@@ -14,6 +14,11 @@ interface PreprocessOptions {
   rotation: number;
   threshold: number;  // 0 = off, 1-255 = binarize at this level
   denoise: boolean;   // median filter to remove speckle noise
+  adaptiveThreshold: boolean; // local adaptive binarization
+  adaptiveBlockSize: number;  // neighbourhood size for adaptive threshold (odd number)
+  adaptiveC: number;          // constant subtracted from local mean
+  cleanBackground: number;    // 0 = off, 1-255 = push pixels above this lightness to white
+  sharpen: boolean;           // unsharp-mask style sharpening
 }
 
 const DEFAULT_PREPROCESS: PreprocessOptions = {
@@ -24,6 +29,11 @@ const DEFAULT_PREPROCESS: PreprocessOptions = {
   rotation: 0,
   threshold: 0,
   denoise: false,
+  adaptiveThreshold: false,
+  adaptiveBlockSize: 15,
+  adaptiveC: 10,
+  cleanBackground: 0,
+  sharpen: false,
 };
 
 function applyPreprocessing(
@@ -63,8 +73,11 @@ function applyPreprocessing(
       // Reset filter for pixel operations
       ctx.filter = "none";
 
-      // Pixel-level operations: threshold and denoise
-      if (options.threshold > 0 || options.denoise) {
+      // Pixel-level operations
+      const needsPixelOps = options.threshold > 0 || options.denoise ||
+        options.adaptiveThreshold || options.cleanBackground > 0 || options.sharpen;
+
+      if (needsPixelOps) {
         const imageData = ctx.getImageData(0, 0, cw, ch);
         const data = imageData.data;
 
@@ -87,8 +100,85 @@ function applyPreprocessing(
           }
         }
 
-        // Threshold: binarize to black/white
-        if (options.threshold > 0) {
+        // Clean background: push light pixels to pure white
+        if (options.cleanBackground > 0) {
+          const cutoff = options.cleanBackground;
+          for (let i = 0; i < data.length; i += 4) {
+            const gray = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
+            if (gray >= cutoff) {
+              data[i] = 255;
+              data[i + 1] = 255;
+              data[i + 2] = 255;
+            }
+          }
+        }
+
+        // Sharpen: 3x3 unsharp-mask kernel
+        if (options.sharpen) {
+          const copy = new Uint8ClampedArray(data);
+          // Kernel: center=5, edges=-1 (approximation of unsharp mask)
+          for (let y = 1; y < ch - 1; y++) {
+            for (let x = 1; x < cw - 1; x++) {
+              for (let c = 0; c < 3; c++) {
+                const idx = (y * cw + x) * 4 + c;
+                const val =
+                  5 * copy[idx]
+                  - copy[((y - 1) * cw + x) * 4 + c]
+                  - copy[((y + 1) * cw + x) * 4 + c]
+                  - copy[(y * cw + x - 1) * 4 + c]
+                  - copy[(y * cw + x + 1) * 4 + c];
+                data[idx] = Math.max(0, Math.min(255, val));
+              }
+            }
+          }
+        }
+
+        // Adaptive threshold: local mean binarization
+        if (options.adaptiveThreshold) {
+          // Convert to grayscale first
+          const gray = new Float64Array(cw * ch);
+          for (let i = 0; i < cw * ch; i++) {
+            gray[i] = data[i * 4] * 0.299 + data[i * 4 + 1] * 0.587 + data[i * 4 + 2] * 0.114;
+          }
+
+          // Build integral image for fast local mean computation
+          const integral = new Float64Array(cw * ch);
+          for (let y = 0; y < ch; y++) {
+            let rowSum = 0;
+            for (let x = 0; x < cw; x++) {
+              rowSum += gray[y * cw + x];
+              integral[y * cw + x] = rowSum + (y > 0 ? integral[(y - 1) * cw + x] : 0);
+            }
+          }
+
+          const half = Math.floor(options.adaptiveBlockSize / 2);
+          const c = options.adaptiveC;
+
+          for (let y = 0; y < ch; y++) {
+            for (let x = 0; x < cw; x++) {
+              const y1 = Math.max(0, y - half - 1);
+              const y2 = Math.min(ch - 1, y + half);
+              const x1 = Math.max(0, x - half - 1);
+              const x2 = Math.min(cw - 1, x + half);
+
+              const area = (y2 - y1) * (x2 - x1);
+              let sum = integral[y2 * cw + x2];
+              if (y1 > 0) sum -= integral[(y1 - 1) * cw + x2];
+              if (x1 > 0) sum -= integral[y2 * cw + (x1 - 1)];
+              if (y1 > 0 && x1 > 0) sum += integral[(y1 - 1) * cw + (x1 - 1)];
+
+              const localMean = sum / area;
+              const val = gray[y * cw + x] < localMean - c ? 0 : 255;
+              const idx = (y * cw + x) * 4;
+              data[idx] = val;
+              data[idx + 1] = val;
+              data[idx + 2] = val;
+            }
+          }
+        }
+
+        // Global threshold: binarize to black/white
+        if (options.threshold > 0 && !options.adaptiveThreshold) {
           const t = options.threshold;
           for (let i = 0; i < data.length; i += 4) {
             const gray = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
@@ -152,7 +242,12 @@ export default function OCRTestClient() {
     preprocess.grayscale !== DEFAULT_PREPROCESS.grayscale ||
     preprocess.rotation !== DEFAULT_PREPROCESS.rotation ||
     preprocess.threshold !== DEFAULT_PREPROCESS.threshold ||
-    preprocess.denoise !== DEFAULT_PREPROCESS.denoise;
+    preprocess.denoise !== DEFAULT_PREPROCESS.denoise ||
+    preprocess.adaptiveThreshold !== DEFAULT_PREPROCESS.adaptiveThreshold ||
+    preprocess.adaptiveBlockSize !== DEFAULT_PREPROCESS.adaptiveBlockSize ||
+    preprocess.adaptiveC !== DEFAULT_PREPROCESS.adaptiveC ||
+    preprocess.cleanBackground !== DEFAULT_PREPROCESS.cleanBackground ||
+    preprocess.sharpen !== DEFAULT_PREPROCESS.sharpen;
 
   async function handleApplyPreprocess() {
     if (!originalPreview) return;
@@ -187,7 +282,8 @@ export default function OCRTestClient() {
     const hasAny =
       preprocess.invert || preprocess.grayscale ||
       preprocess.contrast !== 100 || preprocess.brightness !== 100 ||
-      preprocess.rotation !== 0 || preprocess.threshold > 0 || preprocess.denoise;
+      preprocess.rotation !== 0 || preprocess.threshold > 0 || preprocess.denoise ||
+      preprocess.adaptiveThreshold || preprocess.cleanBackground > 0 || preprocess.sharpen;
 
     if (hasAny) {
       // Debounce slightly for slider dragging
@@ -393,6 +489,69 @@ export default function OCRTestClient() {
               className="w-20 h-1"
             />
             <span className="text-gray-500 w-8 text-right">{preprocess.threshold || "off"}</span>
+          </label>
+
+          <label className="flex items-center gap-1.5">
+            <span className="text-gray-600">Clean BG:</span>
+            <input
+              type="range"
+              min={0}
+              max={255}
+              value={preprocess.cleanBackground}
+              onChange={(e) => setPreprocess((p) => ({ ...p, cleanBackground: parseInt(e.target.value) }))}
+              className="w-20 h-1"
+            />
+            <span className="text-gray-500 w-8 text-right">{preprocess.cleanBackground || "off"}</span>
+          </label>
+
+          <label className="flex items-center gap-1.5 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={preprocess.adaptiveThreshold}
+              onChange={(e) => setPreprocess((p) => ({ ...p, adaptiveThreshold: e.target.checked }))}
+              className="rounded"
+            />
+            <span className="text-gray-700">Adaptive</span>
+          </label>
+
+          {preprocess.adaptiveThreshold && (
+            <>
+              <label className="flex items-center gap-1.5">
+                <span className="text-gray-600">Block:</span>
+                <input
+                  type="range"
+                  min={3}
+                  max={51}
+                  step={2}
+                  value={preprocess.adaptiveBlockSize}
+                  onChange={(e) => setPreprocess((p) => ({ ...p, adaptiveBlockSize: parseInt(e.target.value) }))}
+                  className="w-16 h-1"
+                />
+                <span className="text-gray-500 w-6 text-right">{preprocess.adaptiveBlockSize}</span>
+              </label>
+              <label className="flex items-center gap-1.5">
+                <span className="text-gray-600">C:</span>
+                <input
+                  type="range"
+                  min={0}
+                  max={30}
+                  value={preprocess.adaptiveC}
+                  onChange={(e) => setPreprocess((p) => ({ ...p, adaptiveC: parseInt(e.target.value) }))}
+                  className="w-16 h-1"
+                />
+                <span className="text-gray-500 w-6 text-right">{preprocess.adaptiveC}</span>
+              </label>
+            </>
+          )}
+
+          <label className="flex items-center gap-1.5 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={preprocess.sharpen}
+              onChange={(e) => setPreprocess((p) => ({ ...p, sharpen: e.target.checked }))}
+              className="rounded"
+            />
+            <span className="text-gray-700">Sharpen</span>
           </label>
 
           <span className="text-gray-300">|</span>

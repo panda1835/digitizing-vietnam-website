@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import type { SpatialCharacter } from "@/lib/ocr-store";
 import type { Column } from "./useColumnDetection";
 
@@ -15,7 +15,6 @@ interface OCRImagePaneProps {
   onFocusChar: (offset: number) => void;
   onAddChar: (bbox: Array<{ x: number; y: number }>, text: string) => void;
   onOcrRegion: (rect: { x: number; y: number; w: number; h: number }, engine: "vision" | "paddle") => void;
-  onDeleteChar: (offset: number) => void;
   focusedOffset: number | null;
 }
 
@@ -30,7 +29,6 @@ export default function OCRImagePane({
   onFocusChar,
   onAddChar,
   onOcrRegion,
-  onDeleteChar,
   focusedOffset,
 }: OCRImagePaneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,47 +36,6 @@ export default function OCRImagePane({
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [imgDims, setImgDims] = useState({ w: 1, h: 1 });
-  const [deleteArmed, setDeleteArmed] = useState(false);
-
-  // Disarm delete confirmation if the focused character changes
-  useEffect(() => { setDeleteArmed(false); }, [focusedOffset]);
-
-  // Draggable character detail card
-  const CARD_W = 224; // w-56 = 14rem = 224px
-  const CARD_H = 210; // approximate card height
-  const [cardPos, setCardPos] = useState<{ x: number; y: number } | null>(null);
-  const dragOffsetRef = useRef<{ x: number; y: number } | null>(null);
-
-  useEffect(() => {
-    if (cardPos === null) {
-      setCardPos({
-        x: Math.round(window.innerWidth / 2 - CARD_W / 2),
-        y: Math.round(window.innerHeight / 2 - CARD_H / 2),
-      });
-    }
-  }, [cardPos]);
-
-  const handleCardMouseDown = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    dragOffsetRef.current = {
-      x: e.clientX - (cardPos?.x ?? 0),
-      y: e.clientY - (cardPos?.y ?? 0),
-    };
-    function onMove(me: MouseEvent) {
-      if (!dragOffsetRef.current) return;
-      setCardPos({
-        x: me.clientX - dragOffsetRef.current.x,
-        y: me.clientY - dragOffsetRef.current.y,
-      });
-    }
-    function onUp() {
-      dragOffsetRef.current = null;
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup", onUp);
-    }
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup", onUp);
-  }, [cardPos]);
 
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawStart, setDrawStart] = useState<{ x: number; y: number } | null>(null);
@@ -94,26 +51,6 @@ export default function OCRImagePane({
 
   const selectedColumn =
     selectedColumnIndex !== null ? columns[selectedColumnIndex] ?? null : null;
-
-  // Focused character metadata
-  const focusedChar =
-    focusedOffset !== null
-      ? spatialData.find((c) => c.offset === focusedOffset) ?? null
-      : null;
-
-  const focusedColIdx =
-    focusedChar !== null
-      ? columns.findIndex((col) =>
-          col.chars.some((c) => c.offset === focusedOffset)
-        )
-      : -1;
-
-  const focusedPosInCol =
-    focusedChar !== null && focusedColIdx >= 0
-      ? (columns[focusedColIdx]?.chars.findIndex(
-          (c) => c.offset === focusedOffset
-        ) ?? -1) + 1
-      : null;
 
   function handleImgLoad() {
     if (imgRef.current) {
@@ -364,18 +301,129 @@ export default function OCRImagePane({
         )}
 
         {/* Character input overlays for selected column */}
-        {selectedColumn &&
-          selectedColumn.chars.map((char, charIdx) => {
-            if (!char.bbox) return null;
+        {selectedColumn && (() => {
+          const allCharsInCol = selectedColumn.chars.filter((c) => c.bbox);
+          if (allCharsInCol.length === 0) return null;
 
-            const left = char.bbox[0].x * scaleX;
-            const top = char.bbox[0].y * scaleY;
-            const boxW = Math.abs(char.bbox[1].x - char.bbox[0].x) * scaleX;
-            const boxH = Math.abs(char.bbox[3].y - char.bbox[0].y) * scaleY;
+          // Compute median main-text character height for uniform sizing
+          const sectionTypeMap = new Map<number, "main" | "commentary">();
+          for (const sec of selectedColumn.sections) {
+            for (const c of sec.chars) sectionTypeMap.set(c.offset, sec.type);
+          }
+          const mainChars = allCharsInCol.filter((c) => sectionTypeMap.get(c.offset) !== "commentary");
+          const sizeSource = mainChars.length > 0 ? mainChars : allCharsInCol;
+          const heights = sizeSource.map((c) =>
+            Math.abs(c.bbox![3].y - c.bbox![0].y) * scaleY
+          ).sort((a, b) => a - b);
+          const medianH = heights[Math.floor(heights.length / 2)];
+          const SCALE = 1.4; // scale up for readability
+          const MAIN_SIZE = Math.max(22, Math.round(medianH * SCALE));
+          const COMMENT_SIZE = Math.max(16, Math.round(MAIN_SIZE * 0.65));
+          const COL_GAP = 1;
+          const PAD = 6; // padding inside the panel edges
+
+          // Panel width: two commentary cells side by side + padding
+          const PANEL_W = MAIN_SIZE + COL_GAP * 2 + PAD * 2;
+          const colLeftPx = selectedColumn.bbox.minX * scaleX;
+          const panelLeft = colLeftPx - PANEL_W - 6;
+          const centerX = panelLeft + PANEL_W / 2;
+
+          // For commentary chars, determine side and pair up same-Y chars
+          const commentarySide = new Map<number, "right" | "left">();
+          // Maps offset → shared Y center (px) for paired commentary chars
+          const pairedY = new Map<number, number>();
+
+          for (const sec of selectedColumn.sections) {
+            if (sec.type !== "commentary") continue;
+            const withBbox = sec.chars.filter((c) => c.bbox);
+            if (withBbox.length < 2) continue;
+            const xs = withBbox.map((c) => (c.bbox![0].x + c.bbox![2].x) / 2);
+            const xRange = Math.max(...xs) - Math.min(...xs);
+            const sectionAvgW = withBbox.reduce((s, c) => s + Math.abs(c.bbox![2].x - c.bbox![0].x), 0) / withBbox.length;
+            // Skip splitting if X range is too narrow — all chars are in a single sub-column
+            if (xRange < sectionAvgW * 0.6) continue;
+
+            const xMid = (Math.min(...xs) + Math.max(...xs)) / 2;
+
+            const rightChars: typeof withBbox = [];
+            const leftChars: typeof withBbox = [];
+            for (const c of withBbox) {
+              const cx = (c.bbox![0].x + c.bbox![2].x) / 2;
+              if (cx >= xMid) {
+                commentarySide.set(c.offset, "right");
+                rightChars.push(c);
+              } else {
+                commentarySide.set(c.offset, "left");
+                leftChars.push(c);
+              }
+            }
+
+            // Pair right/left chars at similar Y levels
+            const avgH = withBbox.reduce((s, c) => s + Math.abs(c.bbox![3].y - c.bbox![0].y), 0) / withBbox.length;
+            for (const rc of rightChars) {
+              const rcy = (rc.bbox![0].y + rc.bbox![2].y) / 2;
+              for (const lc of leftChars) {
+                const lcy = (lc.bbox![0].y + lc.bbox![2].y) / 2;
+                if (Math.abs(rcy - lcy) < avgH * 0.5) {
+                  // Use the average Y center in pixels
+                  const sharedY = ((rcy + lcy) / 2) * scaleY;
+                  pairedY.set(rc.offset, sharedY);
+                  pairedY.set(lc.offset, sharedY);
+                }
+              }
+            }
+          }
+
+          // Compute panel vertical extent from first/last char positions
+          const firstChar = allCharsInCol[0];
+          const lastChar = allCharsInCol[allCharsInCol.length - 1];
+          const panelTop = firstChar.bbox![0].y * scaleY - 4;
+          const panelBottom = (lastChar.bbox![2].y) * scaleY + 4;
+
+          const panelElements = [
+            <div
+              key="__bg"
+              style={{
+                position: "absolute",
+                left: panelLeft - 2,
+                top: panelTop,
+                width: PANEL_W + 4,
+                height: panelBottom - panelTop,
+                zIndex: 8,
+              }}
+              className="bg-white border border-gray-200 rounded-lg pointer-events-none shadow-sm"
+            />,
+          ];
+
+          return panelElements.concat(allCharsInCol.map((char, charIdx) => {
+            const imgTop = char.bbox![0].y * scaleY;
+            const imgLeft = char.bbox![0].x * scaleX;
+            const boxW = Math.abs(char.bbox![1].x - char.bbox![0].x) * scaleX;
+            const boxH = Math.abs(char.bbox![3].y - char.bbox![0].y) * scaleY;
             const isFocused = char.offset === focusedOffset;
             const conf = char.confidence;
+            const isCommentary = sectionTypeMap.get(char.offset) === "commentary";
+            const side = commentarySide.get(char.offset);
 
-            const allCharsInCol = selectedColumn.chars.filter((c) => c.bbox);
+            // Cell size and horizontal position
+            let cellSize: number;
+            let cellLeft: number;
+            if (isCommentary && side === "right") {
+              cellSize = COMMENT_SIZE;
+              cellLeft = centerX + COL_GAP / 2;
+            } else if (isCommentary && side === "left") {
+              cellSize = COMMENT_SIZE;
+              cellLeft = centerX - COL_GAP / 2 - COMMENT_SIZE;
+            } else {
+              // Main text or single commentary char: centered on the line
+              cellSize = isCommentary ? COMMENT_SIZE : MAIN_SIZE;
+              cellLeft = centerX - cellSize / 2;
+            }
+
+            // Align vertically: use shared Y for paired commentary, otherwise char center
+            const sharedCenterY = pairedY.get(char.offset);
+            const charCenterY = sharedCenterY ?? (imgTop + boxH / 2);
+            const cellTop = charCenterY - cellSize / 2;
 
             function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
               if (e.key === "Tab" && !e.shiftKey) {
@@ -386,7 +434,6 @@ export default function OCRImagePane({
                 } else if (selectedColumnIndex !== null && selectedColumnIndex < columns.length - 1) {
                   onSelectColumn(selectedColumnIndex + 1);
                 } else {
-                  // Last char of last column — wrap to first char of first column
                   onSelectColumn(0);
                 }
               } else if (e.key === "Tab" && e.shiftKey) {
@@ -400,7 +447,6 @@ export default function OCRImagePane({
                   const lastChar = prevCol.chars.filter((c) => c.bbox).at(-1);
                   if (lastChar) onFocusChar(lastChar.offset);
                 } else {
-                  // First char of first column — wrap to last char of last column
                   const lastCol = columns[columns.length - 1];
                   if (lastCol) {
                     onSelectColumn(columns.length - 1);
@@ -419,23 +465,20 @@ export default function OCRImagePane({
               }
             }
 
-            const confBorder = isFocused
-              ? "border-red-500 ring-1 ring-red-400"
-              : conf < 0.3
-              ? "border-red-400 bg-red-50/90"
+            const textColor = conf < 0.3
+              ? "text-red-600"
               : conf < 0.5
-              ? "border-yellow-400 bg-yellow-50/90"
-              : "border-indigo-300 bg-white/90";
+              ? "text-amber-600"
+              : "text-gray-800";
 
             return (
               <div key={char.offset} style={{ position: "absolute", left: 0, top: 0, zIndex: isFocused ? 50 : 10 }}>
-                {/* Focused character bounding-box highlight on the image */}
                 {isFocused && (
                   <div
                     style={{
                       position: "absolute",
-                      left,
-                      top,
+                      left: imgLeft,
+                      top: imgTop,
                       width: boxW,
                       height: boxH,
                       zIndex: 45,
@@ -454,198 +497,25 @@ export default function OCRImagePane({
                   title={`confidence: ${Math.round(conf * 100)}%`}
                   style={{
                     position: "absolute",
-                    left: left - boxW - 4,
-                    top,
-                    width: boxW,
-                    height: boxH,
-                    fontSize: Math.max(10, boxH * 0.7),
+                    left: cellLeft,
+                    top: cellTop,
+                    width: cellSize,
+                    height: cellSize,
+                    fontSize: Math.round(cellSize * 0.65),
                     lineHeight: 1,
                     padding: "1px",
                     zIndex: isFocused ? 50 : 10,
                   }}
-                  className={`border rounded text-center font-sans shadow-sm outline-none transition-colors ${confBorder}`}
+                  className={`text-center font-serif outline-none bg-transparent ${textColor} ${
+                    isFocused ? "border-2 border-indigo-500 ring-2 ring-indigo-300 bg-indigo-50 rounded" : "border-0"
+                  }`}
                 />
               </div>
             );
-          })}
+          }));
+        })()}
       </div>
 
-      {/* Character detail card — fixed overlay, shown when a character is focused */}
-      {focusedChar && focusedChar.bbox && (() => {
-        const PAD = 0.06;
-        const CARD_IMG_W = 100;
-        const CARD_IMG_H = 80;
-
-        const bx0 = focusedChar.bbox[0].x;
-        const by0 = focusedChar.bbox[0].y;
-        const bx1 = focusedChar.bbox[1].x;
-        const by2 = focusedChar.bbox[2].y;
-
-        const rL = Math.max(0, bx0 - PAD);
-        const rT = Math.max(0, by0 - PAD);
-        const rR = Math.min(1, bx1 + PAD);
-        const rB = Math.min(1, by2 + PAD);
-        const rW = rR - rL || 0.1;
-        const rH = rB - rT || 0.1;
-
-        const iW = imgDims.w || 1;
-        const iH = imgDims.h || 1;
-        const scale = Math.min(CARD_IMG_W / (rW * iW), CARD_IMG_H / (rH * iH));
-        const bgW = iW * scale;
-        const bgH = iH * scale;
-        const centerOffX = (CARD_IMG_W - rW * iW * scale) / 2;
-        const centerOffY = (CARD_IMG_H - rH * iH * scale) / 2;
-        const bgX = -rL * iW * scale + centerOffX;
-        const bgY = -rT * iH * scale + centerOffY;
-
-        // Character highlight position within the card image
-        const hlL = (bx0 - rL) * iW * scale + centerOffX;
-        const hlT = (by0 - rT) * iH * scale + centerOffY;
-        const hlW = (bx1 - bx0) * iW * scale;
-        const hlH = (by2 - by0) * iH * scale;
-
-        const conf = focusedChar.confidence;
-        const confPct = Math.round(conf * 100);
-        const confColor =
-          conf < 0.3
-            ? "text-red-600 bg-red-50"
-            : conf < 0.5
-            ? "text-yellow-700 bg-yellow-50"
-            : "text-emerald-700 bg-emerald-50";
-        const barColor =
-          conf < 0.3 ? "bg-red-400" : conf < 0.5 ? "bg-yellow-400" : "bg-emerald-400";
-
-        const totalInCol =
-          focusedColIdx >= 0 ? columns[focusedColIdx]?.chars.length : null;
-
-        return (
-          <div
-            className="fixed z-[200] w-56 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden select-none"
-            style={{ left: cardPos?.x ?? 0, top: cardPos?.y ?? 0 }}
-          >
-            {/* Drag handle strip */}
-            <div
-              className="flex items-center justify-end px-2 py-1 bg-gray-50 border-b border-gray-100 cursor-grab active:cursor-grabbing"
-              onMouseDown={handleCardMouseDown}
-            >
-              {/* Move icon — 4-way arrow */}
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="5 9 2 12 5 15"/>
-                <polyline points="9 5 12 2 15 5"/>
-                <polyline points="15 19 12 22 9 19"/>
-                <polyline points="19 9 22 12 19 15"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <line x1="12" y1="2" x2="12" y2="22"/>
-              </svg>
-            </div>
-
-            {/* Image preview (no longer the drag handle) */}
-            <div
-              className="relative bg-gray-100 overflow-hidden"
-              style={{ width: CARD_IMG_W, height: CARD_IMG_H, margin: "0 auto" }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  backgroundImage: `url(${imageUrl})`,
-                  backgroundSize: `${bgW}px ${bgH}px`,
-                  backgroundPosition: `${bgX}px ${bgY}px`,
-                  backgroundRepeat: "no-repeat",
-                }}
-              />
-              {/* Amber highlight box over the character */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: hlL,
-                  top: hlT,
-                  width: hlW,
-                  height: hlH,
-                }}
-                className="border-2 border-amber-400 bg-amber-300/30 rounded-sm shadow-[0_0_6px_2px_rgba(251,191,36,0.6)]"
-              />
-            </div>
-
-            <div className="px-3 py-2.5 space-y-1.5">
-              {/* Character display + confidence badge + delete */}
-              <div className="flex items-center justify-between">
-                <span className="text-3xl font-serif leading-none tracking-wide">
-                  {focusedChar.text}
-                </span>
-                <div className="flex items-center gap-1.5">
-                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${confColor}`}>
-                    {confPct}% conf
-                  </span>
-                  {deleteArmed ? (
-                    <div className="flex items-center gap-1">
-                      <button
-                        onClick={() => { onDeleteChar(focusedChar.offset); setDeleteArmed(false); }}
-                        className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-red-500 text-white hover:bg-red-600 transition-colors"
-                        style={{ pointerEvents: "auto" }}
-                      >
-                        Confirm
-                      </button>
-                      <button
-                        onClick={() => setDeleteArmed(false)}
-                        className="px-1.5 py-0.5 text-[10px] rounded text-gray-500 hover:text-gray-700 transition-colors"
-                        style={{ pointerEvents: "auto" }}
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  ) : (
-                    <button
-                      onClick={() => setDeleteArmed(true)}
-                      title="Delete character"
-                      className="p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
-                      style={{ pointerEvents: "auto" }}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="3 6 5 6 21 6"/>
-                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
-                        <path d="M10 11v6M14 11v6"/>
-                        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
-                      </svg>
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              {/* Confidence bar */}
-              <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className={`h-full rounded-full transition-all ${barColor}`}
-                  style={{ width: `${confPct}%` }}
-                />
-              </div>
-
-              {/* Position info */}
-              <div className="text-[10px] text-gray-500 space-y-0.5">
-                {focusedColIdx >= 0 && (
-                  <div>
-                    <span className="font-medium text-gray-700">
-                      {columns[focusedColIdx]?.isRow ? "Row" : "Column"}{" "}
-                      {focusedColIdx + 1}
-                    </span>
-                    {focusedPosInCol !== null && totalInCol !== null && (
-                      <span className="ml-1">
-                        · position {focusedPosInCol} / {totalInCol}
-                      </span>
-                    )}
-                  </div>
-                )}
-                <div className="font-mono">
-                  bbox ({Math.round(bx0 * 1000) / 10}%,{" "}
-                  {Math.round(by0 * 1000) / 10}%) →{" "}
-                  ({Math.round(bx1 * 1000) / 10}%,{" "}
-                  {Math.round(by2 * 1000) / 10}%)
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })()}
     </div>
   );
 }

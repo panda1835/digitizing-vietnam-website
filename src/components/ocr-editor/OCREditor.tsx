@@ -1,14 +1,16 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import type { SpatialCharacter, OcrPageData } from "@/lib/ocr-store";
 import { getCanvasesFromManifest, CanvasInfo } from "@/lib/iiif-utils";
-import { useColumnDetection, reorderByColumns } from "./useColumnDetection";
+import { useColumnDetection, reorderByColumns, type LayoutMode } from "./useColumnDetection";
 import { useOCRSave } from "./useOCRSave";
 import OCRTextPane from "./OCRTextPane";
 import OCRImagePane from "./OCRImagePane";
 import OCRToolbox from "./OCRToolbox";
+import ColumnTranscriptionView from "./ColumnTranscriptionView";
+import LowConfReviewModal from "./LowConfReviewModal";
 
 interface OCREditorProps {
   slug: string;
@@ -32,8 +34,15 @@ export default function OCREditor({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const rawPage = parseInt(searchParams.get("page") ?? "", 10);
-  const page = !isNaN(rawPage) && rawPage > 0 ? rawPage : initialPage;
+  const [page, setPageState] = useState(initialPage > 0 ? initialPage : (() => {
+    const rawPage = parseInt(searchParams.get("page") ?? "", 10);
+    return !isNaN(rawPage) && rawPage > 0 ? rawPage : 1;
+  })());
+
+  // Sync page when initialPage changes (e.g. parent navigates to a different page)
+  useEffect(() => {
+    if (initialPage > 0) setPageState(initialPage);
+  }, [initialPage]);
 
   // Core state
   const [spatialData, setSpatialData] = useState<SpatialCharacter[]>([]);
@@ -52,13 +61,24 @@ export default function OCREditor({
   // Override image URL when preprocessing was applied (so editor shows the same image OCR saw)
   const [processedImageUrl, setProcessedImageUrl] = useState<string | null>(null);
   const [thoroughOcr, setThoroughOcr] = useState(false);
-  const [ocrEngine, setOcrEngine] = useState<"vision" | "paddle">("vision");
+  const [showTranscriptionView, setShowTranscriptionView] = useState(false);
+  const [detMode, setDetMode] = useState<"auto" | "sp" | "hp">("auto");
+  const [viewMode, setViewMode] = useState<"charBox" | "column">("charBox");
+  const [layoutMode, setLayoutMode] = useState<"simple" | "commentary">("commentary");
+  const [showLowConfReview, setShowLowConfReview] = useState(false);
+  const [reviewThreshold, setReviewThreshold] = useState(50);
 
   // Preprocessing
   const [ppInvert, setPpInvert] = useState(false);
   const [ppContrast, setPpContrast] = useState(100);
   const [ppBrightness, setPpBrightness] = useState(100);
   const [ppGrayscale, setPpGrayscale] = useState(false);
+  const [ppDenoise, setPpDenoise] = useState(false);
+  const [ppCleanBackground, setPpCleanBackground] = useState(0);
+  const [ppAdaptiveThreshold, setPpAdaptiveThreshold] = useState(false);
+  const [ppAdaptiveBlockSize, setPpAdaptiveBlockSize] = useState(15);
+  const [ppAdaptiveC, setPpAdaptiveC] = useState(10);
+  const [ppSharpen, setPpSharpen] = useState(false);
 
   // Crop — normalized [0,1] rectangle, null = full image
   const [cropRect, setCropRect] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
@@ -72,7 +92,32 @@ export default function OCREditor({
   // Page progress tracking
   const [completedPages, setCompletedPages] = useState<Set<number>>(new Set());
 
-  const columns = useColumnDetection(spatialData);
+  // Manual bbox overrides for columns (persists across column re-detection)
+  const [bboxOverrides, setBboxOverrides] = useState<Record<number, { minX: number; maxX: number; minY: number; maxY: number }>>({});
+
+  const detectedColumns = useColumnDetection(spatialData, layoutMode);
+
+  // Apply manual bbox overrides to detected columns
+  const columns = useMemo(() => {
+    return detectedColumns.map((col, i) => {
+      const override = bboxOverrides[i];
+      if (override) return { ...col, bbox: override };
+      return col;
+    });
+  }, [detectedColumns, bboxOverrides]);
+
+  // Characters not assigned to any detected column
+  const orphanedChars = useMemo(() => {
+    const assignedOffsets = new Set<number>();
+    for (const col of columns) {
+      for (const c of col.chars) assignedOffsets.add(c.offset);
+    }
+    return spatialData.filter((c) => c.bbox && !assignedOffsets.has(c.offset));
+  }, [spatialData, columns]);
+
+  const lowConfQueue = useMemo(() => {
+    return spatialData.filter((c) => c.bbox && c.confidence < reviewThreshold / 100);
+  }, [spatialData, reviewThreshold]);
 
   const handleSaved = useCallback((newRawText: string) => {
     setRawText(newRawText);
@@ -102,6 +147,7 @@ export default function OCREditor({
     setFocusedOffset(null);
     setSaveStatus("idle");
     setProcessedImageUrl(null);
+    setBboxOverrides({});
 
     fetch(`/api/ocr/spatial-data/${encodeURIComponent(slug)}/${page}`)
       .then((r) => {
@@ -188,9 +234,10 @@ export default function OCREditor({
   }, [selectedColumnIndex, focusedOffset, columns]);
 
   function setPage(p: number) {
+    setPageState(p);
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", String(p));
-    router.push(`${pathname}?${params.toString()}`);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   }
 
   function handleSelectColumn(ci: number) {
@@ -227,6 +274,189 @@ export default function OCREditor({
 
   function handleSuggestApply(offset: number, suggestion: string) {
     handleCharChange(offset, suggestion);
+  }
+
+  function handleMoveColumn(colIndex: number, deltaX: number, deltaY: number) {
+    setSpatialData((prev) => {
+      const col = columns[colIndex];
+      if (!col) return prev;
+      const movedOffsets = new Set(col.chars.map((c) => c.offset));
+      const updated = prev.map((c) => {
+        if (!movedOffsets.has(c.offset) || !c.bbox) return c;
+        return {
+          ...c,
+          bbox: c.bbox.map((v) => ({
+            x: Math.max(0, Math.min(1, v.x + deltaX)),
+            y: Math.max(0, Math.min(1, v.y + deltaY)),
+          })),
+        };
+      });
+      setSaveStatus("saving");
+      save(updated);
+      return updated;
+    });
+  }
+
+  function handleResizeColumn(colIndex: number, newBbox: { minX: number; maxX: number; minY: number; maxY: number }) {
+    // Store the manual bbox override so it persists across column re-detection
+    setBboxOverrides((prev) => ({ ...prev, [colIndex]: newBbox }));
+
+    // Resize = redefine the column boundary. Characters whose center falls
+    // within the new bbox are claimed by this column (reordered to be adjacent).
+    // Characters that fall outside are released (remain in spatialData but
+    // will auto-detect into other columns or become orphaned).
+    setSpatialData((prev) => {
+      const col = columns[colIndex];
+      if (!col) return prev;
+
+      // Find characters whose center is inside the new bbox
+      const inBbox = (c: SpatialCharacter) => {
+        if (!c.bbox) return false;
+        const cx = (c.bbox[0].x + c.bbox[2].x) / 2;
+        const cy = (c.bbox[0].y + c.bbox[2].y) / 2;
+        return cx >= newBbox.minX && cx <= newBbox.maxX && cy >= newBbox.minY && cy <= newBbox.maxY;
+      };
+
+      // Collect: chars that should be in this column (from any source)
+      const claimed: SpatialCharacter[] = [];
+      const rest: SpatialCharacter[] = [];
+      for (const c of prev) {
+        if (inBbox(c)) {
+          claimed.push(c);
+        } else {
+          rest.push(c);
+        }
+      }
+
+      // Sort claimed chars by reading order within the new bbox
+      const isRow = (newBbox.maxX - newBbox.minX) > (newBbox.maxY - newBbox.minY) * 1.5;
+      if (isRow) {
+        claimed.sort((a, b) => {
+          const ax = a.bbox ? (a.bbox[0].x + a.bbox[2].x) / 2 : 0;
+          const bx = b.bbox ? (b.bbox[0].x + b.bbox[2].x) / 2 : 0;
+          return ax - bx;
+        });
+      } else {
+        claimed.sort((a, b) => {
+          const ay = a.bbox ? (a.bbox[0].y + a.bbox[2].y) / 2 : 0;
+          const by = b.bbox ? (b.bbox[0].y + b.bbox[2].y) / 2 : 0;
+          return ay - by;
+        });
+      }
+
+      // Find where this column's chars were in the original array and insert claimed there
+      const colOffsets = new Set(col.chars.map((c) => c.offset));
+      const firstColIdx = prev.findIndex((c) => colOffsets.has(c.offset));
+      const insertIdx = firstColIdx >= 0 ? rest.findIndex((c, i) => {
+        // Find the position in rest that corresponds to where the column was
+        const origIdx = prev.indexOf(c);
+        return origIdx >= firstColIdx;
+      }) : rest.length;
+
+      const updated = [...rest];
+      updated.splice(insertIdx >= 0 ? insertIdx : rest.length, 0, ...claimed);
+
+      // Recalculate offsets
+      let offset = 0;
+      for (const c of updated) {
+        c.offset = offset;
+        offset += c.text.length;
+      }
+
+      setSaveStatus("saving");
+      save(updated);
+      return updated;
+    });
+  }
+
+  function handleDeleteColumn(colIndex: number) {
+    setSpatialData((prev) => {
+      const col = columns[colIndex];
+      if (!col) return prev;
+      const deleteOffsets = new Set(col.chars.map((c) => c.offset));
+      const next = prev.filter((c) => !deleteOffsets.has(c.offset));
+      let offset = 0;
+      for (const c of next) {
+        c.offset = offset;
+        offset += c.text.length;
+      }
+      setSaveStatus("saving");
+      save(next);
+      return next;
+    });
+    setSelectedColumnIndex(null);
+    setFocusedOffset(null);
+  }
+
+  function handleCreateColumn(bbox: { minX: number; maxX: number; minY: number; maxY: number }) {
+    // Claim any existing characters whose center falls within the bbox
+    // and group them into a new column via bbox override
+    const newColIndex = columns.length;
+    setBboxOverrides((prev) => ({ ...prev, [newColIndex]: bbox }));
+
+    setSpatialData((prev) => {
+      // Find characters whose center is inside the new bbox
+      const inBbox = (c: SpatialCharacter) => {
+        if (!c.bbox) return false;
+        const cx = (c.bbox[0].x + c.bbox[2].x) / 2;
+        const cy = (c.bbox[0].y + c.bbox[2].y) / 2;
+        return cx >= bbox.minX && cx <= bbox.maxX && cy >= bbox.minY && cy <= bbox.maxY;
+      };
+
+      // Check if any already-assigned chars would be claimed
+      const assignedOffsets = new Set<number>();
+      for (const col of columns) {
+        for (const c of col.chars) assignedOffsets.add(c.offset);
+      }
+
+      // Only claim orphaned characters (not already in a column)
+      const claimed: SpatialCharacter[] = [];
+      const rest: SpatialCharacter[] = [];
+      for (const c of prev) {
+        if (inBbox(c) && !assignedOffsets.has(c.offset)) {
+          claimed.push(c);
+        } else {
+          rest.push(c);
+        }
+      }
+
+      if (claimed.length === 0) {
+        // No characters to claim — still create the column visually via override
+        // Add a placeholder invisible character so the column detection creates a group
+        return prev;
+      }
+
+      // Sort claimed by reading order (vertical by default)
+      const isRow = (bbox.maxX - bbox.minX) > (bbox.maxY - bbox.minY) * 1.5;
+      if (isRow) {
+        claimed.sort((a, b) => {
+          const ax = a.bbox ? (a.bbox[0].x + a.bbox[2].x) / 2 : 0;
+          const bx = b.bbox ? (b.bbox[0].x + b.bbox[2].x) / 2 : 0;
+          return ax - bx;
+        });
+      } else {
+        claimed.sort((a, b) => {
+          const ay = a.bbox ? (a.bbox[0].y + a.bbox[2].y) / 2 : 0;
+          const by = b.bbox ? (b.bbox[0].y + b.bbox[2].y) / 2 : 0;
+          return ay - by;
+        });
+      }
+
+      // Append claimed at end so they form a new column group
+      const updated = [...rest, ...claimed];
+      let offset = 0;
+      for (const c of updated) {
+        c.offset = offset;
+        offset += c.text.length;
+      }
+
+      setSaveStatus("saving");
+      save(updated);
+      return updated;
+    });
+
+    // Select the new column
+    setSelectedColumnIndex(newColIndex);
   }
 
   function handleAddChar(bbox: Array<{ x: number; y: number }>, text: string) {
@@ -279,11 +509,12 @@ export default function OCREditor({
     });
   }
 
-  // Apply preprocessing (filters + crop) to an image blob using Canvas API
+  // Apply preprocessing (filters + crop + pixel ops) to an image blob using Canvas API
   async function preprocessImage(sourceBlob: Blob): Promise<Blob> {
     const hasFilters = ppInvert || ppGrayscale || ppContrast !== 100 || ppBrightness !== 100;
     const hasCrop = cropRect !== null;
-    if (!hasFilters && !hasCrop) return sourceBlob;
+    const hasPixelOps = ppDenoise || ppCleanBackground > 0 || ppAdaptiveThreshold || ppSharpen;
+    if (!hasFilters && !hasCrop && !hasPixelOps) return sourceBlob;
 
     return new Promise((resolve, reject) => {
       const img = new Image();
@@ -300,7 +531,7 @@ export default function OCREditor({
         const ctx = canvas.getContext("2d");
         if (!ctx) return reject(new Error("Canvas not supported"));
 
-        // Apply filters
+        // Apply CSS filters
         if (hasFilters) {
           const filters: string[] = [];
           if (ppContrast !== 100) filters.push(`contrast(${ppContrast}%)`);
@@ -311,6 +542,108 @@ export default function OCREditor({
         }
 
         ctx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
+        ctx.filter = "none";
+
+        // Pixel-level operations
+        if (hasPixelOps) {
+          const imageData = ctx.getImageData(0, 0, sw, sh);
+          const data = imageData.data;
+
+          // Denoise: 3x3 median filter
+          if (ppDenoise) {
+            const copy = new Uint8ClampedArray(data);
+            for (let y = 1; y < sh - 1; y++) {
+              for (let x = 1; x < sw - 1; x++) {
+                for (let c = 0; c < 3; c++) {
+                  const vals: number[] = [];
+                  for (let dy = -1; dy <= 1; dy++) {
+                    for (let dx = -1; dx <= 1; dx++) {
+                      vals.push(copy[((y + dy) * sw + (x + dx)) * 4 + c]);
+                    }
+                  }
+                  vals.sort((a, b) => a - b);
+                  data[(y * sw + x) * 4 + c] = vals[4];
+                }
+              }
+            }
+          }
+
+          // Clean background: push light pixels to white
+          if (ppCleanBackground > 0) {
+            const cutoff = ppCleanBackground;
+            for (let i = 0; i < data.length; i += 4) {
+              const gray = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
+              if (gray >= cutoff) {
+                data[i] = 255;
+                data[i + 1] = 255;
+                data[i + 2] = 255;
+              }
+            }
+          }
+
+          // Sharpen: 3x3 unsharp-mask kernel
+          if (ppSharpen) {
+            const copy = new Uint8ClampedArray(data);
+            for (let y = 1; y < sh - 1; y++) {
+              for (let x = 1; x < sw - 1; x++) {
+                for (let c = 0; c < 3; c++) {
+                  const idx = (y * sw + x) * 4 + c;
+                  const val =
+                    5 * copy[idx]
+                    - copy[((y - 1) * sw + x) * 4 + c]
+                    - copy[((y + 1) * sw + x) * 4 + c]
+                    - copy[(y * sw + x - 1) * 4 + c]
+                    - copy[(y * sw + x + 1) * 4 + c];
+                  data[idx] = Math.max(0, Math.min(255, val));
+                }
+              }
+            }
+          }
+
+          // Adaptive threshold: local mean binarization
+          if (ppAdaptiveThreshold) {
+            const gray = new Float64Array(sw * sh);
+            for (let i = 0; i < sw * sh; i++) {
+              gray[i] = data[i * 4] * 0.299 + data[i * 4 + 1] * 0.587 + data[i * 4 + 2] * 0.114;
+            }
+
+            const integral = new Float64Array(sw * sh);
+            for (let y = 0; y < sh; y++) {
+              let rowSum = 0;
+              for (let x = 0; x < sw; x++) {
+                rowSum += gray[y * sw + x];
+                integral[y * sw + x] = rowSum + (y > 0 ? integral[(y - 1) * sw + x] : 0);
+              }
+            }
+
+            const half = Math.floor(ppAdaptiveBlockSize / 2);
+            const adaptC = ppAdaptiveC;
+
+            for (let y = 0; y < sh; y++) {
+              for (let x = 0; x < sw; x++) {
+                const y1 = Math.max(0, y - half - 1);
+                const y2 = Math.min(sh - 1, y + half);
+                const x1 = Math.max(0, x - half - 1);
+                const x2 = Math.min(sw - 1, x + half);
+
+                const area = (y2 - y1) * (x2 - x1);
+                let sum = integral[y2 * sw + x2];
+                if (y1 > 0) sum -= integral[(y1 - 1) * sw + x2];
+                if (x1 > 0) sum -= integral[y2 * sw + (x1 - 1)];
+                if (y1 > 0 && x1 > 0) sum += integral[(y1 - 1) * sw + (x1 - 1)];
+
+                const localMean = sum / area;
+                const val = gray[y * sw + x] < localMean - adaptC ? 0 : 255;
+                const idx = (y * sw + x) * 4;
+                data[idx] = val;
+                data[idx + 1] = val;
+                data[idx + 2] = val;
+              }
+            }
+          }
+
+          ctx.putImageData(imageData, 0, 0);
+        }
 
         canvas.toBlob((blob) => {
           if (!blob) return reject(new Error("Failed to create blob"));
@@ -363,7 +696,7 @@ export default function OCREditor({
       const blob = await preprocessImage(rawBlob);
 
       // Save preprocessed image URL so the editor displays the same image OCR saw
-      const hasPreprocess = ppInvert || ppGrayscale || ppContrast !== 100 || ppBrightness !== 100 || cropRect !== null;
+      const hasPreprocess = ppInvert || ppGrayscale || ppContrast !== 100 || ppBrightness !== 100 || ppDenoise || ppCleanBackground > 0 || ppAdaptiveThreshold || ppSharpen || cropRect !== null;
       if (hasPreprocess) {
         setProcessedImageUrl(URL.createObjectURL(blob));
       } else {
@@ -387,6 +720,7 @@ export default function OCREditor({
           const stripBlob = await cropStrip(blob, strip.xStart, strip.xEnd);
           const formData = new FormData();
           formData.append("image", stripBlob, "strip.jpg");
+          formData.append("det_mode", detMode);
 
           const res = await fetch("/api/ocr/process-page", {
             method: "POST",
@@ -424,13 +758,11 @@ export default function OCREditor({
         }
       } else {
         // Standard: single pass on the whole image
-        const endpoint = ocrEngine === "paddle"
-          ? "/api/ocr/process-page-paddle"
-          : "/api/ocr/process-page";
         const formData = new FormData();
         formData.append("image", blob, "page.jpg");
+        formData.append("det_mode", detMode);
 
-        const res = await fetch(endpoint, {
+        const res = await fetch("/api/ocr/process-page", {
           method: "POST",
           body: formData,
         });
@@ -474,86 +806,8 @@ export default function OCREditor({
     }
   }
 
-  // ── Run both Vision + Paddle and merge results spatially ──
-  async function handleRunMergedOCR() {
-    const imageUrl = getImageUrl();
-    if (!imageUrl) return;
-    setOcrRunning(true);
-    setError(null);
-
-    try {
-      const imgRes = await fetch(imageUrl);
-      if (!imgRes.ok) throw new Error("Failed to fetch page image");
-      const rawBlob = await imgRes.blob();
-      const blob = await preprocessImage(rawBlob);
-
-      const hasPreprocess = ppInvert || ppGrayscale || ppContrast !== 100 || ppBrightness !== 100 || cropRect !== null;
-      setProcessedImageUrl(hasPreprocess ? URL.createObjectURL(blob) : null);
-
-      // Run Vision and Paddle in parallel
-      const visionForm = new FormData();
-      visionForm.append("image", blob, "page.jpg");
-      const paddleForm = new FormData();
-      paddleForm.append("image", blob, "page.jpg");
-
-      const [visionRes, paddleRes] = await Promise.all([
-        fetch("/api/ocr/process-page", { method: "POST", body: visionForm }),
-        fetch("/api/ocr/process-page-paddle", { method: "POST", body: paddleForm }),
-      ]);
-
-      const visionData = visionRes.ok ? await visionRes.json() : { spatialData: [], candidateData: [] };
-      const paddleData = paddleRes.ok ? await paddleRes.json() : { spatialData: [] };
-
-      const visionChars: SpatialCharacter[] = (visionData.spatialData ?? []).filter((c: SpatialCharacter) => c.bbox);
-      const paddleChars: SpatialCharacter[] = (paddleData.spatialData ?? []).filter((c: SpatialCharacter) => c.bbox);
-
-      // Merge: keep all Vision chars, add Paddle chars whose center doesn't
-      // fall within 0.02 of any Vision char center (spatial deduplication).
-      const merged = [...visionChars];
-      for (const pc of paddleChars) {
-        if (!pc.bbox) continue;
-        const pcx = (pc.bbox[0].x + pc.bbox[2].x) / 2;
-        const pcy = (pc.bbox[0].y + pc.bbox[2].y) / 2;
-        const isDupe = visionChars.some((vc) => {
-          if (!vc.bbox) return false;
-          const vcx = (vc.bbox[0].x + vc.bbox[2].x) / 2;
-          const vcy = (vc.bbox[0].y + vc.bbox[2].y) / 2;
-          return Math.abs(pcx - vcx) < 0.02 && Math.abs(pcy - vcy) < 0.02;
-        });
-        if (!isDupe) merged.push(pc);
-      }
-
-      // Recalculate offsets
-      let offset = 0;
-      for (const c of merged) { c.offset = offset; offset += c.text.length; }
-
-      const newCandidateData: SpatialCharacter[] = visionData.candidateData ?? [];
-
-      await fetch(`/api/ocr/spatial-data/${encodeURIComponent(slug)}/${page}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          spatialData: merged,
-          rawText: merged.map((c) => c.text).join(""),
-          candidateData: newCandidateData,
-        }),
-      });
-
-      const reordered = reorderByColumns(merged);
-      setSpatialData(reordered);
-      setRawText(reordered.map((c) => c.text).join(""));
-      setCandidateData(newCandidateData);
-      setEditorMode("editing");
-      setCompletedPages((prev) => new Set([...prev, page]));
-    } catch (e: any) {
-      setError(e.message);
-    } finally {
-      setOcrRunning(false);
-    }
-  }
-
   // ── OCR a selected region and merge into existing spatial data ──
-  async function handleOcrRegion(rect: { x: number; y: number; w: number; h: number }, engine: "vision" | "paddle" = "vision") {
+  async function handleOcrRegion(rect: { x: number; y: number; w: number; h: number }, regionDetMode?: string) {
     // rect is normalized [0,1] relative to the displayed image
     const imgUrl = imageUrl;
     if (!imgUrl) return;
@@ -584,13 +838,11 @@ export default function OCREditor({
       });
 
       // Run OCR on the cropped region
-      const endpoint = engine === "paddle"
-        ? "/api/ocr/process-page-paddle"
-        : "/api/ocr/process-page";
       const formData = new FormData();
       formData.append("image", croppedBlob, "region.jpg");
+      formData.append("det_mode", regionDetMode ?? detMode);
 
-      const res = await fetch(endpoint, {
+      const res = await fetch("/api/ocr/process-page", {
         method: "POST",
         body: formData,
       });
@@ -689,17 +941,58 @@ export default function OCREditor({
 
         <div className="ml-auto flex items-center gap-2">
           {editorMode === "editing" && (
-            <button
-              onClick={() => {
-                setEditorMode("no-data");
-                setProcessedImageUrl(null);
-                setSelectedColumnIndex(null);
-                setFocusedOffset(null);
-              }}
-              className="px-2 py-0.5 text-xs rounded border border-gray-300 text-gray-500 hover:text-red-600 hover:border-red-300"
-            >
-              Re-OCR
-            </button>
+            <>
+              <button
+                onClick={() => setShowTranscriptionView((v) => !v)}
+                className={`px-2 py-0.5 text-xs rounded border ${
+                  showTranscriptionView
+                    ? "border-indigo-400 text-indigo-600 bg-indigo-50"
+                    : "border-gray-300 text-gray-500 hover:text-indigo-600 hover:border-indigo-300"
+                }`}
+              >
+                {showTranscriptionView ? "Editor View" : "Transcription View"}
+              </button>
+              {!showTranscriptionView && (
+                <>
+                <button
+                  onClick={() => {
+                    setViewMode((v) => v === "charBox" ? "column" : "charBox");
+                    setSelectedColumnIndex(null);
+                    setFocusedOffset(null);
+                  }}
+                  className={`px-2 py-0.5 text-xs rounded border ${
+                    viewMode === "column"
+                      ? "border-amber-400 text-amber-600 bg-amber-50"
+                      : "border-gray-300 text-gray-500 hover:text-amber-600 hover:border-amber-300"
+                  }`}
+                >
+                  {viewMode === "column" ? "Column View" : "Char View"}
+                </button>
+                <button
+                  onClick={() => setLayoutMode((m) => m === "simple" ? "commentary" : "simple")}
+                  className={`px-2 py-0.5 text-xs rounded border ${
+                    layoutMode === "commentary"
+                      ? "border-purple-400 text-purple-600 bg-purple-50"
+                      : "border-gray-300 text-gray-500 hover:text-purple-600 hover:border-purple-300"
+                  }`}
+                >
+                  {layoutMode === "commentary" ? "Commentary" : "Simple"}
+                </button>
+                </>
+              )}
+              <button
+                onClick={() => {
+                  setEditorMode("no-data");
+                  setProcessedImageUrl(null);
+                  setSelectedColumnIndex(null);
+                  setFocusedOffset(null);
+                  setShowTranscriptionView(false);
+                }}
+                className="px-2 py-0.5 text-xs rounded border border-gray-300 text-gray-500 hover:text-red-600 hover:border-red-300"
+              >
+                Re-OCR
+              </button>
+            </>
           )}
           <span className="text-xs text-gray-400">
             {saveStatus === "saving" && "Saving…"}
@@ -848,6 +1141,42 @@ export default function OCREditor({
                 <input type="range" min={50} max={200} value={ppBrightness} onChange={(e) => setPpBrightness(parseInt(e.target.value))} className="flex-1 h-1" />
                 <span className="w-8 text-right text-gray-500">{ppBrightness}%</span>
               </label>
+
+              <label className="flex items-center gap-2 text-xs cursor-pointer">
+                <input type="checkbox" checked={ppDenoise} onChange={(e) => setPpDenoise(e.target.checked)} className="rounded" />
+                Denoise
+              </label>
+
+              <label className="flex items-center gap-1 text-xs">
+                Clean BG:
+                <input type="range" min={0} max={255} value={ppCleanBackground} onChange={(e) => setPpCleanBackground(parseInt(e.target.value))} className="flex-1 h-1" />
+                <span className="w-8 text-right text-gray-500">{ppCleanBackground || "off"}</span>
+              </label>
+
+              <label className="flex items-center gap-2 text-xs cursor-pointer">
+                <input type="checkbox" checked={ppAdaptiveThreshold} onChange={(e) => setPpAdaptiveThreshold(e.target.checked)} className="rounded" />
+                Adaptive threshold
+              </label>
+
+              {ppAdaptiveThreshold && (
+                <div className="pl-4 flex flex-col gap-1.5">
+                  <label className="flex items-center gap-1 text-xs">
+                    Block:
+                    <input type="range" min={3} max={51} step={2} value={ppAdaptiveBlockSize} onChange={(e) => setPpAdaptiveBlockSize(parseInt(e.target.value))} className="flex-1 h-1" />
+                    <span className="w-6 text-right text-gray-500">{ppAdaptiveBlockSize}</span>
+                  </label>
+                  <label className="flex items-center gap-1 text-xs">
+                    C:
+                    <input type="range" min={0} max={30} value={ppAdaptiveC} onChange={(e) => setPpAdaptiveC(parseInt(e.target.value))} className="flex-1 h-1" />
+                    <span className="w-6 text-right text-gray-500">{ppAdaptiveC}</span>
+                  </label>
+                </div>
+              )}
+
+              <label className="flex items-center gap-2 text-xs cursor-pointer">
+                <input type="checkbox" checked={ppSharpen} onChange={(e) => setPpSharpen(e.target.checked)} className="rounded" />
+                Sharpen
+              </label>
             </div>
 
             {/* Crop */}
@@ -871,16 +1200,16 @@ export default function OCREditor({
             </div>
 
             <div className="border-t border-gray-100 pt-3 flex flex-col gap-2">
-              {/* Option 1 & 2: single engine */}
               <div className="flex gap-2">
                 <select
-                  value={ocrEngine}
-                  onChange={(e) => setOcrEngine(e.target.value as "vision" | "paddle")}
+                  value={detMode}
+                  onChange={(e) => setDetMode(e.target.value as "auto" | "sp" | "hp")}
                   disabled={ocrRunning}
                   className="text-xs border border-gray-300 rounded px-1.5 py-1 flex-1"
                 >
-                  <option value="vision">Google Vision</option>
-                  <option value="paddle">PaddleOCR</option>
+                  <option value="auto">Auto</option>
+                  <option value="sp">Vertical (竖排)</option>
+                  <option value="hp">Horizontal (横排)</option>
                 </select>
                 <button
                   onClick={handleRunQuickOCR}
@@ -900,20 +1229,6 @@ export default function OCREditor({
                 />
                 Thorough (3 overlapping passes)
               </label>
-
-              {/* Option 3: merged */}
-              <div className="border-t border-gray-100 pt-2 flex flex-col gap-1">
-                <button
-                  onClick={handleRunMergedOCR}
-                  disabled={ocrRunning}
-                  className="w-full px-3 py-1.5 text-xs font-medium rounded bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40"
-                >
-                  {ocrRunning ? "Running…" : "Merged OCR (Vision + Paddle)"}
-                </button>
-                <p className="text-[10px] text-gray-400">
-                  Runs both engines in parallel and merges results — Paddle detections are added where Vision found nothing. Requires PaddleOCR server.
-                </p>
-              </div>
             </div>
 
             <div className="border-t border-gray-100 pt-3">
@@ -929,8 +1244,20 @@ export default function OCREditor({
         </div>
       )}
 
+      {/* Editing state — transcription view */}
+      {editorMode === "editing" && showTranscriptionView && (
+        <ColumnTranscriptionView
+          columns={columns}
+          imageUrl={imageUrl}
+          layoutMode={layoutMode}
+          onCharChange={handleCharChange}
+          focusedOffset={focusedOffset}
+          onFocusChar={setFocusedOffset}
+        />
+      )}
+
       {/* Editing state — three-pane layout */}
-      {editorMode === "editing" && (
+      {editorMode === "editing" && !showTranscriptionView && (
         <div className="flex flex-1 overflow-hidden">
           {/* Left: full text */}
           <div className="w-1/3 border-r border-gray-200 bg-white overflow-hidden flex flex-col">
@@ -954,6 +1281,7 @@ export default function OCREditor({
             <OCRTextPane
               spatialData={spatialData}
               columns={columns}
+              layoutMode={layoutMode}
               focusedOffset={focusedOffset}
               onFocusChar={setFocusedOffset}
               onSelectColumn={handleSelectColumn}
@@ -963,7 +1291,9 @@ export default function OCREditor({
           {/* Center: image + overlays */}
           <div className="flex-1 overflow-hidden relative flex flex-col">
             <div className="px-2 py-1.5 text-xs font-semibold text-gray-500 bg-gray-50 border-b border-gray-100 uppercase tracking-wide">
-              {selectedColumnIndex !== null ? `Editing column ${selectedColumnIndex + 1}` : "Click a column or draw to add"}
+              {viewMode === "column"
+                ? (selectedColumnIndex !== null ? `Column ${selectedColumnIndex + 1} selected` : "Click a column to select, drag to move, draw to add")
+                : (selectedColumnIndex !== null ? `Editing column ${selectedColumnIndex + 1}` : "Click a column or draw to add")}
             </div>
             <div className="flex-1 overflow-hidden">
               <OCRImagePane
@@ -977,8 +1307,12 @@ export default function OCREditor({
                 onFocusChar={setFocusedOffset}
                 onAddChar={handleAddChar}
                 onOcrRegion={handleOcrRegion}
-                onDeleteChar={handleDeleteChar}
                 focusedOffset={focusedOffset}
+                viewMode={viewMode}
+                onMoveColumn={handleMoveColumn}
+                onResizeColumn={handleResizeColumn}
+                onDeleteColumn={handleDeleteColumn}
+                onCreateColumn={handleCreateColumn}
               />
             </div>
           </div>
@@ -999,6 +1333,20 @@ export default function OCREditor({
               spatialData={spatialData}
               onFocusChar={setFocusedOffset}
               candidateData={candidateData}
+              viewMode={viewMode}
+              onDeleteColumn={handleDeleteColumn}
+              orphanedChars={orphanedChars}
+              onDeleteOrphans={() => {
+                setSpatialData((prev) => {
+                  const orphanOffsets = new Set(orphanedChars.map((c) => c.offset));
+                  const next = prev.filter((c) => !orphanOffsets.has(c.offset));
+                  let offset = 0;
+                  for (const c of next) { c.offset = offset; offset += c.text.length; }
+                  setSaveStatus("saving");
+                  save(next);
+                  return next;
+                });
+              }}
               onPromoteCandidate={(c) => {
                 setCandidateData((prev) => prev.filter((x) => x.offset !== c.offset));
                 handleAddChar(c.bbox!, c.text);
@@ -1006,9 +1354,28 @@ export default function OCREditor({
               onDismissCandidate={(c) => {
                 setCandidateData((prev) => prev.filter((x) => x.offset !== c.offset));
               }}
+              onOpenLowConfReview={(threshold) => {
+                setReviewThreshold(threshold);
+                setShowLowConfReview(true);
+              }}
             />
           </div>
         </div>
+      )}
+
+      {/* Low confidence review modal */}
+      {showLowConfReview && (
+        <LowConfReviewModal
+          reviewQueue={lowConfQueue}
+          columns={columns}
+          spatialData={spatialData}
+          imageUrl={imageUrl}
+          onCharChange={handleCharChange}
+          onDeleteChar={handleDeleteChar}
+          onFocusChar={setFocusedOffset}
+          onSelectColumn={handleSelectColumn}
+          onClose={() => setShowLowConfReview(false)}
+        />
       )}
     </div>
   );

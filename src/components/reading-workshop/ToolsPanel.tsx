@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 
@@ -42,6 +42,25 @@ interface Radical {
   definition: string;
 }
 
+interface DocSearchResult {
+  page: number;
+  snippet: string;
+  matchCount: number;
+}
+
+interface CorpusSearchResult {
+  work: string;
+  location: string;
+  slug: string;
+  page?: number | null;
+  text: string;
+  type: "han" | "nom" | "qn";
+  externalPath?: string;
+  book?: string;
+  topic?: number | null;
+  line?: string;
+}
+
 interface ToolsPanelProps {
   selectedText: string;
   documentTitle: string;
@@ -49,6 +68,7 @@ interface ToolsPanelProps {
   documentSlug: string;
   page: number;
   rawText: string | null;
+  onNavigateToPage?: (page: number, query?: string) => void;
 }
 
 export default function ToolsPanel({
@@ -58,15 +78,25 @@ export default function ToolsPanel({
   documentSlug,
   page,
   rawText,
+  onNavigateToPage,
 }: ToolsPanelProps) {
   const [copied, setCopied] = useState(false);
   const [lookupQuery, setLookupQuery] = useState("");
-  const [corpusQuery, setCorpusQuery] = useState("");
 
   // Radical lookup state
   const [radicalsOpen, setRadicalsOpen] = useState(false);
   const [radicals, setRadicals] = useState<Radical[]>([]);
   const [radicalsLoaded, setRadicalsLoaded] = useState(false);
+
+  // Document search state
+  const [docSearchQuery, setDocSearchQuery] = useState("");
+  const [docSearchResults, setDocSearchResults] = useState<DocSearchResult[]>([]);
+  const [docSearchLoading, setDocSearchLoading] = useState(false);
+
+  // Corpus search state
+  const [corpusQuery, setCorpusQuery] = useState("");
+  const [corpusResults, setCorpusResults] = useState<CorpusSearchResult[]>([]);
+  const [corpusLoading, setCorpusLoading] = useState(false);
 
   function handleCopy() {
     if (!rawText) return;
@@ -87,7 +117,6 @@ export default function ToolsPanel({
     URL.revokeObjectURL(url);
   }
 
-  // Lazy-load radicals on first expand
   function handleRadicalsToggle() {
     const opening = !radicalsOpen;
     setRadicalsOpen(opening);
@@ -106,14 +135,184 @@ export default function ToolsPanel({
     setLookupQuery(char);
   }
 
-  const citation = `${documentTitle}, p. ${page}. Digitizing Việt Nam. https://digitizingvietnam.com/our-collections/${collectionSlug}/${documentSlug}/reading-workshop?page=${page}`;
+  // Document search
+  const handleDocSearch = useCallback(async (q: string) => {
+    if (!q.trim()) { setDocSearchResults([]); return; }
+    setDocSearchLoading(true);
+    try {
+      const res = await fetch(`/api/ocr/search/${encodeURIComponent(documentSlug)}?q=${encodeURIComponent(q.trim())}`);
+      const data = await res.json();
+      setDocSearchResults(data.results ?? []);
+    } catch {
+      setDocSearchResults([]);
+    } finally {
+      setDocSearchLoading(false);
+    }
+  }, [documentSlug]);
 
+  // Corpus search
+  const handleCorpusSearch = useCallback(async (q: string) => {
+    if (!q.trim()) { setCorpusResults([]); return; }
+    setCorpusLoading(true);
+    try {
+      const res = await fetch(`/api/research/han-nom/search-database?q=${encodeURIComponent(q.trim())}`);
+      const data = await res.json();
+      setCorpusResults(Array.isArray(data) ? data : []);
+    } catch {
+      setCorpusResults([]);
+    } finally {
+      setCorpusLoading(false);
+    }
+  }, []);
+
+  function highlightSnippet(snippet: string, query: string) {
+    const lower = snippet.toLowerCase();
+    const qLower = query.toLowerCase();
+    const parts: React.ReactNode[] = [];
+    let cursor = 0;
+    let key = 0;
+    while (cursor < lower.length) {
+      const idx = lower.indexOf(qLower, cursor);
+      if (idx === -1) { parts.push(snippet.slice(cursor)); break; }
+      if (idx > cursor) parts.push(snippet.slice(cursor, idx));
+      parts.push(<mark key={key++} className="bg-amber-200/80 rounded-sm px-px">{snippet.slice(idx, idx + query.length)}</mark>);
+      cursor = idx + query.length;
+    }
+    return parts;
+  }
+
+  const citation = `${documentTitle}, p. ${page}. Digitizing Việt Nam. https://digitizingvietnam.com/our-collections/${collectionSlug}/${documentSlug}/reading-workshop?page=${page}`;
   const lookupText = lookupQuery || selectedText;
   const textIsHanNom = lookupText ? hasHanNom(lookupText) : false;
 
   return (
     <div className="h-full overflow-y-auto p-4 flex flex-col gap-5">
       <h3 className="font-light text-[10px] text-branding-brown uppercase tracking-widest">Tools</h3>
+
+      {/* ── Document Search ── */}
+      <section className="flex flex-col gap-2">
+        <p className="text-xs font-light text-branding-black/60">Search Document</p>
+        <form
+          onSubmit={(e) => { e.preventDefault(); handleDocSearch(docSearchQuery); }}
+          className="flex gap-1"
+        >
+          <input
+            type="text"
+            value={docSearchQuery}
+            onChange={(e) => setDocSearchQuery(e.target.value)}
+            placeholder="Search this document…"
+            className="flex-1 px-2 py-1 text-sm font-light border border-[#e1e1de] rounded bg-white focus:outline-none focus:border-branding-brown transition-colors"
+          />
+          <button
+            type="submit"
+            disabled={!docSearchQuery.trim() || docSearchLoading}
+            className="px-2 py-1 text-xs font-light rounded bg-branding-brown/10 text-branding-brown border border-branding-brown/20 hover:bg-branding-brown/20 transition-colors disabled:opacity-30"
+          >
+            {docSearchLoading ? "…" : "Go"}
+          </button>
+        </form>
+        {docSearchResults.length > 0 && (
+          <div className="flex flex-col gap-1 mt-1 max-h-[200px] overflow-y-auto">
+            <p className="text-[10px] text-branding-black/40 font-light">
+              {docSearchResults.length} page{docSearchResults.length !== 1 ? "s" : ""} with matches
+            </p>
+            {docSearchResults.map((r) => (
+              <button
+                key={r.page}
+                onClick={() => onNavigateToPage?.(r.page, docSearchQuery)}
+                className="text-left px-2 py-1.5 rounded border border-[#e1e1de] hover:border-branding-brown/40 hover:bg-branding-brown/5 transition-colors"
+              >
+                <span className="text-[10px] text-branding-brown font-medium">
+                  Page {r.page}
+                </span>
+                {r.matchCount > 1 && (
+                  <span className="text-[9px] text-branding-black/40 ml-1">
+                    ({r.matchCount} matches)
+                  </span>
+                )}
+                <p className="text-[11px] text-branding-black/60 font-light mt-0.5 line-clamp-2">
+                  {highlightSnippet(r.snippet, docSearchQuery)}
+                </p>
+              </button>
+            ))}
+          </div>
+        )}
+        {!docSearchLoading && docSearchResults.length === 0 && docSearchQuery.trim() && (
+          <p className="text-[11px] text-branding-black/35 italic font-light">No matches found.</p>
+        )}
+      </section>
+
+      {/* ── Corpus Search ── */}
+      <section className="flex flex-col gap-2">
+        <p className="text-xs font-light text-branding-black/60">Corpus Search</p>
+        <form
+          onSubmit={(e) => { e.preventDefault(); handleCorpusSearch(corpusQuery); }}
+          className="flex gap-1"
+        >
+          <input
+            type="text"
+            value={corpusQuery}
+            onChange={(e) => setCorpusQuery(e.target.value)}
+            placeholder="Search entire corpus…"
+            className="flex-1 px-2 py-1 text-sm font-light border border-[#e1e1de] rounded bg-white focus:outline-none focus:border-branding-brown transition-colors"
+          />
+          <button
+            type="submit"
+            disabled={!corpusQuery.trim() || corpusLoading}
+            className="px-2 py-1 text-xs font-light rounded bg-branding-brown/10 text-branding-brown border border-branding-brown/20 hover:bg-branding-brown/20 transition-colors disabled:opacity-30"
+          >
+            {corpusLoading ? "…" : "Search"}
+          </button>
+        </form>
+        {corpusLoading && (
+          <p className="text-[11px] text-branding-black/40 font-light">Searching…</p>
+        )}
+        {!corpusLoading && corpusResults.length === 0 && corpusQuery.trim() && (
+          <p className="text-[11px] text-branding-black/35 italic font-light">No results found.</p>
+        )}
+        {corpusResults.length > 0 && (
+          <div className="flex flex-col gap-1 mt-1 max-h-[250px] overflow-y-auto">
+            <p className="text-[10px] text-branding-black/40 font-light">
+              {corpusResults.length} result{corpusResults.length !== 1 ? "s" : ""}
+            </p>
+            {corpusResults.map((r, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  if (r.externalPath) {
+                    const url = new URL(r.externalPath, window.location.origin);
+                    if (r.page) url.searchParams.set("page", r.page.toString());
+                    if (r.book) url.searchParams.set("book", r.book);
+                    if (r.topic) url.searchParams.set("topic", r.topic.toString());
+                    if (r.line) url.searchParams.set("line", r.line);
+                    if (corpusQuery) url.searchParams.set("q", corpusQuery);
+                    window.open(`${url.pathname}${url.search}`, "_blank");
+                  }
+                }}
+                className="text-left px-2 py-1.5 rounded border border-[#e1e1de] hover:border-branding-brown/40 hover:bg-branding-brown/5 transition-colors"
+              >
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] text-branding-brown font-medium truncate">
+                    {r.work}
+                  </span>
+                  <span className="text-[9px] text-branding-black/40 flex-shrink-0">
+                    {r.location}
+                  </span>
+                  <span className={`text-[8px] px-1 rounded-full flex-shrink-0 ${
+                    r.type === "han" ? "bg-red-50 text-red-600" : r.type === "nom" ? "bg-blue-50 text-blue-600" : "bg-green-50 text-green-600"
+                  }`}>
+                    {r.type === "han" ? "Hán" : r.type === "nom" ? "Nôm" : "QN"}
+                  </span>
+                </div>
+                <p
+                  className="text-[11px] text-branding-black/60 font-light mt-0.5 line-clamp-2"
+                  dangerouslySetInnerHTML={{ __html: r.text }}
+                />
+              </button>
+            ))}
+          </div>
+        )}
+      </section>
 
       {/* ── Han-Nom Dictionary Lookup ── */}
       <section className="flex flex-col gap-2">
@@ -200,34 +399,6 @@ export default function ToolsPanel({
         )}
       </section>
 
-      {/* ── Corpus Search ── */}
-      <section className="flex flex-col gap-1.5">
-        <p className="text-xs font-light text-branding-black/60">Corpus Search</p>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const q = (corpusQuery || lookupText || "").trim();
-            if (q) window.open(`/en/research/han-nom/search-database?query=${encodeURIComponent(q)}`, "_blank");
-          }}
-          className="flex gap-1"
-        >
-          <input
-            type="text"
-            value={corpusQuery}
-            onChange={(e) => setCorpusQuery(e.target.value)}
-            placeholder={lookupText ? lookupText : "Search corpus…"}
-            className="flex-1 px-2 py-1 text-sm font-light border border-[#e1e1de] rounded bg-white focus:outline-none focus:border-branding-brown transition-colors"
-          />
-          <button
-            type="submit"
-            disabled={!(corpusQuery || lookupText)}
-            className="px-2 py-1 text-xs font-light rounded bg-branding-brown/10 text-branding-brown border border-branding-brown/20 hover:bg-branding-brown/20 transition-colors disabled:opacity-30"
-          >
-            Search
-          </button>
-        </form>
-      </section>
-
       {/* ── Page Text ── */}
       <section className="flex flex-col gap-1.5">
         <p className="text-xs font-light text-branding-black/60">Page Text</p>
@@ -243,7 +414,17 @@ export default function ToolsPanel({
           disabled={!rawText}
           className="px-3 py-1.5 text-xs font-light rounded border border-[#e1e1de] text-branding-black hover:border-branding-brown hover:text-branding-brown disabled:opacity-30 transition-colors"
         >
-          Download as .txt
+          Download page as .txt
+        </button>
+        <button
+          onClick={() => {
+            const a = document.createElement("a");
+            a.href = `/api/ocr/download/${encodeURIComponent(documentSlug)}`;
+            a.click();
+          }}
+          className="px-3 py-1.5 text-xs font-light rounded border border-[#e1e1de] text-branding-black hover:border-branding-brown hover:text-branding-brown transition-colors"
+        >
+          Download entire document .txt
         </button>
       </section>
 

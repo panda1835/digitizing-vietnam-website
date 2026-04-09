@@ -13,11 +13,9 @@ run_tailwindcss.sh
 /test
 og.tsx
 
-# OCR data — ignore PDFs and page images (large), but track index and JSON
-data/ocr/**/source.pdf
-data/ocr/**/page_*.jpg
-data/ocr/**/page_*.jpeg
-data/ocr/**/page_*.png
+# OCR data
+data/ocr/
+data/ocr - Copy
 
 # Local tooling
 .claude/

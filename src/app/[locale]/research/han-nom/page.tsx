@@ -83,7 +83,7 @@ export default async function HanNomPage({
           external: true,
         },
         {
-          label: locale === "vi" ? "Phòng đọc sách" : "Reading Workshop",
+          label: locale === "vi" ? "Phòng đọc sách" : "Text Lab",
           href: "/reading-workshop",
         },
         {

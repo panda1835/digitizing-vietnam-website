@@ -35,12 +35,7 @@ function isLevel1OrHigher(service: any): boolean {
 /**
  * Build the best image URL from an image service.
  * - Level 1+: construct arbitrary size (1500px wide).
- * - Level 0: fetch info.json for pre-defined sizes, pick the largest.
- *   Since this is sync, we construct the URL using the largest common
- *   pre-defined size pattern: /full/max/0/default.jpg won't work for level0,
- *   so we use /full/full/0/default.jpg which returns the original resolution.
- *   To avoid huge images, we try /full/1280,/0/default.jpg first (a common
- *   pre-generated size for Columbia DLC) and fall back to full.
+ * - Level 0: use /full/full/0/default.jpg (original resolution, always works).
  */
 function buildServiceImageUrl(service: any): string | null {
   const serviceId = (service.id ?? service["@id"] ?? "").replace(/\/$/, "");
@@ -50,8 +45,32 @@ function buildServiceImageUrl(service: any): string | null {
     return `${serviceId}/full/1500,/0/default.jpg`;
   }
 
-  // Level 0: use largest pre-generated size (1280px is the max for Columbia DLC)
+  // Level 0: use 1280px (most common pre-generated size for Columbia DLC)
   return `${serviceId}/full/1280,/0/default.jpg`;
+}
+
+/**
+ * For OCR processing: fetch info.json to discover the actual largest
+ * pre-generated size for Level 0 IIIF servers.
+ * This handles cases where the default 1280px isn't available.
+ */
+export async function resolveOcrImageUrl(url: string): Promise<string> {
+  // Extract the service ID and current size from the URL
+  const match = url.match(/^(.+)\/full\/([^/]+)\/0\/default\.jpg$/);
+  if (!match) return url;
+
+  const serviceId = match[1];
+  try {
+    const res = await fetch(`${serviceId}/info.json`);
+    if (!res.ok) return url;
+    const info = await res.json();
+    const sizes: Array<{ width: number; height: number }> = info.sizes ?? [];
+    if (sizes.length > 0) {
+      const largest = sizes.reduce((a, b) => (a.width > b.width ? a : b));
+      return `${serviceId}/full/${largest.width},/0/default.jpg`;
+    }
+  } catch { /* use original URL */ }
+  return url;
 }
 
 /**

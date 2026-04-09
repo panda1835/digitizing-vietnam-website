@@ -80,6 +80,7 @@ export interface CorpusWork {
   language?: CorpusLanguage;
   attributions?: Attribution[];
   curationStatus?: CorpusCurationStatus;
+  ocrStatus?: "partial" | "complete" | "corrected";
 }
 
 const CORPUS_REGISTRY: CorpusWork[] = [
@@ -304,8 +305,67 @@ const CORPUS_REGISTRY: CorpusWork[] = [
   },
 ];
 
-export async function getCorpusRegistry() {
-  return CORPUS_REGISTRY;
+export async function getCorpusRegistry(): Promise<CorpusWork[]> {
+  // Include completed/corrected OCR documents from the OCR index
+  let ocrWorks: CorpusWork[] = [];
+  try {
+    const { getIndex } = await import("@/lib/ocr-store");
+    const { getHanNomManifestEntryByItemId } = await import("@/lib/han-nom-collection");
+    const index = await getIndex();
+    for (const [slug, entry] of Object.entries(index)) {
+      if (entry.status !== "partial" && entry.status !== "complete" && entry.status !== "corrected") continue;
+      if (entry.pageCount <= 0) continue;
+      // Skip if already in the static registry
+      if (CORPUS_REGISTRY.some((w) => w.slug === slug)) continue;
+
+      // Look up metadata from the han-nom collection
+      const manifest = entry.itemId ? getHanNomManifestEntryByItemId(entry.itemId) : null;
+
+      // Map languages to corpus language type
+      const langMap: Record<string, CorpusLanguage> = {
+        "Chinese": "Hán",
+        "Vietnamese": "Nôm",
+      };
+      const langs = manifest?.languages ?? [];
+      let language: CorpusLanguage | undefined;
+      if (langs.length >= 2) language = "Hán-Nôm";
+      else if (langs.length === 1) language = langMap[langs[0]] ?? undefined;
+
+      // Map names to attributions
+      const attributions: Attribution[] = (manifest?.names ?? []).map((name) => ({
+        name,
+        role: "Author" as AttributionRole,
+      }));
+
+      ocrWorks.push({
+        slug,
+        title: entry.title ?? manifest?.title ?? slug,
+        pages: entry.pageCount,
+        type: "ocr" as any,
+        year: manifest?.yearStart ?? undefined,
+        date: manifest?.yearStart
+          ? manifest.yearEnd && manifest.yearEnd !== manifest.yearStart
+            ? `${manifest.yearStart}–${manifest.yearEnd}`
+            : String(manifest.yearStart)
+          : undefined,
+        language,
+        attributions: attributions.length > 0 ? attributions : undefined,
+        curationStatus: entry.status === "corrected" ? "curated" : "wiki",
+        ocrStatus: entry.status as "partial" | "complete" | "corrected",
+        collectionId: entry.collectionSlug || "han-nom-collection",
+        documentId: entry.itemId ?? slug,
+        externalPath: entry.itemId
+          ? `/reading-workshop/${entry.itemId}`
+          : undefined,
+      });
+    }
+  } catch {
+    // OCR index not available — continue with static registry only
+  }
+
+  const all = [...CORPUS_REGISTRY, ...ocrWorks];
+  all.sort((a, b) => a.title.localeCompare(b.title, "vi"));
+  return all;
 }
 
 export async function getWorkBySlug(slug: string) {
@@ -974,6 +1034,44 @@ export async function searchCorpus(query: string) {
     }
   } catch (error) {
     console.error("Multi-table search failed", error);
+  }
+
+  // 6. Search OCR documents (in-memory cached search index)
+  try {
+    const { getIndex, getAllSearchIndexes } = await import("@/lib/ocr-store");
+    const [index, searchIndexes] = await Promise.all([getIndex(), getAllSearchIndexes()]);
+
+    for (const [slug, entry] of Object.entries(index)) {
+      if (entry.status !== "partial" && entry.status !== "complete" && entry.status !== "corrected") continue;
+      if (entry.pageCount <= 0) continue;
+
+      const searchIdx = searchIndexes[slug];
+      if (!searchIdx) continue;
+
+      let docHits = 0;
+      for (const pg of searchIdx.pages) {
+        if (docHits >= 50) break;
+        if (!pg.textLower.includes(normalizedQuery)) continue;
+
+        const snippet = getSmartSnippet(pg.text, query, "han");
+        if (!snippet) continue;
+
+        results.push({
+          work: entry.title ?? slug,
+          location: `Page ${pg.page}`,
+          slug,
+          page: pg.page,
+          type: "han",
+          text: snippet,
+          externalPath: entry.itemId
+            ? `/reading-workshop/${entry.itemId}?page=${pg.page}`
+            : undefined,
+        });
+        docHits++;
+      }
+    }
+  } catch (e) {
+    console.error("Search OCR documents failed", e);
   }
 
   return results;

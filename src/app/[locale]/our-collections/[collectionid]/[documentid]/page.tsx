@@ -187,13 +187,13 @@ const CollectionItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        {/* Reading Workshop link */}
+        {/* Text Lab link */}
         <div className="mt-4">
           <Link
             href={`/${locale}/our-collections/${collectionId}/${documentId}/reading-workshop`}
             className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded border border-branding-black text-branding-black hover:bg-branding-black hover:text-white transition-colors"
           >
-            <span>📖</span> Reading Workshop
+            <span>📖</span> Text Lab
           </Link>
         </div>
 

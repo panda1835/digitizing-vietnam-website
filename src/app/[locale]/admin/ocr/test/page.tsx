@@ -16,7 +16,7 @@ export default function OCRTestPage({
           href={`/${params.locale}/reading-workshop`}
           className="text-sm text-gray-500 hover:text-gray-700 underline"
         >
-          ← Back to Reading Workshop
+          ← Back to Text Lab
         </Link>
         <h1 className="text-2xl font-semibold text-gray-900">OCR Tester</h1>
       </div>

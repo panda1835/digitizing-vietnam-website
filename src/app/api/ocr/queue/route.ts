@@ -57,6 +57,10 @@ export async function DELETE(req: NextRequest) {
     const indexFile = path.join(process.cwd(), "data", "ocr", "_index.json");
     await fs.writeFile(indexFile, JSON.stringify(index, null, 2), "utf-8");
 
+    // Also delete the data directory for this document
+    const docDir = path.join(process.cwd(), "data", "ocr", slug);
+    await fs.rm(docDir, { recursive: true, force: true }).catch(() => {});
+
     return NextResponse.json({ success: true });
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });

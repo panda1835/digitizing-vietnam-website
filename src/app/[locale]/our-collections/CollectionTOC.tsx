@@ -137,7 +137,7 @@ export const CollectionTOC = ({ collections }: CollectionTOCProps) => {
                     return (
                       <div key={collection.slug} className="py-2">
                         <HoverCard>
-                          <HoverCardTrigger>
+                          <HoverCardTrigger asChild>
                             <Link href={`/our-collections/${collection.slug}`}>
                               <div
                                 className={`${merriweather.className} text-lg text-branding-black hover:text-branding-brown hover:underline cursor-pointer`}
