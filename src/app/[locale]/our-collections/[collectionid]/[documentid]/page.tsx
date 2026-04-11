@@ -22,6 +22,7 @@ import DaiVietSuKyToanThu from "./searchable-text/dai-viet-su-ky-toan-thu/DaiVie
 import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-muong/HundredVietMuongWordsTable";
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
 import NotFound from "@/app/not-found";
+import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -318,6 +319,8 @@ const CollectionItemViewer = async ({
         ) : collectionId === "du-lieu-ngu-am-tieng-muong" &&
           documentId === "tu-vung-tieng-muong" ? (
           <TuVungTiengMuongTable locale={locale} />
+        ) : collectionId === "the-han-nom-catholic-prayer-philipphe-binh" ? (
+          <PhilippheBinh locale={locale} documentId={documentId} />
         ) : (
           <div className="flex flex-row mt-10">
             {/* Item viewer */}
