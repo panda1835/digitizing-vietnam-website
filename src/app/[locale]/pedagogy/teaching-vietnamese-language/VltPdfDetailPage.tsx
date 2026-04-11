@@ -1,8 +1,9 @@
 import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 import VltPageShell from "./VltPageShell";
 import { VltNavItem, VltResourceItem } from "./_shared";
 
-export default function VltPdfDetailPage({
+export default async function VltPdfDetailPage({
   locale,
   activeKey,
   item,
@@ -17,6 +18,8 @@ export default function VltPdfDetailPage({
   backHref: string;
   backLabel: string;
 }) {
+  const t = await getTranslations("PedagogyVlt");
+
   return (
     <VltPageShell locale={locale} activeKey={activeKey}>
       <div className="space-y-6">
@@ -43,7 +46,7 @@ export default function VltPdfDetailPage({
             />
           ) : (
             <div className="p-8 text-sm md:text-base text-[#666]">
-              PDF URL is not available for this item yet.
+              {t("detail.pdfUnavailable")}
               {item.url && (
                 <>
                   {" "}
@@ -53,7 +56,7 @@ export default function VltPdfDetailPage({
                     rel="noopener noreferrer"
                     className="text-branding-brown hover:underline"
                   >
-                    Open source file
+                    {t("detail.openSourceFile")}
                   </a>
                 </>
               )}

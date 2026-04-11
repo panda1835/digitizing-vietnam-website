@@ -4,7 +4,7 @@ import qs from "qs";
 import { fetcher } from "@/lib/api";
 import { Merriweather } from "next/font/google";
 import SocialMediaSharing from "@/components/common/SocialMediaSharing";
-import { PedagogyMetadata } from "../../../pedagogy/[collectionSlug]/[itemSlug]/Metadata";
+import { PedagogyMetadata } from "../../../pedagogy/teaching-vietnamese-studies/[collectionSlug]/[itemSlug]/Metadata";
 import { Metadata } from "next";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
 
@@ -138,8 +138,13 @@ const OutreachResource = async ({
   return (
     <div className="flex flex-col max-width">
       <div className="flex-col mb-20 mx-5 max-w-5xl">
-        <BreadcrumbAndSearchBar locale={locale} breadcrumbItems={breadcrumbItems} />
-        <p className={`${merriweather.className} text-branding-black text-4xl`}>{post.title}</p>
+        <BreadcrumbAndSearchBar
+          locale={locale}
+          breadcrumbItems={breadcrumbItems}
+        />
+        <p className={`${merriweather.className} text-branding-black text-4xl`}>
+          {post.title}
+        </p>
         <div className="h-[26px] flex-col justify-start items-start gap-5 inline-flex mt-8 mb-16">
           <div className="self-stretch font-['Helvetica_Neue'] text-lg">
             <span className="">{t("Outreach.contributed-by")}</span>{" "}

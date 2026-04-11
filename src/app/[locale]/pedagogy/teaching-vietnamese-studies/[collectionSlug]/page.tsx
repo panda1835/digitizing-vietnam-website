@@ -143,6 +143,10 @@ const PedagogyCollectionPage = async ({
               label: t("NavigationBar.pedagogy-menu"),
               href: "pedagogy",
             },
+            {
+              label: t("Pedagogy.items.teaching-vietnamese-studies.title"),
+              href: "pedagogy/teaching-vietnamese-studies",
+            },
             { label: collectionData.title },
           ]}
           locale={locale}
@@ -158,8 +162,8 @@ const PedagogyCollectionPage = async ({
                 description={item.description}
                 date={""}
                 imageUrl={item.thumbnail}
-                link={`/pedagogy/${collectionSlug}/${item.slug}`}
-                key={`/pedagogy/${collectionSlug}/${item.slug}`}
+                link={`/pedagogy/teaching-vietnamese-studies/${collectionSlug}/${item.slug}`}
+                key={`/pedagogy/teaching-vietnamese-studies/${collectionSlug}/${item.slug}`}
               />
             ))}
         </div>

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 import VltPdfDetailPage from "../../VltPdfDetailPage";
 import { syllabiItems } from "../../_shared";
@@ -12,6 +13,7 @@ export default async function SyllabiItemPage({
 }: {
   params: { locale: string; itemId: string };
 }) {
+  const t = await getTranslations("PedagogyVlt");
   const item = syllabiById[params.itemId];
   if (!item) {
     notFound();
@@ -22,13 +24,14 @@ export default async function SyllabiItemPage({
       locale={params.locale}
       activeKey="syllabi"
       item={item}
-      backHref="/pedagogy-1/vietnamese-language-teaching/syllabi"
-      backLabel="Back to Syllabi"
+      backHref="/pedagogy/teaching-vietnamese-language/syllabi"
+      backLabel={t("detail.backToSyllabi")}
       metadataRows={[
-        { label: "Title", value: item.title },
-        { label: "Institution/Designer's name", value: item.institutionAuthor },
-        { label: "Semester", value: item.semester },
-        { label: "Level", value: item.level },
+        { label: t("metadata.title"), value: item.title },
+        { label: t("metadata.institution"), value: item.institution },
+        { label: t("metadata.designerAuthor"), value: item.author?.join(", ") },
+        { label: t("metadata.semester"), value: item.semester },
+        { label: t("metadata.level"), value: item.level },
       ]}
     />
   );

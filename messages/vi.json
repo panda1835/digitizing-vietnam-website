@@ -141,7 +141,17 @@
     }
   },
   "Pedagogy": {
-    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện."
+    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện.",
+    "items": {
+      "teaching-vietnamese-language": {
+        "title": "Giảng dạy tiếng Việt",
+        "description": "Một không gian tuyển chọn dành cho thiết kế bài giảng, xây dựng chương trình học, tài nguyên lớp học và phát triển chuyên môn nhằm hỗ trợ giảng dạy tiếng Việt."
+      },
+      "teaching-vietnamese-studies": {
+        "title": "Giảng dạy Việt Nam học",
+        "description": "Một không gian tuyển chọn các đề cương môn học và tài nguyên đa phương tiện để giảng dạy Việt Nam học một cách hiệu quả."
+      }
+    }
   },
   "Highlight": {
     "title": "Bài viết",
@@ -529,6 +539,76 @@
       "collection_locations": "Địa điểm bộ sưu tập",
       "access_condition": "Điều kiện truy cập",
       "online_resource_types": "Loại tài nguyên trực tuyến"
+    }
+  },
+  "PedagogyVlt": {
+    "header": {
+      "title": "Giảng dạy tiếng Việt",
+      "subtitle": "Nguồn học liệu và hỗ trợ chuyên môn dành cho giảng dạy tiếng Việt.",
+      "breadcrumbPedagogy": "Giảng dạy",
+      "breadcrumbCurrent": "Giảng dạy tiếng Việt"
+    },
+    "nav": {
+      "lessonPlans": "Kế hoạch bài giảng",
+      "syllabi": "Syllabi",
+      "instructionalMaterials": "Tài liệu giảng dạy",
+      "professionalDevelopment": "Phát triển chuyên môn",
+      "directory": "Directory"
+    },
+    "sections": {
+      "lessonPlans": {
+        "title": "Kế hoạch bài giảng"
+      },
+      "syllabi": {
+        "title": "Syllabi"
+      },
+      "instructionalMaterials": {
+        "title": "Tài liệu giảng dạy"
+      },
+      "professionalDevelopment": {
+        "title": "Phát triển chuyên môn"
+      },
+      "directory": {
+        "title": "Directory",
+        "description": "Khám phá danh sách các nơi giảng dạy tiếng Việt.",
+        "iframeTitle": "Danh sách các nơi giảng dạy tiếng Việt"
+      }
+    },
+    "filters": {
+      "institution": "Cơ sở đào tạo",
+      "author": "Tác giả",
+      "designerAuthor": "Người thiết kế/Tác giả",
+      "level": "Trình độ",
+      "semester": "Học kỳ",
+      "issueDate": "Kỳ/Ngày phát hành",
+      "tags": "Thẻ",
+      "type": "Loại"
+    },
+    "browser": {
+      "filters": "Bộ lọc",
+      "clear": "Xóa",
+      "searchPlaceholder": "Tìm kiếm {section}...",
+      "results": "{count} kết quả",
+      "noItems": "Không có tài liệu phù hợp với từ khóa và bộ lọc."
+    },
+    "metadata": {
+      "title": "Tiêu đề",
+      "institution": "Cơ sở đào tạo",
+      "author": "Tác giả",
+      "designerAuthor": "Người thiết kế/Tác giả",
+      "semester": "Học kỳ",
+      "level": "Trình độ",
+      "skills": "Kỹ năng",
+      "tags": "Thẻ",
+      "newsletter": "Bản tin"
+    },
+    "detail": {
+      "backToLessonPlans": "Quay lại Kế hoạch bài giảng",
+      "backToSyllabi": "Quay lại Syllabi",
+      "backToInstructionalMaterials": "Quay lại Tài liệu giảng dạy",
+      "backToProfessionalDevelopment": "Quay lại Phát triển chuyên môn",
+      "pdfUnavailable": "Hiện chưa có URL PDF cho tài liệu này.",
+      "openSourceFile": "Mở tệp nguồn"
     }
   }
 }

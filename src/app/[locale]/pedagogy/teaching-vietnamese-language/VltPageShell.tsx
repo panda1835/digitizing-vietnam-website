@@ -1,8 +1,9 @@
 import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 import { PageHeader } from "@/components/common/PageHeader";
 import { vltNavItems, VltNavItem } from "./_shared";
 
-export default function VltPageShell({
+export default async function VltPageShell({
   locale,
   activeKey,
   children,
@@ -11,15 +12,24 @@ export default function VltPageShell({
   activeKey: VltNavItem["key"];
   children: React.ReactNode;
 }) {
+  const t = await getTranslations("PedagogyVlt");
+  const navLabels: Record<VltNavItem["key"], string> = {
+    "lesson-plans": t("nav.lessonPlans"),
+    syllabi: t("nav.syllabi"),
+    "instructional-materials": t("nav.instructionalMaterials"),
+    "direct-professional-development": t("nav.professionalDevelopment"),
+    directory: t("nav.directory"),
+  };
+
   return (
     <div className="flex flex-col items-center max-width w-full">
       <div className="w-full mb-20">
         <PageHeader
-          title="Vietnamese Language Teaching"
-          subtitle="Teaching resources and professional support for Vietnamese language instruction."
+          title={t("header.title")}
+          subtitle={t("header.subtitle")}
           breadcrumbItems={[
-            { label: "Pedagogy", href: "/pedagogy-1" },
-            { label: "Vietnamese Language Teaching" },
+            { label: t("header.breadcrumbPedagogy"), href: "pedagogy" },
+            { label: t("header.breadcrumbCurrent") },
           ]}
           locale={locale}
         />
@@ -37,7 +47,7 @@ export default function VltPageShell({
                       : "border-transparent text-[#747474] hover:text-branding-black",
                   ].join(" ")}
                 >
-                  {item.label}
+                  {navLabels[item.key]}
                 </Link>
               </li>
             ))}

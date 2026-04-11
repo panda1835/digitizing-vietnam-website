@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 
 import { VltFilterConfig, VltResourceItem } from "./_shared";
@@ -33,15 +34,16 @@ export default function VltResourceBrowser({
   itemDetailPath,
 }: {
   sectionTitle: string;
-  sectionDescription: string;
+  sectionDescription?: string;
   items: VltResourceItem[];
   filterConfig: VltFilterConfig[];
   itemDetailPath?: string;
 }) {
+  const t = useTranslations("PedagogyVlt");
   const [searchText, setSearchText] = useState("");
-  const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>(
-    {}
-  );
+  const [selectedFilters, setSelectedFilters] = useState<
+    Record<string, string[]>
+  >({});
 
   const filterOptions = useMemo(() => {
     return filterConfig.map((group) => {
@@ -67,7 +69,8 @@ export default function VltResourceBrowser({
       const searchSpace = [
         item.title,
         item.summary,
-        item.institutionAuthor,
+        item.institution || "",
+        (item.author || []).join(" "),
         item.semester || "",
         item.level || "",
         (item.skills || []).join(" "),
@@ -106,20 +109,23 @@ export default function VltResourceBrowser({
       <aside className="rounded-xl border border-branding-black/10 p-5 bg-branding-white lg:sticky lg:top-28">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-['Helvetica Neue'] text-xl font-medium text-branding-black">
-            Filters
+            {t("browser.filters")}
           </h3>
           <button
             type="button"
             onClick={clearFilters}
             className="text-sm text-branding-brown hover:underline"
           >
-            Clear
+            {t("browser.clear")}
           </button>
         </div>
 
         <div className="space-y-5 max-h-[70vh] overflow-y-auto pr-1">
           {filterOptions.map((group) => (
-            <div key={group.key} className="border-t border-branding-black/10 pt-4">
+            <div
+              key={group.key}
+              className="border-t border-branding-black/10 pt-4"
+            >
               <p className="font-['Helvetica Neue'] text-sm font-semibold uppercase tracking-wide text-[#555] mb-2">
                 {group.label}
               </p>
@@ -165,13 +171,15 @@ export default function VltResourceBrowser({
           <input
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            placeholder={`Search ${sectionTitle.toLowerCase()}...`}
+            placeholder={t("browser.searchPlaceholder", {
+              section: sectionTitle.toLowerCase(),
+            })}
             className="w-full rounded-lg border border-branding-black/15 bg-white pl-9 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-branding-brown/40"
           />
         </div>
 
         <p className="text-sm text-[#666] mb-4">
-          {filteredItems.length} result{filteredItems.length === 1 ? "" : "s"}
+          {t("browser.results", { count: filteredItems.length })}
         </p>
 
         <div className="space-y-4">
@@ -194,29 +202,40 @@ export default function VltResourceBrowser({
               )}
               {/* <p className="text-sm text-muted-foreground mb-3">{item.summary}</p> */}
               <div className="text-sm text-branding-black space-y-1">
-                <p>
-                  <span className="font-medium">Institution/Author:</span>{" "}
-                  {item.institutionAuthor}
-                </p>
+                {item.institution && (
+                  <p>
+                    <span className="font-medium">{t("metadata.institution")}:</span>{" "}
+                    {item.institution}
+                  </p>
+                )}
+                {item.author && item.author.length > 0 && (
+                  <p>
+                    <span className="font-medium">{t("metadata.author")}:</span>{" "}
+                    {item.author.join(", ")}
+                  </p>
+                )}
                 {item.semester && (
                   <p>
-                    <span className="font-medium">Semester:</span> {item.semester}
+                    <span className="font-medium">{t("metadata.semester")}:</span>{" "}
+                    {item.semester}
                   </p>
                 )}
                 {item.level && (
                   <p>
-                    <span className="font-medium">Level:</span> {item.level}
+                    <span className="font-medium">{t("metadata.level")}:</span>{" "}
+                    {item.level}
                   </p>
                 )}
                 {item.skills && item.skills.length > 0 && (
                   <p>
-                    <span className="font-medium">Skills:</span>{" "}
+                    <span className="font-medium">{t("metadata.skills")}:</span>{" "}
                     {item.skills.join(", ")}
                   </p>
                 )}
                 {item.tags && item.tags.length > 0 && (
                   <p>
-                    <span className="font-medium">Tags:</span> {item.tags.join(", ")}
+                    <span className="font-medium">{t("metadata.tags")}:</span>{" "}
+                    {item.tags.join(", ")}
                   </p>
                 )}
               </div>
@@ -224,7 +243,7 @@ export default function VltResourceBrowser({
           ))}
           {filteredItems.length === 0 && (
             <div className="rounded-xl border border-dashed border-branding-black/20 p-8 text-center text-[#666]">
-              No items match your search and filters.
+              {t("browser.noItems")}
             </div>
           )}
         </div>

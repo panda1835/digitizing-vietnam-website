@@ -19,7 +19,7 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export const PedagogyCollectionItem = ({
   collection,
-  basePath = "/pedagogy",
+  basePath = "/pedagogy/teaching-vietnamese-studies",
 }: {
   collection: PedagogyCollection;
   basePath?: string;

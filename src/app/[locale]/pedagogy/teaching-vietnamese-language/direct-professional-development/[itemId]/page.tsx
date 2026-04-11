@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 import VltPdfDetailPage from "../../VltPdfDetailPage";
 import { professionalDevelopmentById } from "../../_shared";
@@ -8,6 +9,7 @@ export default async function ProfessionalDevelopmentItemPage({
 }: {
   params: { locale: string; itemId: string };
 }) {
+  const t = await getTranslations("PedagogyVlt");
   const item = professionalDevelopmentById[params.itemId];
   if (!item) {
     notFound();
@@ -18,12 +20,13 @@ export default async function ProfessionalDevelopmentItemPage({
       locale={params.locale}
       activeKey="direct-professional-development"
       item={item}
-      backHref="/pedagogy-1/vietnamese-language-teaching/direct-professional-development"
-      backLabel="Back to Professional Development"
+      backHref="/pedagogy/teaching-vietnamese-language/direct-professional-development"
+      backLabel={t("detail.backToProfessionalDevelopment")}
       metadataRows={[
-        { label: "Title", value: item.title },
-        { label: "Institution/Author's name", value: item.institutionAuthor },
-        { label: "Newsletter", value: item.tags?.join(", ") },
+        { label: t("metadata.title"), value: item.title },
+        { label: t("metadata.institution"), value: item.institution },
+        { label: t("metadata.author"), value: item.author?.join(", ") },
+        { label: t("metadata.newsletter"), value: item.tags?.join(", ") },
       ]}
     />
   );
