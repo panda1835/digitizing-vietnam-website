@@ -107,7 +107,17 @@ export default async function HanNomPage({
     },
     {
       title: locale === "vi" ? "Trung tâm học tập" : "Learning Center",
-      items: [{ label: locale === "vi" ? "Sắp ra mắt" : "Coming Soon" }],
+      items: [
+        {
+          label: "NômFlow",
+          href: "https://nomflow.app",
+          external: true,
+        },
+        {
+          label: locale === "vi" ? "Giáo trình Trực tuyến" : "Online Textbook",
+          href: "/our-collections/nghien-cuu-han-nom/ly-thuyet-thuc-hanh-chu-nom",
+        },
+      ],
     },
   ];
 
@@ -116,7 +126,7 @@ export default async function HanNomPage({
       {tocGroups.map((group) => (
         <li key={group.title}>
           <p
-            className={`${merriweather.className} text-base lg:text-lg leading-none tracking-[0.1em] uppercase text-branding-brown font-bold`}
+            className={`${merriweather.className} text-base lg:text-lg leading-none tracking-[0.1em]  text-branding-brown font-bold`}
           >
             {group.title}
           </p>

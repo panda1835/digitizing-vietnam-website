@@ -70,7 +70,7 @@ export default function HanNomInputMethod() {
               <em>Tự Điển Chữ Nôm Dẫn Giải</em>,{" "}
               <em>Nguyễn Trãi Quốc Âm Từ Điển</em>, and{" "}
               <em>Taberd’s Dictionary</em>, as well as materials from the{" "}
-              <em>Institute of Hán-Nôm Studies</em>, and online resources such
+              <em>Institute of Sino-Nôm Studies</em>, and online resources such
               as{" "}
               <a
                 href="https://chunom.org"

@@ -507,6 +507,11 @@
         "name": "Từ điển De Rhodes (OCR)",
         "description": "Bản OCR của từ điển Việt–Bồ–La trên Wikisource.",
         "url": "https://vi.wikisource.org/wiki/T%E1%BB%AB_%C4%91i%E1%BB%83n_Vi%E1%BB%87t%E2%80%93B%E1%BB%93%E2%80%93La"
+      },
+      "moe-variants": {
+        "name": "Từ điển các biến thể chữ Hán (異體字字典)",
+        "description": "Nguồn tham khảo có thẩm quyền của Bộ Giáo dục Đài Loan, thống kê các dạng chữ Hán dị thể, kèm chú giải chi tiết và nguồn tư liệu lịch sử.",
+        "url": "https://dict.variants.moe.edu.tw/"
       }
     }
   },

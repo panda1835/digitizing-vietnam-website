@@ -26,6 +26,15 @@ export default async function ExternalArchivesPage({
 
   const onlineArchives = [
     {
+      name: isVi
+        ? "Bảo tàng Mở Hán Nôm (Đài Loan)"
+        : "Hán-Nôm Open Museum (Taiwan)",
+      description: isVi
+        ? "Bộ sưu tập kỹ thuật số các tài liệu Hán-Nôm từ Bảo tàng Mở của Đài Loan, bao gồm các văn bản lịch sử và nghệ thuật."
+        : "Digital catalog of Hán-Nôm materials from Taiwan's Open Museum.",
+      url: "https://hannom.openmuseum.tw/",
+    },
+    {
       name: "Vietnamica",
       description: isVi
         ? "Cơ sở dữ liệu bản đồ này chứa 20.980 bản dập văn bia được Trường Viễn Đông Bác cổ Pháp thực hiện tại Việt Nam từ năm 1910 đến năm 1944. Một chương trình ERC của École Pratique des Hautes Études."
@@ -80,11 +89,10 @@ export default async function ExternalArchivesPage({
       url: "https://www.bulac.fr/",
     },
     {
-      name: isVi ? "Viện Nghiên cứu Hán-Nôm" : "Hán-Nôm Institute",
+      name: isVi ? "Viện Nghiên cứu Hán-Nôm" : "Institute of Sino-Nôm Studies",
       description: isVi
         ? "Các danh mục thẻ và hồ sơ thư mục đã được số hóa từ Viện Nghiên cứu Hán-Nôm tại Hà Nội."
-        : "Digitized card catalogs and bibliographic records from the Institute of Hán-Nôm Studies in Hanoi.",
-      url: "http://hannom.org.vn/",
+        : "Digitized card catalogs and bibliographic records from the Institute of Sino-Nôm Studies in Hanoi.",
     },
     {
       name: isVi ? "Thư viện Quốc gia Việt Nam" : "National Library of Vietnam",
@@ -92,6 +100,15 @@ export default async function ExternalArchivesPage({
         ? "Tìm kiếm bộ sưu tập kỹ thuật số của Thư viện Quốc gia Việt Nam, bao gồm kho lưu trữ Hán-Nôm quan trọng."
         : "Search the digital collection of the National Library of Vietnam, including a significant Hán-Nôm repository.",
       url: "http://nlv.gov.vn/",
+    },
+    {
+      name: isVi
+        ? "Thư viện Khoa học Tổng hợp TP.HCM"
+        : "Ho Chi Minh City General Sciences Library",
+      description: isVi
+        ? "Bộ sưu tập tài liệu Hán-Nôm được số hóa từ Thư viện Khoa học Tổng hợp TP.HCM."
+        : "Catalog of Hán-Nôm holdings from the Ho Chi Minh City General Sciences Library.",
+      url: "https://phucvu.thuvientphcm.gov.vn/item/SearchAdvanced?CollectionId=1140",
     },
     {
       name: "EFEO (École française d'Extrême-Orient)",
@@ -171,7 +188,9 @@ export default async function ExternalArchivesPage({
 
         <main className="mt-10">
           <section>
-            <h2 className="text-[28px] text-branding-brown font-['Merriweather'] ">
+            <h2
+              className={`${merriweather.className} text-[28px] text-branding-brown `}
+            >
               {t("ExternalArchives.online-archives.title")}
             </h2>
             <p className="font-['Helvetica Neue'] font-light text-base text-branding-black mt-4">
@@ -180,8 +199,12 @@ export default async function ExternalArchivesPage({
             <ResourceList items={onlineArchives} />
           </section>
 
+          <Separator className="my-16" />
+
           <section>
-            <h2 className="text-[28px] text-branding-brown font-['Merriweather'] ">
+            <h2
+              className={`${merriweather.className} text-[28px] text-branding-brown `}
+            >
               {t("ExternalArchives.physical-archives.title")}
             </h2>
             <p className="font-['Helvetica Neue'] font-light text-base text-branding-black mt-4">

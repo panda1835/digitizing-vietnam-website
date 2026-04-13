@@ -445,7 +445,7 @@
     "list": {
       "tap-chi-han-nom": {
         "name": "Tạp chí Hán Nôm",
-        "description": "The primary scholarly journal of the Institute of Hán-Nôm Studies in Hanoi, featuring research on manuscripts, linguistics, and historical texts.",
+        "description": "The primary scholarly journal of the Institute of Sino-Nôm Studies in Hanoi, featuring research on manuscripts, linguistics, and historical texts.",
         "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
       },
       "befeo": {
@@ -506,6 +506,11 @@
         "name": "De Rhodes Dictionary (OCR)",
         "description": "OCR version of the Dictionarium Annamiticum Lusitanum et Latinum on Wikisource.",
         "url": "https://vi.wikisource.org/wiki/T%E1%BB%AB_%C4%91i%E1%BB%83n_Vi%E1%BB%87t%E2%80%93B%E1%BB%93%E2%80%93La"
+      },
+      "moe-variants": {
+        "name": "Dictionary of Chinese Character Variants (異體字字典)",
+        "description": "An authoritative reference from Taiwan's Ministry of Education cataloguing variant forms of Chinese characters, with detailed annotations and historical sources.",
+        "url": "https://dict.variants.moe.edu.tw/"
       }
     }
   },
