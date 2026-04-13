@@ -47,7 +47,7 @@ export async function InfoCard({
             </Link>
           </CardTitle>
         </CardHeader>
-        <CardContent className="flex-1 flex flex-col justify-end mt-5">
+        <CardContent className="flex-1 flex flex-col justify-start mt-5">
           <p className="font-['Helvetica Neue'] font-light text-muted-foreground text-[16px]">
             {description}
           </p>

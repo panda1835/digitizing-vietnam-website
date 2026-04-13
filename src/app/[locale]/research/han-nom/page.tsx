@@ -84,7 +84,7 @@ export default async function HanNomPage({
         },
         {
           label: locale === "vi" ? "Công cụ tính ngày tháng" : "Date Converter",
-          href: "/research/han-nom/date-calculator",
+          href: "/tools/date-converter",
         },
         {
           label: t("ResearchHub.HanNomHub.unified-lookup.vietnamese-title"),

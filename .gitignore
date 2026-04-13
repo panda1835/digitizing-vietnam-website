@@ -17,3 +17,5 @@ run_tailwindcss.sh
 test
 og.tsx
 .claude/
+
+data/ocr

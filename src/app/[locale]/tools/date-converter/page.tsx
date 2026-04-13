@@ -26,8 +26,7 @@ export default async function DateConverterPage({
           title={t("ResearchHub.HanNomHub.DateConverter.title")}
           subtitle={t("ResearchHub.HanNomHub.DateConverter.subtitle")}
           breadcrumbItems={[
-            { label: t("ResearchHub.title"), href: "/research" },
-            { label: t("ResearchHub.HanNomHub.hero.title"), href: "/research/han-nom" },
+            { label: t("NavigationBar.tools"), href: "/tools" },
             { label: t("ResearchHub.HanNomHub.DateConverter.title") },
           ]}
           locale={locale}

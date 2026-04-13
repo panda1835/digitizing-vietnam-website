@@ -296,6 +296,10 @@
       "name": "Digital Humanities Tools",
       "description": "The Digital Humanities Tools is a collection of tools that allow users to analyze and explore various aspects of digital humanities research. This tool is especially useful for researchers who need to analyze large datasets or perform complex analyses.",
       "no-tools-message": "No digital humanities tools available at the moment."
+    },
+    "date-converter": {
+      "name": "Date Converter",
+      "description": "Convert between reign names (niên hiệu), sexagenary years (can chi), and Common Era dates across Vietnamese and Chinese dynasties."
     }
   },
   "ResearchHub": {
