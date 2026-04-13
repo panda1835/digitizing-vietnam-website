@@ -1,9 +1,64 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
+
 type ParsedPages = Record<string, string[]>;
+type FileConfig = { nom?: string; qn?: string };
+
+const TRANSCRIPTION_FILES_BY_DOCUMENT_ID: Record<string, FileConfig> = {
+  "borg-tonch-18": {
+    nom: "/philipphe-binh/borg-tonch-18-nom.txt",
+    qn: "/philipphe-binh/borg-tonch-18-qn.txt",
+  },
+};
+
+function parseTranscript(raw: string): ParsedPages {
+  const normalized = raw.replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
+  const lines = normalized.split("\n");
+  const pages: ParsedPages = {};
+  let currentPage = "";
+
+  for (const line of lines) {
+    const pageMatch = line.trim().match(/^\[([^\]]+)\]$/);
+    if (pageMatch) {
+      currentPage = pageMatch[1].trim().toLowerCase();
+      if (!pages[currentPage]) {
+        pages[currentPage] = [];
+      }
+      continue;
+    }
+
+    if (!currentPage) {
+      continue;
+    }
+
+    const content = line.trim();
+    if (content) {
+      pages[currentPage].push(content);
+    }
+  }
+
+  return pages;
+}
+
+async function fetchTranscript(url?: string): Promise<ParsedPages> {
+  if (!url) {
+    return {};
+  }
+
+  try {
+    const response = await fetch(url, { cache: "force-cache" });
+    if (!response.ok) {
+      return {};
+    }
+    const rawText = await response.text();
+    return parseTranscript(rawText);
+  } catch {
+    return {};
+  }
+}
 
 function getSpreadPagesFromCanvasId(canvasId?: string): string[] {
   if (!canvasId) {
@@ -32,17 +87,49 @@ function getSpreadPagesFromCanvasId(canvasId?: string): string[] {
 
 export default function PhilippheBinhAnnotations({
   locale,
+  documentId,
   initialCanvasId,
-  nomByPage,
-  qnByPage,
 }: {
   locale: string;
+  documentId: string;
   initialCanvasId?: string;
-  nomByPage: ParsedPages;
-  qnByPage: ParsedPages;
 }) {
   const searchParams = useSearchParams();
   const liveCanvasId = searchParams.get("canvasId") || initialCanvasId || "";
+  const [nomByPage, setNomByPage] = useState<ParsedPages>({});
+  const [qnByPage, setQnByPage] = useState<ParsedPages>({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+    const fileConfig = TRANSCRIPTION_FILES_BY_DOCUMENT_ID[documentId];
+
+    if (!fileConfig) {
+      setNomByPage({});
+      setQnByPage({});
+      return () => {
+        isMounted = false;
+      };
+    }
+
+    setIsLoading(true);
+    Promise.all([
+      fetchTranscript(fileConfig.nom),
+      fetchTranscript(fileConfig.qn),
+    ]).then(([nom, qn]) => {
+      if (!isMounted) {
+        return;
+      }
+      setNomByPage(nom);
+      setQnByPage(qn);
+      setIsLoading(false);
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [documentId]);
+
   const spreadPages = useMemo(
     () => getSpreadPagesFromCanvasId(liveCanvasId),
     [liveCanvasId]
@@ -56,7 +143,11 @@ export default function PhilippheBinhAnnotations({
           : "Transcription and Translation"}
       </h2>
 
-      {spreadPages.length === 0 ? (
+      {isLoading ? (
+        <div className="mt-4 text-base font-light font-['Helvetica Neue'] text-[#191919]">
+          {locale === "vi" ? "Đang tải dữ liệu..." : "Loading transcription..."}
+        </div>
+      ) : spreadPages.length === 0 ? (
         <div className="mt-4 text-base font-light font-['Helvetica Neue'] text-[#191919]">
           {locale === "vi"
             ? "Chọn một trang trong Mirador để hiển thị phần bản gõ lại và chuyển tự."
