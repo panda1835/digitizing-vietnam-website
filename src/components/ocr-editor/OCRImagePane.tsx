@@ -14,7 +14,7 @@ interface OCRImagePaneProps {
   onCharChange: (offset: number, newText: string) => void;
   onFocusChar: (offset: number) => void;
   onAddChar: (bbox: Array<{ x: number; y: number }>, text: string) => void;
-  onOcrRegion: (rect: { x: number; y: number; w: number; h: number }, engine: "vision" | "paddle") => void;
+  onOcrRegion: (rect: { x: number; y: number; w: number; h: number }) => void;
   focusedOffset: number | null;
 }
 
@@ -172,9 +172,9 @@ export default function OCRImagePane({
     clearSelection();
   }
 
-  function handleOcrSelection(engine: "vision" | "paddle") {
+  function handleOcrSelection() {
     if (!selectionRect) return;
-    onOcrRegion(selectionRect, engine);
+    onOcrRegion(selectionRect);
     clearSelection();
   }
 
@@ -263,16 +263,10 @@ export default function OCRImagePane({
               className="flex items-center gap-1 bg-white border border-gray-300 rounded shadow-lg p-1.5"
             >
               <button
-                onClick={() => handleOcrSelection("vision")}
+                onClick={handleOcrSelection}
                 className="px-2 py-1 text-[10px] font-medium rounded bg-branding-black text-white hover:bg-gray-800"
               >
-                Vision OCR
-              </button>
-              <button
-                onClick={() => handleOcrSelection("paddle")}
-                className="px-2 py-1 text-[10px] font-medium rounded bg-indigo-600 text-white hover:bg-indigo-700"
-              >
-                Paddle OCR
+                OCR
               </button>
               <input
                 type="text"

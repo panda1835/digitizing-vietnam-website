@@ -807,7 +807,7 @@ export default function OCREditor({
   }
 
   // ── OCR a selected region and merge into existing spatial data ──
-  async function handleOcrRegion(rect: { x: number; y: number; w: number; h: number }, regionDetMode?: string) {
+  async function handleOcrRegion(rect: { x: number; y: number; w: number; h: number }) {
     // rect is normalized [0,1] relative to the displayed image
     const imgUrl = imageUrl;
     if (!imgUrl) return;
@@ -840,7 +840,7 @@ export default function OCREditor({
       // Run OCR on the cropped region
       const formData = new FormData();
       formData.append("image", croppedBlob, "region.jpg");
-      formData.append("det_mode", regionDetMode ?? detMode);
+      formData.append("det_mode", detMode);
 
       const res = await fetch("/api/ocr/process-page", {
         method: "POST",
