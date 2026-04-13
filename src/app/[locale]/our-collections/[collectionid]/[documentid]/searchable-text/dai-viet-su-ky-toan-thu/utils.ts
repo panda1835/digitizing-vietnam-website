@@ -101,8 +101,8 @@ export const titles = [
     children: [
       { title: "Thánh Tông Văn Hoàng Đế" },
       { title: "Nhân Tông Tuyên Hoàng Đế" },
-      { title: "Thánh Tông Thuần Hoàng Đế(thượng)" },
-      { title: "Thánh Tông Thuần Hoàng Đế(hạ)" },
+      { title: "Thánh Tông Thuần Hoàng Đế (thượng)" },
+      { title: "Thánh Tông Thuần Hoàng Đế (hạ)" },
       { title: "Hiến Tông Duệ Hoàng Đế" },
       { title: "Túc Tông Khâm Hoàng Đế" },
       { title: "Uy Mục Đế" },

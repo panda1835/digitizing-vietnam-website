@@ -82,9 +82,7 @@ function reorderDualColumn(chars: SpatialCharacter[]): SpatialCharacter[] {
     return [...chars].sort(compareTopDownRTL);
   }
 
-  // Split into rows by Y-proximity to check if this is truly a dual-column
-  // layout (most rows have chars on both sides) or just a single column
-  // with slight X-offset (most rows have chars on one side only).
+  // Split into rows by Y-proximity
   const avgH = chars.reduce((s, c) => s + getBBoxHeight(c.bbox!), 0) / chars.length;
   const rowThreshold = avgH * 0.5;
   const ySorted = [...chars].sort((a, b) => getBBoxCenter(a.bbox!).y - getBBoxCenter(b.bbox!).y);
@@ -99,37 +97,48 @@ function reorderDualColumn(chars: SpatialCharacter[]): SpatialCharacter[] {
     }
   }
 
-  // Split chars by xMid into candidate sub-columns
-  const xMid = (minX + maxX) / 2;
-  const rightCol = chars.filter((c) => getBBoxCenter(c.bbox!).x >= xMid);
-  const leftCol = chars.filter((c) => getBBoxCenter(c.bbox!).x < xMid);
+  // Process rows in order. Accumulate consecutive multi-char rows into
+  // dual-column blocks (read right-col-then-left-col). Single-char rows
+  // are output directly.
+  const result: SpatialCharacter[] = [];
+  let blockStart = -1;
 
-  if (rightCol.length === 0 || leftCol.length === 0) {
-    return [...chars].sort(compareTopDownRTL);
-  }
-
-  // True dual-column test: every char in the shorter sub-column must have
-  // a Y-matched char in the longer sub-column (within avgH * 0.5).
-  // This distinguishes real side-by-side columns from single columns
-  // with slight X-offset.
-  const shorter = rightCol.length <= leftCol.length ? rightCol : leftCol;
-  const longer = rightCol.length <= leftCol.length ? leftCol : rightCol;
-  const yMatchThreshold = avgH * 0.5;
-
-  const isDualColumn = shorter.every((sc) => {
-    const scy = getBBoxCenter(sc.bbox!).y;
-    return longer.some((lc) => Math.abs(getBBoxCenter(lc.bbox!).y - scy) < yMatchThreshold);
-  });
-
-  if (isDualColumn) {
+  function flushBlock(endExclusive: number) {
+    if (blockStart < 0) return;
+    // Collect all chars in the block
+    const blockChars: SpatialCharacter[] = [];
+    for (let i = blockStart; i < endExclusive; i++) {
+      blockChars.push(...rows[i]);
+    }
+    if (blockChars.length === 0) {
+      blockStart = -1;
+      return;
+    }
+    // Split block into right/left sub-columns by xMid
+    const blockXs = blockChars.map((c) => getBBoxCenter(c.bbox!).x);
+    const blockXMid = (Math.min(...blockXs) + Math.max(...blockXs)) / 2;
+    const rightCol = blockChars.filter((c) => getBBoxCenter(c.bbox!).x >= blockXMid);
+    const leftCol = blockChars.filter((c) => getBBoxCenter(c.bbox!).x < blockXMid);
     rightCol.sort(compareTopDownRTL);
     leftCol.sort(compareTopDownRTL);
-    return [...rightCol, ...leftCol];
+    result.push(...rightCol, ...leftCol);
+    blockStart = -1;
   }
 
-  // Otherwise it's a single column with some X-variation —
-  // sort top-to-bottom with RTL tiebreak for same-Y chars
-  return [...chars].sort(compareTopDownRTL);
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    if (row.length >= 2) {
+      // Multi-char row — start or extend a dual-column block
+      if (blockStart < 0) blockStart = i;
+    } else {
+      // Single-char row — flush any pending block, then output the char
+      flushBlock(i);
+      result.push(row[0]);
+    }
+  }
+  flushBlock(rows.length);
+
+  return result;
 }
 
 /**

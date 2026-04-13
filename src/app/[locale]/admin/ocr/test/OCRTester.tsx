@@ -31,6 +31,14 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   const [imgDims, setImgDims] = useState({ w: 1, h: 1 });
   const [zoom, setZoom] = useState(100);
   const [detMode, setDetMode] = useState<"auto" | "sp" | "hp">("auto");
+  const [engine, setEngine] = useState<"kandianguji" | "kimhannom" | "hybrid">("kandianguji");
+  const [kimToken, setKimToken] = useState(() => {
+    if (typeof window !== "undefined") return localStorage.getItem("kimhannom_token") ?? "";
+    return "";
+  });
+  const [kimOcrId, setKimOcrId] = useState(1);
+  const [kimLangType, setKimLangType] = useState(2);
+  const [kimEpitaph, setKimEpitaph] = useState(0);
 
   // Drag-to-add state
   const [isDrawing, setIsDrawing] = useState(false);
@@ -97,7 +105,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   // Disarm delete when focused char changes
   useEffect(() => { setDeleteArmed(false); }, [focusedOffset]);
 
-  const columns = detectColumns(spatialData);
+  const columns = detectColumns(spatialData, "commentary");
   const charsWithBbox = spatialData.filter((c) => c.bbox && c.text.trim()).length;
   const rawText = spatialData.map((c) => c.text).join("");
 
@@ -157,6 +165,13 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     const formData = new FormData();
     formData.append("image", file);
     formData.append("det_mode", detMode);
+    formData.append("engine", engine);
+    if (engine === "kimhannom" || engine === "hybrid") {
+      formData.append("kim_token", kimToken);
+      formData.append("kim_ocr_id", String(kimOcrId));
+      formData.append("kim_lang_type", String(kimLangType));
+      formData.append("kim_epitaph", String(kimEpitaph));
+    }
 
     try {
       const res = await fetch("/api/ocr/process-page", {
@@ -169,7 +184,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
       }
       const data: OcrResult = await res.json();
       setResult(data);
-      setSpatialData(reorderByColumns(data.spatialData));
+      setSpatialData(reorderByColumns(data.spatialData, "commentary"));
     } catch (e: any) {
       setError(e.message ?? "Unknown error");
     } finally {
@@ -323,7 +338,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
       // Merge into existing spatial data
       setSpatialData((prev) => {
         const merged = [...prev, ...remapped];
-        return reorderByColumns(merged);
+        return reorderByColumns(merged, "commentary");
       });
 
       clearSelection();
@@ -597,24 +612,91 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     <div className="flex flex-col gap-4">
       {/* Run button + detection mode */}
       {file && !result && (
-        <div className="flex items-center gap-2 self-start">
-          <select
-            value={detMode}
-            onChange={(e) => setDetMode(e.target.value as "auto" | "sp" | "hp")}
-            disabled={loading}
-            className="text-sm border border-gray-300 rounded px-2 py-2"
-          >
-            <option value="auto">Auto</option>
-            <option value="sp">Vertical (竖排)</option>
-            <option value="hp">Horizontal (横排)</option>
-          </select>
-          <button
-            onClick={handleRun}
-            disabled={!file || loading}
-            className="px-4 py-2 text-sm font-medium rounded bg-branding-black text-white hover:bg-gray-800 disabled:opacity-40"
-          >
-            {loading ? "Running OCR…" : "Run Quick OCR"}
-          </button>
+        <div className="flex flex-col gap-2 self-start">
+          <div className="flex items-center gap-2">
+            <select
+              value={engine}
+              onChange={(e) => setEngine(e.target.value as "kandianguji" | "kimhannom" | "hybrid")}
+              disabled={loading}
+              className="text-sm border border-gray-300 rounded px-2 py-2"
+            >
+              <option value="kandianguji">Kandianguji (看典古籍)</option>
+              <option value="kimhannom">Kim Hán Nôm (金漢喃)</option>
+              <option value="hybrid">Hybrid (Kandianguji boxes + Kim Hán Nôm text)</option>
+            </select>
+            {(engine === "kandianguji" || engine === "hybrid") && (
+              <select
+                value={detMode}
+                onChange={(e) => setDetMode(e.target.value as "auto" | "sp" | "hp")}
+                disabled={loading}
+                className="text-sm border border-gray-300 rounded px-2 py-2"
+              >
+                <option value="auto">Auto</option>
+                <option value="sp">Vertical (竖排)</option>
+                <option value="hp">Horizontal (横排)</option>
+              </select>
+            )}
+            {(engine === "kimhannom" || engine === "hybrid") && (
+              <>
+                <select
+                  value={kimOcrId}
+                  onChange={(e) => setKimOcrId(Number(e.target.value))}
+                  disabled={loading}
+                  className="text-sm border border-gray-300 rounded px-2 py-2"
+                >
+                  <option value={1}>Vertical standard</option>
+                  <option value={2}>Administrative</option>
+                  <option value={3}>Outdoor</option>
+                  <option value={4}>Horizontal standard</option>
+                </select>
+                <select
+                  value={kimLangType}
+                  onChange={(e) => setKimLangType(Number(e.target.value))}
+                  disabled={loading}
+                  className="text-sm border border-gray-300 rounded px-2 py-2"
+                >
+                  <option value={0}>Unknown lang</option>
+                  <option value={1}>Hán</option>
+                  <option value={2}>Nôm</option>
+                </select>
+                <label className="flex items-center gap-1 text-sm text-gray-600">
+                  <input
+                    type="checkbox"
+                    checked={kimEpitaph === 1}
+                    onChange={(e) => setKimEpitaph(e.target.checked ? 1 : 0)}
+                    disabled={loading}
+                  />
+                  Epitaph
+                </label>
+              </>
+            )}
+            <button
+              onClick={handleRun}
+              disabled={!file || loading || ((engine === "kimhannom" || engine === "hybrid") && !kimToken)}
+              className="px-4 py-2 text-sm font-medium rounded bg-branding-black text-white hover:bg-gray-800 disabled:opacity-40"
+            >
+              {loading ? "Running OCR…" : "Run Quick OCR"}
+            </button>
+          </div>
+          {(engine === "kimhannom" || engine === "hybrid") && (
+            <div className="flex items-center gap-2">
+              <input
+                type="password"
+                placeholder="Kim Hán Nôm token (from browser cookies)"
+                value={kimToken}
+                onChange={(e) => {
+                  setKimToken(e.target.value);
+                  localStorage.setItem("kimhannom_token", e.target.value);
+                }}
+                className="flex-1 text-sm border border-gray-300 rounded px-2 py-1.5 max-w-md"
+              />
+              {!kimToken && (
+                <span className="text-xs text-amber-600">
+                  Log in at kimhannom.fit.hcmus.edu.vn → DevTools → Cookies → copy &quot;token&quot;
+                </span>
+              )}
+            </div>
+          )}
         </div>
       )}
 
@@ -845,33 +927,151 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                 )}
 
                 {/* Character input overlays for selected column */}
-                {selectedColumn &&
-                  selectedColumn.chars.map((char, charIdx) => {
-                    if (!char.bbox) return null;
+                {selectedColumn && (() => {
+                  const allCharsInCol = selectedColumn.chars.filter((c) => c.bbox);
+                  if (allCharsInCol.length === 0) return null;
 
-                    const left = char.bbox[0].x * scaleX;
-                    const top = char.bbox[0].y * scaleY;
-                    const boxW = Math.abs(char.bbox[1].x - char.bbox[0].x) * scaleX;
-                    const boxH = Math.abs(char.bbox[3].y - char.bbox[0].y) * scaleY;
+                  // Section type map for main vs commentary
+                  const sectionTypeMap = new Map<number, "main" | "commentary">();
+                  for (const sec of selectedColumn.sections) {
+                    for (const c of sec.chars) sectionTypeMap.set(c.offset, sec.type);
+                  }
+
+                  // Uniform sizing based on median main-text char height
+                  const mainChars = allCharsInCol.filter((c) => sectionTypeMap.get(c.offset) !== "commentary");
+                  const sizeSource = mainChars.length > 0 ? mainChars : allCharsInCol;
+                  const heights = sizeSource.map((c) =>
+                    Math.abs(c.bbox![3].y - c.bbox![0].y) * scaleY
+                  ).sort((a: number, b: number) => a - b);
+                  const medianH = heights[Math.floor(heights.length / 2)];
+                  const SCALE = 1.4;
+                  const MAIN_SIZE = Math.max(22, Math.round(medianH * SCALE));
+                  const COMMENT_SIZE = Math.max(16, Math.round(MAIN_SIZE * 0.65));
+                  const COL_GAP = 1;
+                  const PAD = 6;
+                  const PANEL_W = MAIN_SIZE + COL_GAP * 2 + PAD * 2;
+                  const colLeftPx = selectedColumn.bbox.minX * scaleX;
+                  const panelLeft = colLeftPx - PANEL_W - 6;
+                  const centerX = panelLeft + PANEL_W / 2;
+
+                  // Commentary side detection
+                  const commentarySide = new Map<number, "right" | "left">();
+                  const pairedY = new Map<number, number>();
+                  for (const sec of selectedColumn.sections) {
+                    if (sec.type !== "commentary") continue;
+                    const withBbox = sec.chars.filter((c) => c.bbox);
+                    if (withBbox.length < 2) continue;
+                    const xs = withBbox.map((c) => (c.bbox![0].x + c.bbox![2].x) / 2);
+                    const xRange = Math.max(...xs) - Math.min(...xs);
+                    const sectionAvgW = withBbox.reduce((s, c) => s + Math.abs(c.bbox![2].x - c.bbox![0].x), 0) / withBbox.length;
+                    if (xRange < sectionAvgW * 0.6) continue;
+                    const xMid = (Math.min(...xs) + Math.max(...xs)) / 2;
+                    const rightChars: typeof withBbox = [];
+                    const leftChars: typeof withBbox = [];
+                    for (const c of withBbox) {
+                      const cx = (c.bbox![0].x + c.bbox![2].x) / 2;
+                      if (cx >= xMid) { commentarySide.set(c.offset, "right"); rightChars.push(c); }
+                      else { commentarySide.set(c.offset, "left"); leftChars.push(c); }
+                    }
+                    const avgH = withBbox.reduce((s, c) => s + Math.abs(c.bbox![3].y - c.bbox![0].y), 0) / withBbox.length;
+                    for (const rc of rightChars) {
+                      const rcy = (rc.bbox![0].y + rc.bbox![2].y) / 2;
+                      for (const lc of leftChars) {
+                        const lcy = (lc.bbox![0].y + lc.bbox![2].y) / 2;
+                        if (Math.abs(rcy - lcy) < avgH * 0.5) {
+                          const sharedY = ((rcy + lcy) / 2) * scaleY;
+                          pairedY.set(rc.offset, sharedY);
+                          pairedY.set(lc.offset, sharedY);
+                        }
+                      }
+                    }
+                  }
+
+                  // Background panel
+                  const firstChar = allCharsInCol[0];
+                  const lastChar = allCharsInCol[allCharsInCol.length - 1];
+                  const panelTop = firstChar.bbox![0].y * scaleY - 4;
+                  const panelBottom = lastChar.bbox![2].y * scaleY + 4;
+
+                  const elements = [
+                    <div
+                      key="__bg"
+                      style={{
+                        position: "absolute",
+                        left: panelLeft - 2,
+                        top: panelTop,
+                        width: PANEL_W + 4,
+                        height: panelBottom - panelTop,
+                        zIndex: 8,
+                      }}
+                      className="bg-white border border-gray-200 rounded-lg pointer-events-none shadow-sm"
+                    />,
+                  ];
+
+                  // Pre-compute cell positions and fix overlaps
+                  const cellPositions: Array<{
+                    char: typeof allCharsInCol[0]; charIdx: number;
+                    cellSize: number; cellLeft: number; cellTop: number;
+                    imgLeft: number; imgTop: number; boxW: number; boxH: number;
+                    lane: string;
+                  }> = [];
+
+                  for (let charIdx = 0; charIdx < allCharsInCol.length; charIdx++) {
+                    const char = allCharsInCol[charIdx];
+                    const imgTop = char.bbox![0].y * scaleY;
+                    const imgLeft = char.bbox![0].x * scaleX;
+                    const boxW = Math.abs(char.bbox![1].x - char.bbox![0].x) * scaleX;
+                    const boxH = Math.abs(char.bbox![3].y - char.bbox![0].y) * scaleY;
+                    const isCommentary = sectionTypeMap.get(char.offset) === "commentary";
+                    const side = commentarySide.get(char.offset);
+
+                    let cellSize: number;
+                    let cellLeft: number;
+                    let lane: string;
+                    if (isCommentary && side === "right") {
+                      cellSize = COMMENT_SIZE; cellLeft = centerX + COL_GAP / 2; lane = "right";
+                    } else if (isCommentary && side === "left") {
+                      cellSize = COMMENT_SIZE; cellLeft = centerX - COL_GAP / 2 - COMMENT_SIZE; lane = "left";
+                    } else {
+                      cellSize = isCommentary ? COMMENT_SIZE : MAIN_SIZE;
+                      cellLeft = centerX - cellSize / 2; lane = "center";
+                    }
+
+                    const sharedCenterY = pairedY.get(char.offset);
+                    const charCenterY = sharedCenterY ?? (imgTop + boxH / 2);
+                    const cellTop = charCenterY - cellSize / 2;
+
+                    cellPositions.push({ char, charIdx, cellSize, cellLeft, cellTop, imgLeft, imgTop, boxW, boxH, lane });
+                  }
+
+                  // Fix overlaps for commentary lanes only — main text stays image-aligned
+                  const laneBottoms = new Map<string, number>();
+                  for (const pos of cellPositions) {
+                    if (pos.lane !== "center") {
+                      const prevBottom = laneBottoms.get(pos.lane) ?? -Infinity;
+                      if (pos.cellTop < prevBottom + 1) {
+                        pos.cellTop = prevBottom + 1;
+                      }
+                    }
+                    laneBottoms.set(pos.lane, pos.cellTop + pos.cellSize);
+                  }
+
+                  return elements.concat(cellPositions.map((pos) => {
+                    const { char, charIdx, cellSize, cellLeft, cellTop, imgLeft, imgTop, boxW, boxH } = pos;
                     const isFocused = char.offset === focusedOffset;
-
-                    const allCharsInCol = selectedColumn.chars.filter((c) => c.bbox);
+                    const conf = char.confidence;
 
                     function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
                       if (e.key === "Tab" && !e.shiftKey) {
                         e.preventDefault();
                         const next = allCharsInCol[charIdx + 1];
-                        if (next) {
-                          setFocusedOffset(next.offset);
-                        } else if (selectedCol !== null && selectedCol < columns.length - 1) {
-                          handleSelectColumn(selectedCol + 1);
-                        }
+                        if (next) setFocusedOffset(next.offset);
+                        else if (selectedCol !== null && selectedCol < columns.length - 1) handleSelectColumn(selectedCol + 1);
                       } else if (e.key === "Tab" && e.shiftKey) {
                         e.preventDefault();
                         const prev = allCharsInCol[charIdx - 1];
-                        if (prev) {
-                          setFocusedOffset(prev.offset);
-                        } else if (selectedCol !== null && selectedCol > 0) {
+                        if (prev) setFocusedOffset(prev.offset);
+                        else if (selectedCol !== null && selectedCol > 0) {
                           const prevCol = columns[selectedCol - 1];
                           setSelectedCol(selectedCol - 1);
                           const lastChar = prevCol.chars.filter((c) => c.bbox).at(-1);
@@ -880,36 +1080,18 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                       } else if (e.key === "Enter") {
                         e.preventDefault();
                         const next = allCharsInCol[charIdx + 1];
-                        if (next) {
-                          setFocusedOffset(next.offset);
-                        } else if (selectedCol !== null && selectedCol < columns.length - 1) {
-                          handleSelectColumn(selectedCol + 1);
-                        }
+                        if (next) setFocusedOffset(next.offset);
+                        else if (selectedCol !== null && selectedCol < columns.length - 1) handleSelectColumn(selectedCol + 1);
                       }
                     }
 
-                    const conf = char.confidence;
-                    const confBorder = isFocused
-                      ? "border-red-500 ring-1 ring-red-400"
-                      : conf < 0.3
-                      ? "border-red-400 bg-red-50/90"
-                      : conf < 0.5
-                      ? "border-yellow-400 bg-yellow-50/90"
-                      : "border-indigo-300 bg-white/90";
+                    const textColor = conf < 0.3 ? "text-red-600" : conf < 0.5 ? "text-amber-600" : "text-gray-800";
 
                     return (
                       <div key={char.offset} style={{ position: "absolute", left: 0, top: 0, zIndex: isFocused ? 50 : 10 }}>
-                        {/* Focused character amber highlight */}
                         {isFocused && (
                           <div
-                            style={{
-                              position: "absolute",
-                              left,
-                              top,
-                              width: boxW,
-                              height: boxH,
-                              zIndex: 45,
-                            }}
+                            style={{ position: "absolute", left: imgLeft, top: imgTop, width: boxW, height: boxH, zIndex: 45 }}
                             className="pointer-events-none rounded ring-2 ring-offset-1 ring-amber-400 shadow-[0_0_0_3px_rgba(251,191,36,0.4)]"
                           />
                         )}
@@ -924,20 +1106,23 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                           title={`confidence: ${Math.round(conf * 100)}%`}
                           style={{
                             position: "absolute",
-                            left: left - boxW - 4,
-                            top,
-                            width: boxW,
-                            height: boxH,
-                            fontSize: Math.max(10, boxH * 0.7),
+                            left: cellLeft,
+                            top: cellTop,
+                            width: cellSize,
+                            height: cellSize,
+                            fontSize: Math.round(cellSize * 0.65),
                             lineHeight: 1,
                             padding: "1px",
                             zIndex: isFocused ? 50 : 10,
                           }}
-                          className={`border rounded text-center font-sans shadow-sm outline-none transition-colors ${confBorder}`}
+                          className={`text-center font-serif outline-none bg-transparent ${textColor} ${
+                            isFocused ? "border-2 border-indigo-500 ring-2 ring-indigo-300 bg-indigo-50 rounded" : "border-0"
+                          }`}
                         />
                       </div>
                     );
-                  })}
+                  }));
+                })()}
               </div>
             </div>
           </div>

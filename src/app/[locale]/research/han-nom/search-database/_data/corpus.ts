@@ -881,7 +881,7 @@ export async function searchCorpus(query: string) {
           work: "Đại Việt sử ký toàn thư",
           location: `${topicTitle || "Unknown Section"}, Page ${localPage}`,
           slug: "dai-viet-su-ky-toan-thu",
-          topic: topicId,
+          topic: Number(topic),
           page: localPage,
           type: isNomMatch ? "nom" : "qn",
           text: getSmartSnippet(
