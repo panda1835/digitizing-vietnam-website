@@ -126,7 +126,7 @@ export default async function HanNomPage({
       {tocGroups.map((group) => (
         <li key={group.title}>
           <p
-            className={`${merriweather.className} text-base lg:text-lg leading-none tracking-[0.1em] uppercase text-branding-brown font-bold`}
+            className={`${merriweather.className} text-base lg:text-lg leading-none tracking-[0.1em]  text-branding-brown font-bold`}
           >
             {group.title}
           </p>

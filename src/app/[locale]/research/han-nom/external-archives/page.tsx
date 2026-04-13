@@ -26,7 +26,9 @@ export default async function ExternalArchivesPage({
 
   const onlineArchives = [
     {
-      name: isVi ? "Bảo tàng Mở Hán Nôm (Đài Loan)" : "Hán-Nôm Open Museum (Taiwan)",
+      name: isVi
+        ? "Bảo tàng Mở Hán Nôm (Đài Loan)"
+        : "Hán-Nôm Open Museum (Taiwan)",
       description: isVi
         ? "Bộ sưu tập kỹ thuật số các tài liệu Hán-Nôm từ Bảo tàng Mở của Đài Loan, bao gồm các văn bản lịch sử và nghệ thuật."
         : "Digital catalog of Hán-Nôm materials from Taiwan's Open Museum.",
@@ -100,7 +102,9 @@ export default async function ExternalArchivesPage({
       url: "http://nlv.gov.vn/",
     },
     {
-      name: isVi ? "Thư viện Khoa học Tổng hợp TP.HCM" : "Ho Chi Minh City General Sciences Library",
+      name: isVi
+        ? "Thư viện Khoa học Tổng hợp TP.HCM"
+        : "Ho Chi Minh City General Sciences Library",
       description: isVi
         ? "Bộ sưu tập tài liệu Hán-Nôm được số hóa từ Thư viện Khoa học Tổng hợp TP.HCM."
         : "Catalog of Hán-Nôm holdings from the Ho Chi Minh City General Sciences Library.",
@@ -184,7 +188,9 @@ export default async function ExternalArchivesPage({
 
         <main className="mt-10">
           <section>
-            <h2 className="text-[28px] text-branding-brown font-['Merriweather'] ">
+            <h2
+              className={`${merriweather.className} text-[28px] text-branding-brown `}
+            >
               {t("ExternalArchives.online-archives.title")}
             </h2>
             <p className="font-['Helvetica Neue'] font-light text-base text-branding-black mt-4">
@@ -193,8 +199,12 @@ export default async function ExternalArchivesPage({
             <ResourceList items={onlineArchives} />
           </section>
 
+          <Separator className="my-16" />
+
           <section>
-            <h2 className="text-[28px] text-branding-brown font-['Merriweather'] ">
+            <h2
+              className={`${merriweather.className} text-[28px] text-branding-brown `}
+            >
               {t("ExternalArchives.physical-archives.title")}
             </h2>
             <p className="font-['Helvetica Neue'] font-light text-base text-branding-black mt-4">

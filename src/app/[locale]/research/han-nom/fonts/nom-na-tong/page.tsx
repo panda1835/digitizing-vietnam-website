@@ -65,7 +65,7 @@ export default async function NomNaTongInstallPage({
           {/* Download */}
           <section>
             <h2
-              className={`${merriweather.className} text-[22px] text-branding-black font-bold mb-6 uppercase tracking-widest text-sm`}
+              className={`${merriweather.className} text-base text-branding-black font-bold mb-6 uppercase tracking-widest`}
             >
               {locale === "vi" ? "Tải về" : "Download"}
             </h2>
@@ -76,14 +76,16 @@ export default async function NomNaTongInstallPage({
               className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-branding-black text-white font-semibold text-base hover:bg-branding-black/85 transition-colors"
             >
               <Download className="h-5 w-5" />
-              {locale === "vi" ? "Tải Nôm Na Tống từ GitHub" : "Download Nôm Na Tống from GitHub"}
+              {locale === "vi"
+                ? "Tải Nôm Na Tống từ GitHub"
+                : "Download Nôm Na Tống from GitHub"}
             </a>
           </section>
 
           {/* Installation Instructions */}
           <section>
             <h2
-              className={`${merriweather.className} text-[22px] text-branding-black font-bold mb-6 uppercase tracking-widest text-sm`}
+              className={`${merriweather.className} text-base text-branding-black font-bold mb-6 uppercase tracking-widest`}
             >
               {t("NomFonts.instructions.title")}
             </h2>
@@ -103,7 +105,7 @@ export default async function NomNaTongInstallPage({
                       {label}
                     </h3>
                   </div>
-                  <p className="text-branding-black text-sm font-light font-['Helvetica_Neue'] leading-relaxed">
+                  <p className="text-branding-black text-sm font-['Helvetica_Neue'] leading-relaxed">
                     {instructions}
                   </p>
                 </div>
