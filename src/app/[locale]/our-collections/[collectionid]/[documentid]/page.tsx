@@ -320,7 +320,11 @@ const CollectionItemViewer = async ({
           documentId === "tu-vung-tieng-muong" ? (
           <TuVungTiengMuongTable locale={locale} />
         ) : collectionId === "the-han-nom-catholic-prayer-philipphe-binh" ? (
-          <PhilippheBinh locale={locale} documentId={documentId} />
+          <PhilippheBinh
+            locale={locale}
+            documentId={documentId}
+            canvasId={originalCanvasId}
+          />
         ) : (
           <div className="flex flex-row mt-10">
             {/* Item viewer */}
