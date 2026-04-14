@@ -6,9 +6,16 @@ coverage/
 .vscode/
 
 .next/
+out/
+*.tsbuildinfo
+.env.local
+.env*.local
 src-react
 netlify.toml
 run_tailwindcss.sh
 *.ipynb
 test
 og.tsx
+.claude/
+
+data/ocr

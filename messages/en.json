@@ -306,6 +306,10 @@
       "name": "Digital Humanities Tools",
       "description": "The Digital Humanities Tools is a collection of tools that allow users to analyze and explore various aspects of digital humanities research. This tool is especially useful for researchers who need to analyze large datasets or perform complex analyses.",
       "no-tools-message": "No digital humanities tools available at the moment."
+    },
+    "date-converter": {
+      "name": "Date Converter",
+      "description": "Convert between reign names (niên hiệu), sexagenary years (can chi), and Common Era dates across Vietnamese and Chinese dynasties."
     }
   },
   "ResearchHub": {
@@ -387,6 +391,76 @@
           "placeholder": "Search corpus texts...",
           "search": "Search",
           "description": "Full-text search across classical Vietnamese literature and historical documents."
+        }
+      },
+      "DateConverter": {
+        "title": "Date Converter",
+        "subtitle": "Convert between reign names (niên hiệu), sexagenary years (can chi), and CE dates",
+        "toggle-chinese": "Include Chinese dynasties (Tang, Song, Yuan, Ming, Qing)",
+        "tabs": {
+          "gregorian": "CE Date → Lunisolar",
+          "reign": "Reign Year → CE Date",
+          "sexagenary": "Sexagenary → CE Date"
+        },
+        "calculate": "Calculate",
+        "gregorian-tab": {
+          "description": "Enter a Gregorian date (day and month optional) to find the corresponding Vietnamese reign period(s), lunisolar date, and sexagenary year. Multiple results indicate concurrent dynasties.",
+          "day": "Day",
+          "month": "Month",
+          "year-ce": "Year (CE)",
+          "sexagenary-year": "Sexagenary year:",
+          "no-reign-found": "No reign period found for this year."
+        },
+        "reign-tab": {
+          "description": "Search by reign name (Vietnamese, Hán characters, or ruler name), or browse by dynasty. Add a lunar month and day to get the exact Gregorian date.",
+          "search-label": "Search reign name",
+          "search-placeholder": "e.g. Gia Long, 嘉隆, Hồng Đức…",
+          "dynasty": "Dynasty",
+          "select-dynasty": "— Select dynasty —",
+          "reign-name": "Reign Name (Niên hiệu)",
+          "year-label": "Year (1–{max})",
+          "lunar-section": "Lunar date (optional — for exact Gregorian date)",
+          "lunar-month": "Lunar month",
+          "lunar-not-specified": "— not specified —",
+          "intercalary": "Intercalary (nhuận)",
+          "lunar-day": "Lunar day",
+          "result-label": "Result",
+          "ruler": "Ruler:",
+          "sexagenary-year": "Sexagenary year:",
+          "invalid-lunar": "Invalid lunar date — this intercalary month may not exist in the given year.",
+          "invalid-year": "Year must be between 1 and {max}."
+        },
+        "sexagenary-tab": {
+          "description": "Select a sexagenary year name (can chi) to find all matching CE years. Only valid stem–branch pairings are possible (same even/odd index).",
+          "stem": "Heavenly Stem (Thiên Can)",
+          "branch": "Earthly Branch (Địa Chi)",
+          "from-year": "From CE year",
+          "to-year": "To CE year",
+          "invalid-combo": "Invalid stem–branch combination. Stems and branches must share the same even/odd index.",
+          "results-heading": "Years named {name} in {from}–{to}:",
+          "no-occurrences": "No occurrences in this range.",
+          "no-reign": "No reign period"
+        },
+        "shared": {
+          "ruler": "Ruler:",
+          "sexagenary-year": "Sexagenary year:",
+          "year-of-reign": "Year {n}",
+          "result": "Result"
+        },
+        "notes": {
+          "title": "Notes on Vietnamese dating conventions",
+          "reign-numbering-title": "Reign year numbering:",
+          "reign-numbering": "Year 1 of a reign corresponds to the CE year in which the reign began. Year N = start year + (N − 1).",
+          "lunisolar-title": "Lunisolar calendar:",
+          "lunisolar": "Vietnamese documents use the lunisolar calendar. Lunar month/day conversions use the Hồ Ngọc Đức algorithm (UTC+7). Accuracy is ±1 day for dates before c. 1500 CE.",
+          "new-year-title": "New Year offset:",
+          "new-year": "The Vietnamese New Year (Tết) falls in late January or early February. Dates in January–February of a CE year may belong to the previous Vietnamese lunar year.",
+          "overlapping-title": "Overlapping dynasties:",
+          "overlapping": "During 1533–1592 the Mạc dynasty and the Later Lê restoration each issued concurrent reign names. A document's political allegiance determines which system it follows.",
+          "intercalary-title": "Intercalary months:",
+          "intercalary": "A leap month (tháng nhuận) is added roughly every 2–3 years. Not every month number has an intercalary counterpart in a given year.",
+          "sexagenary-title": "Sexagenary cycle:",
+          "sexagenary": "The 60-year cycle (lục thập hoa giáp) anchors to 4 CE (Giáp Tý). Only same-parity stem–branch pairings are valid, yielding 60 unique combinations."
         }
       },
       "searchDatabase": {
