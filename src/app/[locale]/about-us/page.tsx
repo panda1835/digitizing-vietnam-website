@@ -43,7 +43,8 @@ const AboutUs = async ({ params: { locale } }) => {
       fields: "*",
       "populate[0]": "core_team.avatar",
       "populate[1]": "advisor.avatar",
-      "populate[2]": "manager.avatar",
+      "populate[2]": "executive_director.avatar",
+      "populate[3]": "fulbright_director.avatar",
       locale: locale,
     };
 
@@ -113,11 +114,29 @@ const AboutUs = async ({ params: { locale } }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
           <div className={`${merriweather.className}  text-[32px]`}>
-            {locale === "en"
-              ? "Principle Investigators and Program Directors"
-              : "Trưởng dự án"}{" "}
+            {locale === "en" ? "Advisors" : "Cố vấn"}{" "}
           </div>
-          <Avatars teamMember={aboutUsData["manager"]} />
+          <Avatars teamMember={aboutUsData["advisor"]} />
+        </div>
+        <div className="mt-10">
+          <Separator />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
+          <div className={`${merriweather.className}  text-[32px]`}>
+            {locale === "en" ? "Executive Directors" : "Trưởng dự án"}{" "}
+          </div>
+          <Avatars teamMember={aboutUsData["executive_director"]} />
+        </div>
+        <div className="mt-10">
+          <Separator />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
+          <div className={`${merriweather.className}  text-[32px]`}>
+            {locale === "en"
+              ? "Director of Fulbright Operations"
+              : "Quản lý dự án tại Fulbright"}{" "}
+          </div>
+          <Avatars teamMember={aboutUsData["fulbright_director"]} />
         </div>
         <div className="mt-10">
           <Separator />
@@ -128,16 +147,6 @@ const AboutUs = async ({ params: { locale } }) => {
             {locale === "en" ? "Core Team" : "Nhóm vận hành chính"}{" "}
           </div>
           <Avatars teamMember={aboutUsData["core_team"]} />
-        </div>
-        <div className="mt-10">
-          <Separator />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-          <div className={`${merriweather.className}  text-[32px]`}>
-            {locale === "en" ? "Advisors" : "Cố vấn"}
-          </div>
-          <Avatars teamMember={aboutUsData["advisor"]} />
         </div>
         <div className="mt-10">
           <Separator />
