@@ -9,6 +9,7 @@ import CollectionItemView from "./CollectionItemView";
 import FeatureArticle from "./FeatureArticle";
 import { PageHeader } from "@/components/common/PageHeader";
 import { getHanNomManifestEntries } from "@/lib/han-nom-collection";
+import Chatbot from "@/components/chatbot/Chatbot";
 
 import { Metadata } from "next";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
@@ -155,6 +156,16 @@ const OurCollections = async ({
   }
 
   const hanNomManifestEntries = getHanNomManifestEntries();
+  const collectionItemSlugs = collectionItems
+    .map((item: any) => item?.slug)
+    .filter((slug): slug is string => typeof slug === "string" && slug.length > 0);
+
+  const collectionMetadataForChatbot = {
+    title: collectionMetadata.title,
+    abstract: collectionMetadata.abstract,
+    slug: collectionMetadata.slug,
+    itemCount: collectionItemSlugs.length,
+  };
 
   return (
     <div className="flex flex-col w-full items-center">
@@ -185,6 +196,12 @@ const OurCollections = async ({
       )}
       <Separator className="mt-10 w-full" />
       <FeatureArticle highlights={featuredBlogs} locale={locale} />
+      <Chatbot
+        documentId={collectionId}
+        collectionSlug={collectionId}
+        collectionItemSlugs={collectionItemSlugs}
+        documentMetadata={collectionMetadataForChatbot}
+      />
     </div>
   );
 };

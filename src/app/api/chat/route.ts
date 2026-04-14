@@ -2,12 +2,13 @@ import { Pinecone } from "@pinecone-database/pinecone";
 import OpenAI from "openai";
 import { NextRequest, NextResponse } from "next/server";
 
-
 type Source = {
   text: string;
+  title?: string;
   page?: string;
   section?: string;
   source?: string;
+  slug?: string;
   markdownPage?: number;
   canvasId?: string;
   score: number;
@@ -32,6 +33,10 @@ type RetrievalDecision = {
 type ChatMode = "specific" | "general";
 type RetrievalRewriteResult = {
   query: string;
+};
+
+type RelevantSourcesSelection = {
+  relevantIndices: number[];
 };
 
 function asOptionalString(value: unknown): string | undefined {
@@ -65,6 +70,54 @@ function extractMarkdownPage(recordId?: string): number | undefined {
   return Number.isFinite(page) ? page : undefined;
 }
 
+function extractBookPageStart(
+  metadata: Record<string, unknown>
+): number | undefined {
+  const rawPage = metadata.page;
+  if (typeof rawPage === "number" && Number.isFinite(rawPage)) {
+    return Math.trunc(rawPage);
+  }
+
+  const pageText = asOptionalString(rawPage);
+  if (!pageText) {
+    return undefined;
+  }
+
+  const match = pageText.match(/\d+/);
+  if (!match) {
+    return undefined;
+  }
+
+  const page = Number(match[0]);
+  return Number.isFinite(page) ? page : undefined;
+}
+
+function inferCanvasFromBookPage(
+  metadata: Record<string, unknown>
+): number | undefined {
+  const slug = asOptionalString(metadata.slug);
+  const pageStart = extractBookPageStart(metadata);
+  if (!slug || !pageStart) {
+    return undefined;
+  }
+
+  let canvas: number | undefined;
+  if (slug === "am-tiet-tieng-viet-va-ngon-tu-thi-ca") {
+    canvas = (pageStart + 4) / 2;
+  } else if (slug === "ngon-ngu-van-tu-ngu-van") {
+    canvas = (pageStart + 6) / 2;
+  } else if (slug === "am-tiet-va-loai-hinh-ngon-ngu") {
+    canvas = (pageStart + 4) / 2;
+  } else if (slug === "khai-luan-van-tu-hoc-chu-nom") {
+    canvas = (pageStart + 4) / 2;
+  }
+
+  if (!canvas || !Number.isFinite(canvas) || !Number.isInteger(canvas)) {
+    return undefined;
+  }
+  return canvas;
+}
+
 function extractCanvasId(
   metadata: Record<string, unknown>,
   markdownPage?: number
@@ -76,9 +129,17 @@ function extractCanvasId(
   }
 
   const manifestId =
-    asOptionalString(metadata.manifestId) || asOptionalString(metadata.manifest_id);
-  if (manifestId && markdownPage) {
-    return `https://digitizingvietnam.com/iiif/${manifestId}.canvas${markdownPage}`;
+    asOptionalString(metadata.manifestId) ||
+    asOptionalString(metadata.manifest_id);
+  if (manifestId) {
+    const inferredCanvas = inferCanvasFromBookPage(metadata);
+    if (inferredCanvas) {
+      return `https://digitizingvietnam.com/iiif/${manifestId}.canvas${inferredCanvas}`;
+    }
+
+    if (markdownPage) {
+      return `https://digitizingvietnam.com/iiif/${manifestId}.canvas${markdownPage}`;
+    }
   }
 
   return undefined;
@@ -97,9 +158,11 @@ function mapMatchToSource(match: PineconeMatch): Source | null {
 
   return {
     text,
+    title: asOptionalString(metadata.title),
     page: asOptionalString(metadata.page),
     section: asOptionalString(metadata.section),
     source: asOptionalString(metadata.source),
+    slug: asOptionalString(metadata.slug),
     markdownPage,
     canvasId: extractCanvasId(metadata, markdownPage),
     score: typeof match.score === "number" ? match.score : 0,
@@ -137,6 +200,16 @@ function normalizeHistory(value: unknown): ChatHistoryMessage[] {
     })
     .filter(Boolean)
     .slice(-24) as ChatHistoryMessage[];
+}
+
+function normalizeStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => (typeof entry === "string" ? entry.trim() : ""))
+    .filter(Boolean);
 }
 
 function stringifyDocumentMetadata(value: unknown): string {
@@ -185,6 +258,14 @@ function formatSseData(payload: unknown): string {
   return `data: ${JSON.stringify(payload)}\n\n`;
 }
 
+function compactForSelection(text: string, maxChars: number): string {
+  const normalized = text.replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxChars) {
+    return normalized;
+  }
+  return `${normalized.slice(0, maxChars).trim()}...`;
+}
+
 function shouldForceRetrievalForFollowUp(
   question: string,
   history: ChatHistoryMessage[]
@@ -212,8 +293,7 @@ function isLikelyVietnamese(text: string): boolean {
   return (
     /[ăâđêôơưáàảãạấầẩẫậắằẳẵặéèẻẽẹếềểễệíìỉĩịóòỏõọốồổỗộớờởỡợúùủũụứừửữựýỳỷỹỵ]/.test(
       lower
-    ) ||
-    /\b(là|của|và|trong|không|được|văn|ngữ|sách|tác giả)\b/.test(lower)
+    ) || /\b(là|của|và|trong|không|được|văn|ngữ|sách|tác giả)\b/.test(lower)
   );
 }
 
@@ -337,6 +417,74 @@ ${documentMetadata}`,
   }
 }
 
+async function selectRelevantSources(params: {
+  openai: OpenAI;
+  model: string;
+  question: string;
+  sources: Source[];
+}): Promise<Source[]> {
+  const { openai, model, question, sources } = params;
+
+  if (!sources.length) {
+    return sources;
+  }
+
+  try {
+    const sourceList = sources
+      .map((source, index) => {
+        const title = source.title || source.slug || "Unknown title";
+        const section = source.section || "Unknown section";
+        const page = source.page || "Unknown page";
+        const text = compactForSelection(source.text, 600);
+        return `[${index}] ${title} | ${section} | p.${page}\n${text}`;
+      })
+      .join("\n\n");
+
+    const response = await openai.chat.completions.create({
+      model,
+      temperature: 0,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content:
+            'Select only the sources relevant for answering the user question. Return JSON only: {"relevantIndices": number[]}. Include an index only if that source directly supports the answer. Exclude irrelevant or weakly related sources.',
+        },
+        {
+          role: "user",
+          content: `Question:\n${question}\n\nCandidate sources:\n${sourceList}`,
+        },
+      ],
+    });
+
+    const content = response.choices?.[0]?.message?.content || "";
+    const parsed = JSON.parse(content) as Partial<RelevantSourcesSelection>;
+    const rawIndices = Array.isArray(parsed.relevantIndices)
+      ? parsed.relevantIndices
+      : [];
+
+    const uniqueIndices = Array.from(
+      new Set(
+        rawIndices.filter(
+          (value) =>
+            typeof value === "number" &&
+            Number.isInteger(value) &&
+            value >= 0 &&
+            value < sources.length
+        )
+      )
+    );
+
+    return uniqueIndices.map((index) => sources[index]);
+  } catch (error) {
+    console.error(
+      "Relevant source selection failed, using unfiltered sources:",
+      error
+    );
+    return sources;
+  }
+}
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -387,6 +535,7 @@ export async function POST(request: NextRequest) {
       body?.chatMode === "general" ? "general" : "specific";
     const documentId =
       typeof body?.documentId === "string" ? body.documentId : "";
+    const collectionItemSlugs = normalizeStringArray(body?.collectionItemSlugs);
     const history = normalizeHistory(body?.history);
     const historyMemory =
       typeof body?.historyMemory === "string" ? body.historyMemory.trim() : "";
@@ -449,23 +598,34 @@ export async function POST(request: NextRequest) {
       }
 
       const index = pinecone.index(pineconeIndex);
+      const retrievalFilter =
+        collectionItemSlugs.length > 0
+          ? {
+              item_type: { $eq: "collections" },
+              slug: { $in: collectionItemSlugs },
+            }
+          : documentId
+          ? {
+              item_type: { $eq: "collections" },
+              slug: { $eq: documentId },
+            }
+          : undefined;
+
       const queryResponse = await index.query({
         vector: queryVector,
-        topK: 5,
+        topK: 10,
         includeMetadata: true,
-        ...(documentId
-          ? {
-              filter: {
-                item_type: { $eq: "collections" },
-                slug: { $eq: documentId },
-              },
-            }
-          : {}),
+        ...(retrievalFilter ? { filter: retrievalFilter } : {}),
       });
-
       sources = (queryResponse.matches || [])
         .map((match) => mapMatchToSource(match as PineconeMatch))
         .filter(Boolean) as Source[];
+      sources = await selectRelevantSources({
+        openai,
+        model: openAiModel,
+        question,
+        sources,
+      });
     }
 
     const topScore = sources[0]?.score || 0;
@@ -549,7 +709,9 @@ ${question}`;
         {
           role: "system",
           content:
-            chatMode === "specific" ? specificSystemPrompt : generalSystemPrompt,
+            chatMode === "specific"
+              ? specificSystemPrompt
+              : generalSystemPrompt,
         },
         ...history.map((item) => ({
           role: item.role,

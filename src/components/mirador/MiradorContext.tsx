@@ -30,3 +30,5 @@ export const useMirador = () => {
   }
   return context;
 };
+
+export const useOptionalMirador = () => useContext(MiradorContext) ?? null;

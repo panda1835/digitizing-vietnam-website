@@ -78,6 +78,7 @@ const CollectionItemViewer = async ({
   params: { collectionid: string; documentid: string; locale: string };
   searchParams?: {
     canvasId?: string;
+    canvas?: string;
     page?: string;
     topic?: string;
     line?: string;
@@ -90,6 +91,11 @@ const CollectionItemViewer = async ({
   const collectionId = params.collectionid;
   const documentId = params.documentid;
   const originalCanvasId = searchParams?.canvasId || "";
+  const canvasIndexFromQuery = Number.parseInt(searchParams?.canvas || "", 10);
+  const initialCanvasIndex =
+    Number.isFinite(canvasIndexFromQuery) && canvasIndexFromQuery > 0
+      ? canvasIndexFromQuery
+      : undefined;
   const currentPage = searchParams?.page || "1";
   const currentTopic = searchParams?.topic || "";
   const highlightedLine = searchParams?.line || "";
@@ -145,49 +151,24 @@ const CollectionItemViewer = async ({
     if (!Array.isArray(value)) {
       return [];
     }
-
     return value
       .map((item) => {
         if (typeof item === "string") {
           return item;
         }
-
-        return (
-          item?.title ||
-          item?.name ||
-          item?.label ||
-          item?.slug ||
-          item?.author?.name ||
-          item?.author?.title ||
-          ""
-        );
-      })
-      .filter(Boolean);
-  };
-
-  const extractPublicationYears = (value: any): string[] => {
-    const raw = toStringList(value);
-    return raw
-      .map((item) => {
-        const yearMatch = item.match(/\b(1[0-9]{3}|20[0-9]{2})\b/);
-        return yearMatch ? yearMatch[1] : item;
+        return item?.title || item?.name || item?.label || item?.slug || "";
       })
       .filter(Boolean);
   };
 
   const documentMetadataForChatbot = {
     title: collectionItemData?.title || "",
-    author: toStringList(collectionItemData?.contributor),
     abstract:
       typeof collectionItemData?.abstract === "string"
         ? collectionItemData.abstract
         : "",
-    resourceType: toStringList(collectionItemData?.resource_types),
-    publicationLocation: toStringList(collectionItemData?.place_of_publication),
-    publicationYear: extractPublicationYears(collectionItemData?.date_created),
-    format: toStringList(collectionItemData?.format),
-    topic: toStringList(collectionItemData?.subjects),
     language: toStringList(collectionItemData?.languages),
+    section: toStringList(collectionItemData?.subjects),
   };
 
   let documentType = "document";
@@ -383,6 +364,7 @@ const CollectionItemViewer = async ({
                   <MiradorViewer
                     manifestUrl={`${backendUrl}/get-manifest?item-slug=${documentId}&locale=${locale}`}
                     canvasId={originalCanvasId}
+                    canvasIndex={initialCanvasIndex}
                   />
                 )}
                 <Chatbot

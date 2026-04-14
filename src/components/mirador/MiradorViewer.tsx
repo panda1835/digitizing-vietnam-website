@@ -4,8 +4,19 @@ import Mirador from "@/components/mirador/Mirador";
 import MiradorURLSyncPlugin from "../../lib/mirador-plugins/MiradorURLSyncPlugin";
 import { useMirador } from "@/components/mirador/MiradorContext";
 import mirador from "mirador";
+import { getCanvases } from "mirador/dist/es/src/state/selectors";
 
-const MiradorViewer = ({ manifestUrl, canvasId: initialCanvasId }) => {
+type MiradorViewerProps = {
+  manifestUrl: string;
+  canvasId?: string;
+  canvasIndex?: number;
+};
+
+const MiradorViewer = ({
+  manifestUrl,
+  canvasId: initialCanvasId = "",
+  canvasIndex = undefined,
+}: MiradorViewerProps) => {
   const { canvasId, setCanvasId } = useMirador();
   const viewerRef = useRef<any>(null);
 
@@ -27,6 +38,57 @@ const MiradorViewer = ({ manifestUrl, canvasId: initialCanvasId }) => {
       }
     }
   }, [canvasId]);
+
+  useEffect(() => {
+    if (!canvasIndex || initialCanvasId) {
+      return;
+    }
+
+    let attempts = 0;
+    const maxAttempts = 600; // ~120s at 200ms interval for large manifests/slow networks
+    const timer = window.setInterval(() => {
+      const store = viewerRef.current?.viewer?.store;
+      if (!store) {
+        return;
+      }
+
+      const state = store.getState();
+      const windowId = Object.keys(state.windows || {})[0];
+      if (!windowId) {
+        return;
+      }
+
+      const canvases = getCanvases(state, { windowId }) || [];
+      if (!canvases.length) {
+        attempts += 1;
+        if (attempts >= maxAttempts) {
+          window.clearInterval(timer);
+        }
+        return;
+      }
+
+      const targetCanvas = canvases[canvasIndex - 1];
+      if (targetCanvas?.id) {
+        const action = mirador.actions.setCanvas(windowId, targetCanvas.id);
+        store.dispatch(action);
+        window.clearInterval(timer);
+        return;
+      }
+
+      // If requested index is out of range, stop retrying.
+      if (canvasIndex > canvases.length) {
+        window.clearInterval(timer);
+        return;
+      }
+
+      attempts += 1;
+      if (attempts >= maxAttempts) {
+        window.clearInterval(timer);
+      }
+    }, 200);
+
+    return () => window.clearInterval(timer);
+  }, [canvasIndex, initialCanvasId, manifestUrl]);
 
   const activeCanvasId = canvasId || initialCanvasId;
 

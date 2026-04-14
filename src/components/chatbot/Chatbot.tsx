@@ -28,14 +28,16 @@ import {
 } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
-import { useMirador } from "@/components/mirador/MiradorContext";
+import { useOptionalMirador } from "@/components/mirador/MiradorContext";
 import { useTranslations } from "next-intl";
 
 interface Source {
   text: string;
+  title?: string;
   page?: string;
   section?: string;
   source?: string;
+  slug?: string;
   markdownPage?: number;
   canvasId?: string;
   score: number;
@@ -50,6 +52,8 @@ interface Message {
 
 interface ChatbotProps {
   documentId: string;
+  collectionSlug?: string;
+  collectionItemSlugs?: string[];
   documentMetadata?: Record<string, unknown>;
 }
 
@@ -83,6 +87,14 @@ function createMessageId() {
 const MAX_HISTORY_MESSAGES = 14;
 const MAX_HISTORY_CHARS = 9000;
 const MAX_HISTORY_MEMORY_CHARS = 3200;
+const CHATBOT_VISIBLE_COLLECTION_SLUG = "ngon-ngu-van-tu-ngu-van";
+const CHATBOT_VISIBLE_DOCUMENT_SLUGS = new Set([
+  "am-tiet-tieng-viet-va-ngon-tu-thi-ca",
+  "ngon-ngu-van-tu-ngu-van",
+  "am-tiet-va-loai-hinh-ngon-ngu",
+  "khai-luan-van-tu-hoc-chu-nom",
+]);
+const SUPPORTED_LOCALES = new Set(["en", "vi"]);
 
 function compactText(text: string, maxChars: number) {
   const normalized = text.replace(/\s+/g, " ").trim();
@@ -144,12 +156,14 @@ function optimizeHistoryForRequest(
 
 export default function Chatbot({
   documentId,
+  collectionSlug,
+  collectionItemSlugs = [],
   documentMetadata,
 }: ChatbotProps) {
   const t = useTranslations("Chatbot");
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { setCanvasId } = useMirador();
+  const mirador = useOptionalMirador();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const assistantMessageRefs = useRef<Record<string, HTMLDivElement | null>>(
     {}
@@ -208,6 +222,14 @@ export default function Chatbot({
     }
   }, [messages, isOpen, isStreaming, isWaitingForFirstToken]);
 
+  const isDocumentLevel = !collectionSlug;
+  const isChatbotVisible = isDocumentLevel
+    ? CHATBOT_VISIBLE_DOCUMENT_SLUGS.has(documentId)
+    : collectionSlug === CHATBOT_VISIBLE_COLLECTION_SLUG;
+  if (!isChatbotVisible) {
+    return null;
+  }
+
   const updateAssistantMessage = (
     assistantMessageId: string,
     updater: (previous: Message) => Message
@@ -239,25 +261,77 @@ export default function Chatbot({
     }
   };
 
-  const handleSourceClick = (canvasId?: string) => {
+  const handleSourceClick = (source: Source, canvasId?: string) => {
+    if (collectionSlug && source.slug) {
+      const pathSegments = pathname.split("/").filter(Boolean);
+      const localePrefix = SUPPORTED_LOCALES.has(pathSegments[0])
+        ? `/${pathSegments[0]}`
+        : "";
+      const params = new URLSearchParams();
+      const inferredCanvas = inferCanvasFromBookPage(source.page, source.slug);
+      if (inferredCanvas) {
+        params.set("canvas", String(inferredCanvas));
+      }
+
+      const targetPath = `${localePrefix}/our-collections/${collectionSlug}/${source.slug}`;
+      const targetUrl = params.toString()
+        ? `${targetPath}?${params.toString()}`
+        : targetPath;
+      window.open(targetUrl, "_blank", "noopener,noreferrer");
+      return;
+    }
+
     if (!canvasId) {
       return;
     }
 
-    setCanvasId(canvasId);
+    mirador?.setCanvasId(canvasId);
 
     const params = new URLSearchParams(searchParams.toString());
     params.set("canvasId", canvasId);
     window.history.replaceState({}, "", `${pathname}?${params.toString()}`);
   };
 
+  const inferCanvasFromBookPage = (
+    page?: string,
+    sourceSlug?: string
+  ): number | undefined => {
+    if (!page) {
+      return undefined;
+    }
+
+    const match = page.match(/\d+/);
+    if (!match) {
+      return undefined;
+    }
+
+    const pageStart = Number(match[0]);
+    if (!Number.isFinite(pageStart)) {
+      return undefined;
+    }
+
+    const targetSlug = sourceSlug || documentId;
+    let canvas: number | undefined;
+    if (targetSlug === "am-tiet-tieng-viet-va-ngon-tu-thi-ca") {
+      canvas = (pageStart + 4) / 2;
+    } else if (targetSlug === "ngon-ngu-van-tu-ngu-van") {
+      canvas = (pageStart + 6) / 2;
+    } else if (targetSlug === "am-tiet-va-loai-hinh-ngon-ngu") {
+      canvas = (pageStart + 4) / 2;
+    } else if (targetSlug === "khai-luan-van-tu-hoc-chu-nom") {
+      canvas = (pageStart + 4) / 2;
+    }
+
+    if (!canvas || !Number.isInteger(canvas) || canvas < 1) {
+      return undefined;
+    }
+
+    return canvas;
+  };
+
   const resolveCanvasId = (source: Source): string | undefined => {
     if (source.canvasId) {
       return source.canvasId;
-    }
-
-    if (typeof source.markdownPage !== "number") {
-      return undefined;
     }
 
     const currentCanvasId = searchParams.get("canvasId");
@@ -268,6 +342,15 @@ export default function Chatbot({
     const decodedCanvasId = decodeURIComponent(currentCanvasId);
     const match = decodedCanvasId.match(/^(.*)\.canvas\d+$/);
     if (!match) {
+      return undefined;
+    }
+
+    const inferredCanvas = inferCanvasFromBookPage(source.page, source.slug);
+    if (inferredCanvas) {
+      return `${match[1]}.canvas${inferredCanvas}`;
+    }
+
+    if (typeof source.markdownPage !== "number") {
       return undefined;
     }
 
@@ -315,6 +398,8 @@ export default function Chatbot({
           question,
           chatMode,
           documentId,
+          collectionSlug,
+          collectionItemSlugs,
           history,
           historyMemory: nextHistoryMemory,
           documentMetadata: documentMetadata || {},
@@ -416,7 +501,9 @@ export default function Chatbot({
       {isOpen && (
         <Card className="fixed bottom-6 right-6 z-50 flex h-[520px] w-[340px] flex-col border-branding-brown/20 shadow-2xl sm:w-[400px]">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 rounded-t-lg bg-branding-brown py-3 text-white">
-            <CardTitle className="text-base font-semibold">{t("title")}</CardTitle>
+            <CardTitle className="text-base font-semibold">
+              {t("title")}
+            </CardTitle>
 
             <div className="flex items-center gap-1">
               <Button
@@ -587,17 +674,30 @@ export default function Chatbot({
                                   (() => {
                                     const resolvedCanvasId =
                                       resolveCanvasId(source);
+                                    const canOpenSource = collectionSlug
+                                      ? Boolean(source.slug)
+                                      : Boolean(resolvedCanvasId);
+                                    const sourceMetadataLine = [
+                                      source.title || source.slug || "",
+                                      source.section || "",
+                                      source.page ? `p.${source.page}` : "",
+                                    ]
+                                      .filter(Boolean)
+                                      .join(" • ");
                                     return (
                                       <button
                                         key={`${message.id}-source-${sourceIndex}`}
                                         type="button"
                                         onClick={() =>
-                                          handleSourceClick(resolvedCanvasId)
+                                          handleSourceClick(
+                                            source,
+                                            resolvedCanvasId
+                                          )
                                         }
-                                        disabled={!resolvedCanvasId}
+                                        disabled={!canOpenSource}
                                         className={cn(
                                           "w-full rounded-md border border-branding-brown/20 bg-branding-white p-2 text-left text-xs transition-colors",
-                                          resolvedCanvasId
+                                          canOpenSource
                                             ? "hover:bg-branding-brown/5"
                                             : "cursor-not-allowed opacity-70"
                                         )}
@@ -605,14 +705,11 @@ export default function Chatbot({
                                         <div className="text-branding-black/80">
                                           ...{source.text}...
                                         </div>
-                                        <div className="mt-1 text-[11px] text-branding-brown">
-                                          {source.section
-                                            ? `${source.section} • `
-                                            : ""}
-                                          {source.page
-                                            ? `p.${source.page}`
-                                            : ""}
-                                        </div>
+                                        {sourceMetadataLine && (
+                                          <div className="mt-1 text-[11px] text-branding-brown">
+                                            {sourceMetadataLine}
+                                          </div>
+                                        )}
                                       </button>
                                     );
                                   })()
