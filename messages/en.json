@@ -487,6 +487,11 @@
         "description": "A comprehensive tool for analyzing Chinese character components, etymology, and phonology.",
         "url": "https://zi.tools/"
       },
+      "nom-na-viet": {
+        "name": "Nôm Na Việt",
+        "description": "Comprehensive Hán-Nôm dictionary with OCR, handwriting recognition, and a classical text reader.",
+        "url": "https://hannom.nvnv.app/en"
+      },
       "thivien": {
         "name": "Hán Việt Từ Điển Trích Dẫn (Thi Viện)",
         "description": "A popular online dictionary for Sino-Vietnamese characters, featuring detailed definitions and compound word lookups.",

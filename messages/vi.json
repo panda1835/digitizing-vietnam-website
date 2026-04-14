@@ -488,6 +488,11 @@
         "description": "Công cụ toàn diện để phân tích cấu trúc, từ nguyên và âm vận của chữ Hán.",
         "url": "https://zi.tools/"
       },
+      "nom-na-viet": {
+        "name": "Nôm Na Việt",
+        "description": "Từ điển Hán-Nôm toàn diện với OCR, nhận dạng chữ viết tay và trình đọc văn bản cổ điển.",
+        "url": "https://hannom.nvnv.app"
+      },
       "thivien": {
         "name": "Hán Việt Từ Điển Trích Dẫn (Thi Viện)",
         "description": "Từ điển trực tuyến phổ biến cho chữ Hán-Nôm, cung cấp định nghĩa chi tiết và tra cứu từ ghép.",
