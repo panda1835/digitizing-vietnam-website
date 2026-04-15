@@ -286,7 +286,7 @@ export const lessonPlanItems: VltResourceItem[] = [
     title: "Oral Interview Clips",
     fileName: "Vietnamese Oral Interview Clips",
     summary: "",
-    author: ["Chung Nguyen", "Thuy Anh Nguyen", "Hong Dinh"],
+    author: ["Chung Nguyen", "Thuy-Anh Nguyen", "Hong Dinh"],
     semester: null,
     level: ["Novice High", "Intermediate Mid", "Advanced Mid", "Superior"],
     tags: ["Presentational", "Interpersonal"],
