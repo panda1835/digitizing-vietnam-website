@@ -44,6 +44,9 @@ export default function VltResourceBrowser({
   const [selectedFilters, setSelectedFilters] = useState<
     Record<string, string[]>
   >({});
+  const [expandedFilterGroups, setExpandedFilterGroups] = useState<
+    Record<string, boolean>
+  >({});
 
   const filterOptions = useMemo(() => {
     return filterConfig.map((group) => {
@@ -72,9 +75,10 @@ export default function VltResourceBrowser({
         item.institution || "",
         (item.author || []).join(" "),
         item.semester || "",
-        item.level || "",
+        (item.level || []).join(" "),
         (item.skills || []).join(" "),
         (item.tags || []).join(" "),
+        item.materialType || "",
       ]
         .join(" ")
         .toLowerCase();
@@ -102,6 +106,14 @@ export default function VltResourceBrowser({
   const clearFilters = () => {
     setSelectedFilters({});
     setSearchText("");
+    setExpandedFilterGroups({});
+  };
+
+  const toggleGroupExpanded = (groupKey: string) => {
+    setExpandedFilterGroups((prev) => ({
+      ...prev,
+      [groupKey]: !prev[groupKey],
+    }));
   };
 
   return (
@@ -130,7 +142,10 @@ export default function VltResourceBrowser({
                 {group.label}
               </p>
               <div className="space-y-2">
-                {group.options.map((option) => {
+                {(expandedFilterGroups[group.key]
+                  ? group.options
+                  : group.options.slice(0, 10)
+                ).map((option) => {
                   const inputId = `${group.key}-${option}`;
                   const checked = (selectedFilters[group.key] || []).includes(
                     option
@@ -153,6 +168,17 @@ export default function VltResourceBrowser({
                   );
                 })}
               </div>
+              {group.options.length > 10 && (
+                <button
+                  type="button"
+                  onClick={() => toggleGroupExpanded(group.key)}
+                  className="mt-3 text-sm text-branding-brown hover:underline"
+                >
+                  {expandedFilterGroups[group.key]
+                    ? t("browser.showLess")
+                    : t("browser.showMore", { count: group.options.length - 10 })}
+                </button>
+              )}
             </div>
           ))}
         </div>
@@ -188,13 +214,22 @@ export default function VltResourceBrowser({
               key={item.id}
               className="rounded-xl border border-branding-black/10 bg-white p-5"
             >
-              {itemDetailPath ? (
+              {itemDetailPath && item.pdfUrl ? (
                 <Link
                   href={`${itemDetailPath}/${item.id}`}
                   className="font-['Helvetica Neue'] text-xl font-medium text-branding-black mb-2 hover:text-branding-brown hover:underline inline-block"
                 >
                   {item.title}
                 </Link>
+              ) : item.url ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-['Helvetica Neue'] text-xl font-medium text-branding-black mb-2 hover:text-branding-brown hover:underline inline-block"
+                >
+                  {item.title}
+                </a>
               ) : (
                 <h3 className="font-['Helvetica Neue'] text-xl font-medium text-branding-black mb-2">
                   {item.title}
@@ -220,10 +255,16 @@ export default function VltResourceBrowser({
                     {item.semester}
                   </p>
                 )}
-                {item.level && (
+                {item.level && item.level.length > 0 && (
                   <p>
                     <span className="font-medium">{t("metadata.level")}:</span>{" "}
-                    {item.level}
+                    {item.level.join(", ")}
+                  </p>
+                )}
+                {item.materialType && (
+                  <p>
+                    <span className="font-medium">{t("filters.type")}:</span>{" "}
+                    {item.materialType}
                   </p>
                 )}
                 {item.skills && item.skills.length > 0 && (

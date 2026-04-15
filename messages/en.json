@@ -672,6 +672,8 @@
       "clear": "Clear",
       "searchPlaceholder": "Search {section}...",
       "results": "{count, plural, one {# result} other {# results}}",
+      "showMore": "Show more ({count})",
+      "showLess": "Show less",
       "noItems": "No items match your search and filters."
     },
     "metadata": {

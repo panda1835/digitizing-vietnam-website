@@ -21,9 +21,7 @@ export default async function DirectProfessionalDevelopmentPage({
         items={professionalDevelopmentItems}
         filterConfig={[
           { key: "institution", label: t("filters.institution") },
-          { key: "author", label: t("filters.author") },
           { key: "semester", label: t("filters.issueDate") },
-          { key: "tags", label: t("filters.type") },
         ]}
         itemDetailPath="/pedagogy/teaching-vietnamese-language/direct-professional-development"
       />

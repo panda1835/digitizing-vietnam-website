@@ -17,8 +17,9 @@ export default async function InstructionalMaterialsPage({
         // sectionDescription="Search and filter instructional materials by institution/author and proficiency metadata."
         items={instructionalMaterialItems}
         filterConfig={[
-          { key: "institution", label: t("filters.institution") },
+          { key: "materialType", label: t("filters.type") },
           { key: "author", label: t("filters.author") },
+          { key: "level", label: t("filters.level") },
           { key: "tags", label: t("filters.tags") },
         ]}
         itemDetailPath="/pedagogy/teaching-vietnamese-language/instructional-materials"

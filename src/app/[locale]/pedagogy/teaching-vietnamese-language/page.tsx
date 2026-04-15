@@ -5,5 +5,5 @@ export default async function VietnameseLanguageTeachingIndex({
 }: {
   params: { locale: string };
 }) {
-  redirect(`/${params.locale}/pedagogy/teaching-vietnamese-language/lesson-plans`);
+  redirect(`/${params.locale}/pedagogy/teaching-vietnamese-language/instructional-materials`);
 }

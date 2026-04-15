@@ -673,6 +673,8 @@
       "clear": "Xóa",
       "searchPlaceholder": "Tìm kiếm {section}...",
       "results": "{count} kết quả",
+      "showMore": "Xem thêm ({count})",
+      "showLess": "Thu gọn",
       "noItems": "Không có tài liệu phù hợp với từ khóa và bộ lọc."
     },
     "metadata": {

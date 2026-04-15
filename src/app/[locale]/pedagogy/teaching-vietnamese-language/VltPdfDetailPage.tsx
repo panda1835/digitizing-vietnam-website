@@ -30,7 +30,7 @@ export default async function VltPdfDetailPage({
           ← {backLabel}
         </Link>
 
-        <h2 className="font-['Helvetica Neue'] text-2xl md:text-4xl text-branding-black font-bold">
+        <h2 className="font-['Helvetica Neue'] text-2xl md:text-4xl text-branding-black">
           {item.title}
         </h2>
         <p className="text-base md:text-lg text-muted-foreground font-light">
@@ -69,10 +69,7 @@ export default async function VltPdfDetailPage({
             {metadataRows
               .filter((row) => row.value)
               .map((row) => (
-                <div
-                  key={row.label}
-                  className="items-center gap-3 mt-4"
-                >
+                <div key={row.label} className="items-center gap-3 mt-4">
                   <div className="text-[#777777] text-base font-normal font-['Helvetica Neue']">
                     {row.label}:
                   </div>

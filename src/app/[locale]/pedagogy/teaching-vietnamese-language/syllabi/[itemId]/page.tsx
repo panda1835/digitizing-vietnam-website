@@ -31,7 +31,7 @@ export default async function SyllabiItemPage({
         { label: t("metadata.institution"), value: item.institution },
         { label: t("metadata.designerAuthor"), value: item.author?.join(", ") },
         { label: t("metadata.semester"), value: item.semester },
-        { label: t("metadata.level"), value: item.level },
+        { label: t("metadata.level"), value: (item.level || []).join(", ") },
       ]}
     />
   );

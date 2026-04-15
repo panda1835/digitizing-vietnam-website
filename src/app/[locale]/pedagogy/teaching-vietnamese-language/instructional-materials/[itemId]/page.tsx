@@ -24,10 +24,10 @@ export default async function InstructionalMaterialItemPage({
       backLabel={t("detail.backToInstructionalMaterials")}
       metadataRows={[
         { label: t("metadata.title"), value: item.title },
-        { label: t("metadata.institution"), value: item.institution },
+        { label: t("filters.type"), value: item.materialType },
         { label: t("metadata.author"), value: item.author?.join(", ") },
-        { label: t("metadata.level"), value: item.level },
-        { label: t("metadata.skills"), value: (item.skills || []).join(", ") },
+        { label: t("metadata.level"), value: (item.level || []).join(", ") },
+        { label: t("metadata.tags"), value: (item.tags || []).join(", ") },
       ]}
     />
   );
