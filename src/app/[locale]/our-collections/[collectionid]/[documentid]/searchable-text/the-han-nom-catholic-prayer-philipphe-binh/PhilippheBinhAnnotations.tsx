@@ -142,6 +142,63 @@ export default function PhilippheBinhAnnotations({
           ? "Bản gõ lại và chuyển tự"
           : "Transcription and Translation"}
       </h2>
+      <div className="mt-4 text-base font-light font-['Helvetica Neue'] text-[#191919]">
+        {locale === "vi" ? (
+          <>
+            Việc gõ lại và chuyển tự thủ bản này được hỗ trợ bởi nguồn từ điển
+            Hán-Nôm của{" "}
+            <a
+              href="https://thivien.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Thi Viện (thivien.net)
+            </a>
+            . Nếu có ý kiến đóng góp, vui lòng gửi về cho tác giả tại{" "}
+            <a
+              href="mailto:wilfred.nguyen@centre.edu"
+              className="text-blue-600 hover:underline"
+            >
+              wilfred.nguyen@centre.edu
+            </a>{" "}
+            hoặc liên hệ cho chúng tôi tại{" "}
+            <a
+              href="mailto:info@digitizingvietnam.com"
+              className="text-blue-600 hover:underline"
+            >
+              info@digitizingvietnam.com
+            </a>
+          </>
+        ) : (
+          <>
+            The translation and transcription of this manuscript was assisted by
+            the Hán-Nôm dictionary of{" "}
+            <a
+              href="https://thivien.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Thi Viện (thivien.net)
+            </a>
+            . If you have any feedback, please send them to the author at{" "}
+            <a
+              href="mailto:wilfred.nguyen@centre.edu"
+              className="text-blue-600 hover:underline"
+            >
+              wilfred.nguyen@centre.edu
+            </a>{" "}
+            or contact us at{" "}
+            <a
+              href="mailto:info@digitizingvietnam.com"
+              className="text-blue-600 hover:underline"
+            >
+              info@digitizingvietnam.com
+            </a>
+          </>
+        )}
+      </div>
 
       {isLoading ? (
         <div className="mt-4 text-base font-light font-['Helvetica Neue'] text-[#191919]">
@@ -172,8 +229,8 @@ export default function PhilippheBinhAnnotations({
                 {!hasAnyContent && (
                   <p className="mt-3 text-sm text-gray-600 font-['Helvetica Neue']">
                     {locale === "vi"
-                      ? "Chưa có dữ liệu cho trang này."
-                      : "No transcription data for this page yet."}
+                      ? "Không có dữ liệu cho trang này."
+                      : "No transcription data for this page."}
                   </p>
                 )}
 
