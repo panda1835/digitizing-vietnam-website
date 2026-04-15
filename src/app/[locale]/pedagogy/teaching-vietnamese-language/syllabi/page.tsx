@@ -11,13 +11,17 @@ export default async function SyllabiPage({
   const t = await getTranslations("PedagogyVlt");
   const syllabiItemsWithMergedLevels = syllabiItems.map((item) => {
     const mergedLevels = Array.from(
-      new Set([...(item.level || []), ...(item.tags || [])])
+      new Set(
+        [...(item.level || []), ...(item.tags || [])].filter(
+          (value): value is string => Boolean(value)
+        )
+      )
     );
 
     return {
       ...item,
       level: mergedLevels,
-      tags: null,
+      tags: undefined,
     };
   });
 
