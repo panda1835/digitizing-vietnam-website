@@ -123,7 +123,7 @@ const AboutUs = async ({ params: { locale } }) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10">
           <div className={`${merriweather.className}  text-[32px]`}>
-            {locale === "en" ? "Executive Directors" : "Trưởng dự án"}{" "}
+            {locale === "en" ? "Executive Director" : "Trưởng dự án"}{" "}
           </div>
           <Avatars teamMember={aboutUsData["executive_director"]} />
         </div>
@@ -229,14 +229,14 @@ const AboutUs = async ({ params: { locale } }) => {
               )}
             />
             <div className="flex justify-center flex-wrap items-center gap-8 mb-16 mt-8">
-              {["1", "2", "3", "4", "5"].map((item) => (
+              {["1", "2", "3", "4", "5", "6"].map((item) => (
                 <Image
                   unoptimized
                   key={item}
                   src={`/images/partner-logo-${item}.png`}
                   alt="Fulbright University Vietnam - Vietnam Studies Center"
-                  width={100}
-                  height={80}
+                  width={250}
+                  height={100}
                   className="object-contain h-20"
                 />
               ))}
