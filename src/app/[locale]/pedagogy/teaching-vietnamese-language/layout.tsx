@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
@@ -9,10 +8,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function VietnameseLanguageTeachingIndex({
-  params,
+export default function TeachingVietnameseLanguageLayout({
+  children,
 }: {
-  params: { locale: string };
+  children: React.ReactNode;
 }) {
-  redirect(`/${params.locale}/pedagogy/teaching-vietnamese-language/syllabi`);
+  return children;
 }
+
