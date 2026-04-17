@@ -68,6 +68,11 @@ function computeGroupBbox(chars: SpatialCharacter[]) {
  * read right column top-to-bottom, then left column top-to-bottom.
  * Otherwise treat as a single column sorted top-to-bottom with RTL tiebreak.
  * Works for both main text and commentary — the logic is size-agnostic.
+ *
+ * A section may have unequal-length sub-columns (e.g. right has 3 chars,
+ * left has 2). The split-by-xMid approach handles this naturally — leftover
+ * chars on either side stay in their sub-column instead of being treated as
+ * dividers.
  */
 function reorderDualColumn(chars: SpatialCharacter[]): SpatialCharacter[] {
   if (chars.length <= 1) return chars;
@@ -82,63 +87,12 @@ function reorderDualColumn(chars: SpatialCharacter[]): SpatialCharacter[] {
     return [...chars].sort(compareTopDownRTL);
   }
 
-  // Split into rows by Y-proximity
-  const avgH = chars.reduce((s, c) => s + getBBoxHeight(c.bbox!), 0) / chars.length;
-  const rowThreshold = avgH * 0.5;
-  const ySorted = [...chars].sort((a, b) => getBBoxCenter(a.bbox!).y - getBBoxCenter(b.bbox!).y);
-  const rows: SpatialCharacter[][] = [[ySorted[0]]];
-  for (let i = 1; i < ySorted.length; i++) {
-    const prevY = getBBoxCenter(rows[rows.length - 1][rows[rows.length - 1].length - 1].bbox!).y;
-    const curY = getBBoxCenter(ySorted[i].bbox!).y;
-    if (Math.abs(curY - prevY) < rowThreshold) {
-      rows[rows.length - 1].push(ySorted[i]);
-    } else {
-      rows.push([ySorted[i]]);
-    }
-  }
-
-  // Process rows in order. Accumulate consecutive multi-char rows into
-  // dual-column blocks (read right-col-then-left-col). Single-char rows
-  // are output directly.
-  const result: SpatialCharacter[] = [];
-  let blockStart = -1;
-
-  function flushBlock(endExclusive: number) {
-    if (blockStart < 0) return;
-    // Collect all chars in the block
-    const blockChars: SpatialCharacter[] = [];
-    for (let i = blockStart; i < endExclusive; i++) {
-      blockChars.push(...rows[i]);
-    }
-    if (blockChars.length === 0) {
-      blockStart = -1;
-      return;
-    }
-    // Split block into right/left sub-columns by xMid
-    const blockXs = blockChars.map((c) => getBBoxCenter(c.bbox!).x);
-    const blockXMid = (Math.min(...blockXs) + Math.max(...blockXs)) / 2;
-    const rightCol = blockChars.filter((c) => getBBoxCenter(c.bbox!).x >= blockXMid);
-    const leftCol = blockChars.filter((c) => getBBoxCenter(c.bbox!).x < blockXMid);
-    rightCol.sort(compareTopDownRTL);
-    leftCol.sort(compareTopDownRTL);
-    result.push(...rightCol, ...leftCol);
-    blockStart = -1;
-  }
-
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
-    if (row.length >= 2) {
-      // Multi-char row — start or extend a dual-column block
-      if (blockStart < 0) blockStart = i;
-    } else {
-      // Single-char row — flush any pending block, then output the char
-      flushBlock(i);
-      result.push(row[0]);
-    }
-  }
-  flushBlock(rows.length);
-
-  return result;
+  const xMid = (minX + maxX) / 2;
+  const rightCol = chars.filter((c) => getBBoxCenter(c.bbox!).x >= xMid);
+  const leftCol = chars.filter((c) => getBBoxCenter(c.bbox!).x < xMid);
+  rightCol.sort(compareTopDownRTL);
+  leftCol.sort(compareTopDownRTL);
+  return [...rightCol, ...leftCol];
 }
 
 /**

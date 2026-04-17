@@ -810,10 +810,10 @@ export default function CorpusBrowser() {
                               }
                             }}
                           >
-                            <td className="px-4 py-3 text-muted-foreground dark:text-zinc-500 whitespace-nowrap text-xs font-medium tabular-nums">
+                            <td className="px-4 py-2.5 text-muted-foreground dark:text-zinc-500 whitespace-nowrap text-xs font-medium tabular-nums">
                               {result.location}
                             </td>
-                            <td className="px-4 py-3">
+                            <td className="px-4 py-2.5">
                               <Badge
                                 variant="outline"
                                 className={`text-[9px] px-1.5  font-medium tracking-normal h-4 ${
@@ -829,11 +829,16 @@ export default function CorpusBrowser() {
                                   : "QN"}
                               </Badge>
                             </td>
-                            <td className="px-4 py-3 font-merriweather text-zinc-800 dark:text-zinc-200 leading-relaxed italic border-l-2 border-transparent group-hover:border-branding-brown dark:group-hover:border-branding-orange transition-all">
+                            <td className="px-4 py-2.5 text-zinc-800 dark:text-zinc-200 border-l-2 border-branding-brown/15 dark:border-branding-orange/20 group-hover:border-branding-brown dark:group-hover:border-branding-orange transition-all">
                               <span
-                                className={NomNaTong.className}
+                                className={`${
+                                  result.type === "han" ||
+                                  result.type === "nom"
+                                    ? `${NomNaTong.className} text-lg leading-loose`
+                                    : "font-merriweather text-[15px] leading-relaxed"
+                                }`}
                                 dangerouslySetInnerHTML={{
-                                  __html: `&ldquo;${result.text}&rdquo;`,
+                                  __html: result.text,
                                 }}
                               />
                             </td>

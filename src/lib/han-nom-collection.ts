@@ -16,6 +16,7 @@ export interface HanNomManifestEntry {
   languages: string[];
   yearStart: number | null;
   yearEnd: number | null;
+  pageCount: number | null;
 }
 
 const normalizeDoi = (doi: string) => doi.replace(/^doi:/i, "").trim();
@@ -58,6 +59,18 @@ const getNoteValuesByType = (
   return results;
 };
 
+const parsePageCount = (value: string | undefined): number | null => {
+  if (!value) return null;
+  const matches = value.match(/(\d+)\s*pages?\b/gi);
+  if (!matches || matches.length === 0) return null;
+  let total = 0;
+  for (const m of matches) {
+    const n = Number.parseInt(m, 10);
+    if (Number.isFinite(n)) total += n;
+  }
+  return total > 0 ? total : null;
+};
+
 const parseYear = (value: string | undefined): number | null => {
   if (!value) return null;
   const trimmed = value.trim();
@@ -94,6 +107,7 @@ const HAN_NOM_MANIFEST_ENTRIES: HanNomManifestEntry[] =
         languages: getNoteValuesByType(item, "language"),
         yearStart: parseYear(item["date_issued-1:date_issued_start_value"]),
         yearEnd: parseYear(item["date_issued-1:date_issued_end_value"]),
+        pageCount: parsePageCount(item["extent-1:extent_value"]),
       };
     });
 

@@ -52,6 +52,7 @@ export default function WorkshopHubClient({
   const [browsePage, setBrowsePage] = useState(1);
   const [languageFilter, setLanguageFilter] = useState<string>("all");
   const [hideAdded, setHideAdded] = useState(false);
+  const [sortBy, setSortBy] = useState<"default" | "pages-asc" | "pages-desc">("default");
   const ITEMS_PER_PAGE = 20;
 
   // Collect unique languages across all Han-Nôm entries (sorted)
@@ -476,6 +477,19 @@ export default function WorkshopHubClient({
     return true;
   });
 
+  if (sortBy !== "default") {
+    const dir = sortBy === "pages-asc" ? 1 : -1;
+    filteredHanNom.sort((a, b) => {
+      const av = a.pageCount;
+      const bv = b.pageCount;
+      // Push unknown page counts to the end regardless of direction
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      return (av - bv) * dir;
+    });
+  }
+
   const totalBrowsePages = Math.max(1, Math.ceil(filteredHanNom.length / ITEMS_PER_PAGE));
 
   return (
@@ -752,6 +766,15 @@ export default function WorkshopHubClient({
                 <option key={lang} value={lang}>{lang}</option>
               ))}
             </select>
+            <select
+              value={sortBy}
+              onChange={(e) => { setSortBy(e.target.value as typeof sortBy); setBrowsePage(1); }}
+              className="px-3 py-2 text-sm font-light border border-[#e1e1de] rounded-lg bg-white focus:outline-none focus:border-branding-brown transition-colors"
+            >
+              <option value="default">Sort: default</option>
+              <option value="pages-asc">Pages: fewest first</option>
+              <option value="pages-desc">Pages: most first</option>
+            </select>
             <label className="flex items-center gap-2 text-xs font-light text-branding-black/60 cursor-pointer">
               <input
                 type="checkbox"
@@ -850,7 +873,7 @@ export default function WorkshopHubClient({
                     >
                       {item.title}
                     </a>
-                    {(item.yearStart || item.languages.length > 0) && (
+                    {(item.yearStart || item.languages.length > 0 || item.pageCount) && (
                       <p className="text-[10px] text-branding-black/40 font-light">
                         {item.languages.length > 0 && (
                           <span>{item.languages.join(", ")}</span>
@@ -858,6 +881,10 @@ export default function WorkshopHubClient({
                         {item.languages.length > 0 && item.yearStart && <span> · </span>}
                         {item.yearStart && (
                           <span>{item.yearStart}{item.yearEnd && item.yearEnd !== item.yearStart ? `–${item.yearEnd}` : ""}</span>
+                        )}
+                        {(item.languages.length > 0 || item.yearStart) && item.pageCount && <span> · </span>}
+                        {item.pageCount && (
+                          <span>{item.pageCount} pages</span>
                         )}
                       </p>
                     )}
