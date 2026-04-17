@@ -5,24 +5,25 @@ import { getImageByKey } from "@/utils/image";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Metadata } from "next";
 import { PageHeader } from "@/components/common/PageHeader";
-import { PedagogyCollectionItem } from "../pedagogy/teaching-vietnamese-studies/PedagogyCollectionItem";
+import { PedagogyCollectionItem } from "./PedagogyCollectionItem";
 import { routing } from "@/i18n/routing";
-import ArticleCard from "@/components/ArticleCardShort";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
-    title: `${t("NavigationBar.outreach-menu")} | Digitizing Việt Nam`,
+    title: `${t("NavigationBar.pedagogy-menu")} | Digitizing Việt Nam`,
   };
 }
 
+// Generate static pages for all locales
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Revalidate every hour for ISR
 export const revalidate = 3600;
 
-export interface Outreach {
+export interface Pedagogy {
   slug: string;
   title: string;
   description: string;
@@ -39,7 +40,7 @@ export interface Outreach {
   metadata: any;
 }
 
-export interface OutreachCollection {
+export interface PedagogyCollection {
   slug: string;
   title: string;
   abstract: string;
@@ -53,43 +54,36 @@ export interface OutreachCollection {
     slug: string;
     name: string;
   };
-  pedagogies?: Outreach[];
+  pedagogies?: Pedagogy[];
 }
 
-export interface OutreachCategory {
+export interface PedagogyCategory {
   slug: string;
   category_name: string;
   description: string;
   display_order: number;
-  pedagogy_collections: OutreachCollection[];
-  pedagogies: Outreach[];
+  pedagogy_collections: PedagogyCollection[];
 }
 
-const TAB_ORDER = ["digital-humanities-tool", "podcast"];
+const TAB_ORDER = ["mini-lecture", "textbook", "syllabus"];
 const humanizeSlug = (slug: string) =>
   slug
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
-const getOutreachItemLink = (categorySlug: string, itemSlug: string) => {
-  if (categorySlug === "digital-humanities-tool") {
-    return `/tools/digital-humanities-tools/${itemSlug}`;
-  }
-  return "#";
-};
 
-const OutreachPage = async ({ params: { locale } }) => {
+const Pedagogies = async ({ params: { locale } }) => {
+  // Enable static rendering for this page
   setRequestLocale(locale);
 
   const t = await getTranslations();
 
-  let outreachData: OutreachCategory[] = [];
+  let pedagogyData: PedagogyCategory[] = [];
 
   try {
     const queryParams = {
       fields: "*",
       "populate[0]": "pedagogy_collections.thumbnail",
-      "populate[1]": "pedagogies.thumbnail",
       locale: locale,
     };
 
@@ -98,14 +92,14 @@ const OutreachPage = async ({ params: { locale } }) => {
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/pedagogy-categories?${queryString}`;
 
     const data = await fetcher(url, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 3600 }, // Cache for 1 hour
     });
     const allCategories = data.data;
 
-    const categories: OutreachCategory[] = [];
+    const pedagogyCategories: PedagogyCategory[] = [];
 
     allCategories.forEach((category) => {
-      categories.push({
+      pedagogyCategories.push({
         slug: category.slug,
         category_name: category.name,
         description: category.description,
@@ -127,43 +121,22 @@ const OutreachPage = async ({ params: { locale } }) => {
                     formats: collection.thumbnail.formats,
                   }
                 : undefined,
-            } as OutreachCollection;
-          }) || [],
-        pedagogies:
-          category.pedagogies?.map((item) => {
-            const thumbnail = item.thumbnail
-              ? getImageByKey(item.thumbnail.formats, "medium")
-              : null;
-            return {
-              slug: item.slug,
-              title: item.title,
-              description: item.description,
-              content: item.content,
-              contributors: item.contributors || [],
-              thumbnail: thumbnail
-                ? {
-                    url: thumbnail.url,
-                    width: thumbnail.width,
-                    height: thumbnail.height,
-                  }
-                : undefined,
-              metadata: item.metadata,
-            } as Outreach;
+            } as PedagogyCollection;
           }) || [],
       });
     });
 
-    outreachData = categories;
+    pedagogyData = pedagogyCategories;
   } catch (error) {
-    console.error("Error fetching outreach categories:", error);
+    console.error("Error fetching pedagogy categories:", error);
   }
 
-  const visibleOutreachData = outreachData
+  // Only show pedagogy tabs explicitly.
+  const visiblePedagogyData = pedagogyData
     .filter(
       (category) =>
         TAB_ORDER.includes(category.slug) &&
-        (category.pedagogy_collections.length > 0 ||
-          category.pedagogies.length > 0)
+        category.pedagogy_collections.length > 0
     )
     .sort((a, b) => TAB_ORDER.indexOf(a.slug) - TAB_ORDER.indexOf(b.slug));
 
@@ -171,18 +144,22 @@ const OutreachPage = async ({ params: { locale } }) => {
     <div className="flex flex-col max-width items-center">
       <div className="flex-col mb-20 w-full">
         <PageHeader
-          title={t("NavigationBar.outreach-menu")}
-          subtitle={t("Outreach.subtitle")}
-          breadcrumbItems={[{ label: t("NavigationBar.outreach-menu") }]}
+          title={t("Pedagogy.items.teaching-vietnamese-studies.title")}
+          subtitle={t("Pedagogy.items.teaching-vietnamese-studies.description")}
+          breadcrumbItems={[
+            { label: t("NavigationBar.pedagogy-menu"), href: "pedagogy" },
+            { label: t("Pedagogy.items.teaching-vietnamese-studies.title") },
+          ]}
           locale={locale}
         />
-        {visibleOutreachData.length > 0 && (
+        {/* Tab */}
+        {visiblePedagogyData.length > 0 && (
           <Tabs
-            defaultValue={visibleOutreachData[0].slug}
+            defaultValue={visiblePedagogyData[0].slug}
             className="w-full mt-10"
           >
             <TabsList className="h-auto p-0 bg-transparent gap-8">
-              {visibleOutreachData.map((category) => (
+              {visiblePedagogyData.map((category) => (
                 <TabsTrigger
                   key={category.slug}
                   value={category.slug}
@@ -199,34 +176,20 @@ const OutreachPage = async ({ params: { locale } }) => {
               ))}
             </TabsList>
 
-            {visibleOutreachData.map((category) => (
+            {visiblePedagogyData.map((category) => (
               <TabsContent
                 value={category.slug}
                 className="mt-6 space-y-4"
                 key={category.slug}
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
-                  {category.pedagogy_collections.length > 0 &&
-                    category.pedagogy_collections.map((collection) => (
-                      <PedagogyCollectionItem
-                        collection={collection}
-                        key={collection.slug}
-                        basePath="/outreach"
-                      />
-                    ))}
-                  {category.pedagogy_collections.length === 0 &&
-                    category.pedagogies
-                      .filter((item) => item.thumbnail)
-                      .map((item) => (
-                        <ArticleCard
-                          key={`${category.slug}/${item.slug}`}
-                          title={item.title}
-                          description={item.description}
-                          date=""
-                          imageUrl={item.thumbnail}
-                          link={getOutreachItemLink(category.slug, item.slug)}
-                        />
-                      ))}
+                  {category.pedagogy_collections.map((collection) => (
+                    <PedagogyCollectionItem
+                      collection={collection}
+                      key={collection.slug}
+                      basePath="/pedagogy/teaching-vietnamese-studies"
+                    />
+                  ))}
                 </div>
               </TabsContent>
             ))}
@@ -237,4 +200,4 @@ const OutreachPage = async ({ params: { locale } }) => {
   );
 };
 
-export default OutreachPage;
+export default Pedagogies;

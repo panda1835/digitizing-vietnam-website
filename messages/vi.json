@@ -141,7 +141,17 @@
     }
   },
   "Pedagogy": {
-    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện."
+    "subtitle": "Khám phá và giảng dạy ngành Việt Nam học một cách hiệu quả. Sử dụng tuyển tập giáo trình, kế hoạch bài giảng và tài nguyên đa phương tiện được thiết kế nhằm hỗ trợ các trải nghiệm học tập mang tính sáng tạo và toàn diện.",
+    "items": {
+      "teaching-vietnamese-language": {
+        "title": "Giảng dạy tiếng Việt",
+        "description": "Một không gian tuyển chọn dành cho thiết kế bài giảng, xây dựng chương trình học, tài nguyên lớp học và phát triển chuyên môn nhằm hỗ trợ giảng dạy tiếng Việt."
+      },
+      "teaching-vietnamese-studies": {
+        "title": "Giảng dạy Việt Nam học",
+        "description": "Một không gian tuyển chọn các đề cương môn học và tài nguyên đa phương tiện để giảng dạy Việt Nam học một cách hiệu quả."
+      }
+    }
   },
   "Highlight": {
     "title": "Bài viết",
@@ -297,6 +307,10 @@
       "name": "Công cụ Nhân văn Số",
       "description": "Công cụ Nhân văn Số là tập hợp các công cụ cho phép người dùng phân tích và khám phá các khía cạnh khác nhau của nghiên cứu nhân văn số. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích các tập dữ liệu lớn hoặc thực hiện các phân tích phức tạp.",
       "no-tools-message": "Hiện tại không có công cụ nào có sẵn."
+    },
+    "date-converter": {
+      "name": "Công cụ Chuyển đổi Ngày tháng",
+      "description": "Chuyển đổi giữa niên hiệu, can chi và năm Tây lịch qua các triều đại Việt Nam và Trung Quốc."
     }
   },
   "ResearchHub": {
@@ -378,6 +392,76 @@
           "placeholder": "Tìm trong kho ngữ liệu...",
           "search": "Tìm kiếm",
           "description": "Tìm toàn văn trong văn học cổ điển Việt Nam và các tư liệu lịch sử."
+        }
+      },
+      "DateConverter": {
+        "title": "Công cụ Chuyển đổi Ngày tháng",
+        "subtitle": "Chuyển đổi giữa niên hiệu, can chi và năm Tây lịch",
+        "toggle-chinese": "Bao gồm triều đại Trung Quốc (Đường, Tống, Nguyên, Minh, Thanh)",
+        "tabs": {
+          "gregorian": "Tây lịch → Âm lịch",
+          "reign": "Năm niên hiệu → Tây lịch",
+          "sexagenary": "Can chi → Năm Tây lịch"
+        },
+        "calculate": "Tính",
+        "gregorian-tab": {
+          "description": "Nhập ngày Tây lịch (ngày và tháng không bắt buộc) để tìm niên hiệu, ngày âm lịch và can chi tương ứng. Nhiều kết quả cho thấy các triều đại tồn tại song song.",
+          "day": "Ngày",
+          "month": "Tháng",
+          "year-ce": "Năm (Tây lịch)",
+          "sexagenary-year": "Can chi:",
+          "no-reign-found": "Không tìm thấy niên hiệu cho năm này."
+        },
+        "reign-tab": {
+          "description": "Tìm theo tên niên hiệu (chữ Quốc ngữ, Hán tự hoặc tên vua), hoặc chọn theo triều đại. Thêm tháng và ngày âm lịch để ra ngày Tây lịch chính xác.",
+          "search-label": "Tìm niên hiệu",
+          "search-placeholder": "VD: Gia Long, 嘉隆, Hồng Đức…",
+          "dynasty": "Triều đại",
+          "select-dynasty": "— Chọn triều đại —",
+          "reign-name": "Niên hiệu",
+          "year-label": "Năm thứ (1–{max})",
+          "lunar-section": "Ngày âm lịch (không bắt buộc — để ra ngày Tây lịch chính xác)",
+          "lunar-month": "Tháng âm lịch",
+          "lunar-not-specified": "— không chỉ định —",
+          "intercalary": "Tháng nhuận",
+          "lunar-day": "Ngày âm lịch",
+          "result-label": "Kết quả",
+          "ruler": "Vua:",
+          "sexagenary-year": "Can chi:",
+          "invalid-lunar": "Ngày âm lịch không hợp lệ — tháng nhuận này có thể không tồn tại trong năm đó.",
+          "invalid-year": "Năm phải nằm trong khoảng từ 1 đến {max}."
+        },
+        "sexagenary-tab": {
+          "description": "Chọn tên năm can chi để tìm tất cả các năm Tây lịch tương ứng. Chỉ các tổ hợp can–chi hợp lệ mới được phép (cùng chỉ số chẵn/lẻ).",
+          "stem": "Thiên Can",
+          "branch": "Địa Chi",
+          "from-year": "Từ năm (Tây lịch)",
+          "to-year": "Đến năm (Tây lịch)",
+          "invalid-combo": "Tổ hợp can–chi không hợp lệ. Can và Chi phải cùng chỉ số chẵn hoặc lẻ.",
+          "results-heading": "Các năm mang tên {name} trong {from}–{to}:",
+          "no-occurrences": "Không có năm nào trong khoảng này.",
+          "no-reign": "Không có niên hiệu"
+        },
+        "shared": {
+          "ruler": "Vua:",
+          "sexagenary-year": "Can chi:",
+          "year-of-reign": "Năm thứ {n}",
+          "result": "Kết quả"
+        },
+        "notes": {
+          "title": "Ghi chú về cách tính ngày tháng của Việt Nam",
+          "reign-numbering-title": "Cách đánh số năm niên hiệu:",
+          "reign-numbering": "Năm thứ 1 của một niên hiệu tương ứng với năm Tây lịch mà niên hiệu đó bắt đầu. Năm thứ N = năm bắt đầu + (N − 1).",
+          "lunisolar-title": "Âm lịch:",
+          "lunisolar": "Tài liệu lịch sử Việt Nam dùng âm lịch. Việc chuyển đổi tháng/ngày âm lịch sử dụng thuật toán của Hồ Ngọc Đức (UTC+7). Độ chính xác ±1 ngày cho các ngày trước khoảng năm 1500.",
+          "new-year-title": "Lệch Tết Nguyên Đán:",
+          "new-year": "Tết Nguyên Đán rơi vào cuối tháng 1 hoặc đầu tháng 2. Các ngày trong tháng 1–2 của một năm Tây lịch có thể thuộc năm âm lịch trước đó.",
+          "overlapping-title": "Triều đại song song:",
+          "overlapping": "Trong giai đoạn 1533–1592, nhà Mạc và nhà Lê Trung Hưng cùng tồn tại và dùng niên hiệu riêng. Lập trường chính trị của tài liệu sẽ xác định hệ thống nào được dùng.",
+          "intercalary-title": "Tháng nhuận:",
+          "intercalary": "Tháng nhuận được thêm vào khoảng 2–3 năm một lần. Không phải mọi tháng đều có tháng nhuận tương ứng trong một năm nhất định.",
+          "sexagenary-title": "Vòng can chi:",
+          "sexagenary": "Vòng 60 năm (lục thập hoa giáp) lấy năm Giáp Tý (năm 4 SCN) làm mốc. Chỉ các tổ hợp can–chi cùng chỉ số chẵn/lẻ mới hợp lệ, cho ra 60 tổ hợp duy nhất."
         }
       },
       "searchDatabase": {
@@ -478,6 +562,11 @@
         "description": "Công cụ toàn diện để phân tích cấu trúc, từ nguyên và âm vận của chữ Hán.",
         "url": "https://zi.tools/"
       },
+      "nom-na-viet": {
+        "name": "Nôm Na Việt",
+        "description": "Từ điển Hán-Nôm toàn diện với OCR, nhận dạng chữ viết tay và trình đọc văn bản cổ điển.",
+        "url": "https://hannom.nvnv.app"
+      },
       "thivien": {
         "name": "Hán Việt Từ Điển Trích Dẫn (Thi Viện)",
         "description": "Từ điển trực tuyến phổ biến cho chữ Hán-Nôm, cung cấp định nghĩa chi tiết và tra cứu từ ghép.",
@@ -497,6 +586,11 @@
         "name": "Từ điển De Rhodes (OCR)",
         "description": "Bản OCR của từ điển Việt–Bồ–La trên Wikisource.",
         "url": "https://vi.wikisource.org/wiki/T%E1%BB%AB_%C4%91i%E1%BB%83n_Vi%E1%BB%87t%E2%80%93B%E1%BB%93%E2%80%93La"
+      },
+      "moe-variants": {
+        "name": "Từ điển các biến thể chữ Hán (異體字字典)",
+        "description": "Nguồn tham khảo có thẩm quyền của Bộ Giáo dục Đài Loan, thống kê các dạng chữ Hán dị thể, kèm chú giải chi tiết và nguồn tư liệu lịch sử.",
+        "url": "https://dict.variants.moe.edu.tw/"
       }
     }
   },
@@ -529,6 +623,78 @@
       "collection_locations": "Địa điểm bộ sưu tập",
       "access_condition": "Điều kiện truy cập",
       "online_resource_types": "Loại tài nguyên trực tuyến"
+    }
+  },
+  "PedagogyVlt": {
+    "header": {
+      "title": "Giảng dạy tiếng Việt",
+      "subtitle": "Nguồn học liệu và hỗ trợ chuyên môn dành cho giảng dạy tiếng Việt.",
+      "breadcrumbPedagogy": "Giảng dạy",
+      "breadcrumbCurrent": "Giảng dạy tiếng Việt"
+    },
+    "nav": {
+      "lessonPlans": "Kế hoạch bài giảng",
+      "syllabi": "Syllabi",
+      "instructionalMaterials": "Tài liệu giảng dạy",
+      "professionalDevelopment": "Phát triển chuyên môn",
+      "directory": "Directory"
+    },
+    "sections": {
+      "lessonPlans": {
+        "title": "Kế hoạch bài giảng"
+      },
+      "syllabi": {
+        "title": "Syllabi"
+      },
+      "instructionalMaterials": {
+        "title": "Tài liệu giảng dạy"
+      },
+      "professionalDevelopment": {
+        "title": "Phát triển chuyên môn"
+      },
+      "directory": {
+        "title": "Directory",
+        "description": "Khám phá danh sách các nơi giảng dạy tiếng Việt.",
+        "iframeTitle": "Danh sách các nơi giảng dạy tiếng Việt"
+      }
+    },
+    "filters": {
+      "institution": "Cơ sở đào tạo",
+      "author": "Tác giả",
+      "designerAuthor": "Người thiết kế/Tác giả",
+      "level": "Trình độ",
+      "semester": "Học kỳ",
+      "issueDate": "Kỳ/Ngày phát hành",
+      "tags": "Thẻ",
+      "type": "Loại"
+    },
+    "browser": {
+      "filters": "Bộ lọc",
+      "clear": "Xóa",
+      "searchPlaceholder": "Tìm kiếm {section}...",
+      "results": "{count} kết quả",
+      "showMore": "Xem thêm ({count})",
+      "showLess": "Thu gọn",
+      "noItems": "Không có tài liệu phù hợp với từ khóa và bộ lọc."
+    },
+    "metadata": {
+      "title": "Tiêu đề",
+      "institution": "Cơ sở đào tạo",
+      "author": "Tác giả",
+      "designerAuthor": "Người thiết kế/Tác giả",
+      "semester": "Học kỳ",
+      "level": "Trình độ",
+      "skills": "Kỹ năng",
+      "tags": "Thẻ",
+      "newsletter": "Bản tin"
+    },
+    "detail": {
+      "backToLessonPlans": "Quay lại Kế hoạch bài giảng",
+      "backToSyllabi": "Quay lại Syllabi",
+      "backToInstructionalMaterials": "Quay lại Tài liệu giảng dạy",
+      "backToProfessionalDevelopment": "Quay lại Phát triển chuyên môn",
+      "pdfUnavailable": "Hiện chưa có URL PDF cho tài liệu này.",
+      "openSourceFile": "Mở tệp nguồn"
     }
   }
 }

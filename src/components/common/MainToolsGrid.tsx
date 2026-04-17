@@ -39,6 +39,11 @@ export async function MainToolsGrid() {
       name: t("Tools.digital-humanities-tools.name"),
       description: t("Tools.digital-humanities-tools.description"),
     },
+    {
+      href: "/tools/date-converter",
+      name: t("Tools.date-converter.name"),
+      description: t("Tools.date-converter.description"),
+    },
   ];
 
   return (

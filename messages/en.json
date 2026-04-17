@@ -140,7 +140,17 @@
     }
   },
   "Pedagogy": {
-    "subtitle": "Discover and teach Vietnam Studies with impact. Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences."
+    "subtitle": "Discover and teach Vietnam Studies with impact. Explore curated syllabi, lesson plans, and multimedia resources designed to support innovative and inclusive learning experiences.",
+    "items": {
+      "teaching-vietnamese-language": {
+        "title": "Teaching Vietnamese Language",
+        "description": "A curated hub for lesson planning, curriculum design, classroom resources, and professional learning to support Vietnamese language instruction."
+      },
+      "teaching-vietnamese-studies": {
+        "title": "Teaching Vietnamese Studies",
+        "description": "A curated hub of syllabi and multimedia resources to teach Vietnamese Studies with impact."
+      }
+    }
   },
   "Highlight": {
     "title": "What's new",
@@ -296,6 +306,10 @@
       "name": "Digital Humanities Tools",
       "description": "The Digital Humanities Tools is a collection of tools that allow users to analyze and explore various aspects of digital humanities research. This tool is especially useful for researchers who need to analyze large datasets or perform complex analyses.",
       "no-tools-message": "No digital humanities tools available at the moment."
+    },
+    "date-converter": {
+      "name": "Date Converter",
+      "description": "Convert between reign names (niên hiệu), sexagenary years (can chi), and Common Era dates across Vietnamese and Chinese dynasties."
     }
   },
   "ResearchHub": {
@@ -379,6 +393,76 @@
           "description": "Full-text search across classical Vietnamese literature and historical documents."
         }
       },
+      "DateConverter": {
+        "title": "Date Converter",
+        "subtitle": "Convert between reign names (niên hiệu), sexagenary years (can chi), and CE dates",
+        "toggle-chinese": "Include Chinese dynasties (Tang, Song, Yuan, Ming, Qing)",
+        "tabs": {
+          "gregorian": "CE Date → Lunisolar",
+          "reign": "Reign Year → CE Date",
+          "sexagenary": "Sexagenary → CE Date"
+        },
+        "calculate": "Calculate",
+        "gregorian-tab": {
+          "description": "Enter a Gregorian date (day and month optional) to find the corresponding Vietnamese reign period(s), lunisolar date, and sexagenary year. Multiple results indicate concurrent dynasties.",
+          "day": "Day",
+          "month": "Month",
+          "year-ce": "Year (CE)",
+          "sexagenary-year": "Sexagenary year:",
+          "no-reign-found": "No reign period found for this year."
+        },
+        "reign-tab": {
+          "description": "Search by reign name (Vietnamese, Hán characters, or ruler name), or browse by dynasty. Add a lunar month and day to get the exact Gregorian date.",
+          "search-label": "Search reign name",
+          "search-placeholder": "e.g. Gia Long, 嘉隆, Hồng Đức…",
+          "dynasty": "Dynasty",
+          "select-dynasty": "— Select dynasty —",
+          "reign-name": "Reign Name (Niên hiệu)",
+          "year-label": "Year (1–{max})",
+          "lunar-section": "Lunar date (optional — for exact Gregorian date)",
+          "lunar-month": "Lunar month",
+          "lunar-not-specified": "— not specified —",
+          "intercalary": "Intercalary (nhuận)",
+          "lunar-day": "Lunar day",
+          "result-label": "Result",
+          "ruler": "Ruler:",
+          "sexagenary-year": "Sexagenary year:",
+          "invalid-lunar": "Invalid lunar date — this intercalary month may not exist in the given year.",
+          "invalid-year": "Year must be between 1 and {max}."
+        },
+        "sexagenary-tab": {
+          "description": "Select a sexagenary year name (can chi) to find all matching CE years. Only valid stem–branch pairings are possible (same even/odd index).",
+          "stem": "Heavenly Stem (Thiên Can)",
+          "branch": "Earthly Branch (Địa Chi)",
+          "from-year": "From CE year",
+          "to-year": "To CE year",
+          "invalid-combo": "Invalid stem–branch combination. Stems and branches must share the same even/odd index.",
+          "results-heading": "Years named {name} in {from}–{to}:",
+          "no-occurrences": "No occurrences in this range.",
+          "no-reign": "No reign period"
+        },
+        "shared": {
+          "ruler": "Ruler:",
+          "sexagenary-year": "Sexagenary year:",
+          "year-of-reign": "Year {n}",
+          "result": "Result"
+        },
+        "notes": {
+          "title": "Notes on Vietnamese dating conventions",
+          "reign-numbering-title": "Reign year numbering:",
+          "reign-numbering": "Year 1 of a reign corresponds to the CE year in which the reign began. Year N = start year + (N − 1).",
+          "lunisolar-title": "Lunisolar calendar:",
+          "lunisolar": "Vietnamese documents use the lunisolar calendar. Lunar month/day conversions use the Hồ Ngọc Đức algorithm (UTC+7). Accuracy is ±1 day for dates before c. 1500 CE.",
+          "new-year-title": "New Year offset:",
+          "new-year": "The Vietnamese New Year (Tết) falls in late January or early February. Dates in January–February of a CE year may belong to the previous Vietnamese lunar year.",
+          "overlapping-title": "Overlapping dynasties:",
+          "overlapping": "During 1533–1592 the Mạc dynasty and the Later Lê restoration each issued concurrent reign names. A document's political allegiance determines which system it follows.",
+          "intercalary-title": "Intercalary months:",
+          "intercalary": "A leap month (tháng nhuận) is added roughly every 2–3 years. Not every month number has an intercalary counterpart in a given year.",
+          "sexagenary-title": "Sexagenary cycle:",
+          "sexagenary": "The 60-year cycle (lục thập hoa giáp) anchors to 4 CE (Giáp Tý). Only same-parity stem–branch pairings are valid, yielding 60 unique combinations."
+        }
+      },
       "searchDatabase": {
         "fullTextKeywords": "Full-Text Keywords",
         "searchAllTextsPlaceholder": "Search all texts for terms…",
@@ -435,7 +519,7 @@
     "list": {
       "tap-chi-han-nom": {
         "name": "Tạp chí Hán Nôm",
-        "description": "The primary scholarly journal of the Institute of Hán-Nôm Studies in Hanoi, featuring research on manuscripts, linguistics, and historical texts.",
+        "description": "The primary scholarly journal of the Institute of Sino-Nôm Studies in Hanoi, featuring research on manuscripts, linguistics, and historical texts.",
         "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
       },
       "befeo": {
@@ -477,6 +561,11 @@
         "description": "A comprehensive tool for analyzing Chinese character components, etymology, and phonology.",
         "url": "https://zi.tools/"
       },
+      "nom-na-viet": {
+        "name": "Nôm Na Việt",
+        "description": "Comprehensive Hán-Nôm dictionary with OCR, handwriting recognition, and a classical text reader.",
+        "url": "https://hannom.nvnv.app/en"
+      },
       "thivien": {
         "name": "Hán Việt Từ Điển Trích Dẫn (Thi Viện)",
         "description": "A popular online dictionary for Sino-Vietnamese characters, featuring detailed definitions and compound word lookups.",
@@ -496,6 +585,11 @@
         "name": "De Rhodes Dictionary (OCR)",
         "description": "OCR version of the Dictionarium Annamiticum Lusitanum et Latinum on Wikisource.",
         "url": "https://vi.wikisource.org/wiki/T%E1%BB%AB_%C4%91i%E1%BB%83n_Vi%E1%BB%87t%E2%80%93B%E1%BB%93%E2%80%93La"
+      },
+      "moe-variants": {
+        "name": "Dictionary of Chinese Character Variants (異體字字典)",
+        "description": "An authoritative reference from Taiwan's Ministry of Education cataloguing variant forms of Chinese characters, with detailed annotations and historical sources.",
+        "url": "https://dict.variants.moe.edu.tw/"
       }
     }
   },
@@ -528,6 +622,78 @@
       "collection_locations": "Collection locations",
       "access_condition": "Access condition",
       "online_resource_types": "Online resource types"
+    }
+  },
+  "PedagogyVlt": {
+    "header": {
+      "title": "Vietnamese Language Teaching",
+      "subtitle": "Teaching resources and professional support for Vietnamese language instruction.",
+      "breadcrumbPedagogy": "Pedagogy",
+      "breadcrumbCurrent": "Vietnamese Language Teaching"
+    },
+    "nav": {
+      "lessonPlans": "Lesson Plans",
+      "syllabi": "Syllabi",
+      "instructionalMaterials": "Instructional Materials",
+      "professionalDevelopment": "Professional Development",
+      "directory": "Directory"
+    },
+    "sections": {
+      "lessonPlans": {
+        "title": "Lesson Plans"
+      },
+      "syllabi": {
+        "title": "Syllabi"
+      },
+      "instructionalMaterials": {
+        "title": "Instructional Materials"
+      },
+      "professionalDevelopment": {
+        "title": "Professional Development"
+      },
+      "directory": {
+        "title": "Directory",
+        "description": "Browse the external Vietnamese language teaching directory.",
+        "iframeTitle": "Vietnamese Language Teaching Resource Directory"
+      }
+    },
+    "filters": {
+      "institution": "Institution",
+      "author": "Author",
+      "designerAuthor": "Designer/Author",
+      "level": "Level",
+      "semester": "Semester",
+      "issueDate": "Issue/Date",
+      "tags": "Tags",
+      "type": "Type"
+    },
+    "browser": {
+      "filters": "Filters",
+      "clear": "Clear",
+      "searchPlaceholder": "Search {section}...",
+      "results": "{count, plural, one {# result} other {# results}}",
+      "showMore": "Show more ({count})",
+      "showLess": "Show less",
+      "noItems": "No items match your search and filters."
+    },
+    "metadata": {
+      "title": "Title",
+      "institution": "Institution",
+      "author": "Author",
+      "designerAuthor": "Designer/Author",
+      "semester": "Semester",
+      "level": "Level",
+      "skills": "Skills",
+      "tags": "Tags",
+      "newsletter": "Newsletter"
+    },
+    "detail": {
+      "backToLessonPlans": "Back to Lesson Plans",
+      "backToSyllabi": "Back to Syllabi",
+      "backToInstructionalMaterials": "Back to Instructional Materials",
+      "backToProfessionalDevelopment": "Back to Professional Development",
+      "pdfUnavailable": "PDF URL is not available for this item yet.",
+      "openSourceFile": "Open source file"
     }
   }
 }

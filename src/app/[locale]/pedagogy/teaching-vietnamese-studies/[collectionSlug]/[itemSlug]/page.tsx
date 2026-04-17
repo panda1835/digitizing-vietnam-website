@@ -125,14 +125,18 @@ const PedagogicalResource = async ({
   const breadcrumbItems = [
     {
       label: t("NavigationBar.pedagogy-menu"),
-      href: `pedagogy`,
+      href: "pedagogy",
+    },
+    {
+      label: t("Pedagogy.items.teaching-vietnamese-studies.title"),
+      href: "pedagogy/teaching-vietnamese-studies",
     },
   ];
 
   if (post.pedagogy_collection) {
     breadcrumbItems.push({
       label: post.pedagogy_collection.title,
-      href: `pedagogy/${post.pedagogy_collection.slug}`,
+      href: `pedagogy/teaching-vietnamese-studies/${post.pedagogy_collection.slug}`,
     });
   }
 

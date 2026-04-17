@@ -28,7 +28,15 @@ const OtherDictionariesPage = async ({ params: { locale } }) => {
   const t = await getTranslations("OtherDictionaries");
   const common = await getTranslations();
 
-  const dictionaries = ["zi-tools", "thivien", "zdic", "pleco", "de-rhodes"];
+  const dictionaries = [
+    "zi-tools",
+    "nom-na-viet",
+    "thivien",
+    "zdic",
+    "pleco",
+    "de-rhodes",
+    "moe-variants",
+  ];
   const category = {
     resources: dictionaries.map((key) => ({
       title: t(`list.${key}.name`),
