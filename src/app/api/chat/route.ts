@@ -35,10 +35,6 @@ type RetrievalRewriteResult = {
   query: string;
 };
 
-type RelevantSourcesSelection = {
-  relevantIndices: number[];
-};
-
 function asOptionalString(value: unknown): string | undefined {
   if (typeof value !== "string") {
     return undefined;
@@ -258,14 +254,6 @@ function formatSseData(payload: unknown): string {
   return `data: ${JSON.stringify(payload)}\n\n`;
 }
 
-function compactForSelection(text: string, maxChars: number): string {
-  const normalized = text.replace(/\s+/g, " ").trim();
-  if (normalized.length <= maxChars) {
-    return normalized;
-  }
-  return `${normalized.slice(0, maxChars).trim()}...`;
-}
-
 function shouldForceRetrievalForFollowUp(
   question: string,
   history: ChatHistoryMessage[]
@@ -417,74 +405,6 @@ ${documentMetadata}`,
   }
 }
 
-async function selectRelevantSources(params: {
-  openai: OpenAI;
-  model: string;
-  question: string;
-  sources: Source[];
-}): Promise<Source[]> {
-  const { openai, model, question, sources } = params;
-
-  if (!sources.length) {
-    return sources;
-  }
-
-  try {
-    const sourceList = sources
-      .map((source, index) => {
-        const title = source.title || source.slug || "Unknown title";
-        const section = source.section || "Unknown section";
-        const page = source.page || "Unknown page";
-        const text = compactForSelection(source.text, 600);
-        return `[${index}] ${title} | ${section} | p.${page}\n${text}`;
-      })
-      .join("\n\n");
-
-    const response = await openai.chat.completions.create({
-      model,
-      temperature: 0,
-      response_format: { type: "json_object" },
-      messages: [
-        {
-          role: "system",
-          content:
-            'Select only the sources relevant for answering the user question. Return JSON only: {"relevantIndices": number[]}. Include an index only if that source directly supports the answer. Exclude irrelevant or weakly related sources.',
-        },
-        {
-          role: "user",
-          content: `Question:\n${question}\n\nCandidate sources:\n${sourceList}`,
-        },
-      ],
-    });
-
-    const content = response.choices?.[0]?.message?.content || "";
-    const parsed = JSON.parse(content) as Partial<RelevantSourcesSelection>;
-    const rawIndices = Array.isArray(parsed.relevantIndices)
-      ? parsed.relevantIndices
-      : [];
-
-    const uniqueIndices = Array.from(
-      new Set(
-        rawIndices.filter(
-          (value) =>
-            typeof value === "number" &&
-            Number.isInteger(value) &&
-            value >= 0 &&
-            value < sources.length
-        )
-      )
-    );
-
-    return uniqueIndices.map((index) => sources[index]);
-  } catch (error) {
-    console.error(
-      "Relevant source selection failed, using unfiltered sources:",
-      error
-    );
-    return sources;
-  }
-}
-
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -620,12 +540,6 @@ export async function POST(request: NextRequest) {
       sources = (queryResponse.matches || [])
         .map((match) => mapMatchToSource(match as PineconeMatch))
         .filter(Boolean) as Source[];
-      sources = await selectRelevantSources({
-        openai,
-        model: openAiModel,
-        question,
-        sources,
-      });
     }
 
     const topScore = sources[0]?.score || 0;
