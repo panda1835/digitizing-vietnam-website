@@ -38,6 +38,13 @@ export default async function HanNomTools({ params: { locale } }) {
       target: "",
       rel: "",
     },
+    {
+      href: "https://tools.clc.hcmus.edu.vn/",
+      title: t("Tools.han-nom-tools.tools.kim-han-nom.name"),
+      description: t("Tools.han-nom-tools.tools.kim-han-nom.description"),
+      target: "",
+      rel: "",
+    },
   ];
   return (
     <div className="flex flex-col items-center max-width">

@@ -300,12 +300,16 @@
         "quoc-ngu-input": {
           "placeholder": "Nhập từ Quốc Ngữ...",
           "select-character": "Chọn chữ (nhấn 1-9 hoặc bấm):"
+        },
+        "kim-han-nom": {
+          "name": "Kim Hán Nôm",
+          "description": "Kim Hán Nôm là một công cụ hỗ trợ việc dịch thuật tài liệu Hán Nôm, được thực hiện bởi các giảng viên Khoa Công nghệ Thông tin và Trung tâm Ngôn ngữ học Tính toán thuộc trường Đại học Khoa học Tự nhiên - ĐHQG - HCM."
         }
       }
     },
     "digital-humanities-tools": {
-      "name": "Công cụ Nhân văn Số",
-      "description": "Công cụ Nhân văn Số là tập hợp các công cụ cho phép người dùng phân tích và khám phá các khía cạnh khác nhau của nghiên cứu nhân văn số. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần phân tích các tập dữ liệu lớn hoặc thực hiện các phân tích phức tạp.",
+      "name": "Digital Sandbox",
+      "description": "Digital Sandbox là không gian dành để chia sẻ các công cụ nhân văn số do cộng đồng đóng góp. Tại đây, các nhà nghiên cứu, giảng viên và sinh viên có thể giới thiệu các công cụ do mình xây dựng để tiếp cận một cộng đồng rộng lớn hơn trong lĩnh vực Việt Nam học.",
       "no-tools-message": "Hiện tại không có công cụ nào có sẵn."
     },
     "date-converter": {
