@@ -162,20 +162,11 @@ export default function PhilippheBinhAnnotations({
           ? "Bản gõ lại và chuyển tự"
           : "Transcription and Translation"}
       </h2>
-      <div className="mt-4 text-base font-light font-['Helvetica Neue'] text-[#191919]">
+      <div className="mt-2 text-sm italic font-light font-['Helvetica Neue'] text-[#191919]">
         {locale === "vi" ? (
           <>
-            Việc gõ lại và chuyển tự thủ bản này được hỗ trợ bởi nguồn từ điển
-            Hán-Nôm của{" "}
-            <a
-              href="https://thivien.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              Thi Viện (thivien.net)
-            </a>
-            . Nếu có ý kiến đóng góp, vui lòng gửi về cho tác giả tại{" "}
+            Nếu có ý kiến đóng góp về bản gõ lại và chuyển tự của thủ bản này,
+            vui lòng gửi về cho tác giả tại{" "}
             <a
               href="mailto:wilfred.nguyen@centre.edu"
               className="text-blue-600 hover:underline"
@@ -192,17 +183,8 @@ export default function PhilippheBinhAnnotations({
           </>
         ) : (
           <>
-            The translation and transcription of this manuscript was assisted by
-            the Hán-Nôm dictionary of{" "}
-            <a
-              href="https://thivien.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              Thi Viện (thivien.net)
-            </a>
-            . If you have any feedback, please send them to the author at{" "}
+            If you have any feedback for the translation and transcription of
+            this manuscript, please send them to the author at{" "}
             <a
               href="mailto:wilfred.nguyen@centre.edu"
               className="text-blue-600 hover:underline"
