@@ -6,12 +6,22 @@ import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 
 type ParsedPages = Record<string, string[]>;
 type FileConfig = { nom?: string; qn?: string };
+type CanvasStartConfig = { firstRectoCanvas: number };
 
 const TRANSCRIPTION_FILES_BY_DOCUMENT_ID: Record<string, FileConfig> = {
   "borg-tonch-18": {
     nom: "/philipphe-binh/borg-tonch-18-nom.txt",
     qn: "/philipphe-binh/borg-tonch-18-qn.txt",
   },
+  "borg-tonch-34": {
+    nom: "/philipphe-binh/borg-tonch-34-nom.txt",
+    qn: "/philipphe-binh/borg-tonch-34-qn.txt",
+  },
+};
+
+const CANVAS_START_BY_DOCUMENT_ID: Record<string, CanvasStartConfig> = {
+  "borg-tonch-18": { firstRectoCanvas: 2 },
+  "borg-tonch-34": { firstRectoCanvas: 10 },
 };
 
 function parseTranscript(raw: string): ParsedPages {
@@ -60,7 +70,10 @@ async function fetchTranscript(url?: string): Promise<ParsedPages> {
   }
 }
 
-function getSpreadPagesFromCanvasId(canvasId?: string): string[] {
+function getSpreadPagesFromCanvasId(
+  canvasId?: string,
+  documentId?: string
+): string[] {
   if (!canvasId) {
     return [];
   }
@@ -75,7 +88,14 @@ function getSpreadPagesFromCanvasId(canvasId?: string): string[] {
     return [];
   }
 
-  const recto = Math.ceil(canvasNumber / 2);
+  const firstRectoCanvas =
+    CANVAS_START_BY_DOCUMENT_ID[documentId || ""]?.firstRectoCanvas ?? 2;
+  const normalizedCanvas = canvasNumber - (firstRectoCanvas - 2);
+  if (!Number.isFinite(normalizedCanvas) || normalizedCanvas <= 0) {
+    return [];
+  }
+
+  const recto = Math.ceil(normalizedCanvas / 2);
   const verso = recto - 1;
 
   if (verso <= 0) {
@@ -131,8 +151,8 @@ export default function PhilippheBinhAnnotations({
   }, [documentId]);
 
   const spreadPages = useMemo(
-    () => getSpreadPagesFromCanvasId(liveCanvasId),
-    [liveCanvasId]
+    () => getSpreadPagesFromCanvasId(liveCanvasId, documentId),
+    [liveCanvasId, documentId]
   );
 
   return (

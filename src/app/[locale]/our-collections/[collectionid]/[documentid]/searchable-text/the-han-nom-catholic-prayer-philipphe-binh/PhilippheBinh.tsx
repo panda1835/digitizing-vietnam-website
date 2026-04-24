@@ -4,8 +4,10 @@ import PhilippheBinhAnnotations from "./PhilippheBinhAnnotations";
 const MANIFEST_BY_DOCUMENT_ID: Record<string, string> = {
   "thu-ban-borg-tonch-17":
     "https://digi.vatlib.it/iiif/MSS_Borg.tonch.17/manifest.json",
-  "borg-tonch-18": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.18/manifest.json",
-  "borg-tonch-34": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.34/manifest.json",
+  "borg-tonch-18":
+    "https://digi.vatlib.it/iiif/MSS_Borg.tonch.18/manifest.json",
+  "borg-tonch-34":
+    "https://digi.vatlib.it/iiif/MSS_Borg.tonch.34/manifest.json",
 };
 
 const TRANSCRIPTION_FILES_BY_DOCUMENT_ID: Record<
@@ -15,6 +17,10 @@ const TRANSCRIPTION_FILES_BY_DOCUMENT_ID: Record<
   "borg-tonch-18": {
     nom: "borg-tonch-18-nom.txt",
     qn: "borg-tonch-18-qn.txt",
+  },
+  "borg-tonch-34": {
+    nom: "borg-tonch-34-nom.txt",
+    qn: "borg-tonch-34-qn.txt",
   },
 };
 
