@@ -11,7 +11,7 @@ import { routing } from "@/i18n/routing";
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
-    title: `${t("NavigationBar.pedagogy-menu")} | Digitizing Việt Nam`,
+    title: `${t("Pedagogy.items.teaching-vietnamese-studies.title")} | Digitizing Việt Nam`,
   };
 }
 

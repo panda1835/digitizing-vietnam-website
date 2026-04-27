@@ -299,12 +299,16 @@
         "quoc-ngu-input": {
           "placeholder": "Type a word in Quốc Ngữ...",
           "select-character": "Select character (press 1-9 or click):"
+        },
+        "kim-han-nom": {
+          "name": "Kim Hán Nôm",
+          "description": "Kim Hán Nôm is a tool designed to support the translation of Hán-Nôm (classical Chinese and demotic Vietnamese) texts, developed by faculty members from the Faculty of Information Technology and the Center for Computational Linguistics at the University of Science – Vietnam National University, Ho Chi Minh City (VNU-HCM). By applying artificial intelligence, Kim Hán Nôm offers two main functions: the recognition and translation of Hán-Nôm texts. Specifically, the tool can identify and translate standard literary texts (such as books and stories), administrative documents (such as imperial edicts and royal decrees), and inscriptions in public spaces (such as temples, pagodas, and shrines)."
         }
       }
     },
     "digital-humanities-tools": {
-      "name": "Digital Humanities Tools",
-      "description": "The Digital Humanities Tools is a collection of tools that allow users to analyze and explore various aspects of digital humanities research. This tool is especially useful for researchers who need to analyze large datasets or perform complex analyses.",
+      "name": "Digital Sandbox",
+      "description": "Digital Sandbox is a space for sharing digital humanities tools contributed by the community. Here, researchers, educators, and students can showcase the tools they have developed to reach a broader community in the field of Vietnamese studies.",
       "no-tools-message": "No digital humanities tools available at the moment."
     },
     "date-converter": {

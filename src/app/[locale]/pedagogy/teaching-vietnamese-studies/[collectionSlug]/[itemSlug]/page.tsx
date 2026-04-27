@@ -36,7 +36,7 @@ export async function generateMetadata({
       const ogImage = getStrapiImageUrl(item.thumbnail?.url);
 
       return {
-        title: `${item.title} | Digitizing Việt Nam`,
+        title: `${item.title} | ${t("Pedagogy.items.teaching-vietnamese-studies.title")} | Digitizing Việt Nam`,
         description,
         openGraph: {
           ...(ogImage ? { images: [{ url: ogImage }] } : {}),
@@ -48,7 +48,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${t("NavigationBar.pedagogy-menu")} | Digitizing Việt Nam`,
+    title: `${t("Pedagogy.items.teaching-vietnamese-studies.title")} | Digitizing Việt Nam`,
   };
 }
 
