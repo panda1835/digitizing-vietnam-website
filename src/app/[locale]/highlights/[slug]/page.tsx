@@ -56,7 +56,7 @@ export async function generateMetadata({
 
   try {
     const queryParams = {
-      fields: ["title", "content"],
+      fields: ["title", "content", "publishedAt"],
       "filters[slug][$eq]": params.slug,
       "populate[0]": "thumbnail",
       locale: params.locale,
@@ -80,6 +80,8 @@ export async function generateMetadata({
         title: `${blog.title} | Digitizing Việt Nam`,
         description,
         openGraph: {
+          type: "article",
+          publishedTime: blog.publishedAt,
           ...(ogImage ? { images: [{ url: ogImage }] } : {}),
         },
       };
