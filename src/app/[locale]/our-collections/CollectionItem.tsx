@@ -40,12 +40,12 @@ export const CollectionItem = ({ collection }: { collection: Collection }) => {
       </Link>
       <HoverCard>
         <HoverCardTrigger>
-          <div className="line-clamp-3 mt-[4px] font-light font-['Helvetica Neue']">
+          <div className="line-clamp-3 mt-[8px] font-light font-['Helvetica Neue']">
             {collection.abstract}
           </div>
         </HoverCardTrigger>
         <HoverCardContent className="w-[350px]">
-          <ScrollArea className="h-[200px] p-4">
+          <ScrollArea className="h-[200px] p-4 ">
             {collection.abstract}
           </ScrollArea>
         </HoverCardContent>

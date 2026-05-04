@@ -32,23 +32,23 @@ export const CollectionItem = ({ collectionItem, collectionSlug }) => {
       </Link>
       <Link href={`/our-collections/${collectionSlug}/${collectionItem.slug}`}>
         <div
-          className={`mt-[12px] line-clamp-2 min-h-[3.5rem] min-w-0 font-['Helvetica Neue'] text-xl font-medium text-branding-black hover:text-branding-brown hover:underline`}
+          className={`mt-[12px] line-clamp-2  min-w-0 font-['Helvetica Neue'] text-xl font-medium text-branding-black hover:text-branding-brown hover:underline`}
         >
           {collectionItem.title}
         </div>
       </Link>
-      <HoverCard>
-        <HoverCardTrigger asChild>
-          <div className="mt-[4px] min-h-[4.5rem] min-w-0 font-['Helvetica Neue'] font-light">
-            {abstract && <p className="line-clamp-3">{abstract}</p>}
-          </div>
-        </HoverCardTrigger>
-        {abstract && (
+      {abstract && (
+        <HoverCard>
+          <HoverCardTrigger asChild>
+            <p className="mt-[8px] line-clamp-3 min-w-0 font-['Helvetica Neue'] font-light">
+              {abstract}
+            </p>
+          </HoverCardTrigger>
           <HoverCardContent className="w-[350px]">
             <ScrollArea className="h-[200px] p-4">{abstract}</ScrollArea>
           </HoverCardContent>
-        )}
-      </HoverCard>
+        </HoverCard>
+      )}
 
       {/* <div className="mt-3">
         <LearnMoreButton
