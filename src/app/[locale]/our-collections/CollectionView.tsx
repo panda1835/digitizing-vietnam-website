@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { CollectionItem } from "./CollectionItem";
 import { CollectionTOC } from "./CollectionTOC";
@@ -14,10 +14,13 @@ import { generateCollectionFilters } from "./filter";
 
 const OurCollections = ({ collections, locale }) => {
   const t = useTranslations();
+  const pathname = usePathname();
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   const [filteredResults, setFilteredResults] = useState(collections);
   const [viewMode, setViewMode] = useState<"grid" | "toc" | "list">("grid");
+  const [selectedTab, setSelectedTab] = useState<string | undefined>();
 
   //   console.log("collections", collections);
   const filter = generateCollectionFilters(collections);
@@ -86,6 +89,30 @@ const OurCollections = ({ collections, locale }) => {
     requestedTabValue && availableTabValues.includes(requestedTabValue)
       ? requestedTabValue
       : availableTabValues[0];
+
+  useEffect(() => {
+    setSelectedTab(defaultTabValue);
+  }, [defaultTabValue]);
+
+  const handleTabChange = (tabValue: string) => {
+    setSelectedTab(tabValue);
+
+    const selectedCategory = sortedCategories.find(
+      ([categoryName]) => toTabValue(categoryName) === tabValue
+    )?.[0];
+
+    const params = new URLSearchParams(searchParams.toString());
+    if (selectedCategory) {
+      params.set("category", selectedCategory);
+    } else {
+      params.delete("category");
+    }
+
+    const queryString = params.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, {
+      scroll: false,
+    });
+  };
 
   const handleFilterChange = (selectedFilters: Record<string, string[]>) => {
     const filtered = collections.filter((item) => {
@@ -182,7 +209,8 @@ const OurCollections = ({ collections, locale }) => {
           {viewMode === "grid" ? (
             sortedCategories.length > 0 ? (
               <Tabs
-                defaultValue={defaultTabValue}
+                value={selectedTab ?? defaultTabValue}
+                onValueChange={handleTabChange}
                 className="w-full mt-10"
               >
                 <TabsList className="h-auto p-0 bg-transparent gap-8">
