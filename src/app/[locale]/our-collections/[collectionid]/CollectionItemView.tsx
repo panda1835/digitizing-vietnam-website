@@ -66,7 +66,7 @@ const CollectionItemView = ({ collectionItems, collectionMetadata }) => {
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex-col mb-20 w-full">
-        <div className="flex">
+        <div className="flex w-full">
           {/* <div className="mt-10">
             <FilterSidebar
               filters={filter}
@@ -74,7 +74,7 @@ const CollectionItemView = ({ collectionItems, collectionMetadata }) => {
               numberOfResults={filteredResults.length}
             />
           </div> */}
-          <div className="flex flex-col gap-8 mt-10">
+          <div className="mt-10 flex w-full flex-col gap-8">
             {sortedCategories.map(([category, items]) => (
               <div key={category} className="w-full">
                 {category !== noCategory && (
@@ -84,7 +84,7 @@ const CollectionItemView = ({ collectionItems, collectionMetadata }) => {
                     {category}
                   </div>
                 )}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 gap-y-12">
+                <div className="grid w-full grid-cols-1 gap-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3">
                   {items.map((item) => (
                     <CollectionItem
                       collectionItem={item}

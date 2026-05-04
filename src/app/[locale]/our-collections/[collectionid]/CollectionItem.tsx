@@ -16,9 +16,10 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export const CollectionItem = ({ collectionItem, collectionSlug }) => {
   const thumbnail = getImageByKey(collectionItem.thumbnail.formats, "large");
+  const abstract = collectionItem.abstract?.trim();
   const t = useTranslations();
   return (
-    <div className="">
+    <div className="flex h-full min-w-0 flex-col">
       <Link href={`/our-collections/${collectionSlug}/${collectionItem.slug}`}>
         <Image
           unoptimized
@@ -26,27 +27,27 @@ export const CollectionItem = ({ collectionItem, collectionSlug }) => {
           alt={collectionItem.title}
           width={thumbnail!.width}
           height={thumbnail!.height}
-          className="object-cover rounded w-full h-40"
+          className="aspect-[5/2] h-auto w-full rounded object-cover"
         />
       </Link>
       <Link href={`/our-collections/${collectionSlug}/${collectionItem.slug}`}>
         <div
-          className={`font-['Helvetica Neue'] font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
+          className={`mt-[12px] line-clamp-2 min-h-[3.5rem] min-w-0 font-['Helvetica Neue'] text-xl font-medium text-branding-black hover:text-branding-brown hover:underline`}
         >
           {collectionItem.title}
         </div>
       </Link>
       <HoverCard>
-        <HoverCardTrigger>
-          <div className="line-clamp-3 mt-[4px] font-light font-['Helvetica Neue'] ">
-            {collectionItem.abstract}
+        <HoverCardTrigger asChild>
+          <div className="mt-[4px] min-h-[4.5rem] min-w-0 font-['Helvetica Neue'] font-light">
+            {abstract && <p className="line-clamp-3">{abstract}</p>}
           </div>
         </HoverCardTrigger>
-        <HoverCardContent className="w-[350px]">
-          <ScrollArea className="h-[200px] p-4">
-            {collectionItem.abstract}
-          </ScrollArea>
-        </HoverCardContent>
+        {abstract && (
+          <HoverCardContent className="w-[350px]">
+            <ScrollArea className="h-[200px] p-4">{abstract}</ScrollArea>
+          </HoverCardContent>
+        )}
       </HoverCard>
 
       {/* <div className="mt-3">
