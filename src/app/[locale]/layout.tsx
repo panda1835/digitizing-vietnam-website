@@ -2,6 +2,7 @@ import "@/app/globals.css";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
+import { headers } from "next/headers";
 import { Metadata } from "next";
 
 import NavigationBar from "@/components/layout/NavigationBar";
@@ -57,6 +58,24 @@ export default async function LocaleLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
+
+  // Admin subdomain (admin.digitizingvietnam.com, admin.localhost, …) gets a
+  // chromeless layout — no DVN navbar, footer, textures, or max-width wrap.
+  // The intl/tooltip/toaster providers stay so admin pages can still use
+  // translations, tooltips, and toast notifications.
+  const host = headers().get("host") ?? "";
+  const isAdminHost = host.startsWith("admin.");
+  if (isAdminHost) {
+    return (
+      <div className="min-h-screen bg-white">
+        <NextIntlClientProvider messages={messages}>
+          <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+          <Toaster />
+        </NextIntlClientProvider>
+      </div>
+    );
+  }
+
   const style = {
     backgroundImage: `url(/images/paper-textual.png)`,
     // backgroundSize: "auto 80px", // Assuming you want the "height" of the repeating image to be 80px
