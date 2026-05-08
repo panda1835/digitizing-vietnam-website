@@ -14,9 +14,11 @@ export default function OcrToolboxIndex({
           Admin
         </Link>
         <span className="mx-1">/</span>
-        <span>OCR Toolbox</span>
+        <span>Hán-Nôm OCR Toolbox</span>
       </div>
-      <h1 className="text-2xl font-semibold text-gray-900 mb-2">OCR Toolbox</h1>
+      <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+        Hán-Nôm OCR Toolbox
+      </h1>
       <p className="text-sm text-gray-500 mb-8">
         Test OCR on a single image, import existing OCR data, or edit
         previously-imported documents.

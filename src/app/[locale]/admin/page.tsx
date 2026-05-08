@@ -19,7 +19,7 @@ export default function AdminIndex({
             href={`/${params.locale}/admin/ocr`}
             className="text-indigo-600 hover:underline"
           >
-            OCR Toolbox →
+            Hán-Nôm OCR Toolbox →
           </Link>
           <span className="ml-2 text-gray-500">
             Single-page tester, importer, and per-doc editor.

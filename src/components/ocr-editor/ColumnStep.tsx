@@ -454,14 +454,11 @@ export default function ColumnStep({
     e.preventDefault();
     e.stopPropagation();
 
-    // If the user grabbed a column that's already part of a multi-selection,
-    // drag the entire selection as one unit. Otherwise switch to a single-
-    // column drag, replacing any prior selection.
-    const dragGroup =
-      selected.has(index) && selected.size > 1 ? [...selected] : [index];
-    if (dragGroup.length === 1) {
-      selectOnly(index);
-    }
+    // Plain click always collapses to a single-column selection — even
+    // when the clicked column was part of a prior multi-selection. Use
+    // Cmd/Ctrl/Shift modifiers (handled above) for additive gestures.
+    selectOnly(index);
+    const dragGroup = [index];
     const groupOrigs = new Map<number, Bbox>(
       dragGroup.map((i) => [i, { ...columns[i].bbox }])
     );
@@ -766,13 +763,56 @@ export default function ColumnStep({
           );
         })()}
 
+        {/* Single-selection details. Shown right below the action bar so
+            the info sits near the image (i.e. where the user is looking)
+            without duplicating the sidebar list. Hidden when 0 or 2+
+            columns are selected — those cases are handled by the action
+            bar's count + bulk actions. */}
+        {(() => {
+          if (selected.size !== 1) return null;
+          const ci = Array.from(selected)[0];
+          const col = columns[ci];
+          if (!col) return null;
+          const kind = getKind(col);
+          const charCount = charCounts?.[ci] ?? 0;
+          const w = col.bbox.maxX - col.bbox.minX;
+          const h = col.bbox.maxY - col.bbox.minY;
+          const fmt = (n: number) => (n * 100).toFixed(1) + "%";
+          return (
+            <div className="px-3 py-1.5 bg-white border-b border-gray-200 flex items-center justify-center gap-3 text-[11px] text-gray-700">
+              <span>
+                <span className="text-gray-500">Column</span>{" "}
+                <span className="font-semibold">#{ci + 1}</span>
+                <span className="text-gray-400"> of {columns.length}</span>
+              </span>
+              <span className="text-gray-300">·</span>
+              <span
+                className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded ${KIND_BADGE[kind]} text-[10px] font-semibold`}
+              >
+                <span>{KIND_GLYPH[kind]}</span>
+                <span>{KIND_LABEL[kind]}</span>
+              </span>
+              <span className="text-gray-300">·</span>
+              <span>
+                <span className="font-semibold">{charCount}</span>{" "}
+                <span className="text-gray-500">
+                  char{charCount === 1 ? "" : "s"}
+                </span>
+              </span>
+              <span className="text-gray-300">·</span>
+              <span className="text-gray-500 tabular-nums">
+                {fmt(w)} × {fmt(h)}
+              </span>
+            </div>
+          );
+        })()}
+
         <div
           ref={containerRef}
-          className="relative h-full overflow-auto bg-gray-100 flex items-start"
-          style={{ justifyContent: "safe center" }}
+          className="relative h-full overflow-auto bg-gray-100 flex items-center justify-center"
         >
           <div
-            className="relative inline-block select-none shrink-0"
+            className="relative inline-block select-none shrink-0 max-w-full max-h-full"
             onMouseDown={handleImageMouseDown}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -780,7 +820,7 @@ export default function ColumnStep({
               ref={imgRef}
               src={imageUrl}
               alt="Document page"
-              className="block w-full h-auto pointer-events-none"
+              className="block max-w-full max-h-full w-auto h-auto pointer-events-none"
               draggable={false}
             />
 
