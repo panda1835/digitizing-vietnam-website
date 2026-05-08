@@ -59,6 +59,7 @@
     "dotenv": "^16.4.5",
     "i18next": "^23.11.5",
     "isomorphic-dompurify": "^2.15.0",
+    "jszip": "^3.10.1",
     "juice": "^10.0.0",
     "lucide-react": "^0.460.0",
     "mirador": "^4.0.0-alpha.2",
