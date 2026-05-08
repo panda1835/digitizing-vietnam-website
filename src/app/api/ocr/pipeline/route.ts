@@ -17,14 +17,16 @@ export async function GET() {
   const usage = await getUsageStats();
   const index = await getIndex();
 
-  // Enrich documents list with any queued/pending/processing docs not yet in the pipeline status
+  // Enrich documents list with any queued/pending/processing docs not yet in
+  // the pipeline status. Includes both IIIF (manifestUrl) and PDF (source:"pdf")
+  // entries so the admin UI shows them all as "waiting".
   const pipelineSlugs = new Set(status.documents.map((d) => d.slug));
   const queuedSlugs = Object.entries(index)
     .filter(
       ([slug, e]) =>
         !pipelineSlugs.has(slug) &&
         (e.status === "queued" || e.status === "pending" || e.status === "processing") &&
-        e.manifestUrl
+        (Boolean(e.manifestUrl) || e.source === "pdf")
     )
     .map(([slug, e]) => ({
       slug,
@@ -32,6 +34,7 @@ export async function GET() {
       totalPages: e.pageCount || 0,
       completedPages: 0,
       status: (e.status === "processing" ? "processing" : "waiting") as "waiting" | "processing",
+      source: e.source,
     }));
 
   const avgSecondsPerPage = await getAvgSecondsPerPage();

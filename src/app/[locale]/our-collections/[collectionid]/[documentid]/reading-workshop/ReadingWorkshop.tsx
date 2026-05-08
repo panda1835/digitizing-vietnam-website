@@ -70,6 +70,7 @@ export default function ReadingWorkshop({
   const [selectedText, setSelectedText] = useState("");
   const [rawText, setRawText] = useState<string | null>(null);
   const [textColumns, setTextColumns] = useState<any[] | null>(null);
+  const [pageAvgConfidence, setPageAvgConfidence] = useState<number | null>(null);
   const [textLoading, setTextLoading] = useState(true);
   const [ocrRunning, setOcrRunning] = useState(false);
   const [ocrMessage, setOcrMessage] = useState<string | null>(null);
@@ -251,15 +252,23 @@ export default function ReadingWorkshop({
 
   // Fetch text for the current page (shared with TextPane and ToolsPanel)
   useEffect(() => {
-    if (textPage <= 0) { setRawText(null); setTextLoading(false); return; }
+    if (textPage <= 0) { setRawText(null); setPageAvgConfidence(null); setTextLoading(false); return; }
     let cancelled = false;
     setRawText(null);
     setTextColumns(null);
+    setPageAvgConfidence(null);
     setTextLoading(true);
     fetch(`/api/page-text/${encodeURIComponent(documentSlug)}/${textPage}`)
       .then((r) => r.ok ? r.json() : null)
-      .then((data) => { if (!cancelled) { setRawText(data?.text ?? null); setTextColumns(data?.columns ?? null); setTextLoading(false); } })
-      .catch(() => { if (!cancelled) { setRawText(null); setTextColumns(null); setTextLoading(false); } });
+      .then((data) => {
+        if (!cancelled) {
+          setRawText(data?.text ?? null);
+          setTextColumns(data?.columns ?? null);
+          setPageAvgConfidence(typeof data?.pageAvgConfidence === "number" ? data.pageAvgConfidence : null);
+          setTextLoading(false);
+        }
+      })
+      .catch(() => { if (!cancelled) { setRawText(null); setTextColumns(null); setPageAvgConfidence(null); setTextLoading(false); } });
     return () => { cancelled = true; };
   }, [documentSlug, textPage]);
 
@@ -338,7 +347,12 @@ export default function ReadingWorkshop({
               setTextLoading(true);
               fetch(`/api/page-text/${encodeURIComponent(documentSlug)}/${textPage}`)
                 .then((r) => r.ok ? r.json() : null)
-                .then((d) => { setRawText(d?.text ?? null); setTextColumns(d?.columns ?? null); setTextLoading(false); })
+                .then((d) => {
+                  setRawText(d?.text ?? null);
+                  setTextColumns(d?.columns ?? null);
+                  setPageAvgConfidence(typeof d?.pageAvgConfidence === "number" ? d.pageAvgConfidence : null);
+                  setTextLoading(false);
+                })
                 .catch(() => { setTextLoading(false); });
             }
           } catch { /* skip malformed */ }
@@ -351,7 +365,12 @@ export default function ReadingWorkshop({
         setTextLoading(true);
         fetch(`/api/page-text/${encodeURIComponent(documentSlug)}/${textPage}`)
           .then((r) => r.ok ? r.json() : null)
-          .then((d) => { setRawText(d?.text ?? null); setTextColumns(d?.columns ?? null); setTextLoading(false); })
+          .then((d) => {
+            setRawText(d?.text ?? null);
+            setTextColumns(d?.columns ?? null);
+            setPageAvgConfidence(typeof d?.pageAvgConfidence === "number" ? d.pageAvgConfidence : null);
+            setTextLoading(false);
+          })
           .catch(() => { setTextLoading(false); });
       } else {
         setOcrMessage(`OCR error: ${e.message}`);
@@ -538,6 +557,7 @@ export default function ReadingWorkshop({
                       columns={textColumns}
                       textLoading={textLoading}
                       highlightQuery={activeHighlight}
+                      pageAvgConfidence={pageAvgConfidence}
                     />
                   </div>
                 ) : (
@@ -549,6 +569,7 @@ export default function ReadingWorkshop({
                     columns={textColumns}
                     textLoading={textLoading}
                     highlightQuery={activeHighlight}
+                    pageAvgConfidence={pageAvgConfidence}
                   />
                 )}
               </div>

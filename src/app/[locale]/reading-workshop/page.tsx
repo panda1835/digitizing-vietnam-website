@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Metadata } from "next";
 import { Merriweather } from "next/font/google";
 
-import { getIndex, getPagesWithTextCounts, OcrIndexEntry } from "@/lib/ocr-store";
+import { getIndex, getPagesWithTextCounts, getCorpusStats, OcrIndexEntry } from "@/lib/ocr-store";
 import { getHanNomManifestEntries, HanNomManifestEntry } from "@/lib/han-nom-collection";
 import WorkshopHubClient from "./WorkshopHubClient";
 
@@ -31,7 +31,11 @@ export default async function ReadingWorkshopHubPage({
   const { locale } = params;
   setRequestLocale(locale);
 
-  const [ocrIndex, pagesWithTextCounts] = await Promise.all([getIndex(), getPagesWithTextCounts()]);
+  const [ocrIndex, pagesWithTextCounts, corpusStats] = await Promise.all([
+    getIndex(),
+    getPagesWithTextCounts(),
+    getCorpusStats(),
+  ]);
   const hanNomEntries = getHanNomManifestEntries();
 
   // Mark which Han-Nom items are already in the OCR index
@@ -64,6 +68,19 @@ export default async function ReadingWorkshopHubPage({
           <span className="text-sm text-branding-black/50 font-light">
             <span className="font-medium text-branding-black/70">{totalPagesWithText.toLocaleString()}</span> / {totalPages.toLocaleString()} pages with text
           </span>
+          {corpusStats?.overallAvgConfidence != null && (() => {
+            const avg = corpusStats.overallAvgConfidence;
+            const cls =
+              avg >= 0.9 ? "text-emerald-600" : avg >= 0.75 ? "text-amber-600" : "text-red-600";
+            return (
+              <span
+                className="text-sm text-branding-black/50 font-light"
+                title={`Weighted across ${corpusStats.totalCharCount.toLocaleString()} OCR'd characters in ${corpusStats.docsWithConfidence} docs`}
+              >
+                Avg OCR: <span className={`font-medium tabular-nums ${cls}`}>{Math.round(avg * 100)}%</span>
+              </span>
+            );
+          })()}
         </div>
       </div>
 

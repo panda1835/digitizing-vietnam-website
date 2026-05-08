@@ -208,15 +208,15 @@ export default function OCRToolbox({
 
       {/* Character-level tools (char box view only) */}
       {viewMode === "charBox" && <>
-      {/* Alternative character suggestions from kandianguji choices */}
+      {/* Alternate candidate suggestions from OCR choices */}
       <div>
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
-          Alternative Characters
+          Alternate Candidates
         </p>
         {focusedOffset === null ? (
-          <p className="text-[11px] text-gray-400 italic">Focus a character to see alternatives</p>
+          <p className="text-[11px] text-gray-400 italic">Focus a character to see candidates</p>
         ) : focusedChoices.length === 0 ? (
-          <p className="text-[11px] text-gray-400 italic">No alternatives available for this character</p>
+          <p className="text-[11px] text-gray-400 italic">No candidates available for this character</p>
         ) : (
           <div className="flex flex-wrap gap-1">
             {focusedChoices.map((s, i) => (
@@ -225,8 +225,14 @@ export default function OCRToolbox({
                 onClick={() => {
                   onSuggestApply(focusedOffset, s);
                 }}
-                className="px-2 py-1 text-base rounded border border-gray-300 hover:bg-indigo-50 hover:border-indigo-400"
+                title={i < 9 ? `Press ${i + 1} to apply` : undefined}
+                className="relative px-2 py-1 text-base rounded border border-gray-300 hover:bg-indigo-50 hover:border-indigo-400"
               >
+                {i < 9 && (
+                  <span className="absolute -top-1.5 -left-1.5 inline-flex items-center justify-center w-4 h-4 text-[9px] font-semibold rounded-full bg-indigo-500 text-white leading-none">
+                    {i + 1}
+                  </span>
+                )}
                 {s}
               </button>
             ))}

@@ -1,0 +1,356 @@
+"use client";
+
+import type { SpatialCharacter } from "./ocr-store";
+
+export interface NomNaVietCandidate {
+  char: string;
+  confidence: number;
+}
+
+/**
+ * Concurrency limiter — gates async fns so at most `n` run in parallel.
+ * Returned function takes an async thunk and resolves with its result.
+ */
+export function pLimit(n: number) {
+  let active = 0;
+  const queue: (() => void)[] = [];
+  const next = () => {
+    active--;
+    queue.shift()?.();
+  };
+  return <T>(fn: () => Promise<T>): Promise<T> =>
+    new Promise<T>((resolve, reject) => {
+      const run = () => {
+        active++;
+        fn().then(resolve, reject).finally(next);
+      };
+      if (active < n) run();
+      else queue.push(run);
+    });
+}
+
+/**
+ * Crop a bbox out of a loaded HTMLImageElement to a 64×64 grayscale image
+ * and return a flat array of 4096 pixel values normalized to [0, 1].
+ *
+ * The Nôm Na Việt OCR endpoint accepts raw pixel arrays (model input
+ * tensor) — not images — and expects exactly 4096 values per character.
+ *
+ * Bbox is expanded by `padFrac` on each side to avoid stroke clipping.
+ * Background is white-padded if the cropped region is non-square so the
+ * char keeps its aspect ratio inside the 64×64 frame.
+ */
+export const NNV_INPUT_SIZE = 64;
+
+export async function cropBboxToPixelArray(
+  img: HTMLImageElement,
+  bbox: Array<{ x: number; y: number }>,
+  padFrac = 0.1
+): Promise<number[]> {
+  const xs = bbox.map((p) => p.x);
+  const ys = bbox.map((p) => p.y);
+  const minX = Math.min(...xs);
+  const maxX = Math.max(...xs);
+  const minY = Math.min(...ys);
+  const maxY = Math.max(...ys);
+
+  const W = img.naturalWidth;
+  const H = img.naturalHeight;
+
+  // Bbox in source pixels, expanded, clamped.
+  const w0 = (maxX - minX) * W;
+  const h0 = (maxY - minY) * H;
+  const padX = w0 * padFrac;
+  const padY = h0 * padFrac;
+  const sx = Math.max(0, minX * W - padX);
+  const sy = Math.max(0, minY * H - padY);
+  const sw = Math.min(W - sx, w0 + 2 * padX);
+  const sh = Math.min(H - sy, h0 + 2 * padY);
+
+  // Render onto a 64×64 canvas, preserving aspect ratio with white padding.
+  const N = NNV_INPUT_SIZE;
+  const canvas = document.createElement("canvas");
+  canvas.width = N;
+  canvas.height = N;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Could not get 2D context");
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, N, N);
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
+
+  const scale = Math.min(N / sw, N / sh);
+  const dw = Math.max(1, Math.round(sw * scale));
+  const dh = Math.max(1, Math.round(sh * scale));
+  const dx = Math.floor((N - dw) / 2);
+  const dy = Math.floor((N - dh) / 2);
+  ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);
+
+  // Pull RGBA pixels and convert to single-channel luminance in [0, 1].
+  // Most handwriting models trained on inverted MNIST-style data want
+  // dark strokes high, white background low — but we don't know which
+  // convention this endpoint uses, so we send "natural" (white = 1.0).
+  // If predictions are garbage, flip with `1 - v` here.
+  const { data } = ctx.getImageData(0, 0, N, N);
+  const out = new Array<number>(N * N);
+  for (let i = 0, p = 0; i < data.length; i += 4, p++) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    // Rec. 709 luma → grayscale, normalized to [0, 1].
+    out[p] = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+  }
+  return out;
+}
+
+/**
+ * POST one char's flat pixel array to /api/ocr/nomnaviet (proxied upstream).
+ * Returns top-N candidates, sorted descending by confidence.
+ */
+/**
+ * True iff `s`'s first code point is in the Supplementary Ideographic Plane
+ * (CJK Ext B and beyond, U+20000–U+2FFFF, plus the rarely-used U+2F800-2FA1F
+ * compatibility supplement). Nôm-specific demotic characters live here;
+ * standard Han characters live in BMP (U+3400-9FFF, U+F900-FAFF).
+ *
+ * Used to decide whether a Nôm Na Việt prediction "wins" over the original
+ * Kandianguji reading: if NNV returns a SIP char, it's almost certainly the
+ * correct Nôm form (kandi can't even produce SIP chars). If NNV returns a
+ * BMP Han char, kandi is at least as likely to be right, so we keep kandi
+ * as primary and still surface NNV candidates in `choices[]` for review.
+ */
+export function isNomSipChar(s: string): boolean {
+  if (!s) return false;
+  const cp = s.codePointAt(0) ?? 0;
+  return (
+    (cp >= 0x20000 && cp <= 0x2ffff) || (cp >= 0x2f800 && cp <= 0x2fa1f)
+  );
+}
+
+/** Thrown when upstream is unavailable / rate-limiting — orchestrator should bail. */
+export class NomNaVietUnavailableError extends Error {
+  status: number;
+  constructor(status: number, message: string) {
+    super(message);
+    this.name = "NomNaVietUnavailableError";
+    this.status = status;
+  }
+}
+
+export async function recognizeSingleChar(
+  pixels: number[],
+  topK = 9
+): Promise<NomNaVietCandidate[]> {
+  const res = await fetch("/api/ocr/nomnaviet", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ imageData: pixels, topK }),
+  });
+  if (res.status === 503 || res.status === 429) {
+    throw new NomNaVietUnavailableError(
+      res.status,
+      res.status === 503
+        ? "Nôm Na Việt server is under maintenance — try again later."
+        : "Rate limited by Nôm Na Việt — back off and retry."
+    );
+  }
+  if (!res.ok) throw new Error(`Nôm Na Việt OCR failed: HTTP ${res.status}`);
+  const data = await res.json();
+  return Array.isArray(data.candidates) ? data.candidates : [];
+}
+
+/**
+ * Hybrid orchestrator.
+ *
+ * 1. Caller already ran Kandianguji (we don't re-run it — the OCRTester
+ *    test page already has those results in `kandiSpatialData`).
+ * 2. For each char with a bbox, crop and re-OCR with Nôm Na Việt.
+ * 3. Merge: text = NNV top-1, choices = [NNV top-2..N, kandi.text,
+ *    ...kandi.choices], deduplicated.
+ *
+ * Failures per char are tolerated — that char keeps its Kandianguji
+ * reading so a single 502 doesn't blow up a whole 500-char page.
+ */
+export interface NomNaVietReplacement {
+  offset: number;
+  kandiChar: string;
+  kandiConf: number;
+  nnvChar: string | null;
+  nnvConf: number | null;
+  /** True iff the top NNV candidate differs from the kandi guess. */
+  changed: boolean;
+}
+
+export interface RerecognizeResult {
+  spatialData: SpatialCharacter[];
+  replacements: NomNaVietReplacement[];
+}
+
+export async function rerecognizeWithNomNaViet(
+  img: HTMLImageElement,
+  kandiSpatialData: SpatialCharacter[],
+  options: {
+    topK?: number;
+    concurrency?: number;
+    /** Skip chars whose kandi confidence is at/above this (0–1). Default 1 = process all. */
+    confidenceThreshold?: number;
+    /** Per-slot polite delay added before each request (ms). Default 0. */
+    slotJitterMs?: number;
+    onProgress?: (done: number, total: number) => void;
+    /** Fires after each per-char request, before the final merge. */
+    onReplacement?: (rep: NomNaVietReplacement) => void;
+  } = {}
+): Promise<RerecognizeResult> {
+  const {
+    topK = 9,
+    concurrency = 3,
+    confidenceThreshold = 1,
+    slotJitterMs = 0,
+    onProgress,
+    onReplacement,
+  } = options;
+  const limit = pLimit(concurrency);
+
+  // confidenceThreshold >= 1 means "send every char with a bbox" — skip the
+  // conf filter entirely so chars whose kandi confidence is exactly 1.0
+  // (which happens) still get sent.
+  const sendAll = confidenceThreshold >= 1;
+  const charsWithBbox = kandiSpatialData
+    .map((c, idx) => ({ c, idx }))
+    .filter((x) => x.c.bbox && (sendAll || x.c.confidence < confidenceThreshold));
+  const total = charsWithBbox.length;
+  let done = 0;
+
+  const sleep = (ms: number) =>
+    ms > 0 ? new Promise((r) => setTimeout(r, ms)) : Promise.resolve();
+
+  // Two abort triggers:
+  // 1. Any 503/429 from the proxy → instantly stop (service is asking us to back off).
+  // 2. CONSECUTIVE_ERROR_LIMIT successive failures of any kind → stop (something
+  //    is wrong — bad image format, wrong endpoint, etc. — and there's no point
+  //    grinding through hundreds more identical failures).
+  const CONSECUTIVE_ERROR_LIMIT = 5;
+  let aborted: Error | null = null;
+  let consecutiveErrors = 0;
+
+  const recognized: Array<{
+    idx: number;
+    candidates: NomNaVietCandidate[] | null;
+  }> = await Promise.all(
+    charsWithBbox.map(({ c, idx }) =>
+      limit(async () => {
+        if (aborted) {
+          done++;
+          onProgress?.(done, total);
+          return { idx, candidates: null };
+        }
+        let candidates: NomNaVietCandidate[] | null = null;
+        try {
+          if (slotJitterMs > 0) {
+            await sleep(slotJitterMs * (0.5 + Math.random()));
+          }
+          const pixels = await cropBboxToPixelArray(img, c.bbox!);
+          candidates = await recognizeSingleChar(pixels, topK);
+          consecutiveErrors = 0;
+        } catch (e) {
+          consecutiveErrors++;
+          if (e instanceof NomNaVietUnavailableError && !aborted) {
+            aborted = e;
+          } else if (consecutiveErrors >= CONSECUTIVE_ERROR_LIMIT && !aborted) {
+            aborted = new Error(
+              `Aborted Nôm Na Việt run after ${CONSECUTIVE_ERROR_LIMIT} consecutive failures: ${
+                (e as Error)?.message ?? "unknown error"
+              }`
+            );
+          }
+          candidates = null;
+        }
+        // Stream a partial replacement so the UI can grow live instead of
+        // waiting for the entire batch to complete. Same rule as the final
+        // merge: only mark "changed" when NNV's top guess is a SIP Nôm char.
+        const top1 = candidates && candidates.length > 0 ? candidates[0] : null;
+        onReplacement?.({
+          offset: c.offset,
+          kandiChar: c.text,
+          kandiConf: c.confidence,
+          nnvChar: top1?.char ?? null,
+          nnvConf: top1?.confidence ?? null,
+          changed: !!top1 && isNomSipChar(top1.char) && top1.char !== c.text,
+        });
+        done++;
+        onProgress?.(done, total);
+        return { idx, candidates };
+      })
+    )
+  );
+
+  if (aborted) throw aborted;
+
+  // Merge into a fresh array so we don't mutate input. Also build a flat
+  // replacements log (one entry per char attempted) so the UI / console can
+  // show every kandi → NNV mapping.
+  const merged: SpatialCharacter[] = kandiSpatialData.map((c) => ({ ...c }));
+  const replacements: NomNaVietReplacement[] = [];
+  for (const { idx, candidates } of recognized) {
+    const orig = merged[idx];
+    if (!candidates || candidates.length === 0) {
+      replacements.push({
+        offset: orig.offset,
+        kandiChar: orig.text,
+        kandiConf: orig.confidence,
+        nnvChar: null,
+        nnvConf: null,
+        changed: false,
+      });
+      continue;
+    }
+    const top1 = candidates[0];
+    const allNnvChars = candidates.map((x) => x.char);
+    const origChoices = (orig as any).choices as string[] | undefined;
+
+    // Replace primary text only when NNV's top guess is a Nôm-specific SIP
+    // character (one Kandianguji literally cannot produce). For BMP/Han
+    // top-1s, keep the kandi reading as primary but stack the NNV candidates
+    // into choices[] so the user can still flip to them if desired.
+    const replacePrimary = isNomSipChar(top1.char);
+    const newPrimary = replacePrimary ? top1.char : orig.text;
+
+    const seen = new Set<string>([newPrimary]);
+    const choices: string[] = [];
+    const push = (s: string | undefined) => {
+      if (s && !seen.has(s)) {
+        seen.add(s);
+        choices.push(s);
+      }
+    };
+    if (replacePrimary) {
+      // NNV won — its remaining candidates first, then original kandi reading.
+      for (const c of allNnvChars.slice(1)) push(c);
+      push(orig.text);
+    } else {
+      // Kandi stayed — surface the full NNV ranking after kandi.
+      for (const c of allNnvChars) push(c);
+    }
+    if (origChoices) for (const c of origChoices) push(c);
+
+    replacements.push({
+      offset: orig.offset,
+      kandiChar: orig.text,
+      kandiConf: orig.confidence,
+      nnvChar: top1.char,
+      nnvConf: top1.confidence,
+      changed: replacePrimary && top1.char !== orig.text,
+    });
+
+    merged[idx] = {
+      ...orig,
+      text: newPrimary,
+      confidence: replacePrimary
+        ? top1.confidence || orig.confidence
+        : orig.confidence,
+      ...(choices.length > 0 ? { choices } : {}),
+    } as SpatialCharacter;
+  }
+
+  return { spatialData: merged, replacements };
+}

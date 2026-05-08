@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { setIndexEntry } from "@/lib/ocr-store";
+import { setIndexEntry, uploadDir, uploadSourcePath } from "@/lib/ocr-store";
 import fs from "fs/promises";
-import path from "path";
 
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
@@ -24,10 +23,9 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const docDir = path.join(process.cwd(), "data", "ocr", slug);
-  await fs.mkdir(docDir, { recursive: true });
+  await fs.mkdir(uploadDir(slug), { recursive: true });
 
-  const destPath = path.join(docDir, "source.pdf");
+  const destPath = uploadSourcePath(slug);
   const buffer = await file.arrayBuffer();
   await fs.writeFile(destPath, Buffer.from(buffer));
 

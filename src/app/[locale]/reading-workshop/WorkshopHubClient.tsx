@@ -53,6 +53,7 @@ export default function WorkshopHubClient({
   const [languageFilter, setLanguageFilter] = useState<string>("all");
   const [hideAdded, setHideAdded] = useState(false);
   const [sortBy, setSortBy] = useState<"default" | "pages-asc" | "pages-desc">("default");
+  const [ocrSortBy, setOcrSortBy] = useState<"default" | "confidence-asc" | "confidence-desc" | "pages-asc" | "pages-desc">("default");
   const ITEMS_PER_PAGE = 20;
 
   // Collect unique languages across all Han-Nôm entries (sorted)
@@ -174,6 +175,17 @@ export default function WorkshopHubClient({
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: "queued" }),
+    });
+    if (res.ok) {
+      setOcrIndex((prev) => ({ ...prev, [slug]: { ...prev[slug], status: "queued" } }));
+    }
+  }, []);
+
+  const handleQueueForBatch = useCallback(async (slug: string) => {
+    const res = await fetch("/api/ocr/queue/pdf", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug }),
     });
     if (res.ok) {
       setOcrIndex((prev) => ({ ...prev, [slug]: { ...prev[slug], status: "queued" } }));
@@ -451,10 +463,237 @@ export default function WorkshopHubClient({
     setTestError(null);
   };
 
-  // ── OCR entries from index (sorted alphabetically by title) ──
-  const ocrEntries = Object.entries(ocrIndex)
-    .map(([slug, entry]) => ({ slug, ...entry }))
-    .sort((a, b) => (a.title ?? a.slug).localeCompare(b.title ?? b.slug, "vi"));
+  // ── OCR entries from index (sorted per ocrSortBy) ──
+  const ocrEntries = (() => {
+    const entries = Object.entries(ocrIndex).map(([slug, entry]) => ({ slug, ...entry }));
+    const byTitle = (a: typeof entries[number], b: typeof entries[number]) =>
+      (a.title ?? a.slug).localeCompare(b.title ?? b.slug, "vi");
+    if (ocrSortBy === "default") return entries.sort(byTitle);
+    if (ocrSortBy === "pages-asc" || ocrSortBy === "pages-desc") {
+      const dir = ocrSortBy === "pages-asc" ? 1 : -1;
+      return entries.sort((a, b) => {
+        const diff = ((a.pageCount ?? 0) - (b.pageCount ?? 0)) * dir;
+        return diff !== 0 ? diff : byTitle(a, b);
+      });
+    }
+    // confidence — push missing values to the end regardless of direction
+    const dir = ocrSortBy === "confidence-asc" ? 1 : -1;
+    return entries.sort((a, b) => {
+      const av = a.avgConfidence;
+      const bv = b.avgConfidence;
+      if (av == null && bv == null) return byTitle(a, b);
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      if (av === bv) return byTitle(a, b);
+      return (av - bv) * dir;
+    });
+  })();
+
+  // Split PDF uploads from IIIF/Han-Nôm-sourced entries. Older entries that
+  // predate the source field are treated as IIIF since uploads only became
+  // possible after that field was added.
+  const pdfEntries = ocrEntries.filter((e) => e.source === "pdf");
+  const iiifEntries = ocrEntries.filter((e) => e.source !== "pdf");
+
+  const renderOcrEntryRow = (entry: typeof ocrEntries[number]) => {
+    const isPdf = entry.source === "pdf";
+    return (
+      <div key={entry.slug}>
+        <div className="flex items-center gap-4 px-4 py-3 rounded-lg border border-[#e1e1de] bg-branding-white">
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-light text-branding-black truncate">
+              {entry.title || entry.slug}
+            </p>
+            <div className="flex items-center gap-2 mt-1">
+              <select
+                value={entry.status}
+                onChange={(e) => handleStatusChange(entry.slug, e.target.value)}
+                className="text-[10px] font-medium rounded-full px-2 py-0.5 uppercase tracking-wide border-none cursor-pointer bg-transparent"
+                style={{ appearance: "auto" }}
+              >
+                {["queued", "pending", "processing", "partial", "complete", "corrected", "error"].map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
+              </select>
+              {entry.pageCount > 0 && (() => {
+                const withText = initialPagesWithText[entry.slug] ?? 0;
+                const total = entry.pageCount;
+                const allGood = withText >= Math.floor(total * 0.9);
+                return (
+                  <span className={`text-[10px] ${allGood ? "text-branding-black/40" : "text-amber-600"}`}>
+                    {withText}/{total} pages with text
+                  </span>
+                );
+              })()}
+              {entry.avgConfidence != null && (() => {
+                const pct = Math.round(entry.avgConfidence * 100);
+                const cls =
+                  entry.avgConfidence >= 0.9
+                    ? "text-emerald-600"
+                    : entry.avgConfidence >= 0.75
+                    ? "text-amber-600"
+                    : "text-red-600";
+                return (
+                  <span
+                    className={`text-[10px] tabular-nums ${cls}`}
+                    title="Average per-character OCR confidence"
+                  >
+                    OCR {pct}%
+                  </span>
+                );
+              })()}
+            </div>
+          </div>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {(entry.itemId || entry.status === "partial" || entry.status === "complete" || entry.status === "corrected") && (
+              <Link
+                href={`/${locale}/reading-workshop/${entry.itemId ?? entry.slug}`}
+                className="px-3 py-1 text-xs font-light rounded border border-branding-brown/30 text-branding-brown hover:bg-branding-brown/10 transition-colors"
+              >
+                Open →
+              </Link>
+            )}
+            {/* Re-queue OCR is wired to the IIIF batch pipeline (which only
+                picks up entries with a manifestUrl), so hide it for PDFs —
+                they use the explicit Resume OCR button instead. */}
+            {!isPdf && (
+              <button
+                onClick={() => handleRequeueOcr(entry.slug)}
+                disabled={entry.status === "queued" || entry.status === "processing"}
+                className="px-3 py-1 text-xs font-light rounded border border-amber-300 text-amber-700 hover:bg-amber-50 disabled:opacity-40 transition-colors"
+              >
+                {entry.status === "queued" ? "Queued" : "Re-queue OCR"}
+              </button>
+            )}
+            {isPdf && (entry.status === "partial" || entry.status === "error" || entry.status === "pending") && (
+              <button
+                onClick={() => handleResumeOcr(entry.slug)}
+                disabled={uploadRunningOcr}
+                className="px-3 py-1 text-xs font-light rounded border border-green-300 text-green-700 hover:bg-green-50 disabled:opacity-40 transition-colors"
+              >
+                {uploadRunningOcr ? "Running…" : entry.status === "pending" ? "Run OCR" : "Resume OCR"}
+              </button>
+            )}
+            {/* Hands-off path: queue this PDF for the unified batch pipeline.
+                Disabled while it's already queued or actively processing — no
+                point flipping the status back. Pipeline runs at /admin/ocr/pipeline. */}
+            {isPdf && entry.status !== "complete" && entry.status !== "corrected" && (
+              <button
+                onClick={() => handleQueueForBatch(entry.slug)}
+                disabled={entry.status === "queued" || entry.status === "processing"}
+                title="Queue this PDF for the batch OCR pipeline (runs server-side, survives tab close)"
+                className="px-3 py-1 text-xs font-light rounded border border-amber-300 text-amber-700 hover:bg-amber-50 disabled:opacity-40 transition-colors"
+              >
+                {entry.status === "queued" ? "Queued" : "Queue for batch"}
+              </button>
+            )}
+            {(entry.status === "partial" || entry.status === "complete" || entry.status === "corrected") && (
+              <>
+                <Link
+                  href={`/${locale}/admin/ocr/analyze/${encodeURIComponent(entry.slug)}`}
+                  className="px-3 py-1 text-xs font-light rounded border border-indigo-300 text-indigo-600 hover:bg-indigo-50 transition-colors"
+                >
+                  Analyze
+                </Link>
+                <button
+                  onClick={() => {
+                    const a = document.createElement("a");
+                    a.href = `/api/ocr/download/${encodeURIComponent(entry.slug)}`;
+                    a.click();
+                  }}
+                  className="px-3 py-1 text-xs font-light rounded border border-[#e1e1de] text-branding-black/60 hover:border-branding-brown hover:text-branding-brown transition-colors"
+                >
+                  Download .txt
+                </button>
+                {/* Test Page hits /api/ocr/test-iiif-page which fetches via
+                    a IIIF manifest — it has no PDF equivalent yet, so hide
+                    it for PDF entries to avoid a silent no-op. */}
+                {!isPdf && (
+                  <button
+                    onClick={() => handleTestPage(entry.slug, 0)}
+                    className="px-3 py-1 text-xs font-light rounded border border-[#e1e1de] text-branding-black/60 hover:border-branding-brown hover:text-branding-brown transition-colors"
+                  >
+                    Test Page
+                  </button>
+                )}
+              </>
+            )}
+            <button
+              onClick={() => handleRemove(entry.slug)}
+              className="px-2 py-1 text-xs font-light text-branding-black/30 hover:text-red-500 transition-colors"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+
+        {/* Inline page test panel */}
+        {testingSlug === entry.slug && (
+          <div className="mx-4 mb-3 p-4 rounded-lg border border-[#e1e1de] bg-[#f7f7f7]">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-light text-branding-black/60">Test page:</span>
+                <input
+                  type="number"
+                  min={0}
+                  max={(entry.pageCount || 100) - 1}
+                  value={testPageIndex}
+                  onChange={(e) => setTestPageIndex(Math.max(0, parseInt(e.target.value) || 0))}
+                  className="w-16 px-2 py-1 text-xs border border-[#e1e1de] rounded bg-white focus:outline-none focus:border-branding-brown"
+                />
+                <span className="text-[10px] text-branding-black/40">(0-indexed)</span>
+                <button
+                  onClick={() => handleTestPage(entry.slug, testPageIndex)}
+                  disabled={testLoading}
+                  className="px-3 py-1 text-xs font-light rounded bg-branding-brown/10 text-branding-brown border border-branding-brown/20 hover:bg-branding-brown/20 disabled:opacity-50 transition-colors"
+                >
+                  {testLoading ? "Running…" : "Run OCR & Save"}
+                </button>
+              </div>
+              <button
+                onClick={closeTest}
+                className="text-xs text-branding-black/30 hover:text-branding-brown transition-colors"
+              >
+                Close
+              </button>
+            </div>
+
+            {testError && (
+              <p className="text-xs text-red-500 font-light">{testError}</p>
+            )}
+
+            {testResult && (
+              <div className="flex gap-4">
+                {testResult.imageUrl && (
+                  <div className="flex-shrink-0">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={testResult.imageUrl}
+                      alt={testResult.canvasLabel}
+                      className="max-h-64 rounded border border-[#e1e1de]"
+                    />
+                  </div>
+                )}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[10px] text-branding-black/40 font-light">
+                      {testResult.canvasLabel} — {testResult.totalCanvases} pages — {testResult.totalChars} spatial items — {testResult.charsWithBbox} with bbox
+                    </span>
+                    {testResult.saved && (
+                      <span className="text-[10px] text-green-600 font-light">Saved ✓</span>
+                    )}
+                  </div>
+                  <pre className="text-xs font-light text-branding-black/70 whitespace-pre-wrap max-h-[500px] overflow-y-auto bg-white p-3 rounded border border-[#e1e1de]">
+                    {testResult.rawText || "(no text detected)"}
+                  </pre>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   // ── Filtered Han-Nom items ──
   const normalizeSearch = (s: string) =>
@@ -574,171 +813,44 @@ export default function WorkshopHubClient({
               >
                 Single-image OCR tester →
               </Link>
+              <select
+                value={ocrSortBy}
+                onChange={(e) => setOcrSortBy(e.target.value as typeof ocrSortBy)}
+                className="ml-auto px-2 py-1 text-xs font-light border border-[#e1e1de] rounded bg-white focus:outline-none focus:border-branding-brown transition-colors"
+              >
+                <option value="default">Sort: A–Z</option>
+                <option value="confidence-asc">OCR confidence: lowest first</option>
+                <option value="confidence-desc">OCR confidence: highest first</option>
+                <option value="pages-desc">Pages: most first</option>
+                <option value="pages-asc">Pages: fewest first</option>
+              </select>
             </div>
             {ocrEntries.length === 0 ? (
               <div className="text-sm text-branding-black/40 font-light py-6 text-center border border-dashed border-[#e1e1de] rounded-lg">
-                No documents in the OCR queue yet. Browse the Han-Nôm collection to add items.
+                No documents in the OCR queue yet. Browse the Han-Nôm collection or upload a PDF to add items.
               </div>
             ) : (
-              <div className="flex flex-col gap-2">
-                {ocrEntries.map((entry) => (
-                  <div key={entry.slug}>
-                  <div
-                    className="flex items-center gap-4 px-4 py-3 rounded-lg border border-[#e1e1de] bg-branding-white"
-                  >
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-light text-branding-black truncate">
-                        {entry.title || entry.slug}
-                      </p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <select
-                          value={entry.status}
-                          onChange={(e) => handleStatusChange(entry.slug, e.target.value)}
-                          className="text-[10px] font-medium rounded-full px-2 py-0.5 uppercase tracking-wide border-none cursor-pointer bg-transparent"
-                          style={{ appearance: "auto" }}
-                        >
-                          {["queued", "pending", "processing", "partial", "complete", "corrected", "error"].map((s) => (
-                            <option key={s} value={s}>{s}</option>
-                          ))}
-                        </select>
-                        {entry.pageCount > 0 && (() => {
-                          const withText = initialPagesWithText[entry.slug] ?? 0;
-                          const total = entry.pageCount;
-                          const allGood = withText >= Math.floor(total * 0.9);
-                          return (
-                            <span className={`text-[10px] ${allGood ? "text-branding-black/40" : "text-amber-600"}`}>
-                              {withText}/{total} pages with text
-                            </span>
-                          );
-                        })()}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 flex-shrink-0">
-                      {(entry.itemId || entry.status === "partial" || entry.status === "complete" || entry.status === "corrected") && (
-                        <Link
-                          href={`/${locale}/reading-workshop/${entry.itemId ?? entry.slug}`}
-                          className="px-3 py-1 text-xs font-light rounded border border-branding-brown/30 text-branding-brown hover:bg-branding-brown/10 transition-colors"
-                        >
-                          Open →
-                        </Link>
-                      )}
-                      <button
-                        onClick={() => handleRequeueOcr(entry.slug)}
-                        disabled={entry.status === "queued" || entry.status === "processing"}
-                        className="px-3 py-1 text-xs font-light rounded border border-amber-300 text-amber-700 hover:bg-amber-50 disabled:opacity-40 transition-colors"
-                      >
-                        {entry.status === "queued" ? "Queued" : "Re-queue OCR"}
-                      </button>
-                      {entry.source === "pdf" && (entry.status === "partial" || entry.status === "error") && (
-                        <button
-                          onClick={() => handleResumeOcr(entry.slug)}
-                          disabled={uploadRunningOcr}
-                          className="px-3 py-1 text-xs font-light rounded border border-green-300 text-green-700 hover:bg-green-50 disabled:opacity-40 transition-colors"
-                        >
-                          {uploadRunningOcr ? "Running…" : "Resume OCR"}
-                        </button>
-                      )}
-                      {(entry.status === "partial" || entry.status === "complete" || entry.status === "corrected") && (
-                        <>
-                          <Link
-                            href={`/${locale}/admin/ocr/analyze/${encodeURIComponent(entry.slug)}`}
-                            className="px-3 py-1 text-xs font-light rounded border border-indigo-300 text-indigo-600 hover:bg-indigo-50 transition-colors"
-                          >
-                            Analyze
-                          </Link>
-                          <button
-                            onClick={() => {
-                              const a = document.createElement("a");
-                              a.href = `/api/ocr/download/${encodeURIComponent(entry.slug)}`;
-                              a.click();
-                            }}
-                            className="px-3 py-1 text-xs font-light rounded border border-[#e1e1de] text-branding-black/60 hover:border-branding-brown hover:text-branding-brown transition-colors"
-                          >
-                            Download .txt
-                          </button>
-                          <button
-                            onClick={() => handleTestPage(entry.slug, 0)}
-                            className="px-3 py-1 text-xs font-light rounded border border-[#e1e1de] text-branding-black/60 hover:border-branding-brown hover:text-branding-brown transition-colors"
-                          >
-                            Test Page
-                          </button>
-                        </>
-                      )}
-                      <button
-                        onClick={() => handleRemove(entry.slug)}
-                        className="px-2 py-1 text-xs font-light text-branding-black/30 hover:text-red-500 transition-colors"
-                      >
-                        Delete
-                      </button>
+              <div className="flex flex-col gap-6">
+                {iiifEntries.length > 0 && (
+                  <div>
+                    <h3 className="text-xs uppercase tracking-wide font-medium text-branding-black/50 mb-2">
+                      Han-Nôm Collection ({iiifEntries.length})
+                    </h3>
+                    <div className="flex flex-col gap-2">
+                      {iiifEntries.map(renderOcrEntryRow)}
                     </div>
                   </div>
-
-                  {/* Inline page test panel */}
-                  {testingSlug === entry.slug && (
-                    <div className="mx-4 mb-3 p-4 rounded-lg border border-[#e1e1de] bg-[#f7f7f7]">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-3">
-                          <span className="text-xs font-light text-branding-black/60">Test page:</span>
-                          <input
-                            type="number"
-                            min={0}
-                            max={(entry.pageCount || 100) - 1}
-                            value={testPageIndex}
-                            onChange={(e) => setTestPageIndex(Math.max(0, parseInt(e.target.value) || 0))}
-                            className="w-16 px-2 py-1 text-xs border border-[#e1e1de] rounded bg-white focus:outline-none focus:border-branding-brown"
-                          />
-                          <span className="text-[10px] text-branding-black/40">(0-indexed)</span>
-                          <button
-                            onClick={() => handleTestPage(entry.slug, testPageIndex)}
-                            disabled={testLoading}
-                            className="px-3 py-1 text-xs font-light rounded bg-branding-brown/10 text-branding-brown border border-branding-brown/20 hover:bg-branding-brown/20 disabled:opacity-50 transition-colors"
-                          >
-                            {testLoading ? "Running…" : "Run OCR & Save"}
-                          </button>
-                        </div>
-                        <button
-                          onClick={closeTest}
-                          className="text-xs text-branding-black/30 hover:text-branding-brown transition-colors"
-                        >
-                          Close
-                        </button>
-                      </div>
-
-                      {testError && (
-                        <p className="text-xs text-red-500 font-light">{testError}</p>
-                      )}
-
-                      {testResult && (
-                        <div className="flex gap-4">
-                          {testResult.imageUrl && (
-                            <div className="flex-shrink-0">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
-                                src={testResult.imageUrl}
-                                alt={testResult.canvasLabel}
-                                className="max-h-64 rounded border border-[#e1e1de]"
-                              />
-                            </div>
-                          )}
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-[10px] text-branding-black/40 font-light">
-                                {testResult.canvasLabel} — {testResult.totalCanvases} pages — {testResult.totalChars} spatial items — {testResult.charsWithBbox} with bbox
-                              </span>
-                              {testResult.saved && (
-                                <span className="text-[10px] text-green-600 font-light">Saved ✓</span>
-                              )}
-                            </div>
-                            <pre className="text-xs font-light text-branding-black/70 whitespace-pre-wrap max-h-[500px] overflow-y-auto bg-white p-3 rounded border border-[#e1e1de]">
-                              {testResult.rawText || "(no text detected)"}
-                            </pre>
-                          </div>
-                        </div>
-                      )}
+                )}
+                {pdfEntries.length > 0 && (
+                  <div>
+                    <h3 className="text-xs uppercase tracking-wide font-medium text-branding-black/50 mb-2">
+                      PDF Uploads ({pdfEntries.length})
+                    </h3>
+                    <div className="flex flex-col gap-2">
+                      {pdfEntries.map(renderOcrEntryRow)}
                     </div>
-                  )}
                   </div>
-                ))}
+                )}
               </div>
             )}
           </section>

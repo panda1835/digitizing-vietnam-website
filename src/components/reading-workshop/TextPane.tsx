@@ -5,10 +5,18 @@ import { useEffect, useState, useRef, useCallback } from "react";
 const FONT_SIZES = [12, 14, 16, 18, 20, 24, 28] as const;
 const DEFAULT_FONT_SIZE = 24;
 const HIGHLIGHT_DURATION = 8000; // ms before highlight fades out
+const CONFIDENCE_THRESHOLD = 0.85; // chars below this get an underline tint
+
+interface SectionChar {
+  text: string;
+  confidence: number;
+  hasBbox: boolean;
+}
 
 interface ColumnSection {
   type: "main" | "commentary";
   text: string;
+  chars?: SectionChar[];
 }
 
 interface StructuredColumn {
@@ -25,15 +33,37 @@ interface TextPaneProps {
   columns?: StructuredColumn[] | null;
   textLoading?: boolean;
   highlightQuery?: string | null;
+  pageAvgConfidence?: number | null;
 }
 
-export default function TextPane({ slug, page, adminPath, text, columns, textLoading, highlightQuery }: TextPaneProps) {
+/** Map an OCR confidence score to an underline color (lower = redder). */
+function confidenceTint(c: number): string {
+  if (c >= CONFIDENCE_THRESHOLD) return "transparent";
+  // Ramp from amber at threshold down to red at 0.5 and below.
+  const t = Math.max(0, Math.min(1, (CONFIDENCE_THRESHOLD - c) / (CONFIDENCE_THRESHOLD - 0.5)));
+  // amber #f59e0b → red #dc2626
+  const r = Math.round(0xf5 + (0xdc - 0xf5) * t);
+  const g = Math.round(0x9e + (0x26 - 0x9e) * t);
+  const b = Math.round(0x0b + (0x26 - 0x0b) * t);
+  return `rgb(${r},${g},${b})`;
+}
+
+/** Color-grade for the avg-confidence badge text. */
+function avgConfidenceClass(avg: number): string {
+  if (avg >= 0.9) return "text-emerald-600";
+  if (avg >= 0.75) return "text-amber-600";
+  return "text-red-600";
+}
+
+export default function TextPane({ slug, page, adminPath, text, columns, textLoading, highlightQuery, pageAvgConfidence: pageAvgConfidenceProp }: TextPaneProps) {
   const parentProvided = text !== undefined;
   const [rawText, setRawText] = useState<string | null>(parentProvided ? text : null);
   const [rawColumns, setRawColumns] = useState<StructuredColumn[] | null>(columns ?? null);
+  const [pageAvgConfidence, setPageAvgConfidence] = useState<number | null>(pageAvgConfidenceProp ?? null);
   const [loading, setLoading] = useState(parentProvided ? !!textLoading : true);
   const [error, setError] = useState(false);
   const [fontSize, setFontSize] = useState(DEFAULT_FONT_SIZE);
+  const [showConfidence, setShowConfidence] = useState(true);
   const [showHighlight, setShowHighlight] = useState(!!highlightQuery);
   const highlightTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const scrolledRef = useRef(false);
@@ -68,10 +98,11 @@ export default function TextPane({ slug, page, adminPath, text, columns, textLoa
     if (parentProvided) {
       setRawText(text);
       setRawColumns(columns ?? null);
+      setPageAvgConfidence(pageAvgConfidenceProp ?? null);
       setLoading(!!textLoading);
       setError(false);
     }
-  }, [text, columns, textLoading, parentProvided]);
+  }, [text, columns, textLoading, parentProvided, pageAvgConfidenceProp]);
 
   useEffect(() => {
     if (parentProvided) return;
@@ -87,6 +118,7 @@ export default function TextPane({ slug, page, adminPath, text, columns, textLoa
         if (!cancelled) {
           setRawText(data.text ?? null);
           setRawColumns(data.columns ?? null);
+          setPageAvgConfidence(typeof data.pageAvgConfidence === "number" ? data.pageAvgConfidence : null);
           setLoading(false);
         }
       })
@@ -94,6 +126,7 @@ export default function TextPane({ slug, page, adminPath, text, columns, textLoa
         if (!cancelled) {
           setRawText(null);
           setRawColumns(null);
+          setPageAvgConfidence(null);
           setError(true);
           setLoading(false);
         }
@@ -157,6 +190,7 @@ export default function TextPane({ slug, page, adminPath, text, columns, textLoa
     );
   }
 
+  const hasPerCharData = !!rawColumns?.some((col) => col.sections.some((s) => s.chars && s.chars.length > 0));
   const fontControls = (
     <div className="flex items-center gap-1.5 mb-4">
       <span className="text-[10px] text-branding-black/40 uppercase tracking-wider font-light mr-1">Size</span>
@@ -175,8 +209,45 @@ export default function TextPane({ slug, page, adminPath, text, columns, textLoa
       >
         +
       </button>
+
+      {hasPerCharData && (
+        <button
+          onClick={() => setShowConfidence((v) => !v)}
+          title={showConfidence ? "Hide low-confidence marks" : "Show low-confidence marks"}
+          className={`ml-3 px-2 h-6 flex items-center text-[10px] font-light rounded border transition-colors ${
+            showConfidence
+              ? "border-amber-300 text-amber-700 bg-amber-50/50"
+              : "border-[#e1e1de] text-branding-black/50 hover:border-branding-brown hover:text-branding-brown"
+          }`}
+        >
+          {showConfidence ? "Conf ✓" : "Conf"}
+        </button>
+      )}
+
+      {pageAvgConfidence != null && (
+        <span className={`ml-auto text-[11px] font-light tabular-nums ${avgConfidenceClass(pageAvgConfidence)}`}>
+          Avg: {Math.round(pageAvgConfidence * 100)}%
+        </span>
+      )}
     </div>
   );
+
+  /** Render a section's chars with confidence-based underlines. */
+  const renderCharsWithConfidence = (chars: SectionChar[], keyPrefix: string): React.ReactNode => {
+    return chars.map((c, i) => {
+      const tint = c.hasBbox ? confidenceTint(c.confidence) : "transparent";
+      if (tint === "transparent") return <span key={`${keyPrefix}-${i}`}>{c.text}</span>;
+      return (
+        <span
+          key={`${keyPrefix}-${i}`}
+          style={{ borderBottom: `2px solid ${tint}` }}
+          title={`Confidence: ${Math.round(c.confidence * 100)}%`}
+        >
+          {c.text}
+        </span>
+      );
+    });
+  };
 
   const highlightStyle = (
     <style>{`
@@ -196,6 +267,9 @@ export default function TextPane({ slug, page, adminPath, text, columns, textLoa
 
   // Structured column view (OCR documents with commentary detection)
   if (rawColumns && rawColumns.length > 0) {
+    // Use per-char rendering when we have confidence data and the toggle is on,
+    // AND no search-highlight is active (search-mark would conflict with per-char spans).
+    const usePerCharRender = hasPerCharData && showConfidence && !(highlightQuery && showHighlight);
     return (
       <div ref={containerRef} className="h-full overflow-y-auto p-5">
         {highlightStyle}
@@ -205,7 +279,13 @@ export default function TextPane({ slug, page, adminPath, text, columns, textLoa
             <div key={col.index} className="font-sans text-branding-black font-light leading-relaxed">
               {col.sections.map((sec, si) => {
                 if (!sec.text.trim()) return null;
-                const rendered = highlightText(sec.text.replace(/\n/g, ""));
+                let rendered: React.ReactNode;
+                if (usePerCharRender && sec.chars && sec.chars.length > 0) {
+                  const visibleChars = sec.chars.filter((c) => c.text !== "\n");
+                  rendered = renderCharsWithConfidence(visibleChars, `${col.index}-${si}`);
+                } else {
+                  rendered = highlightText(sec.text.replace(/\n/g, ""));
+                }
                 if (sec.type === "commentary") {
                   return (
                     <span

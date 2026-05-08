@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPage } from "@/lib/ocr-store";
+import { getPage, computePageConfidence } from "@/lib/ocr-store";
 
 // ── Slug → searchable-text API mapping ──
 
@@ -141,8 +141,11 @@ export async function GET(
     if (!ocrPage) ocrPage = await getPage(`han-nom-${slug}`, page);
     if (ocrPage) {
       text = ocrPage.rawText ?? "";
+      const pageAvgConfidence = computePageConfidence(ocrPage.spatialData).avg;
 
-      // Also return structured column data with commentary sections
+      // Also return structured column data with commentary sections.
+      // Each section carries per-character confidence so the reader can render
+      // low-confidence underlines; sec.text is kept for backward compatibility.
       try {
         const { detectColumns } = await import("@/components/ocr-editor/useColumnDetection");
         const columns = detectColumns(ocrPage.spatialData, "commentary");
@@ -152,15 +155,24 @@ export async function GET(
           sections: col.sections.map((sec) => ({
             type: sec.type,
             text: sec.chars.map((c) => c.text).join(""),
+            chars: sec.chars.map((c) => ({
+              text: c.text,
+              confidence: c.confidence,
+              hasBbox: !!c.bbox,
+            })),
           })),
         }));
         // Use column-detected order for text (rawText may have wrong order from OCR API)
         const columnText = structuredColumns
           .map((col) => col.sections.map((s) => s.text).join(""))
           .join("\n");
-        return NextResponse.json({ text: columnText || text, columns: structuredColumns });
+        return NextResponse.json({
+          text: columnText || text,
+          columns: structuredColumns,
+          pageAvgConfidence,
+        });
       } catch {
-        return NextResponse.json({ text });
+        return NextResponse.json({ text, pageAvgConfidence });
       }
     }
   }

@@ -1,5 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { setIndexEntry, setPage, getPage, computeRawText, rebuildSearchIndex } from "@/lib/ocr-store";
+import {
+  setIndexEntry,
+  setPage,
+  getPage,
+  computeRawText,
+  rebuildSearchIndex,
+  uploadDir,
+  uploadSourcePath,
+} from "@/lib/ocr-store";
 import { callKandianguji } from "@/lib/kandianguji-ocr";
 import { pdf } from "pdf-to-img";
 import fs from "fs/promises";
@@ -9,8 +17,10 @@ import path from "path";
  * POST /api/ocr/process
  * Body: { slug: string, startPage?: number, endPage?: number, skipExisting?: boolean }
  *
- * Reads data/ocr/{slug}/source.pdf, converts each page to an image,
- * sends it to Kandianguji OCR, and writes data/ocr/{slug}/page_NNN.json.
+ * Reads data/uploads/{slug}/source.pdf (legacy: data/ocr/{slug}/source.pdf),
+ * converts each page to an image, sends it to Kandianguji OCR, and writes
+ * data/uploads/{slug}/page_NNN.json (PDF-sourced) — IIIF docs continue to
+ * write under data/ocr/{slug}/. The setPage helper routes by source.
  * Streams NDJSON progress so the client can show live updates.
  */
 export async function POST(req: NextRequest) {
@@ -20,15 +30,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing slug" }, { status: 400 });
   }
 
-  const pdfPath = path.join(process.cwd(), "data", "ocr", slug, "source.pdf");
+  // PDF originals live at data/uploads/{slug}/source.pdf. Older uploads (before
+  // the move) lived at data/ocr/{slug}/source.pdf — fall back to that path so
+  // pre-existing entries keep working without a migration step.
+  const newPath = uploadSourcePath(slug);
+  const legacyPath = path.join(process.cwd(), "data", "ocr", slug, "source.pdf");
   let pdfBuffer: Buffer;
   try {
-    pdfBuffer = await fs.readFile(pdfPath);
+    pdfBuffer = await fs.readFile(newPath);
   } catch {
-    return NextResponse.json(
-      { error: `PDF not found for slug "${slug}". Upload it first.` },
-      { status: 404 }
-    );
+    try {
+      pdfBuffer = await fs.readFile(legacyPath);
+    } catch {
+      return NextResponse.json(
+        { error: `PDF not found for slug "${slug}". Upload it first.` },
+        { status: 404 }
+      );
+    }
   }
 
   let doc: Awaited<ReturnType<typeof pdf>>;
@@ -89,6 +107,18 @@ export async function POST(req: NextRequest) {
         try {
           const pageImage = await doc.getPage(pageNum);
           const imageBase64 = pageImage.toString("base64");
+
+          // Cache the rendered PNG so the reading workshop can serve it later
+          // via /api/ocr/page-image. We already have the buffer in memory
+          // for Kandianguji, so this is just one extra write per page.
+          try {
+            const cacheDir = uploadDir(slug);
+            await fs.mkdir(cacheDir, { recursive: true });
+            await fs.writeFile(
+              path.join(cacheDir, `page_${String(pageNum).padStart(3, "0")}.png`),
+              pageImage
+            );
+          } catch { /* non-critical: page-image route falls back to lazy render */ }
 
           const result = await callKandianguji(imageBase64);
           const rawText = computeRawText(result.spatialData);

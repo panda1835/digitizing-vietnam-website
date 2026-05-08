@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import type { SpatialCharacter } from "@/lib/ocr-store";
 import type { Column } from "./useColumnDetection";
+import { splitCommentarySides } from "./useColumnDetection";
 
 interface OCRImagePaneProps {
   imageUrl: string;
@@ -16,6 +17,19 @@ interface OCRImagePaneProps {
   onAddChar: (bbox: Array<{ x: number; y: number }>, text: string) => void;
   onOcrRegion: (rect: { x: number; y: number; w: number; h: number }) => void;
   focusedOffset: number | null;
+  viewMode?: "charBox" | "column";
+  onMoveColumn?: (colIndex: number, deltaX: number, deltaY: number) => void;
+  onResizeColumn?: (
+    colIndex: number,
+    newBbox: { minX: number; maxX: number; minY: number; maxY: number }
+  ) => void;
+  onDeleteColumn?: (colIndex: number) => void;
+  onCreateColumn?: (bbox: {
+    minX: number;
+    maxX: number;
+    minY: number;
+    maxY: number;
+  }) => void;
 }
 
 export default function OCRImagePane({
@@ -51,6 +65,87 @@ export default function OCRImagePane({
 
   const selectedColumn =
     selectedColumnIndex !== null ? columns[selectedColumnIndex] ?? null : null;
+
+  // Track the image's screen rect so we can render the input panel and the
+  // candidate-strip popover at document-body coords via position:fixed.
+  // Without this they're clipped by ancestor overflow when they extend past
+  // the image's left edge.
+  const [imgScreenRect, setImgScreenRect] = useState<{
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  } | null>(null);
+  useLayoutEffect(() => {
+    function update() {
+      const el = imgRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      setImgScreenRect({ left: r.left, top: r.top, width: r.width, height: r.height });
+    }
+    update();
+    window.addEventListener("scroll", update, true);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update, true);
+      window.removeEventListener("resize", update);
+    };
+  }, [imgDims]);
+
+  const [focusedRect, setFocusedRect] = useState<{
+    left: number;
+    top: number;
+    height: number;
+  } | null>(null);
+  useLayoutEffect(() => {
+    if (focusedOffset === null) {
+      setFocusedRect(null);
+      return;
+    }
+    function update() {
+      const el = document.querySelector(
+        `[data-char-offset="${focusedOffset}"]`
+      ) as HTMLElement | null;
+      if (!el) {
+        setFocusedRect(null);
+        return;
+      }
+      const r = el.getBoundingClientRect();
+      setFocusedRect({ left: r.left, top: r.top, height: r.height });
+    }
+    update();
+    window.addEventListener("scroll", update, true);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update, true);
+      window.removeEventListener("resize", update);
+    };
+  }, [focusedOffset, spatialData, columns]);
+
+  const focusedChar =
+    focusedOffset !== null
+      ? spatialData.find((c) => c.offset === focusedOffset)
+      : null;
+  const focusedChoices: string[] | undefined =
+    focusedChar && (focusedChar as any).choices
+      ? ((focusedChar as any).choices as string[])
+      : undefined;
+
+  function applyChoice(s: string) {
+    if (focusedOffset === null) return;
+    onCharChange(focusedOffset, s);
+    if (selectedColumnIndex !== null) {
+      const col = columns[selectedColumnIndex];
+      if (col) {
+        const bboxChars = col.chars.filter((c) => c.bbox);
+        const idx = bboxChars.findIndex((c) => c.offset === focusedOffset);
+        const next = bboxChars[idx + 1];
+        if (next) onFocusChar(next.offset);
+        else if (selectedColumnIndex < columns.length - 1)
+          onSelectColumn(selectedColumnIndex + 1);
+      }
+    }
+  }
 
   function handleImgLoad() {
     if (imgRef.current) {
@@ -329,50 +424,32 @@ export default function OCRImagePane({
 
           for (const sec of selectedColumn.sections) {
             if (sec.type !== "commentary") continue;
-            const withBbox = sec.chars.filter((c) => c.bbox);
-            if (withBbox.length < 2) continue;
-            const xs = withBbox.map((c) => (c.bbox![0].x + c.bbox![2].x) / 2);
-            const xRange = Math.max(...xs) - Math.min(...xs);
-            const sectionAvgW = withBbox.reduce((s, c) => s + Math.abs(c.bbox![2].x - c.bbox![0].x), 0) / withBbox.length;
-            // Skip splitting if X range is too narrow — all chars are in a single sub-column
-            if (xRange < sectionAvgW * 0.6) continue;
+            const split = splitCommentarySides(sec.chars);
+            if (!split) continue;
 
-            const xMid = (Math.min(...xs) + Math.max(...xs)) / 2;
+            split.side.forEach((s, offset) => commentarySide.set(offset, s));
 
-            const rightChars: typeof withBbox = [];
-            const leftChars: typeof withBbox = [];
-            for (const c of withBbox) {
-              const cx = (c.bbox![0].x + c.bbox![2].x) / 2;
-              if (cx >= xMid) {
-                commentarySide.set(c.offset, "right");
-                rightChars.push(c);
-              } else {
-                commentarySide.set(c.offset, "left");
-                leftChars.push(c);
-              }
-            }
-
-            // Pair right/left chars at similar Y levels
-            const avgH = withBbox.reduce((s, c) => s + Math.abs(c.bbox![3].y - c.bbox![0].y), 0) / withBbox.length;
-            for (const rc of rightChars) {
-              const rcy = (rc.bbox![0].y + rc.bbox![2].y) / 2;
-              for (const lc of leftChars) {
-                const lcy = (lc.bbox![0].y + lc.bbox![2].y) / 2;
-                if (Math.abs(rcy - lcy) < avgH * 0.5) {
-                  // Use the average Y center in pixels
-                  const sharedY = ((rcy + lcy) / 2) * scaleY;
-                  pairedY.set(rc.offset, sharedY);
-                  pairedY.set(lc.offset, sharedY);
-                }
-              }
+            // Lift each paired right/left char to a shared Y center (in px),
+            // mirroring the prior in-pane logic so vertically-aligned input
+            // cells line up across the two sub-columns.
+            for (const p of split.pairs) {
+              if (!p.right || !p.left) continue;
+              const ry = (p.right.bbox![0].y + p.right.bbox![2].y) / 2;
+              const ly = (p.left.bbox![0].y + p.left.bbox![2].y) / 2;
+              const sharedY = ((ry + ly) / 2) * scaleY;
+              pairedY.set(p.right.offset, sharedY);
+              pairedY.set(p.left.offset, sharedY);
             }
           }
 
-          // Compute panel vertical extent from first/last char positions
-          const firstChar = allCharsInCol[0];
-          const lastChar = allCharsInCol[allCharsInCol.length - 1];
-          const panelTop = firstChar.bbox![0].y * scaleY - 4;
-          const panelBottom = (lastChar.bbox![2].y) * scaleY + 4;
+          // Panel vertical extent from the column's geometric bounds, not
+          // reading order. For columns with dual-line commentary, the last
+          // char in reading order is the last left-sub-col entry, which can
+          // sit well above the true bottom of the column (the last right-
+          // sub-col char). Using selectedColumn.bbox captures the full
+          // vertical extent of every char in the column.
+          const panelTop = selectedColumn.bbox.minY * scaleY - 4;
+          const panelBottom = selectedColumn.bbox.maxY * scaleY + 4;
 
           const panelElements = [
             <div
@@ -389,7 +466,7 @@ export default function OCRImagePane({
             />,
           ];
 
-          return panelElements.concat(allCharsInCol.map((char, charIdx) => {
+          const cellElements = panelElements.concat(allCharsInCol.map((char, charIdx) => {
             const imgTop = char.bbox![0].y * scaleY;
             const imgLeft = char.bbox![0].x * scaleX;
             const boxW = Math.abs(char.bbox![1].x - char.bbox![0].x) * scaleX;
@@ -499,17 +576,80 @@ export default function OCRImagePane({
                     lineHeight: 1,
                     padding: "1px",
                     zIndex: isFocused ? 50 : 10,
+                    pointerEvents: "auto",
                   }}
                   className={`text-center font-serif outline-none bg-transparent ${textColor} ${
                     isFocused ? "border-2 border-indigo-500 ring-2 ring-indigo-300 bg-indigo-50 rounded" : "border-0"
                   }`}
                 />
+                {/* Inline candidate popover lives at the OCRImagePane root
+                    via position:fixed so it escapes the parent overflow-
+                    clipping. See <CandidateStrip /> below the loop. */}
               </div>
             );
           }));
+
+          // Wrap the entire panel + cells in a fixed-position container
+          // anchored to the image's screen rect. Fixed positioning escapes
+          // ancestor overflow so the panel can extend left of the image
+          // column without being clipped by parent panes.
+          if (!imgScreenRect) return null;
+          return (
+            <div
+              style={{
+                position: "fixed",
+                left: imgScreenRect.left,
+                top: imgScreenRect.top,
+                width: imgScreenRect.width,
+                height: imgScreenRect.height,
+                pointerEvents: "none",
+                zIndex: 60,
+              }}
+            >
+              {cellElements}
+            </div>
+          );
         })()}
       </div>
 
+      {/* Candidate strip — fixed-position so it overlays document body and
+          isn't clipped by any ancestor overflow. Anchored to the LEFT edge
+          of the focused input cell, growing leftward. */}
+      {focusedRect && focusedChoices && focusedChoices.length > 0 && (
+        <div
+          style={{
+            position: "fixed",
+            left: focusedRect.left - 6,
+            top: focusedRect.top,
+            transform: "translateX(-100%)",
+            zIndex: 1000,
+          }}
+          className="flex flex-row-reverse bg-white border border-gray-200 rounded shadow"
+        >
+          {focusedChoices.slice(0, 6).map((s, i) => (
+            <button
+              key={i}
+              onMouseDown={(e) => {
+                e.preventDefault();
+                applyChoice(s);
+              }}
+              title={`Press ${i + 1} to apply`}
+              style={{ width: focusedRect.height, height: focusedRect.height }}
+              className="relative flex items-center justify-center hover:bg-indigo-50 border-r border-gray-100 first:border-r-0"
+            >
+              <span className="absolute left-1/2 -translate-x-1/2 -top-2 inline-flex items-center justify-center w-2.5 h-2.5 text-[6px] font-semibold rounded-full bg-indigo-500 text-white leading-none ring-1 ring-white pointer-events-none">
+                {i + 1}
+              </span>
+              <span
+                className="font-serif"
+                style={{ fontSize: Math.round(focusedRect.height * 0.65), lineHeight: 1 }}
+              >
+                {s}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

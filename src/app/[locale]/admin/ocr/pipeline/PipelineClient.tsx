@@ -9,6 +9,7 @@ interface DocumentProgress {
   totalPages: number;
   completedPages: number;
   status: "waiting" | "processing" | "complete" | "error";
+  source?: "pdf" | "iiif";
   error?: string;
 }
 
@@ -370,7 +371,20 @@ function DocumentRow({
     <div className={`border rounded-lg p-3 ${isCurrent ? "border-blue-300 bg-blue-50/30" : "border-gray-200 bg-white"}`}>
       <div className="flex items-center justify-between mb-2">
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-gray-800 truncate">{doc.title}</p>
+          <div className="flex items-center gap-2">
+            <p className="text-sm font-medium text-gray-800 truncate">{doc.title}</p>
+            {doc.source && (
+              <span
+                className={`px-1.5 py-0.5 rounded text-[9px] font-medium uppercase tracking-wide flex-shrink-0 ${
+                  doc.source === "pdf"
+                    ? "bg-amber-100 text-amber-700"
+                    : "bg-indigo-100 text-indigo-700"
+                }`}
+              >
+                {doc.source}
+              </span>
+            )}
+          </div>
           <p className="text-[10px] text-gray-400">{doc.slug}</p>
         </div>
         <div className="flex items-center gap-2 ml-3">

@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { parseStringPromise } from "xml2js";
 import pool from "@/lib/db";
+import { hanVariants } from "@/lib/han-variants";
 import {
   titles,
   flattenItems,
@@ -574,6 +575,13 @@ function getSmartSnippet(
 
   const queryLower = query.toLowerCase();
   const isQn = type === "qn";
+  // For CJK content, a DB hit may come from a simplified/traditional variant.
+  // Match and highlight any variant so results from variant hits still render.
+  const snippetVariants = isQn ? [query] : hanVariants(query);
+  const lowerSnippetVariants = snippetVariants.map((v) => v.toLowerCase());
+  const variantAlternation = snippetVariants
+    .map(escapeRegExp)
+    .join("|");
   const hasHanChars = (s: string): boolean => {
     for (const ch of s) {
       const cp = ch.codePointAt(0) || 0;
@@ -593,8 +601,11 @@ function getSmartSnippet(
     }
     return false;
   };
-  const isMatch = (s: string): boolean =>
-    isQn ? containsWholeWord(s, query) : s.toLowerCase().includes(queryLower);
+  const isMatch = (s: string): boolean => {
+    if (isQn) return containsWholeWord(s, query);
+    const low = s.toLowerCase();
+    return lowerSnippetVariants.some((v) => low.includes(v));
+  };
 
   const highlight = (s: string): string => {
     const escaped = s.replace(/[&<>"']/g, (m) => {
@@ -607,9 +618,9 @@ function getSmartSnippet(
       };
       return map[m];
     });
-    const escapedQuery = escapeRegExp(query);
     try {
       if (isQn) {
+        const escapedQuery = escapeRegExp(query);
         return escaped.replace(
           new RegExp(
             `(^|[^\\p{L}\\p{N}_])(${escapedQuery})(?=$|[^\\p{L}\\p{N}_])`,
@@ -619,7 +630,7 @@ function getSmartSnippet(
         );
       }
       return escaped.replace(
-        new RegExp(`(${escapedQuery})`, "gi"),
+        new RegExp(`(${variantAlternation})`, "gi"),
         "<mark class='bg-yellow-200 dark:bg-yellow-800/50 text-branding-black dark:text-zinc-100 rounded px-0.5'>$1</mark>"
       );
     } catch {
@@ -700,7 +711,11 @@ function getSmartSnippet(
     ).exec(cleanText);
     if (exactWord) idx = (exactWord.index || 0) + (exactWord[1]?.length || 0);
   } else {
-    idx = cleanText.toLowerCase().indexOf(queryLower);
+    const low = cleanText.toLowerCase();
+    for (const v of lowerSnippetVariants) {
+      const i = low.indexOf(v);
+      if (i !== -1 && (idx === -1 || i < idx)) idx = i;
+    }
   }
   if (idx === -1) {
     if (isQn && hasHanChars(cleanText)) return "";
@@ -745,15 +760,37 @@ function containsWholeWord(text: string, query: string): boolean {
   }
 }
 
+function likeAny(colExpr: string, variantCount: number): string {
+  const part = `CONVERT(${colExpr} USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci`;
+  if (variantCount <= 1) return part;
+  return `(${Array(variantCount).fill(part).join(" OR ")})`;
+}
+
+function anyVariantIncludes(text: string, lowerVariants: string[]): boolean {
+  if (!text) return false;
+  const t = text.toLowerCase();
+  for (const v of lowerVariants) {
+    if (v && t.includes(v)) return true;
+  }
+  return false;
+}
+
 export async function searchCorpus(query: string) {
   const results: any[] = [];
   const normalizedQuery = query.trim().toLowerCase();
   if (!normalizedQuery) return results;
 
+  // Expand CJK queries to simplified/traditional variants so either form matches.
+  // Non-CJK queries return as [query] — existing behavior is preserved.
+  const variants = hanVariants(query.trim());
+  const lowerVariants = variants.map((v) => v.toLowerCase());
+  const wildcards = lowerVariants.map((v) => `%${v}%`);
+  const vCount = wildcards.length;
+  const wildcard = wildcards[0];
+
   try {
     const allWorks = await getCorpusRegistry();
     const workMap = new Map(allWorks.map((w) => [w.slug, w]));
-    const wildcard = `%${normalizedQuery}%`;
 
     // 1. Search Truyện Kiều Editions
     const kieuEditions = [
@@ -789,16 +826,16 @@ export async function searchCorpus(query: string) {
         // Increased limit for Kiều editions
         const kieuRows = await queryRows<any>(
           `SELECT id, qn, unicode, special, page FROM ${ed.table}
-           WHERE CONVERT(qn USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-              OR CONVERT(unicode USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-              OR CONVERT(special USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+           WHERE ${likeAny("qn", vCount)}
+              OR ${likeAny("unicode", vCount)}
+              OR ${likeAny("special", vCount)}
            LIMIT 200`,
-          [wildcard, wildcard, wildcard]
+          [...wildcards, ...wildcards, ...wildcards]
         );
         kieuRows.forEach((row) => {
           const isNomMatch =
-            (row.unicode || "").toLowerCase().includes(normalizedQuery) ||
-            (row.special || "").toLowerCase().includes(normalizedQuery);
+            anyVariantIncludes(row.unicode || "", lowerVariants) ||
+            anyVariantIncludes(row.special || "", lowerVariants);
           const isQnMatch = containsWholeWord(row.qn || "", query);
           if (!isNomMatch && !isQnMatch) return;
           results.push({
@@ -844,10 +881,10 @@ export async function searchCorpus(query: string) {
                          THEN (SELECT COUNT(*) FROM tbl_dvsk_data s WHERE s.MaTenHieu = t.MaTenHieu)
                          ELSE NULL END AS total_th
                  FROM tbl_dvsk_data t
-                 WHERE CONVERT(t.nom USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-                    OR CONVERT(COALESCE(t.phien_am, '') USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+                 WHERE ${likeAny("t.nom", vCount)}
+                    OR ${likeAny("COALESCE(t.phien_am, '')", vCount)}
                  LIMIT 1000`,
-        [wildcard, wildcard]
+        [...wildcards, ...wildcards]
       );
       dvskRows.forEach((row) => {
         const maTD = Number(row.MaTrieuDai || 0);
@@ -871,9 +908,7 @@ export async function searchCorpus(query: string) {
         }
 
         const topicTitle = resolveTopicTitle(topicId);
-        const isNomMatch = (row.nom || "")
-          .toLowerCase()
-          .includes(normalizedQuery);
+        const isNomMatch = anyVariantIncludes(row.nom || "", lowerVariants);
         const isQnMatch = containsWholeWord(row.phien_am || "", query);
         if (!isNomMatch && !isQnMatch) return;
         const { topic } = topicIdToBookAndTopic(topicId);
@@ -971,15 +1006,13 @@ export async function searchCorpus(query: string) {
     try {
       const hxhRows = await queryRows<any>(
         `SELECT * FROM tho_hxh
-         WHERE CONVERT(qn USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-            OR CONVERT(nom USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+         WHERE ${likeAny("qn", vCount)}
+            OR ${likeAny("nom", vCount)}
          LIMIT 100`,
-        [wildcard, wildcard]
+        [...wildcards, ...wildcards]
       );
       hxhRows.forEach((row) => {
-        const isNomMatch = (row.nom || "")
-          .toLowerCase()
-          .includes(normalizedQuery);
+        const isNomMatch = anyVariantIncludes(row.nom || "", lowerVariants);
         const isQnMatch = containsWholeWord(row.qn || "", query);
         if (!isNomMatch && !isQnMatch) return;
         results.push({
@@ -1005,15 +1038,13 @@ export async function searchCorpus(query: string) {
     try {
       const qattRows = await queryRows<any>(
         `SELECT * FROM qatt
-         WHERE CONVERT(qn_body USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-            OR CONVERT(hn_body USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
+         WHERE ${likeAny("qn_body", vCount)}
+            OR ${likeAny("hn_body", vCount)}
          LIMIT 100`,
-        [wildcard, wildcard]
+        [...wildcards, ...wildcards]
       );
       qattRows.forEach((row) => {
-        const isNomMatch = (row.hn_body || "")
-          .toLowerCase()
-          .includes(normalizedQuery);
+        const isNomMatch = anyVariantIncludes(row.hn_body || "", lowerVariants);
         const isQnMatch = containsWholeWord(row.qn_body || "", query);
         if (!isNomMatch && !isQnMatch) return;
         results.push({
@@ -1051,7 +1082,7 @@ export async function searchCorpus(query: string) {
       let docHits = 0;
       for (const pg of searchIdx.pages) {
         if (docHits >= 50) break;
-        if (!pg.textLower.includes(normalizedQuery)) continue;
+        if (!anyVariantIncludes(pg.textLower, lowerVariants)) continue;
 
         const snippet = getSmartSnippet(pg.text, query, "han");
         if (!snippet) continue;

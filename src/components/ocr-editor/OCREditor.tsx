@@ -3,14 +3,14 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import type { SpatialCharacter, OcrPageData } from "@/lib/ocr-store";
-import { getCanvasesFromManifest, CanvasInfo } from "@/lib/iiif-utils";
+import { getCanvasesFromManifest, resolveOcrImageUrl, CanvasInfo } from "@/lib/iiif-utils";
 import { useColumnDetection, reorderByColumns, type LayoutMode } from "./useColumnDetection";
 import { useOCRSave } from "./useOCRSave";
 import OCRTextPane from "./OCRTextPane";
 import OCRImagePane from "./OCRImagePane";
 import OCRToolbox from "./OCRToolbox";
-import ColumnTranscriptionView from "./ColumnTranscriptionView";
 import LowConfReviewModal from "./LowConfReviewModal";
+import OCRWorkspace from "./OCRWorkspace";
 
 interface OCREditorProps {
   slug: string;
@@ -56,15 +56,18 @@ export default function OCREditor({
 
   // IIIF manifest images
   const [canvases, setCanvases] = useState<CanvasInfo[]>([]);
+  // Per-page resolved image URLs. Level-0 IIIF services only serve specific
+  // pre-generated sizes, so a hardcoded "/full/1280,/..." URL often 404s —
+  // we resolve the largest available size via info.json lazily per page.
+  const [resolvedImageUrls, setResolvedImageUrls] = useState<Record<number, string>>({});
+  const resolvingPagesRef = useRef<Set<number>>(new Set());
   const [ocrRunning, setOcrRunning] = useState(false);
 
   // Override image URL when preprocessing was applied (so editor shows the same image OCR saw)
   const [processedImageUrl, setProcessedImageUrl] = useState<string | null>(null);
   const [thoroughOcr, setThoroughOcr] = useState(false);
-  const [showTranscriptionView, setShowTranscriptionView] = useState(false);
   const [detMode, setDetMode] = useState<"auto" | "sp" | "hp">("auto");
   const [viewMode, setViewMode] = useState<"charBox" | "column">("charBox");
-  const [layoutMode, setLayoutMode] = useState<"simple" | "commentary">("commentary");
   const [showLowConfReview, setShowLowConfReview] = useState(false);
   const [reviewThreshold, setReviewThreshold] = useState(50);
 
@@ -95,7 +98,7 @@ export default function OCREditor({
   // Manual bbox overrides for columns (persists across column re-detection)
   const [bboxOverrides, setBboxOverrides] = useState<Record<number, { minX: number; maxX: number; minY: number; maxY: number }>>({});
 
-  const detectedColumns = useColumnDetection(spatialData, layoutMode);
+  const detectedColumns = useColumnDetection(spatialData);
 
   // Apply manual bbox overrides to detected columns
   const columns = useMemo(() => {
@@ -138,6 +141,29 @@ export default function OCREditor({
       })
       .catch(() => {});
   }, [manifestUrl]);
+
+  // Lazily resolve the largest-available image URL for the current page.
+  // Skips if already resolved or already in-flight.
+  useEffect(() => {
+    const rawUrl = canvases[page - 1]?.imageUrl;
+    if (!rawUrl) return;
+    if (resolvedImageUrls[page]) return;
+    if (resolvingPagesRef.current.has(page)) return;
+    resolvingPagesRef.current.add(page);
+    let cancelled = false;
+    resolveOcrImageUrl(rawUrl)
+      .then((resolved) => {
+        if (cancelled) return;
+        if (resolved && resolved !== rawUrl) {
+          setResolvedImageUrls((prev) => ({ ...prev, [page]: resolved }));
+        }
+      })
+      .catch(() => {})
+      .finally(() => {
+        resolvingPagesRef.current.delete(page);
+      });
+    return () => { cancelled = true; };
+  }, [page, canvases, resolvedImageUrls]);
 
   // Load existing OCR data for current page
   useEffect(() => {
@@ -189,49 +215,7 @@ export default function OCREditor({
     }
   }, [columns, selectedColumnIndex, editorMode]);
 
-  // Global keyboard shortcuts
-  useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
-      const tag = (e.target as HTMLElement)?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA") return;
-
-      if (e.key === "Escape") {
-        setSelectedColumnIndex(null);
-        setFocusedOffset(null);
-      } else if (e.key === "ArrowLeft" && selectedColumnIndex !== null && selectedColumnIndex > 0) {
-        e.preventDefault();
-        handleSelectColumn(selectedColumnIndex - 1);
-      } else if (e.key === "ArrowRight" && selectedColumnIndex !== null && selectedColumnIndex < columns.length - 1) {
-        e.preventDefault();
-        handleSelectColumn(selectedColumnIndex + 1);
-      } else if (e.key === "ArrowDown" && selectedColumnIndex !== null) {
-        e.preventDefault();
-        const col = columns[selectedColumnIndex];
-        if (!col) return;
-        const bboxChars = col.chars.filter((c) => c.bbox);
-        const currentIdx = bboxChars.findIndex((c) => c.offset === focusedOffset);
-        const next = bboxChars[currentIdx + 1];
-        if (next) setFocusedOffset(next.offset);
-        else if (selectedColumnIndex < columns.length - 1) handleSelectColumn(selectedColumnIndex + 1);
-      } else if (e.key === "ArrowUp" && selectedColumnIndex !== null) {
-        e.preventDefault();
-        const col = columns[selectedColumnIndex];
-        if (!col) return;
-        const bboxChars = col.chars.filter((c) => c.bbox);
-        const currentIdx = bboxChars.findIndex((c) => c.offset === focusedOffset);
-        const prev = bboxChars[currentIdx - 1];
-        if (prev) setFocusedOffset(prev.offset);
-        else if (selectedColumnIndex > 0) {
-          const prevCol = columns[selectedColumnIndex - 1];
-          setSelectedColumnIndex(selectedColumnIndex - 1);
-          const lastChar = prevCol.chars.filter((c) => c.bbox).at(-1);
-          if (lastChar) setFocusedOffset(lastChar.offset);
-        }
-      }
-    }
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedColumnIndex, focusedOffset, columns]);
+  // Global keyboard shortcuts now live in <OCRWorkspace>.
 
   function setPage(p: number) {
     setPageState(p);
@@ -272,242 +256,10 @@ export default function OCREditor({
     });
   }
 
-  function handleSuggestApply(offset: number, suggestion: string) {
-    handleCharChange(offset, suggestion);
-  }
-
-  function handleMoveColumn(colIndex: number, deltaX: number, deltaY: number) {
-    setSpatialData((prev) => {
-      const col = columns[colIndex];
-      if (!col) return prev;
-      const movedOffsets = new Set(col.chars.map((c) => c.offset));
-      const updated = prev.map((c) => {
-        if (!movedOffsets.has(c.offset) || !c.bbox) return c;
-        return {
-          ...c,
-          bbox: c.bbox.map((v) => ({
-            x: Math.max(0, Math.min(1, v.x + deltaX)),
-            y: Math.max(0, Math.min(1, v.y + deltaY)),
-          })),
-        };
-      });
-      setSaveStatus("saving");
-      save(updated);
-      return updated;
-    });
-  }
-
-  function handleResizeColumn(colIndex: number, newBbox: { minX: number; maxX: number; minY: number; maxY: number }) {
-    // Store the manual bbox override so it persists across column re-detection
-    setBboxOverrides((prev) => ({ ...prev, [colIndex]: newBbox }));
-
-    // Resize = redefine the column boundary. Characters whose center falls
-    // within the new bbox are claimed by this column (reordered to be adjacent).
-    // Characters that fall outside are released (remain in spatialData but
-    // will auto-detect into other columns or become orphaned).
-    setSpatialData((prev) => {
-      const col = columns[colIndex];
-      if (!col) return prev;
-
-      // Find characters whose center is inside the new bbox
-      const inBbox = (c: SpatialCharacter) => {
-        if (!c.bbox) return false;
-        const cx = (c.bbox[0].x + c.bbox[2].x) / 2;
-        const cy = (c.bbox[0].y + c.bbox[2].y) / 2;
-        return cx >= newBbox.minX && cx <= newBbox.maxX && cy >= newBbox.minY && cy <= newBbox.maxY;
-      };
-
-      // Collect: chars that should be in this column (from any source)
-      const claimed: SpatialCharacter[] = [];
-      const rest: SpatialCharacter[] = [];
-      for (const c of prev) {
-        if (inBbox(c)) {
-          claimed.push(c);
-        } else {
-          rest.push(c);
-        }
-      }
-
-      // Sort claimed chars by reading order within the new bbox
-      const isRow = (newBbox.maxX - newBbox.minX) > (newBbox.maxY - newBbox.minY) * 1.5;
-      if (isRow) {
-        claimed.sort((a, b) => {
-          const ax = a.bbox ? (a.bbox[0].x + a.bbox[2].x) / 2 : 0;
-          const bx = b.bbox ? (b.bbox[0].x + b.bbox[2].x) / 2 : 0;
-          return ax - bx;
-        });
-      } else {
-        claimed.sort((a, b) => {
-          const ay = a.bbox ? (a.bbox[0].y + a.bbox[2].y) / 2 : 0;
-          const by = b.bbox ? (b.bbox[0].y + b.bbox[2].y) / 2 : 0;
-          return ay - by;
-        });
-      }
-
-      // Find where this column's chars were in the original array and insert claimed there
-      const colOffsets = new Set(col.chars.map((c) => c.offset));
-      const firstColIdx = prev.findIndex((c) => colOffsets.has(c.offset));
-      const insertIdx = firstColIdx >= 0 ? rest.findIndex((c, i) => {
-        // Find the position in rest that corresponds to where the column was
-        const origIdx = prev.indexOf(c);
-        return origIdx >= firstColIdx;
-      }) : rest.length;
-
-      const updated = [...rest];
-      updated.splice(insertIdx >= 0 ? insertIdx : rest.length, 0, ...claimed);
-
-      // Recalculate offsets
-      let offset = 0;
-      for (const c of updated) {
-        c.offset = offset;
-        offset += c.text.length;
-      }
-
-      setSaveStatus("saving");
-      save(updated);
-      return updated;
-    });
-  }
-
-  function handleDeleteColumn(colIndex: number) {
-    setSpatialData((prev) => {
-      const col = columns[colIndex];
-      if (!col) return prev;
-      const deleteOffsets = new Set(col.chars.map((c) => c.offset));
-      const next = prev.filter((c) => !deleteOffsets.has(c.offset));
-      let offset = 0;
-      for (const c of next) {
-        c.offset = offset;
-        offset += c.text.length;
-      }
-      setSaveStatus("saving");
-      save(next);
-      return next;
-    });
-    setSelectedColumnIndex(null);
-    setFocusedOffset(null);
-  }
-
-  function handleCreateColumn(bbox: { minX: number; maxX: number; minY: number; maxY: number }) {
-    // Claim any existing characters whose center falls within the bbox
-    // and group them into a new column via bbox override
-    const newColIndex = columns.length;
-    setBboxOverrides((prev) => ({ ...prev, [newColIndex]: bbox }));
-
-    setSpatialData((prev) => {
-      // Find characters whose center is inside the new bbox
-      const inBbox = (c: SpatialCharacter) => {
-        if (!c.bbox) return false;
-        const cx = (c.bbox[0].x + c.bbox[2].x) / 2;
-        const cy = (c.bbox[0].y + c.bbox[2].y) / 2;
-        return cx >= bbox.minX && cx <= bbox.maxX && cy >= bbox.minY && cy <= bbox.maxY;
-      };
-
-      // Check if any already-assigned chars would be claimed
-      const assignedOffsets = new Set<number>();
-      for (const col of columns) {
-        for (const c of col.chars) assignedOffsets.add(c.offset);
-      }
-
-      // Only claim orphaned characters (not already in a column)
-      const claimed: SpatialCharacter[] = [];
-      const rest: SpatialCharacter[] = [];
-      for (const c of prev) {
-        if (inBbox(c) && !assignedOffsets.has(c.offset)) {
-          claimed.push(c);
-        } else {
-          rest.push(c);
-        }
-      }
-
-      if (claimed.length === 0) {
-        // No characters to claim — still create the column visually via override
-        // Add a placeholder invisible character so the column detection creates a group
-        return prev;
-      }
-
-      // Sort claimed by reading order (vertical by default)
-      const isRow = (bbox.maxX - bbox.minX) > (bbox.maxY - bbox.minY) * 1.5;
-      if (isRow) {
-        claimed.sort((a, b) => {
-          const ax = a.bbox ? (a.bbox[0].x + a.bbox[2].x) / 2 : 0;
-          const bx = b.bbox ? (b.bbox[0].x + b.bbox[2].x) / 2 : 0;
-          return ax - bx;
-        });
-      } else {
-        claimed.sort((a, b) => {
-          const ay = a.bbox ? (a.bbox[0].y + a.bbox[2].y) / 2 : 0;
-          const by = b.bbox ? (b.bbox[0].y + b.bbox[2].y) / 2 : 0;
-          return ay - by;
-        });
-      }
-
-      // Append claimed at end so they form a new column group
-      const updated = [...rest, ...claimed];
-      let offset = 0;
-      for (const c of updated) {
-        c.offset = offset;
-        offset += c.text.length;
-      }
-
-      setSaveStatus("saving");
-      save(updated);
-      return updated;
-    });
-
-    // Select the new column
-    setSelectedColumnIndex(newColIndex);
-  }
-
-  function handleAddChar(bbox: Array<{ x: number; y: number }>, text: string) {
-    const newCenter = {
-      x: (bbox[0].x + bbox[2].x) / 2,
-      y: (bbox[0].y + bbox[2].y) / 2,
-    };
-
-    setSpatialData((prev) => {
-      let bestColIdx = -1;
-      let bestDist = Infinity;
-      for (let ci = 0; ci < columns.length; ci++) {
-        const col = columns[ci];
-        const colCx = (col.bbox.minX + col.bbox.maxX) / 2;
-        const dist = Math.abs(newCenter.x - colCx);
-        if (dist < bestDist) { bestDist = dist; bestColIdx = ci; }
-      }
-
-      let insertIndex = prev.length;
-      if (bestColIdx >= 0) {
-        const col = columns[bestColIdx];
-        let lastBeforeIdx = -1;
-        for (const colChar of col.chars) {
-          if (!colChar.bbox) continue;
-          const cy = (colChar.bbox[0].y + colChar.bbox[2].y) / 2;
-          if (cy <= newCenter.y) {
-            const sdIdx = prev.findIndex((c) => c.offset === colChar.offset);
-            if (sdIdx >= 0) lastBeforeIdx = sdIdx;
-          }
-        }
-        if (lastBeforeIdx >= 0) insertIndex = lastBeforeIdx + 1;
-        else {
-          const firstChar = col.chars.find((c) => c.bbox);
-          if (firstChar) {
-            const sdIdx = prev.findIndex((c) => c.offset === firstChar.offset);
-            if (sdIdx >= 0) insertIndex = sdIdx;
-          }
-        }
-      }
-
-      const newChar: SpatialCharacter = { text, bbox, confidence: 1.0, offset: 0 };
-      const next = [...prev];
-      next.splice(insertIndex, 0, newChar);
-      let offset = 0;
-      for (const c of next) { c.offset = offset; offset += c.text.length; }
-
-      setSaveStatus("saving");
-      save(next);
-      return next;
-    });
-  }
+  // Column-edit, char-add, region-OCR, and arrow-key navigation handlers
+  // now live in <OCRWorkspace>. Editor only retains handlers used by
+  // LowConfReviewModal (handleCharChange, handleDeleteChar,
+  // handleSelectColumn) so the modal can keep working.
 
   // Apply preprocessing (filters + crop + pixel ops) to an image blob using Canvas API
   async function preprocessImage(sourceBlob: Blob): Promise<Blob> {
@@ -806,78 +558,12 @@ export default function OCREditor({
     }
   }
 
-  // ── OCR a selected region and merge into existing spatial data ──
-  async function handleOcrRegion(rect: { x: number; y: number; w: number; h: number }) {
-    // rect is normalized [0,1] relative to the displayed image
-    const imgUrl = imageUrl;
-    if (!imgUrl) return;
-
-    try {
-      // Fetch the current display image and crop the region
-      const imgRes = await fetch(imgUrl);
-      if (!imgRes.ok) throw new Error("Failed to fetch image");
-      const blob = await imgRes.blob();
-
-      const croppedBlob = await new Promise<Blob>((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => {
-          const sx = Math.round(rect.x * img.naturalWidth);
-          const sy = Math.round(rect.y * img.naturalHeight);
-          const sw = Math.round(rect.w * img.naturalWidth);
-          const sh = Math.round(rect.h * img.naturalHeight);
-          const canvas = document.createElement("canvas");
-          canvas.width = sw;
-          canvas.height = sh;
-          const ctx = canvas.getContext("2d");
-          if (!ctx) return reject(new Error("Canvas not supported"));
-          ctx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
-          canvas.toBlob((b) => b ? resolve(b) : reject(new Error("Blob failed")), "image/jpeg", 0.95);
-        };
-        img.onerror = () => reject(new Error("Image load failed"));
-        img.src = URL.createObjectURL(blob);
-      });
-
-      // Run OCR on the cropped region
-      const formData = new FormData();
-      formData.append("image", croppedBlob, "region.jpg");
-      formData.append("det_mode", detMode);
-
-      const res = await fetch("/api/ocr/process-page", {
-        method: "POST",
-        body: formData,
-      });
-      if (!res.ok) throw new Error(`OCR failed: ${res.status}`);
-      const data = await res.json();
-      const regionChars: SpatialCharacter[] = data.spatialData ?? [];
-
-      if (regionChars.length === 0) return;
-
-      // Remap bboxes from region-local coords to full-image coords
-      const remapped: SpatialCharacter[] = regionChars
-        .filter((c: SpatialCharacter) => c.bbox)
-        .map((c: SpatialCharacter) => ({
-          ...c,
-          bbox: c.bbox!.map((v) => ({
-            x: rect.x + v.x * rect.w,
-            y: rect.y + v.y * rect.h,
-          })),
-        }));
-
-      // Merge into existing spatial data
-      setSpatialData((prev) => {
-        const merged = [...prev, ...remapped];
-        const reordered = reorderByColumns(merged);
-        setSaveStatus("saving");
-        save(reordered);
-        return reordered;
-      });
-    } catch (e: any) {
-      setError(e.message);
-    }
-  }
+  // Region OCR (re-OCR a drawn rectangle) now lives in <OCRWorkspace>.
 
   // Get base image URL for current page (original, unprocessed)
   function getImageUrl(): string {
+    const resolved = resolvedImageUrls[page];
+    if (resolved) return resolved;
     const iiifUrl = canvases[page - 1]?.imageUrl;
     if (iiifUrl) return iiifUrl;
     if (imageUrlPattern) return imageUrlPattern.replace("{page}", String(page).padStart(3, "0"));
@@ -943,50 +629,25 @@ export default function OCREditor({
           {editorMode === "editing" && (
             <>
               <button
-                onClick={() => setShowTranscriptionView((v) => !v)}
+                onClick={() => {
+                  setViewMode((v) => v === "charBox" ? "column" : "charBox");
+                  setSelectedColumnIndex(null);
+                  setFocusedOffset(null);
+                }}
                 className={`px-2 py-0.5 text-xs rounded border ${
-                  showTranscriptionView
-                    ? "border-indigo-400 text-indigo-600 bg-indigo-50"
-                    : "border-gray-300 text-gray-500 hover:text-indigo-600 hover:border-indigo-300"
+                  viewMode === "column"
+                    ? "border-amber-400 text-amber-600 bg-amber-50"
+                    : "border-gray-300 text-gray-500 hover:text-amber-600 hover:border-amber-300"
                 }`}
               >
-                {showTranscriptionView ? "Editor View" : "Transcription View"}
+                {viewMode === "column" ? "Column View" : "Char View"}
               </button>
-              {!showTranscriptionView && (
-                <>
-                <button
-                  onClick={() => {
-                    setViewMode((v) => v === "charBox" ? "column" : "charBox");
-                    setSelectedColumnIndex(null);
-                    setFocusedOffset(null);
-                  }}
-                  className={`px-2 py-0.5 text-xs rounded border ${
-                    viewMode === "column"
-                      ? "border-amber-400 text-amber-600 bg-amber-50"
-                      : "border-gray-300 text-gray-500 hover:text-amber-600 hover:border-amber-300"
-                  }`}
-                >
-                  {viewMode === "column" ? "Column View" : "Char View"}
-                </button>
-                <button
-                  onClick={() => setLayoutMode((m) => m === "simple" ? "commentary" : "simple")}
-                  className={`px-2 py-0.5 text-xs rounded border ${
-                    layoutMode === "commentary"
-                      ? "border-purple-400 text-purple-600 bg-purple-50"
-                      : "border-gray-300 text-gray-500 hover:text-purple-600 hover:border-purple-300"
-                  }`}
-                >
-                  {layoutMode === "commentary" ? "Commentary" : "Simple"}
-                </button>
-                </>
-              )}
               <button
                 onClick={() => {
                   setEditorMode("no-data");
                   setProcessedImageUrl(null);
                   setSelectedColumnIndex(null);
                   setFocusedOffset(null);
-                  setShowTranscriptionView(false);
                 }}
                 className="px-2 py-0.5 text-xs rounded border border-gray-300 text-gray-500 hover:text-red-600 hover:border-red-300"
               >
@@ -1245,121 +906,49 @@ export default function OCREditor({
       )}
 
       {/* Editing state — transcription view */}
-      {editorMode === "editing" && showTranscriptionView && (
-        <ColumnTranscriptionView
-          columns={columns}
-          imageUrl={imageUrl}
-          layoutMode={layoutMode}
-          onCharChange={handleCharChange}
-          focusedOffset={focusedOffset}
-          onFocusChar={setFocusedOffset}
-        />
-      )}
-
-      {/* Editing state — three-pane layout */}
-      {editorMode === "editing" && !showTranscriptionView && (
-        <div className="flex flex-1 overflow-hidden">
-          {/* Left: full text */}
-          <div className="w-1/3 border-r border-gray-200 bg-white overflow-hidden flex flex-col">
-            <div className="px-2 py-1.5 text-xs font-semibold text-gray-500 bg-gray-50 border-b border-gray-100 uppercase tracking-wide flex items-center justify-between">
-              Full Text
-              <button
-                onClick={() => {
-                  const blob = new Blob([rawText], { type: "text/plain;charset=utf-8" });
-                  const url = URL.createObjectURL(blob);
-                  const a = document.createElement("a");
-                  a.href = url;
-                  a.download = `${slug}_page_${page}.txt`;
-                  a.click();
-                  URL.revokeObjectURL(url);
-                }}
-                className="px-2 py-0.5 text-[10px] font-medium rounded border border-gray-300 text-gray-500 hover:bg-gray-100 uppercase tracking-wide"
-              >
-                Download .txt
-              </button>
-            </div>
-            <OCRTextPane
-              spatialData={spatialData}
-              columns={columns}
-              layoutMode={layoutMode}
-              focusedOffset={focusedOffset}
-              onFocusChar={setFocusedOffset}
-              onSelectColumn={handleSelectColumn}
-            />
+      {/* Editing state — three-pane workspace */}
+      {editorMode === "editing" && (
+        <div className="flex flex-1 overflow-hidden flex-col">
+          {/* Download-text strip — used to live in the Full Text pane header */}
+          <div className="flex justify-end px-2 py-1 border-b border-gray-100 bg-gray-50">
+            <button
+              onClick={() => {
+                const blob = new Blob([rawText], { type: "text/plain;charset=utf-8" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `${slug}_page_${page}.txt`;
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
+              className="px-2 py-0.5 text-[10px] font-medium rounded border border-gray-300 text-gray-500 hover:bg-gray-100 uppercase tracking-wide"
+            >
+              Download .txt
+            </button>
           </div>
-
-          {/* Center: image + overlays */}
-          <div className="flex-1 overflow-hidden relative flex flex-col">
-            <div className="px-2 py-1.5 text-xs font-semibold text-gray-500 bg-gray-50 border-b border-gray-100 uppercase tracking-wide">
-              {viewMode === "column"
-                ? (selectedColumnIndex !== null ? `Column ${selectedColumnIndex + 1} selected` : "Click a column to select, drag to move, draw to add")
-                : (selectedColumnIndex !== null ? `Editing column ${selectedColumnIndex + 1}` : "Click a column or draw to add")}
-            </div>
-            <div className="flex-1 overflow-hidden">
-              <OCRImagePane
-                imageUrl={imageUrl}
-                columns={columns}
-                selectedColumnIndex={selectedColumnIndex}
-                spatialData={spatialData}
-                onSelectColumn={handleSelectColumn}
-                onDeselectColumn={() => { setSelectedColumnIndex(null); setFocusedOffset(null); }}
-                onCharChange={handleCharChange}
-                onFocusChar={setFocusedOffset}
-                onAddChar={handleAddChar}
-                onOcrRegion={handleOcrRegion}
-                focusedOffset={focusedOffset}
-                viewMode={viewMode}
-                onMoveColumn={handleMoveColumn}
-                onResizeColumn={handleResizeColumn}
-                onDeleteColumn={handleDeleteColumn}
-                onCreateColumn={handleCreateColumn}
-              />
-            </div>
-          </div>
-
-          {/* Right: toolbox */}
-          <div className="w-1/4 border-l border-gray-200 bg-white overflow-hidden flex flex-col">
-            <div className="px-2 py-1.5 text-xs font-semibold text-gray-500 bg-gray-50 border-b border-gray-100 uppercase tracking-wide">
-              Tools
-            </div>
-            <OCRToolbox
-              columns={columns}
-              selectedColumnIndex={selectedColumnIndex}
-              onSelectColumn={handleSelectColumn}
-              spatialDataLength={spatialData.filter((c) => c.bbox).length}
-              focusedOffset={focusedOffset}
-              onDeleteChar={handleDeleteChar}
-              onSuggestApply={handleSuggestApply}
-              spatialData={spatialData}
-              onFocusChar={setFocusedOffset}
-              candidateData={candidateData}
-              viewMode={viewMode}
-              onDeleteColumn={handleDeleteColumn}
-              orphanedChars={orphanedChars}
-              onDeleteOrphans={() => {
-                setSpatialData((prev) => {
-                  const orphanOffsets = new Set(orphanedChars.map((c) => c.offset));
-                  const next = prev.filter((c) => !orphanOffsets.has(c.offset));
-                  let offset = 0;
-                  for (const c of next) { c.offset = offset; offset += c.text.length; }
-                  setSaveStatus("saving");
-                  save(next);
-                  return next;
-                });
-              }}
-              onPromoteCandidate={(c) => {
-                setCandidateData((prev) => prev.filter((x) => x.offset !== c.offset));
-                handleAddChar(c.bbox!, c.text);
-              }}
-              onDismissCandidate={(c) => {
-                setCandidateData((prev) => prev.filter((x) => x.offset !== c.offset));
-              }}
-              onOpenLowConfReview={(threshold) => {
-                setReviewThreshold(threshold);
-                setShowLowConfReview(true);
-              }}
-            />
-          </div>
+          <OCRWorkspace
+            spatialData={spatialData}
+            onSpatialDataChange={(next) => {
+              setSpatialData(next);
+              setSaveStatus("saving");
+              save(next);
+            }}
+            imageUrl={imageUrl}
+            viewMode={viewMode}
+            selectedColumnIndex={selectedColumnIndex}
+            onSelectColumnIndexChange={setSelectedColumnIndex}
+            focusedOffset={focusedOffset}
+            onFocusedOffsetChange={setFocusedOffset}
+            bboxOverrides={bboxOverrides}
+            onBboxOverridesChange={setBboxOverrides}
+            candidateData={candidateData}
+            onCandidateDataChange={setCandidateData}
+            regionOcrDetMode={detMode}
+            onOpenLowConfReview={(threshold) => {
+              setReviewThreshold(threshold);
+              setShowLowConfReview(true);
+            }}
+          />
         </div>
       )}
 

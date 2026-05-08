@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect, useMemo } from "react";
+import { useState, useRef, useCallback, useEffect, useLayoutEffect, useMemo } from "react";
 import type { SpatialCharacter } from "@/lib/ocr-store";
 import { detectColumns, reorderByColumns, Column } from "@/components/ocr-editor/useColumnDetection";
+import { rerecognizeWithNomNaViet, type NomNaVietReplacement } from "@/lib/nomnaviet-ocr";
 
 interface OcrResult {
   spatialData: SpatialCharacter[];
@@ -28,10 +29,36 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
 
   const [selectedCol, setSelectedCol] = useState<number | null>(null);
   const [focusedOffset, setFocusedOffset] = useState<number | null>(null);
+  // Screen-space rect of the focused input cell — drives the candidate-strip
+  // popover (rendered with position:fixed so parent overflow can't clip it).
+  const [focusedRect, setFocusedRect] = useState<{ left: number; top: number; height: number } | null>(null);
+  // Screen-space rect of the displayed image — drives the input-cell panel
+  // wrapper, also rendered with position:fixed so the panel can extend left
+  // of the image without being clipped by parent overflow containers.
+  const [imgScreenRect, setImgScreenRect] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
   const [imgDims, setImgDims] = useState({ w: 1, h: 1 });
   const [zoom, setZoom] = useState(100);
   const [detMode, setDetMode] = useState<"auto" | "sp" | "hp">("auto");
-  const [engine, setEngine] = useState<"kandianguji" | "kimhannom" | "hybrid">("kandianguji");
+  // Persist engine across reloads — every browser refresh otherwise reset
+  // it to "kandianguji" and the NNV path silently skipped.
+  const [engine, setEngine] = useState<"kandianguji" | "kimhannom" | "hybrid" | "kandianguji_nomnaviet">(
+    () => {
+      if (typeof window === "undefined") return "kandianguji";
+      const saved = localStorage.getItem("ocrtest_engine");
+      if (
+        saved === "kandianguji" ||
+        saved === "kimhannom" ||
+        saved === "hybrid" ||
+        saved === "kandianguji_nomnaviet"
+      )
+        return saved;
+      return "kandianguji";
+    }
+  );
+  useEffect(() => {
+    if (typeof window !== "undefined")
+      localStorage.setItem("ocrtest_engine", engine);
+  }, [engine]);
   const [kimToken, setKimToken] = useState(() => {
     if (typeof window !== "undefined") return localStorage.getItem("kimhannom_token") ?? "";
     return "";
@@ -51,12 +78,29 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   const [selectionPixels, setSelectionPixels] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
   const [manualInput, setManualInput] = useState("");
 
-  // Delete character state
-  const [deleteArmed, setDeleteArmed] = useState(false);
+  // Delete character state (per-row delete confirmation in the column view)
   const [armedDeleteOffset, setArmedDeleteOffset] = useState<number | null>(null);
 
   // Region OCR
   const [ocrRegionLoading, setOcrRegionLoading] = useState(false);
+
+  // Per-char re-OCR progress (Nôm Na Việt hybrid)
+  const [nnvProgress, setNnvProgress] = useState<{ done: number; total: number } | null>(null);
+  // In-page confirmation prompt for the NNV batch — replaces window.confirm
+  // (which Chrome silently suppresses when the tab is not focused, which
+  // happens whenever the slow kandi call finishes while the user is looking
+  // at another window).
+  const [nnvPendingConfirm, setNnvPendingConfirm] = useState<{
+    eligible: number;
+    estSec: number;
+    slotJitterMs: number;
+    resolve: (ok: boolean) => void;
+  } | null>(null);
+  // Only re-OCR chars whose kandi confidence is below this threshold (0–100).
+  // 100 = send every char; lower = only the iffy ones.
+  const [nnvConfThreshold, setNnvConfThreshold] = useState(100);
+  // Log of each char sent to Nôm Na Việt and what came back.
+  const [nnvReplacements, setNnvReplacements] = useState<NomNaVietReplacement[]>([]);
 
   const [candidateData, setCandidateData] = useState<SpatialCharacter[]>([]);
   const [candIndex, setCandIndex] = useState(0);
@@ -65,67 +109,11 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   const [confThreshold, setConfThreshold] = useState(50);
   const [reviewIndex, setReviewIndex] = useState(0);
 
-  // Draggable character detail card
-  const CARD_W = 224;
-  const CARD_H = 210;
-  const [cardPos, setCardPos] = useState<{ x: number; y: number } | null>(null);
-  const dragOffsetRef = useRef<{ x: number; y: number } | null>(null);
-
-  useEffect(() => {
-    if (cardPos === null) {
-      setCardPos({
-        x: Math.round(window.innerWidth / 2 - CARD_W / 2),
-        y: Math.round(window.innerHeight / 2 - CARD_H / 2),
-      });
-    }
-  }, [cardPos]);
-
-  const handleCardMouseDown = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    dragOffsetRef.current = {
-      x: e.clientX - (cardPos?.x ?? 0),
-      y: e.clientY - (cardPos?.y ?? 0),
-    };
-    function onMove(me: MouseEvent) {
-      if (!dragOffsetRef.current) return;
-      setCardPos({
-        x: me.clientX - dragOffsetRef.current.x,
-        y: me.clientY - dragOffsetRef.current.y,
-      });
-    }
-    function onUp() {
-      dragOffsetRef.current = null;
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup", onUp);
-    }
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup", onUp);
-  }, [cardPos]);
-
-  // Disarm delete when focused char changes
-  useEffect(() => { setDeleteArmed(false); }, [focusedOffset]);
-
-  const columns = detectColumns(spatialData, "commentary");
+  const columns = detectColumns(spatialData);
   const charsWithBbox = spatialData.filter((c) => c.bbox && c.text.trim()).length;
   const rawText = spatialData.map((c) => c.text).join("");
 
   const selectedColumn = selectedCol !== null ? columns[selectedCol] ?? null : null;
-
-  // Focused character metadata
-  const focusedChar =
-    focusedOffset !== null
-      ? spatialData.find((c) => c.offset === focusedOffset) ?? null
-      : null;
-
-  const focusedColIdx =
-    focusedChar !== null
-      ? columns.findIndex((col) => col.chars.some((c) => c.offset === focusedOffset))
-      : -1;
-
-  const focusedPosInCol =
-    focusedChar !== null && focusedColIdx >= 0
-      ? (columns[focusedColIdx]?.chars.findIndex((c) => c.offset === focusedOffset) ?? -1) + 1
-      : null;
 
   // Low-confidence review queue
   const reviewQueue = useMemo(() => {
@@ -155,17 +143,24 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
 
   async function handleRun() {
     if (!file) return;
+    // eslint-disable-next-line no-console
+    console.log(`[OCR] handleRun engine=${engine} threshold=${nnvConfThreshold}%`);
     setLoading(true);
     setError(null);
     setResult(null);
     setSpatialData([]);
     setSelectedCol(null);
     setFocusedOffset(null);
+    setNnvReplacements([]);
 
     const formData = new FormData();
     formData.append("image", file);
     formData.append("det_mode", detMode);
-    formData.append("engine", engine);
+    // Nôm Na Việt hybrid reuses Kandianguji for detection — ask the server
+    // for plain Kandianguji output, then re-OCR each bbox client-side.
+    const upstreamEngine =
+      engine === "kandianguji_nomnaviet" ? "kandianguji" : engine;
+    formData.append("engine", upstreamEngine);
     if (engine === "kimhannom" || engine === "hybrid") {
       formData.append("kim_token", kimToken);
       formData.append("kim_ocr_id", String(kimOcrId));
@@ -183,10 +178,92 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
         throw new Error(data.error || `HTTP ${res.status}`);
       }
       const data: OcrResult = await res.json();
-      setResult(data);
-      setSpatialData(reorderByColumns(data.spatialData, "commentary"));
+
+      let merged = data.spatialData;
+
+      if (engine === "kandianguji_nomnaviet") {
+        // Pre-count how many chars will actually be re-OCR'd so the user can
+        // confirm before we kick off potentially hundreds of requests.
+        // Threshold = 100% means "send everything with a bbox" — skip the
+        // confidence filter entirely so chars Kandianguji marked at exactly
+        // 1.0 still get sent.
+        const threshold = nnvConfThreshold / 100;
+        const sendAll = threshold >= 1;
+        const eligible = data.spatialData.filter(
+          (c) => c.bbox && (sendAll || c.confidence < threshold)
+        ).length;
+        // 1 in flight, ~1000 ms per request → ~1 req/sec.
+        const concurrency = 1;
+        const slotJitterMs = 1000;
+        const estSec = Math.round((eligible * slotJitterMs * 1.0) / 1000);
+
+        let runNnv = false;
+        if (eligible === 0) {
+          setError(
+            `No characters fell below the re-OCR confidence threshold (${nnvConfThreshold}%) — showing Kandianguji results only. Raise the threshold to send chars to Nôm Na Việt.`
+          );
+        } else {
+          runNnv = await new Promise<boolean>((resolve) => {
+            setNnvPendingConfirm({ eligible, estSec, slotJitterMs, resolve });
+          });
+          setNnvPendingConfirm(null);
+        }
+
+        // eslint-disable-next-line no-console
+        console.log(
+          `[NNV] kandi returned ${data.spatialData.length} chars, ${data.spatialData.filter(c => c.bbox).length} with bbox, ${eligible} eligible (threshold=${threshold}, sendAll=${sendAll}). runNnv=${runNnv}`
+        );
+
+        if (runNnv) {
+          // Load the same image into an HTMLImageElement so we can crop each
+          // Kandianguji bbox to PNG and POST it to the Nôm Na Việt proxy.
+          const img = await new Promise<HTMLImageElement>((resolve, reject) => {
+            const el = new Image();
+            el.onload = () => resolve(el);
+            el.onerror = () => reject(new Error("Failed to decode image for cropping"));
+            el.src = URL.createObjectURL(file);
+          });
+          setNnvProgress({ done: 0, total: 0 });
+          const rerec = await rerecognizeWithNomNaViet(img, data.spatialData, {
+            concurrency,
+            confidenceThreshold: threshold,
+            slotJitterMs,
+            onProgress: (done, total) => setNnvProgress({ done, total }),
+            // Stream each char into the diff panel as it arrives so the user
+            // sees the table grow live during a multi-minute run.
+            onReplacement: (rep) =>
+              setNnvReplacements((prev) => [...prev, rep]),
+          });
+          merged = rerec.spatialData;
+          setNnvReplacements(rerec.replacements);
+          // Print the kandi → NNV mapping table to the browser console so
+          // the user can scan every char that was sent and what came back.
+          // eslint-disable-next-line no-console
+          console.table(
+            rerec.replacements.map((r) => ({
+              offset: r.offset,
+              kandi: r.kandiChar,
+              kandi_conf: r.kandiConf.toFixed(2),
+              nnv: r.nnvChar ?? "—",
+              nnv_conf: r.nnvConf?.toFixed(2) ?? "—",
+              changed: r.changed ? "✓" : "",
+            }))
+          );
+          URL.revokeObjectURL(img.src);
+          setNnvProgress(null);
+        }
+        // If runNnv stayed false (eligible=0 or user cancelled), `merged`
+        // keeps the Kandianguji-only spatialData and we fall through to
+        // setResult below — so the page still shows the OCR you just paid
+        // a minute for, instead of staying blank.
+      }
+
+      const rawText = merged.map((c) => c.text).join("");
+      setResult({ ...data, spatialData: merged, rawText });
+      setSpatialData(reorderByColumns(merged));
     } catch (e: any) {
       setError(e.message ?? "Unknown error");
+      setNnvProgress(null);
     } finally {
       setLoading(false);
     }
@@ -280,6 +357,25 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     handleCharChange(focusedOffset, suggestion);
   }
 
+  // Apply a candidate AND advance focus — used by the candidate-strip
+  // popover and the digit hotkey path. (The hotkey path lives in the
+  // global keydown effect; it duplicates this advance logic inline because
+  // it has access to the in-scope `columns` reference.)
+  function applyChoiceAndAdvance(suggestion: string) {
+    if (focusedOffset === null) return;
+    handleCharChange(focusedOffset, suggestion);
+    if (selectedCol !== null) {
+      const col = columns[selectedCol];
+      if (col) {
+        const bboxChars = col.chars.filter((c) => c.bbox);
+        const idx = bboxChars.findIndex((c) => c.offset === focusedOffset);
+        const next = bboxChars[idx + 1];
+        if (next) setFocusedOffset(next.offset);
+        else if (selectedCol < columns.length - 1) handleSelectColumn(selectedCol + 1);
+      }
+    }
+  }
+
   async function handleOcrRegion(regionDetMode?: string) {
     if (!selectionRect || !preview) return;
     setOcrRegionLoading(true);
@@ -338,7 +434,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
       // Merge into existing spatial data
       setSpatialData((prev) => {
         const merged = [...prev, ...remapped];
-        return reorderByColumns(merged, "commentary");
+        return reorderByColumns(merged);
       });
 
       clearSelection();
@@ -531,8 +627,51 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
   // Global keyboard shortcuts
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      const tag = (e.target as HTMLElement)?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      const target = e.target as HTMLElement | null;
+      const tag = target?.tagName;
+      // The per-cell OCR inputs are <input data-char-offset="…"> — those
+      // are an "OCR cell" and should still accept the digit-candidate
+      // hotkey (preventDefault stops the digit from being typed). Other
+      // inputs/textareas (search box, kim token, etc.) skip all hotkeys.
+      const isOcrCellInput =
+        tag === "INPUT" && target?.hasAttribute("data-char-offset");
+      if ((tag === "INPUT" || tag === "TEXTAREA") && !isOcrCellInput) return;
+
+      // Digit 1–9 — replace focused char with the Nth alternate candidate
+      // and advance focus to the next char (mirrors ArrowDown behaviour).
+      if (
+        focusedOffset !== null &&
+        !e.ctrlKey && !e.metaKey && !e.altKey &&
+        e.key >= "1" && e.key <= "9"
+      ) {
+        const focusedChar = spatialData.find((c) => c.offset === focusedOffset);
+        const choices = focusedChar?.choices ?? [];
+        const candidate = choices[parseInt(e.key, 10) - 1];
+        if (candidate) {
+          e.preventDefault();
+          handleSuggestApply(candidate);
+          // Advance focus to the next bbox char in reading order.
+          if (selectedCol !== null) {
+            const col = columns[selectedCol];
+            if (col) {
+              const bboxChars = col.chars.filter((c) => c.bbox);
+              const idx = bboxChars.findIndex((c) => c.offset === focusedOffset);
+              const next = bboxChars[idx + 1];
+              if (next) {
+                setFocusedOffset(next.offset);
+              } else if (selectedCol < columns.length - 1) {
+                handleSelectColumn(selectedCol + 1);
+              }
+            }
+          }
+          return;
+        }
+      }
+
+      // Inputs intercept arrow keys / Esc themselves — only the digit hotkey
+      // above is allowed to bubble up from a focused OCR cell. Bail here so
+      // we don't fight the input's own caret/Tab handling.
+      if (isOcrCellInput) return;
 
       if (e.key === "Escape") {
         setSelectedCol(null);
@@ -574,7 +713,8 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedCol, columns.length]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCol, columns.length, focusedOffset, spatialData]);
 
   // Mouse wheel zoom
   useEffect(() => {
@@ -605,6 +745,49 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
     if (el) el.focus();
   }, [focusedOffset, selectedCol]);
 
+  // Track the focused input's screen rect for the candidate-strip popover.
+  useLayoutEffect(() => {
+    if (focusedOffset === null) {
+      setFocusedRect(null);
+      return;
+    }
+    function update() {
+      const el = document.querySelector(
+        `[data-char-offset="${focusedOffset}"]`
+      ) as HTMLElement | null;
+      if (!el) {
+        setFocusedRect(null);
+        return;
+      }
+      const r = el.getBoundingClientRect();
+      setFocusedRect({ left: r.left, top: r.top, height: r.height });
+    }
+    update();
+    window.addEventListener("scroll", update, true);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update, true);
+      window.removeEventListener("resize", update);
+    };
+  }, [focusedOffset, spatialData, selectedCol]);
+
+  // Track the image's screen rect for the input-panel wrapper.
+  useLayoutEffect(() => {
+    function update() {
+      const el = imgRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      setImgScreenRect({ left: r.left, top: r.top, width: r.width, height: r.height });
+    }
+    update();
+    window.addEventListener("scroll", update, true);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update, true);
+      window.removeEventListener("resize", update);
+    };
+  }, [imgDims, result]);
+
   const scaleX = imgDims.w;
   const scaleY = imgDims.h;
 
@@ -616,14 +799,31 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
           <div className="flex items-center gap-2">
             <select
               value={engine}
-              onChange={(e) => setEngine(e.target.value as "kandianguji" | "kimhannom" | "hybrid")}
+              onChange={(e) => setEngine(e.target.value as "kandianguji" | "kimhannom" | "hybrid" | "kandianguji_nomnaviet")}
               disabled={loading}
               className="text-sm border border-gray-300 rounded px-2 py-2"
             >
               <option value="kandianguji">Kandianguji (看典古籍)</option>
               <option value="kimhannom">Kim Hán Nôm (金漢喃)</option>
               <option value="hybrid">Hybrid (Kandianguji boxes + Kim Hán Nôm text)</option>
+              <option value="kandianguji_nomnaviet">Hybrid (Kandianguji boxes + Nôm Na Việt per-char)</option>
             </select>
+            {engine === "kandianguji_nomnaviet" && (
+              <label className="flex items-center gap-1 text-xs text-gray-600">
+                Re-OCR if conf &lt;
+                <input
+                  type="number"
+                  min={0}
+                  max={100}
+                  step={5}
+                  value={nnvConfThreshold}
+                  onChange={(e) => setNnvConfThreshold(Number(e.target.value) || 0)}
+                  disabled={loading}
+                  className="w-14 border border-gray-300 rounded px-1 py-1 text-xs"
+                />
+                %
+              </label>
+            )}
             {(engine === "kandianguji" || engine === "hybrid") && (
               <select
                 value={detMode}
@@ -675,7 +875,11 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
               disabled={!file || loading || ((engine === "kimhannom" || engine === "hybrid") && !kimToken)}
               className="px-4 py-2 text-sm font-medium rounded bg-branding-black text-white hover:bg-gray-800 disabled:opacity-40"
             >
-              {loading ? "Running OCR…" : "Run Quick OCR"}
+              {loading
+                ? nnvProgress
+                  ? `Re-OCR ${nnvProgress.done}/${nnvProgress.total || "…"}`
+                  : "Running OCR…"
+                : "Run Quick OCR"}
             </button>
           </div>
           {(engine === "kimhannom" || engine === "hybrid") && (
@@ -704,6 +908,79 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
         <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded p-3">
           Error: {error}
         </div>
+      )}
+
+      {nnvPendingConfirm && (
+        <div className="sticky top-2 z-30 flex items-center justify-between gap-3 bg-amber-50 border border-amber-300 rounded p-3 shadow-sm">
+          <div className="text-sm text-amber-900">
+            Ready to send <strong>{nnvPendingConfirm.eligible}</strong>{" "}
+            characters to Nôm Na Việt (1 at a time, ~
+            {nnvPendingConfirm.slotJitterMs} ms apart, est.{" "}
+            <strong>{nnvPendingConfirm.estSec}s</strong>).
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => nnvPendingConfirm.resolve(false)}
+              className="px-3 py-1.5 text-sm font-medium rounded border border-gray-300 bg-white hover:bg-gray-100"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => nnvPendingConfirm.resolve(true)}
+              className="px-3 py-1.5 text-sm font-medium rounded bg-amber-600 text-white hover:bg-amber-700"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
+
+      {nnvReplacements.length > 0 && (
+        <details className="text-sm border border-gray-200 rounded bg-gray-50">
+          <summary className="cursor-pointer px-3 py-2 font-medium text-gray-700">
+            Nôm Na Việt re-OCR log — {nnvReplacements.length} chars sent,{" "}
+            {nnvReplacements.filter((r) => r.changed).length} changed,{" "}
+            {nnvReplacements.filter((r) => r.nnvChar === null).length} failed
+          </summary>
+          <div className="max-h-72 overflow-auto px-3 pb-3">
+            <table className="w-full text-xs font-mono">
+              <thead className="text-gray-500 sticky top-0 bg-gray-50">
+                <tr>
+                  <th className="text-left py-1 pr-3">offset</th>
+                  <th className="text-left pr-3">kandi</th>
+                  <th className="text-left pr-3">conf</th>
+                  <th className="text-left pr-3">nnv</th>
+                  <th className="text-left pr-3">conf</th>
+                  <th className="text-left">Δ</th>
+                </tr>
+              </thead>
+              <tbody>
+                {nnvReplacements.map((r) => (
+                  <tr
+                    key={r.offset}
+                    className={`cursor-pointer hover:bg-yellow-50 ${
+                      r.changed ? "bg-amber-50/60" : ""
+                    }`}
+                    onClick={() => setFocusedOffset(r.offset)}
+                  >
+                    <td className="py-0.5 pr-3 text-gray-500">{r.offset}</td>
+                    <td className="pr-3 text-base">{r.kandiChar}</td>
+                    <td className="pr-3 text-gray-500">
+                      {r.kandiConf.toFixed(2)}
+                    </td>
+                    <td className="pr-3 text-base">
+                      {r.nnvChar ?? <span className="text-red-500">—</span>}
+                    </td>
+                    <td className="pr-3 text-gray-500">
+                      {r.nnvConf?.toFixed(2) ?? "—"}
+                    </td>
+                    <td>{r.changed ? "✓" : ""}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
       )}
 
       {/* Three-pane editor */}
@@ -1056,7 +1333,7 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                     laneBottoms.set(pos.lane, pos.cellTop + pos.cellSize);
                   }
 
-                  return elements.concat(cellPositions.map((pos) => {
+                  const cellRenders = cellPositions.map((pos) => {
                     const { char, charIdx, cellSize, cellLeft, cellTop, imgLeft, imgTop, boxW, boxH } = pos;
                     const isFocused = char.offset === focusedOffset;
                     const conf = char.confidence;
@@ -1114,14 +1391,40 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                             lineHeight: 1,
                             padding: "1px",
                             zIndex: isFocused ? 50 : 10,
+                            pointerEvents: "auto",
                           }}
                           className={`text-center font-serif outline-none bg-transparent ${textColor} ${
                             isFocused ? "border-2 border-indigo-500 ring-2 ring-indigo-300 bg-indigo-50 rounded" : "border-0"
                           }`}
                         />
+                        {/* Candidate strip rendered at the top of OCRTester
+                            via position:fixed (see end of file) so it
+                            escapes the image-pane overflow clipping. */}
                       </div>
                     );
-                  }));
+                  });
+
+                  // Wrap the panel + cells in a position:fixed anchor over
+                  // the image's screen rect so the panel can extend past
+                  // the image's left edge without parent overflow clipping
+                  // hiding it. Wrapper is pointer-events:none so clicks
+                  // outside cells fall through to the image's own handlers.
+                  if (!imgScreenRect) return null;
+                  return (
+                    <div
+                      style={{
+                        position: "fixed",
+                        left: imgScreenRect.left,
+                        top: imgScreenRect.top,
+                        width: imgScreenRect.width,
+                        height: imgScreenRect.height,
+                        pointerEvents: "none",
+                        zIndex: 60,
+                      }}
+                    >
+                      {elements.concat(cellRenders)}
+                    </div>
+                  );
                 })()}
               </div>
             </div>
@@ -1157,52 +1460,47 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                 </div>
               </div>
 
-              {/* Selected column text with click-to-delete */}
-              {selectedColumn && (
-                <div>
-                  <p className="text-xs font-medium text-gray-600 mb-1">
-                    Column {(selectedCol ?? 0) + 1} ({selectedColumn.chars.length} chars)
-                  </p>
-                  <div className="text-sm bg-indigo-50 border border-indigo-200 rounded p-2 break-all flex flex-wrap gap-0.5">
-                    {selectedColumn.chars.map((c) => (
-                      armedDeleteOffset === c.offset ? (
-                        <span key={c.offset} className="flex items-center gap-0.5 bg-red-50 border border-red-200 rounded px-1 py-0.5">
-                          <span className="font-serif">{c.text}</span>
-                          <button
-                            onClick={() => { handleDeleteChar(c.offset); setArmedDeleteOffset(null); }}
-                            className="text-[9px] font-semibold text-white bg-red-500 hover:bg-red-600 rounded px-1 leading-tight"
-                          >
-                            Delete
-                          </button>
-                          <button
-                            onClick={() => setArmedDeleteOffset(null)}
-                            className="text-[9px] text-gray-400 hover:text-gray-600 leading-tight"
-                          >
-                            Cancel
-                          </button>
-                        </span>
-                      ) : (
-                        <span
-                          key={c.offset}
-                          className="group relative cursor-pointer hover:bg-red-100 rounded px-0.5 transition-colors"
-                          title={`Click to delete "${c.text}"`}
-                          onClick={() => setArmedDeleteOffset(c.offset)}
-                        >
-                          {c.text}
-                          <span className="absolute -top-1 -right-1 hidden group-hover:block text-[8px] bg-red-500 text-white rounded-full w-3 h-3 flex items-center justify-center leading-none">×</span>
-                        </span>
-                      )
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Stats */}
               <div className="text-xs text-gray-400 space-y-1">
                 <p>Image: {result.pageWidth} × {result.pageHeight}px</p>
                 <p>Spatial items: {spatialData.length}</p>
                 <p>With bbox: {charsWithBbox}</p>
                 <p>Columns: {columns.length}</p>
+              </div>
+
+              {/* Alternate candidate suggestions from OCR choices */}
+              <div className="border-t border-gray-100 pt-3">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                  Alternate Candidates
+                </p>
+                {focusedOffset === null ? (
+                  <p className="text-[11px] text-gray-400 italic">Focus a character to see candidates</p>
+                ) : (() => {
+                  const focusedChar = spatialData.find((c) => c.offset === focusedOffset);
+                  const choices = focusedChar?.choices ?? [];
+                  if (choices.length === 0) return (
+                    <p className="text-[11px] text-gray-400 italic">No candidates available for this character</p>
+                  );
+                  return (
+                    <div className="flex flex-wrap gap-1">
+                      {choices.map((s, i) => (
+                        <button
+                          key={i}
+                          onClick={() => handleSuggestApply(s)}
+                          title={i < 9 ? `Press ${i + 1} to apply` : undefined}
+                          className="relative px-2 py-1 text-base rounded border border-gray-300 hover:bg-indigo-50 hover:border-indigo-400"
+                        >
+                          {i < 9 && (
+                            <span className="absolute -top-1.5 -left-1.5 inline-flex items-center justify-center w-4 h-4 text-[9px] font-semibold rounded-full bg-indigo-500 text-white leading-none">
+                              {i + 1}
+                            </span>
+                          )}
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  );
+                })()}
               </div>
 
               {/* Low confidence review queue */}
@@ -1274,35 +1572,6 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
                 )}
               </div>
 
-              {/* Alternative characters from OCR choices */}
-              <div className="border-t border-gray-100 pt-3">
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                  Alternative Characters
-                </p>
-                {focusedOffset === null ? (
-                  <p className="text-[11px] text-gray-400 italic">Focus a character to see alternatives</p>
-                ) : (() => {
-                  const focusedChar = spatialData.find((c) => c.offset === focusedOffset);
-                  const choices = focusedChar?.choices ?? [];
-                  if (choices.length === 0) return (
-                    <p className="text-[11px] text-gray-400 italic">No alternatives available for this character</p>
-                  );
-                  return (
-                    <div className="flex flex-wrap gap-1">
-                      {choices.map((s, i) => (
-                        <button
-                          key={i}
-                          onClick={() => handleSuggestApply(s)}
-                          className="px-2 py-1 text-base rounded border border-gray-300 hover:bg-indigo-50 hover:border-indigo-400"
-                        >
-                          {s}
-                        </button>
-                      ))}
-                    </div>
-                  );
-                })()}
-              </div>
-
               {/* Keyboard shortcuts */}
               <div className="text-xs text-gray-400 border-t border-gray-100 pt-3">
                 <p className="font-medium text-gray-500 mb-1">Keyboard</p>
@@ -1328,174 +1597,6 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
         </div>
       )}
 
-      {/* Character detail card — fixed overlay when a character is focused */}
-      {result && focusedChar && focusedChar.bbox && (() => {
-        const PAD = 0.06;
-        const CARD_IMG_W = 100;
-        const CARD_IMG_H = 80;
-
-        const bx0 = focusedChar.bbox[0].x;
-        const by0 = focusedChar.bbox[0].y;
-        const bx1 = focusedChar.bbox[1].x;
-        const by2 = focusedChar.bbox[2].y;
-
-        const rL = Math.max(0, bx0 - PAD);
-        const rT = Math.max(0, by0 - PAD);
-        const rR = Math.min(1, bx1 + PAD);
-        const rB = Math.min(1, by2 + PAD);
-        const rW = rR - rL || 0.1;
-        const rH = rB - rT || 0.1;
-
-        const iW = imgDims.w || 1;
-        const iH = imgDims.h || 1;
-        const scale = Math.min(CARD_IMG_W / (rW * iW), CARD_IMG_H / (rH * iH));
-        const bgW = iW * scale;
-        const bgH = iH * scale;
-        const centerOffX = (CARD_IMG_W - rW * iW * scale) / 2;
-        const centerOffY = (CARD_IMG_H - rH * iH * scale) / 2;
-        const bgX = -rL * iW * scale + centerOffX;
-        const bgY = -rT * iH * scale + centerOffY;
-
-        const hlL = (bx0 - rL) * iW * scale + centerOffX;
-        const hlT = (by0 - rT) * iH * scale + centerOffY;
-        const hlW = (bx1 - bx0) * iW * scale;
-        const hlH = (by2 - by0) * iH * scale;
-
-        const conf = focusedChar.confidence;
-        const confPct = Math.round(conf * 100);
-        const confColor =
-          conf < 0.3 ? "text-red-600 bg-red-50"
-          : conf < 0.5 ? "text-yellow-700 bg-yellow-50"
-          : "text-emerald-700 bg-emerald-50";
-        const barColor =
-          conf < 0.3 ? "bg-red-400" : conf < 0.5 ? "bg-yellow-400" : "bg-emerald-400";
-
-        const totalInCol = focusedColIdx >= 0 ? columns[focusedColIdx]?.chars.length : null;
-
-        return (
-          <div
-            className="fixed z-[200] w-56 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden select-none"
-            style={{ left: cardPos?.x ?? 0, top: cardPos?.y ?? 0 }}
-          >
-            {/* Drag handle strip */}
-            <div
-              className="flex items-center justify-end px-2 py-1 bg-gray-50 border-b border-gray-100 cursor-grab active:cursor-grabbing"
-              onMouseDown={handleCardMouseDown}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="5 9 2 12 5 15"/>
-                <polyline points="9 5 12 2 15 5"/>
-                <polyline points="15 19 12 22 9 19"/>
-                <polyline points="19 9 22 12 19 15"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <line x1="12" y1="2" x2="12" y2="22"/>
-              </svg>
-            </div>
-
-            {/* Image preview */}
-            <div
-              className="relative bg-gray-100 overflow-hidden"
-              style={{ width: CARD_IMG_W, height: CARD_IMG_H, margin: "0 auto" }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  backgroundImage: `url(${preview})`,
-                  backgroundSize: `${bgW}px ${bgH}px`,
-                  backgroundPosition: `${bgX}px ${bgY}px`,
-                  backgroundRepeat: "no-repeat",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  left: hlL,
-                  top: hlT,
-                  width: hlW,
-                  height: hlH,
-                }}
-                className="border-2 border-amber-400 bg-amber-300/30 rounded-sm shadow-[0_0_6px_2px_rgba(251,191,36,0.6)]"
-              />
-            </div>
-
-            <div className="px-3 py-2.5 space-y-1.5">
-              {/* Character display + confidence + delete */}
-              <div className="flex items-center justify-between">
-                <span className="text-3xl font-serif leading-none tracking-wide">
-                  {focusedChar.text}
-                </span>
-                <div className="flex items-center gap-1.5">
-                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${confColor}`}>
-                    {confPct}% conf
-                  </span>
-                  {deleteArmed ? (
-                    <div className="flex items-center gap-1">
-                      <button
-                        onClick={() => { handleDeleteChar(focusedChar.offset); setDeleteArmed(false); }}
-                        className="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-red-500 text-white hover:bg-red-600 transition-colors"
-                      >
-                        Confirm
-                      </button>
-                      <button
-                        onClick={() => setDeleteArmed(false)}
-                        className="px-1.5 py-0.5 text-[10px] rounded text-gray-500 hover:text-gray-700 transition-colors"
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  ) : (
-                    <button
-                      onClick={() => setDeleteArmed(true)}
-                      title="Delete character"
-                      className="p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="3 6 5 6 21 6"/>
-                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
-                        <path d="M10 11v6M14 11v6"/>
-                        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
-                      </svg>
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              {/* Confidence bar */}
-              <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className={`h-full rounded-full transition-all ${barColor}`}
-                  style={{ width: `${confPct}%` }}
-                />
-              </div>
-
-              {/* Position info */}
-              <div className="text-[10px] text-gray-500 space-y-0.5">
-                {focusedColIdx >= 0 && (
-                  <div>
-                    <span className="font-medium text-gray-700">
-                      {columns[focusedColIdx]?.isRow ? "Row" : "Column"}{" "}
-                      {focusedColIdx + 1}
-                    </span>
-                    {focusedPosInCol !== null && totalInCol !== null && (
-                      <span className="ml-1">
-                        · position {focusedPosInCol} / {totalInCol}
-                      </span>
-                    )}
-                  </div>
-                )}
-                <div className="font-mono">
-                  bbox ({Math.round(bx0 * 1000) / 10}%,{" "}
-                  {Math.round(by0 * 1000) / 10}%) →{" "}
-                  ({Math.round(bx1 * 1000) / 10}%,{" "}
-                  {Math.round(by2 * 1000) / 10}%)
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })()}
-
       {/* Preview (before OCR) */}
       {preview && !result && (
         <div className="border border-gray-200 rounded overflow-hidden max-w-4xl">
@@ -1503,6 +1604,52 @@ export default function OCRTester({ externalFile, externalPreview }: OCRTesterPr
           <img src={preview} alt="Preview" className="w-full h-auto" />
         </div>
       )}
+
+      {/* Candidate strip — fixed-position so it overlays document body and
+          escapes the image-pane overflow clipping. */}
+      {(() => {
+        if (!focusedRect) return null;
+        const focusedChar = focusedOffset !== null
+          ? spatialData.find((c) => c.offset === focusedOffset)
+          : null;
+        const choices = focusedChar?.choices ?? [];
+        if (choices.length === 0) return null;
+        return (
+          <div
+            style={{
+              position: "fixed",
+              left: focusedRect.left - 6,
+              top: focusedRect.top,
+              transform: "translateX(-100%)",
+              zIndex: 1000,
+            }}
+            className="flex flex-row-reverse bg-white border border-gray-200 rounded shadow"
+          >
+            {choices.slice(0, 6).map((s, i) => (
+              <button
+                key={i}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  applyChoiceAndAdvance(s);
+                }}
+                title={`Press ${i + 1} to apply`}
+                style={{ width: focusedRect.height, height: focusedRect.height }}
+                className="relative flex items-center justify-center hover:bg-indigo-50 border-r border-gray-100 first:border-r-0"
+              >
+                <span className="absolute left-1/2 -translate-x-1/2 -top-2 inline-flex items-center justify-center w-2.5 h-2.5 text-[6px] font-semibold rounded-full bg-indigo-500 text-white leading-none ring-1 ring-white pointer-events-none">
+                  {i + 1}
+                </span>
+                <span
+                  className="font-serif"
+                  style={{ fontSize: Math.round(focusedRect.height * 0.65), lineHeight: 1 }}
+                >
+                  {s}
+                </span>
+              </button>
+            ))}
+          </div>
+        );
+      })()}
 
     </div>
   );

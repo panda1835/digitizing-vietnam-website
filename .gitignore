@@ -16,6 +16,7 @@ og.tsx
 # OCR data
 data/ocr/
 data/ocr - Copy
+data/uploads
 
 # Local tooling
 .claude/

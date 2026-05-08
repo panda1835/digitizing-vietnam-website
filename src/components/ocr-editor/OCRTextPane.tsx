@@ -2,11 +2,13 @@
 
 import { useEffect, useRef, useMemo } from "react";
 import type { SpatialCharacter } from "@/lib/ocr-store";
-import type { Column } from "./useColumnDetection";
+import type { Column, LayoutMode } from "./useColumnDetection";
+import { splitCommentarySides } from "./useColumnDetection";
 
 interface OCRTextPaneProps {
   spatialData: SpatialCharacter[];
   columns: Column[];
+  layoutMode: LayoutMode;
   focusedOffset: number | null;
   onFocusChar: (offset: number) => void;
   onSelectColumn: (index: number) => void;
@@ -15,6 +17,7 @@ interface OCRTextPaneProps {
 export default function OCRTextPane({
   spatialData,
   columns,
+  layoutMode,
   focusedOffset,
   onFocusChar,
   onSelectColumn,
@@ -96,6 +99,51 @@ export default function OCRTextPane({
                 if (chars.length === 0) return null;
 
                 if (sec.type === "commentary") {
+                  const split =
+                    layoutMode === "commentary"
+                      ? splitCommentarySides(sec.chars)
+                      : null;
+
+                  if (split) {
+                    // Double-line interlinear annotation (双行夹注): render
+                    // as two stacked horizontal rows — right sub-column on
+                    // top (read first), left sub-column below — paired by
+                    // Y so each column of the original woodblock aligns.
+                    return (
+                      <span
+                        key={si}
+                        className="text-amber-800/80 align-middle"
+                        style={{
+                          display: "inline-flex",
+                          flexDirection: "column",
+                          fontSize: "13px",
+                          lineHeight: 1.05,
+                          verticalAlign: "middle",
+                          marginInline: "2px",
+                        }}
+                      >
+                        <span style={{ display: "flex", flexDirection: "row" }}>
+                          {split.pairs.map((p, pi) =>
+                            p.right ? (
+                              renderChar(p.right, pi, `${col.index}-${si}-r-`)
+                            ) : (
+                              <span key={`r-pad-${pi}`}>&nbsp;</span>
+                            )
+                          )}
+                        </span>
+                        <span style={{ display: "flex", flexDirection: "row" }}>
+                          {split.pairs.map((p, pi) =>
+                            p.left ? (
+                              renderChar(p.left, pi, `${col.index}-${si}-l-`)
+                            ) : (
+                              <span key={`l-pad-${pi}`}>&nbsp;</span>
+                            )
+                          )}
+                        </span>
+                      </span>
+                    );
+                  }
+
                   return (
                     <span
                       key={si}

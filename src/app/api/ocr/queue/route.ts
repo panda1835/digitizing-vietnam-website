@@ -46,7 +46,8 @@ export async function DELETE(req: NextRequest) {
     }
 
     const index = await getIndex();
-    if (!index[slug]) {
+    const entry = index[slug];
+    if (!entry) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
@@ -57,9 +58,15 @@ export async function DELETE(req: NextRequest) {
     const indexFile = path.join(process.cwd(), "data", "ocr", "_index.json");
     await fs.writeFile(indexFile, JSON.stringify(index, null, 2), "utf-8");
 
-    // Also delete the data directory for this document
-    const docDir = path.join(process.cwd(), "data", "ocr", slug);
-    await fs.rm(docDir, { recursive: true, force: true }).catch(() => {});
+    // Clean up per-doc data dirs. PDF uploads keep their source.pdf and page
+    // JSON under data/uploads/{slug}/, so wipe both locations — the second
+    // call is a safe no-op if the directory doesn't exist.
+    const ocrDocDir = path.join(process.cwd(), "data", "ocr", slug);
+    await fs.rm(ocrDocDir, { recursive: true, force: true }).catch(() => {});
+    if (entry.source === "pdf") {
+      const uploadsDocDir = path.join(process.cwd(), "data", "uploads", slug);
+      await fs.rm(uploadsDocDir, { recursive: true, force: true }).catch(() => {});
+    }
 
     return NextResponse.json({ success: true });
   } catch (e: any) {
