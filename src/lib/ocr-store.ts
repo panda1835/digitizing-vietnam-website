@@ -48,6 +48,14 @@ export interface SpatialCharacter {
   noReadingForm?: boolean;
   /** Free-form labeler note ("ink bleed, could be 巴 or 邑"). */
   note?: string;
+  /**
+   * Step 3 (Quốc Ngữ) primary reading for this glyph. Independent from
+   * OCR training data — never read by the crops/nnv/lines/segmentation
+   * exporters.
+   */
+  quocNgu?: string;
+  /** Ranked alternate Quốc Ngữ readings. Primary `quocNgu` is excluded. */
+  quocNguChoices?: string[];
 }
 
 export interface ColumnSection {
