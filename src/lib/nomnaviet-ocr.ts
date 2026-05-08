@@ -311,7 +311,7 @@ export async function recognizeSingleChar(
   pixels: number[],
   topK = 9
 ): Promise<NomNaVietCandidate[]> {
-  const res = await fetch("/api/ocr/nomnaviet", {
+  const res = await fetch("/api/admin/ocr/nomnaviet", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ imageData: pixels, topK }),
