@@ -15,6 +15,7 @@ netlify.toml
 run_tailwindcss.sh
 *.ipynb
 test
+!src/app/**/admin/ocr/test/
 og.tsx
 .claude/
 
