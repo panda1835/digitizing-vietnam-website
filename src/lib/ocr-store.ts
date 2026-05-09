@@ -162,6 +162,29 @@ export function pageImageFile(slug: string, page: number, ext = "png") {
   return path.join(DATA_ROOT, slug, "pages", `${padded}.${ext}`);
 }
 
+/**
+ * Legacy per-page JSON path used by the OCR pipeline branch
+ * (data/ocr/<slug>/page_NNN.json). Read-only fallback for existing data
+ * that predates the admin tool's manifest.json + pages/ layout.
+ */
+function legacyPageFile(slug: string, page: number) {
+  const padded = String(page).padStart(3, "0");
+  return path.join(DATA_ROOT, slug, `page_${padded}.json`);
+}
+
+/**
+ * Legacy per-page image path (page_NNN.<ext> directly under <slug>/).
+ * Used for PDF-uploaded docs from the older pipeline.
+ */
+export function legacyPageImageFile(
+  slug: string,
+  page: number,
+  ext = "png"
+) {
+  const padded = String(page).padStart(3, "0");
+  return path.join(DATA_ROOT, slug, `page_${padded}.${ext}`);
+}
+
 function manifestFile(slug: string) {
   return path.join(DATA_ROOT, slug, "manifest.json");
 }
@@ -247,7 +270,27 @@ export async function setGlobalSettings(s: GlobalSettings) {
 // ─────────────────────────────────────────────────────────────────────────
 
 export async function getManifest(slug: string): Promise<DocumentManifest | null> {
-  return await readJSON<DocumentManifest>(manifestFile(slug));
+  const direct = await readJSON<DocumentManifest>(manifestFile(slug));
+  if (direct) return direct;
+  // Legacy fallback: synthesize a manifest from the index entry. The old
+  // pipeline branch never wrote a per-doc manifest.json — it only kept
+  // metadata in _index.json.
+  const idx = await loadIndex();
+  const entry = idx[slug] as
+    | (IndexEntry & {
+        // Fields from the legacy OcrIndexEntry shape we accept loosely.
+        updatedAt?: string;
+        source?: string;
+      })
+    | undefined;
+  if (!entry) return null;
+  return {
+    title: entry.title || slug,
+    pageCount: entry.pageCount ?? 0,
+    createdAt: entry.lastEditedAt || entry.updatedAt || new Date(0).toISOString(),
+    lastEditedAt: entry.lastEditedAt || entry.updatedAt || new Date().toISOString(),
+    sourceType: entry.source === "pdf" ? "upload" : "url",
+  };
 }
 
 export async function setManifest(slug: string, m: DocumentManifest) {
@@ -255,7 +298,10 @@ export async function setManifest(slug: string, m: DocumentManifest) {
 }
 
 export async function getPage(slug: string, page: number): Promise<OcrPageData | null> {
-  return await readJSON<OcrPageData>(pageFile(slug, page));
+  const direct = await readJSON<OcrPageData>(pageFile(slug, page));
+  if (direct) return direct;
+  // Legacy fallback: pipeline-branch docs store at data/ocr/<slug>/page_NNN.json.
+  return await readJSON<OcrPageData>(legacyPageFile(slug, page));
 }
 
 export async function setPage(slug: string, page: number, data: OcrPageData) {
