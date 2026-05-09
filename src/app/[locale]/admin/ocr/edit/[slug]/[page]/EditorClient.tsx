@@ -253,7 +253,7 @@ export default function EditorClient({
             </button>
           </div>
         </div>
-        <div className="border border-gray-200 rounded overflow-hidden flex-1 min-h-0">
+        <div className="border border-gray-200 rounded overflow-hidden flex-1 min-h-0 flex flex-col">
           <ColumnStep
             imageUrl={imageUrl}
             columns={columns}
