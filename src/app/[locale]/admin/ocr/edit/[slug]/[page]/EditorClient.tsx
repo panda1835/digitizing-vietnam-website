@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import type {
   SpatialCharacter,
@@ -12,6 +12,7 @@ import OCRWorkspace, {
   type BboxOverride,
 } from "@/components/ocr-editor/OCRWorkspace";
 import ColumnStep from "@/components/ocr-editor/ColumnStep";
+import { detectColumns } from "@/components/ocr-editor/useColumnDetection";
 import { cropBboxToPixelArray } from "@/lib/nomnaviet-ocr";
 
 type Phase = "columns" | "editing";
@@ -41,9 +42,22 @@ export default function EditorClient({
   const [spatialData, setSpatialData] = useState<SpatialCharacter[]>(
     initialPageData.spatialData
   );
-  const [columns, setColumns] = useState<ConfirmedColumn[]>(
-    initialPageData.columns ?? []
-  );
+
+  // If the saved page has no confirmed columns (true for every legacy
+  // pipeline-branch doc — they never persisted Step 1), auto-detect once
+  // on mount so the user lands in Step 1 with columns to confirm rather
+  // than an empty image. The detection result also feeds ColumnStep's
+  // `autoDetected` prop so the "Use auto-detected" affordance is wired up.
+  const autoDetected = useMemo<ConfirmedColumn[]>(() => {
+    const cols = detectColumns(initialPageData.spatialData, "auto");
+    return cols.map((c) => ({ bbox: c.bbox }));
+  }, [initialPageData.spatialData]);
+
+  const [columns, setColumns] = useState<ConfirmedColumn[]>(() => {
+    const saved = initialPageData.columns;
+    if (saved && saved.length > 0) return saved;
+    return autoDetected;
+  });
   const [columnsConfirmedAt, setColumnsConfirmedAt] = useState<string | null>(
     initialPageData.columnsConfirmedAt ?? null
   );
@@ -244,6 +258,7 @@ export default function EditorClient({
             imageUrl={imageUrl}
             columns={columns}
             onChange={setColumns}
+            autoDetected={autoDetected}
             spatialData={spatialData}
           />
         </div>
