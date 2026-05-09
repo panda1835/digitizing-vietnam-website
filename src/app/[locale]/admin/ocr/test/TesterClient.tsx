@@ -121,7 +121,12 @@ export default function TesterClient() {
       }
 
       // Auto-detect columns from the (post-NNV) OCR result.
-      const cols = detectColumns(sd, "auto");
+      // surfaceCommentary: true matches nom-ocr-training's editor —
+      // small interlinear annotation patches get their own columns
+      // instead of being folded into the parent.
+      const cols = detectColumns(sd, "auto", undefined, {
+        surfaceCommentary: true,
+      });
       const auto: ConfirmedColumn[] = cols.map((col) => ({ bbox: col.bbox }));
       setSpatialData(sd);
       setAutoDetected(auto);

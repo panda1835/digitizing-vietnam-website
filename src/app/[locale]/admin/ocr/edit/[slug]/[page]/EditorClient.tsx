@@ -49,7 +49,12 @@ export default function EditorClient({
   // than an empty image. The detection result also feeds ColumnStep's
   // `autoDetected` prop so the "Use auto-detected" affordance is wired up.
   const autoDetected = useMemo<ConfirmedColumn[]>(() => {
-    const cols = detectColumns(initialPageData.spatialData, "auto");
+    // Match nom-ocr-training's editor: surfaceCommentary surfaces small
+    // interlinear annotation patches as their own columns instead of
+    // folding them into the parent.
+    const cols = detectColumns(initialPageData.spatialData, "auto", undefined, {
+      surfaceCommentary: true,
+    });
     return cols.map((c) => ({ bbox: c.bbox }));
   }, [initialPageData.spatialData]);
 
