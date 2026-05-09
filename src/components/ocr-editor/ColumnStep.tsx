@@ -809,7 +809,7 @@ export default function ColumnStep({
 
         <div
           ref={containerRef}
-          className="relative h-full overflow-auto bg-gray-100 flex items-center justify-center min-w-0 min-h-0"
+          className="relative flex-1 min-h-0 overflow-auto bg-gray-100 flex items-center justify-center min-w-0"
         >
           <div
             className="relative inline-block select-none max-w-full max-h-full min-w-0 min-h-0"
