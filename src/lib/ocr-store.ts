@@ -189,6 +189,68 @@ function manifestFile(slug: string) {
   return path.join(DATA_ROOT, slug, "manifest.json");
 }
 
+const IMAGE_EXTS = ["png", "jpg", "jpeg", "webp", "tif", "tiff"] as const;
+export type ImageExt = (typeof IMAGE_EXTS)[number];
+
+const IMAGE_CONTENT_TYPE: Record<string, string> = {
+  png: "image/png",
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  webp: "image/webp",
+  tif: "image/tiff",
+  tiff: "image/tiff",
+};
+
+export function imageContentType(ext: string): string {
+  return IMAGE_CONTENT_TYPE[ext.toLowerCase()] ?? "application/octet-stream";
+}
+
+/**
+ * Discriminated union describing where a doc's page image lives. Lets
+ * the page-image API route (and any future training-data exporter)
+ * resolve the source once and then handle each kind uniformly.
+ *
+ * Adding a new backend (e.g. an S3 bucket, a Postgres bytea column)
+ * means adding a variant here and a branch in the consumer that turns
+ * it into bytes — no changes to callers that just want "the image".
+ */
+export type PageImageSource =
+  | { kind: "file"; path: string; ext: ImageExt }
+  | { kind: "iiif"; url: string };
+
+async function fileExists(p: string): Promise<boolean> {
+  try {
+    await fs.access(p);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// In-process IIIF manifest cache. Cold-start on serverless is fine —
+// the page-image route runs server-side so this lives only as long as
+// the function instance, but during a session it cuts the per-page
+// manifest refetch to one round-trip.
+const iiifManifestCache = new Map<
+  string,
+  { manifest: unknown; fetchedAt: number }
+>();
+const IIIF_MANIFEST_TTL_MS = 10 * 60 * 1000; // 10 min
+
+async function fetchIiifManifest(url: string): Promise<unknown> {
+  const cached = iiifManifestCache.get(url);
+  if (cached && Date.now() - cached.fetchedAt < IIIF_MANIFEST_TTL_MS) {
+    return cached.manifest;
+  }
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`IIIF manifest fetch failed: HTTP ${res.status}`);
+  }
+  const manifest = await res.json();
+  iiifManifestCache.set(url, { manifest, fetchedAt: Date.now() });
+  return manifest;
+}
+
 async function readJSON<T>(p: string): Promise<T | null> {
   try {
     const raw = await fs.readFile(p, "utf8");
@@ -307,6 +369,55 @@ export async function getPage(slug: string, page: number): Promise<OcrPageData |
 export async function setPage(slug: string, page: number, data: OcrPageData) {
   await writeJSON(pageFile(slug, page), data);
   await touchIndexAfterSave(slug);
+}
+
+/**
+ * Resolve where a page image lives. Tries:
+ *   1. New layout — data/ocr/<slug>/pages/<NNN>.<ext>
+ *   2. Legacy local — data/ocr/<slug>/page_<NNN>.<ext>
+ *   3. IIIF — index entry's manifestUrl + canvas[page-1] + resolveOcrImageUrl
+ *
+ * Returns the image source descriptor or null if no source can be
+ * resolved. Consumers (page-image route, future training exporter) turn
+ * this into bytes themselves; that keeps the storage abstraction in
+ * one place and lets a future backend (DB, S3) plug in via a new
+ * `PageImageSource` variant without touching consumers.
+ */
+export async function resolvePageImage(
+  slug: string,
+  page: number
+): Promise<PageImageSource | null> {
+  // Lazy import iiif-utils to avoid pulling client-friendly modules into
+  // every server file that imports ocr-store.
+  for (const ext of IMAGE_EXTS) {
+    const p = pageImageFile(slug, page, ext);
+    if (await fileExists(p)) return { kind: "file", path: p, ext };
+  }
+  for (const ext of IMAGE_EXTS) {
+    const p = legacyPageImageFile(slug, page, ext);
+    if (await fileExists(p)) return { kind: "file", path: p, ext };
+  }
+  const idx = await loadIndex();
+  const entry = idx[slug] as
+    | (IndexEntry & { manifestUrl?: string; source?: string })
+    | undefined;
+  if (entry?.manifestUrl) {
+    const { getCanvasesFromManifest, resolveOcrImageUrl } = await import(
+      "./iiif-utils"
+    );
+    try {
+      const manifest = await fetchIiifManifest(entry.manifestUrl);
+      const canvases = getCanvasesFromManifest(manifest);
+      const canvas = canvases[page - 1];
+      if (canvas?.imageUrl) {
+        const url = await resolveOcrImageUrl(canvas.imageUrl);
+        return { kind: "iiif", url };
+      }
+    } catch {
+      /* fall through to null */
+    }
+  }
+  return null;
 }
 
 /** Walk every page JSON for a document and return them in order. */
