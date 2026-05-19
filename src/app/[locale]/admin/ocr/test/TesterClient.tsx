@@ -19,8 +19,14 @@ import {
   rerecognizeWithNomNaViet,
   NomNaVietUnavailableError,
 } from "@/lib/nomnaviet-ocr";
+import StepBar, { type StepBarItem } from "@/components/ocr-editor/StepBar";
+import {
+  BTN_PRIMARY,
+  BTN_NEUTRAL,
+  BTN_BACK,
+} from "@/components/ocr-editor/editorChrome";
 
-type Phase = "upload" | "columns" | "editing";
+type Phase = "upload" | "columns" | "editing" | "quocngu";
 type OcrMode = "kandi" | "kandi+nnv";
 
 export default function TesterClient() {
@@ -148,6 +154,49 @@ export default function TesterClient() {
     setPhase("columns");
     setSelectedColumnIndex(null);
     setFocusedOffset(null);
+  }
+
+  function handleProceedToQuocNgu() {
+    setPhase("quocngu");
+    setFocusedOffset(null);
+  }
+
+  function handleBackToCharacters() {
+    setPhase("editing");
+    setFocusedOffset(null);
+  }
+
+  // Columns-phase test of the Nôm Na Việt pass on the current glyphs —
+  // mirrors the editor's "Re-OCR Nôm Na Việt" so the pipeline's NNV stage
+  // can be exercised independently of the initial Kandi run. Ephemeral
+  // (no persistence — this is the throwaway tester).
+  async function handleRunNnv() {
+    if (!imageUrl || spatialData.length === 0) return;
+    setRunning(true);
+    setError(null);
+    setStatusMsg("Re-OCR with Nôm Na Việt…");
+    try {
+      const img = await loadImage(imageUrl);
+      const result = await rerecognizeWithNomNaViet(img, spatialData, {
+        concurrency: 1,
+        slotJitterMs: 1000,
+        topK: 9,
+        onProgress: (done, total) =>
+          setStatusMsg(`Re-OCR with Nôm Na Việt… ${done}/${total}`),
+      });
+      setSpatialData(result.spatialData);
+      setStatusMsg(
+        `Nôm Na Việt refined ${result.spatialData.length} character${
+          result.spatialData.length === 1 ? "" : "s"
+        }.`
+      );
+      setTimeout(() => setStatusMsg(null), 2500);
+    } catch (e: any) {
+      if (e instanceof NomNaVietUnavailableError) setError(e.message);
+      else setError(`Nôm Na Việt failed: ${e?.message ?? "unknown"}`);
+    } finally {
+      setRunning(false);
+    }
   }
 
   async function handleSaveToAdmin() {
@@ -291,9 +340,41 @@ export default function TesterClient() {
     </div>
   );
 
+  // Same 4-step pipeline indicator as the per-page editor:
+  // OCR · Columns · Characters · Quốc Ngữ. The tester has no persistence
+  // gate, so "done" is purely positional (you've moved past the step).
+  const hasChars = spatialData.some((c) => c.bbox);
+  const pastColumns = phase === "editing" || phase === "quocngu";
+  const steps: StepBarItem[] = [
+    { label: "OCR", state: hasChars ? "done" : "active" },
+    {
+      label: "Columns",
+      state:
+        phase === "columns"
+          ? "active"
+          : pastColumns
+          ? "done"
+          : "pending",
+    },
+    {
+      label: "Characters",
+      state:
+        phase === "editing"
+          ? "active"
+          : phase === "quocngu"
+          ? "done"
+          : "pending",
+    },
+    {
+      label: "Quốc Ngữ",
+      state: phase === "quocngu" ? "active" : "pending",
+    },
+  ];
+
   if (phase === "upload") {
     return (
       <div className="max-w-3xl">
+        <StepBar steps={steps} />
         {bannerError}
         {bannerStatus}
         <div className="space-y-4">
@@ -373,9 +454,9 @@ export default function TesterClient() {
               <button
                 onClick={handleRunOcr}
                 disabled={running}
-                className="px-4 py-2 rounded bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className={BTN_PRIMARY}
               >
-                {running ? statusMsg ?? "Running OCR…" : "Run OCR"}
+                {running ? statusMsg ?? "Running OCR…" : "Run OCR ▶"}
               </button>
               <p className="text-xs text-gray-500">
                 Requires <code>KANDIANGUJI_TOKEN</code> and{" "}
@@ -397,28 +478,32 @@ export default function TesterClient() {
       // bound the vertical space so the inner flex-1 min-h-0 chain
       // can size ColumnStep correctly.
       <div className="relative left-1/2 -ml-[45vw] w-[90vw] px-4 h-[calc(100vh-200px)] flex flex-col">
+        <StepBar steps={steps} />
         {bannerError}
         {bannerStatus}
         <div className="flex items-center justify-between mb-3 flex-shrink-0">
-          <div className="text-sm text-gray-700">
-            <span className="font-medium">Step 1: Columns</span>
-            <span className="ml-3 text-gray-500">
-              {columns.length} column{columns.length === 1 ? "" : "s"} detected
-              · {spatialData.filter((c) => c.bbox).length} chars
-            </span>
+          <div className="text-sm text-gray-500 font-halyard">
+            {columns.length} column{columns.length === 1 ? "" : "s"} detected ·{" "}
+            {spatialData.filter((c) => c.bbox).length} chars
           </div>
           <div className="flex items-center gap-2">
+            <button onClick={() => pickFile(null)} className={BTN_BACK}>
+              ◀ New page
+            </button>
             <button
-              onClick={() => pickFile(null)}
-              className="px-3 py-1.5 text-sm rounded border border-gray-300 text-gray-700 hover:bg-gray-50"
+              onClick={handleRunNnv}
+              disabled={running || spatialData.length === 0}
+              className={BTN_NEUTRAL}
+              title="Re-OCR every detected character with Nôm Na Việt (test the NNV pass independently)"
             >
-              ← New page
+              {running ? "…" : "Re-OCR Nôm Na Việt"}
             </button>
             <button
               onClick={handleConfirmColumns}
-              className="px-4 py-1.5 text-sm rounded bg-indigo-600 text-white font-medium hover:bg-indigo-700"
+              disabled={running}
+              className={BTN_PRIMARY}
             >
-              Confirm columns →
+              Done — proceed to Characters ▶
             </button>
           </div>
         </div>
@@ -435,53 +520,64 @@ export default function TesterClient() {
     );
   }
 
-  if (phase === "editing" && imageUrl) {
+  if ((phase === "editing" || phase === "quocngu") && imageUrl) {
+    const qn = phase === "quocngu";
     return (
       <div className="relative left-1/2 -ml-[45vw] w-[90vw] px-4 h-[calc(100vh-200px)] flex flex-col">
+        <StepBar steps={steps} />
         {bannerError}
         {bannerStatus}
         <div className="flex items-center justify-between mb-3 flex-wrap gap-2 flex-shrink-0">
-          <div className="text-sm text-gray-700">
-            <span className="font-medium">Step 2: Characters</span>
-            <span className="ml-3 text-gray-500">
-              {spatialData.filter((c) => c.bbox).length} chars across{" "}
-              {columns.length} column{columns.length === 1 ? "" : "s"}
-            </span>
+          <div className="text-sm text-gray-500 font-halyard">
+            {spatialData.filter((c) => c.bbox).length} chars across{" "}
+            {columns.length} column{columns.length === 1 ? "" : "s"}
           </div>
           <div className="flex items-center gap-2 flex-wrap">
-            <button
-              onClick={handleBackToColumns}
-              className="px-3 py-1.5 text-sm rounded border border-gray-300 text-gray-700 hover:bg-gray-50"
-            >
-              ← Step 1: Columns
-            </button>
+            {qn ? (
+              <button
+                onClick={handleBackToCharacters}
+                className={BTN_BACK}
+              >
+                ◀ Back to Characters
+              </button>
+            ) : (
+              <button onClick={handleBackToColumns} className={BTN_BACK}>
+                ◀ Back to Columns
+              </button>
+            )}
             <button
               onClick={handleSaveToAdmin}
               disabled={running}
-              className="px-3 py-1.5 text-sm rounded bg-emerald-600 text-white font-medium hover:bg-emerald-700 disabled:opacity-50"
+              className={BTN_NEUTRAL}
             >
               Save to admin
             </button>
             <button
               onClick={handleExportTxt}
               disabled={running}
-              className="px-3 py-1.5 text-sm rounded border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+              className={BTN_NEUTRAL}
             >
               Download .txt
             </button>
             <button
               onClick={handleExportTraining}
               disabled={running}
-              className="px-3 py-1.5 text-sm rounded bg-indigo-600 text-white font-medium hover:bg-indigo-700 disabled:opacity-50"
+              className={BTN_NEUTRAL}
             >
               {running ? "…" : "Export training data"}
             </button>
-            <button
-              onClick={() => pickFile(null)}
-              className="px-3 py-1.5 text-sm rounded border border-gray-300 text-gray-700 hover:bg-gray-50"
-            >
+            <button onClick={() => pickFile(null)} className={BTN_BACK}>
               New page
             </button>
+            {!qn && (
+              <button
+                onClick={handleProceedToQuocNgu}
+                disabled={running}
+                className={BTN_PRIMARY}
+              >
+                Done — proceed to Quốc Ngữ ▶
+              </button>
+            )}
           </div>
         </div>
         <div className="border border-gray-200 rounded overflow-hidden flex-1 min-h-0 flex flex-col">
@@ -494,6 +590,7 @@ export default function TesterClient() {
             onSelectColumnIndexChange={setSelectedColumnIndex}
             focusedOffset={focusedOffset}
             onFocusedOffsetChange={setFocusedOffset}
+            qnMode={qn}
             bboxOverrides={bboxOverrides}
             onBboxOverridesChange={setBboxOverrides}
             confirmedColumns={columns}

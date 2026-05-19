@@ -33,6 +33,15 @@ interface OCRImagePaneProps {
   ) => void;
   focusedOffset: number | null;
   viewMode?: "charBox" | "column";
+  /**
+   * Quốc Ngữ step. When true the selected column renders inline
+   * `[glyph][QN input]` cells (text-search-style) — the glyph stays
+   * visible and read-only while the user types its romanization beside
+   * it — instead of the glyph-editing cells.
+   */
+  qnMode?: boolean;
+  /** Commit a Quốc Ngữ reading for one char (QN cells only). */
+  onQnChange?: (offset: number, qn: string) => void;
   onMoveColumn?: (colIndex: number, deltaX: number, deltaY: number) => void;
   onResizeColumn?: (
     colIndex: number,
@@ -77,6 +86,8 @@ export default function OCRImagePane({
   focusedOffset,
   recurringCorrections,
   perCharCropOptions,
+  qnMode,
+  onQnChange,
 }: OCRImagePaneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -896,8 +907,10 @@ export default function OCRImagePane({
 
       {/* Character input overlays for selected column. Rendered OUTSIDE the
           zoom wrapper so position:fixed coords (already post-zoom from
-          getBoundingClientRect) aren't re-scaled by the ancestor zoom. */}
-      {selectedColumn && (() => {
+          getBoundingClientRect) aren't re-scaled by the ancestor zoom.
+          Suppressed in Quốc Ngữ mode — the QN cell layer below replaces
+          this surface so the two don't overlap. */}
+      {selectedColumn && !qnMode && (() => {
           const allCharsInCol = selectedColumn.chars.filter((c) => c.bbox);
           if (allCharsInCol.length === 0) return null;
 
@@ -1247,10 +1260,144 @@ export default function OCRImagePane({
           );
         })()}
 
+      {/* Quốc Ngữ cell layer — text-search's renderQnImageCells, DVN-
+          adapted (no H/N tag filter). For the selected column, a vertical
+          stack of boxes beside it: each box shows the read-only Hán-Nôm
+          glyph next to an editable Quốc Ngữ input. Tab/Enter cycle the QN
+          inputs in reading order; clicking the glyph focuses the char so
+          the toolbox's Transliterate / prior-reading suggestions target
+          it. */}
+      {selectedColumn && qnMode && imgScreenRect && (() => {
+          const charsInCol = selectedColumn.chars.filter(
+            (c) => c.bbox && c.text && c.text !== "\n"
+          );
+          if (charsInCol.length === 0) return null;
+
+          const heights = charsInCol
+            .map((c) => Math.abs(c.bbox![3].y - c.bbox![0].y) * scaleY)
+            .sort((a, b) => a - b);
+          const medianH = heights[Math.floor(heights.length / 2)] || 24;
+          const cellH = Math.max(24, Math.round(medianH));
+          const glyphW = Math.max(22, Math.round(medianH * 0.95));
+          const inputW = Math.max(56, Math.round(medianH * 2.8));
+          const boxW = glyphW + inputW + 8;
+
+          const colLeftPx = selectedColumn.bbox.minX * scaleX;
+          const colRightPx = selectedColumn.bbox.maxX * scaleX;
+          let boxLeft = colLeftPx - boxW - 6;
+          if (boxLeft < 0) boxLeft = colRightPx + 6;
+
+          function focusSibling(idx: number, dir: 1 | -1) {
+            const n = charsInCol[idx + dir];
+            if (n) {
+              onFocusChar(n.offset);
+              return;
+            }
+            if (selectedColumnIndex === null) return;
+            const nextCol = selectedColumnIndex + dir;
+            if (nextCol < 0 || nextCol > columns.length - 1) return;
+            const target = columns[nextCol].chars.filter(
+              (c) => c.bbox && c.text && c.text !== "\n"
+            );
+            onSelectColumn(nextCol);
+            const land = dir === 1 ? target[0] : target.at(-1);
+            if (land) onFocusChar(land.offset);
+          }
+
+          const cells = charsInCol.map((char, idx) => {
+            const ys = char.bbox!.map((p) => p.y);
+            const centerY =
+              ((Math.min(...ys) + Math.max(...ys)) / 2) * scaleY;
+            const top = centerY - cellH / 2;
+            const isFocused = char.offset === focusedOffset;
+            return (
+              <div
+                key={char.offset}
+                style={{
+                  position: "absolute",
+                  left: boxLeft,
+                  top,
+                  width: boxW,
+                  height: cellH,
+                  zIndex: isFocused ? 50 : 12,
+                }}
+                className={`flex items-stretch rounded border shadow-sm pointer-events-auto ${
+                  isFocused
+                    ? "border-primary-blue ring-2 ring-blue-200 bg-blue-50"
+                    : "border-gray-200 bg-white"
+                }`}
+              >
+                <span
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    onFocusChar(char.offset);
+                  }}
+                  title={`${char.text} — click to focus (toolbox: Transliterate / suggestions)`}
+                  className="flex items-center justify-center font-han-nom text-gray-800 cursor-pointer select-none border-r border-gray-200"
+                  style={{
+                    width: glyphW,
+                    fontSize: Math.round(cellH * 0.62),
+                    lineHeight: 1,
+                  }}
+                >
+                  {char.text}
+                </span>
+                <input
+                  data-char-offset={char.offset}
+                  type="text"
+                  value={char.quocNgu ?? ""}
+                  placeholder="—"
+                  onChange={(e) => onQnChange?.(char.offset, e.target.value)}
+                  onFocus={() => onFocusChar(char.offset)}
+                  onKeyDown={(e) => {
+                    if (
+                      e.nativeEvent.isComposing ||
+                      (e.nativeEvent as any).keyCode === 229
+                    ) {
+                      return;
+                    }
+                    if (e.key === "Tab") {
+                      e.preventDefault();
+                      focusSibling(idx, e.shiftKey ? -1 : 1);
+                    } else if (e.key === "Enter") {
+                      e.preventDefault();
+                      focusSibling(idx, 1);
+                    } else if (e.key === "Escape") {
+                      (e.target as HTMLInputElement).blur();
+                    }
+                  }}
+                  className="flex-1 min-w-0 px-1.5 font-halyard text-gray-900 bg-transparent outline-none"
+                  style={{
+                    fontSize: Math.max(12, Math.round(cellH * 0.5)),
+                  }}
+                />
+              </div>
+            );
+          });
+
+          return (
+            <div
+              style={{
+                position: "fixed",
+                left: imgScreenRect.left,
+                top: imgScreenRect.top,
+                width: imgScreenRect.width,
+                height: imgScreenRect.height,
+                pointerEvents: "none",
+                zIndex: 60,
+              }}
+            >
+              {cells}
+            </div>
+          );
+        })()}
+
       {/* Candidate strip — fixed-position so it overlays document body and
           isn't clipped by any ancestor overflow. Anchored to the LEFT edge
-          of the focused input cell, growing leftward. */}
-      {focusedRect && focusedChoices && focusedChoices.length > 0 && (
+          of the focused input cell, growing leftward. Suppressed in QN
+          mode (those are OCR char choices; QN candidates live in the
+          toolbox panel). */}
+      {!qnMode && focusedRect && focusedChoices && focusedChoices.length > 0 && (
         <div
           style={{
             position: "fixed",

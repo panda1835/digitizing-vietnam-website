@@ -97,6 +97,8 @@ export interface OcrPageData {
   columnsConfirmedAt?: string;
   /** ISO timestamp marking "Step 2 (characters) confirmed." */
   charsConfirmedAt?: string;
+  /** ISO timestamp marking "Step 4 (Quốc Ngữ) confirmed." */
+  quocNguConfirmedAt?: string;
   /**
    * ISO timestamp marking the most recent successful Nôm Na Việt re-OCR
    * pass on this page.

@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import type { Column } from "./useColumnDetection";
 import type { SpatialCharacter } from "@/lib/ocr-store";
+import { transliterateChar, type QnSuggestionMap } from "@/lib/quocngu";
 
 const IDS_OPERATORS: Array<{ char: string; label: string; example?: string }> = [
   { char: "⿰", label: "Left + right", example: "⿰木目" },
@@ -45,7 +46,8 @@ interface OCRToolboxProps {
   onDeleteColumn?: (colIndex: number) => void;
   orphanedChars?: SpatialCharacter[];
   onDeleteOrphans?: () => void;
-  onOpenLowConfReview?: (threshold: number) => void;
+  /** glyph → prior human Quốc Ngữ readings (prefetched by OCRWorkspace). */
+  qnSuggestions?: QnSuggestionMap;
 }
 
 export default function OCRToolbox({
@@ -66,11 +68,11 @@ export default function OCRToolbox({
   onDeleteColumn,
   orphanedChars = [],
   onDeleteOrphans,
-  onOpenLowConfReview,
+  qnSuggestions = {},
 }: OCRToolboxProps) {
-  const [confThreshold, setConfThreshold] = useState(50);
-  const [reviewIndex, setReviewIndex] = useState(0);
   const [candIndex, setCandIndex] = useState(0);
+  const [qnBusy, setQnBusy] = useState(false);
+  const [qnErr, setQnErr] = useState<string | null>(null);
   const [armedDeleteOffset, setArmedDeleteOffset] = useState<number | null>(null);
 
   // Get choices for the focused character directly from spatialData
@@ -110,24 +112,8 @@ export default function OCRToolbox({
   useEffect(() => {
     setIdsDraft(focusedChar?.ids ?? "");
     setNoteDraft(focusedChar?.note ?? "");
+    setQnErr(null);
   }, [focusedOffset, focusedChar?.ids, focusedChar?.note]);
-
-  // Low-confidence review queue
-  const reviewQueue = useMemo(() => {
-    return spatialData.filter((c) => c.bbox && c.confidence < confThreshold / 100);
-  }, [spatialData, confThreshold]);
-
-  function navigateReview(idx: number) {
-    const clamped = Math.max(0, Math.min(reviewQueue.length - 1, idx));
-    setReviewIndex(clamped);
-    const char = reviewQueue[clamped];
-    if (!char) return;
-    const colIdx = columns.findIndex((col) =>
-      col.chars.some((c) => c.offset === char.offset)
-    );
-    if (colIdx >= 0) onSelectColumn(colIdx);
-    onFocusChar(char.offset);
-  }
 
   const lookupChar =
     focusedChar?.text && focusedChar.text.trim() ? focusedChar.text : null;
@@ -262,6 +248,131 @@ export default function OCRToolbox({
                 {s}
               </button>
             ))}
+          </div>
+        )}
+      </div>
+
+      {/* Quốc Ngữ reading for the focused char */}
+      <div className="border-t border-gray-100 pt-3">
+        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+          Quốc Ngữ
+        </p>
+        {focusedChar === null ? (
+          <p className="text-[11px] text-gray-400 italic">
+            Focus a character to read it
+          </p>
+        ) : (
+          <div className="space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <span className="font-han-nom text-base text-gray-700">
+                {focusedChar.text}
+              </span>
+              <span className="flex-1 text-sm font-halyard truncate">
+                {focusedChar.quocNgu ? (
+                  <span className="text-gray-800">{focusedChar.quocNgu}</span>
+                ) : (
+                  <span className="text-gray-400 italic">no reading yet</span>
+                )}
+              </span>
+              <button
+                onClick={async () => {
+                  setQnBusy(true);
+                  setQnErr(null);
+                  try {
+                    const r = await transliterateChar(focusedChar.text);
+                    const patch: Partial<SpatialCharacter> = {};
+                    if (r.primary) patch.quocNgu = r.primary;
+                    if (r.alternates.length) {
+                      patch.quocNguChoices = r.alternates;
+                    }
+                    if (Object.keys(patch).length) {
+                      onCharFieldsChange(focusedChar.offset, patch);
+                    } else {
+                      setQnErr("No dictionary reading for this glyph");
+                    }
+                  } catch (e: any) {
+                    setQnErr(e?.message || "Transliterate failed");
+                  } finally {
+                    setQnBusy(false);
+                  }
+                }}
+                disabled={qnBusy || !focusedChar.text.trim()}
+                title="Look up this glyph's Quốc Ngữ reading (Nôm Na Việt)"
+                className="px-2 py-1 text-xs rounded border border-indigo-300 text-indigo-700 hover:bg-indigo-50 disabled:opacity-50 whitespace-nowrap"
+              >
+                {qnBusy ? "…" : "Transliterate"}
+              </button>
+            </div>
+            <p className="text-[10px] text-gray-400">
+              Type the reading in the cell beside the glyph on the image.
+              Buttons below fill it.
+            </p>
+            {qnErr && (
+              <p className="text-[11px] text-red-500">{qnErr}</p>
+            )}
+
+            {focusedChar.quocNguChoices &&
+              focusedChar.quocNguChoices.length > 0 && (
+                <div>
+                  <p className="text-[10px] text-gray-400 mb-1">
+                    Converter alternates
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {focusedChar.quocNguChoices.map((alt, i) => (
+                      <button
+                        key={i}
+                        onClick={() =>
+                          onCharFieldsChange(focusedChar.offset, {
+                            quocNgu: alt,
+                          })
+                        }
+                        className="px-2 py-0.5 text-xs rounded border border-gray-300 hover:bg-indigo-50 hover:border-indigo-400"
+                      >
+                        {alt}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            {(qnSuggestions[focusedChar.text]?.length ?? 0) > 0 && (
+              <div>
+                <p className="text-[10px] text-gray-400 mb-1">
+                  You read this glyph before
+                </p>
+                <div className="flex flex-wrap gap-1">
+                  {qnSuggestions[focusedChar.text].map((s, i) => (
+                    <button
+                      key={i}
+                      onClick={() =>
+                        onCharFieldsChange(focusedChar.offset, {
+                          quocNgu: s.qn,
+                        })
+                      }
+                      title={`${s.count}× ${
+                        s.scope === "text"
+                          ? "in this document"
+                          : "across the corpus"
+                      }${
+                        s.uncertainCount
+                          ? ` · ${s.uncertainCount} marked uncertain`
+                          : ""
+                      }`}
+                      className={`px-2 py-0.5 text-xs rounded border hover:bg-emerald-50 hover:border-emerald-400 ${
+                        s.scope === "text"
+                          ? "border-emerald-300 text-emerald-800"
+                          : "border-gray-300 text-gray-600"
+                      }`}
+                    >
+                      {s.qn}
+                      <span className="ml-1 text-[9px] text-gray-400">
+                        {s.count}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -416,88 +527,6 @@ export default function OCRToolbox({
               />
             </div>
           </div>
-        )}
-      </div>
-
-      {/* Low confidence review queue */}
-      <div className="border-t border-gray-100 pt-3">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-          Low Confidence Review
-        </p>
-
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-[10px] text-gray-400 w-16 shrink-0">
-            &lt;{confThreshold}% conf
-          </span>
-          <input
-            type="range"
-            min={10}
-            max={80}
-            step={5}
-            value={confThreshold}
-            onChange={(e) => { setConfThreshold(Number(e.target.value)); setReviewIndex(0); }}
-            className="flex-1 accent-amber-500"
-          />
-        </div>
-
-        {reviewQueue.length === 0 ? (
-          <p className="text-[11px] text-gray-400 italic">
-            No characters match this threshold with typical character sizes.
-          </p>
-        ) : (
-          <>
-            <div className="flex items-center gap-1 mb-2">
-              <button
-                onClick={() => navigateReview(reviewIndex - 1)}
-                disabled={reviewIndex === 0}
-                className="px-2 py-1 text-[11px] rounded border border-gray-300 hover:bg-gray-100 disabled:opacity-30"
-              >
-                ← Prev
-              </button>
-              <span className="flex-1 text-center text-[11px] text-gray-500">
-                {reviewIndex + 1} / {reviewQueue.length}
-              </span>
-              <button
-                onClick={() => navigateReview(reviewIndex + 1)}
-                disabled={reviewIndex >= reviewQueue.length - 1}
-                className="px-2 py-1 text-[11px] rounded border border-gray-300 hover:bg-gray-100 disabled:opacity-30"
-              >
-                Next →
-              </button>
-            </div>
-
-            <button
-              onClick={() => onOpenLowConfReview?.(confThreshold)}
-              className="w-full mb-2 px-3 py-1.5 text-xs font-medium rounded bg-amber-500 text-white hover:bg-amber-600 transition-colors"
-            >
-              Review All ({reviewQueue.length})
-            </button>
-
-            <div className="max-h-40 overflow-y-auto space-y-0.5">
-              {reviewQueue.map((char, i) => {
-                const conf = Math.round(char.confidence * 100);
-                const isCurrent = i === reviewIndex;
-                const confColor =
-                  char.confidence < 0.3
-                    ? "text-red-600"
-                    : "text-yellow-600";
-                return (
-                  <button
-                    key={char.offset}
-                    onClick={() => navigateReview(i)}
-                    className={`w-full flex items-center justify-between px-2 py-1 rounded text-left text-[11px] transition-colors ${
-                      isCurrent
-                        ? "bg-amber-100 border border-amber-300"
-                        : "hover:bg-gray-100 border border-transparent"
-                    }`}
-                  >
-                    <span className="font-han-nom text-base leading-none">{char.text}</span>
-                    <span className={`font-medium ${confColor}`}>{conf}%</span>
-                  </button>
-                );
-              })}
-            </div>
-          </>
         )}
       </div>
 

@@ -31,7 +31,7 @@ export default function OCRTextPane({
 
   const [fontSize, setFontSize] = useState<number>(() => {
     if (typeof window === "undefined") return DEFAULT_FONT_SIZE;
-    const stored = window.localStorage.getItem("ocr-textpane-fontsize");
+    const stored = window.localStorage.getItem("ocr-textpane-fontsize-v2");
     const n = stored ? parseInt(stored, 10) : NaN;
     return Number.isFinite(n) && (FONT_SIZES as readonly number[]).includes(n)
       ? n
@@ -40,7 +40,7 @@ export default function OCRTextPane({
   useEffect(() => {
     try {
       window.localStorage.setItem(
-        "ocr-textpane-fontsize",
+        "ocr-textpane-fontsize-v2",
         String(fontSize)
       );
     } catch {

@@ -21,3 +21,5 @@ og.tsx
 
 data/ocr
 data/uploads
+# One-off dev/diagnostic & smoke scripts — never commit
+/scripts/

@@ -5,8 +5,38 @@ import {
   type SpatialCharacter,
   type ConfirmedColumn,
   type OcrPageData,
-} from "@/lib/ocr-store";
+} from "@/lib/ocr-store-supabase";
 import { buildRawText } from "@/lib/reading-order";
+
+/**
+ * GET /api/admin/ocr/edit/<slug>/<page>
+ *
+ * Read one page's OcrPageData (spatialData, columns, workflow flags).
+ * Used by the dashboard batch runner to load existing glyphs for the
+ * "Nôm Na Việt only" pass and to preserve columns across a Kandi re-run.
+ */
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: { slug: string; page: string } }
+) {
+  try {
+    const slug = decodeURIComponent(params.slug);
+    const page = parseInt(params.page, 10);
+    if (!page || page < 1) {
+      return NextResponse.json({ error: "invalid page" }, { status: 400 });
+    }
+    const data = await getPage(slug, page);
+    if (!data) {
+      return NextResponse.json(
+        { error: `Page ${page} of "${slug}" not found` },
+        { status: 404 }
+      );
+    }
+    return NextResponse.json(data);
+  } catch (e: any) {
+    return NextResponse.json({ error: e.message }, { status: 500 });
+  }
+}
 
 /**
  * PUT /api/admin/ocr/edit/<slug>/<page>
@@ -33,6 +63,10 @@ export async function PUT(
       columns?: ConfirmedColumn[];
       columnsConfirmedAt?: string | null;
       charsConfirmedAt?: string | null;
+      quocNguConfirmedAt?: string | null;
+      nnvCompletedAt?: string | null;
+      imageWidth?: number;
+      imageHeight?: number;
     };
 
     const existing = await getPage(slug, page);
@@ -56,6 +90,18 @@ export async function PUT(
     if (body.charsConfirmedAt !== undefined) {
       if (body.charsConfirmedAt === null) delete next.charsConfirmedAt;
       else next.charsConfirmedAt = body.charsConfirmedAt;
+    }
+    if (body.quocNguConfirmedAt !== undefined) {
+      if (body.quocNguConfirmedAt === null) delete next.quocNguConfirmedAt;
+      else next.quocNguConfirmedAt = body.quocNguConfirmedAt;
+    }
+    if (body.nnvCompletedAt !== undefined) {
+      if (body.nnvCompletedAt === null) delete next.nnvCompletedAt;
+      else next.nnvCompletedAt = body.nnvCompletedAt;
+    }
+    if (typeof body.imageWidth === "number") next.imageWidth = body.imageWidth;
+    if (typeof body.imageHeight === "number") {
+      next.imageHeight = body.imageHeight;
     }
 
     await setPage(slug, page, next);

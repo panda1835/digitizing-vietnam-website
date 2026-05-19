@@ -16,6 +16,7 @@ import {
   rerecognizeWithNomNaViet,
   type PerCharCropOptions,
 } from "@/lib/nomnaviet-ocr";
+import type { QnSuggestionMap } from "@/lib/quocngu";
 
 export type ViewMode = "charBox" | "column";
 export type BboxOverride = {
@@ -88,6 +89,21 @@ export interface OCRWorkspaceProps {
   focusedOffset: number | null;
   onFocusedOffsetChange: (offset: number | null) => void;
 
+  /**
+   * Document slug — used to prefetch this doc's glyph → prior Quốc Ngữ
+   * readings map for the focused-char QN panel. Omit to disable QN
+   * suggestions (the panel still works for transliterate / manual entry).
+   */
+  slug?: string;
+
+  /**
+   * Quốc Ngữ step. When true, the selected column renders inline
+   * `[glyph][QN input]` cells (text-search-style) instead of the
+   * glyph-editing cells, so the user reads each visible glyph and types
+   * its romanization right beside it.
+   */
+  qnMode?: boolean;
+
   /** Manual column-bbox overrides (resize / create-column persistence). */
   bboxOverrides: Record<number, BboxOverride>;
   onBboxOverridesChange: (next: Record<number, BboxOverride>) => void;
@@ -101,9 +117,6 @@ export interface OCRWorkspaceProps {
    * Defaults to "auto".
    */
   regionOcrDetMode?: "auto" | "sp" | "hp";
-
-  /** Optional hook so the parent can show a low-confidence review modal. */
-  onOpenLowConfReview?: (threshold: number) => void;
 
   /**
    * When set, char→column binding skips auto-detection and uses these
@@ -151,12 +164,13 @@ export default function OCRWorkspace({
   onSelectColumnIndexChange,
   focusedOffset,
   onFocusedOffsetChange,
+  slug,
+  qnMode,
   bboxOverrides,
   onBboxOverridesChange,
   candidateData = [],
   onCandidateDataChange,
   regionOcrDetMode = "auto",
-  onOpenLowConfReview,
   confirmedColumns,
   onConfirmedColumnsChange,
   perCharCropOptions,
@@ -787,6 +801,26 @@ export default function OCRWorkspace({
     };
   }, []);
 
+  // Pre-fetched once per editor session: glyph → prior Quốc Ngữ readings
+  // the user has already typed (this doc first, then corpus). Surfaced as
+  // clickable candidates in the focused-char QN panel so a glyph romanized
+  // before doesn't have to be retyped. Mirrors the recurring-corrections
+  // prefetch above.
+  const [qnSuggestions, setQnSuggestions] = useState<QnSuggestionMap>({});
+  useEffect(() => {
+    if (!slug) return;
+    let cancelled = false;
+    fetch(`/api/admin/ocr/qn-suggestions/${encodeURIComponent(slug)}`)
+      .then((r) => (r.ok ? r.json() : { suggestions: {} }))
+      .then((data) => {
+        if (!cancelled) setQnSuggestions(data?.suggestions ?? {});
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
   // ── Global keyboard shortcuts (arrow nav, Esc deselect, digit-pick) ──
 
   useEffect(() => {
@@ -1097,7 +1131,7 @@ export default function OCRWorkspace({
         </div>
       )}
       {/* Left: full text */}
-      <div className="w-1/3 border-r border-gray-200 bg-white overflow-hidden flex flex-col">
+      <div className="w-[28%] border-r border-gray-200 bg-white overflow-hidden flex flex-col">
         <div className="px-2 py-1.5 text-xs font-semibold text-gray-500 bg-gray-50 border-b border-gray-100 uppercase tracking-wide">
           Full Text
         </div>
@@ -1138,6 +1172,10 @@ export default function OCRWorkspace({
             onOcrRegion={handleOcrRegion}
             focusedOffset={focusedOffset}
             viewMode={viewMode}
+            qnMode={qnMode}
+            onQnChange={(o, qn) =>
+              handleCharFieldsChange(o, { quocNgu: qn })
+            }
             onMoveColumn={handleMoveColumn}
             onResizeColumn={handleResizeColumn}
             onDeleteColumn={handleDeleteColumn}
@@ -1148,7 +1186,7 @@ export default function OCRWorkspace({
       </div>
 
       {/* Right: toolbox */}
-      <div className="w-1/4 border-l border-gray-200 bg-white overflow-hidden flex flex-col">
+      <div className="w-[21%] border-l border-gray-200 bg-white overflow-hidden flex flex-col">
         <div className="px-2 py-1.5 text-xs font-semibold text-gray-500 bg-gray-50 border-b border-gray-100 uppercase tracking-wide">
           Tools
         </div>
@@ -1170,7 +1208,7 @@ export default function OCRWorkspace({
           onDeleteOrphans={handleDeleteOrphans}
           onPromoteCandidate={handlePromoteCandidate}
           onDismissCandidate={handleDismissCandidate}
-          onOpenLowConfReview={onOpenLowConfReview ?? (() => {})}
+          qnSuggestions={qnSuggestions}
         />
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import ImportClient from "./ImportClient";
+import ImportIiifClient from "./ImportIiifClient";
 
 export const dynamic = "force-dynamic";
 
@@ -29,12 +30,8 @@ export default function ImportPage({
       <h1 className="text-2xl font-semibold text-gray-900 mb-2">
         Import OCR Data
       </h1>
-      <p className="text-sm text-gray-500 mb-6">
-        Bring an OCR&apos;d document into admin storage. Imports land at{" "}
-        <code className="text-xs bg-gray-100 rounded px-1 py-0.5">
-          data/ocr/&lt;slug&gt;/
-        </code>{" "}
-        and become editable from the{" "}
+      <p className="text-sm text-gray-500 mb-8">
+        Bring a document into the editor, then OCR &amp; correct it from the{" "}
         <Link
           href={`/${params.locale}/admin/ocr/edit`}
           className="text-indigo-600 hover:underline"
@@ -43,7 +40,36 @@ export default function ImportPage({
         </Link>{" "}
         page.
       </p>
-      <ImportClient locale={params.locale} />
+
+      <section className="mb-10">
+        <h2 className="text-lg font-semibold text-gray-900">
+          New document from IIIF manifest
+        </h2>
+        <p className="text-sm text-gray-500 mb-4">
+          Self-originating: creates the document + blank pages in the
+          Supabase <code className="text-xs bg-gray-100 rounded px-1 py-0.5">ocr</code>{" "}
+          schema. Run OCR per page in the editor afterward.
+        </p>
+        <ImportIiifClient locale={params.locale} />
+      </section>
+
+      <section className="border-t border-gray-200 pt-8">
+        <h2 className="text-lg font-semibold text-gray-900">
+          Import pre-OCR&apos;d data (zip)
+        </h2>
+        <p className="text-sm text-gray-500 mb-4">
+          Ingest an already-OCR&apos;d{" "}
+          <code className="text-xs bg-gray-100 rounded px-1 py-0.5">
+            data/documents/&lt;slug&gt;/
+          </code>{" "}
+          export from the Nôm OCR Training tool.{" "}
+          <span className="text-amber-700">
+            Note: this path still writes the local filesystem store, not
+            Supabase.
+          </span>
+        </p>
+        <ImportClient locale={params.locale} />
+      </section>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
-import { listIndex } from "@/lib/ocr-store";
+import { listIndex } from "@/lib/ocr-store-supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -56,7 +56,7 @@ export default async function EditDocsList({
           {entries.map(([slug, entry]) => (
             <li key={slug} className="px-4 py-3 hover:bg-gray-50">
               <Link
-                href={`/${params.locale}/admin/ocr/edit/${encodeURIComponent(slug)}/1`}
+                href={`/${params.locale}/admin/ocr/edit/${encodeURIComponent(slug)}`}
                 className="block"
               >
                 <div className="flex items-baseline justify-between gap-3">

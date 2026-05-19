@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
-import { getManifest, getPage } from "@/lib/ocr-store";
+import { getManifest, getPage } from "@/lib/ocr-store-supabase";
 import EditorClient from "./EditorClient";
 
 export const dynamic = "force-dynamic";
@@ -44,9 +44,16 @@ export default async function EditPage({
           Edit Documents
         </Link>
         <span className="mx-1">/</span>
-        <span className="truncate">
-          {manifest.title} · page {pageNum}
-        </span>
+        <Link
+          href={`/${params.locale}/admin/ocr/edit/${encodeURIComponent(
+            slug
+          )}`}
+          className="hover:underline"
+        >
+          {manifest.title}
+        </Link>
+        <span className="mx-1">/</span>
+        <span className="truncate">page {pageNum}</span>
       </div>
       <h1 className="text-lg font-semibold text-gray-900 mb-3">
         {manifest.title}
