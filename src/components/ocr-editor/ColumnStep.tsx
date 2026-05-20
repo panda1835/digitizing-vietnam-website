@@ -190,10 +190,39 @@ export default function ColumnStep({
     height: number;
   } | null>(null);
 
+  // Explicit contain-fit. CSS `max-h-full` on the image is circular here
+  // (its containing block is the shrink-wrapping inline-block wrapper),
+  // so a tall page scan overflows the viewport. Instead compute the
+  // fitted pixel size from the scroll container's box + the image's
+  // natural aspect ratio; the overlays already track the image's
+  // getBoundingClientRect, so they follow this size automatically.
+  const naturalRef = useRef<{ w: number; h: number } | null>(null);
+  const [fit, setFit] = useState<{ w: number; h: number } | null>(null);
+  const recomputeFit = useCallback(() => {
+    const c = containerRef.current;
+    const nat = naturalRef.current;
+    if (!c || !nat) return;
+    const cw = c.clientWidth;
+    const ch = c.clientHeight;
+    if (cw <= 0 || ch <= 0) return;
+    // Contain, never upscale past the scan's own resolution (avoids blur).
+    const scale = Math.min(cw / nat.w, ch / nat.h, 1);
+    setFit((prev) => {
+      const w = Math.round(nat.w * scale);
+      const h = Math.round(nat.h * scale);
+      if (prev && prev.w === w && prev.h === h) return prev;
+      return { w, h };
+    });
+  }, []);
+
   useLayoutEffect(() => {
     function update() {
       const el = imgRef.current;
       if (!el) return;
+      if (!naturalRef.current && el.naturalWidth > 0) {
+        naturalRef.current = { w: el.naturalWidth, h: el.naturalHeight };
+      }
+      recomputeFit();
       const r = el.getBoundingClientRect();
       setImgRect((prev) => {
         if (
@@ -219,7 +248,7 @@ export default function ColumnStep({
       window.removeEventListener("scroll", update, true);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [recomputeFit]);
 
   const scaleX = imgRect?.width ?? 1;
   const scaleY = imgRect?.height ?? 1;
@@ -427,11 +456,27 @@ export default function ColumnStep({
         clearSelection();
       } else if (e.key === "Escape") {
         clearSelection();
+      } else if (
+        (e.key === "s" || e.key === "S") &&
+        !e.ctrlKey &&
+        !e.metaKey &&
+        !e.altKey
+      ) {
+        // `s` = Split selected columns at internal Y-gaps. No-ops cleanly
+        // if there are no chars or no gaps (bulkSplit guards both).
+        if (spatialData && spatialData.length > 0) {
+          e.preventDefault();
+          bulkSplit();
+        }
       }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [selected, columns, onChange, clearSelection]);
+    // bulkSplit is recreated each render and closes over columns / selected
+    // / spatialData — re-binding the listener when any of those change
+    // keeps it pointed at a fresh closure.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected, columns, spatialData, onChange, clearSelection]);
 
   function handleImageMouseDown(e: React.MouseEvent<HTMLDivElement>) {
     // Background click → start a "create new column" drag.
@@ -717,7 +762,7 @@ export default function ColumnStep({
                   disabled={!hasOne}
                   title={
                     hasOne
-                      ? "Split each selected column at internal Y-gaps"
+                      ? "Split each selected column at internal Y-gaps (S)"
                       : "Select a column first"
                   }
                   className="px-1.5 py-0.5 font-medium bg-emerald-100 hover:bg-emerald-200 text-emerald-800 rounded disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-emerald-100"
@@ -763,46 +808,61 @@ export default function ColumnStep({
           );
         })()}
 
-        {/* Single-selection details. Shown right below the action bar so
-            the info sits near the image (i.e. where the user is looking)
-            without duplicating the sidebar list. Hidden when 0 or 2+
-            columns are selected — those cases are handled by the action
-            bar's count + bulk actions. */}
+        {/* Single-selection details. Always rendered (with an invisible
+            placeholder when no single selection) so selecting a column
+            doesn't add a row of height — which would resize the image
+            pane underneath and throw off the layout. */}
         {(() => {
-          if (selected.size !== 1) return null;
-          const ci = Array.from(selected)[0];
-          const col = columns[ci];
-          if (!col) return null;
-          const kind = getKind(col);
-          const charCount = charCounts?.[ci] ?? 0;
-          const w = col.bbox.maxX - col.bbox.minX;
-          const h = col.bbox.maxY - col.bbox.minY;
-          const fmt = (n: number) => (n * 100).toFixed(1) + "%";
+          const single = selected.size === 1 ? Array.from(selected)[0] : null;
+          const col = single !== null ? columns[single] : null;
           return (
             <div className="px-3 py-1.5 bg-white border-b border-gray-200 flex items-center justify-center gap-3 text-[11px] text-gray-700">
-              <span>
-                <span className="text-gray-500">Column</span>{" "}
-                <span className="font-semibold">#{ci + 1}</span>
-                <span className="text-gray-400"> of {columns.length}</span>
-              </span>
-              <span className="text-gray-300">·</span>
-              <span
-                className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded ${KIND_BADGE[kind]} text-[10px] font-semibold`}
-              >
-                <span>{KIND_GLYPH[kind]}</span>
-                <span>{KIND_LABEL[kind]}</span>
-              </span>
-              <span className="text-gray-300">·</span>
-              <span>
-                <span className="font-semibold">{charCount}</span>{" "}
-                <span className="text-gray-500">
-                  char{charCount === 1 ? "" : "s"}
+              {single !== null && col ? (
+                (() => {
+                  const kind = getKind(col);
+                  const charCount = charCounts?.[single] ?? 0;
+                  const w = col.bbox.maxX - col.bbox.minX;
+                  const h = col.bbox.maxY - col.bbox.minY;
+                  const fmt = (n: number) => (n * 100).toFixed(1) + "%";
+                  return (
+                    <>
+                      <span>
+                        <span className="text-gray-500">Column</span>{" "}
+                        <span className="font-semibold">#{single + 1}</span>
+                        <span className="text-gray-400">
+                          {" "}
+                          of {columns.length}
+                        </span>
+                      </span>
+                      <span className="text-gray-300">·</span>
+                      <span
+                        className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded ${KIND_BADGE[kind]} text-[10px] font-semibold`}
+                      >
+                        <span>{KIND_GLYPH[kind]}</span>
+                        <span>{KIND_LABEL[kind]}</span>
+                      </span>
+                      <span className="text-gray-300">·</span>
+                      <span>
+                        <span className="font-semibold">{charCount}</span>{" "}
+                        <span className="text-gray-500">
+                          char{charCount === 1 ? "" : "s"}
+                        </span>
+                      </span>
+                      <span className="text-gray-300">·</span>
+                      <span className="text-gray-500 tabular-nums">
+                        {fmt(w)} × {fmt(h)}
+                      </span>
+                    </>
+                  );
+                })()
+              ) : (
+                // Invisible placeholder — same vertical footprint as the
+                // populated row, so the image pane never resizes when
+                // selection changes.
+                <span aria-hidden className="invisible">
+                  ·
                 </span>
-              </span>
-              <span className="text-gray-300">·</span>
-              <span className="text-gray-500 tabular-nums">
-                {fmt(w)} × {fmt(h)}
-              </span>
+              )}
             </div>
           );
         })()}
@@ -820,7 +880,18 @@ export default function ColumnStep({
               ref={imgRef}
               src={imageUrl}
               alt="Document page"
-              className="block max-w-full max-h-full w-auto h-auto pointer-events-none"
+              onLoad={(e) => {
+                const el = e.currentTarget;
+                if (el.naturalWidth > 0) {
+                  naturalRef.current = {
+                    w: el.naturalWidth,
+                    h: el.naturalHeight,
+                  };
+                  recomputeFit();
+                }
+              }}
+              style={fit ? { width: fit.w, height: fit.h } : undefined}
+              className="block pointer-events-none"
               draggable={false}
             />
 

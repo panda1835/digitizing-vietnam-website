@@ -12,6 +12,9 @@ const config: Config = {
       fontFamily: {
         garamond: ["Garamond", "serif"],
         halyard: ["Halyard Display", "sans-serif"],
+        // Hán-Nôm display font (Nôm Na Tống) — see src/lib/nom-font.ts.
+        // The CSS var is set on <body> in src/app/layout.tsx.
+        "han-nom": ["var(--font-nom-na-tong)", "serif"],
       },
       colors: {
         "primary-blue": "#00196e",

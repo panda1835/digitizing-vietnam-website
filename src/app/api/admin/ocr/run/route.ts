@@ -19,7 +19,9 @@ import { callKandianguji } from "@/lib/kandianguji-ocr";
 export async function POST(req: NextRequest) {
   let imageBase64: string;
   let detMode = "auto";
-  let detLayout = true;
+  // Default OFF (see kandianguji-ocr.ts): layout output is unused and
+  // det_layout:true returns fewer glyphs. `true` is now explicit opt-in.
+  let detLayout = false;
 
   const contentType = req.headers.get("content-type") ?? "";
 
@@ -38,7 +40,7 @@ export async function POST(req: NextRequest) {
     const detModeField = formData.get("det_mode");
     if (typeof detModeField === "string") detMode = detModeField;
     const detLayoutField = formData.get("det_layout");
-    if (detLayoutField === "false") detLayout = false;
+    if (detLayoutField === "true") detLayout = true;
   } else {
     const body = await req.json();
     if (!body.imageBase64) {
@@ -49,7 +51,7 @@ export async function POST(req: NextRequest) {
     }
     imageBase64 = body.imageBase64;
     if (body.det_mode) detMode = body.det_mode;
-    if (body.det_layout === false) detLayout = false;
+    if (body.det_layout === true) detLayout = true;
   }
 
   try {

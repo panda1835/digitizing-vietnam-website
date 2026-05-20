@@ -11,6 +11,7 @@ import {
   type NomNaVietCandidate,
   type PerCharCropOptions,
 } from "@/lib/nomnaviet-ocr";
+import type { QnSuggestionMap } from "@/lib/quocngu";
 
 interface OCRImagePaneProps {
   imageUrl: string;
@@ -40,6 +41,12 @@ interface OCRImagePaneProps {
    * it — instead of the glyph-editing cells.
    */
   qnMode?: boolean;
+  /**
+   * Glyph → prior Quốc Ngữ readings the user already established in this
+   * tool (this doc first, then corpus), from /api/admin/ocr/qn-suggestions.
+   * Surfaced inline as a greyed placeholder in empty Step-4 cells.
+   */
+  qnSuggestions?: QnSuggestionMap;
   /** Commit a Quốc Ngữ reading for one char (QN cells only). */
   onQnChange?: (offset: number, qn: string) => void;
   onMoveColumn?: (colIndex: number, deltaX: number, deltaY: number) => void;
@@ -87,6 +94,7 @@ export default function OCRImagePane({
   recurringCorrections,
   perCharCropOptions,
   qnMode,
+  qnSuggestions,
   onQnChange,
 }: OCRImagePaneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -1310,6 +1318,14 @@ export default function OCRImagePane({
               ((Math.min(...ys) + Math.max(...ys)) / 2) * scaleY;
             const top = centerY - cellH / 2;
             const isFocused = char.offset === focusedOffset;
+            // Established readings for this glyph from prior work in
+            // this tool (this-doc-first by count, then corpus). The top
+            // entry feeds the greyed placeholder (Tab/Enter accepts);
+            // the full list (up to 9) is the inline chip strip on the
+            // focused cell — click a chip or press its digit to fill.
+            const qnList = qnSuggestions?.[char.text] ?? [];
+            const qnHint = qnList[0]?.qn ?? null;
+            const isEmpty = !(char.quocNgu ?? "").trim();
             return (
               <div
                 key={char.offset}
@@ -1332,7 +1348,11 @@ export default function OCRImagePane({
                     e.preventDefault();
                     onFocusChar(char.offset);
                   }}
-                  title={`${char.text} — click to focus (toolbox: Transliterate / suggestions)`}
+                  title={
+                    qnHint
+                      ? `${char.text} — prior reading "${qnHint}" (Tab/Enter accepts) · click to focus`
+                      : `${char.text} — click to focus (toolbox: suggestions)`
+                  }
                   className="flex items-center justify-center font-han-nom text-gray-800 cursor-pointer select-none border-r border-gray-200"
                   style={{
                     width: glyphW,
@@ -1346,7 +1366,7 @@ export default function OCRImagePane({
                   data-char-offset={char.offset}
                   type="text"
                   value={char.quocNgu ?? ""}
-                  placeholder="—"
+                  placeholder={qnHint ?? "—"}
                   onChange={(e) => onQnChange?.(char.offset, e.target.value)}
                   onFocus={() => onFocusChar(char.offset)}
                   onKeyDown={(e) => {
@@ -1356,21 +1376,126 @@ export default function OCRImagePane({
                     ) {
                       return;
                     }
+                    // Tab / Enter on an empty cell accepts the established
+                    // reading (placeholder) before advancing — type to
+                    // override instead. Non-destructive: nothing is
+                    // written unless the cell is empty and has a hint.
+                    const acceptHint = () => {
+                      if (qnHint && isEmpty) {
+                        onQnChange?.(char.offset, qnHint);
+                      }
+                    };
                     if (e.key === "Tab") {
                       e.preventDefault();
+                      acceptHint();
                       focusSibling(idx, e.shiftKey ? -1 : 1);
                     } else if (e.key === "Enter") {
                       e.preventDefault();
+                      acceptHint();
                       focusSibling(idx, 1);
                     } else if (e.key === "Escape") {
                       (e.target as HTMLInputElement).blur();
+                    } else if (
+                      isEmpty &&
+                      !e.ctrlKey &&
+                      !e.metaKey &&
+                      !e.altKey &&
+                      /^[1-9]$/.test(e.key)
+                    ) {
+                      // Digit hotkeys: 1-9 picks the Nth chip from the
+                      // inline candidate strip (only when the cell is
+                      // empty — once the user starts typing, digits go
+                      // through as literal input).
+                      const pick = qnList[parseInt(e.key, 10) - 1];
+                      if (pick) {
+                        e.preventDefault();
+                        onQnChange?.(char.offset, pick.qn);
+                        focusSibling(idx, 1);
+                      }
                     }
                   }}
-                  className="flex-1 min-w-0 px-1.5 font-halyard text-gray-900 bg-transparent outline-none"
+                  className="flex-1 min-w-0 px-1.5 font-halyard text-gray-900 bg-transparent outline-none placeholder:text-gray-400 placeholder:italic"
                   style={{
                     fontSize: Math.max(12, Math.round(cellH * 0.5)),
                   }}
                 />
+
+                {/* Inline candidate strip — only the focused cell. Fans
+                    LEFT of the cell, matching the Nôm candidate strip
+                    pattern from Step 3: big tappable cells at the same
+                    height as the focused cell, row-reverse so chip 1
+                    sits closest to the cell and the rest fan outward.
+                    Click a chip or press its digit (1-9) to fill. */}
+                {isFocused && qnList.length > 0 && (() => {
+                  const chipW = Math.max(Math.round(cellH * 1.8), 64);
+                  return (
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "100%",
+                        top: 0,
+                        marginRight: 6,
+                        pointerEvents: "auto",
+                        zIndex: 60,
+                      }}
+                      className="flex flex-row-reverse bg-white border border-gray-200 rounded shadow"
+                    >
+                      {qnList.slice(0, 6).map((s, si) => (
+                        <button
+                          key={si}
+                          type="button"
+                          tabIndex={-1}
+                          onMouseDown={(e) => {
+                            // Mousedown (not click) so the input doesn't
+                            // blur before we fill it.
+                            e.preventDefault();
+                            onQnChange?.(char.offset, s.qn);
+                          }}
+                          title={`Press ${si + 1} to apply · ${s.count}× ${
+                            s.scope === "text"
+                              ? "in this document"
+                              : "across the corpus"
+                          }${
+                            s.uncertainCount
+                              ? ` · ${s.uncertainCount} marked uncertain`
+                              : ""
+                          }`}
+                          style={{ width: chipW, height: cellH }}
+                          className={`relative flex items-center justify-center border-r border-gray-100 first:border-r-0 hover:bg-indigo-50 ${
+                            si === 0 ? "bg-indigo-50/40" : ""
+                          } ${
+                            s.scope === "text"
+                              ? "ring-1 ring-inset ring-emerald-300/60"
+                              : ""
+                          }`}
+                        >
+                          {/* Digit-hotkey badge, top-left. */}
+                          <span
+                            className="absolute -top-2 left-1/2 -translate-x-1/2 inline-flex items-center justify-center text-[9px] font-semibold rounded-full bg-indigo-500 text-white leading-none ring-1 ring-white pointer-events-none"
+                            style={{ width: 14, height: 14 }}
+                          >
+                            {si + 1}
+                          </span>
+                          <span
+                            className="font-halyard truncate px-1"
+                            style={{
+                              fontSize: Math.max(13, Math.round(cellH * 0.42)),
+                              lineHeight: 1.05,
+                            }}
+                          >
+                            {s.qn}
+                          </span>
+                          {/* Usage count, bottom-right corner. */}
+                          <span
+                            className="absolute bottom-0.5 right-1 text-[9px] text-gray-400 tabular-nums pointer-events-none"
+                          >
+                            {s.count}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  );
+                })()}
               </div>
             );
           });

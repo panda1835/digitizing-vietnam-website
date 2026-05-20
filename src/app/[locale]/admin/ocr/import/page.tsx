@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import ImportClient from "./ImportClient";
 import ImportIiifClient from "./ImportIiifClient";
+import ImportPdfClient from "./ImportPdfClient";
 
 export const dynamic = "force-dynamic";
 
@@ -51,6 +52,23 @@ export default function ImportPage({
           schema. Run OCR per page in the editor afterward.
         </p>
         <ImportIiifClient locale={params.locale} />
+      </section>
+
+      <section className="border-t border-gray-200 pt-8 mb-10">
+        <h2 className="text-lg font-semibold text-gray-900">
+          New document from PDF
+        </h2>
+        <p className="text-sm text-gray-500 mb-4">
+          Self-originating: rasterizes the PDF in your browser, uploads the
+          page images to Supabase Storage, and creates the document +
+          pages in the{" "}
+          <code className="text-xs bg-gray-100 rounded px-1 py-0.5">
+            ocr
+          </code>{" "}
+          schema. Run OCR per page (or batch from the document dashboard)
+          afterward.
+        </p>
+        <ImportPdfClient locale={params.locale} />
       </section>
 
       <section className="border-t border-gray-200 pt-8">

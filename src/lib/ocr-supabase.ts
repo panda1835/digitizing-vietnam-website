@@ -74,6 +74,18 @@ function createOcrSupabaseClient(): OcrClient {
       persistSession: false,
       autoRefreshToken: false,
     },
+    global: {
+      // ⚠️ Next.js patches the global `fetch` and caches it by default
+      // in Server Components and Route Handlers. supabase-js issues all
+      // its requests through `fetch`, so without this every OCR read is
+      // a *live admin DB query being served from a stale static cache* —
+      // the first response for a page/doc gets frozen and keeps coming
+      // back even after OCR has written new rows. (Symptom: data only
+      // appears after a manual hard refresh.) These are never cacheable,
+      // so force every request past Next's Data Cache.
+      fetch: (input, init) =>
+        fetch(input, { ...init, cache: "no-store" }),
+    },
   }) as OcrClient;
 }
 

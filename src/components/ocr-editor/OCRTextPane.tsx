@@ -169,15 +169,27 @@ export default function OCRTextPane({
       merged = false;
       outer: for (let i = 0; i < bands.length; i++) {
         for (let j = i + 1; j < bands.length; j++) {
-          // Strict interior overlap (touching edges don't count). When two
-          // adjacent cols' bboxes share an edge exactly (a.maxX === b.minX),
-          // they are visually distinct columns and should stay in separate
-          // bands; reading order then alternates band-by-band, which is
-          // what the saved column order encodes.
+          // Meaningful interior overlap. We need a *tolerance* here, not
+          // strict `> 0`: ColumnStep saves bboxes after manual nudging,
+          // and adjacent visually-separate woodblock columns can end up
+          // with overlap of ~0.001 normalized (a hair). Without a
+          // threshold a single sub-pixel sliver chain-merges every band
+          // on a page into one (observed on co-chau-phat-ban-hanh p.16 —
+          // 6 columns collapsed into 1). Require the overlap to be at
+          // least 10% of the narrower column's width to count as a real
+          // shared X-band.
           const overlaps = bands[i].some((a) =>
-            bands[j].some(
-              (b) => !(a.bbox.maxX <= b.bbox.minX || b.bbox.maxX <= a.bbox.minX)
-            )
+            bands[j].some((b) => {
+              const ov =
+                Math.min(a.bbox.maxX, b.bbox.maxX) -
+                Math.max(a.bbox.minX, b.bbox.minX);
+              if (ov <= 0) return false;
+              const minW = Math.min(
+                a.bbox.maxX - a.bbox.minX,
+                b.bbox.maxX - b.bbox.minX
+              );
+              return ov > minW * 0.1;
+            })
           );
           if (overlaps) {
             bands[i].push(...bands[j]);

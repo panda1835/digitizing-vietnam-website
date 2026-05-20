@@ -60,6 +60,32 @@ export default function OcrToolboxIndex({
             page.
           </p>
         </li>
+        <li>
+          <Link
+            href={`/${params.locale}/admin/ocr/labels`}
+            className="text-indigo-600 hover:underline font-medium"
+          >
+            Bulk Label Corrections →
+          </Link>
+          <p className="text-gray-500 mt-0.5">
+            Search a glyph across the corpus, review every occurrence as a
+            crop, and relabel many at once. A sidebar surfaces the most
+            frequent OCR→human corrections for quick large-scale cleanup.
+          </p>
+        </li>
+        <li>
+          <Link
+            href={`/${params.locale}/admin/ocr/unencoded`}
+            className="text-indigo-600 hover:underline font-medium"
+          >
+            Unencoded Characters →
+          </Link>
+          <p className="text-gray-500 mt-0.5">
+            Every glyph you&apos;ve given an IDS, grouped by Ideographic
+            Description Sequence across the corpus — with crops, source
+            links, and a JSON export.
+          </p>
+        </li>
       </ul>
     </div>
   );

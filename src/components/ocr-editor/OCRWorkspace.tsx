@@ -810,7 +810,13 @@ export default function OCRWorkspace({
   useEffect(() => {
     if (!slug) return;
     let cancelled = false;
-    fetch(`/api/admin/ocr/qn-suggestions/${encodeURIComponent(slug)}`)
+    // max=12: enough to expose alternates inline (Step-4 chip strip
+    // picks up to 9 via digit hotkey) plus a couple extra for the
+    // toolbox side panel. scope defaults to 'both' = this-doc first by
+    // count, then corpus — matching the placeholder ordering.
+    fetch(
+      `/api/admin/ocr/qn-suggestions/${encodeURIComponent(slug)}?max=12`
+    )
       .then((r) => (r.ok ? r.json() : { suggestions: {} }))
       .then((data) => {
         if (!cancelled) setQnSuggestions(data?.suggestions ?? {});
@@ -1173,6 +1179,7 @@ export default function OCRWorkspace({
             focusedOffset={focusedOffset}
             viewMode={viewMode}
             qnMode={qnMode}
+            qnSuggestions={qnSuggestions}
             onQnChange={(o, qn) =>
               handleCharFieldsChange(o, { quocNgu: qn })
             }

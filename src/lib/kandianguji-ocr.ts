@@ -61,7 +61,13 @@ export async function callKandianguji(
   }
 
   const detMode = options?.detMode ?? "auto";
-  const detLayout = options?.detLayout ?? true;
+  // Default OFF. Kandianguji's layout output is unused by DVN (we run our
+  // own detectColumns), and measurement showed det_layout:true actually
+  // returns a *smaller* glyph set (it filters by detected layout) while
+  // costing the layout stage — det_layout:false returned the complete
+  // page (e.g. 143 vs 93 glyphs on a test page). Opt back in explicitly
+  // if a caller ever needs Kandianguji's own layout.
+  const detLayout = options?.detLayout ?? false;
 
   const ocrRes = await fetch("https://ocr.kandianguji.com/ocr_api", {
     method: "POST",

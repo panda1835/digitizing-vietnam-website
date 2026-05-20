@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Metadata } from "next";
+import { nomNaTong } from "@/lib/nom-font";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://digitizingvietnam.com";
@@ -96,7 +97,7 @@ export default function RootLayout({ children }: Props) {
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
-      <body>{children}</body>
+      <body className={nomNaTong.variable}>{children}</body>
       <GoogleAnalytics gaId="G-05TY9EP7K7" />
     </html>
   );

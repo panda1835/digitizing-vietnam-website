@@ -8,6 +8,9 @@ import {
 } from "@/lib/ocr-store-supabase";
 import { buildRawText } from "@/lib/reading-order";
 
+// Live admin DB I/O — never statically cache or prerender this handler.
+export const dynamic = "force-dynamic";
+
 /**
  * GET /api/admin/ocr/edit/<slug>/<page>
  *
@@ -104,7 +107,15 @@ export async function PUT(
       next.imageHeight = body.imageHeight;
     }
 
-    await setPage(slug, page, next);
+    // The NNV pass is the only save that carries a fresh non-null
+    // nnvCompletedAt (DocOcrRunner's consumer + EditorClient.handleRunNnv
+    // are the only callers that set it). Tag this save's text-change
+    // versions as 'nnv' so they aren't recorded as if the human typed
+    // them. Regular editor saves don't include nnvCompletedAt → 'human'.
+    const isNnvPass =
+      body.nnvCompletedAt !== undefined && body.nnvCompletedAt !== null;
+
+    await setPage(slug, page, next, isNnvPass ? { machineSource: "nnv" } : undefined);
     return NextResponse.json({ ok: true });
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });

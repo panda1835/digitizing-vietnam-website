@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { listIndex } from "@/lib/ocr-store-supabase";
+import DocExportButtons from "@/components/ocr-editor/DocExportButtons";
 
 export const dynamic = "force-dynamic";
 
@@ -54,10 +55,13 @@ export default async function EditDocsList({
       ) : (
         <ul className="divide-y divide-gray-200 border border-gray-200 rounded">
           {entries.map(([slug, entry]) => (
-            <li key={slug} className="px-4 py-3 hover:bg-gray-50">
+            <li
+              key={slug}
+              className="px-4 py-3 hover:bg-gray-50 flex items-center gap-3"
+            >
               <Link
                 href={`/${params.locale}/admin/ocr/edit/${encodeURIComponent(slug)}`}
-                className="block"
+                className="block flex-1 min-w-0"
               >
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="text-sm font-medium text-gray-900 truncate">
@@ -90,6 +94,11 @@ export default async function EditDocsList({
                   </span>
                 </div>
               </Link>
+              <DocExportButtons
+                slug={slug}
+                pageCount={entry.pageCount}
+                compact
+              />
             </li>
           ))}
         </ul>

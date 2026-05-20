@@ -7,6 +7,7 @@ import {
   type PageSummary,
 } from "@/lib/ocr-store-supabase";
 import DocOcrRunner from "@/components/ocr-editor/DocOcrRunner";
+import DocExportButtons from "@/components/ocr-editor/DocExportButtons";
 
 export const dynamic = "force-dynamic";
 
@@ -150,14 +151,17 @@ export default async function DocOcrDashboard({
             </span>
           </div>
         </div>
-        <Link
-          href={`/${params.locale}/admin/ocr/edit/${encodeURIComponent(
-            slug
-          )}/${resume}`}
-          className="px-4 py-1.5 text-sm rounded bg-primary-blue text-white font-medium hover:bg-[#00124f]"
-        >
-          {resume === 1 ? "Open editor" : `Resume — page ${resume}`} ▶
-        </Link>
+        <div className="flex flex-col items-end gap-2">
+          <Link
+            href={`/${params.locale}/admin/ocr/edit/${encodeURIComponent(
+              slug
+            )}/${resume}`}
+            className="px-4 py-1.5 text-sm rounded bg-primary-blue text-white font-medium hover:bg-[#00124f]"
+          >
+            {resume === 1 ? "Open editor" : `Resume — page ${resume}`} ▶
+          </Link>
+          <DocExportButtons slug={slug} pageCount={manifest.pageCount} />
+        </div>
       </div>
 
       {pages.length > 0 && (
@@ -167,6 +171,7 @@ export default async function DocOcrDashboard({
             pageNumber: p.pageNumber,
             chars: p.chars,
             skipped: !!p.skippedAt,
+            nnvDone: !!p.nnvCompletedAt,
           }))}
         />
       )}

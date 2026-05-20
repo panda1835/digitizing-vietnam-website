@@ -14,6 +14,7 @@
 // view for listIndex aggregation.
 
 import { ocrSupabase } from "./ocr-supabase";
+import { findColumnIndex } from "./corpus-helpers";
 import { INITIAL_DEFAULT_KNOBS, type PreprocessKnobs } from "./preprocess";
 import type {
   SpatialCharacter,
@@ -142,7 +143,18 @@ interface TextCandidateRow {
 // Version `source` conventions.
 const SRC_OCR = "ocr";
 const SRC_HUMAN = "human";
+// Nôm Na Việt re-OCR pass. Part of the OCR pipeline, NOT a human
+// correction — when NNV's top-1 is a Nôm SIP char it replaces the
+// machine baseline (see nomnaviet-ocr `rerecognizeWithNomNaViet`).
+// Tagged distinctly here so the corrections aggregate never treats
+// machine refinements as "what the human typed".
+const SRC_NNV = "nnv";
 const SRC_QN = "quoc-ngu";
+
+/** Machine sources — the OCR pipeline (Kandi initial, NNV re-OCR). */
+function isMachineSource(s: string): boolean {
+  return s === SRC_OCR || s === SRC_NNV || s.startsWith("kandi");
+}
 
 // ─────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -318,6 +330,96 @@ export async function createIiifDocument(opts: {
   return { slug, pageCount: pages.length };
 }
 
+/**
+ * Create (or refresh) a self-originating PDF/upload document — one
+ * `documents` row, `source_type='pdf'`, no pages yet. Pages are added
+ * incrementally by `putPdfPage` as the client rasterizes them, so a
+ * large PDF never has to be sent or held whole. Idempotent on slug.
+ */
+export async function createPdfDocument(opts: {
+  slug: string;
+  title: string;
+}): Promise<{ slug: string }> {
+  const { slug, title } = opts;
+  const existing = await findDocument(slug);
+  const docFields = {
+    title,
+    slug,
+    source_type: "pdf",
+    status: "uncorrected",
+  };
+  if (existing) {
+    const { error } = await db()
+      .from("documents")
+      .update(docFields)
+      .eq("id", existing.id);
+    if (error) throw new Error(`documents update: ${error.message}`);
+  } else {
+    const { error } = await db()
+      .from("documents")
+      .insert({ ...docFields, created_at: new Date().toISOString() });
+    if (error) throw new Error(`documents insert: ${error.message}`);
+  }
+  return { slug };
+}
+
+/**
+ * Upload one rasterized page image to the `ocr-pages` Storage bucket and
+ * upsert its `pages` row. The relational DB only stores the resulting
+ * public URL — the image bytes live in object storage, never in Postgres.
+ * `bytes` is the already-compressed JPEG from the client (resolution-
+ * clamped browser-side). Returns the URL and the document's live page
+ * count so the importer can show progress.
+ */
+export async function putPdfPage(opts: {
+  slug: string;
+  pageNumber: number;
+  bytes: Uint8Array | ArrayBuffer | Buffer;
+  contentType?: string;
+}): Promise<{ imageUrl: string; pageCount: number }> {
+  const { slug, pageNumber } = opts;
+  const doc = await findDocument(slug);
+  if (!doc) throw new Error(`putPdfPage: no document for slug "${slug}"`);
+
+  const contentType = opts.contentType ?? "image/jpeg";
+  const ext = contentType.includes("png") ? "png" : "jpg";
+  const path = `${slug}/${pageNumber}.${ext}`;
+
+  const { error: upErr } = await db()
+    .storage.from("ocr-pages")
+    // supabase-js Storage body type varies across versions; a byte buffer
+    // is accepted at runtime — cast to keep the call version-agnostic.
+    .upload(path, opts.bytes as unknown as ArrayBuffer, {
+      contentType,
+      upsert: true,
+    });
+  if (upErr) throw new Error(`storage upload: ${upErr.message}`);
+
+  const { data: pub } = db()
+    .storage.from("ocr-pages")
+    .getPublicUrl(path);
+
+  const { error: pgErr } = await db()
+    .from("pages")
+    .upsert(
+      {
+        document_id: doc.id,
+        page_number: pageNumber,
+        image_url: pub.publicUrl,
+        ocr_status: "uncorrected",
+        manual_order_locked: false,
+      },
+      { onConflict: "document_id,page_number" }
+    );
+  if (pgErr) throw new Error(`pages upsert: ${pgErr.message}`);
+
+  const { count } = await db()
+    .from("pages")
+    .select("id", { count: "exact", head: true })
+    .eq("document_id", doc.id);
+  return { imageUrl: pub.publicUrl, pageCount: count ?? 0 };
+}
+
 export async function deleteDocument(slug: string): Promise<void> {
   const doc = await findDocument(slug);
   if (!doc) return;
@@ -384,7 +486,16 @@ export async function getPage(
 
   const spatialData: SpatialCharacter[] = unitRows.map((u) => {
     const vs = vByUnit.get(u.id) ?? [];
-    const ocrV = vs.find((v) => v.source === SRC_OCR || v.source.startsWith("kandi"));
+    // Earliest OCR-origin version — used for confidence display only.
+    const ocrV = vs.find(
+      (v) => v.source === SRC_OCR || v.source.startsWith("kandi")
+    );
+    // Latest MACHINE version (ocr / kandi* / nnv). This is the value
+    // that was there immediately before the first human correction —
+    // i.e. the "original" for the (original → my correction) pair, per
+    // the user's spec. For an NNV-replaced glyph this is the NNV
+    // reading, not the Kandi one.
+    const machineV = [...vs].reverse().find((v) => isMachineSource(v.source));
     const manuscript = vs.filter((v) => v.source !== SRC_QN);
     const latest = manuscript[manuscript.length - 1];
     const qnV = [...vs].reverse().find((v) => v.source === SRC_QN);
@@ -393,12 +504,12 @@ export async function getPage(
     const qnChoices = cs.filter((c) => c.source === SRC_QN).map((c) => c.text);
 
     const ch: SpatialCharacter = {
-      text: latest?.text ?? ocrV?.text ?? "",
+      text: latest?.text ?? machineV?.text ?? "",
       bbox: quadToBbox(u),
       confidence: ocrV?.confidence ?? 0,
       offset: u.offset,
     };
-    if (ocrV && ocrV.text !== ch.text) ch.originalText = ocrV.text;
+    if (machineV && machineV.text !== ch.text) ch.originalText = machineV.text;
     if (ocrChoices.length) ch.choices = ocrChoices;
     if (u.layout_class != null) ch.layoutClass = u.layout_class;
     if (u.uncertain) ch.uncertain = true;
@@ -504,7 +615,16 @@ const INS_CHUNK = 500;
 export async function setPage(
   slug: string,
   page: number,
-  data: OcrPageData
+  data: OcrPageData,
+  opts?: {
+    /**
+     * Source for new text-change versions in THIS save. Default 'human'.
+     * The edit PUT route sets this to 'nnv' when the request is the Nôm
+     * Na Việt pass (signal: body.nnvCompletedAt is present) so machine
+     * refinements aren't recorded as if they were typed corrections.
+     */
+    machineSource?: "human" | "nnv";
+  }
 ): Promise<void> {
   const doc = await findDocument(slug);
   if (!doc) throw new Error(`setPage: no document for slug "${slug}"`);
@@ -676,7 +796,7 @@ export async function setPage(
         text_unit_id: uid,
         ocr_run_id: run.id,
         text: ch.text,
-        source: SRC_HUMAN,
+        source: opts?.machineSource === "nnv" ? SRC_NNV : SRC_HUMAN,
         correction_note: ch.note ?? null,
       });
     }
@@ -721,6 +841,26 @@ export async function setPage(
     const { error } = await db().from("text_candidates").insert(part);
     if (error) throw new Error(`text_candidates insert: ${error.message}`);
   }
+
+  // Refresh the denormalized read columns (current_text/ocr_text/…) from
+  // the versions just written, so the labels/unencoded pages stay
+  // O(result) instead of re-deriving the whole corpus. One set-based call.
+  //
+  // Best-effort: if the `20260519_text_units_denorm` migration hasn't been
+  // applied yet the function is absent — saving must still work, the
+  // labels pages just won't reflect this edit until the migration + its
+  // backfill run. Surfaced as a warning, never fatal.
+  {
+    const { error } = await db().rpc("refresh_page_denorm", {
+      p_page_id: p.id,
+    });
+    if (error) {
+      console.warn(
+        `[ocr-store] refresh_page_denorm skipped (${error.message}). ` +
+          `Apply supabase/migrations/20260519_text_units_denorm.sql.`
+      );
+    }
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -732,21 +872,42 @@ export async function listIndex(): Promise<Record<string, IndexEntry>> {
     .from("documents")
     .select("*");
   if (error) throw new Error(`documents list failed: ${error.message}`);
+  const docRows = ((docs ?? []) as DocumentRow[]).filter((d) => !!d.slug);
   const out: Record<string, IndexEntry> = {};
-  for (const d of (docs ?? []) as DocumentRow[]) {
-    if (!d.slug) continue;
-    // TODO(view): N+1 per doc — replace with a SQL view/RPC that
-    // aggregates page workflow state once listIndex is hot.
-    const { data: pages } = await db()
+  if (docRows.length === 0) return out;
+
+  // Was N+1: one `pages` query PER document. Now one bulk paged read of
+  // every page for all docs (tiny rows — workflow flags only, no
+  // spatialData), grouped in memory. `pages` is one row per page, so
+  // even the whole corpus is a few 1000-row pages, not the glyph table.
+  const docIds = docRows.map((d) => d.id);
+  const allPages = await selectAllRanged<
+    Pick<
+      PageRow,
+      | "document_id"
+      | "columns_confirmed_at"
+      | "chars_confirmed_at"
+      | "skipped_at"
+      | "ocr_status"
+    >
+  >(() =>
+    db()
       .from("pages")
       .select(
-        "columns_confirmed_at,chars_confirmed_at,skipped_at,ocr_status"
+        "document_id,columns_confirmed_at,chars_confirmed_at,skipped_at,ocr_status"
       )
-      .eq("document_id", d.id);
-    const pr = (pages ?? []) as Pick<
-      PageRow,
-      "columns_confirmed_at" | "chars_confirmed_at" | "skipped_at" | "ocr_status"
-    >[];
+      .in("document_id", docIds)
+      .order("id")
+  );
+  const byDoc = new Map<Uuid, typeof allPages>();
+  for (const pg of allPages) {
+    const arr = byDoc.get(pg.document_id) ?? [];
+    arr.push(pg);
+    byDoc.set(pg.document_id, arr);
+  }
+
+  for (const d of docRows) {
+    const pr = byDoc.get(d.id) ?? [];
     let pagesWithData = 0;
     let pagesFullyConfirmed = 0;
     let pagesSkipped = 0;
@@ -767,7 +928,7 @@ export async function listIndex(): Promise<Record<string, IndexEntry>> {
         : done < pageCount
         ? "in-progress"
         : "corrected";
-    out[d.slug] = {
+    out[d.slug as string] = {
       status,
       pageCount,
       pagesWithData,
@@ -791,6 +952,385 @@ export async function listPages(slug: string): Promise<OcrPageData[]> {
   return out;
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+// Corpus-walk internals (denormalized-read model)
+//
+// The labels / unencoded pages summarize the whole corpus. Deriving each
+// glyph's current/OCR-origin text from the append-only text_versions
+// history at read time is O(corpus size) — the load-time wall as the
+// corpus grows. Instead `setPage` maintains cached `current_text` /
+// `ocr_text` / `ocr_confidence` / `current_note` columns on text_units
+// (see 20260519_text_units_denorm.sql), so these reads are single-table,
+// indexed, and O(result size): the GROUP BY aggregate is a Postgres
+// function (PostgREST can't GROUP BY ad hoc) and search/registry are
+// plain indexed selects with server-side paging.
+// ─────────────────────────────────────────────────────────────────────────
+
+const PG_PAGE = 1000;
+
+/**
+ * Run `build()` repeatedly with advancing `.range()` windows until a short
+ * page signals the end. `build()` must return a *fresh* query each call
+ * (a PostgREST builder is single-use) with its ordering already applied so
+ * pagination is stable.
+ */
+async function selectAllRanged<T>(
+  build: () => { range: (a: number, b: number) => PromiseLike<{ data: unknown; error: { message: string } | null }> }
+): Promise<T[]> {
+  const out: T[] = [];
+  let from = 0;
+  for (;;) {
+    const { data, error } = await build().range(from, from + PG_PAGE - 1);
+    if (error) throw new Error(error.message);
+    const rows = (data ?? []) as T[];
+    out.push(...rows);
+    if (rows.length < PG_PAGE) break;
+    from += PG_PAGE;
+  }
+  return out;
+}
+
+interface ScopeDoc {
+  id: Uuid;
+  slug: string;
+  title: string;
+}
+async function loadScopeDocs(slug?: string): Promise<ScopeDoc[]> {
+  let q = db().from("documents").select("id,slug,title");
+  if (slug) q = q.eq("slug", slug);
+  const { data, error } = await q;
+  if (error) throw new Error(`documents list: ${error.message}`);
+  return ((data ?? []) as DocumentRow[])
+    .filter((d) => !!d.slug)
+    .map((d) => ({ id: d.id, slug: d.slug as string, title: d.title }));
+}
+
+/**
+ * Confirmed columns for a *small, explicit* set of pages — only ever the
+ * distinct pages of the current (already capped) result slice, so this is
+ * a tiny scoped fetch, not a corpus walk. Used to label each occurrence
+ * with its 1-based column number.
+ */
+async function loadColumnsForPages(
+  pageIds: Uuid[]
+): Promise<Map<Uuid, ConfirmedColumn[]>> {
+  const out = new Map<Uuid, ConfirmedColumn[]>();
+  if (!pageIds.length) return out;
+  const raw = new Map<Uuid, ColumnRow[]>();
+  for (const part of chunk(pageIds, IN_CHUNK)) {
+    const rows = await selectAllRanged<ColumnRow>(() =>
+      db()
+        .from("columns")
+        .select("*")
+        .in("page_id", part)
+        .order("order_index")
+    );
+    for (const c of rows) {
+      const arr = raw.get(c.page_id) ?? [];
+      arr.push(c);
+      raw.set(c.page_id, arr);
+    }
+  }
+  // Paged fetches can interleave pages — re-sort each page by order_index.
+  for (const [pid, cols] of raw) {
+    out.set(
+      pid,
+      cols
+        .slice()
+        .sort((a, b) => a.order_index - b.order_index)
+        .map((c) => ({
+          bbox: { minX: c.min_x, maxX: c.max_x, minY: c.min_y, maxY: c.max_y },
+          kind: c.kind,
+        }))
+    );
+  }
+  return out;
+}
+
+/** Slug + title for every document, sorted by title. One query — cheap
+ *  enough to feed the labels/unencoded document pickers without the N+1
+ *  `listIndex` page-status aggregation those pages don't need. */
+export async function listDocumentsBrief(): Promise<
+  Array<{ slug: string; title: string }>
+> {
+  const docs = await loadScopeDocs();
+  return docs
+    .map((d) => ({ slug: d.slug, title: d.title }))
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Aggregated relabels (derived corrections view)
+//
+// Ported from nom-ocr-training's `getAggregatedRelabels`. The labels page
+// uses this to surface the most common human corrections. Computed in
+// Postgres by the `ocr.aggregated_relabels` function over the cached
+// `ocr_text`/`current_text` columns — one round trip, result-sized.
+// ─────────────────────────────────────────────────────────────────────────
+
+export interface AggregatedRelabel {
+  from: string;
+  to: string;
+  /** Cells across the scope where text differs from originalText for this pair. */
+  totalChars: number;
+  /**
+   * Cells across the scope where current text === `from`. Counts how many
+   * un-relabeled instances of the original character are still sitting in
+   * the corpus — i.e. how many you'd see if you searched for `from` on the
+   * labels page. Gauges how much follow-up bulk work remains for a
+   * recurring confusion.
+   */
+  remainingFrom: number;
+}
+
+/**
+ * Frequent OCR→human corrections. One Postgres call: `ocr.aggregated_
+ * relabels` does the GROUP BY over the indexed `ocr_text`/`current_text`
+ * columns and the same non-empty / NFC-trim filters the app used to apply
+ * row-by-row. Returns only the (few hundred) result rows. `slug` scopes
+ * to one document; omit for corpus-wide.
+ */
+export async function getAggregatedRelabels(opts?: {
+  slug?: string;
+}): Promise<AggregatedRelabel[]> {
+  const { data, error } = await db().rpc("aggregated_relabels", {
+    p_slug: opts?.slug ?? null,
+  });
+  if (error) {
+    throw new Error(
+      `aggregated_relabels: ${error.message}. Apply ` +
+        `supabase/migrations/20260519_text_units_denorm.sql.`
+    );
+  }
+  const rows = (data ?? []) as Array<{
+    from_text: string;
+    to_text: string;
+    total_chars: number | string;
+    remaining_from: number | string;
+  }>;
+  // Already ordered by total desc in SQL.
+  return rows.map((r) => ({
+    from: r.from_text,
+    to: r.to_text,
+    totalChars: Number(r.total_chars),
+    remainingFrom: Number(r.remaining_from),
+  }));
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Character occurrences (labels-page search)
+//
+// Every glyph whose `current_text` === query, across the scope. An indexed
+// equality select with embedded page/document, server-side paged via
+// `.range()` + an exact count — so the labels grid fetches one capped page
+// of results, never the whole match set (a hot glyph in a big corpus can
+// have thousands).
+// ─────────────────────────────────────────────────────────────────────────
+
+export interface CharOccurrence {
+  slug: string;
+  title: string;
+  page: number;
+  offset: number;
+  bbox: Array<{ x: number; y: number }> | null;
+  text: string;
+  confidence: number;
+  uncertain: boolean;
+  noReadingForm: boolean;
+  ids: string;
+  note: string;
+  column: number | null;
+}
+
+/** Default page size for the labels occurrence grid. */
+export const OCCURRENCES_PAGE_SIZE = 200;
+
+export interface CharOccurrencePage {
+  occurrences: CharOccurrence[];
+  /** Total matches across the scope (not just this page). */
+  total: number;
+}
+
+interface UnitRow {
+  offset: number;
+  bbox_x1: number | null;
+  bbox_y1: number | null;
+  bbox_x2: number | null;
+  bbox_y2: number | null;
+  bbox_x3: number | null;
+  bbox_y3: number | null;
+  bbox_x4: number | null;
+  bbox_y4: number | null;
+  uncertain: boolean;
+  no_reading_form: boolean;
+  ids: string | null;
+  current_text: string | null;
+  current_note: string | null;
+  ocr_confidence: number | null;
+  page_id: Uuid;
+  pages: {
+    page_number: number;
+    documents: { slug: string; title: string } | null;
+  } | null;
+}
+
+const OCC_SELECT =
+  "offset,bbox_x1,bbox_y1,bbox_x2,bbox_y2,bbox_x3,bbox_y3,bbox_x4,bbox_y4," +
+  "uncertain,no_reading_form,ids,current_note,ocr_confidence,page_id," +
+  "pages!inner(page_number,documents!inner(slug,title))";
+
+export async function findCharOccurrences(
+  query: string,
+  opts?: { slug?: string; limit?: number; offset?: number }
+): Promise<CharOccurrencePage> {
+  if (!query) return { occurrences: [], total: 0 };
+  const limit = opts?.limit ?? OCCURRENCES_PAGE_SIZE;
+  const offset = opts?.offset ?? 0;
+
+  let q = db()
+    .from("text_units")
+    .select(OCC_SELECT, { count: "exact" })
+    .eq("current_text", query);
+  if (opts?.slug) q = q.eq("pages.documents.slug", opts.slug);
+  // Deterministic order so paging is stable.
+  q = q
+    .order("page_id", { ascending: true })
+    .order("offset", { ascending: true })
+    .range(offset, offset + limit - 1);
+
+  const { data, count, error } = await q;
+  if (error) {
+    throw new Error(
+      `findCharOccurrences: ${error.message}. Apply ` +
+        `supabase/migrations/20260519_text_units_denorm.sql.`
+    );
+  }
+  const rows = (data ?? []) as unknown as UnitRow[];
+
+  // Column number needs the confirmed columns of just these (≤limit)
+  // pages — a small scoped fetch, not a corpus walk.
+  const pageIds = [...new Set(rows.map((r) => r.page_id))];
+  const colsByPage = await loadColumnsForPages(pageIds);
+
+  const occurrences: CharOccurrence[] = rows.map((u) => {
+    const bbox = quadToBbox(u as unknown as TextUnitRow);
+    const doc = u.pages?.documents;
+    return {
+      slug: doc?.slug ?? "",
+      title: doc?.title ?? doc?.slug ?? "",
+      page: u.pages?.page_number ?? 0,
+      offset: u.offset,
+      bbox,
+      text: query,
+      confidence: u.ocr_confidence ?? 0,
+      uncertain: !!u.uncertain,
+      noReadingForm: !!u.no_reading_form,
+      ids: u.ids ?? "",
+      note: u.current_note ?? "",
+      column: findColumnIndex(bbox, colsByPage.get(u.page_id)),
+    };
+  });
+  return { occurrences, total: count ?? occurrences.length };
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Unencoded-character registry
+//
+// Ported from nom-ocr-training's `/unencoded`. Groups every glyph the
+// labeler has tagged with an Ideographic Description Sequence (IDS) by
+// that IDS string, so unencoded characters can be reviewed corpus-wide.
+// No on-disk snapshot (the FS sibling wrote `_unencoded.json`); the
+// Supabase store is the source of truth and the route streams JSON.
+// ─────────────────────────────────────────────────────────────────────────
+
+export interface UnencodedSource {
+  slug: string;
+  title: string;
+  page: number;
+  offset: number;
+  /** Normalized 0..1 glyph quad; client-side crop input. */
+  bbox: Array<{ x: number; y: number }> | null;
+  confidence: number;
+  uncertain: boolean;
+  /** 1-based column number from the page's confirmed columns; null when
+   *  columns aren't confirmed or the char doesn't fall inside any. */
+  column: number | null;
+}
+
+export interface UnencodedEntry {
+  ids: string;
+  count: number;
+  /** Distinct placeholder glyphs the labeler typed for this IDS. */
+  placeholders: string[];
+  notes: string[];
+  sources: UnencodedSource[];
+}
+
+/**
+ * Group every IDS-tagged glyph by its trimmed `ids` string, one entry per
+ * distinct IDS, sorted by occurrence count desc. Cheap: a single select
+ * hits the `ids IS NOT NULL` partial index, so only the (usually few)
+ * tagged units are fetched — placeholder/note/confidence come straight
+ * off the cached denorm columns, no version walk.
+ */
+export async function buildUnencodedRegistry(): Promise<UnencodedEntry[]> {
+  const sel =
+    "offset,bbox_x1,bbox_y1,bbox_x2,bbox_y2,bbox_x3,bbox_y3,bbox_x4,bbox_y4," +
+    "uncertain,ids,current_text,current_note,ocr_confidence,page_id," +
+    "pages!inner(page_number,documents!inner(slug,title))";
+  let rows: UnitRow[];
+  try {
+    rows = await selectAllRanged<UnitRow>(() =>
+      db()
+        .from("text_units")
+        .select(sel)
+        .not("ids", "is", null)
+        .order("page_id")
+        .order("offset")
+    );
+  } catch (e: any) {
+    throw new Error(
+      `buildUnencodedRegistry: ${e?.message}. Apply ` +
+        `supabase/migrations/20260519_text_units_denorm.sql.`
+    );
+  }
+  if (!rows.length) return [];
+
+  const pageIds = [...new Set(rows.map((r) => r.page_id))];
+  const colsByPage = await loadColumnsForPages(pageIds);
+
+  const groups = new Map<string, UnencodedEntry>();
+  for (const u of rows) {
+    const ids = (u.ids ?? "").trim();
+    if (!ids) continue;
+    const doc = u.pages?.documents;
+    const text = u.current_text;
+    let entry = groups.get(ids);
+    if (!entry) {
+      entry = { ids, count: 0, placeholders: [], notes: [], sources: [] };
+      groups.set(ids, entry);
+    }
+    entry.count++;
+    if (text && !entry.placeholders.includes(text)) {
+      entry.placeholders.push(text);
+    }
+    const n = (u.current_note ?? "").trim();
+    if (n && !entry.notes.includes(n)) entry.notes.push(n);
+    const bbox = quadToBbox(u as unknown as TextUnitRow);
+    entry.sources.push({
+      slug: doc?.slug ?? "",
+      title: doc?.title ?? doc?.slug ?? "",
+      page: u.pages?.page_number ?? 0,
+      offset: u.offset,
+      bbox,
+      confidence: u.ocr_confidence ?? 0,
+      uncertain: !!u.uncertain,
+      column: findColumnIndex(bbox, colsByPage.get(u.page_id)),
+    });
+  }
+  return Array.from(groups.values()).sort((a, b) => b.count - a.count);
+}
+
 /** One row of the per-document OCR dashboard (cheap — no spatialData). */
 export interface PageSummary {
   pageNumber: number;
@@ -805,23 +1345,76 @@ export interface PageSummary {
 }
 
 /**
- * Per-page summaries for the document OCR dashboard. One `pages` query
- * for status/workflow flags (no spatialData), then exact column / glyph
- * counts via head-count queries (accurate past PostgREST's 1000-row cap,
- * unlike a bulk select+tally). N+1 like `listIndex` — fine at admin
- * scale; TODO(view): fold into a SQL view/RPC if it gets hot.
+ * Per-page summaries for the document OCR dashboard.
+ *
+ * Fast path: ONE aggregate query against the `ocr.page_summary` view
+ * (supabase/migrations/20260519_page_summary_view.sql) — one row per
+ * page with column/char counts computed in-DB. Replaces the old
+ * 2-head-counts-PER-PAGE fan-out (44 round-trips for a 22-page doc).
+ *
+ * Fallback: if that migration hasn't been applied the view is absent,
+ * so we drop to the legacy per-page count path (correct, just slow) and
+ * warn. Applying the migration is therefore safe in any order vs deploy.
  */
 export async function listPageSummaries(
   slug: string
 ): Promise<PageSummary[]> {
   const doc = await findDocument(slug);
   if (!doc) return [];
+
+  const { data, error } = await db()
+    .from("page_summary")
+    .select(
+      "page_number,ocr_status,columns_confirmed_at,chars_confirmed_at,quocngu_confirmed_at,nnv_completed_at,skipped_at,column_count,char_count"
+    )
+    .eq("document_id", doc.id)
+    .order("page_number");
+
+  if (!error && data) {
+    return (
+      data as Array<{
+        page_number: number;
+        ocr_status: string;
+        columns_confirmed_at: string | null;
+        chars_confirmed_at: string | null;
+        quocngu_confirmed_at: string | null;
+        nnv_completed_at: string | null;
+        skipped_at: string | null;
+        column_count: number | null;
+        char_count: number | null;
+      }>
+    ).map((r) => ({
+      pageNumber: r.page_number,
+      ocrStatus: r.ocr_status,
+      columns: r.column_count ?? 0,
+      chars: r.char_count ?? 0,
+      columnsConfirmedAt: r.columns_confirmed_at,
+      charsConfirmedAt: r.chars_confirmed_at,
+      quocNguConfirmedAt: r.quocngu_confirmed_at,
+      nnvCompletedAt: r.nnv_completed_at,
+      skippedAt: r.skipped_at,
+    }));
+  }
+
+  console.warn(
+    `[ocr-store] ocr.page_summary unavailable (${error?.message}); ` +
+      `falling back to per-page counts. Apply ` +
+      `supabase/migrations/20260519_page_summary_view.sql to speed up ` +
+      `the OCR dashboard.`
+  );
+  return legacyListPageSummaries(doc.id);
+}
+
+/** Pre-view path: 1 `pages` query + 2 head-counts per page (N+1). */
+async function legacyListPageSummaries(
+  docId: Uuid
+): Promise<PageSummary[]> {
   const { data, error } = await db()
     .from("pages")
     .select(
       "id,page_number,ocr_status,columns_confirmed_at,chars_confirmed_at,quocngu_confirmed_at,nnv_completed_at,skipped_at"
     )
-    .eq("document_id", doc.id)
+    .eq("document_id", docId)
     .order("page_number");
   if (error) throw new Error(`pages list: ${error.message}`);
   const rows = (data ?? []) as Array<{

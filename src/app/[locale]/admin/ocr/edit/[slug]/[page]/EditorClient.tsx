@@ -8,7 +8,6 @@ import type {
   ConfirmedColumn,
   OcrPageData,
 } from "@/lib/ocr-store";
-import { buildRawText } from "@/lib/reading-order";
 import OCRWorkspace, {
   type BboxOverride,
 } from "@/components/ocr-editor/OCRWorkspace";
@@ -22,7 +21,6 @@ import {
 } from "@/components/ocr-editor/editorChrome";
 import { detectColumns } from "@/components/ocr-editor/useColumnDetection";
 import {
-  cropBboxToPixelArray,
   rerecognizeWithNomNaViet,
   NomNaVietUnavailableError,
 } from "@/lib/nomnaviet-ocr";
@@ -48,10 +46,21 @@ export default function EditorClient({
 }: Props) {
   const router = useRouter();
 
-  // Start in "editing" if columns were already confirmed; otherwise step 1.
-  const [phase, setPhase] = useState<Phase>(
-    initialPageData.columnsConfirmedAt ? "editing" : "columns"
-  );
+  // Open at the furthest-confirmed stage so revisiting a page reflects its
+  // saved progress instead of always dropping back into Characters:
+  //   chars confirmed (or Quốc Ngữ confirmed) → Quốc Ngữ step
+  //   columns confirmed only                  → Characters step
+  //   nothing confirmed                       → Columns (step 1)
+  // The user can still step back via the "◀ Back to …" buttons.
+  const [phase, setPhase] = useState<Phase>(() => {
+    if (
+      initialPageData.charsConfirmedAt ||
+      initialPageData.quocNguConfirmedAt
+    )
+      return "quocngu";
+    if (initialPageData.columnsConfirmedAt) return "editing";
+    return "columns";
+  });
 
   const [spatialData, setSpatialData] = useState<SpatialCharacter[]>(
     initialPageData.spatialData
@@ -301,9 +310,16 @@ export default function EditorClient({
     setFocusedOffset(null);
   }
 
+  // Mirror handleConfirmColumns: leaving the Characters step persists the
+  // Nôm edits (otherwise they live only in React state and are lost on
+  // navigate-away) and stamps charsConfirmedAt — the symmetric gate to
+  // columnsConfirmedAt that the dashboard needs to count the page as
+  // confirmed/corrected.
   function handleProceedToQuocNgu() {
+    const stamp = new Date().toISOString();
     setPhase("quocngu");
     setFocusedOffset(null);
+    void handleSave({ charsConfirmedAt: stamp });
   }
 
   function handleBackToCharacters() {
@@ -311,59 +327,9 @@ export default function EditorClient({
     setFocusedOffset(null);
   }
 
-  function handleExportTxt() {
-    const text = buildRawText(spatialData);
-    const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${slug}-page${page}.txt`;
-    a.click();
-    URL.revokeObjectURL(url);
-  }
-
-  async function handleExportTraining() {
-    setSaving(true);
-    setError(null);
-    setStatusMsg("Generating training data…");
-    try {
-      const img = await loadImage(imageUrl);
-      const lines: string[] = [];
-      for (const c of spatialData) {
-        if (!c.bbox || c.bbox.length < 4) continue;
-        if (c.uncertain) continue;
-        if (!c.text || c.text.trim().length === 0) continue;
-        const pixels = await cropBboxToPixelArray(img, c.bbox, 0.1);
-        lines.push(
-          JSON.stringify({
-            pixels,
-            label: c.text,
-            source: "admin-edit",
-            slug,
-            page,
-            offset: c.offset,
-            ...(c.ids ? { ids: c.ids } : {}),
-            ...(c.noReadingForm ? { noReadingForm: true } : {}),
-          })
-        );
-      }
-      const blob = new Blob([lines.join("\n") + "\n"], {
-        type: "application/x-ndjson",
-      });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `${slug}-page${page}-training.jsonl`;
-      a.click();
-      URL.revokeObjectURL(url);
-      setStatusMsg(`Exported ${lines.length} chars`);
-      setTimeout(() => setStatusMsg(null), 2500);
-    } catch (e: any) {
-      setError(`Export failed: ${e.message}`);
-    } finally {
-      setSaving(false);
-    }
-  }
+  // .txt / training-data export moved to the document-level screens
+  // (Edit Documents list + the per-document OCR browser) so they cover
+  // the whole document, not just the open page. See DocExportButtons.
 
   function loadImage(src: string): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
@@ -494,7 +460,7 @@ export default function EditorClient({
     <div className="relative left-1/2 -ml-[45vw] w-[90vw] px-4 flex-1 min-h-0 flex flex-col">
       <StepBar steps={steps} />
       {banner}
-      <div className="flex items-center justify-between mb-3 flex-wrap gap-2 flex-shrink-0">
+      <div className="flex flex-col items-center mb-3 gap-2 flex-shrink-0">
         <div className="text-sm text-gray-500 font-halyard">
           {spatialData.filter((c) => c.bbox).length} chars across{" "}
           {columns.length} column{columns.length === 1 ? "" : "s"}
@@ -502,7 +468,7 @@ export default function EditorClient({
             <span className="ml-3 text-amber-700 text-xs">Unsaved</span>
           )}
         </div>
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center justify-center gap-2 flex-wrap">
           <Link href={`/${locale}/admin/ocr/edit`} className={BTN_BACK}>
             ◀ All docs
           </Link>
@@ -548,20 +514,6 @@ export default function EditorClient({
             className={BTN_NEUTRAL}
           >
             {saving ? "…" : dirty ? "Save" : "Saved"}
-          </button>
-          <button
-            onClick={handleExportTxt}
-            disabled={saving}
-            className={BTN_NEUTRAL}
-          >
-            Download .txt
-          </button>
-          <button
-            onClick={handleExportTraining}
-            disabled={saving}
-            className={BTN_NEUTRAL}
-          >
-            Export training data
           </button>
           {phase === "editing" && (
             <button
