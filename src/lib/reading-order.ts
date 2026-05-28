@@ -64,8 +64,15 @@ function bboxHeight(bbox: SpatialCharacter["bbox"]) {
 /**
  * Top-down reading-order comparator with RTL tiebreak when two chars sit
  * on the same horizontal line (within half the average char height).
+ *
+ * Only bbox is read, so the input can be any cell shape with a bbox —
+ * relaxing the type lets buildColumnLines() reuse this with the lighter
+ * `{ text, bbox }` shape returned by the export read.
  */
-function compareWithinColumn(a: SpatialCharacter, b: SpatialCharacter): number {
+function compareWithinColumn(
+  a: Pick<SpatialCharacter, "bbox">,
+  b: Pick<SpatialCharacter, "bbox">
+): number {
   if (!a.bbox || !b.bbox) return 0;
   const ay = bboxCenter(a.bbox).y;
   const by = bboxCenter(b.bbox).y;
@@ -124,4 +131,80 @@ export function reflowSpatialData(
   orphans.sort(compareWithinColumn);
 
   return [...grouped.flat(), ...orphans, ...noBbox];
+}
+
+/**
+ * Build one text line per column for a page, in Han-Nôm reading order
+ * (top→bottom within a column, right→left across columns — the natural
+ * order of the supplied `columns` array, which the column step already
+ * stores R→L).
+ *
+ * - Each returned string is one column's text, no separators inside.
+ * - Punctuation and whitespace-only cells are stripped (same rule as
+ *   buildRawText).
+ * - Chars whose bbox falls outside every column (orphans) plus chars
+ *   with no bbox are concatenated into a trailing string and appended
+ *   as the last entry, so the export is lossless.
+ * - With no columns (or an empty columns list), returns a single
+ *   reading-order string equivalent to applying buildRawText() to a
+ *   single-column reflow.
+ *
+ * Lighter input type than reflowSpatialData() so the document TXT
+ * export can pass the minimal `{ text, bbox }` rows it reads directly
+ * from Supabase without reconstructing full SpatialCharacters.
+ */
+export function buildColumnLines(
+  chars: ReadonlyArray<Pick<SpatialCharacter, "text" | "bbox">>,
+  columns?: ConfirmedColumn[] | null
+): string[] {
+  if (chars.length === 0) return [];
+  const keep = (t: unknown): t is string =>
+    typeof t === "string" && t.trim().length > 0 && !isPunctuation(t as string);
+
+  if (!columns || columns.length === 0) {
+    const withBbox = chars.filter(
+      (c) => Array.isArray(c.bbox) && c.bbox.length >= 4 && keep(c.text)
+    );
+    const noBbox = chars.filter(
+      (c) => !(Array.isArray(c.bbox) && c.bbox.length >= 4) && keep(c.text)
+    );
+    const sorted = [...withBbox].sort(compareWithinColumn);
+    const s = [...sorted, ...noBbox].map((c) => c.text).join("");
+    return s ? [s] : [];
+  }
+
+  type Cell = Pick<SpatialCharacter, "text" | "bbox">;
+  const buckets: Cell[][] = columns.map(() => []);
+  const orphans: Cell[] = [];
+  const noBbox: Cell[] = [];
+
+  for (const c of chars) {
+    if (!keep(c.text)) continue;
+    if (!Array.isArray(c.bbox) || c.bbox.length < 4) {
+      noBbox.push(c);
+      continue;
+    }
+    const ctr = bboxCenter(c.bbox);
+    let hit = -1;
+    for (let i = 0; i < columns.length; i++) {
+      const b = columns[i].bbox;
+      if (ctr.x >= b.minX && ctr.x <= b.maxX && ctr.y >= b.minY && ctr.y <= b.maxY) {
+        hit = i;
+        break;
+      }
+    }
+    if (hit >= 0) buckets[hit].push(c);
+    else orphans.push(c);
+  }
+  for (const g of buckets) g.sort(compareWithinColumn);
+  orphans.sort(compareWithinColumn);
+
+  const out: string[] = [];
+  for (const g of buckets) {
+    const s = g.map((c) => c.text).join("");
+    if (s) out.push(s);
+  }
+  const trailing = [...orphans, ...noBbox].map((c) => c.text).join("");
+  if (trailing) out.push(trailing);
+  return out;
 }

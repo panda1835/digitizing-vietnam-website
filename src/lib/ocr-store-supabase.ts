@@ -952,6 +952,98 @@ export async function listPages(slug: string): Promise<OcrPageData[]> {
   return out;
 }
 
+/**
+ * Whole-document read tuned for the TXT export.
+ *
+ * Plain listPages() does pageCount sequential getPage() calls, and each
+ * getPage() walks text_versions + text_candidates to reconstruct the
+ * current text. For an N-page export that's O(N) round trips + an
+ * O(corpus) version walk — easily many seconds on a long document.
+ *
+ * Instead this is three batched, paged queries:
+ *   - pages (id, page_number) for the document          — 1 query
+ *   - text_units selecting only what export needs       — chunked .in()
+ *   - confirmed columns                                 — chunked .in()
+ * Uses the denormalized `current_text` column (see
+ * 20260519_text_units_denorm.sql) so no version reconstruction is
+ * needed. Row count is bounded by the corpus, not the page count, so
+ * latency scales with content size, not page count.
+ *
+ * Returned cells carry just the fields the export consumer needs —
+ * `text` (current_text) and `bbox`. Pages are emitted in page order;
+ * pages with no text_units are still included with an empty
+ * spatialData so caller can preserve page boundaries.
+ */
+export async function getDocTextForExport(slug: string): Promise<
+  Array<{
+    pageNumber: number;
+    spatialData: Array<{ text: string; bbox: SpatialCharacter["bbox"] }>;
+    columns: ConfirmedColumn[];
+  }>
+> {
+  const doc = await findDocument(slug);
+  if (!doc) return [];
+
+  const { data: pageRows, error: pErr } = await db()
+    .from("pages")
+    .select("id,page_number")
+    .eq("document_id", doc.id)
+    .order("page_number");
+  if (pErr) throw new Error(`pages list: ${pErr.message}`);
+  const pages = ((pageRows ?? []) as Array<{ id: Uuid; page_number: number }>);
+  if (!pages.length) return [];
+  const pageIds = pages.map((p) => p.id);
+
+  type UnitLite = Pick<
+    TextUnitRow,
+    | "page_id"
+    | "offset"
+    | "bbox_x1" | "bbox_y1"
+    | "bbox_x2" | "bbox_y2"
+    | "bbox_x3" | "bbox_y3"
+    | "bbox_x4" | "bbox_y4"
+  > & { current_text: string | null };
+
+  const [unitsByPage, colsByPage] = await Promise.all([
+    (async () => {
+      const m = new Map<
+        Uuid,
+        Array<{ text: string; bbox: SpatialCharacter["bbox"] }>
+      >();
+      for (const part of chunk(pageIds, IN_CHUNK)) {
+        const rows = await selectAllRanged<UnitLite>(() =>
+          db()
+            .from("text_units")
+            .select(
+              "page_id,offset,current_text," +
+                "bbox_x1,bbox_y1,bbox_x2,bbox_y2,bbox_x3,bbox_y3,bbox_x4,bbox_y4"
+            )
+            .in("page_id", part)
+            .order("offset")
+        );
+        for (const r of rows) {
+          const arr = m.get(r.page_id) ?? [];
+          arr.push({
+            text: r.current_text ?? "",
+            // quadToBbox only reads bbox_x*/bbox_y* — narrowing via unknown
+            // because UnitLite intentionally drops the columns we don't need.
+            bbox: quadToBbox(r as unknown as TextUnitRow),
+          });
+          m.set(r.page_id, arr);
+        }
+      }
+      return m;
+    })(),
+    loadColumnsForPages(pageIds),
+  ]);
+
+  return pages.map((p) => ({
+    pageNumber: p.page_number,
+    spatialData: unitsByPage.get(p.id) ?? [],
+    columns: colsByPage.get(p.id) ?? [],
+  }));
+}
+
 // ─────────────────────────────────────────────────────────────────────────
 // Corpus-walk internals (denormalized-read model)
 //
