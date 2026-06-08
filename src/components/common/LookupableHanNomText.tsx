@@ -27,9 +27,11 @@ const NomNaTong = localFont({
 export default function LookupableHanNomText({
   text,
   className,
+  inline = false,
 }: {
   text: string;
   className?: string;
+  inline?: boolean;
 }) {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState("");
@@ -66,10 +68,11 @@ export default function LookupableHanNomText({
   };
 
   const characters = Array.from(text);
+  const Wrapper = inline ? "span" : "div";
 
   return (
-    <div>
-      <div className={`text-2xl ${NomNaTong.className} ${className || ""}`}>
+    <Wrapper>
+      <Wrapper className={`text-2xl ${NomNaTong.className} ${className || ""}`}>
         {characters.map((word, index) => (
           <Popover
             key={index}
@@ -196,7 +199,7 @@ export default function LookupableHanNomText({
             </PopoverContent>
           </Popover>
         ))}
-      </div>
-    </div>
+      </Wrapper>
+    </Wrapper>
   );
 }

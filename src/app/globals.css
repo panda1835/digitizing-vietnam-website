@@ -33,6 +33,17 @@ hr {
 
 .mirador {
   height: 700px;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mirador > div,
+.mirador #mirador {
+  height: 100%;
+  width: 100%;
+  min-width: 0;
 }
 
 .loader {

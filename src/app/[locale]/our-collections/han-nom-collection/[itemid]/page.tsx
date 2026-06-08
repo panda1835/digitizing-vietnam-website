@@ -1,13 +1,15 @@
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 
-import MiradorViewer from "@/components/mirador/MiradorViewer";
 import CollectionPermalink from "@/components/CollectionPermalink";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Separator } from "@/components/ui/separator";
 import { Merriweather } from "next/font/google";
 import HanNomMetadata from "./Metadata";
 import { getHanNomManifestEntryByItemId } from "@/lib/han-nom-collection";
+import HanNomOcrReader, {
+  HanNomOcrCanvas,
+} from "@/components/collection/HanNomOcrReader";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -28,6 +30,41 @@ interface IIIFManifest {
     label: { en?: string[] };
     value: { en?: string[] };
   }>;
+  items?: Array<{
+    id: string;
+    label?: {
+      en?: string[];
+      [key: string]: string[] | undefined;
+    };
+    items?: Array<{
+      items?: Array<{
+        body?: {
+          id?: string;
+          service?: Array<{
+            id?: string;
+            "@id"?: string;
+          }>;
+        };
+      }>;
+    }>;
+  }>;
+}
+
+function getManifestCanvases(manifest: IIIFManifest): HanNomOcrCanvas[] {
+  return (manifest.items || []).map((canvas, index) => {
+    const body = canvas.items?.[0]?.items?.[0]?.body;
+    const label = canvas.label?.en?.[0] || `Image ${index + 1}`;
+    const labelNumber = label.match(/\d+/)?.[0];
+
+    return {
+      id: canvas.id,
+      label,
+      pageNumber: labelNumber ? Number(labelNumber) : index + 1,
+      imageUrl: body?.id || "",
+      imageServiceId:
+        body?.service?.[0]?.id || body?.service?.[0]?.["@id"] || "",
+    };
+  });
 }
 
 export async function generateMetadata({
@@ -44,7 +81,8 @@ export async function generateMetadata({
     if (manifestUrl) {
       const manifestResponse = await fetch(manifestUrl);
       const manifest: IIIFManifest = await manifestResponse.json();
-      const title = manifest.label?.en?.[0] || t("HanNomCollection.collection-title");
+      const title =
+        manifest.label?.en?.[0] || t("HanNomCollection.collection-title");
 
       return {
         title: `${title} | Digitizing Việt Nam`,
@@ -100,6 +138,7 @@ const HanNomItemViewer = async ({
   }
 
   const title = manifestData.label?.en?.[0] || t("HanNomCollection.untitled");
+  const canvases = getManifestCanvases(manifestData);
   const metadata = (manifestData.metadata || []).map((item) => ({
     label: item.label.en?.[0] || "",
     value: item.value.en?.[0] || "",
@@ -138,15 +177,14 @@ const HanNomItemViewer = async ({
           <Separator />
         </div>
 
-        {/* Mirador Viewer */}
-        <div className="flex flex-row mt-10">
-          <div className="w-full relative">
-            <MiradorViewer
-              manifestUrl={manifestUrl}
-              canvasId={originalCanvasId}
-            />
-          </div>
-        </div>
+        {/* Mirador Viewer and OCR Reader */}
+        <HanNomOcrReader
+          manifestUrl={manifestUrl}
+          title={title}
+          initialCanvasId={originalCanvasId}
+          canvases={canvases}
+          locale={locale}
+        />
 
         <div className="mt-16">
           <Separator />
