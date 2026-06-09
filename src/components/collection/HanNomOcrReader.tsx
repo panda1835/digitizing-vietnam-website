@@ -9,7 +9,13 @@ import {
   useState,
 } from "react";
 import { useSearchParams } from "next/navigation";
-import { ScanSearch, ZoomIn, ZoomOut } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ScanSearch,
+  ZoomIn,
+  ZoomOut,
+} from "lucide-react";
 import MiradorViewer from "@/components/mirador/MiradorViewer";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 
@@ -116,7 +122,15 @@ function useLiveCanvasId(initialCanvasId: string, fallbackCanvasId: string) {
     };
   }, [fallback]);
 
-  return canvasId;
+  const selectCanvas = (nextCanvasId: string) => {
+    setCanvasId(nextCanvasId);
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("canvasId", nextCanvasId);
+    window.history.replaceState(window.history.state, "", url);
+  };
+
+  return [canvasId, selectCanvas] as const;
 }
 
 export default function HanNomOcrReader({
@@ -133,7 +147,10 @@ export default function HanNomOcrReader({
   locale: string;
 }) {
   const firstCanvasId = canvases[0]?.id || "";
-  const liveCanvasId = useLiveCanvasId(initialCanvasId, firstCanvasId);
+  const [liveCanvasId, selectCanvas] = useLiveCanvasId(
+    initialCanvasId,
+    firstCanvasId
+  );
   const selectedCanvas = useMemo(
     () =>
       canvases.find((canvas) => canvas.id === liveCanvasId) ||
@@ -141,6 +158,12 @@ export default function HanNomOcrReader({
       null,
     [canvases, liveCanvasId]
   );
+  const selectedCanvasIndex = selectedCanvas
+    ? canvases.findIndex((canvas) => canvas.id === selectedCanvas.id)
+    : -1;
+  const hasPreviousPage = selectedCanvasIndex > 0;
+  const hasNextPage =
+    selectedCanvasIndex >= 0 && selectedCanvasIndex < canvases.length - 1;
   const [ocrData, setOcrData] = useState<OcrResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showBoxes, setShowBoxes] = useState(false);
@@ -184,6 +207,7 @@ export default function HanNomOcrReader({
     }
 
     setIsLoading(true);
+    setOcrData(null);
     fetch(`/api/han-nom-ocr?${params.toString()}`, {
       signal: controller.signal,
     })
@@ -218,6 +242,8 @@ export default function HanNomOcrReader({
     setHoveredUnitId(null);
     setImageZoom(1);
     setIsDraggingImage(false);
+    imageScrollerRef.current?.scrollTo({ left: 0, top: 0 });
+    ocrPanelRef.current?.scrollTo({ top: 0 });
   }, [selectedCanvas?.id]);
 
   const ocrText = ocrData?.text?.trim() || "";
@@ -238,12 +264,22 @@ export default function HanNomOcrReader({
     : "Read OCR";
 
   useEffect(() => {
-    if (!hasOcr) {
+    if (!isLoading && ocrData && !hasOcr) {
       setShowBoxes(false);
       setHoveredUnitId(null);
       setActiveUnitId(null);
     }
-  }, [hasOcr]);
+  }, [hasOcr, isLoading, ocrData]);
+
+  const navigateToPage = (index: number) => {
+    const canvas = canvases[index];
+
+    if (!canvas) {
+      return;
+    }
+
+    selectCanvas(canvas.id);
+  };
 
   const scrollToUnit = (unitId: string) => {
     setActiveUnitId(unitId);
@@ -335,35 +371,7 @@ export default function HanNomOcrReader({
 
   return (
     <section className="mt-10">
-      <div className="mb-3 flex items-center justify-end gap-2">
-        {showBoxes && (
-          <div className="flex items-center gap-1 rounded-md border border-gray-200 bg-white p-1">
-            <button
-              type="button"
-              className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
-              onClick={() => setImageZoom((value) => Math.max(1, value - 0.25))}
-              disabled={imageZoom <= 1}
-              aria-label={locale === "vi" ? "Thu nhỏ" : "Zoom out"}
-              title={locale === "vi" ? "Thu nhỏ" : "Zoom out"}
-            >
-              <ZoomOut className="h-4 w-4" aria-hidden="true" />
-            </button>
-            <span className="min-w-12 text-center text-sm text-gray-600">
-              {Math.round(imageZoom * 100)}%
-            </span>
-            <button
-              type="button"
-              className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
-              onClick={() => setImageZoom((value) => Math.min(3, value + 0.25))}
-              disabled={imageZoom >= 3}
-              aria-label={locale === "vi" ? "Phóng to" : "Zoom in"}
-              title={locale === "vi" ? "Phóng to" : "Zoom in"}
-            >
-              <ZoomIn className="h-4 w-4" aria-hidden="true" />
-            </button>
-          </div>
-        )}
-
+      <div className="mb-3 flex items-center justify-end">
         <span title={readOcrTitle}>
           <button
             type="button"
@@ -390,77 +398,155 @@ export default function HanNomOcrReader({
 
       <div className={`flex flex-col gap-6 ${showBoxes ? "lg:flex-row" : ""}`}>
         <div className="min-w-0 flex-1 overflow-hidden">
-          {showBoxes && debugImageUrl ? (
-            <div
-              ref={imageScrollerRef}
-              className={`h-[700px] overflow-auto rounded-lg border border-gray-200 bg-gray-100 ${
-                imageZoom > 1
-                  ? isDraggingImage
-                    ? "cursor-grabbing"
-                    : "cursor-grab"
-                  : ""
-              }`}
-              onPointerDown={handleImagePointerDown}
-              onPointerMove={handleImagePointerMove}
-              onPointerUp={stopImageDrag}
-              onPointerCancel={stopImageDrag}
-              onPointerLeave={(event) => {
-                if (isDraggingImage) {
-                  stopImageDrag(event);
-                }
-              }}
-            >
+          {showBoxes ? (
+            <div className="flex h-[700px] flex-col overflow-hidden rounded-lg border border-gray-200 bg-gray-100">
               <div
-                className="relative mx-auto"
-                style={{ width: `${imageZoom * 100}%` }}
+                role="toolbar"
+                aria-label={
+                  locale === "vi" ? "Công cụ hình ảnh" : "Image tools"
+                }
+                className="flex min-h-11 flex-none items-center justify-between gap-2 border-b border-gray-200 bg-white px-2 py-1"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={debugImageUrl}
-                  alt={
-                    selectedCanvas?.label ||
-                    (locale === "vi" ? "Trang OCR" : "OCR page")
-                  }
-                  className="block h-auto w-full"
-                />
-                <div className="absolute inset-0">
-                  {ocrData?.units?.map((unit) => {
-                    const boxStyle = getBoxStyle(unit);
-
-                    if (!boxStyle) {
-                      return null;
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                    onClick={() => navigateToPage(selectedCanvasIndex - 1)}
+                    disabled={!hasPreviousPage || isLoading}
+                    aria-label={
+                      locale === "vi" ? "Trang trước" : "Previous page"
                     }
+                    title={locale === "vi" ? "Trang trước" : "Previous page"}
+                  >
+                    <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                  <span className="min-w-20 px-1 text-center text-sm text-gray-600">
+                    {selectedCanvasIndex + 1} / {canvases.length}
+                  </span>
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                    onClick={() => navigateToPage(selectedCanvasIndex + 1)}
+                    disabled={!hasNextPage || isLoading}
+                    aria-label={locale === "vi" ? "Trang sau" : "Next page"}
+                    title={locale === "vi" ? "Trang sau" : "Next page"}
+                  >
+                    <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </div>
 
-                    const isHighlighted =
-                      hoveredUnitId === unit.id || activeUnitId === unit.id;
-
-                    return (
-                      <div
-                        key={unit.id}
-                        role="button"
-                        tabIndex={0}
-                        className={`absolute border transition-colors ${
-                          isHighlighted
-                            ? "border-blue-600 bg-blue-500/25"
-                            : "border-red-500/70 bg-red-500/10 hover:bg-red-500/20"
-                        }`}
-                        style={boxStyle}
-                        title={unit.text}
-                        onMouseEnter={() => setHoveredUnitId(unit.id)}
-                        onMouseLeave={() => setHoveredUnitId(null)}
-                        onClick={() => {
-                          if (suppressBoxClickRef.current) {
-                            return;
-                          }
-
-                          scrollToUnit(unit.id);
-                        }}
-                        onKeyDown={(event) => handleBoxKeyDown(event, unit.id)}
-                      />
-                    );
-                  })}
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                    onClick={() =>
+                      setImageZoom((value) => Math.max(1, value - 0.25))
+                    }
+                    disabled={imageZoom <= 1}
+                    aria-label={locale === "vi" ? "Thu nhỏ" : "Zoom out"}
+                    title={locale === "vi" ? "Thu nhỏ" : "Zoom out"}
+                  >
+                    <ZoomOut className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                  <span className="min-w-12 text-center text-sm text-gray-600">
+                    {Math.round(imageZoom * 100)}%
+                  </span>
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                    onClick={() =>
+                      setImageZoom((value) => Math.min(3, value + 0.25))
+                    }
+                    disabled={imageZoom >= 3}
+                    aria-label={locale === "vi" ? "Phóng to" : "Zoom in"}
+                    title={locale === "vi" ? "Phóng to" : "Zoom in"}
+                  >
+                    <ZoomIn className="h-4 w-4" aria-hidden="true" />
+                  </button>
                 </div>
               </div>
+
+              {debugImageUrl ? (
+                <div
+                  ref={imageScrollerRef}
+                  className={`min-h-0 flex-1 overflow-auto ${
+                    imageZoom > 1
+                      ? isDraggingImage
+                        ? "cursor-grabbing"
+                        : "cursor-grab"
+                      : ""
+                  }`}
+                  onPointerDown={handleImagePointerDown}
+                  onPointerMove={handleImagePointerMove}
+                  onPointerUp={stopImageDrag}
+                  onPointerCancel={stopImageDrag}
+                  onPointerLeave={(event) => {
+                    if (isDraggingImage) {
+                      stopImageDrag(event);
+                    }
+                  }}
+                >
+                  <div
+                    className="relative mx-auto"
+                    style={{ width: `${imageZoom * 100}%` }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={debugImageUrl}
+                      alt={
+                        selectedCanvas?.label ||
+                        (locale === "vi" ? "Trang OCR" : "OCR page")
+                      }
+                      className="block h-auto w-full"
+                    />
+                    <div className="absolute inset-0">
+                      {ocrData?.units?.map((unit) => {
+                        const boxStyle = getBoxStyle(unit);
+
+                        if (!boxStyle) {
+                          return null;
+                        }
+
+                        const isHighlighted =
+                          hoveredUnitId === unit.id || activeUnitId === unit.id;
+
+                        return (
+                          <div
+                            key={unit.id}
+                            role="button"
+                            tabIndex={0}
+                            className={`absolute border transition-colors ${
+                              isHighlighted
+                                ? "border-blue-600 bg-blue-500/25"
+                                : "border-red-500/70 bg-red-500/10 hover:bg-red-500/20"
+                            }`}
+                            style={boxStyle}
+                            title={unit.text}
+                            onMouseEnter={() => setHoveredUnitId(unit.id)}
+                            onMouseLeave={() => setHoveredUnitId(null)}
+                            onClick={() => {
+                              if (suppressBoxClickRef.current) {
+                                return;
+                              }
+
+                              scrollToUnit(unit.id);
+                            }}
+                            onKeyDown={(event) =>
+                              handleBoxKeyDown(event, unit.id)
+                            }
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex min-h-0 flex-1 items-center justify-center text-sm text-gray-500">
+                  {locale === "vi"
+                    ? "Đang tải trang OCR..."
+                    : "Loading OCR page..."}
+                </div>
+              )}
             </div>
           ) : (
             <MiradorViewer manifestUrl={manifestUrl} canvasId={liveCanvasId} />
@@ -473,33 +559,39 @@ export default function HanNomOcrReader({
               ref={ocrPanelRef}
               className="h-[700px] overflow-y-auto px-5 py-5"
             >
-              <div className="whitespace-pre-wrap break-words text-xl leading-relaxed text-branding-black">
-                {ocrData?.units?.map((unit) => (
-                  <span
-                    key={unit.id}
-                    ref={(node) => {
-                      if (node) {
-                        textUnitRefs.current.set(unit.id, node);
-                      } else {
-                        textUnitRefs.current.delete(unit.id);
+              {isLoading ? (
+                <div className="text-sm text-gray-500">
+                  {locale === "vi" ? "Đang tải OCR..." : "Loading OCR..."}
+                </div>
+              ) : (
+                <div className="whitespace-pre-wrap break-words text-xl leading-relaxed text-branding-black">
+                  {ocrData?.units?.map((unit) => (
+                    <span
+                      key={unit.id}
+                      ref={(node) => {
+                        if (node) {
+                          textUnitRefs.current.set(unit.id, node);
+                        } else {
+                          textUnitRefs.current.delete(unit.id);
+                        }
+                      }}
+                      onMouseEnter={() => setHoveredUnitId(unit.id)}
+                      onMouseLeave={() => setHoveredUnitId(null)}
+                      className={
+                        hoveredUnitId === unit.id || activeUnitId === unit.id
+                          ? "rounded-sm bg-blue-100 text-blue-900 ring-1 ring-blue-400"
+                          : ""
                       }
-                    }}
-                    onMouseEnter={() => setHoveredUnitId(unit.id)}
-                    onMouseLeave={() => setHoveredUnitId(null)}
-                    className={
-                      hoveredUnitId === unit.id || activeUnitId === unit.id
-                        ? "rounded-sm bg-blue-100 text-blue-900 ring-1 ring-blue-400"
-                        : ""
-                    }
-                  >
-                    <LookupableHanNomText
-                      text={unit.text}
-                      inline
-                      className="inline text-xl leading-relaxed"
-                    />
-                  </span>
-                ))}
-              </div>
+                    >
+                      <LookupableHanNomText
+                        text={unit.text}
+                        inline
+                        className="inline text-xl leading-relaxed"
+                      />
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </aside>
         )}

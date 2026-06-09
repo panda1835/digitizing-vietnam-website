@@ -39,6 +39,10 @@ type OcrTextVersion = Pick<
   | "text"
   | "text_unit_id"
 >;
+type OcrTextCandidate = Pick<
+  OcrTableRows<"text_candidates">,
+  "rank" | "source" | "text" | "text_unit_id"
+>;
 type OcrSupabaseClient = SupabaseClient<Database, "ocr">;
 
 const PAGE_SIZE = 1000;
@@ -275,19 +279,53 @@ async function fetchTextVersions(
   return versions;
 }
 
-function selectPreferredVersion(versions: OcrTextVersion[]) {
+async function fetchRankZeroOcrCandidates(
+  supabase: OcrSupabaseClient,
+  textUnitIds: string[]
+) {
+  const candidates: OcrTextCandidate[] = [];
+
+  if (textUnitIds.length === 0) {
+    return candidates;
+  }
+
+  for (let index = 0; index < textUnitIds.length; index += VERSION_BATCH_SIZE) {
+    const ids = textUnitIds.slice(index, index + VERSION_BATCH_SIZE);
+    const { data, error } = await supabase
+      .from("text_candidates")
+      .select("rank,source,text,text_unit_id")
+      .eq("source", "ocr")
+      .eq("rank", 0)
+      .in("text_unit_id", ids);
+
+    if (error) {
+      throw error;
+    }
+
+    candidates.push(...((data || []) as OcrTextCandidate[]));
+  }
+
+  return candidates;
+}
+
+function selectLatestHumanVersion(versions: OcrTextVersion[]) {
   const byCreatedAtDesc = [...versions].sort(
     (a, b) =>
       new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
   );
 
-  return (
-    byCreatedAtDesc.find(
-      (version) => version.source.toLowerCase() === "human"
-    ) ||
-    byCreatedAtDesc[0] ||
-    null
+  return byCreatedAtDesc.find(
+    (version) => version.source.toLowerCase() === "human"
   );
+}
+
+function selectLatestOcrVersion(versions: OcrTextVersion[]) {
+  return [...versions]
+    .sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    )
+    .find((version) => version.source.toLowerCase() === "ocr");
 }
 
 export async function GET(request: Request) {
@@ -355,12 +393,13 @@ export async function GET(request: Request) {
     }
 
     const textUnits = await fetchAllTextUnits(supabase, page.id, ocrRun.id);
-    const textVersions = await fetchTextVersions(
-      supabase,
-      ocrRun.id,
-      textUnits.map((unit) => unit.id)
-    );
+    const textUnitIds = textUnits.map((unit) => unit.id);
+    const [textVersions, rankZeroOcrCandidates] = await Promise.all([
+      fetchTextVersions(supabase, ocrRun.id, textUnitIds),
+      fetchRankZeroOcrCandidates(supabase, textUnitIds),
+    ]);
     const versionsByUnitId = new Map<string, OcrTextVersion[]>();
+    const ocrCandidateByUnitId = new Map<string, OcrTextCandidate>();
 
     for (const version of textVersions) {
       const existing = versionsByUnitId.get(version.text_unit_id) || [];
@@ -368,10 +407,25 @@ export async function GET(request: Request) {
       versionsByUnitId.set(version.text_unit_id, existing);
     }
 
+    for (const candidate of rankZeroOcrCandidates) {
+      ocrCandidateByUnitId.set(candidate.text_unit_id, candidate);
+    }
+
     const units = textUnits.map((unit) => {
-      const preferredVersion = selectPreferredVersion(
-        versionsByUnitId.get(unit.id) || []
-      );
+      const versions = versionsByUnitId.get(unit.id) || [];
+      const humanVersion = selectLatestHumanVersion(versions);
+      const ocrCandidate = ocrCandidateByUnitId.get(unit.id);
+      const ocrVersion = selectLatestOcrVersion(versions);
+      const selectedText =
+        humanVersion?.text || ocrCandidate?.text || ocrVersion?.text || "";
+      const selectedSource = humanVersion
+        ? humanVersion.source
+        : ocrCandidate
+        ? ocrCandidate.source
+        : ocrVersion?.source || null;
+      const selectedConfidence = humanVersion
+        ? humanVersion.confidence
+        : ocrVersion?.confidence || null;
 
       return {
         id: unit.id,
@@ -386,9 +440,9 @@ export async function GET(request: Request) {
           y3: unit.bbox_y3,
           y4: unit.bbox_y4,
         },
-        text: preferredVersion?.text || "",
-        source: preferredVersion?.source || null,
-        confidence: preferredVersion?.confidence || null,
+        text: selectedText,
+        source: selectedSource,
+        confidence: selectedConfidence,
       };
     });
 
