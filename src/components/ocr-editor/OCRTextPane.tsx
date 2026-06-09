@@ -48,6 +48,29 @@ export default function OCRTextPane({
     }
   }, [fontSize]);
 
+  // Interlinear Quốc Ngữ: when on, each glyph's `quocNgu` reading is shown
+  // as a ruby annotation above it. Off by default-safe (only renders when a
+  // glyph actually has a reading). Persisted alongside font size.
+  const [showQuocNgu, setShowQuocNgu] = useState<boolean>(() => {
+    if (typeof window === "undefined") return true;
+    return window.localStorage.getItem("ocr-textpane-show-qn") !== "0";
+  });
+  useEffect(() => {
+    try {
+      window.localStorage.setItem("ocr-textpane-show-qn", showQuocNgu ? "1" : "0");
+    } catch {
+      // localStorage unavailable — silently ignore.
+    }
+  }, [showQuocNgu]);
+
+  // Does any glyph carry a Quốc Ngữ reading? Drives whether the toggle is
+  // useful and whether to reserve vertical room for the ruby line.
+  const hasQuocNgu = useMemo(
+    () => spatialData.some((c) => c.quocNgu && c.quocNgu.trim().length > 0),
+    [spatialData]
+  );
+  const rubyOn = showQuocNgu && hasQuocNgu;
+
   // Scroll to focused character
   useEffect(() => {
     if (focusedOffset === null) return;
@@ -96,9 +119,9 @@ export default function OCRTextPane({
     const display = isBlank ? "▢" : char.text;
     const blankStyle = isBlank ? "text-gray-300" : "";
 
-    return (
+    const key = `${keyPrefix}${i}`;
+    const glyph = (
       <span
-        key={`${keyPrefix}${i}`}
         ref={(el) => {
           if (el) spanRefs.current.set(char.offset, el);
           else spanRefs.current.delete(char.offset);
@@ -116,12 +139,34 @@ export default function OCRTextPane({
         title={
           isBlank
             ? `(empty cell) — confidence: ${Math.round(conf * 100)}%`
-            : `${char.text} — confidence: ${Math.round(conf * 100)}%`
+            : `${char.text}${char.quocNgu ? ` (${char.quocNgu})` : ""} — confidence: ${Math.round(conf * 100)}%`
         }
       >
         {display}
       </span>
     );
+
+    // Interlinear Quốc Ngữ above the glyph. Skipped for blanks (the ▢
+    // placeholder has no reading) and when the toggle is off.
+    if (rubyOn && !isBlank && char.quocNgu && char.quocNgu.trim()) {
+      return (
+        <ruby key={key} className="leading-none">
+          {glyph}
+          <rt
+            className="font-sans font-normal text-gray-400 select-none"
+            style={{ fontSize: "0.38em" }}
+          >
+            {/* Inner span carries the horizontal padding so adjacent
+                readings keep a gap even when one overhangs its glyph. */}
+            <span style={{ paddingInline: "0.25em", whiteSpace: "nowrap" }}>
+              {char.quocNgu}
+            </span>
+          </rt>
+        </ruby>
+      );
+    }
+
+    return <Fragment key={key}>{glyph}</Fragment>;
   }
 
   // Structured column view matching reading mode styles
@@ -454,8 +499,13 @@ export default function OCRTextPane({
 
     return (
       <div className="h-full overflow-y-auto p-5 select-text">
-        <FontSizeToggle value={fontSize} onChange={setFontSize} />
-        <div style={{ fontSize: `${fontSize}px`, lineHeight: 1.15 }}>
+        <div className="flex items-center gap-4 mb-2 flex-wrap">
+          <FontSizeToggle value={fontSize} onChange={setFontSize} />
+          {hasQuocNgu && (
+            <QuocNguToggle value={showQuocNgu} onChange={setShowQuocNgu} />
+          )}
+        </div>
+        <div style={{ fontSize: `${fontSize}px`, lineHeight: rubyOn ? 2.1 : 1.15 }}>
           {bands.map((band, bi) => renderBandBlock(band, bi))}
         </div>
         {bindingColumns.length > 0 && (
@@ -478,14 +528,43 @@ export default function OCRTextPane({
   // Fallback: flat rendering
   return (
     <div className="h-full overflow-y-auto p-5 select-text">
-      <FontSizeToggle value={fontSize} onChange={setFontSize} />
+      <div className="flex items-center gap-4 mb-2 flex-wrap">
+        <FontSizeToggle value={fontSize} onChange={setFontSize} />
+        {hasQuocNgu && (
+          <QuocNguToggle value={showQuocNgu} onChange={setShowQuocNgu} />
+        )}
+      </div>
       <div
         className="font-han-nom text-branding-black font-light break-all"
-        style={{ fontSize: `${fontSize}px`, lineHeight: 1.15 }}
+        style={{ fontSize: `${fontSize}px`, lineHeight: rubyOn ? 2.1 : 1.15 }}
       >
         {spatialData.map((char, i) => renderChar(char, i))}
       </div>
     </div>
+  );
+}
+
+function QuocNguToggle({
+  value,
+  onChange,
+}: {
+  value: boolean;
+  onChange: (v: boolean) => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onChange(!value)}
+      className={`px-2 py-0.5 rounded text-[11px] ${
+        value
+          ? "bg-gray-800 text-white"
+          : "text-gray-600 hover:bg-gray-100 border border-gray-200"
+      }`}
+      title="Show Quốc Ngữ reading above each glyph"
+      aria-pressed={value}
+    >
+      Quốc Ngữ
+    </button>
   );
 }
 
