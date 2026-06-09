@@ -173,7 +173,7 @@ const HanNomItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        <div className="mt-16">
+        <div className="">
           <Separator />
         </div>
 
