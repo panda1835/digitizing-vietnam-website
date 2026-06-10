@@ -10,7 +10,6 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Keyboard } from "lucide-react";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import HandwritingPad from "./HandwritingPad";
 import { useTranslations } from "next-intl";
@@ -28,12 +27,35 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import localFont from "next/font/local";
+import { Noto_Serif_SC } from "next/font/google";
 
 const NomNaTong = localFont({
   src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
+const notoSerifSC = Noto_Serif_SC({ weight: "500", subsets: ["latin"] });
+
 type InputMethod = "quoc-ngu" | "handwriting" | "radical";
+
+function isCJKChar(char: string): boolean {
+  const codePoint = char.codePointAt(0);
+  if (codePoint === undefined) return false;
+
+  return (
+    (codePoint >= 0x4e00 && codePoint <= 0x9fff) ||
+    (codePoint >= 0x3400 && codePoint <= 0x4dbf) ||
+    (codePoint >= 0x20000 && codePoint <= 0x2ebef) ||
+    (codePoint >= 0x30000 && codePoint <= 0x323af) ||
+    (codePoint >= 0xf900 && codePoint <= 0xfaff) ||
+    (codePoint >= 0x2e80 && codePoint <= 0x2fdf)
+  );
+}
+
+function isComponentQuery(query: string): boolean {
+  const characters = Array.from(query.trim());
+  return characters.length >= 2 && characters.every(isCJKChar);
+}
+
 export default function DictionarySearchBar({
   placeholder,
   searchWord,
@@ -52,71 +74,88 @@ export default function DictionarySearchBar({
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [userIsTyping, setUserIsTyping] = useState(false);
-  const [lastSearchTerm, setLastSearchTerm] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
-  // Filter suggestions with debouncing to prevent infinite loops
   useEffect(() => {
-    const currentSearchTerm = searchKeyword.toLowerCase().trim();
+    if (!userIsTyping) return;
 
-    // Only process if the search term actually changed and user is typing
-    if (currentSearchTerm === lastSearchTerm || !userIsTyping) {
-      return;
-    }
-
-    setLastSearchTerm(currentSearchTerm);
-
-    if (!currentSearchTerm || hdwd_list.length === 0) {
+    const searchTerm = searchKeyword.trim();
+    if (!searchTerm) {
       setSuggestions([]);
       setShowSuggestions(false);
       setActiveSuggestionIndex(-1);
       return;
     }
 
-    // Filter entries where any word starts with the search term
-    const filtered = hdwd_list.filter((entry) => {
-      const entryLower = entry.toLowerCase();
+    const componentQuery = isComponentQuery(searchTerm);
+    const controller = new AbortController();
 
-      // Check if the entire entry starts with search term (highest priority)
-      if (entryLower.startsWith(currentSearchTerm)) {
-        return true;
-      }
+    if (componentQuery) {
+      setSuggestions([]);
+      setShowSuggestions(false);
+      setActiveSuggestionIndex(-1);
+    }
 
-      // Check if any word in the compound entry starts with search term
-      // Split by spaces and check each word
-      const words = entryLower.split(/\s+/);
-      return words.some((word) => word.startsWith(currentSearchTerm));
-    });
+    const timer = window.setTimeout(
+      async () => {
+        let nextSuggestions: string[] = [];
 
-    // Sort to prioritize entries that start with the search term
-    const sorted = filtered.sort((a, b) => {
-      const aLower = a.toLowerCase();
-      const bLower = b.toLowerCase();
+        if (componentQuery) {
+          try {
+            const response = await fetch(
+              `/api/han-nom-dictionary/components?q=${encodeURIComponent(
+                searchTerm
+              )}`,
+              { signal: controller.signal }
+            );
 
-      // Entries starting with search term come first
-      if (
-        aLower.startsWith(currentSearchTerm) &&
-        !bLower.startsWith(currentSearchTerm)
-      ) {
-        return -1;
-      }
-      if (
-        !aLower.startsWith(currentSearchTerm) &&
-        bLower.startsWith(currentSearchTerm)
-      ) {
-        return 1;
-      }
+            if (response.ok) {
+              const data = (await response.json()) as { matches?: string[] };
+              nextSuggestions = data.matches ?? [];
+            }
+          } catch (error) {
+            if (error instanceof DOMException && error.name === "AbortError")
+              return;
+            console.error("Failed to load component suggestions:", error);
+          }
+        } else if (hdwd_list.length > 0) {
+          const lowerSearchTerm = searchTerm.toLowerCase();
+          nextSuggestions = hdwd_list
+            .filter((entry) => {
+              const entryLower = entry.toLowerCase();
+              return (
+                entryLower.startsWith(lowerSearchTerm) ||
+                entryLower
+                  .split(/\s+/)
+                  .some((word) => word.startsWith(lowerSearchTerm))
+              );
+            })
+            .sort((first, second) => {
+              const firstStarts = first
+                .toLowerCase()
+                .startsWith(lowerSearchTerm);
+              const secondStarts = second
+                .toLowerCase()
+                .startsWith(lowerSearchTerm);
+              if (firstStarts !== secondStarts) return firstStarts ? -1 : 1;
+              return first.localeCompare(second);
+            })
+            .slice(0, 20);
+        }
 
-      // Otherwise maintain alphabetical order
-      return a.localeCompare(b);
-    });
+        setSuggestions(nextSuggestions);
+        setShowSuggestions(nextSuggestions.length > 0);
+        setActiveSuggestionIndex(-1);
+      },
+      componentQuery ? 150 : 0
+    );
 
-    const newSuggestions = sorted.slice(0, 20);
-    setSuggestions(newSuggestions);
-    setShowSuggestions(newSuggestions.length > 0);
-    setActiveSuggestionIndex(-1);
-  }, [searchKeyword, hdwd_list, userIsTyping, lastSearchTerm]);
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [searchKeyword, hdwd_list, userIsTyping]);
 
   // Close suggestions when clicking outside
   useEffect(() => {
@@ -137,17 +176,21 @@ export default function DictionarySearchBar({
     };
   }, []);
 
+  const navigateToSearch = (searchTerm: string) => {
+    setUserIsTyping(false);
+    const query = `?q=${encodeURIComponent(searchTerm)}`;
+    window.location.href = searchPath ? `${searchPath}${query}` : query;
+  };
+
   const handleSearch = (term?: string) => {
     const searchTerm = term || searchKeyword;
-    if (searchTerm.trim()) {
-      setUserIsTyping(false); // Reset typing state before navigation
-      const query = `?q=${encodeURIComponent(searchTerm)}`;
-      window.location.href = searchPath ? `${searchPath}${query}` : query;
-    }
+    if (!searchTerm.trim()) return;
+    navigateToSearch(searchTerm);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       if (activeSuggestionIndex >= 0 && suggestions[activeSuggestionIndex]) {
         handleSuggestionClick(suggestions[activeSuggestionIndex]);
       } else {
@@ -178,7 +221,6 @@ export default function DictionarySearchBar({
     if (newValue.trim() === "") {
       setShowSuggestions(false);
       setSuggestions([]);
-      setLastSearchTerm("");
       setActiveSuggestionIndex(-1);
     }
   };
@@ -199,7 +241,7 @@ export default function DictionarySearchBar({
   };
 
   const [open, setOpen] = useState(false);
-  const [inputMethod, setInputMethod] = useState<InputMethod>("handwriting");
+  const [inputMethod, setInputMethod] = useState<InputMethod>("radical");
   const [radicals, setRadicals] = useState<Radical[]>([]);
 
   useEffect(() => {
@@ -210,7 +252,6 @@ export default function DictionarySearchBar({
     const newKeyword = searchKeyword + char;
     setSearchKeyword(newKeyword);
     setUserIsTyping(true);
-    setLastSearchTerm(""); // Reset to force suggestion recalculation
     setOpen(false);
   };
 
@@ -257,18 +298,15 @@ export default function DictionarySearchBar({
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-white hover:bg-gray-100 transition-all">
+          <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  {/* <Image
-                    unoptimized
-                    src="/images/signature.png"
-                    alt="handwriting"
-                    width={20}
-                    height={20}
-                  /> */}
-                  <Keyboard className="w-4 h-4" />
+                  <span
+                    className={`${notoSerifSC.className} text-xl leading-none antialiased text-white`}
+                  >
+                    部
+                  </span>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>
@@ -294,10 +332,17 @@ export default function DictionarySearchBar({
             </DialogDescription>
           </DialogHeader>
           <div className="flex-1 min-h-0 flex flex-col gap-3">
-            <InputMethodSelector
-              value={inputMethod}
-              onChange={setInputMethod}
-            />
+            <div className="flex flex-col gap-2">
+              <InputMethodSelector
+                value={inputMethod}
+                onChange={setInputMethod}
+              />
+              <p className="text-sm text-muted-foreground">
+                {t(
+                  `Tools.han-nom-dictionaries.alternative-input-methods.${inputMethod}-description`
+                )}
+              </p>
+            </div>
             <div
               className={`border rounded-lg bg-gray-50 flex-1 min-h-0 p-3 ${
                 inputMethod === "radical"
@@ -314,7 +359,7 @@ export default function DictionarySearchBar({
                 <HandwritingPad onSelect={handleCandidateSelected} />
               )}
               {inputMethod === "radical" && (
-                <div className="h-full overflow-y-auto">
+                <div className="h-full">
                   <CompactRadicals
                     radicals={radicals}
                     onCharacterSelect={handleCandidateSelected}

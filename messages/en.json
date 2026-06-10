@@ -186,14 +186,17 @@
       "alternative-input-methods": {
         "tooltip": "Other input methods",
         "title": "Other input methods",
-        "description": "Select an input method to add Hán-Nôm characters from Quốc Ngữ, handwriting, or radicals."
+        "description": "Select an input method to add Hán-Nôm characters from Quốc Ngữ, handwriting, or radicals.",
+        "quoc-ngu-description": "Type a Vietnamese word in Quốc Ngữ to find matching Hán-Nôm characters.",
+        "handwriting-description": "Draw a character on the canvas and use handwriting recognition to find it. Currently supports Hán characters and phonetic-loan Nôm characters.",
+        "radical-description": "Browse characters by selecting a radical component, then narrow by stroke count."
       },
       "no-result": "No results found.",
       "dictionaries": {
         "general": {
           "name": "Unified Hán-Nôm Lookup",
-          "description": "The Unified Hán-Nôm Lookup tool is a collection of dictionaries that provide definitions and explanations for Hán-Nôm characters. This tool is especially useful for researchers who need to look up the meanings of Hán-Nôm characters in historical texts.",
-          "search-placeholder": "Search Hán Nôm or Quốc Ngữ",
+          "description": "Search across multiple Hán-Nôm dictionaries at once by Hán-Nôm character, Quốc Ngữ reading, or component combination.",
+          "search-placeholder": "Hán Nôm, Quốc Ngữ, or Components",
           "author": ""
         },
         "tu-dien-chu-nom-dan-giai": {
@@ -294,7 +297,9 @@
           "copied-to-clipboard": "Copied to clipboard",
           "failed-to-copy": "Failed to copy to clipboard",
           "failed-to-load-characters": "Failed to load characters",
-          "no-definition": "No definition"
+          "no-definition": "No definition",
+          "filter-placeholder": "Input a radical",
+          "no-radicals-found": "No matching radical found."
         },
         "quoc-ngu-input": {
           "placeholder": "Type a word in Quốc Ngữ...",
@@ -387,7 +392,7 @@
         "quickLookup": {
           "label": "Quick Lookup",
           "title": "Unified Hán-Nôm Lookup",
-          "description": "Search across multiple historical dictionaries and reference works simultaneously."
+          "description": "Search by Hán-Nôm character, Quốc Ngữ reading, or component combination across multiple historical dictionaries simultaneously."
         },
         "corpusSearch": {
           "label": "Corpus Search",

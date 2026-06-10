@@ -42,7 +42,7 @@ export default function JumpToSourceMenu({ locale }: { locale: string }) {
   }
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+    <div className="w-72 bg-white rounded-lg border border-gray-200 overflow-hidden">
       <div className="p-6 border-b border-gray-200">
         <div className="text-lg font-normal text-branding-brown">
           {locale === "en" ? "Jump to source" : "Đến nguồn"}

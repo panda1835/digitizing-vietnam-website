@@ -69,7 +69,9 @@ export default function Entry({
       ),
       hasResults: entry.qatd && entry.qatd.length > 0,
       href: `/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien?q=${query}`,
-      content: entry.qatd?.map((def, idx) => <EntryQATD key={idx} entry={def} />),
+      content: entry.qatd?.map((def, idx) => (
+        <EntryQATD key={idx} entry={def} />
+      )),
     },
     {
       id: "source-taberd",
@@ -87,31 +89,35 @@ export default function Entry({
       ),
       hasResults: entry.ndtd && entry.ndtd.length > 0,
       href: `/tools/han-nom-dictionaries/nhat-dung-thuong-dam?q=${query}`,
-      content: entry.ndtd?.map((def, idx) => <EntryNDTD key={idx} entry={def} />),
+      content: entry.ndtd?.map((def, idx) => (
+        <EntryNDTD key={idx} entry={def} />
+      )),
     },
   ].filter((section) => section.hasResults);
 
   return (
     <div className="space-y-8">
-      <div className="lg:hidden bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <div className="p-6 border-b border-gray-200">
-          <div className="text-lg font-normal text-branding-brown">
-            {locale === "en" ? "Jump to source" : "Đến nguồn"}
+      {sourceSections.length > 0 && (
+        <div className="lg:hidden bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="p-6 border-b border-gray-200">
+            <div className="text-lg font-normal text-branding-brown">
+              {locale === "en" ? "Jump to source" : "Đến nguồn"}
+            </div>
           </div>
+          <nav className="flex flex-col">
+            {sourceSections.map((section) => (
+              <a
+                key={`mobile-${section.id}`}
+                href={`#${section.id}`}
+                onClick={(event) => scrollToSource(event, section.id)}
+                className="py-3 px-6 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 hover:border-l-branding-brown hover:border-l-4 transition-colors relative group"
+              >
+                <span className="text-gray-800">{section.label}</span>
+              </a>
+            ))}
+          </nav>
         </div>
-        <nav className="flex flex-col">
-          {sourceSections.map((section) => (
-            <a
-              key={`mobile-${section.id}`}
-              href={`#${section.id}`}
-              onClick={(event) => scrollToSource(event, section.id)}
-              className="py-3 px-6 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 hover:border-l-branding-brown hover:border-l-4 transition-colors relative group"
-            >
-              <span className="text-gray-800">{section.label}</span>
-            </a>
-          ))}
-        </nav>
-      </div>
+      )}
 
       {sourceSections.map((section) => (
         <div

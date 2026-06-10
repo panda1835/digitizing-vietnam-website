@@ -31,10 +31,12 @@ export default async function DictionaryPage({
   const searchWord = (await searchParams).q;
   let data: GeneralDictionaryData | null = null;
   if (searchWord) {
-    const apiUrl =
-      process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const response = await fetch(
-      `${apiUrl}/han-nom-dictionary/all/dictionary?q=${searchWord}`
+      `${siteUrl}/api/han-nom-dictionary/all/dictionary?q=${encodeURIComponent(
+        searchWord
+      )}`,
+      { cache: "no-store" }
     );
     data = await response.json();
   }
