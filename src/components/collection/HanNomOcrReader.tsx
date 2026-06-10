@@ -21,6 +21,11 @@ import {
 import MiradorViewer from "@/components/mirador/MiradorViewer";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
 
+const DEFAULT_OCR_FONT_SIZE = 20;
+const MIN_OCR_FONT_SIZE = 16;
+const MAX_OCR_FONT_SIZE = 36;
+const OCR_FONT_SIZE_STEP = 2;
+
 export type HanNomOcrCanvas = {
   id: string;
   label: string;
@@ -173,6 +178,7 @@ export default function HanNomOcrReader({
   const [hoveredUnitId, setHoveredUnitId] = useState<string | null>(null);
   const [activeUnitId, setActiveUnitId] = useState<string | null>(null);
   const [imageZoom, setImageZoom] = useState(1);
+  const [ocrFontSize, setOcrFontSize] = useState(DEFAULT_OCR_FONT_SIZE);
   const [isDraggingImage, setIsDraggingImage] = useState(false);
   const ocrPanelRef = useRef<HTMLDivElement | null>(null);
   const imageScrollerRef = useRef<HTMLDivElement | null>(null);
@@ -406,9 +412,11 @@ export default function HanNomOcrReader({
               <div
                 role="toolbar"
                 aria-label={
-                  locale === "vi" ? "Công cụ hình ảnh" : "Image tools"
+                  locale === "vi"
+                    ? "Công cụ hình ảnh và văn bản OCR"
+                    : "Image and OCR text tools"
                 }
-                className="flex min-h-11 flex-none items-center justify-between gap-2 border-b border-gray-200 bg-white px-2 py-1"
+                className="flex min-h-11 flex-none flex-wrap items-center justify-between gap-2 border-b border-gray-200 bg-white px-2 py-1"
               >
                 <div className="flex items-center gap-1">
                   <button
@@ -439,6 +447,61 @@ export default function HanNomOcrReader({
                 </div>
 
                 <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                    onClick={() =>
+                      setOcrFontSize((value) =>
+                        Math.max(MIN_OCR_FONT_SIZE, value - OCR_FONT_SIZE_STEP)
+                      )
+                    }
+                    disabled={ocrFontSize <= MIN_OCR_FONT_SIZE}
+                    aria-label={
+                      locale === "vi"
+                        ? "Giảm cỡ chữ OCR"
+                        : "Decrease OCR font size"
+                    }
+                    title={
+                      locale === "vi"
+                        ? "Giảm cỡ chữ OCR"
+                        : "Decrease OCR font size"
+                    }
+                  >
+                    <span className="text-xs" aria-hidden="true">
+                      A-
+                    </span>
+                  </button>
+                  <span className="min-w-12 text-center text-sm text-gray-600">
+                    {ocrFontSize}px
+                  </span>
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                    onClick={() =>
+                      setOcrFontSize((value) =>
+                        Math.min(MAX_OCR_FONT_SIZE, value + OCR_FONT_SIZE_STEP)
+                      )
+                    }
+                    disabled={ocrFontSize >= MAX_OCR_FONT_SIZE}
+                    aria-label={
+                      locale === "vi"
+                        ? "Tăng cỡ chữ OCR"
+                        : "Increase OCR font size"
+                    }
+                    title={
+                      locale === "vi"
+                        ? "Tăng cỡ chữ OCR"
+                        : "Increase OCR font size"
+                    }
+                  >
+                    <span className="text-sm" aria-hidden="true">
+                      A+
+                    </span>
+                  </button>
+                  <div
+                    className="mx-1 h-5 w-px bg-gray-200"
+                    aria-hidden="true"
+                  />
                   <button
                     type="button"
                     className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
@@ -607,7 +670,10 @@ export default function HanNomOcrReader({
                   {locale === "vi" ? "Đang tải OCR..." : "Loading OCR..."}
                 </div>
               ) : (
-                <div className="whitespace-pre-wrap break-words text-xl leading-relaxed text-branding-black">
+                <div
+                  className="whitespace-pre-wrap break-words text-branding-black"
+                  style={{ fontSize: `${ocrFontSize}px`, lineHeight: 1.625 }}
+                >
                   {ocrData?.units?.map((unit) => (
                     <span
                       key={unit.id}
@@ -629,7 +695,11 @@ export default function HanNomOcrReader({
                       <LookupableHanNomText
                         text={unit.text}
                         inline
-                        className="inline text-xl leading-relaxed"
+                        className="inline"
+                        style={{
+                          fontSize: `${ocrFontSize}px`,
+                          lineHeight: 1.625,
+                        }}
                       />
                     </span>
                   ))}

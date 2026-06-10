@@ -1,6 +1,6 @@
 "use client";
 import { Link } from "@/i18n/routing";
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import localFont from "next/font/local";
 import EntryTDCNDG from "@/app/[locale]/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai/Entry";
 import EntryGDNVHV from "@/app/[locale]/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/Entry";
@@ -28,10 +28,12 @@ export default function LookupableHanNomText({
   text,
   className,
   inline = false,
+  style,
 }: {
   text: string;
   className?: string;
   inline?: boolean;
+  style?: CSSProperties;
 }) {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState("");
@@ -72,7 +74,10 @@ export default function LookupableHanNomText({
 
   return (
     <Wrapper>
-      <Wrapper className={`text-2xl ${NomNaTong.className} ${className || ""}`}>
+      <Wrapper
+        className={`text-2xl ${NomNaTong.className} ${className || ""}`}
+        style={style}
+      >
         {characters.map((word, index) => (
           <Popover
             key={index}
