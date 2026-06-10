@@ -12,19 +12,36 @@ import { useSearchParams } from "next/navigation";
 import {
   ChevronLeft,
   ChevronRight,
+  Download,
   Eye,
   EyeOff,
+  Loader2,
   ScanSearch,
   ZoomIn,
   ZoomOut,
 } from "lucide-react";
 import MiradorViewer from "@/components/mirador/MiradorViewer";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
 const DEFAULT_OCR_FONT_SIZE = 20;
 const MIN_OCR_FONT_SIZE = 16;
 const MAX_OCR_FONT_SIZE = 36;
 const OCR_FONT_SIZE_STEP = 2;
+const EXPORT_BATCH_SIZE = 5;
+
+type ExportScope = "current" | "all" | "range";
 
 export type HanNomOcrCanvas = {
   id: string;
@@ -36,6 +53,7 @@ export type HanNomOcrCanvas = {
 
 type OcrResponse = {
   available: boolean;
+  canvasId?: string;
   reason?: string | null;
   text?: string;
   page?: {
@@ -104,6 +122,43 @@ function readCanvasIdFromUrl(fallback: string) {
   return (
     new URLSearchParams(window.location.search).get("canvasId") || fallback
   );
+}
+
+function createOcrRequestParams({
+  canvas,
+  manifestUrl,
+  title,
+}: {
+  canvas: HanNomOcrCanvas;
+  manifestUrl: string;
+  title: string;
+}) {
+  const params = new URLSearchParams({
+    manifestUrl,
+    canvasId: canvas.id,
+    pageNumber: String(canvas.pageNumber),
+    title,
+  });
+
+  if (canvas.imageUrl) {
+    params.set("imageUrl", canvas.imageUrl);
+  }
+
+  if (canvas.imageServiceId) {
+    params.set("imageServiceId", canvas.imageServiceId);
+  }
+
+  return params;
+}
+
+function createExportFilename(title: string) {
+  const sanitizedTitle = title
+    .trim()
+    .replace(/[<>:"/\\|?*\u0000-\u001f]/g, "-")
+    .replace(/\s+/g, " ")
+    .slice(0, 100);
+
+  return `${sanitizedTitle || "han-nom-ocr"}.txt`;
 }
 
 function useLiveCanvasId(initialCanvasId: string, fallbackCanvasId: string) {
@@ -180,6 +235,12 @@ export default function HanNomOcrReader({
   const [imageZoom, setImageZoom] = useState(1);
   const [ocrFontSize, setOcrFontSize] = useState(DEFAULT_OCR_FONT_SIZE);
   const [isDraggingImage, setIsDraggingImage] = useState(false);
+  const [isExportOpen, setIsExportOpen] = useState(false);
+  const [exportScope, setExportScope] = useState<ExportScope>("current");
+  const [rangeStart, setRangeStart] = useState("1");
+  const [rangeEnd, setRangeEnd] = useState("1");
+  const [isExporting, setIsExporting] = useState(false);
+  const [exportError, setExportError] = useState("");
   const ocrPanelRef = useRef<HTMLDivElement | null>(null);
   const imageScrollerRef = useRef<HTMLDivElement | null>(null);
   const imageDragRef = useRef({
@@ -200,20 +261,11 @@ export default function HanNomOcrReader({
     }
 
     const controller = new AbortController();
-    const params = new URLSearchParams({
+    const params = createOcrRequestParams({
+      canvas: selectedCanvas,
       manifestUrl,
-      canvasId: selectedCanvas.id,
-      pageNumber: String(selectedCanvas.pageNumber),
       title,
     });
-
-    if (selectedCanvas.imageUrl) {
-      params.set("imageUrl", selectedCanvas.imageUrl);
-    }
-
-    if (selectedCanvas.imageServiceId) {
-      params.set("imageServiceId", selectedCanvas.imageServiceId);
-    }
 
     setIsLoading(true);
     setOcrData(null);
@@ -378,6 +430,140 @@ export default function HanNomOcrReader({
     setIsDraggingImage(false);
   };
 
+  const handleExportOpenChange = (open: boolean) => {
+    if (isExporting) {
+      return;
+    }
+
+    setIsExportOpen(open);
+
+    if (open) {
+      const currentPage = Math.max(1, selectedCanvasIndex + 1);
+      setExportScope("current");
+      setRangeStart(String(currentPage));
+      setRangeEnd(String(currentPage));
+      setExportError("");
+    }
+  };
+
+  const fetchOcrTextForCanvas = async (canvas: HanNomOcrCanvas) => {
+    if (
+      canvas.id === selectedCanvas?.id &&
+      ocrData?.canvasId === canvas.id &&
+      ocrData.text !== undefined
+    ) {
+      return ocrData.text.trim();
+    }
+
+    const params = createOcrRequestParams({ canvas, manifestUrl, title });
+    const response = await fetch(`/api/han-nom-ocr?${params.toString()}`);
+
+    if (!response.ok) {
+      throw new Error(`OCR request failed with status ${response.status}.`);
+    }
+
+    const data = (await response.json()) as OcrResponse;
+    return data.text?.trim() || "";
+  };
+
+  const exportOcrText = async () => {
+    let startIndex = selectedCanvasIndex;
+    let endIndex = selectedCanvasIndex;
+
+    if (exportScope === "all") {
+      startIndex = 0;
+      endIndex = canvases.length - 1;
+    } else if (exportScope === "range") {
+      const parsedStart = Number(rangeStart);
+      const parsedEnd = Number(rangeEnd);
+      const rangeIsValid =
+        Number.isInteger(parsedStart) &&
+        Number.isInteger(parsedEnd) &&
+        parsedStart >= 1 &&
+        parsedEnd <= canvases.length &&
+        parsedStart <= parsedEnd;
+
+      if (!rangeIsValid) {
+        setExportError(
+          locale === "vi"
+            ? `Nhập phạm vi hợp lệ từ 1 đến ${canvases.length}.`
+            : `Enter a valid range from 1 to ${canvases.length}.`
+        );
+        return;
+      }
+
+      startIndex = parsedStart - 1;
+      endIndex = parsedEnd - 1;
+    }
+
+    if (startIndex < 0 || endIndex < startIndex) {
+      setExportError(
+        locale === "vi"
+          ? "Không có trang nào để xuất."
+          : "There are no pages to export."
+      );
+      return;
+    }
+
+    setIsExporting(true);
+    setExportError("");
+
+    try {
+      const selectedPages = canvases
+        .slice(startIndex, endIndex + 1)
+        .map((canvas, index) => ({
+          canvas,
+          pageNumber: startIndex + index + 1,
+        }));
+      const exportedPages: Array<{ pageNumber: number; text: string }> = [];
+
+      for (
+        let index = 0;
+        index < selectedPages.length;
+        index += EXPORT_BATCH_SIZE
+      ) {
+        const batch = selectedPages.slice(index, index + EXPORT_BATCH_SIZE);
+        const batchResults = await Promise.all(
+          batch.map(async ({ canvas, pageNumber }) => ({
+            pageNumber,
+            text: await fetchOcrTextForCanvas(canvas),
+          }))
+        );
+        exportedPages.push(...batchResults);
+      }
+
+      const unavailableText =
+        locale === "vi" ? "[OCR không khả dụng]" : "[OCR unavailable]";
+      const content = exportedPages
+        .map(
+          ({ pageNumber, text }) =>
+            `Page ${pageNumber}\n${text || unavailableText}`
+        )
+        .join("\n\n-----\n\n");
+      const blob = new Blob([`\uFEFF${content}\n`], {
+        type: "text/plain;charset=utf-8",
+      });
+      const downloadUrl = URL.createObjectURL(blob);
+      const downloadLink = document.createElement("a");
+
+      downloadLink.href = downloadUrl;
+      downloadLink.download = createExportFilename(title);
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+      window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 0);
+      setIsExportOpen(false);
+    } catch {
+      setExportError(
+        locale === "vi"
+          ? "Không thể tải đầy đủ dữ liệu OCR để xuất."
+          : "Unable to load all OCR data for export."
+      );
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   return (
     <section className="mt-10">
       <div className="mb-3 flex items-center justify-end">
@@ -447,6 +633,169 @@ export default function HanNomOcrReader({
                 </div>
 
                 <div className="flex items-center gap-1">
+                  <Dialog
+                    open={isExportOpen}
+                    onOpenChange={handleExportOpenChange}
+                  >
+                    <DialogTrigger asChild>
+                      <button
+                        type="button"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
+                        aria-label={
+                          locale === "vi"
+                            ? "Xuất văn bản OCR"
+                            : "Export OCR text"
+                        }
+                        title={
+                          locale === "vi"
+                            ? "Xuất văn bản OCR"
+                            : "Export OCR text"
+                        }
+                      >
+                        <Download className="h-4 w-4" aria-hidden="true" />
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>
+                          {locale === "vi"
+                            ? "Xuất văn bản OCR"
+                            : "Export OCR text"}
+                        </DialogTitle>
+                      </DialogHeader>
+
+                      <fieldset
+                        className="flex flex-col gap-3"
+                        disabled={isExporting}
+                      >
+                        <legend className="sr-only">
+                          {locale === "vi" ? "Phạm vi xuất" : "Export scope"}
+                        </legend>
+                        {(
+                          [
+                            [
+                              "current",
+                              locale === "vi"
+                                ? `Chỉ trang này (Trang ${
+                                    selectedCanvasIndex + 1
+                                  })`
+                                : `This page only (Page ${
+                                    selectedCanvasIndex + 1
+                                  })`,
+                            ],
+                            [
+                              "all",
+                              locale === "vi"
+                                ? `Toàn bộ văn bản (${canvases.length} trang)`
+                                : `Whole text (${canvases.length} pages)`,
+                            ],
+                            [
+                              "range",
+                              locale === "vi" ? "Nhiều trang" : "A page range",
+                            ],
+                          ] as Array<[ExportScope, string]>
+                        ).map(([value, label]) => (
+                          <label
+                            key={value}
+                            className="flex cursor-pointer items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50"
+                          >
+                            <input
+                              type="radio"
+                              name="ocr-export-scope"
+                              value={value}
+                              checked={exportScope === value}
+                              onChange={() => {
+                                setExportScope(value);
+                                setExportError("");
+                              }}
+                              className="h-4 w-4 accent-branding-brown"
+                            />
+                            <span>{label}</span>
+                          </label>
+                        ))}
+                      </fieldset>
+
+                      {exportScope === "range" ? (
+                        <div className="grid grid-cols-2 gap-3">
+                          <label className="flex flex-col gap-1.5 text-sm">
+                            <span>
+                              {locale === "vi" ? "Từ trang" : "From page"}
+                            </span>
+                            <Input
+                              type="number"
+                              min={1}
+                              max={canvases.length}
+                              value={rangeStart}
+                              onChange={(event) => {
+                                setRangeStart(event.target.value);
+                                setExportError("");
+                              }}
+                              disabled={isExporting}
+                            />
+                          </label>
+                          <label className="flex flex-col gap-1.5 text-sm">
+                            <span>
+                              {locale === "vi" ? "Đến trang" : "To page"}
+                            </span>
+                            <Input
+                              type="number"
+                              min={1}
+                              max={canvases.length}
+                              value={rangeEnd}
+                              onChange={(event) => {
+                                setRangeEnd(event.target.value);
+                                setExportError("");
+                              }}
+                              disabled={isExporting}
+                            />
+                          </label>
+                        </div>
+                      ) : null}
+
+                      {exportError ? (
+                        <p className="text-sm text-destructive" role="alert">
+                          {exportError}
+                        </p>
+                      ) : null}
+
+                      <DialogFooter className="gap-2">
+                        <DialogClose asChild>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            disabled={isExporting}
+                          >
+                            {locale === "vi" ? "Hủy" : "Cancel"}
+                          </Button>
+                        </DialogClose>
+                        <Button
+                          type="button"
+                          onClick={exportOcrText}
+                          disabled={isExporting}
+                        >
+                          {isExporting ? (
+                            <Loader2
+                              className="animate-spin"
+                              aria-hidden="true"
+                            />
+                          ) : (
+                            <Download aria-hidden="true" />
+                          )}
+                          {isExporting
+                            ? locale === "vi"
+                              ? "Đang xuất..."
+                              : "Exporting..."
+                            : locale === "vi"
+                            ? "Xuất OCR"
+                            : "Export OCR"}
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                  <div
+                    className="mx-1 h-5 w-px bg-gray-200"
+                    aria-hidden="true"
+                  />
                   <button
                     type="button"
                     className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
