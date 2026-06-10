@@ -12,6 +12,8 @@ import { useSearchParams } from "next/navigation";
 import {
   ChevronLeft,
   ChevronRight,
+  Eye,
+  EyeOff,
   ScanSearch,
   ZoomIn,
   ZoomOut,
@@ -167,6 +169,7 @@ export default function HanNomOcrReader({
   const [ocrData, setOcrData] = useState<OcrResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showBoxes, setShowBoxes] = useState(false);
+  const [showBoundingBoxes, setShowBoundingBoxes] = useState(true);
   const [hoveredUnitId, setHoveredUnitId] = useState<string | null>(null);
   const [activeUnitId, setActiveUnitId] = useState<string | null>(null);
   const [imageZoom, setImageZoom] = useState(1);
@@ -438,6 +441,43 @@ export default function HanNomOcrReader({
                 <div className="flex items-center gap-1">
                   <button
                     type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
+                    onClick={() => {
+                      setShowBoundingBoxes((value) => !value);
+                      setHoveredUnitId(null);
+                    }}
+                    aria-label={
+                      showBoundingBoxes
+                        ? locale === "vi"
+                          ? "Ẩn khung văn bản"
+                          : "Hide bounding boxes"
+                        : locale === "vi"
+                        ? "Hiện khung văn bản"
+                        : "Show bounding boxes"
+                    }
+                    title={
+                      showBoundingBoxes
+                        ? locale === "vi"
+                          ? "Ẩn khung văn bản"
+                          : "Hide bounding boxes"
+                        : locale === "vi"
+                        ? "Hiện khung văn bản"
+                        : "Show bounding boxes"
+                    }
+                    aria-pressed={showBoundingBoxes}
+                  >
+                    {showBoundingBoxes ? (
+                      <Eye className="h-4 w-4" aria-hidden="true" />
+                    ) : (
+                      <EyeOff className="h-4 w-4" aria-hidden="true" />
+                    )}
+                  </button>
+                  <div
+                    className="mx-1 h-5 w-px bg-gray-200"
+                    aria-hidden="true"
+                  />
+                  <button
+                    type="button"
                     className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
                     onClick={() =>
                       setImageZoom((value) => Math.max(1, value - 0.25))
@@ -499,45 +539,48 @@ export default function HanNomOcrReader({
                       }
                       className="block h-auto w-full"
                     />
-                    <div className="absolute inset-0">
-                      {ocrData?.units?.map((unit) => {
-                        const boxStyle = getBoxStyle(unit);
+                    {showBoundingBoxes ? (
+                      <div className="absolute inset-0">
+                        {ocrData?.units?.map((unit) => {
+                          const boxStyle = getBoxStyle(unit);
 
-                        if (!boxStyle) {
-                          return null;
-                        }
+                          if (!boxStyle) {
+                            return null;
+                          }
 
-                        const isHighlighted =
-                          hoveredUnitId === unit.id || activeUnitId === unit.id;
+                          const isHighlighted =
+                            hoveredUnitId === unit.id ||
+                            activeUnitId === unit.id;
 
-                        return (
-                          <div
-                            key={unit.id}
-                            role="button"
-                            tabIndex={0}
-                            className={`absolute border transition-colors ${
-                              isHighlighted
-                                ? "border-blue-600 bg-blue-500/25"
-                                : "border-red-500/70 bg-red-500/10 hover:bg-red-500/20"
-                            }`}
-                            style={boxStyle}
-                            title={unit.text}
-                            onMouseEnter={() => setHoveredUnitId(unit.id)}
-                            onMouseLeave={() => setHoveredUnitId(null)}
-                            onClick={() => {
-                              if (suppressBoxClickRef.current) {
-                                return;
+                          return (
+                            <div
+                              key={unit.id}
+                              role="button"
+                              tabIndex={0}
+                              className={`absolute border transition-colors ${
+                                isHighlighted
+                                  ? "border-blue-600 bg-blue-500/25"
+                                  : "border-red-500/70 bg-red-500/10 hover:bg-red-500/20"
+                              }`}
+                              style={boxStyle}
+                              title={unit.text}
+                              onMouseEnter={() => setHoveredUnitId(unit.id)}
+                              onMouseLeave={() => setHoveredUnitId(null)}
+                              onClick={() => {
+                                if (suppressBoxClickRef.current) {
+                                  return;
+                                }
+
+                                scrollToUnit(unit.id);
+                              }}
+                              onKeyDown={(event) =>
+                                handleBoxKeyDown(event, unit.id)
                               }
-
-                              scrollToUnit(unit.id);
-                            }}
-                            onKeyDown={(event) =>
-                              handleBoxKeyDown(event, unit.id)
-                            }
-                          />
-                        );
-                      })}
-                    </div>
+                            />
+                          );
+                        })}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               ) : (
