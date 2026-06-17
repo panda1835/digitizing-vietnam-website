@@ -854,28 +854,25 @@ export default function OCRWorkspace({
       const isPlainDigit =
         digitMatch !== null && !e.ctrlKey && !e.metaKey && !e.altKey;
 
-      // Digit 1–9 — replace focused char with the Nth alternate candidate
-      // and advance focus to the next char (mirrors ArrowDown behaviour).
+      // Digit 1–9 — apply the Nth hotkey candidate for the focused cell and
+      // advance to the next char (mirrors ArrowDown). In glyph mode the
+      // candidate is an OCR alternate (mutates the glyph); in Quốc Ngữ mode
+      // it's a prior-reading suggestion (fills the reading). Both are handled
+      // here, not just in the cell's own onKeyDown, so the hotkey survives
+      // IME composition flags — Windows Telex reports isComposing
+      // aggressively and the cell handler bails on it, which would let the
+      // bare digit leak into the box instead of picking a candidate.
       if (focusedOffset !== null && isPlainDigit) {
-        const focusedChar = spatialData.find((c) => c.offset === focusedOffset);
-        const choices = (focusedChar as any)?.choices as string[] | undefined;
         const digit = digitMatch![1];
-        const candidate = choices?.[parseInt(digit, 10) - 1];
-        if (candidate) {
-          e.preventDefault();
-          // IME guard: Windows Vietnamese Telex commits any pending
-          // composition AND queues input events for the digit itself
-          // that fire *after* this handler returns. preventDefault on
-          // the keydown doesn't cancel those queued events, so the
-          // digit lands in whichever input is focused at flush time —
-          // i.e. the *next* box once we advance focus below.
-          //
-          // Strategy: stash the destination char's expected text on a
-          // window flag. On the first input event that hits the new
-          // input within 300ms, snap its value back to the expected
-          // text and propagate via React-aware setter so onChange
-          // syncs parent state. Catches Telex regardless of inputType
-          // or whether the digit is sent solo or appended to a vowel.
+        const focusedChar = spatialData.find((c) => c.offset === focusedOffset);
+
+        // IME stray-input shield: Telex commits any pending composition AND
+        // queues input events for the digit itself that fire *after* this
+        // handler returns, landing in whichever input is focused at flush
+        // time — i.e. the *next* cell once we advance. Tag that cell with its
+        // expected (pre-IME) value; on the first input event within 300ms,
+        // snap it back via the React-aware setter so onChange re-syncs.
+        const armShield = () => {
           const handleStrayInput = (ev: Event) => {
             const tgt = ev.target as HTMLInputElement | null;
             if (!tgt || !tgt.hasAttribute("data-char-offset")) return;
@@ -886,12 +883,9 @@ export default function OCRWorkspace({
             // Strip any occurrence of the digit that snuck in.
             const cleaned = tgt.value.split(digit).join("");
             if (cleaned === expected) {
-              // Nothing to do beyond preventing a re-fire.
               if (ev.type === "beforeinput") ev.preventDefault();
               return;
             }
-            // Use the React-aware native value setter so React's
-            // synthetic onChange picks up the correction.
             const setter = Object.getOwnPropertyDescriptor(
               window.HTMLInputElement.prototype,
               "value"
@@ -902,41 +896,78 @@ export default function OCRWorkspace({
           };
           window.addEventListener("beforeinput", handleStrayInput, true);
           window.addEventListener("input", handleStrayInput, true);
-          const cleanupShield = () => {
+          setTimeout(() => {
             window.removeEventListener("beforeinput", handleStrayInput, true);
             window.removeEventListener("input", handleStrayInput, true);
-            // Drop the marker from whichever input we tagged.
             document
               .querySelectorAll<HTMLInputElement>("[data-char-offset]")
               .forEach((el) => {
                 delete (el as any).__digitHotkeyExpected;
               });
-          };
-          setTimeout(cleanupShield, 300);
+          }, 300);
+        };
 
-          handleSuggestApply(focusedOffset, candidate);
-          if (selectedColumnIndex !== null) {
-            const col = columns[selectedColumnIndex];
-            if (col) {
-              const bboxChars = col.chars.filter((c) => c.bbox);
-              const idx = bboxChars.findIndex((c) => c.offset === focusedOffset);
-              const next = bboxChars[idx + 1];
-              if (next) {
-                // Tag the next input with its expected (pre-IME) value
-                // so the shield knows what to snap it back to.
-                queueMicrotask(() => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    `[data-char-offset="${next.offset}"]`
-                  );
-                  if (el) (el as any).__digitHotkeyExpected = next.text;
-                });
-                onFocusedOffsetChange(next.offset);
-              } else if (selectedColumnIndex < columns.length - 1) {
-                handleSelectColumn(selectedColumnIndex + 1);
-              }
-            }
+        // Advance focus to the next eligible char in the column, tagging the
+        // cell we land on with the value the shield should preserve.
+        // `eligible` matches the cells each mode actually renders; `expectedOf`
+        // returns the pre-IME value for that cell (glyph text vs. QN reading).
+        const advance = (
+          eligible: (c: SpatialCharacter) => boolean,
+          expectedOf: (c: SpatialCharacter) => string
+        ) => {
+          if (selectedColumnIndex === null) return;
+          const col = columns[selectedColumnIndex];
+          if (!col) return;
+          const cells = col.chars.filter(eligible);
+          const idx = cells.findIndex((c) => c.offset === focusedOffset);
+          const next = cells[idx + 1];
+          if (next) {
+            queueMicrotask(() => {
+              const el = document.querySelector<HTMLInputElement>(
+                `[data-char-offset="${next.offset}"]`
+              );
+              if (el) (el as any).__digitHotkeyExpected = expectedOf(next);
+            });
+            onFocusedOffsetChange(next.offset);
+          } else if (selectedColumnIndex < columns.length - 1) {
+            handleSelectColumn(selectedColumnIndex + 1);
           }
-          return;
+        };
+
+        if (qnMode) {
+          // Quốc Ngữ: fill the cell with the Nth prior-reading suggestion for
+          // this glyph — but only when the cell is empty. Once a reading is
+          // typed, digits are literal input (matches the cell's own handler).
+          const hasReading = !!(focusedChar?.quocNgu ?? "").trim();
+          const pick = hasReading
+            ? undefined
+            : qnSuggestions[focusedChar?.text ?? ""]?.[parseInt(digit, 10) - 1];
+          if (pick) {
+            e.preventDefault();
+            armShield();
+            handleCharFieldsChange(focusedOffset, { quocNgu: pick.qn });
+            advance(
+              (c) => !!c.bbox && !!c.text && c.text !== "\n",
+              (c) => c.quocNgu ?? ""
+            );
+            return;
+          }
+        } else {
+          // Glyph: replace the focused char with the Nth OCR alternate.
+          const choices = (focusedChar as any)?.choices as
+            | string[]
+            | undefined;
+          const candidate = choices?.[parseInt(digit, 10) - 1];
+          if (candidate) {
+            e.preventDefault();
+            armShield();
+            handleSuggestApply(focusedOffset, candidate);
+            advance(
+              (c) => !!c.bbox,
+              (c) => c.text
+            );
+            return;
+          }
         }
       }
 
@@ -1056,7 +1087,14 @@ export default function OCRWorkspace({
       window.removeEventListener("beforeinput", handleBeforeInput, true);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedColumnIndex, focusedOffset, columns, spatialData]);
+  }, [
+    selectedColumnIndex,
+    focusedOffset,
+    columns,
+    spatialData,
+    qnMode,
+    qnSuggestions,
+  ]);
 
   // ── Toolbox callbacks (in-memory variants) ──
 

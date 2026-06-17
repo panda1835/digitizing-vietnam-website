@@ -280,13 +280,14 @@ export default function OCRToolbox({
                   setQnErr(null);
                   try {
                     const r = await transliterateChar(focusedChar.text);
-                    const patch: Partial<SpatialCharacter> = {};
-                    if (r.primary) patch.quocNgu = r.primary;
-                    if (r.alternates.length) {
-                      patch.quocNguChoices = r.alternates;
-                    }
-                    if (Object.keys(patch).length) {
-                      onCharFieldsChange(focusedChar.offset, patch);
+                    // On-demand Nôm Na lookup: fill the primary reading only
+                    // (the user confirms it by keeping/editing it). We don't
+                    // stash the converter's alternates — only data the user
+                    // has confirmed should surface in the editor.
+                    if (r.primary) {
+                      onCharFieldsChange(focusedChar.offset, {
+                        quocNgu: r.primary,
+                      });
                     } else {
                       setQnErr("No dictionary reading for this glyph");
                     }
@@ -310,30 +311,6 @@ export default function OCRToolbox({
             {qnErr && (
               <p className="text-[11px] text-red-500">{qnErr}</p>
             )}
-
-            {focusedChar.quocNguChoices &&
-              focusedChar.quocNguChoices.length > 0 && (
-                <div>
-                  <p className="text-[10px] text-gray-400 mb-1">
-                    Converter alternates
-                  </p>
-                  <div className="flex flex-wrap gap-1">
-                    {focusedChar.quocNguChoices.map((alt, i) => (
-                      <button
-                        key={i}
-                        onClick={() =>
-                          onCharFieldsChange(focusedChar.offset, {
-                            quocNgu: alt,
-                          })
-                        }
-                        className="px-2 py-0.5 text-xs rounded border border-gray-300 hover:bg-indigo-50 hover:border-indigo-400"
-                      >
-                        {alt}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
 
             {(qnSuggestions[focusedChar.text]?.length ?? 0) > 0 && (
               <div>

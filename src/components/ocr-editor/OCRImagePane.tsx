@@ -1395,24 +1395,13 @@ export default function OCRImagePane({
                       focusSibling(idx, 1);
                     } else if (e.key === "Escape") {
                       (e.target as HTMLInputElement).blur();
-                    } else if (
-                      isEmpty &&
-                      !e.ctrlKey &&
-                      !e.metaKey &&
-                      !e.altKey &&
-                      /^[1-9]$/.test(e.key)
-                    ) {
-                      // Digit hotkeys: 1-9 picks the Nth chip from the
-                      // inline candidate strip (only when the cell is
-                      // empty — once the user starts typing, digits go
-                      // through as literal input).
-                      const pick = qnList[parseInt(e.key, 10) - 1];
-                      if (pick) {
-                        e.preventDefault();
-                        onQnChange?.(char.offset, pick.qn);
-                        focusSibling(idx, 1);
-                      }
                     }
+                    // Digit hotkeys (1-9) that pick the Nth prior-reading
+                    // suggestion are handled by the global keydown listener in
+                    // OCRWorkspace — it fires even while an IME (e.g. Telex)
+                    // reports composition, which this cell handler can't, and
+                    // owns the focus-advance + stray-digit shield. Handling
+                    // them here too would double-apply and double-advance.
                   }}
                   className="flex-1 min-w-0 px-1.5 font-halyard text-gray-900 bg-transparent outline-none placeholder:text-gray-400 placeholder:italic"
                   style={{
