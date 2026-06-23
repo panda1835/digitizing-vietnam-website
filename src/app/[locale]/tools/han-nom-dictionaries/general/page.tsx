@@ -20,6 +20,7 @@ interface GeneralDictionaryData {
   qatd: any[];
   taberd: any[];
   ndtd: any[];
+  componentMatches?: string[];
 }
 
 export default async function DictionaryPage({
@@ -47,7 +48,8 @@ export default async function DictionaryPage({
       (data.giupdoc && data.giupdoc.length > 0) ||
       (data.qatd && data.qatd.length > 0) ||
       (data.taberd && data.taberd.length > 0) ||
-      (data.ndtd && data.ndtd.length > 0));
+      (data.ndtd && data.ndtd.length > 0) ||
+      (data.componentMatches && data.componentMatches.length > 0));
 
   // Combine all headwords from different dictionaries for lookup
   const combinedHeadwords = Array.from(
