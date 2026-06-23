@@ -756,6 +756,10 @@ export default function HanNomOcrReader({
         return layerIds.filter((id) => id !== layerId);
       }
 
+      if (layerId === "ocr") {
+        return ["ocr", ...layerIds.filter((id) => id !== "ocr").slice(-1)];
+      }
+
       return layerIds.includes("ocr") ? ["ocr", layerId] : [layerId];
     });
     setIsLayerSelectorOpen(false);
