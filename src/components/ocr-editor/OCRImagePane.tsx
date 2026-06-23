@@ -1376,6 +1376,11 @@ export default function OCRImagePane({
                     ) {
                       return;
                     }
+                    // Digit 1-9 (pick the Nth prior-reading suggestion and
+                    // advance) is handled by the window keydown listener in
+                    // OCRWorkspace — it fires reliably on digit presses where
+                    // this cell-level handler doesn't under an IME. The
+                    // literal digit is blocked by the beforeinput shield there.
                     // Tab / Enter on an empty cell accepts the established
                     // reading (placeholder) before advancing — type to
                     // override instead. Non-destructive: nothing is

@@ -854,14 +854,13 @@ export default function OCRWorkspace({
       const isPlainDigit =
         digitMatch !== null && !e.ctrlKey && !e.metaKey && !e.altKey;
 
-      // Digit 1–9 — apply the Nth hotkey candidate for the focused cell and
-      // advance to the next char (mirrors ArrowDown). In glyph mode the
-      // candidate is an OCR alternate (mutates the glyph); in Quốc Ngữ mode
-      // it's a prior-reading suggestion (fills the reading). Both are handled
-      // here, not just in the cell's own onKeyDown, so the hotkey survives
-      // IME composition flags — Windows Telex reports isComposing
-      // aggressively and the cell handler bails on it, which would let the
-      // bare digit leak into the box instead of picking a candidate.
+      // Digit 1–9 — apply the Nth candidate for the focused cell and advance
+      // (mirrors ArrowDown). Glyph mode: replace the char with the Nth OCR
+      // alternate. Quốc Ngữ mode: fill the cell with the Nth prior-reading
+      // suggestion. Handled here on the window listener (not the cell's React
+      // onKeyDown) because this listener fires reliably on digit presses even
+      // when the cell-level handler doesn't under an IME. The literal digit
+      // is kept out of the box by the beforeinput shield below.
       if (focusedOffset !== null && isPlainDigit) {
         const digit = digitMatch![1];
         const focusedChar = spatialData.find((c) => c.offset === focusedOffset);
@@ -935,16 +934,13 @@ export default function OCRWorkspace({
         };
 
         if (qnMode) {
-          // Quốc Ngữ: fill the cell with the Nth prior-reading suggestion for
-          // this glyph — but only when the cell is empty. Once a reading is
-          // typed, digits are literal input (matches the cell's own handler).
-          const hasReading = !!(focusedChar?.quocNgu ?? "").trim();
-          const pick = hasReading
-            ? undefined
-            : qnSuggestions[focusedChar?.text ?? ""]?.[parseInt(digit, 10) - 1];
+          // Quốc Ngữ: fill with the Nth prior-reading suggestion for this
+          // glyph. No armShield — the beforeinput block keeps the literal
+          // digit out; here we only need the pick + advance.
+          const pick =
+            qnSuggestions[focusedChar?.text ?? ""]?.[parseInt(digit, 10) - 1];
           if (pick) {
             e.preventDefault();
-            armShield();
             handleCharFieldsChange(focusedOffset, { quocNgu: pick.qn });
             advance(
               (c) => !!c.bbox && !!c.text && c.text !== "\n",
@@ -1066,19 +1062,23 @@ export default function OCRWorkspace({
         }
       }
     }
-    // Backtick shield: IMEs like Weasel/Rime queue the character via
+    // beforeinput shield: IMEs (Telex, Weasel/Rime) queue the character via
     // beforeinput/input events that fire AFTER the keydown handler returns,
-    // so preventDefault on keydown alone doesn't stop the ` from landing in
-    // the cell. Swallow any backtick insertion on data-char-offset inputs.
-    // Backtick is never a valid Han-Nôm char, so unconditional rejection
-    // is safe.
+    // so preventDefault on keydown alone doesn't stop it landing in the cell.
+    // Swallow two things on data-char-offset inputs:
+    //   • backtick — never a valid Han-Nôm char (uncertain-flag hotkey)
+    //   • digits while in Quốc Ngữ mode — never valid in a QN reading; this
+    //     is the literal "2" leaking in when the 2-hotkey picks a candidate.
+    // Both are safe to reject unconditionally in their context.
     function handleBeforeInput(e: Event) {
       const ev = e as InputEvent;
       const tgt = ev.target as HTMLElement | null;
       if (!tgt || tgt.tagName !== "INPUT") return;
       if (!tgt.hasAttribute("data-char-offset")) return;
       const data = ev.data;
-      if (data && data.includes("`")) ev.preventDefault();
+      if (!data) return;
+      if (data.includes("`")) ev.preventDefault();
+      else if (qnMode && /\d/.test(data)) ev.preventDefault();
     }
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("beforeinput", handleBeforeInput, true);

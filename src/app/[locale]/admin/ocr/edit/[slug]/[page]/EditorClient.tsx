@@ -105,6 +105,11 @@ export default function EditorClient({
   const [statusMsg, setStatusMsg] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [dirty, setDirty] = useState(false);
+  // Subtle status for the silent Quốc Ngữ autosave — rendered as a small
+  // fixed-position pill so it never shifts the editor layout.
+  const [autoSaveState, setAutoSaveState] = useState<
+    "idle" | "saving" | "saved" | "error"
+  >("idle");
 
   // Page-image dimensions (persisted for export crops). Seeded from the
   // saved page; (re)stamped by the Kandianguji run.
@@ -128,6 +133,85 @@ export default function EditorClient({
     setDirty(true);
   }, [spatialData, columns]);
 
+  // Reference to the spatialData last persisted. The Quốc Ngữ autosave
+  // compares against this (every edit replaces the array, so a reference
+  // mismatch means there are unsaved edits) — more reliable than `dirty`,
+  // which is set via the effect above and is therefore stale in the same
+  // render where a digit-hotkey both fills a reading and advances focus.
+  // spatialData reference last persisted. A reference mismatch with the live
+  // value means there are unsaved edits (every edit replaces the array).
+  const savedSpatialRef = useRef(spatialData);
+  // The complete save payload, mirrored every render, so a save fired from a
+  // timer or unmount persists the latest edits — not a stale closure
+  // snapshot. Includes the QN-confirm stamp so an in-flight autosave can't
+  // overwrite a "Confirm Quốc Ngữ" that lands mid-save.
+  const liveSaveRef = useRef({
+    spatialData,
+    columns,
+    imageWidth,
+    imageHeight,
+    quocNguConfirmedAt,
+  });
+  liveSaveRef.current = {
+    spatialData,
+    columns,
+    imageWidth,
+    imageHeight,
+    quocNguConfirmedAt,
+  };
+  // True while an autosave is in flight — gates out overlapping saves (the
+  // running save loops until it's caught up, so a skipped trigger loses
+  // nothing).
+  const savingRef = useRef(false);
+  // The focused offset at the previous render, so the autosave effect can
+  // tell when focus actually moved to a different box.
+  const lastQnFocusRef = useRef<number | null>(focusedOffset);
+  const qnSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const qnSavedFlashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Auto-save Quốc Ngữ edits shortly after the focused box changes
+  // (Tab/Enter/click to another cell, or clicking away). THROTTLED, not
+  // debounced: during continuous fast tabbing a save still fires ~every
+  // 900ms (a reset-on-every-switch debounce could defer forever and then
+  // lose everything on "Next page"). The save is silent and skips
+  // router.refresh (see autosaveQuocNgu) so the editor never reflows.
+  useEffect(() => {
+    if (phase !== "quocngu") {
+      lastQnFocusRef.current = focusedOffset;
+      return;
+    }
+    const prev = lastQnFocusRef.current;
+    lastQnFocusRef.current = focusedOffset;
+    const switchedBox = prev !== null && prev !== focusedOffset;
+    const hasUnsavedEdits =
+      liveSaveRef.current.spatialData !== savedSpatialRef.current;
+    // Schedule only if no save is already pending — that throttles to one
+    // save per window rather than resetting the clock on every keystroke.
+    if (switchedBox && hasUnsavedEdits && !qnSaveTimer.current) {
+      qnSaveTimer.current = setTimeout(() => {
+        qnSaveTimer.current = null;
+        void autosaveQuocNgu();
+      }, 900);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusedOffset, phase]);
+
+  // On unmount (e.g. clicking "Next page" mid-edit) flush any unsaved QN
+  // edits. SPA navigation keeps the document alive, so this fetch completes.
+  useEffect(
+    () => () => {
+      if (qnSaveTimer.current) clearTimeout(qnSaveTimer.current);
+      if (qnSavedFlashTimer.current) clearTimeout(qnSavedFlashTimer.current);
+      if (liveSaveRef.current.spatialData !== savedSpatialRef.current) {
+        void persist(liveSaveRef.current, { skipRefresh: true }).catch(
+          () => {}
+        );
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
   async function persist(payload: {
     spatialData: SpatialCharacter[];
     columns: ConfirmedColumn[];
@@ -137,7 +221,7 @@ export default function EditorClient({
     charsConfirmedAt?: string | null;
     quocNguConfirmedAt?: string | null;
     nnvCompletedAt?: string | null;
-  }) {
+  }, opts: { skipRefresh?: boolean } = {}) {
     const res = await fetch(
       `/api/admin/ocr/edit/${encodeURIComponent(slug)}/${page}`,
       {
@@ -150,10 +234,15 @@ export default function EditorClient({
       const j = await res.json().catch(() => ({}));
       throw new Error(j.error || `HTTP ${res.status}`);
     }
+    // Record what we just persisted so the QN autosave knows this state is
+    // saved and doesn't re-fire on the next box switch.
+    savedSpatialRef.current = payload.spatialData;
     // Invalidate the App Router's client cache for this route so a later
     // soft-navigation back into the editor re-fetches the just-saved
-    // server payload instead of replaying the stale pre-save one.
-    router.refresh();
+    // server payload instead of replaying the stale pre-save one. Skipped
+    // for silent autosaves — refreshing the server tree mid-edit is what
+    // made the page reflow and feel slow on every box switch.
+    if (!opts.skipRefresh) router.refresh();
   }
 
   async function handleSave(extra: {
@@ -184,6 +273,55 @@ export default function EditorClient({
       setError(e.message || "Save failed");
     } finally {
       setSaving(false);
+    }
+  }
+
+  // Silent Quốc Ngữ autosave. Unlike handleSave it shows no banner (only the
+  // small fixed status pill) and skips router.refresh, so the editor never
+  // reflows mid-edit. Single-flight: if called while a save is running it
+  // returns, because the running loop re-reads liveSaveRef and keeps saving
+  // until it's caught up — so finishing another box while one is saving is
+  // never lost. The finally re-check closes the tiny window where an edit
+  // lands just as the lock releases.
+  async function autosaveQuocNgu() {
+    if (savingRef.current) return;
+    if (liveSaveRef.current.spatialData === savedSpatialRef.current) return;
+    savingRef.current = true;
+    setAutoSaveState("saving");
+    let savedAny = false;
+    try {
+      // Keep saving the latest snapshot until the live value matches what was
+      // persisted (catches edits made during a slow save / rapid tabbing).
+      while (liveSaveRef.current.spatialData !== savedSpatialRef.current) {
+        await persist(liveSaveRef.current, { skipRefresh: true });
+        savedAny = true;
+      }
+      setDirty(false);
+      if (savedAny) {
+        setAutoSaveState("saved");
+        if (qnSavedFlashTimer.current) clearTimeout(qnSavedFlashTimer.current);
+        qnSavedFlashTimer.current = setTimeout(
+          () => setAutoSaveState("idle"),
+          1500
+        );
+      } else {
+        setAutoSaveState("idle");
+      }
+    } catch {
+      setAutoSaveState("error");
+    } finally {
+      savingRef.current = false;
+      // Edits that landed between the last loop check and releasing the lock
+      // — reschedule so nothing is left unsaved.
+      if (
+        liveSaveRef.current.spatialData !== savedSpatialRef.current &&
+        !qnSaveTimer.current
+      ) {
+        qnSaveTimer.current = setTimeout(() => {
+          qnSaveTimer.current = null;
+          void autosaveQuocNgu();
+        }, 300);
+      }
     }
   }
 
@@ -563,6 +701,24 @@ export default function EditorClient({
           onConfirmedColumnsChange={setColumns}
         />
       </div>
+      {/* Silent Quốc Ngữ autosave status — fixed so it never shifts the
+          editor layout (the reason the old per-box "Saving…" banner was a
+          problem). */}
+      {autoSaveState !== "idle" && (
+        <div
+          className={`fixed bottom-4 right-4 z-50 pointer-events-none rounded-full px-3 py-1.5 text-xs font-halyard shadow-md border ${
+            autoSaveState === "error"
+              ? "bg-red-50 border-red-300 text-red-700"
+              : "bg-white border-gray-200 text-gray-600"
+          }`}
+        >
+          {autoSaveState === "saving"
+            ? "Saving…"
+            : autoSaveState === "saved"
+            ? "Saved ✓"
+            : "Autosave failed"}
+        </div>
+      )}
     </div>
   );
 }

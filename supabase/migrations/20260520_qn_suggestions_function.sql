@@ -15,7 +15,9 @@
 -- Same pattern, same style as ocr.aggregated_relabels.
 --
 -- ── Definition of the result ─────────────────────────────────────────
--- For every text_unit that has at least one source='quoc-ngu' version,
+-- Only units on a CONFIRMED page (pages.quocngu_confirmed_at is not null)
+-- are considered, so unreviewed/auto-filled readings don't leak in.
+-- For every such text_unit that has at least one source='quoc-ngu' version,
 --   glyph = latest non-QN ("manuscript") version text  (matches getPage)
 --   qn    = latest source='quoc-ngu' version text
 -- Aggregate per (glyph, qn, scope):
@@ -71,6 +73,11 @@ as $$
     order by tv.text_unit_id, tv.created_at desc
   ),
   -- Join in unit + page + doc so we can split text-scope vs global.
+  -- Only pages the user has confirmed ("Confirm Quốc Ngữ" → quocngu_confirmed_at
+  -- is set) contribute suggestions. This keeps auto-filled / unreviewed
+  -- readings (e.g. the per-char Transliterate button, older converter runs)
+  -- out of the candidate pool — a glyph only suggests readings the user has
+  -- actually vetted on a confirmed page.
   unit_info as (
     select u.id as unit_id,
            u.qn_uncertain,
@@ -78,6 +85,7 @@ as $$
     from ocr.text_units u
     join ocr.pages p     on p.id = u.page_id
     join ocr.documents d on d.id = p.document_id
+    where p.quocngu_confirmed_at is not null
   ),
   joined as (
     select
