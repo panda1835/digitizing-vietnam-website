@@ -279,7 +279,7 @@ async function fetchTextVersions(
   return versions;
 }
 
-async function fetchRankZeroOcrCandidates(
+async function fetchTextCandidates(
   supabase: OcrSupabaseClient,
   textUnitIds: string[]
 ) {
@@ -294,8 +294,6 @@ async function fetchRankZeroOcrCandidates(
     const { data, error } = await supabase
       .from("text_candidates")
       .select("rank,source,text,text_unit_id")
-      .eq("source", "ocr")
-      .eq("rank", 0)
       .in("text_unit_id", ids);
 
     if (error) {
@@ -326,6 +324,14 @@ function selectLatestOcrVersion(versions: OcrTextVersion[]) {
         new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     )
     .find((version) => version.source.toLowerCase() === "ocr");
+}
+
+function joinQuocNguText(candidates: Array<string | undefined>) {
+  return candidates
+    .map((candidate) => candidate?.trim())
+    .filter((candidate): candidate is string => Boolean(candidate))
+    .join(" ")
+    .replace(/\s+([,.;:!?…])/g, "$1");
 }
 
 export async function GET(request: Request) {
@@ -394,12 +400,13 @@ export async function GET(request: Request) {
 
     const textUnits = await fetchAllTextUnits(supabase, page.id, ocrRun.id);
     const textUnitIds = textUnits.map((unit) => unit.id);
-    const [textVersions, rankZeroOcrCandidates] = await Promise.all([
+    const [textVersions, textCandidates] = await Promise.all([
       fetchTextVersions(supabase, ocrRun.id, textUnitIds),
-      fetchRankZeroOcrCandidates(supabase, textUnitIds),
+      fetchTextCandidates(supabase, textUnitIds),
     ]);
     const versionsByUnitId = new Map<string, OcrTextVersion[]>();
     const ocrCandidateByUnitId = new Map<string, OcrTextCandidate>();
+    const candidatesBySource = new Map<string, Map<string, OcrTextCandidate>>();
 
     for (const version of textVersions) {
       const existing = versionsByUnitId.get(version.text_unit_id) || [];
@@ -407,7 +414,20 @@ export async function GET(request: Request) {
       versionsByUnitId.set(version.text_unit_id, existing);
     }
 
-    for (const candidate of rankZeroOcrCandidates) {
+    for (const candidate of textCandidates) {
+      const candidatesByUnitId =
+        candidatesBySource.get(candidate.source) || new Map();
+      const existing = candidatesByUnitId.get(candidate.text_unit_id);
+
+      if (!existing || candidate.rank < existing.rank) {
+        candidatesByUnitId.set(candidate.text_unit_id, candidate);
+        candidatesBySource.set(candidate.source, candidatesByUnitId);
+      }
+    }
+
+    for (const candidate of Array.from(
+      candidatesBySource.get("ocr")?.values() || []
+    )) {
       ocrCandidateByUnitId.set(candidate.text_unit_id, candidate);
     }
 
@@ -445,6 +465,25 @@ export async function GET(request: Request) {
         confidence: selectedConfidence,
       };
     });
+    const textLayers = [
+      {
+        id: "ocr",
+        source: "ocr",
+        units: units.map((unit) => ({ id: unit.id, text: unit.text })),
+      },
+      ...Array.from(candidatesBySource.entries())
+        .filter(([source]) => source !== "ocr")
+        .map(([source, candidatesByUnitId]) => ({
+          id: source,
+          source,
+          units: textUnits.map((unit) => ({
+            id: unit.id,
+            text: candidatesByUnitId.get(unit.id)?.text.trim() || "",
+          })),
+        }))
+        .filter((layer) => layer.units.some((unit) => unit.text)),
+    ];
+    const quocNguLayer = textLayers.find((layer) => layer.id === "quoc-ngu");
 
     return NextResponse.json({
       available: units.length > 0,
@@ -459,6 +498,11 @@ export async function GET(request: Request) {
         status: ocrRun.status,
       },
       text: units.map((unit) => unit.text).join(""),
+      quocNguText: joinQuocNguText(
+        quocNguLayer?.units.map((unit) => unit.text) || []
+      ),
+      quocNguUnits: quocNguLayer?.units || [],
+      textLayers,
       units,
       reason: units.length > 0 ? null : "OCR run has no text units.",
     });

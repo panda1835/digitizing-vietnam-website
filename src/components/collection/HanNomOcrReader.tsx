@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  CSSProperties,
   KeyboardEvent,
   PointerEvent,
   useEffect,
@@ -36,12 +37,19 @@ import {
 import { Input } from "@/components/ui/input";
 
 const DEFAULT_OCR_FONT_SIZE = 20;
-const MIN_OCR_FONT_SIZE = 16;
-const MAX_OCR_FONT_SIZE = 36;
+const MIN_OCR_FONT_SIZE = 10;
+const MAX_OCR_FONT_SIZE = 40;
 const OCR_FONT_SIZE_STEP = 2;
 const EXPORT_BATCH_SIZE = 5;
+const MIN_PANEL_WIDTH = 280;
 
 type ExportScope = "current" | "all" | "range";
+type TextKind = string;
+type TextLayer = {
+  id: string;
+  source: string;
+  units: Array<{ id: string; text: string }>;
+};
 
 export type HanNomOcrCanvas = {
   id: string;
@@ -56,6 +64,12 @@ type OcrResponse = {
   canvasId?: string;
   reason?: string | null;
   text?: string;
+  quocNguText?: string;
+  quocNguUnits?: Array<{
+    id: string;
+    text: string;
+  }>;
+  textLayers?: TextLayer[];
   page?: {
     image_url?: string | null;
     page_number: number;
@@ -151,14 +165,32 @@ function createOcrRequestParams({
   return params;
 }
 
-function createExportFilename(title: string) {
+function createExportFilename(title: string, textKind: TextKind) {
   const sanitizedTitle = title
     .trim()
     .replace(/[<>:"/\\|?*\u0000-\u001f]/g, "-")
     .replace(/\s+/g, " ")
     .slice(0, 100);
 
-  return `${sanitizedTitle || "han-nom-ocr"}.txt`;
+  if (textKind === "ocr") {
+    return `${sanitizedTitle || "han-nom-ocr"}.txt`;
+  }
+
+  const sanitizedTextKind = textKind
+    .replace(/[<>:"/\\|?*\u0000-\u001f]/g, "-")
+    .slice(0, 40);
+
+  return `${sanitizedTitle || "han-nom"}-${sanitizedTextKind || "text"}.txt`;
+}
+
+function needsTextLayerSpace(text: string) {
+  return !/^[,.;:!?…\]\)}”’]/.test(text);
+}
+
+function getTextLayerLabel(source: string, locale: string) {
+  if (source === "ocr") return "Hán Nôm";
+  if (source === "quoc-ngu") return locale === "vi" ? "Quốc ngữ" : "Quoc Ngu";
+  return source.replace(/[-_]/g, " ");
 }
 
 function useLiveCanvasId(initialCanvasId: string, fallbackCanvasId: string) {
@@ -234,15 +266,30 @@ export default function HanNomOcrReader({
   const [activeUnitId, setActiveUnitId] = useState<string | null>(null);
   const [imageZoom, setImageZoom] = useState(1);
   const [ocrFontSize, setOcrFontSize] = useState(DEFAULT_OCR_FONT_SIZE);
+  const [quocNguFontSize, setQuocNguFontSize] = useState(DEFAULT_OCR_FONT_SIZE);
   const [isDraggingImage, setIsDraggingImage] = useState(false);
   const [isExportOpen, setIsExportOpen] = useState(false);
+  const [exportKind, setExportKind] = useState<TextKind>("ocr");
+  const [visibleLayerIds, setVisibleLayerIds] = useState<string[]>([]);
+  const [isLayerSelectorOpen, setIsLayerSelectorOpen] = useState(false);
   const [exportScope, setExportScope] = useState<ExportScope>("current");
   const [rangeStart, setRangeStart] = useState("1");
   const [rangeEnd, setRangeEnd] = useState("1");
   const [isExporting, setIsExporting] = useState(false);
   const [exportError, setExportError] = useState("");
+  const [panelWidths, setPanelWidths] = useState<number[] | null>(null);
+  const [isResizingPanel, setIsResizingPanel] = useState(false);
   const ocrPanelRef = useRef<HTMLDivElement | null>(null);
+  const imagePanelRef = useRef<HTMLDivElement | null>(null);
+  const ocrSectionRef = useRef<HTMLElement | null>(null);
+  const quocNguSectionRef = useRef<HTMLElement | null>(null);
   const imageScrollerRef = useRef<HTMLDivElement | null>(null);
+  const panelResizeRef = useRef<{
+    dividerIndex: number;
+    pointerId: number;
+    startX: number;
+    widths: number[];
+  } | null>(null);
   const imageDragRef = useRef({
     pointerId: -1,
     startX: 0,
@@ -308,6 +355,14 @@ export default function HanNomOcrReader({
   }, [selectedCanvas?.id]);
 
   const ocrText = ocrData?.text?.trim() || "";
+  const textLayers = ocrData?.textLayers || [];
+  const visibleTextLayers = textLayers.filter((layer) =>
+    visibleLayerIds.includes(layer.id)
+  );
+  const visibleAdditionalLayer = visibleTextLayers.find(
+    (layer) => layer.id !== "ocr"
+  );
+  const hasAdditionalLayer = Boolean(visibleAdditionalLayer);
   const debugImageUrl =
     ocrData?.page?.image_url || selectedCanvas?.imageUrl || "";
   const hasOcr = Boolean(ocrText && ocrData?.units?.length);
@@ -332,6 +387,40 @@ export default function HanNomOcrReader({
     }
   }, [hasOcr, isLoading, ocrData]);
 
+  useEffect(() => {
+    if (!ocrData || isLoading) {
+      return;
+    }
+
+    const panelCount = visibleTextLayers.length + 1;
+    setPanelWidths((widths) => (widths?.length === panelCount ? widths : null));
+  }, [isLoading, ocrData, visibleTextLayers.length]);
+
+  useEffect(() => {
+    if (!ocrData || isLoading) {
+      return;
+    }
+
+    const availableIds = new Set(textLayers.map((layer) => layer.id));
+    setVisibleLayerIds((ids) => {
+      const available = ids.filter((id) => availableIds.has(id));
+
+      return available.slice(0, 2);
+    });
+  }, [isLoading, ocrData]);
+
+  useEffect(() => {
+    setShowBoxes(visibleLayerIds.length > 0);
+  }, [visibleLayerIds]);
+
+  useEffect(() => {
+    if (!showBoxes) {
+      panelResizeRef.current = null;
+      setIsResizingPanel(false);
+      setPanelWidths(null);
+    }
+  }, [showBoxes]);
+
   const navigateToPage = (index: number) => {
     const canvas = canvases[index];
 
@@ -340,6 +429,78 @@ export default function HanNomOcrReader({
     }
 
     selectCanvas(canvas.id);
+  };
+
+  const getPanelWidthStyle = (index: number) => {
+    const width = panelWidths?.[index];
+
+    if (!width) {
+      return undefined;
+    }
+
+    return { "--panel-width": `${width}px` } as CSSProperties;
+  };
+
+  const startPanelResize = (
+    event: PointerEvent<HTMLDivElement>,
+    dividerIndex: number
+  ) => {
+    const panels = [
+      imagePanelRef.current,
+      ...(visibleLayerIds.includes("ocr") ? [ocrSectionRef.current] : []),
+      ...(hasAdditionalLayer ? [quocNguSectionRef.current] : []),
+    ];
+    const widths = panels.map((panel) => panel?.getBoundingClientRect().width);
+
+    if (widths.some((width): width is undefined => width === undefined)) {
+      return;
+    }
+
+    panelResizeRef.current = {
+      dividerIndex,
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      widths: widths as number[],
+    };
+    setIsResizingPanel(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const resizePanels = (event: PointerEvent<HTMLDivElement>) => {
+    const resize = panelResizeRef.current;
+
+    if (!resize || resize.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const firstPanelWidth = resize.widths[resize.dividerIndex];
+    const secondPanelWidth = resize.widths[resize.dividerIndex + 1];
+    const combinedWidth = firstPanelWidth + secondPanelWidth;
+    const nextFirstWidth = Math.min(
+      Math.max(
+        firstPanelWidth + event.clientX - resize.startX,
+        MIN_PANEL_WIDTH
+      ),
+      combinedWidth - MIN_PANEL_WIDTH
+    );
+    const nextWidths = [...resize.widths];
+
+    nextWidths[resize.dividerIndex] = nextFirstWidth;
+    nextWidths[resize.dividerIndex + 1] = combinedWidth - nextFirstWidth;
+    setPanelWidths(nextWidths);
+  };
+
+  const stopPanelResize = (event: PointerEvent<HTMLDivElement>) => {
+    if (panelResizeRef.current?.pointerId !== event.pointerId) {
+      return;
+    }
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    panelResizeRef.current = null;
+    setIsResizingPanel(false);
   };
 
   const scrollToUnit = (unitId: string) => {
@@ -446,13 +607,20 @@ export default function HanNomOcrReader({
     }
   };
 
-  const fetchOcrTextForCanvas = async (canvas: HanNomOcrCanvas) => {
-    if (
-      canvas.id === selectedCanvas?.id &&
-      ocrData?.canvasId === canvas.id &&
-      ocrData.text !== undefined
-    ) {
-      return ocrData.text.trim();
+  const fetchTextForCanvas = async (
+    canvas: HanNomOcrCanvas,
+    textKind: TextKind
+  ) => {
+    if (canvas.id === selectedCanvas?.id && ocrData?.canvasId === canvas.id) {
+      return (
+        (textKind === "ocr"
+          ? ocrData.text
+          : ocrData.textLayers
+              ?.find((layer) => layer.id === textKind)
+              ?.units.map((unit) => unit.text)
+              .join(" ")
+        )?.trim() || ""
+      );
     }
 
     const params = createOcrRequestParams({ canvas, manifestUrl, title });
@@ -463,10 +631,18 @@ export default function HanNomOcrReader({
     }
 
     const data = (await response.json()) as OcrResponse;
-    return data.text?.trim() || "";
+    return (
+      (textKind === "ocr"
+        ? data.text
+        : data.textLayers
+            ?.find((layer) => layer.id === textKind)
+            ?.units.map((unit) => unit.text)
+            .join(" ")
+      )?.trim() || ""
+    );
   };
 
-  const exportOcrText = async () => {
+  const exportText = async (textKind: TextKind) => {
     let startIndex = selectedCanvasIndex;
     let endIndex = selectedCanvasIndex;
 
@@ -526,14 +702,20 @@ export default function HanNomOcrReader({
         const batchResults = await Promise.all(
           batch.map(async ({ canvas, pageNumber }) => ({
             pageNumber,
-            text: await fetchOcrTextForCanvas(canvas),
+            text: await fetchTextForCanvas(canvas, textKind),
           }))
         );
         exportedPages.push(...batchResults);
       }
 
       const unavailableText =
-        locale === "vi" ? "[OCR không khả dụng]" : "[OCR unavailable]";
+        textKind === "ocr"
+          ? locale === "vi"
+            ? "[OCR không khả dụng]"
+            : "[OCR unavailable]"
+          : locale === "vi"
+          ? "[Quốc ngữ không khả dụng]"
+          : "[Quoc Ngu unavailable]";
       const content = exportedPages
         .map(
           ({ pageNumber, text }) =>
@@ -547,7 +729,7 @@ export default function HanNomOcrReader({
       const downloadLink = document.createElement("a");
 
       downloadLink.href = downloadUrl;
-      downloadLink.download = createExportFilename(title);
+      downloadLink.download = createExportFilename(title, textKind);
       document.body.appendChild(downloadLink);
       downloadLink.click();
       downloadLink.remove();
@@ -555,44 +737,100 @@ export default function HanNomOcrReader({
       setIsExportOpen(false);
     } catch {
       setExportError(
-        locale === "vi"
-          ? "Không thể tải đầy đủ dữ liệu OCR để xuất."
-          : "Unable to load all OCR data for export."
+        textKind === "ocr"
+          ? locale === "vi"
+            ? "Không thể tải đầy đủ dữ liệu OCR để xuất."
+            : "Unable to load all OCR data for export."
+          : locale === "vi"
+          ? "Không thể tải đầy đủ dữ liệu Quốc ngữ để xuất."
+          : "Unable to load all Quoc Ngu data for export."
       );
     } finally {
       setIsExporting(false);
     }
   };
 
+  const toggleTextLayer = (layerId: string) => {
+    setVisibleLayerIds((layerIds) => {
+      if (layerIds.includes(layerId)) {
+        return layerIds.filter((id) => id !== layerId);
+      }
+
+      return layerIds.includes("ocr") ? ["ocr", layerId] : [layerId];
+    });
+    setIsLayerSelectorOpen(false);
+  };
+
   return (
     <section className="mt-10">
       <div className="mb-3 flex items-center justify-end">
-        <span title={readOcrTitle}>
-          <button
-            type="button"
-            className={`inline-flex h-10 items-center gap-2 rounded-md border px-4 text-sm font-medium transition-colors ${
-              showBoxes
-                ? "border-branding-brown bg-branding-brown text-white"
-                : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
-            } disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400`}
-            onClick={() => setShowBoxes((value) => !value)}
-            disabled={readOcrDisabled}
-            aria-pressed={showBoxes}
-          >
-            <ScanSearch className="h-4 w-4" aria-hidden="true" />
-            {showBoxes
-              ? locale === "vi"
-                ? "Đọc văn bản"
-                : "Read document"
-              : locale === "vi"
-              ? "Đọc OCR"
-              : "Read OCR"}
-          </button>
-        </span>
+        <div className="relative">
+          <span title={readOcrTitle}>
+            <button
+              type="button"
+              className={`inline-flex h-10 items-center gap-2 rounded-md border px-4 text-sm font-medium transition-colors ${
+                showBoxes
+                  ? "border-branding-brown bg-branding-brown text-white"
+                  : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+              } disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400`}
+              onClick={() => setIsLayerSelectorOpen((open) => !open)}
+              disabled={readOcrDisabled}
+              aria-expanded={isLayerSelectorOpen}
+              aria-haspopup="menu"
+            >
+              <ScanSearch className="h-4 w-4" aria-hidden="true" />
+              {locale === "vi" ? "Đọc OCR" : "Read OCR"}
+            </button>
+          </span>
+          {isLayerSelectorOpen ? (
+            <div
+              role="menu"
+              className="absolute right-0 z-20 mt-2 w-56 rounded-md border border-gray-200 bg-white p-1 shadow-lg"
+            >
+              {textLayers.map((layer) => {
+                const isVisible = visibleLayerIds.includes(layer.id);
+                return (
+                  <button
+                    key={layer.id}
+                    type="button"
+                    role="menuitemcheckbox"
+                    aria-checked={isVisible}
+                    onClick={() => toggleTextLayer(layer.id)}
+                    className="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <span
+                      className={`flex h-4 w-4 items-center justify-center rounded border ${
+                        isVisible
+                          ? "border-branding-brown bg-branding-brown text-white"
+                          : "border-gray-300"
+                      }`}
+                      aria-hidden="true"
+                    >
+                      {isVisible ? "✓" : ""}
+                    </span>
+                    {getTextLayerLabel(layer.source, locale)}
+                  </button>
+                );
+              })}
+            </div>
+          ) : null}
+        </div>
       </div>
 
-      <div className={`flex flex-col gap-6 ${showBoxes ? "lg:flex-row" : ""}`}>
-        <div className="min-w-0 flex-1 overflow-hidden">
+      <div
+        className={`flex flex-col gap-6 ${
+          showBoxes ? "lg:flex-row lg:gap-0" : ""
+        } ${isResizingPanel ? "select-none" : ""}`}
+      >
+        <div
+          ref={imagePanelRef}
+          style={getPanelWidthStyle(0)}
+          className={`min-w-0 overflow-hidden ${
+            panelWidths
+              ? "w-full lg:w-[var(--panel-width)] lg:flex-none"
+              : "w-full lg:flex-1"
+          }`}
+        >
           {showBoxes ? (
             <div className="flex h-[700px] flex-col overflow-hidden rounded-lg border border-gray-200 bg-gray-100">
               <div
@@ -633,224 +871,6 @@ export default function HanNomOcrReader({
                 </div>
 
                 <div className="flex items-center gap-1">
-                  <Dialog
-                    open={isExportOpen}
-                    onOpenChange={handleExportOpenChange}
-                  >
-                    <DialogTrigger asChild>
-                      <button
-                        type="button"
-                        className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
-                        aria-label={
-                          locale === "vi"
-                            ? "Xuất văn bản OCR"
-                            : "Export OCR text"
-                        }
-                        title={
-                          locale === "vi"
-                            ? "Xuất văn bản OCR"
-                            : "Export OCR text"
-                        }
-                      >
-                        <Download className="h-4 w-4" aria-hidden="true" />
-                      </button>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>
-                          {locale === "vi"
-                            ? "Xuất văn bản OCR"
-                            : "Export OCR text"}
-                        </DialogTitle>
-                      </DialogHeader>
-
-                      <fieldset
-                        className="flex flex-col gap-3"
-                        disabled={isExporting}
-                      >
-                        <legend className="sr-only">
-                          {locale === "vi" ? "Phạm vi xuất" : "Export scope"}
-                        </legend>
-                        {(
-                          [
-                            [
-                              "current",
-                              locale === "vi"
-                                ? `Chỉ trang này (Trang ${
-                                    selectedCanvasIndex + 1
-                                  })`
-                                : `This page only (Page ${
-                                    selectedCanvasIndex + 1
-                                  })`,
-                            ],
-                            [
-                              "all",
-                              locale === "vi"
-                                ? `Toàn bộ văn bản (${canvases.length} trang)`
-                                : `Whole text (${canvases.length} pages)`,
-                            ],
-                            [
-                              "range",
-                              locale === "vi" ? "Nhiều trang" : "A page range",
-                            ],
-                          ] as Array<[ExportScope, string]>
-                        ).map(([value, label]) => (
-                          <label
-                            key={value}
-                            className="flex cursor-pointer items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50"
-                          >
-                            <input
-                              type="radio"
-                              name="ocr-export-scope"
-                              value={value}
-                              checked={exportScope === value}
-                              onChange={() => {
-                                setExportScope(value);
-                                setExportError("");
-                              }}
-                              className="h-4 w-4 accent-branding-brown"
-                            />
-                            <span>{label}</span>
-                          </label>
-                        ))}
-                      </fieldset>
-
-                      {exportScope === "range" ? (
-                        <div className="grid grid-cols-2 gap-3">
-                          <label className="flex flex-col gap-1.5 text-sm">
-                            <span>
-                              {locale === "vi" ? "Từ trang" : "From page"}
-                            </span>
-                            <Input
-                              type="number"
-                              min={1}
-                              max={canvases.length}
-                              value={rangeStart}
-                              onChange={(event) => {
-                                setRangeStart(event.target.value);
-                                setExportError("");
-                              }}
-                              disabled={isExporting}
-                            />
-                          </label>
-                          <label className="flex flex-col gap-1.5 text-sm">
-                            <span>
-                              {locale === "vi" ? "Đến trang" : "To page"}
-                            </span>
-                            <Input
-                              type="number"
-                              min={1}
-                              max={canvases.length}
-                              value={rangeEnd}
-                              onChange={(event) => {
-                                setRangeEnd(event.target.value);
-                                setExportError("");
-                              }}
-                              disabled={isExporting}
-                            />
-                          </label>
-                        </div>
-                      ) : null}
-
-                      {exportError ? (
-                        <p className="text-sm text-destructive" role="alert">
-                          {exportError}
-                        </p>
-                      ) : null}
-
-                      <DialogFooter className="gap-2">
-                        <DialogClose asChild>
-                          <Button
-                            type="button"
-                            variant="outline"
-                            disabled={isExporting}
-                          >
-                            {locale === "vi" ? "Hủy" : "Cancel"}
-                          </Button>
-                        </DialogClose>
-                        <Button
-                          type="button"
-                          onClick={exportOcrText}
-                          disabled={isExporting}
-                        >
-                          {isExporting ? (
-                            <Loader2
-                              className="animate-spin"
-                              aria-hidden="true"
-                            />
-                          ) : (
-                            <Download aria-hidden="true" />
-                          )}
-                          {isExporting
-                            ? locale === "vi"
-                              ? "Đang xuất..."
-                              : "Exporting..."
-                            : locale === "vi"
-                            ? "Xuất OCR"
-                            : "Export OCR"}
-                        </Button>
-                      </DialogFooter>
-                    </DialogContent>
-                  </Dialog>
-                  <div
-                    className="mx-1 h-5 w-px bg-gray-200"
-                    aria-hidden="true"
-                  />
-                  <button
-                    type="button"
-                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
-                    onClick={() =>
-                      setOcrFontSize((value) =>
-                        Math.max(MIN_OCR_FONT_SIZE, value - OCR_FONT_SIZE_STEP)
-                      )
-                    }
-                    disabled={ocrFontSize <= MIN_OCR_FONT_SIZE}
-                    aria-label={
-                      locale === "vi"
-                        ? "Giảm cỡ chữ OCR"
-                        : "Decrease OCR font size"
-                    }
-                    title={
-                      locale === "vi"
-                        ? "Giảm cỡ chữ OCR"
-                        : "Decrease OCR font size"
-                    }
-                  >
-                    <span className="text-xs" aria-hidden="true">
-                      A-
-                    </span>
-                  </button>
-                  <span className="min-w-12 text-center text-sm text-gray-600">
-                    {ocrFontSize}px
-                  </span>
-                  <button
-                    type="button"
-                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
-                    onClick={() =>
-                      setOcrFontSize((value) =>
-                        Math.min(MAX_OCR_FONT_SIZE, value + OCR_FONT_SIZE_STEP)
-                      )
-                    }
-                    disabled={ocrFontSize >= MAX_OCR_FONT_SIZE}
-                    aria-label={
-                      locale === "vi"
-                        ? "Tăng cỡ chữ OCR"
-                        : "Increase OCR font size"
-                    }
-                    title={
-                      locale === "vi"
-                        ? "Tăng cỡ chữ OCR"
-                        : "Increase OCR font size"
-                    }
-                  >
-                    <span className="text-sm" aria-hidden="true">
-                      A+
-                    </span>
-                  </button>
-                  <div
-                    className="mx-1 h-5 w-px bg-gray-200"
-                    aria-hidden="true"
-                  />
                   <button
                     type="button"
                     className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
@@ -1009,10 +1029,253 @@ export default function HanNomOcrReader({
         </div>
 
         {showBoxes && (
-          <aside className="relative z-10 min-w-0 rounded-lg border border-gray-200 bg-white lg:w-[420px] lg:flex-none">
+          <div
+            role="separator"
+            aria-orientation="vertical"
+            aria-label={
+              locale === "vi"
+                ? "Thay đổi độ rộng hình ảnh"
+                : "Resize image panel"
+            }
+            className="group hidden w-4 flex-none cursor-col-resize touch-none items-center justify-center lg:flex"
+            onPointerDown={(event) => startPanelResize(event, 0)}
+            onPointerMove={resizePanels}
+            onPointerUp={stopPanelResize}
+            onPointerCancel={stopPanelResize}
+          >
+            <div className="h-9 w-1.5 rounded-full bg-gray-500 transition-colors group-hover:bg-gray-700" />
+          </div>
+        )}
+
+        {showBoxes && visibleLayerIds.includes("ocr") && (
+          <aside
+            ref={ocrSectionRef}
+            style={getPanelWidthStyle(1)}
+            className={`relative z-10 flex h-[700px] min-w-0 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white ${
+              panelWidths
+                ? "w-full lg:w-[var(--panel-width)] lg:flex-none"
+                : "w-full lg:w-[420px] lg:flex-none"
+            }`}
+          >
+            <div
+              role="toolbar"
+              aria-label={
+                locale === "vi" ? "Công cụ văn bản OCR" : "OCR text tools"
+              }
+              className="flex min-h-11 flex-none items-center justify-between gap-2 border-b border-gray-200 px-3 py-1"
+            >
+              <span className="text-sm font-medium text-gray-700">
+                {getTextLayerLabel("ocr", locale)}
+              </span>
+              <div className="flex items-center gap-1">
+                <Dialog
+                  open={isExportOpen}
+                  onOpenChange={handleExportOpenChange}
+                >
+                  <DialogTrigger asChild>
+                    <button
+                      type="button"
+                      className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
+                      onClick={() => setExportKind("ocr")}
+                      aria-label={
+                        locale === "vi" ? "Xuất văn bản OCR" : "Export OCR text"
+                      }
+                      title={
+                        locale === "vi" ? "Xuất văn bản OCR" : "Export OCR text"
+                      }
+                    >
+                      <Download className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>
+                        {locale === "vi" ? "Xuất văn bản" : "Export text"}:{" "}
+                        {getTextLayerLabel(exportKind, locale)}
+                      </DialogTitle>
+                    </DialogHeader>
+                    <fieldset
+                      className="flex flex-col gap-3"
+                      disabled={isExporting}
+                    >
+                      <legend className="sr-only">
+                        {locale === "vi" ? "Phạm vi xuất" : "Export scope"}
+                      </legend>
+                      {(
+                        [
+                          [
+                            "current",
+                            locale === "vi"
+                              ? `Chỉ trang này (Trang ${
+                                  selectedCanvasIndex + 1
+                                })`
+                              : `This page only (Page ${
+                                  selectedCanvasIndex + 1
+                                })`,
+                          ],
+                          [
+                            "all",
+                            locale === "vi"
+                              ? `Toàn bộ văn bản (${canvases.length} trang)`
+                              : `Whole text (${canvases.length} pages)`,
+                          ],
+                          [
+                            "range",
+                            locale === "vi" ? "Nhiều trang" : "A page range",
+                          ],
+                        ] as Array<[ExportScope, string]>
+                      ).map(([value, label]) => (
+                        <label
+                          key={value}
+                          className="flex cursor-pointer items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50"
+                        >
+                          <input
+                            type="radio"
+                            name="text-export-scope"
+                            value={value}
+                            checked={exportScope === value}
+                            onChange={() => {
+                              setExportScope(value);
+                              setExportError("");
+                            }}
+                            className="h-4 w-4 accent-branding-brown"
+                          />
+                          <span>{label}</span>
+                        </label>
+                      ))}
+                    </fieldset>
+                    {exportScope === "range" ? (
+                      <div className="grid grid-cols-2 gap-3">
+                        <label className="flex flex-col gap-1.5 text-sm">
+                          <span>
+                            {locale === "vi" ? "Từ trang" : "From page"}
+                          </span>
+                          <Input
+                            type="number"
+                            min={1}
+                            max={canvases.length}
+                            value={rangeStart}
+                            onChange={(event) => {
+                              setRangeStart(event.target.value);
+                              setExportError("");
+                            }}
+                            disabled={isExporting}
+                          />
+                        </label>
+                        <label className="flex flex-col gap-1.5 text-sm">
+                          <span>
+                            {locale === "vi" ? "Đến trang" : "To page"}
+                          </span>
+                          <Input
+                            type="number"
+                            min={1}
+                            max={canvases.length}
+                            value={rangeEnd}
+                            onChange={(event) => {
+                              setRangeEnd(event.target.value);
+                              setExportError("");
+                            }}
+                            disabled={isExporting}
+                          />
+                        </label>
+                      </div>
+                    ) : null}
+                    {exportError ? (
+                      <p className="text-sm text-destructive" role="alert">
+                        {exportError}
+                      </p>
+                    ) : null}
+                    <DialogFooter className="gap-2">
+                      <DialogClose asChild>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          disabled={isExporting}
+                        >
+                          {locale === "vi" ? "Hủy" : "Cancel"}
+                        </Button>
+                      </DialogClose>
+                      <Button
+                        type="button"
+                        onClick={() => exportText(exportKind)}
+                        disabled={isExporting}
+                      >
+                        {isExporting ? (
+                          <Loader2
+                            className="animate-spin"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <Download aria-hidden="true" />
+                        )}
+                        {isExporting
+                          ? locale === "vi"
+                            ? "Đang xuất..."
+                            : "Exporting..."
+                          : locale === "vi"
+                          ? "Xuất"
+                          : "Export"}
+                      </Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+                <div className="mx-1 h-5 w-px bg-gray-200" aria-hidden="true" />
+                <button
+                  type="button"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                  onClick={() =>
+                    setOcrFontSize((value) =>
+                      Math.max(MIN_OCR_FONT_SIZE, value - OCR_FONT_SIZE_STEP)
+                    )
+                  }
+                  disabled={ocrFontSize <= MIN_OCR_FONT_SIZE}
+                  aria-label={
+                    locale === "vi"
+                      ? "Giảm cỡ chữ OCR"
+                      : "Decrease OCR font size"
+                  }
+                  title={
+                    locale === "vi"
+                      ? "Giảm cỡ chữ OCR"
+                      : "Decrease OCR font size"
+                  }
+                >
+                  <span className="text-xs" aria-hidden="true">
+                    A-
+                  </span>
+                </button>
+                <span className="min-w-12 text-center text-sm text-gray-600">
+                  {ocrFontSize}px
+                </span>
+                <button
+                  type="button"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                  onClick={() =>
+                    setOcrFontSize((value) =>
+                      Math.min(MAX_OCR_FONT_SIZE, value + OCR_FONT_SIZE_STEP)
+                    )
+                  }
+                  disabled={ocrFontSize >= MAX_OCR_FONT_SIZE}
+                  aria-label={
+                    locale === "vi"
+                      ? "Tăng cỡ chữ OCR"
+                      : "Increase OCR font size"
+                  }
+                  title={
+                    locale === "vi"
+                      ? "Tăng cỡ chữ OCR"
+                      : "Increase OCR font size"
+                  }
+                >
+                  <span className="text-sm" aria-hidden="true">
+                    A+
+                  </span>
+                </button>
+              </div>
+            </div>
             <div
               ref={ocrPanelRef}
-              className="h-[700px] overflow-y-auto px-5 py-5"
+              className="min-h-0 flex-1 overflow-y-auto px-5 py-5"
             >
               {isLoading ? (
                 <div className="text-sm text-gray-500">
@@ -1057,6 +1320,214 @@ export default function HanNomOcrReader({
             </div>
           </aside>
         )}
+
+        {showBoxes && hasAdditionalLayer && visibleLayerIds.includes("ocr") ? (
+          <div
+            role="separator"
+            aria-orientation="vertical"
+            aria-label={
+              locale === "vi" ? "Thay đổi độ rộng OCR" : "Resize OCR panel"
+            }
+            className="group hidden w-4 flex-none cursor-col-resize touch-none items-center justify-center lg:flex"
+            onPointerDown={(event) => startPanelResize(event, 1)}
+            onPointerMove={resizePanels}
+            onPointerUp={stopPanelResize}
+            onPointerCancel={stopPanelResize}
+          >
+            <div className="h-9 w-1.5 rounded-full bg-gray-500 transition-colors group-hover:bg-gray-700" />
+          </div>
+        ) : null}
+
+        {showBoxes && visibleAdditionalLayer ? (
+          <aside
+            ref={quocNguSectionRef}
+            style={getPanelWidthStyle(visibleLayerIds.includes("ocr") ? 2 : 1)}
+            className={`relative z-10 flex h-[700px] min-w-0 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white ${
+              panelWidths
+                ? "w-full lg:w-[var(--panel-width)] lg:flex-none"
+                : "w-full lg:w-[420px] lg:flex-none"
+            }`}
+          >
+            <div
+              role="toolbar"
+              aria-label={
+                locale === "vi"
+                  ? `Công cụ văn bản ${getTextLayerLabel(
+                      visibleAdditionalLayer.source,
+                      locale
+                    )}`
+                  : `${getTextLayerLabel(
+                      visibleAdditionalLayer.source,
+                      locale
+                    )} text tools`
+              }
+              className="flex min-h-11 flex-none items-center justify-between gap-2 border-b border-gray-200 px-3 py-1"
+            >
+              <span className="text-sm font-medium text-gray-700">
+                {getTextLayerLabel(visibleAdditionalLayer.source, locale)}
+              </span>
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
+                  onClick={() => {
+                    setExportKind(visibleAdditionalLayer.id);
+                    handleExportOpenChange(true);
+                  }}
+                  aria-label={
+                    locale === "vi"
+                      ? `Xuất văn bản ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )}`
+                      : `Export ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )} text`
+                  }
+                  title={
+                    locale === "vi"
+                      ? `Xuất văn bản ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )}`
+                      : `Export ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )} text`
+                  }
+                >
+                  <Download className="h-4 w-4" aria-hidden="true" />
+                </button>
+                <div className="mx-1 h-5 w-px bg-gray-200" aria-hidden="true" />
+                <button
+                  type="button"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                  onClick={() =>
+                    setQuocNguFontSize((value) =>
+                      Math.max(MIN_OCR_FONT_SIZE, value - OCR_FONT_SIZE_STEP)
+                    )
+                  }
+                  disabled={quocNguFontSize <= MIN_OCR_FONT_SIZE}
+                  aria-label={
+                    locale === "vi"
+                      ? `Giảm cỡ chữ ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )}`
+                      : `Decrease ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )} font size`
+                  }
+                  title={
+                    locale === "vi"
+                      ? `Giảm cỡ chữ ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )}`
+                      : `Decrease ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )} font size`
+                  }
+                >
+                  <span className="text-xs" aria-hidden="true">
+                    A-
+                  </span>
+                </button>
+                <span className="min-w-12 text-center text-sm text-gray-600">
+                  {quocNguFontSize}px
+                </span>
+                <button
+                  type="button"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                  onClick={() =>
+                    setQuocNguFontSize((value) =>
+                      Math.min(MAX_OCR_FONT_SIZE, value + OCR_FONT_SIZE_STEP)
+                    )
+                  }
+                  disabled={quocNguFontSize >= MAX_OCR_FONT_SIZE}
+                  aria-label={
+                    locale === "vi"
+                      ? `Tăng cỡ chữ ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )}`
+                      : `Increase ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )} font size`
+                  }
+                  title={
+                    locale === "vi"
+                      ? `Tăng cỡ chữ ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )}`
+                      : `Increase ${getTextLayerLabel(
+                          visibleAdditionalLayer.source,
+                          locale
+                        )} font size`
+                  }
+                >
+                  <span className="text-sm" aria-hidden="true">
+                    A+
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              className="min-h-0 flex-1 overflow-y-auto whitespace-pre-wrap break-words px-5 py-5 text-branding-black"
+              style={{ fontSize: `${quocNguFontSize}px`, lineHeight: 1.625 }}
+            >
+              {visibleAdditionalLayer.units.map((unit, index) => (
+                <span
+                  key={unit.id}
+                  onMouseEnter={() => setHoveredUnitId(unit.id)}
+                  onMouseLeave={() => setHoveredUnitId(null)}
+                  className={[
+                    !unit.text &&
+                      "inline-block min-w-6 rounded-sm border border-dashed border-gray-300 align-baseline",
+                    (hoveredUnitId === unit.id || activeUnitId === unit.id) &&
+                      "bg-blue-100 text-blue-900 ring-1 ring-blue-400",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  aria-label={
+                    !unit.text
+                      ? locale === "vi"
+                        ? `Không có văn bản ${getTextLayerLabel(
+                            visibleAdditionalLayer.source,
+                            locale
+                          )}`
+                        : `No ${getTextLayerLabel(
+                            visibleAdditionalLayer.source,
+                            locale
+                          )} text`
+                      : undefined
+                  }
+                  title={
+                    !unit.text
+                      ? locale === "vi"
+                        ? `Không có văn bản ${getTextLayerLabel(
+                            visibleAdditionalLayer.source,
+                            locale
+                          )}`
+                        : `No ${getTextLayerLabel(
+                            visibleAdditionalLayer.source,
+                            locale
+                          )} text`
+                      : undefined
+                  }
+                >
+                  {index > 0 && needsTextLayerSpace(unit.text) ? " " : ""}
+                  {unit.text || "\u00A0"}
+                </span>
+              ))}
+            </div>
+          </aside>
+        ) : null}
       </div>
     </section>
   );
