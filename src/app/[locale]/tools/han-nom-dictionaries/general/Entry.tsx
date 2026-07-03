@@ -10,6 +10,10 @@ import EntryTaberd from "../taberd/Entry";
 import EntryNDTD from "../nhat-dung-thuong-dam/Entry";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+// Use font-family name directly — NomNaTong is already loaded by DictionarySearchBar
+// on this page, avoiding a second localFont call in a client component which causes
+// server/client hydration mismatches.
+const nomNaTongStyle = { fontFamily: "var(--font-nom-na-tong), serif" } as const;
 
 interface GeneralDictionaryData {
   tdcndg: {
@@ -20,6 +24,7 @@ interface GeneralDictionaryData {
   qatd: any[];
   taberd: any[];
   ndtd: any[];
+  componentMatches?: string[];
 }
 
 function scrollToSource(event: MouseEvent<HTMLAnchorElement>, id: string) {
@@ -69,7 +74,9 @@ export default function Entry({
       ),
       hasResults: entry.qatd && entry.qatd.length > 0,
       href: `/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien?q=${query}`,
-      content: entry.qatd?.map((def, idx) => <EntryQATD key={idx} entry={def} />),
+      content: entry.qatd?.map((def, idx) => (
+        <EntryQATD key={idx} entry={def} />
+      )),
     },
     {
       id: "source-taberd",
@@ -87,31 +94,79 @@ export default function Entry({
       ),
       hasResults: entry.ndtd && entry.ndtd.length > 0,
       href: `/tools/han-nom-dictionaries/nhat-dung-thuong-dam?q=${query}`,
-      content: entry.ndtd?.map((def, idx) => <EntryNDTD key={idx} entry={def} />),
+      content: entry.ndtd?.map((def, idx) => (
+        <EntryNDTD key={idx} entry={def} />
+      )),
     },
   ].filter((section) => section.hasResults);
 
+  const componentMatches = entry.componentMatches ?? [];
+  const queryChars =
+    componentMatches.length > 0
+      ? Array.from(query).filter((ch) => {
+          const cp = ch.codePointAt(0);
+          if (cp === undefined) return false;
+          return (
+            (cp >= 0x4e00 && cp <= 0x9fff) ||
+            (cp >= 0x3400 && cp <= 0x4dbf) ||
+            (cp >= 0x20000 && cp <= 0x2ebef) ||
+            (cp >= 0x30000 && cp <= 0x323af) ||
+            (cp >= 0xf900 && cp <= 0xfaff)
+          );
+        })
+      : [];
+
   return (
     <div className="space-y-8">
-      <div className="lg:hidden bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <div className="p-6 border-b border-gray-200">
-          <div className="text-lg font-normal text-branding-brown">
-            {locale === "en" ? "Jump to source" : "Đến nguồn"}
+      {componentMatches.length > 0 && (
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <div
+            className={`text-lg text-branding-brown mb-3 ${merriweather.className}`}
+          >
+            {locale === "en"
+              ? `Characters with components ${queryChars
+                  .map((ch) => `[${ch}]`)
+                  .join("")}`
+              : `Chữ có các thành phần ${queryChars
+                  .map((ch) => `[${ch}]`)
+                  .join("")}`}
+          </div>
+          <div className="flex flex-wrap gap-4 text-3xl" style={nomNaTongStyle}>
+            {componentMatches.map((ch) => (
+              <Link
+                key={ch}
+                href={`/tools/han-nom-dictionaries/general?q=${encodeURIComponent(
+                  ch
+                )}`}
+                className="hover:text-branding-brown transition-colors"
+              >
+                {ch}
+              </Link>
+            ))}
           </div>
         </div>
-        <nav className="flex flex-col">
-          {sourceSections.map((section) => (
-            <a
-              key={`mobile-${section.id}`}
-              href={`#${section.id}`}
-              onClick={(event) => scrollToSource(event, section.id)}
-              className="py-3 px-6 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 hover:border-l-branding-brown hover:border-l-4 transition-colors relative group"
-            >
-              <span className="text-gray-800">{section.label}</span>
-            </a>
-          ))}
-        </nav>
-      </div>
+      )}
+      {sourceSections.length > 0 && (
+        <div className="lg:hidden bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="p-6 border-b border-gray-200">
+            <div className="text-lg font-normal text-branding-brown">
+              {locale === "en" ? "Jump to source" : "Đến nguồn"}
+            </div>
+          </div>
+          <nav className="flex flex-col">
+            {sourceSections.map((section) => (
+              <a
+                key={`mobile-${section.id}`}
+                href={`#${section.id}`}
+                onClick={(event) => scrollToSource(event, section.id)}
+                className="py-3 px-6 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 hover:border-l-branding-brown hover:border-l-4 transition-colors relative group"
+              >
+                <span className="text-gray-800">{section.label}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
 
       {sourceSections.map((section) => (
         <div

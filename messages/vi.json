@@ -187,14 +187,17 @@
       "alternative-input-methods": {
         "tooltip": "Phương thức nhập khác",
         "title": "Phương thức nhập khác",
-        "description": "Chọn phương thức để nhập ký tự Hán-Nôm từ chữ Quốc ngữ, chữ viết tay hoặc bộ thủ."
+        "description": "Chọn phương thức để nhập ký tự Hán-Nôm từ chữ Quốc ngữ, chữ viết tay hoặc bộ thủ.",
+        "quoc-ngu-description": "Nhập một từ tiếng Việt bằng Quốc ngữ để tìm các ký tự Hán-Nôm tương ứng.",
+        "handwriting-description": "Vẽ ký tự trên bảng và dùng nhận diện chữ viết tay để tìm kiếm. Hiện hỗ trợ chữ Hán và chữ Nôm mượn âm.",
+        "radical-description": "Duyệt ký tự bằng cách chọn bộ thủ, sau đó lọc theo số nét."
       },
       "no-result": "Không tìm thấy kết quả nào.",
       "dictionaries": {
         "general": {
           "name": "Tra Cứu Hán-Nôm Đa Từ Điển",
-          "description": "Công cụ Tra cứu Hán-Nôm đa từ điển là bộ sưu tập các từ điển cung cấp định nghĩa và giải thích cho các ký tự Hán-Nôm. Công cụ này đặc biệt hữu ích cho các nhà nghiên cứu cần tra cứu ý nghĩa của các ký tự Hán-Nôm trong các văn bản lịch sử.",
-          "search-placeholder": "Tra cứu Hán Nôm hoặc Quốc Ngữ",
+          "description": "Tra cứu đồng thời trên nhiều từ điển Hán-Nôm theo chữ Hán-Nôm, âm Quốc Ngữ, hoặc tổ hợp thành phần.",
+          "search-placeholder": "Hán Nôm, Quốc Ngữ, hoặc Thành Phần",
           "author": ""
         },
         "tu-dien-chu-nom-dan-giai": {
@@ -295,7 +298,9 @@
           "copied-to-clipboard": "Đã sao chép vào bộ nhớ tạm",
           "failed-to-copy": "Sao chép không thành công",
           "failed-to-load-characters": "Không thể tải chữ",
-          "no-definition": "Không có định nghĩa"
+          "no-definition": "Không có định nghĩa",
+          "filter-placeholder": "Nhập bộ thủ",
+          "no-radicals-found": "Không tìm thấy bộ thủ phù hợp."
         },
         "quoc-ngu-input": {
           "placeholder": "Nhập từ Quốc Ngữ...",
@@ -388,7 +393,7 @@
         "quickLookup": {
           "label": "Tra cứu nhanh",
           "title": "Tra cứu Hán-Nôm đa từ điển",
-          "description": "Tra cứu đồng thời qua nhiều từ điển lịch sử và nguồn tư liệu tham khảo."
+          "description": "Tra cứu theo chữ Hán-Nôm, âm Quốc Ngữ, hoặc tổ hợp thành phần qua nhiều từ điển lịch sử đồng thời."
         },
         "corpusSearch": {
           "label": "Tìm kiếm ngữ liệu",
