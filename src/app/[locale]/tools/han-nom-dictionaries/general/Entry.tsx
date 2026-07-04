@@ -3,6 +3,7 @@ import type { MouseEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Merriweather } from "next/font/google";
+import localFont from "next/font/local";
 import EntryTDCNDG from "../tu-dien-chu-nom-dan-giai/Entry";
 import EntryGDNVHV from "../giup-doc-nom-va-han-viet/Entry";
 import EntryQATD from "../nguyen-trai-quoc-am-tu-dien/Entry";
@@ -10,10 +11,14 @@ import EntryTaberd from "../taberd/Entry";
 import EntryNDTD from "../nhat-dung-thuong-dam/Entry";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
-// Use font-family name directly — NomNaTong is already loaded by DictionarySearchBar
-// on this page, avoiding a second localFont call in a client component which causes
-// server/client hydration mismatches.
-const nomNaTongStyle = { fontFamily: "var(--font-nom-na-tong), serif" } as const;
+// Component-match results can contain Nom characters that only exist in the
+// NomNaTong font's Private Use Area. Load the font here and apply its className
+// directly (the same pattern every sibling Entry uses); relying on a bare
+// `var(--font-nom-na-tong)` fails because that CSS variable is never defined,
+// so the glyphs fall back to `serif` and render as tofu.
+const NomNaTong = localFont({
+  src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+});
 
 interface GeneralDictionaryData {
   tdcndg: {
@@ -131,7 +136,7 @@ export default function Entry({
                   .map((ch) => `[${ch}]`)
                   .join("")}`}
           </div>
-          <div className="flex flex-wrap gap-4 text-3xl" style={nomNaTongStyle}>
+          <div className={`flex flex-wrap gap-4 text-3xl ${NomNaTong.className}`}>
             {componentMatches.map((ch) => (
               <Link
                 key={ch}
