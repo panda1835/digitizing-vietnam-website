@@ -189,7 +189,11 @@
         "description": "Select an input method to add Hán-Nôm characters from Quốc Ngữ, handwriting, or radicals.",
         "quoc-ngu-description": "Type a Vietnamese word in Quốc Ngữ to find matching Hán-Nôm characters.",
         "handwriting-description": "Draw a character on the canvas and use handwriting recognition to find it. Currently supports Hán characters and phonetic-loan Nôm characters.",
-        "radical-description": "Browse characters by selecting a radical component, then narrow by stroke count."
+        "radical-description": "Browse characters by selecting a radical component, then narrow by stroke count.",
+        "radical-tooltip": "Search by radical",
+        "radical-title": "Search by radical",
+        "handwriting-tooltip": "Search by handwriting",
+        "handwriting-title": "Search by handwriting"
       },
       "no-result": "No results found.",
       "dictionaries": {
@@ -197,7 +201,28 @@
           "name": "Unified Hán-Nôm Lookup",
           "description": "Search across multiple Hán-Nôm dictionaries at once by Hán-Nôm character, Quốc Ngữ reading, or component combination.",
           "search-placeholder": "Hán Nôm, Quốc Ngữ, or Components",
-          "author": ""
+          "author": "",
+          "instructions": {
+            "title": "How to search",
+            "intro": "Search several historical Hán-Nôm dictionaries simultaneously using one of the following methods:",
+            "example-label": "e.g.",
+            "char-title": "By Hán-Nôm character",
+            "char-desc": "Type a Hán or Nôm character to find words written using that character.",
+            "char-example": "字",
+            "quocngu-title": "By Quốc Ngữ reading",
+            "quocngu-desc": "Type a romanized (Quốc Ngữ) reading to find characters with that reading.",
+            "quocngu-example": "chữ",
+            "components-title": "By component combination",
+            "components-desc": "Type two or more components together with no spaces to find characters that contain them.",
+            "components-example": "宀子",
+            "radical-title": "By radical or handwriting",
+            "radical-desc": "Use the 部 button next to the search bar to look up a character by its radical, or the pencil button to draw it by hand — then insert it into the search bar."
+          },
+          "filter": {
+            "all": "All",
+            "by-character": "Filter by char",
+            "by-reading": "Filter by reading"
+          }
         },
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải (The Dictionary of Nôm Characters with Quotations and Annotations)",
