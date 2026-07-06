@@ -72,6 +72,27 @@ const DigitalHumanitiesTools = async ({ params: { locale } }) => {
     console.error("Error fetching digital humanities tools:", error);
   }
 
+  // Ensure Ca Dao Tục Ngữ tool card is prepended to the list
+  if (!digitalHumanitiesTools.some((tool) => tool.slug === "ca-dao-tuc-ngu")) {
+    digitalHumanitiesTools.unshift({
+      slug: "ca-dao-tuc-ngu",
+      title: locale === "vi" 
+        ? "Từ Điển Thành Ngữ, Tục Ngữ, Ca Dao Việt Nam" 
+        : "Vietnamese Proverbs, Idioms, & Folk Verses",
+      description: locale === "vi" 
+        ? "Hệ thống tra cứu thành ngữ, tục ngữ, ca dao Việt Nam đi kèm bản scan gốc từ sách nghiên cứu."
+        : "Dictionary and exploration database of Vietnamese proverbs, idioms, and folk verses with digitized page scans.",
+      contributors: ["Richard Hoa"],
+      thumbnail: {
+        url: "https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/0837bfd9-06c7-4f03-8cb3-88605e5e534b.png/full/full/0/default.jpg",
+        width: 800,
+        height: 600,
+      },
+      content: "",
+      metadata: {},
+    });
+  }
+
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 w-full">

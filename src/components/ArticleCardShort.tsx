@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { renderHtml } from "@/utils/renderHtml";
 import { Merriweather, Inter } from "next/font/google";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
@@ -8,6 +8,9 @@ const inter = Inter({ weight: "400", subsets: ["vietnamese"] });
 
 const ArticleCard = ({ title, description, date, imageUrl, link }) => {
   const t = useTranslations("Button");
+  const locale = useLocale();
+  const isStaticRoute = link.endsWith("ca-dao-tuc-ngu");
+
   return (
     <div className="mb-5 w-full">
       <Image
@@ -21,14 +24,25 @@ const ArticleCard = ({ title, description, date, imageUrl, link }) => {
 
       <div className="">
         {/* Title */}
-        <Link href={link} className="">
-          <div
-            className={`t-['Helvetica Neue'] line-clamp-2 font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
-            title={title}
-          >
-            {title}
-          </div>
-        </Link>
+        {isStaticRoute ? (
+          <a href={`/${locale}${link}`} className="">
+            <div
+              className={`t-['Helvetica Neue'] line-clamp-2 font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
+              title={title}
+            >
+              {title}
+            </div>
+          </a>
+        ) : (
+          <Link href={link} className="">
+            <div
+              className={`t-['Helvetica Neue'] line-clamp-2 font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline`}
+              title={title}
+            >
+              {title}
+            </div>
+          </Link>
+        )}
         {/* Tag */}
         {/* <div className="flex justify-start items-center gap-[3px] mt-2">
           <div className="px-2.5 py-1.5 bg-white rounded-[5px] border border-[#cdcdcd] justify-center items-center gap-1 flex">

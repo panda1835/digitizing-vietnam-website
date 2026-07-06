@@ -19,3 +19,5 @@ og.tsx
 .claude/
 
 data/ocr
+
+.agents

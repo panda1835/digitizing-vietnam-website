@@ -319,6 +319,104 @@
     "date-converter": {
       "name": "Date Converter",
       "description": "Convert between reign names (niên hiệu), sexagenary years (can chi), and Common Era dates across Vietnamese and Chinese dynasties."
+    },
+    "ca-dao-tuc-ngu": {
+      "name": "Folk Verses & Proverbs",
+      "hero": {
+        "title": "Explore the Treasure of Vietnamese Folk Wisdom",
+        "subtitle": "From Folk Verses, Idioms, Proverbs, to Fairy Tales",
+        "intro": "Please select one of the features below to start your experience."
+      },
+      "sidebar": {
+        "archive-title": "DIGITAL ARCHIVES",
+        "archive-item1": "Folk Verses, Idioms & Proverbs Collection",
+        "archive-item2": "Fairy Tales Collection",
+        "archive-item3": "External Collections",
+        "tools-title": "DIGITAL TOOLS",
+        "tools-item1": "Viet Chuong Idioms, Proverbs & Folk Verses Dictionary",
+        "tools-item2": "Folk Verse Q&A",
+        "learning-title": "LEARNING CENTER",
+        "learning-item1": "Learn Folk Verses"
+      },
+      "cards": {
+        "dictionary": {
+          "title": "Dictionary of Vietnamese Idioms, Proverbs, and Folk Verses",
+          "bullet1": "Introduction to idioms, proverbs, and folk verses",
+          "bullet2": "Search",
+          "bullet3": "Dictionary lookup",
+          "cta": "Explore Dictionary"
+        },
+        "fairy-tales": {
+          "title": "Compilation of Vietnamese Fairy Tales",
+          "description": "Use semantic search technology to search fairy tales visually and deeply.",
+          "cta": "Explore Fairy Tales"
+        },
+        "qa": {
+          "title": "Folk Verse Q&A",
+          "description": "Look up idioms, proverbs, and folk verses from the book series by author Viet Chuong with scanned images of the original pages",
+          "cta": "Start Q&A"
+        },
+        "learning": {
+          "title": "Learn Idioms, Proverbs, and Folk Verses",
+          "description": "Use semantic search technology to search folk verses visually and deeply.",
+          "cta": "Start Learning"
+        }
+      },
+      "tu-dien": {
+        "title": "Dictionary of Vietnamese Idioms, Proverbs & Folk Poetry",
+        "intro": "All entries in this section are retrieved from the comprehensive book <strong>\"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\"</strong> compiled by author <strong>Việt Chương</strong> (including both Upper and Lower volumes). The system dynamically matches entries with their original scanned book.",
+        "explorer_title": "Folk Lore Knowledge Explorer",
+        "explorer_subtitle": "Explore the subtle differences between Proverbs and Idioms, the magic of transforming Folk Poetry into Folk Songs, and the traditional characteristics of Folk Literature.",
+        "tab_proverbs_idioms": "Proverbs & Idioms",
+        "tab_poetry_songs": "Folk Poetry & Songs",
+        "tab_dictionary_search": "Dictionary & Search",
+        "proverbs_intro_title": "Distinguishing Proverbs & Idioms",
+        "proverbs_intro_desc": "To this day, many collections mix proverbs with idioms. However, based on their content and structure, we can clearly distinguish these two concepts.",
+        "proverb_def_title": "What is a Proverb?",
+        "proverb_def_body": "A proverb is a sentence that itself fully expresses an idea, an observation, an experience, a moral principle, a common truth, or a judgment. Proverbs have a complete meaning, summarizing daily life and production experiences to guide people.",
+        "idiom_def_title": "What is an Idiom?",
+        "idiom_def_body": "An idiom is a ready-made phrase, a familiar part of a sentence that many people are accustomed to using, but on its own, it cannot express a complete idea. Idioms focus on describing states or images with color.",
+        "interactive_flip_title": "Hover or tap on the cards to see the analysis",
+        "example_proverb_1_title": "Proverb: Chó cắn áo rách",
+        "example_proverb_1_desc": "Fully reflects the reality that dogs tend to bark/bite when they see someone dressed in rags. Metaphorically, it describes how the poor often encounter compounding misfortunes and bad luck.",
+        "example_proverb_2_title": "Proverb: Bệnh quỷ, thuốc tiên",
+        "example_proverb_2_desc": "Fully expresses a solution-based meaning: a bizarre or severe illness requires an equally extraordinary, corresponding remedy for treatment.",
+        "example_idiom_1_title": "Idiom: Áo rách, quần manh",
+        "example_idiom_1_desc": "Merely represents two images depicting poverty in general, but how poor they are or why is not fully concluded as a complete thought.",
+        "example_idiom_2_title": "Idiom: Dốt đặc cán mai",
+        "example_idiom_2_desc": "A descriptive phrase depicting extreme, absolute ignorance. On its own, it does not constitute a complete sentence.",
+        "example_idiom_3_title": "Idiom: Ăn trắng, mặc trơn",
+        "example_idiom_3_desc": "Describes a comfortable, leisurely, and comfortable lifestyle, but it is only a phrase and lacks a full conclusion or judgment.",
+        "example_idiom_4_title": "Idiom: Ăn trên, ngồi trốc",
+        "example_idiom_4_desc": "Describes the status and snobbish habit of someone who likes to dominate others and act condescendingly, but on its own, it does not convey a complete thought.",
+        "poetry_intro_title": "The Transition from Folk Poetry to Folk Songs",
+        "poetry_intro_desc": "The boundary between folk poetry (ca dao) and folk songs (dân ca) is very thin. Folk poetry refers to folk verses (whether forming melodies or not), while Folk Songs are songs with a definite musical tune, leaning heavily towards musicality in form. Folk songs are sung in specific contexts, occupations, or regions.",
+        "poetry_transition_title": "The Art of Vocal Padding & Repetitions",
+        "poetry_transition_desc": "When converting folk poetry into folk songs, people creatively add padding words (vocables, auxiliary words), vocal glides, repetitions, and refrains to match the musical rhythm. Below are examples showing this transition:",
+        "properties_title": "Core Properties of Folk Literature",
+        "prop_collective_title": "Collectiveness (Most Fundamental)",
+        "prop_collective_desc": "The primary characteristic distinguishing folk literature from authored works. Works are created collectively by the people, and continually refined and enriched across regions and generations.",
+        "prop_oral_title": "Oral Transmission",
+        "prop_oral_desc": "Historically, oral transmission was the sole channel. Today, despite rising literacy and written records, oral transmission continues naturally, showing its enduring vitality.",
+        "quote_bogatyrev_title": "Observation by an unknown Soviet literary scholar:",
+        "quote_bogatyrev_body": "“Works of folk literature often exist for a very long time, passed down from one mouth to another, and are continuously built upon and enriched by many generations... While written literary works basically remain unchanged once they leave the author's pen, oral folk poetry is passed from generation to generation and is constantly revised to reflect the changes occurring in the thoughts of the masses and according to their aesthetic rules...”",
+        "quote_chicherov_title": "Observation by Vladimir Ivanovich CHICHEROV (Soviet literary theorist):",
+        "quote_chicherov_body": "“In our era, folk poetry exists both orally and in written form. This is entirely natural and consistent with development laws; it reflects the perfecting process of the people's artistic literature.”",
+        "coming_soon": "Coming Soon...",
+        "coming_soon_desc": "The Dictionary & Search feature (connected to Viet Chuong's books) is currently under development and will be released soon."
+      },
+      "hoc-ca-dao": {
+        "title": "Learn Idioms, Proverbs, and Folk Poetry",
+        "intro": "All data in this section is extracted from the book \"Thi Ca Bình Dân Việt Nam\" collected and compiled by Nguyễn Tấn Long and Phan Canh, published in 1975, digitized by the Tve-4u community.",
+        "topic_label": "Select Topic",
+        "instruction_heading": "Introduction",
+        "poem_interpretation_heading": "Interpretation",
+        "error_message": "Some words are incorrect. Please tap on them to select again!",
+        "success_message": "Congratulations! You have correctly completed this folk verse.",
+        "check_button": "CHECK ANSWER",
+        "next_button": "NEXT POEM",
+        "empty_placeholder": "Select word"
+      }
     }
   },
   "ResearchHub": {
