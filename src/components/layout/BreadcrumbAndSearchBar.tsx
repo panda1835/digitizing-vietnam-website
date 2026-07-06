@@ -18,7 +18,7 @@ export default function BreadcrumbAndSearchBar({
   emphasizeCurrent = false,
 }) {
   return (
-    <div className="mb-10 mt-16">
+    <div className="mb-4 mt-6 lg:mb-10 lg:mt-16">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

@@ -130,7 +130,7 @@ export default async function HanNomPage({
       {tocGroups.map((group) => (
         <li key={group.title}>
           <p
-            className={`${merriweather.className} text-base lg:text-lg leading-none tracking-[0.1em]  text-branding-brown font-bold`}
+            className={`${merriweather.className} text-sm lg:text-lg leading-none tracking-[0.1em]  text-branding-brown font-bold`}
           >
             {group.title}
           </p>
@@ -143,20 +143,20 @@ export default async function HanNomPage({
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
+                      className="font-['Helvetica Neue'] text-[13px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
                     >
                       {item.label}
                     </a>
                   ) : (
                     <Link
                       href={item.href}
-                      className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
+                      className="font-['Helvetica Neue'] text-[13px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
                     >
                       {item.label}
                     </Link>
                   )
                 ) : (
-                  <span className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium">
+                  <span className="font-['Helvetica Neue'] text-[13px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium">
                     {item.label}
                   </span>
                 )}
@@ -170,7 +170,7 @@ export default async function HanNomPage({
 
   return (
     <div className="flex flex-col items-center max-width w-full">
-      <div className="w-full mb-20">
+      <div className="w-full mb-12 lg:mb-20">
         <PageHeader
           title={t("ResearchHub.HanNomHub.hero.title")}
           subtitle={""}
@@ -181,29 +181,78 @@ export default async function HanNomPage({
           locale={locale}
         />
 
-        <div className="mt-12 flex flex-col lg:flex-row gap-12 justify-center w-full">
+        <div className="mt-8 lg:mt-12 flex flex-col lg:flex-row gap-8 lg:gap-12 justify-center w-full">
           <aside className="hidden lg:block lg:w-64 lg:flex-shrink-0">
             <nav className="lg:sticky lg:top-32">{tocList}</nav>
           </aside>
 
-          <main className="flex flex-col gap-14 max-w-5xl w-full">
-            <section id="intro" className="scroll-mt-32">
-              <h2 className="font-['Helvetica Neue'] text-2xl md:text-5xl text-branding-black font-bold mb-8 leading-tight">
+          <main className="flex flex-col gap-8 lg:gap-14 max-w-5xl w-full">
+            {/* Mobile only: condensed quick-search boxes at the very top. The
+                full-featured search cards (incl. radical/handwriting input) stay
+                on desktop and on each search's destination page. */}
+            <section className="lg:hidden order-1 lg:order-none space-y-3">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-branding-brown/70 mb-1.5">
+                  {t("ResearchHub.HanNomHub.cards.quickLookup.title")}
+                </p>
+                <DictionarySearchBar
+                  compact
+                  searchWord={undefined}
+                  placeholder={t(
+                    "Tools.han-nom-dictionaries.dictionaries.general.search-placeholder"
+                  )}
+                  hdwd_list={combinedHeadwords}
+                  searchPath="/tools/han-nom-dictionaries/general"
+                />
+              </div>
+
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-branding-brown/70 mb-1.5">
+                  {t("ResearchHub.HanNomHub.cards.corpusSearch.title")}
+                </p>
+                <form
+                  action="han-nom/search-database"
+                  method="GET"
+                  className="flex gap-2"
+                >
+                  <div className="relative flex-grow">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <input
+                      type="text"
+                      name="q"
+                      placeholder={t(
+                        "ResearchHub.HanNomHub.cards.corpusSearch.placeholder"
+                      )}
+                      className={`${NomNaTong.className} w-full h-[44px] pl-9 pr-3 text-sm bg-white shadow-sm rounded-full border border-branding-brown/15`}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="h-[44px] px-4 rounded-lg bg-branding-black text-white text-sm font-medium"
+                  >
+                    {t("ResearchHub.HanNomHub.cards.corpusSearch.search")}
+                  </button>
+                </form>
+              </div>
+            </section>
+
+            <section id="intro" className="scroll-mt-32 order-4 lg:order-none">
+              <h2 className="font-['Helvetica Neue'] text-2xl md:text-5xl text-branding-black font-bold mb-5 md:mb-8 leading-tight">
                 {t("ResearchHub.HanNomHub.intro.title")}
               </h2>
 
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12">
                 <div className="lg:col-span-3">
-                  <p className="text-xl text-muted-foreground font-light leading-relaxed mb-8">
+                  <p className="text-base lg:text-xl text-muted-foreground font-light leading-relaxed mb-6 lg:mb-8">
                     {t("ResearchHub.HanNomHub.intro.description")}
                   </p>
                 </div>
 
-                <div className="lg:col-span-2 bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-branding-brown/10">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-branding-brown mb-6">
+                <div className="lg:col-span-2 bg-white/50 backdrop-blur-sm p-6 lg:p-8 rounded-xl border border-branding-brown/10">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-branding-brown mb-4 lg:mb-6">
                     {t("ResearchHub.HanNomHub.intro.goal")}
                   </h3>
-                  <ul className="space-y-4">
+                  <ul className="space-y-3 lg:space-y-4">
                     {[
                       { icon: Library, key: "archives" },
                       { icon: Scan, key: "ocr" },
@@ -226,17 +275,20 @@ export default async function HanNomPage({
               </div>
             </section>
 
-            <section className="lg:hidden">
+            <section className="lg:hidden order-2 lg:order-none">
               <nav className="rounded-2xl border border-branding-brown/15 bg-white/60 p-5">
                 {tocList}
               </nav>
             </section>
 
-            <section id="tools-and-featured" className="scroll-mt-32">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <section
+              id="tools-and-featured"
+              className="scroll-mt-32 order-3 lg:order-none"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 items-stretch">
                 <Link
                   href="/our-collections/han-nom-collection"
-                  className="group relative overflow-hidden rounded-3xl bg-branding-black/5 border border-branding-black/10 p-8 hover:bg-branding-black/10 transition-colors cursor-pointer flex flex-col justify-between"
+                  className="order-3 lg:order-none group relative overflow-hidden rounded-3xl bg-branding-black/5 border border-branding-black/10 p-6 lg:p-8 hover:bg-branding-black/10 transition-colors cursor-pointer flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center gap-2 mb-4 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
@@ -248,13 +300,13 @@ export default async function HanNomPage({
                       </span>
                     </div>
                     <h3
-                      className={`${merriweather.className} text-2xl text-branding-black mb-2`}
+                      className={`${merriweather.className} text-xl lg:text-2xl text-branding-black mb-2`}
                     >
                       {t(
                         "ResearchHub.HanNomHub.cards.featuredCollection.title"
                       )}
                     </h3>
-                    <p className="text-muted-foreground font-light mb-6">
+                    <p className="text-muted-foreground font-light mb-4 lg:mb-6">
                       {t(
                         "ResearchHub.HanNomHub.cards.featuredCollection.description"
                       )}
@@ -268,7 +320,7 @@ export default async function HanNomPage({
 
                 <Link
                   href="/our-collections/nghien-cuu-han-nom"
-                  className="group relative overflow-hidden rounded-3xl bg-branding-black/5 border border-branding-black/10 p-8 hover:bg-branding-black/10 transition-colors cursor-pointer flex flex-col justify-between"
+                  className="order-3 lg:order-none group relative overflow-hidden rounded-3xl bg-branding-black/5 border border-branding-black/10 p-6 lg:p-8 hover:bg-branding-black/10 transition-colors cursor-pointer flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center gap-2 mb-4 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
@@ -278,11 +330,11 @@ export default async function HanNomPage({
                       </span>
                     </div>
                     <h3
-                      className={`${merriweather.className} text-2xl text-branding-black mb-2`}
+                      className={`${merriweather.className} text-xl lg:text-2xl text-branding-black mb-2`}
                     >
                       {t("ResearchHub.HanNomHub.cards.featuredBooks.title")}
                     </h3>
-                    <p className="text-muted-foreground font-light mb-6">
+                    <p className="text-muted-foreground font-light mb-4 lg:mb-6">
                       {t(
                         "ResearchHub.HanNomHub.cards.featuredBooks.description"
                       )}
@@ -294,7 +346,7 @@ export default async function HanNomPage({
                   </div>
                 </Link>
 
-                <div className="bg-white p-8 rounded-3xl shadow-xl border border-branding-brown/10 flex flex-col">
+                <div className="hidden lg:flex flex-col bg-white p-6 lg:p-8 rounded-3xl shadow-xl border border-branding-brown/10">
                   <div className="flex items-center gap-2 mb-6 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
                     <Search className="h-3.5 w-3.5" />
                     <span>
@@ -302,7 +354,7 @@ export default async function HanNomPage({
                     </span>
                   </div>
                   <h3
-                    className={`${merriweather.className} text-2xl text-branding-black mb-6`}
+                    className={`${merriweather.className} text-xl lg:text-2xl text-branding-black mb-4 lg:mb-6`}
                   >
                     {t("ResearchHub.HanNomHub.cards.quickLookup.title")}
                   </h3>
@@ -321,7 +373,7 @@ export default async function HanNomPage({
                   </p>
                 </div>
 
-                <div className="bg-white p-8 rounded-3xl shadow-xl border border-branding-brown/10 flex flex-col">
+                <div className="hidden lg:flex flex-col bg-white p-6 lg:p-8 rounded-3xl shadow-xl border border-branding-brown/10">
                   <div className="flex items-center gap-2 mb-6 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
                     <Search className="h-3.5 w-3.5" />
                     <span>
@@ -329,7 +381,7 @@ export default async function HanNomPage({
                     </span>
                   </div>
                   <h3
-                    className={`${merriweather.className} text-2xl text-branding-black mb-6`}
+                    className={`${merriweather.className} text-xl lg:text-2xl text-branding-black mb-4 lg:mb-6`}
                   >
                     {t("ResearchHub.HanNomHub.cards.corpusSearch.title")}
                   </h3>
@@ -351,7 +403,7 @@ export default async function HanNomPage({
                     </div>
                     <button
                       type="submit"
-                      className="h-[54px] px-6 rounded-[16px] bg-branding-black text-white font-semibold text-base hover:bg-branding-black/90 transition-colors"
+                      className="h-[54px] px-6 rounded-lg bg-branding-black text-white font-medium text-sm hover:bg-branding-black/90 transition-colors"
                     >
                       {t("ResearchHub.HanNomHub.cards.corpusSearch.search")}
                     </button>

@@ -61,11 +61,15 @@ export default function DictionarySearchBar({
   searchWord,
   hdwd_list = [], // default empty array
   searchPath = "",
+  // Opt-in smaller variant (used on the mobile Han-Nôm hub). Defaults to false,
+  // so every other caller renders at the original size.
+  compact = false,
 }: {
   placeholder: string;
   searchWord: string | undefined;
   hdwd_list?: string[];
   searchPath?: string;
+  compact?: boolean;
 }) {
   const t = useTranslations();
 
@@ -258,7 +262,11 @@ export default function DictionarySearchBar({
   return (
     <div className="relative w-full flex items-center gap-2">
       <div className="relative flex-1">
-        <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-700 z-10" />
+        <MagnifyingGlassIcon
+          className={`absolute top-1/2 transform -translate-y-1/2 text-gray-700 z-10 ${
+            compact ? "left-3 h-4 w-4" : "left-4 h-5 w-5"
+          }`}
+        />
         <input
           ref={inputRef}
           type="text"
@@ -268,7 +276,11 @@ export default function DictionarySearchBar({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onFocus={handleInputFocus}
-          className={`${NomNaTong.className} w-full h-[54px] px-5 py-2 pl-12 bg-white shadow-lg rounded-[26px]`}
+          className={`${NomNaTong.className} w-full py-2 bg-white ${
+            compact
+              ? "h-[44px] px-4 pl-9 text-sm shadow-sm rounded-full"
+              : "h-[54px] px-5 pl-12 shadow-lg rounded-[26px]"
+          }`}
           autoComplete="off"
         />
 
@@ -298,12 +310,18 @@ export default function DictionarySearchBar({
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all">
+          <div
+            className={`rounded-lg border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all ${
+              compact ? "h-[44px] px-2.5" : "h-12 px-3"
+            }`}
+          >
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
                   <span
-                    className={`${notoSerifSC.className} text-xl leading-none antialiased text-white`}
+                    className={`${notoSerifSC.className} leading-none antialiased text-white ${
+                      compact ? "text-base" : "text-xl"
+                    }`}
                   >
                     部
                   </span>
@@ -372,7 +390,10 @@ export default function DictionarySearchBar({
         </DialogContent>
       </Dialog>
 
-      <Button onClick={() => handleSearch()} className="h-12 rounded-lg">
+      <Button
+        onClick={() => handleSearch()}
+        className={`rounded-lg ${compact ? "h-[44px] px-3 text-sm" : "h-12"}`}
+      >
         {t("Button.search")}
       </Button>
     </div>
