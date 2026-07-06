@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { XMarkIcon } from "@heroicons/react/16/solid";
 import { Link } from "@/i18n/routing";
 import { Merriweather } from "next/font/google";
 import localFont from "next/font/local";
@@ -164,13 +165,18 @@ export default function Entry({
   // and hide it once a specific character/reading is selected.
   const ndtdDefs = selectedFilter === null ? entry.ndtd ?? [] : [];
 
-  const sourceSections = [
+  // Every source, with both its filtered result count and whether it had any
+  // results before the filter. `hasResults` drives what is rendered; the jump
+  // menu keeps sources that had unfiltered results and disables the ones the
+  // current filter empties (rather than dropping them).
+  const allSections = [
     {
       id: "source-tdcndg",
       label: t(
         "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
       ),
       hasResults: tdcndgDefs.length > 0,
+      unfilteredHasResults: (entry.tdcndg?.defs ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai?q=${query}`,
       content: tdcndgDefs.map((def, idx) => (
         <EntryTDCNDG key={idx} entry={def} refs={entry.tdcndg.refs} />
@@ -182,6 +188,7 @@ export default function Entry({
         "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
       ),
       hasResults: giupdocDefs.length > 0,
+      unfilteredHasResults: (entry.giupdoc ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet?q=${query}`,
       content: giupdocDefs.map((def, idx) => (
         <EntryGDNVHV key={idx} entry={def} />
@@ -193,6 +200,7 @@ export default function Entry({
         "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
       ),
       hasResults: qatdDefs.length > 0,
+      unfilteredHasResults: (entry.qatd ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien?q=${query}`,
       content: qatdDefs.map((def, idx) => <EntryQATD key={idx} entry={def} />),
     },
@@ -200,6 +208,7 @@ export default function Entry({
       id: "source-taberd",
       label: t("Tools.han-nom-dictionaries.dictionaries.taberd.name"),
       hasResults: taberdDefs.length > 0,
+      unfilteredHasResults: (entry.taberd ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/taberd?q=${query}`,
       content: taberdDefs.map((def, idx) => (
         <EntryTaberd key={idx} entry={def} />
@@ -211,24 +220,36 @@ export default function Entry({
         "Tools.han-nom-dictionaries.dictionaries.nhat-dung-thuong-dam.name"
       ),
       hasResults: ndtdDefs.length > 0,
+      unfilteredHasResults: (entry.ndtd ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/nhat-dung-thuong-dam?q=${query}`,
       content: ndtdDefs.map((def, idx) => <EntryNDTD key={idx} entry={def} />),
     },
-  ].filter((section) => section.hasResults);
+  ];
+
+  const sourceSections = allSections.filter((section) => section.hasResults);
 
   const jumpTitle = locale === "en" ? "Jump to source" : "Đến nguồn";
   const filterTabLabel =
     searchMode === "reading"
       ? t("Tools.han-nom-dictionaries.dictionaries.general.filter.by-character")
       : t("Tools.han-nom-dictionaries.dictionaries.general.filter.by-reading");
-  const sidebarProps = {
-    sections: sourceSections.map((s) => ({
+  // Jump menu keeps any source that had unfiltered results; ones the current
+  // filter empties are shown disabled (dimmed, unclickable, with a hover hint).
+  const jumpSections = allSections
+    .filter((s) => s.unfilteredHasResults)
+    .map((s) => ({
       id: s.id,
       label: shortLabel(s.label),
-    })),
+      disabled: !s.hasResults,
+    }));
+  const sidebarProps = {
+    sections: jumpSections,
     jumpTitle,
     filterTitle: filterTabLabel,
     allLabel: t("Tools.han-nom-dictionaries.dictionaries.general.filter.all"),
+    disabledHint: t(
+      "Tools.han-nom-dictionaries.dictionaries.general.filter.no-source-results"
+    ),
     values: distinctFilterValues,
     selected: selectedFilter,
     onSelect: setSelectedFilter,
@@ -236,7 +257,7 @@ export default function Entry({
     nomClass: NomNaTong.className,
   };
   const showSidebar =
-    sourceSections.length > 0 || distinctFilterValues.length > 1;
+    jumpSections.length > 0 || distinctFilterValues.length > 1;
   const mobileNavLabel =
     distinctFilterValues.length > 1
       ? `${jumpTitle} · ${filterTabLabel}`
@@ -271,6 +292,32 @@ export default function Entry({
       <div className="flex-1 min-w-0">
         {searchBar}
         <div className="space-y-8">
+          {selectedFilter !== null && (
+            <div className="inline-flex items-center gap-2 flex-wrap w-fit bg-branding-gray rounded-lg px-4 py-2.5">
+              <span className={`text-sm text-gray-700 ${merriweather.className}`}>
+                {t(
+                  "Tools.han-nom-dictionaries.dictionaries.general.filter.active"
+                )}
+              </span>
+              <span
+                className={`text-xl text-branding-brown ${
+                  searchMode === "reading" ? NomNaTong.className : ""
+                }`}
+              >
+                {selectedFilter}
+              </span>
+              <button
+                type="button"
+                onClick={() => setSelectedFilter(null)}
+                className="inline-flex items-center gap-1 ml-3 text-sm text-branding-brown hover:underline"
+              >
+                {t(
+                  "Tools.han-nom-dictionaries.dictionaries.general.filter.clear"
+                )}
+                <XMarkIcon className="h-4 w-4" />
+              </button>
+            </div>
+          )}
           {componentMatches.length > 0 && (
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div

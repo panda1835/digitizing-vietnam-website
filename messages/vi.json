@@ -222,7 +222,10 @@
           "filter": {
             "all": "Tất cả",
             "by-character": "Lọc theo chữ",
-            "by-reading": "Lọc theo âm đọc"
+            "by-reading": "Lọc theo âm đọc",
+            "no-source-results": "Không có kết quả phù hợp trong nguồn này",
+            "active": "Đang lọc theo:",
+            "clear": "Xóa bộ lọc"
           }
         },
         "tu-dien-chu-nom-dan-giai": {

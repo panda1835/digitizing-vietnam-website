@@ -8,6 +8,12 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/ui/tabs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 // Match the page's title typography.
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
@@ -20,13 +26,14 @@ function scrollToSource(event: MouseEvent<HTMLAnchorElement>, id: string) {
   window.history.replaceState(null, "", `#${id}`);
 }
 
-type Section = { id: string; label: string };
+type Section = { id: string; label: string; disabled?: boolean };
 
 export default function ResultsSidebar({
   sections,
   jumpTitle,
   filterTitle,
   allLabel,
+  disabledHint,
   values,
   selected,
   onSelect,
@@ -38,6 +45,8 @@ export default function ResultsSidebar({
   jumpTitle: string;
   filterTitle: string;
   allLabel: string;
+  // Hover text on a disabled (no-match under the current filter) jump entry.
+  disabledHint: string;
   values: string[];
   selected: string | null;
   onSelect: (value: string | null) => void;
@@ -52,22 +61,40 @@ export default function ResultsSidebar({
   if (!hasFilter && !hasJump) return null;
 
   const jumpList = (
-    <nav className="flex flex-col">
-      {sections.map((section) => (
-        <a
-          key={section.id}
-          href={`#${section.id}`}
-          onClick={(event) => scrollToSource(event, section.id)}
-          className="group py-3 px-4 border-b border-gray-100 last:border-b-0 border-l-4 border-l-transparent hover:bg-branding-gray hover:border-l-branding-brown transition-colors"
-        >
-          <span
-            className={`text-branding-black group-hover:text-branding-brown transition-colors ${merriweather.className}`}
-          >
-            {section.label}
-          </span>
-        </a>
-      ))}
-    </nav>
+    <TooltipProvider delayDuration={100}>
+      <nav className="flex flex-col">
+        {sections.map((section) =>
+          section.disabled ? (
+            <Tooltip key={section.id}>
+              <TooltipTrigger asChild>
+                <div
+                  aria-disabled="true"
+                  className="py-3 px-4 border-b border-gray-100 last:border-b-0 border-l-4 border-l-transparent cursor-not-allowed select-none"
+                >
+                  <span className={`text-gray-300 ${merriweather.className}`}>
+                    {section.label}
+                  </span>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="right">{disabledHint}</TooltipContent>
+            </Tooltip>
+          ) : (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              onClick={(event) => scrollToSource(event, section.id)}
+              className="group py-3 px-4 border-b border-gray-100 last:border-b-0 border-l-4 border-l-transparent hover:bg-branding-gray hover:border-l-branding-brown transition-colors"
+            >
+              <span
+                className={`text-branding-black group-hover:text-branding-brown transition-colors ${merriweather.className}`}
+              >
+                {section.label}
+              </span>
+            </a>
+          )
+        )}
+      </nav>
+    </TooltipProvider>
   );
 
   const chipClass = (active: boolean) =>

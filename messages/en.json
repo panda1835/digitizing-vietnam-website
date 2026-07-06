@@ -221,7 +221,10 @@
           "filter": {
             "all": "All",
             "by-character": "Filter by char",
-            "by-reading": "Filter by reading"
+            "by-reading": "Filter by reading",
+            "no-source-results": "No matching results in this source",
+            "active": "Filtered by:",
+            "clear": "Clear filter"
           }
         },
         "tu-dien-chu-nom-dan-giai": {
