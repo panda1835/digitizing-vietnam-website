@@ -10,12 +10,10 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
+import { MagnifyingGlassIcon, PencilIcon } from "@heroicons/react/16/solid";
 import HandwritingPad from "./HandwritingPad";
 import { useTranslations } from "next-intl";
-import InputMethodSelector from "@/app/[locale]/tools/han-nom-tools/han-nom-input-method-editor/InputMethodSelector";
 import CompactRadicals from "@/app/[locale]/tools/han-nom-tools/han-nom-input-method-editor/CompactRadicals";
-import QuocNguSingleChar from "@/app/[locale]/tools/han-nom-tools/han-nom-input-method-editor/QuocNguSingleChar";
 import {
   getRadicals,
   type Radical,
@@ -34,8 +32,6 @@ const NomNaTong = localFont({
 });
 
 const notoSerifSC = Noto_Serif_SC({ weight: "500", subsets: ["latin"] });
-
-type InputMethod = "quoc-ngu" | "handwriting" | "radical";
 
 function isCJKChar(char: string): boolean {
   const codePoint = char.codePointAt(0);
@@ -240,8 +236,8 @@ export default function DictionarySearchBar({
     }
   };
 
-  const [open, setOpen] = useState(false);
-  const [inputMethod, setInputMethod] = useState<InputMethod>("radical");
+  const [radicalOpen, setRadicalOpen] = useState(false);
+  const [handwritingOpen, setHandwritingOpen] = useState(false);
   const [radicals, setRadicals] = useState<Radical[]>([]);
 
   useEffect(() => {
@@ -252,7 +248,8 @@ export default function DictionarySearchBar({
     const newKeyword = searchKeyword + char;
     setSearchKeyword(newKeyword);
     setUserIsTyping(true);
-    setOpen(false);
+    setRadicalOpen(false);
+    setHandwritingOpen(false);
   };
 
   return (
@@ -296,78 +293,92 @@ export default function DictionarySearchBar({
         )}
       </div>
 
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger>
+      {/* Radical search */}
+      <Dialog open={radicalOpen} onOpenChange={setRadicalOpen}>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <DialogTrigger asChild>
+                <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all">
                   <span
                     className={`${notoSerifSC.className} text-xl leading-none antialiased text-white`}
                   >
                     部
                   </span>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>
-                    {t(
-                      "Tools.han-nom-dictionaries.alternative-input-methods.tooltip"
-                    )}
-                  </p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </div>
-        </DialogTrigger>
+                </div>
+              </DialogTrigger>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                {t(
+                  "Tools.han-nom-dictionaries.alternative-input-methods.radical-tooltip"
+                )}
+              </p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
 
         <DialogContent className="w-[95vw] max-w-2xl h-[85vh] max-h-[85vh] flex flex-col">
           <DialogHeader>
             <DialogTitle>
-              {t("Tools.han-nom-dictionaries.alternative-input-methods.title")}
+              {t(
+                "Tools.han-nom-dictionaries.alternative-input-methods.radical-title"
+              )}
             </DialogTitle>
             <DialogDescription>
               {t(
-                "Tools.han-nom-dictionaries.alternative-input-methods.description"
+                "Tools.han-nom-dictionaries.alternative-input-methods.radical-description"
               )}
             </DialogDescription>
           </DialogHeader>
-          <div className="flex-1 min-h-0 flex flex-col gap-3">
-            <div className="flex flex-col gap-2">
-              <InputMethodSelector
-                value={inputMethod}
-                onChange={setInputMethod}
+          <div className="flex-1 min-h-0 border rounded-lg bg-gray-50 p-3 overflow-hidden">
+            <div className="h-full">
+              <CompactRadicals
+                radicals={radicals}
+                onCharacterSelect={handleCandidateSelected}
+                autoScrollToStroke
               />
-              <p className="text-sm text-muted-foreground">
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Handwriting search */}
+      <Dialog open={handwritingOpen} onOpenChange={setHandwritingOpen}>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <DialogTrigger asChild>
+                <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all">
+                  <PencilIcon className="h-5 w-5 text-white" />
+                </div>
+              </DialogTrigger>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
                 {t(
-                  `Tools.han-nom-dictionaries.alternative-input-methods.${inputMethod}-description`
+                  "Tools.han-nom-dictionaries.alternative-input-methods.handwriting-tooltip"
                 )}
               </p>
-            </div>
-            <div
-              className={`border rounded-lg bg-gray-50 flex-1 min-h-0 p-3 ${
-                inputMethod === "radical"
-                  ? "overflow-hidden"
-                  : "overflow-y-auto"
-              }`}
-            >
-              {inputMethod === "quoc-ngu" && (
-                <QuocNguSingleChar
-                  onCharacterSelect={handleCandidateSelected}
-                />
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
+        <DialogContent className="w-[95vw] max-w-2xl h-[85vh] max-h-[85vh] flex flex-col">
+          <DialogHeader>
+            <DialogTitle>
+              {t(
+                "Tools.han-nom-dictionaries.alternative-input-methods.handwriting-title"
               )}
-              {inputMethod === "handwriting" && (
-                <HandwritingPad onSelect={handleCandidateSelected} />
+            </DialogTitle>
+            <DialogDescription>
+              {t(
+                "Tools.han-nom-dictionaries.alternative-input-methods.handwriting-description"
               )}
-              {inputMethod === "radical" && (
-                <div className="h-full">
-                  <CompactRadicals
-                    radicals={radicals}
-                    onCharacterSelect={handleCandidateSelected}
-                    autoScrollToStroke
-                  />
-                </div>
-              )}
-            </div>
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex-1 min-h-0 border rounded-lg bg-gray-50 p-3 overflow-y-auto">
+            <HandwritingPad onSelect={handleCandidateSelected} />
           </div>
         </DialogContent>
       </Dialog>

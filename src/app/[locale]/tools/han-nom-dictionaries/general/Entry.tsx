@@ -1,6 +1,7 @@
 "use client";
-import type { MouseEvent } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { XMarkIcon } from "@heroicons/react/16/solid";
 import { Link } from "@/i18n/routing";
 import { Merriweather } from "next/font/google";
 import localFont from "next/font/local";
@@ -9,6 +10,13 @@ import EntryGDNVHV from "../giup-doc-nom-va-han-viet/Entry";
 import EntryQATD from "../nguyen-trai-quoc-am-tu-dien/Entry";
 import EntryTaberd from "../taberd/Entry";
 import EntryNDTD from "../nhat-dung-thuong-dam/Entry";
+import ResultsSidebar from "./ResultsSidebar";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 // Component-match results can contain Nom characters that only exist in the
@@ -19,6 +27,74 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
+
+type SourceId = "tdcndg" | "giupdoc" | "qatd" | "taberd" | "ndtd";
+type SearchMode = "character" | "reading";
+
+// Inline CJK-range check (same ranges the componentMatches block uses). Kept
+// local instead of importing `isCJKChar` from lib/han-nom/componentsIndex — that
+// module does a server-only readFileSync at import time.
+function isCJKChar(ch: string): boolean {
+  const cp = ch.codePointAt(0);
+  if (cp === undefined) return false;
+  return (
+    (cp >= 0x4e00 && cp <= 0x9fff) ||
+    (cp >= 0x3400 && cp <= 0x4dbf) ||
+    (cp >= 0x20000 && cp <= 0x2ebef) ||
+    (cp >= 0x30000 && cp <= 0x323af) ||
+    (cp >= 0xf900 && cp <= 0xfaff)
+  );
+}
+
+function normalize(values: Array<string | undefined | null>): string[] {
+  return values
+    .filter(Boolean)
+    .map((s) => String(s).trim())
+    .filter((v) => v.length > 0);
+}
+
+// The Hán-Nôm character(s) an entry carries, per each dictionary's schema.
+function charsOf(id: SourceId, e: any): string[] {
+  switch (id) {
+    case "tdcndg":
+      return normalize([e.hn]);
+    case "giupdoc":
+      return normalize([e.uni]);
+    case "qatd":
+      return normalize([e.han, e.nom]);
+    case "taberd":
+      return normalize([e.nom]);
+    case "ndtd":
+      return normalize([e.han_nom]);
+  }
+}
+
+// The reading(s) an entry carries, per each dictionary's schema.
+function readingsOf(id: SourceId, e: any): string[] {
+  switch (id) {
+    case "tdcndg":
+    case "giupdoc":
+    case "taberd":
+      return normalize([e.qn]);
+    case "qatd":
+      return normalize([e.hdwd]);
+    case "ndtd":
+      return normalize([e.han_viet, e.quoc_ngu]);
+  }
+}
+
+// A reading search narrows by character; a character search narrows by reading.
+function valuesOf(mode: SearchMode, id: SourceId, e: any): string[] {
+  return mode === "reading" ? charsOf(id, e) : readingsOf(id, e);
+}
+
+// Dictionary display names carry a long English parenthetical (e.g. the Nôm
+// name followed by "(The Dictionary of …)") that wastes vertical space in the
+// results and sidebar. Drop the trailing "(…)" for compact headers; the full
+// name stays available via the title tooltip.
+function shortLabel(label: string): string {
+  return label.replace(/\s*\([^)]*\)\s*$/, "").trim();
+}
 
 interface GeneralDictionaryData {
   tdcndg: {
@@ -32,32 +108,77 @@ interface GeneralDictionaryData {
   componentMatches?: string[];
 }
 
-function scrollToSource(event: MouseEvent<HTMLAnchorElement>, id: string) {
-  event.preventDefault();
-  const target = document.getElementById(id);
-  if (!target) return;
-  target.scrollIntoView({ behavior: "smooth", block: "start" });
-  window.history.replaceState(null, "", `#${id}`);
-}
-
 export default function Entry({
   entry,
   query,
+  searchBar,
 }: {
   entry: GeneralDictionaryData;
   query: string;
+  // The search bar lives in the main column (same width as the results) with the
+  // sidebar beside both, so it is passed in as a slot from the page.
+  searchBar?: ReactNode;
 }) {
   const locale = useLocale();
   const t = useTranslations();
-  const sourceSections = [
+
+  // A Nôm/Hán query is CJK; a Quốc Ngữ query is Latin. Reading search → let the
+  // user narrow by a specific character; character search → narrow by reading.
+  const searchMode: SearchMode = Array.from(query).some(isCJKChar)
+    ? "character"
+    : "reading";
+  const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
+
+  const matchesFilter = (id: SourceId, e: any) =>
+    selectedFilter === null ||
+    valuesOf(searchMode, id, e).includes(selectedFilter);
+
+  // Distinct "other-axis" values across the dictionary results: characters when
+  // searching a reading, readings when searching a character. These are the chips.
+  // Nhật Dụng Thường Đàm (ndtd) is excluded — its entries are multi-character
+  // vocabulary items rather than single headwords, so their characters are too
+  // diverse and would clutter the filter.
+  const distinctFilterValues = useMemo(() => {
+    const set = new Set<string>();
+    const add = (id: SourceId, items: any[]) => {
+      for (const e of items ?? [])
+        for (const v of valuesOf(searchMode, id, e)) set.add(v);
+    };
+    add("tdcndg", entry.tdcndg?.defs);
+    add("giupdoc", entry.giupdoc);
+    add("qatd", entry.qatd);
+    add("taberd", entry.taberd);
+    return Array.from(set);
+  }, [entry, searchMode]);
+
+  const tdcndgDefs = (entry.tdcndg?.defs ?? []).filter((d) =>
+    matchesFilter("tdcndg", d)
+  );
+  const giupdocDefs = (entry.giupdoc ?? []).filter((d) =>
+    matchesFilter("giupdoc", d)
+  );
+  const qatdDefs = (entry.qatd ?? []).filter((d) => matchesFilter("qatd", d));
+  const taberdDefs = (entry.taberd ?? []).filter((d) =>
+    matchesFilter("taberd", d)
+  );
+  // ndtd is not part of the filter: show all of it in the unfiltered (All) view,
+  // and hide it once a specific character/reading is selected.
+  const ndtdDefs = selectedFilter === null ? entry.ndtd ?? [] : [];
+
+  // Every source, with both its filtered result count and whether it had any
+  // results before the filter. `hasResults` drives what is rendered; the jump
+  // menu keeps sources that had unfiltered results and disables the ones the
+  // current filter empties (rather than dropping them).
+  const allSections = [
     {
       id: "source-tdcndg",
       label: t(
         "Tools.han-nom-dictionaries.dictionaries.tu-dien-chu-nom-dan-giai.name"
       ),
-      hasResults: entry.tdcndg && entry.tdcndg.defs.length > 0,
+      hasResults: tdcndgDefs.length > 0,
+      unfilteredHasResults: (entry.tdcndg?.defs ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/tu-dien-chu-nom-dan-giai?q=${query}`,
-      content: entry.tdcndg?.defs.map((def, idx) => (
+      content: tdcndgDefs.map((def, idx) => (
         <EntryTDCNDG key={idx} entry={def} refs={entry.tdcndg.refs} />
       )),
     },
@@ -66,9 +187,10 @@ export default function Entry({
       label: t(
         "Tools.han-nom-dictionaries.dictionaries.giup-doc-nom-va-han-viet.name"
       ),
-      hasResults: entry.giupdoc && entry.giupdoc.length > 0,
+      hasResults: giupdocDefs.length > 0,
+      unfilteredHasResults: (entry.giupdoc ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet?q=${query}`,
-      content: entry.giupdoc?.map((def, idx) => (
+      content: giupdocDefs.map((def, idx) => (
         <EntryGDNVHV key={idx} entry={def} />
       )),
     },
@@ -77,18 +199,18 @@ export default function Entry({
       label: t(
         "Tools.han-nom-dictionaries.dictionaries.nguyen-trai-quoc-am-tu-dien.name"
       ),
-      hasResults: entry.qatd && entry.qatd.length > 0,
+      hasResults: qatdDefs.length > 0,
+      unfilteredHasResults: (entry.qatd ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien?q=${query}`,
-      content: entry.qatd?.map((def, idx) => (
-        <EntryQATD key={idx} entry={def} />
-      )),
+      content: qatdDefs.map((def, idx) => <EntryQATD key={idx} entry={def} />),
     },
     {
       id: "source-taberd",
       label: t("Tools.han-nom-dictionaries.dictionaries.taberd.name"),
-      hasResults: entry.taberd && entry.taberd.length > 0,
+      hasResults: taberdDefs.length > 0,
+      unfilteredHasResults: (entry.taberd ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/taberd?q=${query}`,
-      content: entry.taberd?.map((def, idx) => (
+      content: taberdDefs.map((def, idx) => (
         <EntryTaberd key={idx} entry={def} />
       )),
     },
@@ -97,13 +219,49 @@ export default function Entry({
       label: t(
         "Tools.han-nom-dictionaries.dictionaries.nhat-dung-thuong-dam.name"
       ),
-      hasResults: entry.ndtd && entry.ndtd.length > 0,
+      hasResults: ndtdDefs.length > 0,
+      unfilteredHasResults: (entry.ndtd ?? []).length > 0,
       href: `/tools/han-nom-dictionaries/nhat-dung-thuong-dam?q=${query}`,
-      content: entry.ndtd?.map((def, idx) => (
-        <EntryNDTD key={idx} entry={def} />
-      )),
+      content: ndtdDefs.map((def, idx) => <EntryNDTD key={idx} entry={def} />),
     },
-  ].filter((section) => section.hasResults);
+  ];
+
+  const sourceSections = allSections.filter((section) => section.hasResults);
+
+  const jumpTitle = locale === "en" ? "Jump to source" : "Đến nguồn";
+  const filterTabLabel =
+    searchMode === "reading"
+      ? t("Tools.han-nom-dictionaries.dictionaries.general.filter.by-character")
+      : t("Tools.han-nom-dictionaries.dictionaries.general.filter.by-reading");
+  // Jump menu keeps any source that had unfiltered results; ones the current
+  // filter empties are shown disabled (dimmed, unclickable, with a hover hint).
+  const jumpSections = allSections
+    .filter((s) => s.unfilteredHasResults)
+    .map((s) => ({
+      id: s.id,
+      label: shortLabel(s.label),
+      disabled: !s.hasResults,
+    }));
+  const sidebarProps = {
+    sections: jumpSections,
+    jumpTitle,
+    filterTitle: filterTabLabel,
+    allLabel: t("Tools.han-nom-dictionaries.dictionaries.general.filter.all"),
+    disabledHint: t(
+      "Tools.han-nom-dictionaries.dictionaries.general.filter.no-source-results"
+    ),
+    values: distinctFilterValues,
+    selected: selectedFilter,
+    onSelect: setSelectedFilter,
+    isCharChip: searchMode === "reading",
+    nomClass: NomNaTong.className,
+  };
+  const showSidebar =
+    jumpSections.length > 0 || distinctFilterValues.length > 1;
+  const mobileNavLabel =
+    distinctFilterValues.length > 1
+      ? `${jumpTitle} · ${filterTabLabel}`
+      : jumpTitle;
 
   const componentMatches = entry.componentMatches ?? [];
   const queryChars =
@@ -122,75 +280,116 @@ export default function Entry({
       : [];
 
   return (
-    <div className="space-y-8">
-      {componentMatches.length > 0 && (
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <div
-            className={`text-lg text-branding-brown mb-3 ${merriweather.className}`}
-          >
-            {locale === "en"
-              ? `Characters with components ${queryChars
-                  .map((ch) => `[${ch}]`)
-                  .join("")}`
-              : `Chữ có các thành phần ${queryChars
-                  .map((ch) => `[${ch}]`)
-                  .join("")}`}
-          </div>
-          <div className={`flex flex-wrap gap-4 text-3xl ${NomNaTong.className}`}>
-            {componentMatches.map((ch) => (
-              <Link
-                key={ch}
-                href={`/tools/han-nom-dictionaries/general?q=${encodeURIComponent(
-                  ch
-                )}`}
-                className="hover:text-branding-brown transition-colors"
-              >
-                {ch}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-      {sourceSections.length > 0 && (
-        <div className="lg:hidden bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6 border-b border-gray-200">
-            <div className="text-lg font-normal text-branding-brown">
-              {locale === "en" ? "Jump to source" : "Đến nguồn"}
-            </div>
-          </div>
-          <nav className="flex flex-col">
-            {sourceSections.map((section) => (
-              <a
-                key={`mobile-${section.id}`}
-                href={`#${section.id}`}
-                onClick={(event) => scrollToSource(event, section.id)}
-                className="py-3 px-6 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 hover:border-l-branding-brown hover:border-l-4 transition-colors relative group"
-              >
-                <span className="text-gray-800">{section.label}</span>
-              </a>
-            ))}
-          </nav>
-        </div>
+    <div className="flex flex-col lg:flex-row gap-8">
+      {/* Desktop: sticky sidebar beside the results holding the jump-to-source
+          and filter tabs. */}
+      {showSidebar && (
+        <aside className="hidden lg:block lg:w-60 shrink-0 lg:sticky lg:top-24 self-start lg:max-h-[calc(100vh-7rem)] overflow-y-auto">
+          <ResultsSidebar {...sidebarProps} />
+        </aside>
       )}
 
-      {sourceSections.map((section) => (
-        <div
-          key={section.id}
-          id={section.id}
-          data-general-source-id={section.id}
-          data-general-source-label={section.label}
-          className="scroll-mt-28"
-        >
-          <Link href={section.href} target="_blank" rel="noopener noreferrer">
-            <div
-              className={`text-2xl text-branding-brown mb-4 hover:underline ${merriweather.className}`}
-            >
-              {section.label}
+      <div className="flex-1 min-w-0">
+        {searchBar}
+        <div className="space-y-8">
+          {selectedFilter !== null && (
+            <div className="inline-flex items-center gap-2 flex-wrap w-fit bg-branding-gray rounded-lg px-4 py-2.5">
+              <span className={`text-sm text-gray-700 ${merriweather.className}`}>
+                {t(
+                  "Tools.han-nom-dictionaries.dictionaries.general.filter.active"
+                )}
+              </span>
+              <span
+                className={`text-xl text-branding-brown ${
+                  searchMode === "reading" ? NomNaTong.className : ""
+                }`}
+              >
+                {selectedFilter}
+              </span>
+              <button
+                type="button"
+                onClick={() => setSelectedFilter(null)}
+                className="inline-flex items-center gap-1 ml-3 text-sm text-branding-brown hover:underline"
+              >
+                {t(
+                  "Tools.han-nom-dictionaries.dictionaries.general.filter.clear"
+                )}
+                <XMarkIcon className="h-4 w-4" />
+              </button>
             </div>
-          </Link>
-          {section.content}
+          )}
+          {componentMatches.length > 0 && (
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <div
+              className={`text-lg text-branding-brown mb-3 ${merriweather.className}`}
+            >
+              {locale === "en"
+                ? `Characters with components ${queryChars
+                    .map((ch) => `[${ch}]`)
+                    .join("")}`
+                : `Chữ có các thành phần ${queryChars
+                    .map((ch) => `[${ch}]`)
+                    .join("")}`}
+            </div>
+            <div
+              className={`flex flex-wrap gap-4 text-3xl ${NomNaTong.className}`}
+            >
+              {componentMatches.map((ch) => (
+                <Link
+                  key={ch}
+                  href={`/tools/han-nom-dictionaries/general?q=${encodeURIComponent(
+                    ch
+                  )}`}
+                  className="hover:text-branding-brown transition-colors"
+                >
+                  {ch}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Mobile: the same jump + filter tabs in a compact, default-collapsed
+            control so they don't push the results down. */}
+        {showSidebar && (
+          <div className="lg:hidden">
+            <Accordion type="single" collapsible>
+              <AccordionItem
+                value="results-nav"
+                className="border rounded-lg bg-white px-4"
+              >
+                <AccordionTrigger className="text-branding-brown hover:no-underline py-3 text-sm">
+                  {mobileNavLabel}
+                </AccordionTrigger>
+                <AccordionContent className="px-0 pb-0">
+                  <ResultsSidebar {...sidebarProps} bare />
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        )}
+
+        {sourceSections.map((section) => (
+          <div
+            key={section.id}
+            id={section.id}
+            data-general-source-id={section.id}
+            data-general-source-label={section.label}
+            className="scroll-mt-28"
+          >
+            <Link href={section.href} target="_blank" rel="noopener noreferrer">
+              <div
+                title={section.label}
+                className={`text-xl text-branding-brown mb-3 hover:underline ${merriweather.className}`}
+              >
+                {shortLabel(section.label)}
+              </div>
+            </Link>
+            {section.content}
+          </div>
+        ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

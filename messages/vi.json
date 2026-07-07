@@ -190,7 +190,11 @@
         "description": "Chọn phương thức để nhập ký tự Hán-Nôm từ chữ Quốc ngữ, chữ viết tay hoặc bộ thủ.",
         "quoc-ngu-description": "Nhập một từ tiếng Việt bằng Quốc ngữ để tìm các ký tự Hán-Nôm tương ứng.",
         "handwriting-description": "Vẽ ký tự trên bảng và dùng nhận diện chữ viết tay để tìm kiếm. Hiện hỗ trợ chữ Hán và chữ Nôm mượn âm.",
-        "radical-description": "Duyệt ký tự bằng cách chọn bộ thủ, sau đó lọc theo số nét."
+        "radical-description": "Duyệt ký tự bằng cách chọn bộ thủ, sau đó lọc theo số nét.",
+        "radical-tooltip": "Tra cứu theo bộ thủ",
+        "radical-title": "Tra cứu theo bộ thủ",
+        "handwriting-tooltip": "Tra cứu bằng chữ viết tay",
+        "handwriting-title": "Tra cứu bằng chữ viết tay"
       },
       "no-result": "Không tìm thấy kết quả nào.",
       "dictionaries": {
@@ -198,7 +202,31 @@
           "name": "Tra Cứu Hán-Nôm Đa Từ Điển",
           "description": "Tra cứu đồng thời trên nhiều từ điển Hán-Nôm theo chữ Hán-Nôm, âm Quốc Ngữ, hoặc tổ hợp thành phần.",
           "search-placeholder": "Hán Nôm, Quốc Ngữ, hoặc Thành Phần",
-          "author": ""
+          "author": "",
+          "instructions": {
+            "title": "Hướng dẫn tra cứu",
+            "intro": "Công cụ này tra cứu đồng thời trên nhiều từ điển Hán-Nôm. Bạn có thể tra cứu theo bốn cách:",
+            "example-label": "ví dụ",
+            "char-title": "Theo chữ Hán-Nôm",
+            "char-desc": "Nhập một chữ Hán hoặc Nôm để tra trên tất cả các từ điển.",
+            "char-example": "字",
+            "quocngu-title": "Theo âm Quốc Ngữ",
+            "quocngu-desc": "Nhập âm Quốc Ngữ để tìm các chữ có cách đọc đó.",
+            "quocngu-example": "chữ",
+            "components-title": "Theo tổ hợp thành phần",
+            "components-desc": "Nhập hai thành phần trở lên liền nhau, không có khoảng trắng, để tìm các chữ chứa tất cả các thành phần đó.",
+            "components-example": "宀子",
+            "radical-title": "Theo bộ thủ hoặc viết tay",
+            "radical-desc": "Dùng nút 部 bên cạnh ô tìm kiếm để tra chữ theo bộ thủ, hoặc nút bút chì để vẽ chữ bằng tay — rồi chèn chữ vào ô tìm kiếm."
+          },
+          "filter": {
+            "all": "Tất cả",
+            "by-character": "Lọc theo chữ",
+            "by-reading": "Lọc theo âm đọc",
+            "no-source-results": "Không có kết quả phù hợp trong nguồn này",
+            "active": "Đang lọc theo:",
+            "clear": "Xóa bộ lọc"
+          }
         },
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải",

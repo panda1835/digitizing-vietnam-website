@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
-import JumpToSourceMenu from "./JumpToSourceMenu";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
@@ -44,13 +43,11 @@ export default async function DictionaryLayout({
           ]}
         />
       </div>
-      <div className="w-full pb-16 flex flex-col lg:flex-row gap-16 lg:gap-8">
-        <aside className="hidden lg:block shrink-0 font-light font-['Helvetica Neue'] lg:sticky lg:top-20 self-start">
-          <JumpToSourceMenu locale={locale} />
-        </aside>
-
-        {/* Main content area */}
-        <main className="flex-1">{children}</main>
+      {/* Jump-to-source + filter now live in a sticky gutter sidebar / collapsed
+          control rendered by the results component, so the main content spans the
+          full max-width here. */}
+      <div className="w-full pb-16">
+        <main>{children}</main>
       </div>
     </div>
   );
