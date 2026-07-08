@@ -428,6 +428,10 @@
         "title": "Hán-Nôm Studies",
         "description": "Our pilot initiative, the Hán-Nôm Research Hub, features a fully integrated mirror of Columbia University’s Hán-Nôm Sino-Vietnamese Textual Library, as well as a suite of digital tools for textual analysis, including automated OCR, a searchable dictionary platform, manuscript notation, and an interface with the MARKUS and IMMARKUS tools for sinological research."
       },
+      "ca-dao": {
+        "title": "Ca Dao Tục Ngữ",
+        "description": "A digital space for exploring and studying Vietnamese folk verses (ca dao), proverbs, idioms, and folktales, utilizing semantic search and digital dictionary tools."
+      },
       "vietnam-war": {
         "title": "Vietnam War Studies",
         "description": "Archival materials and digital resources on the Second Indochina War."

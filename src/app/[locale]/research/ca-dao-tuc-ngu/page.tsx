@@ -48,7 +48,7 @@ export default async function CaDaoTucNguPage({
       items: [
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item1"),
-          href: "/tools/digital-humanities-tools/ca-dao-tuc-ngu/tu-dien",
+          href: "/research/ca-dao-tuc-ngu/tu-dien",
         },
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item2"),
@@ -61,7 +61,7 @@ export default async function CaDaoTucNguPage({
       items: [
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.learning-item1"),
-          href: "/tools/digital-humanities-tools/ca-dao-tuc-ngu/hoc-ca-dao",
+          href: "/research/ca-dao-tuc-ngu/hoc-ca-dao",
         },
       ],
     },
@@ -119,11 +119,7 @@ export default async function CaDaoTucNguPage({
           title={t("Tools.ca-dao-tuc-ngu.name")}
           subtitle=""
           breadcrumbItems={[
-            { label: t("NavigationBar.tools"), href: "/tools" },
-            {
-              label: t("Tools.digital-humanities-tools.name"),
-              href: "/tools/digital-humanities-tools",
-            },
+            { label: t("ResearchHub.title"), href: "/research" },
             { label: t("Tools.ca-dao-tuc-ngu.name") },
           ]}
           locale={locale}
@@ -188,7 +184,7 @@ export default async function CaDaoTucNguPage({
                     </ul>
                   </div>
                   <Link
-                    href="/tools/digital-humanities-tools/ca-dao-tuc-ngu/tu-dien"
+                    href="/research/ca-dao-tuc-ngu/tu-dien"
                     className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
                   >
                     {t("Tools.ca-dao-tuc-ngu.cards.dictionary.cta")}
@@ -262,7 +258,7 @@ export default async function CaDaoTucNguPage({
                     </p>
                   </div>
                   <Link
-                    href="/tools/digital-humanities-tools/ca-dao-tuc-ngu/hoc-ca-dao"
+                    href="/research/ca-dao-tuc-ngu/hoc-ca-dao"
                     className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
                   >
                     {t("Tools.ca-dao-tuc-ngu.cards.learning.cta")}

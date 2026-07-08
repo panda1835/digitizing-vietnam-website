@@ -429,6 +429,10 @@
         "title": "Nghiên cứu Hán-Nôm",
         "description": "Một sáng kiến thí điểm của chúng tôi, Không gian nghiên cứu Hán–Nôm, tích hợp đầy đủ bản sao của Kho dữ liệu Văn bản Hán–Nôm từ Bộ sưu tập Thư viện số (DLC)  thuộc  Đại học Columbia, đồng thời cung cấp một bộ công cụ số phục vụ phân tích văn bản, bao gồm: hệ thống OCR tự động, nền tảng từ điển tra cứu, công cụ chú giải và ghi chú bản thảo, cùng giao diện kết nối với các công cụ MARKUS và IMMARKUS dành cho nghiên cứu Hán học."
       },
+      "ca-dao": {
+        "title": "Ca Dao Tục Ngữ",
+        "description": "Không gian số khám phá và nghiên cứu kho tàng ca dao, tục ngữ, thành ngữ và truyện cổ tích Việt Nam, kết hợp các công cụ tra cứu từ điển và tìm kiếm ngữ nghĩa."
+      },
       "vietnam-war": {
         "title": "Nghiên cứu Chiến tranh Việt Nam",
         "description": "Tài liệu lưu trữ và nguồn kỹ thuật số về cuộc Chiến tranh Đông Dương lần thứ hai."
