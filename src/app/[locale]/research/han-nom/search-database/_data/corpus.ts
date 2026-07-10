@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { parseStringPromise } from "xml2js";
 import pool from "@/lib/db";
+import { createSupabaseOcrClient } from "@/lib/supabase";
 import {
   titles,
   flattenItems,
@@ -75,7 +76,7 @@ export interface CorpusWork {
   collectionId?: string;
   documentId?: string;
   pages: number;
-  type: "xml" | "db";
+  type: "xml" | "db" | "ocr";
   genre?: CorpusGenre;
   language?: CorpusLanguage;
   attributions?: Attribution[];
@@ -304,12 +305,121 @@ const CORPUS_REGISTRY: CorpusWork[] = [
   },
 ];
 
+// -----------------------------------------------------------------------------
+// OCR (Supabase "ocr" schema) → corpus bridge
+//
+// OCR documents live in a separate Supabase Postgres store, produced by an
+// offline pipeline. They are surfaced here as `type: "ocr"` works with
+// curationStatus "wiki" (machine-generated / unverified). Clicking one opens
+// the existing OCR reader inside the Hán-Nôm collection viewer via externalPath.
+// -----------------------------------------------------------------------------
+
+const OCR_SLUG_PREFIX = "ocr-";
+
+/** Extract the DLC item id (last DOI segment) from a manifest or source URL. */
+function deriveHanNomItemId(
+  manifestUrl?: string | null,
+  sourceUrl?: string | null
+): string {
+  const manifestMatch = (manifestUrl || "").match(
+    /presentation\/([^/]+\/[^/]+)\/manifest/i
+  );
+  if (manifestMatch?.[1]) {
+    return manifestMatch[1].split("/").pop() || "";
+  }
+
+  const raw = (sourceUrl || "").trim();
+  if (!raw) return "";
+  // Handle "doi:10.x/abc", "https://doi.org/10.x/abc", or a bare DOI.
+  const doi = raw
+    .replace(/^doi:/i, "")
+    .replace(/^https?:\/\/doi\.org\//i, "")
+    .trim();
+  return doi.split("/").pop() || "";
+}
+
+/** True for CJK ideograph ranges — used to classify OCR snippets as Hán/Nôm. */
+function textHasHanChars(value: string): boolean {
+  for (const ch of value || "") {
+    const cp = ch.codePointAt(0) || 0;
+    if (
+      (cp >= 0x3400 && cp <= 0x4dbf) ||
+      (cp >= 0x4e00 && cp <= 0x9fff) ||
+      (cp >= 0xf900 && cp <= 0xfaff) ||
+      (cp >= 0x20000 && cp <= 0x2a6df) ||
+      (cp >= 0x2a700 && cp <= 0x2ebef) ||
+      (cp >= 0x2f800 && cp <= 0x2fa1f) ||
+      (cp >= 0x30000 && cp <= 0x3134f)
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/** Fetch all OCR documents and map them into wiki-status CorpusWork entries. */
+async function getOcrWorks(): Promise<CorpusWork[]> {
+  const supabase = createSupabaseOcrClient();
+  if (!supabase) return [];
+
+  try {
+    const { data: documents, error } = await supabase
+      .from("documents")
+      .select("id,slug,title,manifest_url,source_url")
+      .order("title", { ascending: true });
+
+    if (error) throw error;
+    if (!documents || documents.length === 0) return [];
+
+    // One pass over pages → per-document page counts (avoids an N+1 query).
+    const pageCounts = new Map<string, number>();
+    const { data: pages, error: pagesError } = await supabase
+      .from("pages")
+      .select("document_id");
+    if (pagesError) throw pagesError;
+    for (const page of pages || []) {
+      const id = (page as { document_id: string }).document_id;
+      pageCounts.set(id, (pageCounts.get(id) || 0) + 1);
+    }
+
+    return documents.map((doc) => {
+      const itemId = deriveHanNomItemId(doc.manifest_url, doc.source_url);
+      return {
+        slug: `${OCR_SLUG_PREFIX}${doc.slug}`,
+        title: doc.title,
+        pages: pageCounts.get(doc.id) || 0,
+        type: "ocr" as const,
+        curationStatus: "wiki" as const,
+        documentId: doc.id,
+        externalPath: itemId
+          ? `/our-collections/han-nom-collection/${itemId}`
+          : undefined,
+      };
+    });
+  } catch (err) {
+    // Never let an OCR/Supabase outage break the curated corpus library.
+    console.error("Failed to load OCR works for corpus registry", err);
+    return [];
+  }
+}
+
 export async function getCorpusRegistry() {
-  return CORPUS_REGISTRY;
+  const ocrWorks = await getOcrWorks();
+  return [...CORPUS_REGISTRY, ...ocrWorks];
 }
 
 export async function getWorkBySlug(slug: string) {
-  return CORPUS_REGISTRY.find((w) => w.slug === slug);
+  const curated = CORPUS_REGISTRY.find((w) => w.slug === slug);
+  if (curated) return curated;
+
+  // Only OCR (wiki) slugs miss the static registry; avoid the Supabase round-trip
+  // on the hot curated-content path.
+  if (slug.startsWith(OCR_SLUG_PREFIX)) {
+    const ocrWorks = await getOcrWorks();
+    return ocrWorks.find((w) => w.slug === slug);
+  }
+
+  return undefined;
 }
 
 export async function parseCorpusPage(
@@ -685,10 +795,16 @@ function containsWholeWord(text: string, query: string): boolean {
   }
 }
 
-export async function searchCorpus(query: string) {
+export async function searchCorpus(
+  query: string,
+  options?: { includeWiki?: boolean }
+) {
   const results: any[] = [];
   const normalizedQuery = query.trim().toLowerCase();
   if (!normalizedQuery) return results;
+
+  // OCR (wiki) results are opt-out: included by default, skippable by the caller.
+  const includeWiki = options?.includeWiki ?? true;
 
   try {
     const allWorks = await getCorpusRegistry();
@@ -974,6 +1090,116 @@ export async function searchCorpus(query: string) {
     }
   } catch (error) {
     console.error("Multi-table search failed", error);
+  }
+
+  // 6. Search OCR (wiki) text in Supabase — opt-out, isolated from the MySQL
+  //    fan-out so a failure in either store never suppresses the other.
+  if (includeWiki) {
+    try {
+      const supabase = createSupabaseOcrClient();
+      if (supabase) {
+        const wildcard = `%${query.trim()}%`;
+        const { data: versions, error: versionsError } = await supabase
+          .from("text_versions")
+          .select("text,text_unit_id")
+          .ilike("text", wildcard)
+          .limit(500);
+        if (versionsError) throw versionsError;
+
+        const matches = (versions || []).filter((v) =>
+          Boolean((v as { text: string | null }).text?.trim())
+        );
+
+        if (matches.length > 0) {
+          const unitIds = Array.from(
+            new Set(matches.map((m) => (m as { text_unit_id: string }).text_unit_id))
+          );
+          const { data: units, error: unitsError } = await supabase
+            .from("text_units")
+            .select("id,page_id")
+            .in("id", unitIds);
+          if (unitsError) throw unitsError;
+          const pageIdByUnit = new Map(
+            (units || []).map((u) => [
+              (u as { id: string }).id,
+              (u as { page_id: string }).page_id,
+            ])
+          );
+
+          const pageIds = Array.from(new Set(Array.from(pageIdByUnit.values())));
+          const { data: pages, error: pagesError } = await supabase
+            .from("pages")
+            .select("id,document_id,page_number")
+            .in("id", pageIds);
+          if (pagesError) throw pagesError;
+          const pageById = new Map(
+            (pages || []).map((p) => [(p as { id: string }).id, p])
+          );
+
+          const documentIds = Array.from(
+            new Set(
+              (pages || []).map((p) => (p as { document_id: string }).document_id)
+            )
+          );
+          const { data: documents, error: documentsError } = await supabase
+            .from("documents")
+            .select("id,slug,title,manifest_url,source_url")
+            .in("id", documentIds);
+          if (documentsError) throw documentsError;
+          const docById = new Map(
+            (documents || []).map((d) => [(d as { id: string }).id, d])
+          );
+
+          // One hit per (document, page); OCR pages can hold many text units.
+          const seen = new Set<string>();
+          for (const match of matches) {
+            const text = (match as { text: string }).text;
+            const unitId = (match as { text_unit_id: string }).text_unit_id;
+            const pageId = pageIdByUnit.get(unitId);
+            if (!pageId) continue;
+            const page = pageById.get(pageId) as
+              | { document_id: string; page_number: number | null }
+              | undefined;
+            if (!page) continue;
+            const doc = docById.get(page.document_id) as
+              | {
+                  slug: string;
+                  title: string;
+                  manifest_url: string | null;
+                  source_url: string | null;
+                }
+              | undefined;
+            if (!doc) continue;
+
+            const dedupeKey = `${page.document_id}:${page.page_number}`;
+            if (seen.has(dedupeKey)) continue;
+            seen.add(dedupeKey);
+
+            const isNom = textHasHanChars(text);
+            const type = isNom ? "nom" : "qn";
+            const snippet = getSmartSnippet(text, query, isNom ? "nom" : "qn");
+            if (!snippet) continue;
+
+            const itemId = deriveHanNomItemId(doc.manifest_url, doc.source_url);
+            results.push({
+              work: doc.title,
+              location: page.page_number
+                ? `Page ${page.page_number}`
+                : "OCR text",
+              slug: `${OCR_SLUG_PREFIX}${doc.slug}`,
+              type,
+              curationStatus: "wiki",
+              text: snippet,
+              externalPath: itemId
+                ? `/our-collections/han-nom-collection/${itemId}`
+                : undefined,
+            });
+          }
+        }
+      }
+    } catch (error) {
+      console.error("OCR (wiki) search failed", error);
+    }
   }
 
   return results;

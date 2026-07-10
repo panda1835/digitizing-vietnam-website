@@ -7,7 +7,10 @@ export async function GET(request: Request) {
         const query = searchParams.get("q");
 
         if (query) {
-            const results = await searchCorpus(query);
+            // includeWiki defaults to true (opt-out); only an explicit "0"/"false" disables OCR results.
+            const includeWikiParam = searchParams.get("includeWiki");
+            const includeWiki = !(includeWikiParam === "0" || includeWikiParam === "false");
+            const results = await searchCorpus(query, { includeWiki });
             return NextResponse.json(results);
         }
 

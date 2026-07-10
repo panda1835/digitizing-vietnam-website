@@ -4,11 +4,19 @@ import * as React from "react";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { Search, ChevronRight, ChevronUp, ChevronDown, X } from "lucide-react";
+import {
+  Search,
+  ChevronRight,
+  ChevronUp,
+  ChevronDown,
+  X,
+  AlertTriangle,
+} from "lucide-react";
 import localFont from "next/font/local";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -41,6 +49,7 @@ interface SearchResult {
   type: "han" | "nom" | "qn";
   book?: string;
   externalPath?: string;
+  curationStatus?: "curated" | "wiki";
 }
 
 type SortKey = "index" | "title" | "year" | "pages";
@@ -60,6 +69,12 @@ export default function CorpusBrowser() {
   const [searchQuery, setSearchQuery] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(true);
   const [isSearching, setIsSearching] = React.useState(false);
+  // OCR/wiki results are opt-out: searched by default, user can uncheck.
+  const [includeWiki, setIncludeWiki] = React.useState(true);
+  const includeWikiRef = React.useRef(includeWiki);
+  React.useEffect(() => {
+    includeWikiRef.current = includeWiki;
+  }, [includeWiki]);
   const [activeTab, setActiveTab] = React.useState<"library" | "results">(
     "library"
   );
@@ -104,7 +119,7 @@ export default function CorpusBrowser() {
       const response = await fetch(
         `/api/research/han-nom/search-database?q=${encodeURIComponent(
           normalizedQuery
-        )}`
+        )}&includeWiki=${includeWikiRef.current ? "1" : "0"}`
       );
       const data = await response.json();
       setSearchResults(data);
@@ -133,6 +148,18 @@ export default function CorpusBrowser() {
     lastExecutedQueryRef.current = urlQuery;
     void executeSearch(urlQuery);
   }, [executeSearch, searchParams]);
+
+  // Re-run the active search when the wiki toggle flips (skip initial mount).
+  const wikiToggleMounted = React.useRef(false);
+  React.useEffect(() => {
+    if (!wikiToggleMounted.current) {
+      wikiToggleMounted.current = true;
+      return;
+    }
+    if (lastExecutedQueryRef.current) {
+      void executeSearch(lastExecutedQueryRef.current);
+    }
+  }, [includeWiki, executeSearch]);
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -344,6 +371,26 @@ export default function CorpusBrowser() {
           <p className="text-[10px] text-muted-foreground mt-2 italic">
             {t("searchHelpText")}
           </p>
+
+          {/* Wiki (OCR) opt-out toggle + accuracy warning */}
+          <div className="mt-3 pt-3 border-t border-branding-brown/10 dark:border-white/5">
+            <label className="flex items-start gap-2 cursor-pointer">
+              <Checkbox
+                checked={includeWiki}
+                onCheckedChange={(checked) => setIncludeWiki(checked === true)}
+                className="mt-0.5"
+              />
+              <span className="text-xs text-branding-black dark:text-zinc-200 font-medium leading-snug">
+                {t("includeWikiLabel")}
+              </span>
+            </label>
+            {includeWiki && (
+              <p className="flex items-start gap-1.5 text-[10px] text-amber-700 dark:text-amber-400 mt-2 leading-snug">
+                <AlertTriangle className="h-3 w-3 shrink-0 mt-0.5" />
+                <span>{t("ocrAccuracyWarning")}</span>
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Instant Title Filter */}
@@ -704,7 +751,18 @@ export default function CorpusBrowser() {
               {t("totalMatches", { count: searchResults.length })}
             </p>
           </div>
+          {searchResults.some((r) => r.curationStatus === "wiki") && (
+            <div className="flex items-start gap-2 mb-4 px-4 py-3 rounded-lg border border-amber-300/60 bg-amber-50 dark:border-amber-500/30 dark:bg-amber-500/10">
+              <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400" />
+              <p className="text-xs text-amber-800 dark:text-amber-300 leading-snug">
+                {t("wikiResultsWarning")}
+              </p>
+            </div>
+          )}
           {groupedSearchResults.map((group) => {
+            const isWikiGroup = group.results.some(
+              (r) => r.curationStatus === "wiki"
+            );
             const isExpanded = expandedWorks.has(group.slug);
             return (
               <div
@@ -724,10 +782,18 @@ export default function CorpusBrowser() {
                     >
                       <ChevronDown className="h-4 w-4 text-branding-brown dark:text-branding-orange" />
                     </div>
-                    <div>
+                    <div className="flex items-center gap-2">
                       <h3 className="font-merriweather font-bold text-branding-black dark:text-zinc-100 group-hover:text-branding-brown transition-colors">
                         {group.work}
                       </h3>
+                      {isWikiGroup && (
+                        <Badge
+                          variant="outline"
+                          className="text-[9px] px-1.5 h-4 font-medium border-amber-400/60 text-amber-700 dark:text-amber-400"
+                        >
+                          {t("wiki")}
+                        </Badge>
+                      )}
                     </div>
                   </div>
                   <Badge className="bg-branding-brown/10 text-branding-brown dark:bg-white/10 dark:text-zinc-300 border-none tabular-nums font-semibold">
