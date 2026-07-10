@@ -9,7 +9,14 @@ import {
 
 import { House } from "lucide-react";
 
-export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {
+export default function BreadcrumbAndSearchBar({
+  locale,
+  breadcrumbItems,
+  // When true, the current (last) crumb doubles as the page title: rendered a
+  // little larger than the rest of the breadcrumb. Used by PageHeader so the
+  // title lives in the breadcrumb instead of a separate headline below it.
+  emphasizeCurrent = false,
+}) {
   return (
     <div className="mb-10 mt-16">
       <Breadcrumb>
@@ -31,7 +38,13 @@ export default function BreadcrumbAndSearchBar({ locale, breadcrumbItems }) {
             </BreadcrumbList>
           ))}
           <BreadcrumbItem>
-            <BreadcrumbPage>
+            <BreadcrumbPage
+              className={
+                emphasizeCurrent
+                  ? "text-xl font-semibold text-branding-black"
+                  : undefined
+              }
+            >
               {breadcrumbItems.slice(-1)[0].label}
             </BreadcrumbPage>
           </BreadcrumbItem>

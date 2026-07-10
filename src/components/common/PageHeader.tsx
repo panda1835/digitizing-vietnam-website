@@ -1,37 +1,27 @@
-"use client";
 import type { ReactNode } from "react";
-import { useTranslations } from "next-intl";
-import { Merriweather } from "next/font/google";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Separator } from "@/components/ui/separator";
 
-const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
-
 export function PageHeader({
-  title,
   subtitle,
   breadcrumbItems,
   locale,
 }: {
-  title: ReactNode;
+  // Kept for call-site compatibility; the title now renders as the current
+  // (last) breadcrumb crumb rather than a separate headline.
+  title?: ReactNode;
   subtitle: ReactNode;
   breadcrumbItems: { label: string; href?: string }[];
   locale: string;
 }) {
-  const t = useTranslations();
   return (
     <div className=" w-full">
+      {/* The last breadcrumb crumb doubles as the page title (see emphasizeCurrent). */}
       <BreadcrumbAndSearchBar
         locale={locale}
         breadcrumbItems={breadcrumbItems}
+        emphasizeCurrent
       />
-
-      {/* Headline */}
-      <div
-        className={`${merriweather.className} text-branding-black text-[32px]`}
-      >
-        {title}
-      </div>
 
       {/* Subheadline */}
       <div
