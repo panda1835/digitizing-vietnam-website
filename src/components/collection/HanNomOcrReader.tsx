@@ -11,6 +11,7 @@ import {
   useState,
 } from "react";
 import { useSearchParams } from "next/navigation";
+import localFont from "next/font/local";
 import {
   ChevronLeft,
   ChevronRight,
@@ -33,6 +34,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -45,6 +51,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+
+const NomNaTong = localFont({
+  src: "../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+});
 
 const DEFAULT_OCR_FONT_SIZE = 20;
 const MIN_OCR_FONT_SIZE = 10;
@@ -889,6 +899,10 @@ export default function HanNomOcrReader({
     });
   };
 
+  // Boxes stay mounted as invisible hover targets so the character popup keeps
+  // working on a clean image; they only paint when the OCR layer is shown.
+  const showBoxOutlines = showBoundingBoxes && visibleLayerIds.includes("ocr");
+
   return (
     <section className="mt-10">
       <div className="mb-3 flex items-center justify-end gap-2">
@@ -1111,9 +1125,9 @@ export default function HanNomOcrReader({
                   }}
                 >
                   <div
-                    className="relative mx-auto"
+                    className="relative mx-auto w-fit"
                     style={{
-                      width: `${imageZoom * 100}%`,
+                      height: `${imageZoom * 100}%`,
                       transform: `rotate(${imageRotation}deg)`,
                     }}
                   >
@@ -1124,9 +1138,9 @@ export default function HanNomOcrReader({
                         selectedCanvas?.label ||
                         (locale === "vi" ? "Trang OCR" : "OCR page")
                       }
-                      className="block h-auto w-full"
+                      className="block h-full w-auto"
                     />
-                    {showBoundingBoxes ? (
+                    {ocrData?.units?.length ? (
                       <div className="absolute inset-0">
                         {ocrData?.units?.map((unit) => {
                           const boxStyle = getBoxStyle(unit);
@@ -1150,36 +1164,63 @@ export default function HanNomOcrReader({
                                 }
                               }}
                             >
-                              <PopoverTrigger asChild>
-                                <div
-                                  role="button"
-                                  tabIndex={0}
-                                  className={`absolute border transition-colors ${
-                                    isHighlighted
-                                      ? "border-blue-600 bg-blue-500/25"
-                                      : "border-red-500/70 bg-red-500/10 hover:bg-red-500/20"
-                                  }`}
-                                  style={boxStyle}
-                                  title={
-                                    reading
-                                      ? `${unit.text} · ${reading}`
-                                      : unit.text
-                                  }
-                                  onMouseEnter={() => setHoveredUnitId(unit.id)}
-                                  onMouseLeave={() => setHoveredUnitId(null)}
-                                  onClick={() => {
-                                    if (suppressBoxClickRef.current) {
-                                      return;
-                                    }
+                              <HoverCard
+                                open={
+                                  hoveredUnitId === unit.id &&
+                                  lookupUnitId !== unit.id
+                                }
+                                openDelay={0}
+                                closeDelay={0}
+                              >
+                                <PopoverTrigger asChild>
+                                  <HoverCardTrigger asChild>
+                                    <div
+                                      role="button"
+                                      tabIndex={0}
+                                      className={`absolute border transition-colors ${
+                                        !showBoxOutlines
+                                          ? "border-transparent"
+                                          : isHighlighted
+                                            ? "border-blue-600 bg-blue-500/25"
+                                            : "border-red-500/70 bg-red-500/10 hover:bg-red-500/20"
+                                      }`}
+                                      style={boxStyle}
+                                      onMouseEnter={() =>
+                                        setHoveredUnitId(unit.id)
+                                      }
+                                      onMouseLeave={() => setHoveredUnitId(null)}
+                                      onClick={() => {
+                                        if (suppressBoxClickRef.current) {
+                                          return;
+                                        }
 
-                                    scrollToUnit(unit.id);
-                                    setLookupUnitId(unit.id);
-                                  }}
-                                  onKeyDown={(event) =>
-                                    handleBoxKeyDown(event, unit.id)
-                                  }
-                                />
-                              </PopoverTrigger>
+                                        scrollToUnit(unit.id);
+                                        setLookupUnitId(unit.id);
+                                      }}
+                                      onKeyDown={(event) =>
+                                        handleBoxKeyDown(event, unit.id)
+                                      }
+                                    />
+                                  </HoverCardTrigger>
+                                </PopoverTrigger>
+                                <HoverCardContent
+                                  side="right"
+                                  align="center"
+                                  sideOffset={8}
+                                  className="pointer-events-none w-auto min-w-0 px-2 py-1 duration-75"
+                                >
+                                  <div
+                                    className={`text-center text-4xl leading-none ${NomNaTong.className}`}
+                                  >
+                                    {unit.text}
+                                  </div>
+                                  {reading ? (
+                                    <div className="mt-0.5 text-center text-lg leading-tight text-muted-foreground">
+                                      {reading}
+                                    </div>
+                                  ) : null}
+                                </HoverCardContent>
+                              </HoverCard>
                               <PopoverContent
                                 className="w-96 max-w-3xl rounded-lg"
                                 onOpenAutoFocus={(event) =>
