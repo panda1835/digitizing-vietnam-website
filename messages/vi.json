@@ -408,7 +408,7 @@
       },
       "hoc-ca-dao": {
         "title": "Học Thành ngữ, Tục ngữ, Ca dao",
-        "intro": "Toàn bộ dữ liệu này được trích xuất từ bộ sách \"Thi Ca Bình Dân Việt Nam\" do Nguyễn Tấn Long, Phan Canh sưu tầm và biên soạn, được xuất bản năm 1975, sách được số hoá bởi cộng đồng Tve-4u.",
+        "intro": "Toàn bộ dữ liệu này được trích xuất từ sự kết hợp giữa bộ sách \"Thi Ca Bình Dân Việt Nam\" (do Nguyễn Tấn Long, Phan Canh sưu tầm và biên soạn, được xuất bản năm 1975, sách được số hoá bởi cộng đồng Tve-4u) và cuốn \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" của Việt Chương.",
         "topic_label": "Chọn chủ đề",
         "instruction_heading": "Lời dẫn",
         "poem_interpretation_heading": "Lời bình",

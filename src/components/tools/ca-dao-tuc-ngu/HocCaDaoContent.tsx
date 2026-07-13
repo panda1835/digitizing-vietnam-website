@@ -97,6 +97,8 @@ export function HocCaDaoContent({ locale }: { locale: string }) {
         return "Marriage & Custom";
       case "Chủ đề về cái đẹp":
         return "Beauty & Integrity";
+      case "Chủ đề về nông nghiệp":
+        return "Agriculture & Labor";
       default:
         return topic;
     }

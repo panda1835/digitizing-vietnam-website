@@ -407,7 +407,7 @@
       },
       "hoc-ca-dao": {
         "title": "Learn Idioms, Proverbs, and Folk Poetry",
-        "intro": "All data in this section is extracted from the book \"Thi Ca Bình Dân Việt Nam\" collected and compiled by Nguyễn Tấn Long and Phan Canh, published in 1975, digitized by the Tve-4u community.",
+        "intro": "All data in this section is a mix extracted from the book \"Thi Ca Bình Dân Việt Nam\" (collected and compiled by Nguyễn Tấn Long and Phan Canh, published in 1975, digitized by the Tve-4u community) and \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" by Việt Chương.",
         "topic_label": "Select Topic",
         "instruction_heading": "Introduction",
         "poem_interpretation_heading": "Interpretation",
