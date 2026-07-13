@@ -39,10 +39,6 @@ type OcrTextVersion = Pick<
   | "text"
   | "text_unit_id"
 >;
-type OcrTextCandidate = Pick<
-  OcrTableRows<"text_candidates">,
-  "rank" | "source" | "text" | "text_unit_id"
->;
 type OcrSupabaseClient = SupabaseClient<Database, "ocr">;
 
 const PAGE_SIZE = 1000;
@@ -279,33 +275,6 @@ async function fetchTextVersions(
   return versions;
 }
 
-async function fetchTextCandidates(
-  supabase: OcrSupabaseClient,
-  textUnitIds: string[]
-) {
-  const candidates: OcrTextCandidate[] = [];
-
-  if (textUnitIds.length === 0) {
-    return candidates;
-  }
-
-  for (let index = 0; index < textUnitIds.length; index += VERSION_BATCH_SIZE) {
-    const ids = textUnitIds.slice(index, index + VERSION_BATCH_SIZE);
-    const { data, error } = await supabase
-      .from("text_candidates")
-      .select("rank,source,text,text_unit_id")
-      .in("text_unit_id", ids);
-
-    if (error) {
-      throw error;
-    }
-
-    candidates.push(...((data || []) as OcrTextCandidate[]));
-  }
-
-  return candidates;
-}
-
 function selectLatestHumanVersion(versions: OcrTextVersion[]) {
   const byCreatedAtDesc = [...versions].sort(
     (a, b) =>
@@ -400,13 +369,12 @@ export async function GET(request: Request) {
 
     const textUnits = await fetchAllTextUnits(supabase, page.id, ocrRun.id);
     const textUnitIds = textUnits.map((unit) => unit.id);
-    const [textVersions, textCandidates] = await Promise.all([
-      fetchTextVersions(supabase, ocrRun.id, textUnitIds),
-      fetchTextCandidates(supabase, textUnitIds),
-    ]);
+    const textVersions = await fetchTextVersions(
+      supabase,
+      ocrRun.id,
+      textUnitIds
+    );
     const versionsByUnitId = new Map<string, OcrTextVersion[]>();
-    const ocrCandidateByUnitId = new Map<string, OcrTextCandidate>();
-    const candidatesBySource = new Map<string, Map<string, OcrTextCandidate>>();
 
     for (const version of textVersions) {
       const existing = versionsByUnitId.get(version.text_unit_id) || [];
@@ -414,38 +382,14 @@ export async function GET(request: Request) {
       versionsByUnitId.set(version.text_unit_id, existing);
     }
 
-    for (const candidate of textCandidates) {
-      const candidatesByUnitId =
-        candidatesBySource.get(candidate.source) || new Map();
-      const existing = candidatesByUnitId.get(candidate.text_unit_id);
-
-      if (!existing || candidate.rank < existing.rank) {
-        candidatesByUnitId.set(candidate.text_unit_id, candidate);
-        candidatesBySource.set(candidate.source, candidatesByUnitId);
-      }
-    }
-
-    for (const candidate of Array.from(
-      candidatesBySource.get("ocr")?.values() || []
-    )) {
-      ocrCandidateByUnitId.set(candidate.text_unit_id, candidate);
-    }
-
+    // Main Hán-Nôm text: corrected data only — the latest human edit, otherwise
+    // the accepted OCR version. We deliberately never fall back to raw model
+    // candidates, which are unreviewed guesses.
     const units = textUnits.map((unit) => {
       const versions = versionsByUnitId.get(unit.id) || [];
       const humanVersion = selectLatestHumanVersion(versions);
-      const ocrCandidate = ocrCandidateByUnitId.get(unit.id);
       const ocrVersion = selectLatestOcrVersion(versions);
-      const selectedText =
-        humanVersion?.text || ocrCandidate?.text || ocrVersion?.text || "";
-      const selectedSource = humanVersion
-        ? humanVersion.source
-        : ocrCandidate
-        ? ocrCandidate.source
-        : ocrVersion?.source || null;
-      const selectedConfidence = humanVersion
-        ? humanVersion.confidence
-        : ocrVersion?.confidence || null;
+      const selected = humanVersion || ocrVersion;
 
       return {
         id: unit.id,
@@ -460,25 +404,54 @@ export async function GET(request: Request) {
           y3: unit.bbox_y3,
           y4: unit.bbox_y4,
         },
-        text: selectedText,
-        source: selectedSource,
-        confidence: selectedConfidence,
+        text: selected?.text || "",
+        source: selected?.source || null,
+        confidence: selected?.confidence ?? null,
       };
     });
+
+    // Additional layers (e.g. Quốc ngữ): corrected versions only, latest per
+    // unit. Built from text_versions whose source is neither the Hán-Nôm "ocr"
+    // layer nor a "human" edit of it. A source with no corrected text produces
+    // an empty layer, which is filtered out so the reader hides that toggle.
+    const latestVersionBySourceUnit = new Map<
+      string,
+      Map<string, OcrTextVersion>
+    >();
+    for (const version of textVersions) {
+      const normalizedSource = version.source.toLowerCase();
+      if (normalizedSource === "ocr" || normalizedSource === "human") {
+        continue;
+      }
+
+      const byUnit =
+        latestVersionBySourceUnit.get(version.source) ||
+        new Map<string, OcrTextVersion>();
+      const existing = byUnit.get(version.text_unit_id);
+
+      if (
+        !existing ||
+        new Date(version.created_at).getTime() >
+          new Date(existing.created_at).getTime()
+      ) {
+        byUnit.set(version.text_unit_id, version);
+        latestVersionBySourceUnit.set(version.source, byUnit);
+      }
+    }
+
     const textLayers = [
       {
         id: "ocr",
         source: "ocr",
         units: units.map((unit) => ({ id: unit.id, text: unit.text })),
       },
-      ...Array.from(candidatesBySource.entries())
-        .filter(([source]) => source !== "ocr")
-        .map(([source, candidatesByUnitId]) => ({
+      ...Array.from(latestVersionBySourceUnit.entries())
+        .map(([source, byUnit]) => ({
           id: source,
           source,
           units: textUnits.map((unit) => ({
             id: unit.id,
-            text: candidatesByUnitId.get(unit.id)?.text.trim() || "",
+            text: byUnit.get(unit.id)?.text.trim() || "",
           })),
         }))
         .filter((layer) => layer.units.some((unit) => unit.text)),

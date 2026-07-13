@@ -2,6 +2,7 @@
 
 import {
   CSSProperties,
+  Fragment,
   KeyboardEvent,
   PointerEvent,
   useEffect,
@@ -17,12 +18,21 @@ import {
   Eye,
   EyeOff,
   Loader2,
+  Maximize,
+  Minimize,
+  RotateCw,
   ScanSearch,
   ZoomIn,
   ZoomOut,
 } from "lucide-react";
 import MiradorViewer from "@/components/mirador/MiradorViewer";
 import LookupableHanNomText from "@/components/common/LookupableHanNomText";
+import HanNomCharacterLookup from "@/components/common/HanNomCharacterLookup";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -42,6 +52,8 @@ const MAX_OCR_FONT_SIZE = 40;
 const OCR_FONT_SIZE_STEP = 2;
 const EXPORT_BATCH_SIZE = 5;
 const MIN_PANEL_WIDTH = 280;
+// OCR text layers shown as always-visible toggles, in display order.
+const LAYER_TOGGLE_ORDER = ["ocr", "quoc-ngu"];
 
 type ExportScope = "current" | "all" | "range";
 type TextKind = string;
@@ -265,13 +277,15 @@ export default function HanNomOcrReader({
   const [hoveredUnitId, setHoveredUnitId] = useState<string | null>(null);
   const [activeUnitId, setActiveUnitId] = useState<string | null>(null);
   const [imageZoom, setImageZoom] = useState(1);
+  const [imageRotation, setImageRotation] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [lookupUnitId, setLookupUnitId] = useState<string | null>(null);
   const [ocrFontSize, setOcrFontSize] = useState(DEFAULT_OCR_FONT_SIZE);
   const [quocNguFontSize, setQuocNguFontSize] = useState(DEFAULT_OCR_FONT_SIZE);
   const [isDraggingImage, setIsDraggingImage] = useState(false);
   const [isExportOpen, setIsExportOpen] = useState(false);
   const [exportKind, setExportKind] = useState<TextKind>("ocr");
   const [visibleLayerIds, setVisibleLayerIds] = useState<string[]>([]);
-  const [isLayerSelectorOpen, setIsLayerSelectorOpen] = useState(false);
   const [exportScope, setExportScope] = useState<ExportScope>("current");
   const [rangeStart, setRangeStart] = useState("1");
   const [rangeEnd, setRangeEnd] = useState("1");
@@ -280,9 +294,11 @@ export default function HanNomOcrReader({
   const [panelWidths, setPanelWidths] = useState<number[] | null>(null);
   const [isResizingPanel, setIsResizingPanel] = useState(false);
   const ocrPanelRef = useRef<HTMLDivElement | null>(null);
+  const quocNguPanelRef = useRef<HTMLDivElement | null>(null);
   const imagePanelRef = useRef<HTMLDivElement | null>(null);
   const ocrSectionRef = useRef<HTMLElement | null>(null);
   const quocNguSectionRef = useRef<HTMLElement | null>(null);
+  const textColumnRef = useRef<HTMLDivElement | null>(null);
   const imageScrollerRef = useRef<HTMLDivElement | null>(null);
   const panelResizeRef = useRef<{
     dividerIndex: number;
@@ -300,6 +316,7 @@ export default function HanNomOcrReader({
   });
   const suppressBoxClickRef = useRef(false);
   const textUnitRefs = useRef(new Map<string, HTMLSpanElement>());
+  const quocNguUnitRefs = useRef(new Map<string, HTMLSpanElement>());
 
   useEffect(() => {
     if (!selectedCanvas) {
@@ -349,24 +366,124 @@ export default function HanNomOcrReader({
     setActiveUnitId(null);
     setHoveredUnitId(null);
     setImageZoom(1);
+    setImageRotation(0);
+    setLookupUnitId(null);
     setIsDraggingImage(false);
     imageScrollerRef.current?.scrollTo({ left: 0, top: 0 });
     ocrPanelRef.current?.scrollTo({ top: 0 });
+    quocNguPanelRef.current?.scrollTo({ top: 0 });
   }, [selectedCanvas?.id]);
+
+  // Track browser fullscreen so the toolbar button reflects the current state.
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(Boolean(document.fullscreenElement));
+    };
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
+  const toggleFullscreen = () => {
+    const element = imagePanelRef.current;
+    if (!element) {
+      return;
+    }
+    if (document.fullscreenElement) {
+      void document.exitFullscreen();
+    } else {
+      void element.requestFullscreen?.();
+    }
+  };
 
   const ocrText = ocrData?.text?.trim() || "";
   const textLayers = ocrData?.textLayers || [];
+  const availableLayerIds = new Set(textLayers.map((layer) => layer.id));
+
+  // Line breaks aren't stored in the OCR text (each unit is a single glyph), so
+  // we derive column boundaries from the bounding boxes: this text runs in
+  // vertical columns, so a new column (i.e. a line break) starts wherever a
+  // character's horizontal center jumps by more than ~half a character width
+  // from the previous one. Both text panels share unit ids, so the same break
+  // points apply to the Hán-Nôm and Quốc ngữ layers alike.
+  const columnStartUnitIds = useMemo(() => {
+    const units = ocrData?.units ?? [];
+    const set = new Set<string>();
+    if (units.length < 2) {
+      return set;
+    }
+
+    const centerX = (unit: NonNullable<OcrResponse["units"]>[number]) => {
+      const xs = [
+        unit.bbox.x1,
+        unit.bbox.x2,
+        unit.bbox.x3,
+        unit.bbox.x4,
+      ].filter((value): value is number => typeof value === "number");
+      return xs.length
+        ? xs.reduce((sum, value) => sum + value, 0) / xs.length
+        : null;
+    };
+    const widthX = (unit: NonNullable<OcrResponse["units"]>[number]) => {
+      const xs = [
+        unit.bbox.x1,
+        unit.bbox.x2,
+        unit.bbox.x3,
+        unit.bbox.x4,
+      ].filter((value): value is number => typeof value === "number");
+      return xs.length ? Math.max(...xs) - Math.min(...xs) : 0;
+    };
+
+    const widths = units
+      .map(widthX)
+      .filter((width) => width > 0)
+      .sort((a, b) => a - b);
+    const medianWidth = widths.length
+      ? widths[Math.floor(widths.length / 2)]
+      : 0;
+    const threshold = Math.max(medianWidth * 0.5, 0.015);
+
+    let previousX = centerX(units[0]);
+    for (let index = 1; index < units.length; index += 1) {
+      const cx = centerX(units[index]);
+      if (cx != null && previousX != null && Math.abs(cx - previousX) > threshold) {
+        set.add(units[index].id);
+      }
+      if (cx != null) {
+        previousX = cx;
+      }
+    }
+    return set;
+  }, [ocrData]);
   const visibleTextLayers = textLayers.filter((layer) =>
     visibleLayerIds.includes(layer.id)
   );
   const visibleAdditionalLayer = visibleTextLayers.find(
     (layer) => layer.id !== "ocr"
   );
-  const hasAdditionalLayer = Boolean(visibleAdditionalLayer);
   const debugImageUrl =
     ocrData?.page?.image_url || selectedCanvas?.imageUrl || "";
   const hasOcr = Boolean(ocrText && ocrData?.units?.length);
   const readOcrDisabled = isLoading || !hasOcr;
+  // Whenever OCR exists we use the custom image viewer (interactive character
+  // boxes + dictionary lookup) instead of Mirador. We only fall back to Mirador
+  // once a fetch has resolved with no OCR data — this avoids mounting Mirador
+  // during the initial load of an OCR document.
+  const showCustomImage = ocrData === null || hasOcr;
+  // Quốc ngữ reading per unit, for the character-lookup popover on the image.
+  const readingByUnitId = useMemo(() => {
+    const map = new Map<string, string>();
+    const quocNguLayer = (ocrData?.textLayers || []).find(
+      (layer) => layer.id === "quoc-ngu"
+    );
+    for (const unit of quocNguLayer?.units || []) {
+      const reading = unit.text?.trim();
+      if (reading) {
+        map.set(unit.id, reading);
+      }
+    }
+    return map;
+  }, [ocrData]);
   const readOcrTitle = readOcrDisabled
     ? locale === "vi"
       ? "OCR không khả dụng"
@@ -392,7 +509,9 @@ export default function HanNomOcrReader({
       return;
     }
 
-    const panelCount = visibleTextLayers.length + 1;
+    // Layout is always two horizontally-resizable panels: image + text column
+    // (the text layers stack vertically inside the column).
+    const panelCount = 2;
     setPanelWidths((widths) => (widths?.length === panelCount ? widths : null));
   }, [isLoading, ocrData, visibleTextLayers.length]);
 
@@ -445,11 +564,7 @@ export default function HanNomOcrReader({
     event: PointerEvent<HTMLDivElement>,
     dividerIndex: number
   ) => {
-    const panels = [
-      imagePanelRef.current,
-      ...(visibleLayerIds.includes("ocr") ? [ocrSectionRef.current] : []),
-      ...(hasAdditionalLayer ? [quocNguSectionRef.current] : []),
-    ];
+    const panels = [imagePanelRef.current, textColumnRef.current];
     const widths = panels.map((panel) => panel?.getBoundingClientRect().width);
 
     if (widths.some((width): width is undefined => width === undefined)) {
@@ -503,13 +618,10 @@ export default function HanNomOcrReader({
     setIsResizingPanel(false);
   };
 
-  const scrollToUnit = (unitId: string) => {
-    setActiveUnitId(unitId);
-    setHoveredUnitId(unitId);
-
-    const panel = ocrPanelRef.current;
-    const textUnit = textUnitRefs.current.get(unitId);
-
+  const scrollPanelToUnit = (
+    panel: HTMLDivElement | null,
+    textUnit: HTMLSpanElement | undefined
+  ) => {
     if (!panel || !textUnit) {
       return;
     }
@@ -523,6 +635,19 @@ export default function HanNomOcrReader({
       top: unitOffsetInPanel + unitRect.height / 2,
       behavior: "smooth",
     });
+  };
+
+  const scrollToUnit = (unitId: string) => {
+    setActiveUnitId(unitId);
+    setHoveredUnitId(unitId);
+
+    // Keep both text panels in sync — a unit shares the same id across the
+    // Hán-Nôm (ocr) and Quốc ngữ layers.
+    scrollPanelToUnit(ocrPanelRef.current, textUnitRefs.current.get(unitId));
+    scrollPanelToUnit(
+      quocNguPanelRef.current,
+      quocNguUnitRefs.current.get(unitId)
+    );
   };
 
   const handleBoxKeyDown = (
@@ -762,63 +887,37 @@ export default function HanNomOcrReader({
 
       return layerIds.includes("ocr") ? ["ocr", layerId] : [layerId];
     });
-    setIsLayerSelectorOpen(false);
   };
 
   return (
     <section className="mt-10">
-      <div className="mb-3 flex items-center justify-end">
-        <div className="relative">
-          <span title={readOcrTitle}>
-            <button
-              type="button"
-              className={`inline-flex h-10 items-center gap-2 rounded-md border px-4 text-sm font-medium transition-colors ${
-                showBoxes
-                  ? "border-branding-brown bg-branding-brown text-white"
-                  : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
-              } disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400`}
-              onClick={() => setIsLayerSelectorOpen((open) => !open)}
-              disabled={readOcrDisabled}
-              aria-expanded={isLayerSelectorOpen}
-              aria-haspopup="menu"
-            >
-              <ScanSearch className="h-4 w-4" aria-hidden="true" />
-              {locale === "vi" ? "Đọc OCR" : "Read OCR"}
-            </button>
-          </span>
-          {isLayerSelectorOpen ? (
-            <div
-              role="menu"
-              className="absolute right-0 z-20 mt-2 w-56 rounded-md border border-gray-200 bg-white p-1 shadow-lg"
-            >
-              {textLayers.map((layer) => {
-                const isVisible = visibleLayerIds.includes(layer.id);
-                return (
-                  <button
-                    key={layer.id}
-                    type="button"
-                    role="menuitemcheckbox"
-                    aria-checked={isVisible}
-                    onClick={() => toggleTextLayer(layer.id)}
-                    className="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50"
-                  >
-                    <span
-                      className={`flex h-4 w-4 items-center justify-center rounded border ${
-                        isVisible
-                          ? "border-branding-brown bg-branding-brown text-white"
-                          : "border-gray-300"
-                      }`}
-                      aria-hidden="true"
-                    >
-                      {isVisible ? "✓" : ""}
-                    </span>
-                    {getTextLayerLabel(layer.source, locale)}
-                  </button>
-                );
-              })}
-            </div>
-          ) : null}
-        </div>
+      <div className="mb-3 flex items-center justify-end gap-2">
+        {LAYER_TOGGLE_ORDER.map((layerId) => {
+          const isVisible = visibleLayerIds.includes(layerId);
+          const isAvailable = availableLayerIds.has(layerId);
+          const disabled = isLoading || !isAvailable;
+          const label = getTextLayerLabel(layerId, locale);
+
+          return (
+            <span key={layerId} title={disabled ? readOcrTitle : label}>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={isVisible}
+                className={`inline-flex h-10 items-center gap-2 rounded-md border px-4 text-sm font-medium transition-colors ${
+                  isVisible
+                    ? "border-branding-brown bg-branding-brown text-white"
+                    : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+                } disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400`}
+                onClick={() => toggleTextLayer(layerId)}
+                disabled={disabled}
+              >
+                <ScanSearch className="h-4 w-4" aria-hidden="true" />
+                {label}
+              </button>
+            </span>
+          );
+        })}
       </div>
 
       <div
@@ -835,8 +934,12 @@ export default function HanNomOcrReader({
               : "w-full lg:flex-1"
           }`}
         >
-          {showBoxes ? (
-            <div className="flex h-[700px] flex-col overflow-hidden rounded-lg border border-gray-200 bg-gray-100">
+          {showCustomImage ? (
+            <div
+              className={`flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-gray-100 ${
+                isFullscreen ? "h-screen" : "h-[700px]"
+              }`}
+            >
               <div
                 role="toolbar"
                 aria-label={
@@ -939,6 +1042,51 @@ export default function HanNomOcrReader({
                   >
                     <ZoomIn className="h-4 w-4" aria-hidden="true" />
                   </button>
+                  <div
+                    className="mx-1 h-5 w-px bg-gray-200"
+                    aria-hidden="true"
+                  />
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
+                    onClick={() =>
+                      setImageRotation((value) => (value + 90) % 360)
+                    }
+                    aria-label={locale === "vi" ? "Xoay" : "Rotate"}
+                    title={locale === "vi" ? "Xoay 90°" : "Rotate 90°"}
+                  >
+                    <RotateCw className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded text-gray-700 hover:bg-gray-100"
+                    onClick={toggleFullscreen}
+                    aria-label={
+                      isFullscreen
+                        ? locale === "vi"
+                          ? "Thoát toàn màn hình"
+                          : "Exit fullscreen"
+                        : locale === "vi"
+                        ? "Toàn màn hình"
+                        : "Fullscreen"
+                    }
+                    title={
+                      isFullscreen
+                        ? locale === "vi"
+                          ? "Thoát toàn màn hình"
+                          : "Exit fullscreen"
+                        : locale === "vi"
+                        ? "Toàn màn hình"
+                        : "Fullscreen"
+                    }
+                    aria-pressed={isFullscreen}
+                  >
+                    {isFullscreen ? (
+                      <Minimize className="h-4 w-4" aria-hidden="true" />
+                    ) : (
+                      <Maximize className="h-4 w-4" aria-hidden="true" />
+                    )}
+                  </button>
                 </div>
               </div>
 
@@ -964,7 +1112,10 @@ export default function HanNomOcrReader({
                 >
                   <div
                     className="relative mx-auto"
-                    style={{ width: `${imageZoom * 100}%` }}
+                    style={{
+                      width: `${imageZoom * 100}%`,
+                      transform: `rotate(${imageRotation}deg)`,
+                    }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -987,32 +1138,60 @@ export default function HanNomOcrReader({
                           const isHighlighted =
                             hoveredUnitId === unit.id ||
                             activeUnitId === unit.id;
+                          const reading = readingByUnitId.get(unit.id);
 
                           return (
-                            <div
+                            <Popover
                               key={unit.id}
-                              role="button"
-                              tabIndex={0}
-                              className={`absolute border transition-colors ${
-                                isHighlighted
-                                  ? "border-blue-600 bg-blue-500/25"
-                                  : "border-red-500/70 bg-red-500/10 hover:bg-red-500/20"
-                              }`}
-                              style={boxStyle}
-                              title={unit.text}
-                              onMouseEnter={() => setHoveredUnitId(unit.id)}
-                              onMouseLeave={() => setHoveredUnitId(null)}
-                              onClick={() => {
-                                if (suppressBoxClickRef.current) {
-                                  return;
+                              open={lookupUnitId === unit.id}
+                              onOpenChange={(open) => {
+                                if (!open) {
+                                  setLookupUnitId(null);
                                 }
-
-                                scrollToUnit(unit.id);
                               }}
-                              onKeyDown={(event) =>
-                                handleBoxKeyDown(event, unit.id)
-                              }
-                            />
+                            >
+                              <PopoverTrigger asChild>
+                                <div
+                                  role="button"
+                                  tabIndex={0}
+                                  className={`absolute border transition-colors ${
+                                    isHighlighted
+                                      ? "border-blue-600 bg-blue-500/25"
+                                      : "border-red-500/70 bg-red-500/10 hover:bg-red-500/20"
+                                  }`}
+                                  style={boxStyle}
+                                  title={
+                                    reading
+                                      ? `${unit.text} · ${reading}`
+                                      : unit.text
+                                  }
+                                  onMouseEnter={() => setHoveredUnitId(unit.id)}
+                                  onMouseLeave={() => setHoveredUnitId(null)}
+                                  onClick={() => {
+                                    if (suppressBoxClickRef.current) {
+                                      return;
+                                    }
+
+                                    scrollToUnit(unit.id);
+                                    setLookupUnitId(unit.id);
+                                  }}
+                                  onKeyDown={(event) =>
+                                    handleBoxKeyDown(event, unit.id)
+                                  }
+                                />
+                              </PopoverTrigger>
+                              <PopoverContent
+                                className="w-96 max-w-3xl rounded-lg"
+                                onOpenAutoFocus={(event) =>
+                                  event.preventDefault()
+                                }
+                              >
+                                <HanNomCharacterLookup
+                                  character={unit.text}
+                                  reading={reading}
+                                />
+                              </PopoverContent>
+                            </Popover>
                           );
                         })}
                       </div>
@@ -1051,15 +1230,20 @@ export default function HanNomOcrReader({
           </div>
         )}
 
-        {showBoxes && visibleLayerIds.includes("ocr") && (
-          <aside
-            ref={ocrSectionRef}
+        {showBoxes && (visibleLayerIds.includes("ocr") || visibleAdditionalLayer) && (
+          <div
+            ref={textColumnRef}
             style={getPanelWidthStyle(1)}
-            className={`relative z-10 flex h-[700px] min-w-0 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white ${
+            className={`flex min-w-0 flex-col gap-6 lg:h-[700px] lg:gap-4 ${
               panelWidths
                 ? "w-full lg:w-[var(--panel-width)] lg:flex-none"
                 : "w-full lg:w-[420px] lg:flex-none"
             }`}
+          >
+            {visibleLayerIds.includes("ocr") && (
+          <aside
+            ref={ocrSectionRef}
+            className="relative z-10 flex h-[700px] w-full min-w-0 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white lg:h-auto lg:min-h-0 lg:flex-1"
           >
             <div
               role="toolbar"
@@ -1290,34 +1474,38 @@ export default function HanNomOcrReader({
                   className="whitespace-pre-wrap break-words text-branding-black"
                   style={{ fontSize: `${ocrFontSize}px`, lineHeight: 1.625 }}
                 >
-                  {ocrData?.units?.map((unit) => (
-                    <span
-                      key={unit.id}
-                      ref={(node) => {
-                        if (node) {
-                          textUnitRefs.current.set(unit.id, node);
-                        } else {
-                          textUnitRefs.current.delete(unit.id);
-                        }
-                      }}
-                      onMouseEnter={() => setHoveredUnitId(unit.id)}
-                      onMouseLeave={() => setHoveredUnitId(null)}
-                      className={
-                        hoveredUnitId === unit.id || activeUnitId === unit.id
-                          ? "rounded-sm bg-blue-100 text-blue-900 ring-1 ring-blue-400"
-                          : ""
-                      }
-                    >
-                      <LookupableHanNomText
-                        text={unit.text}
-                        inline
-                        className="inline"
-                        style={{
-                          fontSize: `${ocrFontSize}px`,
-                          lineHeight: 1.625,
+                  {ocrData?.units?.map((unit, index) => (
+                    <Fragment key={unit.id}>
+                      {index > 0 && columnStartUnitIds.has(unit.id) ? (
+                        <br />
+                      ) : null}
+                      <span
+                        ref={(node) => {
+                          if (node) {
+                            textUnitRefs.current.set(unit.id, node);
+                          } else {
+                            textUnitRefs.current.delete(unit.id);
+                          }
                         }}
-                      />
-                    </span>
+                        onMouseEnter={() => setHoveredUnitId(unit.id)}
+                        onMouseLeave={() => setHoveredUnitId(null)}
+                        className={
+                          hoveredUnitId === unit.id || activeUnitId === unit.id
+                            ? "rounded-sm bg-blue-100 text-blue-900 ring-1 ring-blue-400"
+                            : ""
+                        }
+                      >
+                        <LookupableHanNomText
+                          text={unit.text}
+                          inline
+                          className="inline"
+                          style={{
+                            fontSize: `${ocrFontSize}px`,
+                            lineHeight: 1.625,
+                          }}
+                        />
+                      </span>
+                    </Fragment>
                   ))}
                 </div>
               )}
@@ -1325,32 +1513,10 @@ export default function HanNomOcrReader({
           </aside>
         )}
 
-        {showBoxes && hasAdditionalLayer && visibleLayerIds.includes("ocr") ? (
-          <div
-            role="separator"
-            aria-orientation="vertical"
-            aria-label={
-              locale === "vi" ? "Thay đổi độ rộng OCR" : "Resize OCR panel"
-            }
-            className="group hidden w-4 flex-none cursor-col-resize touch-none items-center justify-center lg:flex"
-            onPointerDown={(event) => startPanelResize(event, 1)}
-            onPointerMove={resizePanels}
-            onPointerUp={stopPanelResize}
-            onPointerCancel={stopPanelResize}
-          >
-            <div className="h-9 w-1.5 rounded-full bg-gray-500 transition-colors group-hover:bg-gray-700" />
-          </div>
-        ) : null}
-
-        {showBoxes && visibleAdditionalLayer ? (
+        {visibleAdditionalLayer ? (
           <aside
             ref={quocNguSectionRef}
-            style={getPanelWidthStyle(visibleLayerIds.includes("ocr") ? 2 : 1)}
-            className={`relative z-10 flex h-[700px] min-w-0 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white ${
-              panelWidths
-                ? "w-full lg:w-[var(--panel-width)] lg:flex-none"
-                : "w-full lg:w-[420px] lg:flex-none"
-            }`}
+            className="relative z-10 flex h-[700px] w-full min-w-0 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white lg:h-auto lg:min-h-0 lg:flex-1"
           >
             <div
               role="toolbar"
@@ -1482,12 +1648,24 @@ export default function HanNomOcrReader({
               </div>
             </div>
             <div
+              ref={quocNguPanelRef}
               className="min-h-0 flex-1 overflow-y-auto whitespace-pre-wrap break-words px-5 py-5 text-branding-black"
               style={{ fontSize: `${quocNguFontSize}px`, lineHeight: 1.625 }}
             >
-              {visibleAdditionalLayer.units.map((unit, index) => (
-                <span
-                  key={unit.id}
+              {visibleAdditionalLayer.units.map((unit, index) => {
+                const startsColumn =
+                  index > 0 && columnStartUnitIds.has(unit.id);
+                return (
+                  <Fragment key={unit.id}>
+                    {startsColumn ? <br /> : null}
+                    <span
+                  ref={(node) => {
+                    if (node) {
+                      quocNguUnitRefs.current.set(unit.id, node);
+                    } else {
+                      quocNguUnitRefs.current.delete(unit.id);
+                    }
+                  }}
                   onMouseEnter={() => setHoveredUnitId(unit.id)}
                   onMouseLeave={() => setHoveredUnitId(null)}
                   className={[
@@ -1525,13 +1703,19 @@ export default function HanNomOcrReader({
                       : undefined
                   }
                 >
-                  {index > 0 && needsTextLayerSpace(unit.text) ? " " : ""}
+                  {!startsColumn && index > 0 && needsTextLayerSpace(unit.text)
+                    ? " "
+                    : ""}
                   {unit.text || "\u00A0"}
-                </span>
-              ))}
+                    </span>
+                  </Fragment>
+                );
+              })}
             </div>
           </aside>
         ) : null}
+          </div>
+        )}
       </div>
     </section>
   );
