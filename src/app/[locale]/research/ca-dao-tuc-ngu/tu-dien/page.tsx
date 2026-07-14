@@ -27,7 +27,9 @@ export default async function TuDienSubpage({
       <div className="w-full mb-20 px-4 md:px-0">
         <PageHeader
           title={t("Tools.ca-dao-tuc-ngu.tu-dien.title")}
-          subtitle=""
+          subtitle={
+            <span dangerouslySetInnerHTML={{ __html: t.raw("Tools.ca-dao-tuc-ngu.tu-dien.intro") }} />
+          }
           breadcrumbItems={[
             { label: t("ResearchHub.title"), href: "/research" },
             {

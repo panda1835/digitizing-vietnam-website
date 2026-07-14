@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/common/PageHeader";
 import { HocCaDaoContent } from "@/components/tools/ca-dao-tuc-ngu/HocCaDaoContent";
+import path from "path";
+import fs from "fs/promises";
 
 export async function generateMetadata({
   params: { locale },
@@ -22,12 +24,24 @@ export default async function HocCaDaoSubpage({
   setRequestLocale(locale);
   const t = await getTranslations();
 
+  let initialData = [];
+  try {
+    const dataFilePath = path.join(
+      process.cwd(),
+      "public/data/ca-dao-tuc-ngu/learning-data.json"
+    );
+    const fileContents = await fs.readFile(dataFilePath, "utf8");
+    initialData = JSON.parse(fileContents);
+  } catch (error) {
+    console.error("Failed to load learning data on server:", error);
+  }
+
   return (
     <div className="flex flex-col items-center max-width w-full">
       <div className="w-full mb-20 px-4 md:px-0">
         <PageHeader
           title={t("Tools.ca-dao-tuc-ngu.hoc-ca-dao.title")}
-          subtitle=""
+          subtitle={t("Tools.ca-dao-tuc-ngu.hoc-ca-dao.subtitle")}
           breadcrumbItems={[
             { label: t("ResearchHub.title"), href: "/research" },
             {
@@ -40,7 +54,7 @@ export default async function HocCaDaoSubpage({
         />
 
         <div className="mt-8 w-full">
-          <HocCaDaoContent locale={locale} />
+          <HocCaDaoContent locale={locale} initialData={initialData} />
         </div>
       </div>
     </div>

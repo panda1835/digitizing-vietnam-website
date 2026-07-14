@@ -364,7 +364,14 @@
       },
       "tu-dien": {
         "title": "Dictionary of Vietnamese Idioms, Proverbs & Folk Poetry",
-        "intro": "All entries in this section are retrieved from the comprehensive book <strong>\"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\"</strong> compiled by author <strong>Việt Chương</strong> (including both Upper and Lower volumes). The system dynamically matches entries with their original scanned book.",
+        "intro": "This tool allows you to search and look up the exact text of Vietnamese idioms, proverbs, and folk verses from traditional book collections. All data is retrieved from the comprehensive book \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" compiled by author Việt Chương (including both Upper and Lower volumes), dynamically linking each entry with its original scanned book page for direct verification.",
+        "instruction_guide_title": "Dictionary lookup guide",
+        "instruction_intro": "You can search and verify idioms, proverbs, and folk verses through the following steps:",
+        "instruction_step1": "Select the appropriate category (such as Ca dao, Proverbs, Idioms...) or search directly by the text of the poem.",
+        "instruction_step2": "Click on the letters in the alphabetical index bar to browse entries alphabetically.",
+        "instruction_step3": "Each entry displays details, comprehensive explanations from author Viet Chuong's book source, and a scanned page image on the right so you can verify directly.",
+        "embedding_search_prefix": "Alternatively, you can search by meaning instead of keyword ",
+        "embedding_search_link_text": "here",
         "explorer_title": "Folk Lore Knowledge Explorer",
         "explorer_subtitle": "Explore the subtle differences between Proverbs and Idioms, the magic of transforming Folk Poetry into Folk Songs, and the traditional characteristics of Folk Literature.",
         "tab_proverbs_idioms": "Proverbs & Idioms",
@@ -407,7 +414,9 @@
       },
       "hoc-ca-dao": {
         "title": "Learn Idioms, Proverbs, and Folk Poetry",
-        "intro": "All data in this section is a mix extracted from the book \"Thi Ca Bình Dân Việt Nam\" (collected and compiled by Nguyễn Tấn Long and Phan Canh, published in 1975, digitized by the Tve-4u community) and \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" by Việt Chương.",
+        "subtitle": "This interactive tool is designed to help you explore and appreciate Vietnamese folk verses (ca dao) with richer context and deeper narrative depth. While the verses themselves are sourced directly from the original books, the introductory contexts and explanations were written by the author with AI assistance. All materials are compiled from the classic volumes \"Thi Ca Bình Dân Việt Nam\" (collected and compiled by Nguyễn Tấn Long & Phan Canh, published in 1975, digitized by the Tve-4u community) and \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" (Việt Chương).",
+        "instruction_guide_title": "Guide to learning ca dao",
+        "intro": "You can explore the meaning of each folk verse through these simple steps:<br/><br/>1. Read the <strong>Introduction</strong> to understand the narrative and background story leading into the poem.<br/>2. Click on the dashed blank spaces within the poem and select the best-fitting word to complete the verse.<br/>3. Once all blanks are correctly filled, the detailed <strong>Interpretation</strong> will appear to provide a deeper explanation, allowing you to know more about the poem's meaning.",
         "topic_label": "Select Topic",
         "instruction_heading": "Introduction",
         "poem_interpretation_heading": "Interpretation",
@@ -417,7 +426,8 @@
         "next_button": "NEXT POEM",
         "empty_placeholder": "Select word",
         "progress_label": "Poem {current} / {total} ({left} left)",
-        "progress_percent": "Progress: {percent}%"
+        "progress_percent": "Progress: {percent}%",
+        "summary_heading": "Topic Summary"
       }
     }
   },

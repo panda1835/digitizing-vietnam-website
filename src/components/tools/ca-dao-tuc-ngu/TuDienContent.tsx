@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Search, Loader2, X, Maximize2, ExternalLink, ChevronDown, ChevronUp, BookOpen, Music, Info } from "lucide-react";
 import { Merriweather } from "next/font/google";
 import MiniSearch from "minisearch";
+import Image from "next/image";
 
 const merriweather = Merriweather({
   weight: ["300", "400", "700"],
@@ -14,7 +15,8 @@ const merriweather = Merriweather({
 export function TuDienContent({ locale }: { locale: string }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.tu-dien");
 
-  // Tab state
+  // Guide and Tab state
+  const [isGuideOpen, setIsGuideOpen] = useState(true);
   const [activeTab, setActiveTab] = useState<"proverbs" | "poetry" | "search">("search");
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
 
@@ -76,8 +78,21 @@ export function TuDienContent({ locale }: { locale: string }) {
   // Pagination state
   const [visibleCount, setVisibleCount] = useState<number>(10);
 
-  // Modal zoom state
+  // Modal zoom and pan states
   const [activeScanId, setActiveScanId] = useState<string | null>(null);
+  const [scale, setScale] = useState(1);
+  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const closeLightbox = () => {
+    setActiveScanId(null);
+    setScale(1);
+    setPanOffset({ x: 0, y: 0 });
+    setIsDragging(false);
+  };
 
   const ALPHABET = ["A", "B", "C", "D", "Đ", "E", "G", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y"];
 
@@ -103,25 +118,37 @@ export function TuDienContent({ locale }: { locale: string }) {
     return "bg-[#2b4c60] text-white"; // CA DAO or others
   };
 
+  // In-flight fetch cache to prevent concurrent duplicate network calls
+  const letterPromisesRef = useRef<Record<string, Promise<any[]> | undefined>>({});
+
   // Fetch partitioned letters JSON data
   const fetchLetter = async (letter: string) => {
     const baseFile = letter === "Đ" ? "D" : letter;
     if (letterEntries[baseFile]) return letterEntries[baseFile];
+    const cachedPromise = letterPromisesRef.current[baseFile];
+    if (cachedPromise) return cachedPromise;
     
     setLetterLoading(true);
-    try {
-      const res = await fetch(`/data/ca-dao-tuc-ngu/letters/${baseFile}.json`);
-      if (res.ok) {
-        const data = await res.json();
-        setLetterEntries((prev) => ({ ...prev, [baseFile]: data }));
-        setLetterLoading(false);
-        return data;
+    const promise = (async () => {
+      try {
+        const res = await fetch(`/data/ca-dao-tuc-ngu/letters/${baseFile}.json`);
+        if (res.ok) {
+          const data = await res.json();
+          setLetterEntries((prev) => ({ ...prev, [baseFile]: data }));
+          setLetterLoading(false);
+          return data;
+        }
+      } catch (e) {
+        console.error("Error loading letter data:", e);
       }
-    } catch (e) {
-      console.error("Error loading letter data:", e);
-    }
-    setLetterLoading(false);
-    return [];
+      // If failed, clear cache entry so it can be retried
+      delete letterPromisesRef.current[baseFile];
+      setLetterLoading(false);
+      return [];
+    })();
+
+    letterPromisesRef.current[baseFile] = promise;
+    return promise;
   };
 
   // Load and compile search index
@@ -224,16 +251,36 @@ export function TuDienContent({ locale }: { locale: string }) {
   useEffect(() => {
     const loadDetails = async () => {
       const neededEntries = currentEntries.slice(0, visibleCount);
+
+      // Determine unique letters we need to fetch
+      const missingLetters = Array.from(new Set(
+        neededEntries
+          .filter((entry) => !entry.explanation && !detailsMap[entry.id])
+          .map((entry) => entry.letter)
+          .filter(Boolean)
+      ));
+
+      if (missingLetters.length === 0) return;
+
+      // Fetch all missing letters in parallel (deduplicated by letterPromisesRef)
+      const dataArrays = await Promise.all(missingLetters.map((l) => fetchLetter(l)));
+
+      // Map letter files by their key for fast lookup
+      const loadedMap: Record<string, any[]> = {};
+      missingLetters.forEach((letter, index) => {
+        const baseFile = letter === "Đ" ? "D" : letter;
+        loadedMap[baseFile] = dataArrays[index];
+      });
+
       const updatedDetails = { ...detailsMap };
       let changed = false;
 
       for (const entry of neededEntries) {
         if (!entry.explanation && !updatedDetails[entry.id]) {
-          // Find detail in letter file
           const baseFile = entry.letter;
           if (baseFile) {
-            const data = await fetchLetter(baseFile);
-            const found = data.find((d: any) => d.id === entry.id);
+            const letterData = letterEntries[baseFile] || loadedMap[baseFile] || [];
+            const found = letterData.find((d: any) => d.id === entry.id);
             if (found) {
               updatedDetails[entry.id] = found;
               changed = true;
@@ -255,7 +302,7 @@ export function TuDienContent({ locale }: { locale: string }) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setActiveScanId(null);
+        closeLightbox();
       }
     };
     if (activeScanId) {
@@ -265,6 +312,34 @@ export function TuDienContent({ locale }: { locale: string }) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = ""; // Restore background scrolling
+    };
+  }, [activeScanId]);
+
+  // Handle wheel events for scale-to-zoom (trackpad pinch/spread gesture)
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || !activeScanId) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Prevent default page scroll and trackpad browser zoom
+      e.preventDefault();
+      
+      const delta = e.deltaY;
+      const factor = e.ctrlKey ? 0.02 : 0.01;
+
+      setScale((prevScale) => {
+        const nextScale = prevScale - delta * factor;
+        const clamped = Math.min(Math.max(nextScale, 1), 6);
+        if (clamped === 1) {
+          setPanOffset({ x: 0, y: 0 });
+        }
+        return clamped;
+      });
+    };
+
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      container.removeEventListener("wheel", handleWheel);
     };
   }, [activeScanId]);
 
@@ -288,24 +363,51 @@ export function TuDienContent({ locale }: { locale: string }) {
         }
       `}} />
       
-      {/* Intro details (Extracted from Việt Chương book) */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-gray-150 pb-6">
-        <p 
-          className="text-base text-branding-black/80 font-light leading-relaxed max-w-3xl" 
-          dangerouslySetInnerHTML={{ __html: t.raw("intro") }} 
-        />
-        
-        {/* External embedding search link */}
-        <a
-          href="https://ca-dao.richardhoa.io.vn/search-page"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-3 border border-branding-brown/30 text-branding-brown text-sm font-bold rounded-xl hover:bg-branding-brown hover:text-white transition-all duration-300"
-        >
-          {locale === "vi" ? "Tìm kiếm ngữ nghĩa (Embedding Search)" : "Embedding Semantic Search"}
-          <ExternalLink className="h-4 w-4" />
-        </a>
-      </div>
+      {/* Instructions section (Collapsible Accordion) */}
+      <section className="scroll-mt-32 w-full animate-fadeIn mb-4">
+        <div className="bg-white border border-branding-brown/15 rounded-2xl shadow-sm overflow-hidden">
+          <button
+            onClick={() => setIsGuideOpen(!isGuideOpen)}
+            className="w-full flex items-center justify-between p-5 md:p-6 text-left cursor-pointer hover:bg-branding-gray/20 transition-all duration-200"
+          >
+            <span className="text-base md:text-lg font-bold text-branding-brown uppercase tracking-wider">
+              {t("instruction_guide_title")}
+            </span>
+            <ChevronDown 
+              className={`h-5 w-5 text-branding-brown transition-transform duration-200 ${
+                isGuideOpen ? "transform rotate-180" : ""
+              }`} 
+            />
+          </button>
+          
+          {isGuideOpen && (
+            <div className="border-t border-branding-brown/10 p-5 md:p-6 bg-white animate-fadeIn">
+              <div className="text-[15px] md:text-base text-branding-black font-normal leading-relaxed max-w-3xl space-y-3">
+                <p>
+                  {t("instruction_intro")}
+                </p>
+                <ul className="list-disc pl-5 space-y-1.5">
+                  <li dangerouslySetInnerHTML={{ __html: t.raw("instruction_step1") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t.raw("instruction_step2") }} />
+                  <li dangerouslySetInnerHTML={{ __html: t.raw("instruction_step3") }} />
+                </ul>
+                <div className="pt-3 border-t border-branding-brown/10 mt-3 text-branding-black font-medium">
+                  {t("embedding_search_prefix")}
+                  <a
+                    href="https://ca-dao.richardhoa.io.vn/search-page"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-branding-brown underline hover:text-branding-brown/85 inline-flex items-center gap-0.5"
+                  >
+                    {t("embedding_search_link_text")}
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>.
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Tabs navigation */}
       <div className="flex border-b border-branding-gray/60 overflow-x-auto whitespace-nowrap mt-4 scrollbar-none w-full mx-auto">
@@ -593,7 +695,7 @@ Thương ai duyên nợ tang bồng...`}
           <div className="flex flex-col gap-6 animate-fadeIn w-full">
             {/* Main header title for Search section */}
             <h3 className={`${merriweather.className} text-2xl text-branding-black font-normal mt-2`}>
-              {locale === "vi" ? "Từ điển & Tìm kiếm Thành ngữ, Tục ngữ, Ca Dao Việt Nam" : "Dictionary & Search of Proverbs and Folk Verses"}
+              {locale === "vi" ? "Từ điển Thành ngữ, Tục ngữ, Ca Dao Việt Nam" : "Dictionary of Proverbs and Folk Verses"}
             </h3>
 
       {/* Search Input and Category Dropdown */}
@@ -626,7 +728,7 @@ Thương ai duyên nợ tang bồng...`}
             type="text"
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
-            placeholder={locale === "vi" ? "Tìm kiếm theo câu thơ..." : "Search by verses..."}
+            placeholder={locale === "vi" ? "Tìm kiếm theo văn bản câu thơ..." : "Search by the text of the poem..."}
             className="w-full pl-5 pr-12 py-3.5 bg-white text-sm text-branding-black focus:outline-none"
           />
           <div className="absolute right-4 flex items-center gap-2">
@@ -719,10 +821,12 @@ Thương ai duyên nợ tang bồng...`}
                 onClick={() => setActiveScanId(entry.id)}
                 className="w-full md:w-[32%] min-h-[160px] md:min-h-none flex-shrink-0 border border-gray-150 rounded-2xl overflow-hidden bg-slate-50 flex items-center justify-center relative group cursor-zoom-in"
               >
-                <img
+                <Image
                   src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${entry.id}.png/full/full/0/default.jpg`}
                   alt="Scanned page snippet"
-                  className="object-contain max-h-[220px] md:max-h-none w-full h-full transition-transform duration-300 group-hover:scale-102"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-contain transition-transform duration-300 group-hover:scale-102"
                   loading="lazy"
                 />
                 
@@ -764,35 +868,51 @@ Thương ai duyên nợ tang bồng...`}
       {/* Lightbox Modal for enlarged scans matching templates/wiki.html */}
       {activeScanId && (
         <div 
-          onClick={() => setActiveScanId(null)}
-          className="fixed inset-0 z-50 bg-[#2d1810]/90 backdrop-blur-md flex items-center justify-center p-4 select-none cursor-zoom-out"
+          className="fixed inset-0 z-50 bg-[#2d1810]/90 backdrop-blur-md flex items-center justify-center p-[10px] select-none"
           style={{ animation: 'lightboxFadeIn 0.25s ease-out forwards' }}
           role="dialog"
           aria-modal="true"
         >
           {/* Close Button - Clean '×' positioned in top-right */}
           <button 
-            onClick={() => setActiveScanId(null)}
-            className="absolute top-6 right-8 bg-transparent border-none text-white text-5xl font-light hover:text-branding-brown hover:scale-105 transition-all opacity-80 hover:opacity-100 cursor-pointer outline-none select-none z-10"
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center text-white text-3xl font-light hover:scale-105 transition-all cursor-pointer shadow-md border border-white/10"
             aria-label="Close image"
           >
             &times;
           </button>
           
-          {/* Enlarged image snippet with premium white card padding wrapper */}
-          <img 
-            src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${activeScanId}.png/full/full/0/default.jpg`}
-            alt="Enlarged scan"
-            className="max-w-[90%] max-h-[85vh] object-contain rounded-lg bg-white p-2 shadow-2xl cursor-zoom-out select-none"
-            style={{ 
-              animation: 'lightboxZoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
-              boxShadow: '0 1rem 3rem rgba(0, 0, 0, 0.4)'
-            }}
-            onClick={(e) => {
-              // Clicking the image itself closes the lightbox, matching the design
-              setActiveScanId(null);
-            }}
-          />
+          {/* Zoomable Image Wrapper to crop overflow when zoomed */}
+          <div 
+            ref={containerRef}
+            className="w-[calc(100vw-20px)] h-[calc(100vh-20px)] overflow-hidden rounded-lg bg-white p-2 shadow-2xl flex items-center justify-center relative"
+          >
+            <img 
+              src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${activeScanId}.png/full/full/0/default.jpg`}
+              alt="Enlarged scan"
+              className="w-full h-full object-contain transition-transform duration-100 ease-out select-none"
+              style={{ 
+                transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
+                transformOrigin: 'center center',
+                boxShadow: '0 1rem 3rem rgba(0, 0, 0, 0.4)',
+                cursor: scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default'
+              }}
+              onMouseDown={(e) => {
+                if (scale <= 1) return;
+                e.preventDefault();
+                setIsDragging(true);
+                setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
+              }}
+              onMouseMove={(e) => {
+                if (!isDragging || scale <= 1) return;
+                const newX = e.clientX - dragStart.x;
+                const newY = e.clientY - dragStart.y;
+                setPanOffset({ x: newX, y: newY });
+              }}
+              onMouseUp={() => setIsDragging(false)}
+              onMouseLeave={() => setIsDragging(false)}
+            />
+          </div>
         </div>
       )}
     </div>

@@ -365,12 +365,19 @@
       },
       "tu-dien": {
         "title": "Từ Điển Thành Ngữ, Tục Ngữ, Ca Dao Việt Nam",
-        "intro": "Toàn bộ dữ liệu này được trích xuất từ bộ sách <strong>\"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\"</strong> của tác giả <strong>Việt Chương</strong> (bao gồm cả quyển Thượng và quyển Hạ). Hệ thống đối khớp các câu chữ với hình ảnh trang sách gốc được cắt và số hóa tương ứng.",
+        "intro": "Công cụ này giúp bạn tìm kiếm và tra cứu văn bản của các câu thành ngữ, tục ngữ và ca dao Việt Nam từ tuyển tập sách cổ truyền. Toàn bộ dữ liệu được trích xuất từ bộ sách \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" của tác giả Việt Chương (bao gồm cả quyển Thượng và quyển Hạ), kết hợp hệ thống đối khớp câu chữ với hình ảnh trang sách gốc được cắt và số hóa tương ứng để bạn tiện tra cứu đối chiếu.",
+        "instruction_guide_title": "Hướng dẫn tra cứu",
+        "instruction_intro": "Bạn có thể dễ dàng tìm kiếm và xem giải nghĩa các câu thành ngữ, tục ngữ, ca dao theo hướng dẫn dưới đây:",
+        "instruction_step1": "Chọn phân loại (như Ca dao, Tục ngữ, Thành ngữ...) hoặc nhập trực tiếp câu thơ cần tìm vào ô tìm kiếm.",
+        "instruction_step2": "Nhấp vào các ký tự trên thanh chữ cái để xem nhanh các câu bắt đầu bằng chữ cái đó.",
+        "instruction_step3": "Xem phần giải nghĩa chi tiết của từng câu, đồng thời đối chiếu trực tiếp với ảnh chụp trang sách gốc ở bên phải.",
+        "embedding_search_prefix": "Ngoài ra, bạn cũng có thể tra cứu theo ý nghĩa của câu ",
+        "embedding_search_link_text": "tại đây",
         "explorer_title": "Hành Trình Tri Thức Dân Gian",
         "explorer_subtitle": "Khám phá sự khác biệt tinh tế giữa Tục ngữ - Thành ngữ, sự kỳ diệu của việc phổ nhạc Ca dao thành Dân ca, và các đặc tính truyền thống của Văn học dân gian.",
         "tab_proverbs_idioms": "Tục ngữ & Thành ngữ",
         "tab_poetry_songs": "Ca dao & Dân ca",
-        "tab_dictionary_search": "Từ Điển & Tìm kiếm",
+        "tab_dictionary_search": "Từ Điển",
         "proverbs_intro_title": "Phân biệt Tục ngữ & Thành ngữ",
         "proverbs_intro_desc": "Cho đến nay, nhiều tài liệu vẫn xếp lẫn lộn tục ngữ với thành ngữ. Tuy nhiên, căn cứ vào nội dung và cấu trúc, chúng ta có thể phân biệt rõ ràng hai khái niệm này.",
         "proverb_def_title": "Tục ngữ là gì?",
@@ -408,7 +415,9 @@
       },
       "hoc-ca-dao": {
         "title": "Học Thành ngữ, Tục ngữ, Ca dao",
-        "intro": "Toàn bộ dữ liệu này được trích xuất từ sự kết hợp giữa bộ sách \"Thi Ca Bình Dân Việt Nam\" (do Nguyễn Tấn Long, Phan Canh sưu tầm và biên soạn, được xuất bản năm 1975, sách được số hoá bởi cộng đồng Tve-4u) và cuốn \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" của Việt Chương.",
+        "subtitle": "Trang học tập được thiết kế nhằm giúp bạn hiểu sâu hơn về ca dao tục ngữ Việt Nam thông qua ngữ cảnh lịch sử và văn hóa chi tiết. Phần thơ được trích dẫn chính xác từ nguyên bản sách gốc, trong khi các phần dẫn giải và bình luận được tác giả biên soạn lại với sự trợ giúp của trí tuệ nhân tạo. Toàn bộ kho liệu này được tổng hợp từ bộ sách \"Thi Ca Bình Dân Việt Nam\" (Nguyễn Tấn Long, Phan Canh sưu tầm & biên soạn, 1975; bản số hóa của cộng đồng Tve-4u) và \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" (Việt Chương).",
+        "instruction_guide_title": "Hướng dẫn học ca dao",
+        "intro": "Bạn có thể khám phá ý nghĩa của từng bài ca dao thông qua các bước đơn giản sau:<br/><br/>1. Đọc phần <strong>Lời dẫn</strong> để hiểu rõ hơn về bối cảnh và câu chuyện dẫn dắt vào bài thơ.<br/>2. Nhấn vào các ô trống nét đứt trong bài thơ và chọn từ phù hợp nhất để hoàn thành câu thơ.<br/>3. Khi hoàn thiện chính xác toàn bộ bài thơ, phần <strong>Lời bình</strong> sẽ hiển thị để cung cấp lời bình giải chi tiết, giúp bạn hiểu rõ và biết thêm nhiều điều thú vị về bài ca dao.",
         "topic_label": "Chọn chủ đề",
         "instruction_heading": "Lời dẫn",
         "poem_interpretation_heading": "Lời bình",
@@ -418,7 +427,8 @@
         "next_button": "BÀI TIẾP THEO",
         "empty_placeholder": "Chọn từ",
         "progress_label": "Bài ca dao {current} / {total} (Còn lại {left})",
-        "progress_percent": "Tiến độ: {percent}%"
+        "progress_percent": "Tiến độ: {percent}%",
+        "summary_heading": "Tóm tắt chủ đề"
       }
     }
   },

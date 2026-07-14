@@ -1,26 +1,27 @@
 [
   {
     "topic": "Chủ đề tình cảm",
+    "summary": "Qua chủ đề tình cảm trong ca dao dân ca Việt Nam, chúng ta cảm nhận được vẻ đẹp mộc mạc và chân thành của tình yêu đôi lứa chốn điền viên. Những câu đối đáp giao duyên không chỉ thể hiện tình cảm thắm thiết, sự chủ động khéo léo của người con gái mà còn là tấm lòng chung thủy, chân chất của những chàng trai nông phu. Tình yêu nông thôn luôn gắn liền với lao động cần cù và ước vọng giản dị về một mái ấm gia đình hạnh phúc.",
     "poems": [
       {
-        "poem_text": "Anh kia gánh lúa một mình,\nCho em gánh với hai mình cho vui.\nAnh còn gánh nữa hay thôi,\nChọ em gánh với làm đôi bạn tình.",
+        "poem_text": "Anh kia gánh lúa một mình,\nCho em gánh với hai mình cho vui.\nAnh còn gánh nữa hay thôi,\nCho em gánh với làm đôi bạn tình.",
         "blanks": [
           {
             "word": "lúa",
             "options": [
               "lúa",
+              "gạo",
               "củi",
-              "nước",
-              "thóc"
+              "nước"
             ]
           },
           {
             "word": "vui",
             "options": [
               "vui",
-              "quen",
-              "thương",
-              "tình"
+              "cùng",
+              "đôi",
+              "xong"
             ]
           }
         ],
@@ -31,21 +32,21 @@
         "poem_text": "Cô kia cắt cỏ một mình,\nCho anh cắt với chung tình làm đôi.\nCô còn cắt nữa hay thôi,\nCho tôi cắt với làm đôi vợ chồng.",
         "blanks": [
           {
-            "word": "cắt",
+            "word": "cỏ",
             "options": [
-              "cắt",
-              "nhổ",
-              "hái",
-              "bứt"
+              "cỏ",
+              "lúa",
+              "rạ",
+              "gianh"
             ]
           },
           {
-            "word": "vợ",
+            "word": "vợ chồng",
             "options": [
-              "vợ",
-              "bạn",
-              "nhân",
-              "đôi"
+              "vợ chồng",
+              "bạn tình",
+              "tri kỷ",
+              "bạn đời"
             ]
           }
         ],
@@ -56,21 +57,21 @@
         "poem_text": "Anh đừng môi miếng miếng môi,\nỞ đây anh nói vậy, chớ có đôi ở nhà.",
         "blanks": [
           {
-            "word": "môi",
+            "word": "môi miếng",
             "options": [
-              "môi",
-              "lời",
-              "câu",
-              "duyên"
+              "môi miếng",
+              "trót lưỡi",
+              "mép máy",
+              "hoa mỹ"
             ]
           },
           {
-            "word": "đôi",
+            "word": "có đôi",
             "options": [
-              "đôi",
-              "ai",
-              "người",
-              "vợ"
+              "có đôi",
+              "vợ con",
+              "người thương",
+              "mẹ già"
             ]
           }
         ],
@@ -78,24 +79,24 @@
         "interpretation": "Trong lĩnh vực yêu đương, người con gái bao giờ cũng lo sợ chuốc lấy phần thua thiệt, nên sự cẩn trọng ắt là lẽ đương nhiên. Người bình dân tuy chất phác, nhưng họ cũng thừa hiểu cái thói phong lưu, quen mồm bỡn cợt của những kẻ bẻm mép. Bởi cớ ấy, cô gái quê mùa rất kiêng dè những kẻ \"môi miếng\". Lời đường mật lọt tai dẫu có làm xao xuyến, song để vội tin mà gửi gắm cả cuộc đời thì chẳng cô nào dại dột chấp thuận. Ấy là sự tự vệ chính đáng của người phụ nữ trước mãnh lực của ái tình."
       },
       {
-        "poem_text": "Anh về chẻ nứa dan sàng,\nBện dây đan võng cho nàng ru con.",
+        "poem_text": "Anh về chẻ nứa đan sàng,\nBện dây đan võng cho nàng ru con.",
         "blanks": [
           {
-            "word": "nứa",
+            "word": "đan sàng",
             "options": [
-              "nứa",
-              "tre",
-              "trúc",
-              "lạt"
+              "đan sàng",
+              "lợp nhà",
+              "đan thúng",
+              "đan nia"
             ]
           },
           {
-            "word": "võng",
+            "word": "đan võng",
             "options": [
-              "võng",
-              "nôi",
-              "giường",
-              "chiếu"
+              "đan võng",
+              "làm nôi",
+              "mua chiếu",
+              "đan chổi"
             ]
           }
         ],
@@ -106,21 +107,21 @@
         "poem_text": "Bạc vàng xuống nước còn phai,\nĐêm nằm em nghĩ coi ai bạc tình.",
         "blanks": [
           {
-            "word": "vàng",
+            "word": "còn phai",
             "options": [
-              "vàng",
-              "tiền",
-              "tình",
-              "chì"
+              "còn phai",
+              "không phai",
+              "còn chìm",
+              "còn trôi"
             ]
           },
           {
-            "word": "bạc",
+            "word": "bạc tình",
             "options": [
-              "bạc",
-              "phụ",
-              "vô",
-              "quên"
+              "bạc tình",
+              "chung tình",
+              "vô tình",
+              "đa tình"
             ]
           }
         ],
@@ -131,30 +132,30 @@
         "poem_text": "Bánh tráng Mỹ Lồng, bánh phồng Sơn Đốc.\nMăng cụt Hàm Luông,\nVỏ ngoài nâu trong trắng như bông gòn.\nAnh đây nói thiệt sao em còn so đo.",
         "blanks": [
           {
-            "word": "phồng",
+            "word": "bánh phồng",
             "options": [
-              "phồng",
-              "xèo",
-              "đúc",
-              "in"
+              "bánh phồng",
+              "bánh tráng",
+              "bánh in",
+              "bánh ú"
             ]
           },
           {
             "word": "trắng",
             "options": [
               "trắng",
-              "sáng",
-              "bóng",
-              "mịn"
+              "đỏ",
+              "ngọt",
+              "mềm"
             ]
           },
           {
-            "word": "thiệt",
+            "word": "nói thiệt",
             "options": [
-              "thiệt",
-              "thật",
-              "phải",
-              "đúng"
+              "nói thiệt",
+              "nói dối",
+              "nói khoác",
+              "nói đùa"
             ]
           }
         ],
@@ -165,32 +166,36 @@
   },
   {
     "topic": "Chủ đề về hôn nhân",
+    "summary": "Chủ đề hôn nhân mở ra một lăng kính chân thực về những quan niệm, tập tục và cả những trắc trở trong cuộc sống gia đình xưa. Dưới lề thói nghiêm khắc của lễ giáo phong kiến, người lao động vẫn dũng cảm cất lên tiếng ca phản kháng, đề cao tình nghĩa tào khang hơn tiền tài vật chất. Đồng thời, những tiếng cười trào phúng, châm biếm về sự khập khiễng hay ảo tưởng trong hôn nhân đã thể hiện nhãn quan sắc sảo và thực tế của người bình dân.",
     "poems": [
       {
         "poem_text": "Số em giàu lấy khó cũng giàu,\nSố em nghèo chín đụn mười trâu cũng nghèo.\nPhải duyên phải kiếp thì theo,\nThân em có quản khó nghèo làm chi.\nChữ nhân duyên thiên tải nhất thì,\nGiàu ăn khó chịu lo gì mà lo.",
         "blanks": [
           {
-            "word": "cũng nghèo",
+            "word": "mười trâu",
             "options": [
-              "cũng nghèo",
-              "cũng khổ",
-              "cũng vui"
+              "mười trâu",
+              "chín đụn",
+              "năm bò",
+              "ba nhà"
             ]
           },
           {
-            "word": "thiên tải nhất thì",
+            "word": "khó nghèo",
             "options": [
-              "thiên tải nhất thì",
-              "vạn sự như ý",
-              "tứ đại đồng đường"
+              "khó nghèo",
+              "vất vả",
+              "gian nan",
+              "phận nghèo"
             ]
           },
           {
-            "word": "lo gì mà lo",
+            "word": "khó chịu",
             "options": [
-              "lo gì mà lo",
-              "buồn chi mà buồn",
-              "sợ chi mà sợ"
+              "khó chịu",
+              "công chịu",
+              "chẳng chịu",
+              "lo liệu"
             ]
           }
         ],
@@ -201,19 +206,12 @@
         "poem_text": "Nhân nghĩa khó kiếm, tiền bạc dễ tìm",
         "blanks": [
           {
-            "word": "Nhân nghĩa",
-            "options": [
-              "Nhân nghĩa",
-              "Vàng bạc",
-              "Của cải"
-            ]
-          },
-          {
             "word": "dễ tìm",
             "options": [
               "dễ tìm",
               "khó kiếm",
-              "không màng"
+              "dễ thấy",
+              "khó thấy"
             ]
           }
         ],
@@ -227,47 +225,43 @@
             "word": "lụa đào",
             "options": [
               "lụa đào",
+              "gấm vóc",
               "vải thô",
-              "lụa trắng"
-            ]
-          },
-          {
-            "word": "Áo rách",
-            "options": [
-              "Áo rách",
-              "Áo lành",
-              "Áo mới"
+              "lụa sồi"
             ]
           },
           {
             "word": "áo tơi",
             "options": [
               "áo tơi",
-              "áo dạ",
-              "áo gấm"
+              "áo lành",
+              "áo tơ",
+              "áo vải"
             ]
           }
         ],
         "introduction": "Thực tế của xã hội cũ vốn chất chứa bao cảnh ngộ trái ngang, nơi mà thân phận con người thường bị định đoạt bởi hoàn cảnh. Sự chênh lệch trong hôn nhân, vì một lẽ ép uổng nào đó, đã gieo rắc biết bao bi kịch cho những kiếp người không được tự do định đoạt hạnh phúc của chính mình.",
-        "interpretation": "Bằng hình ảnh hoán dụ \"lụa đào\" và \"áo tơi\", người bình dân đã nói lên nỗi uấtức trước một sự kết hợp thiếu vắng sự tương xứng. Đó không chỉ là niềm xót xa cho một phẩm hạnh phải gá ép cùng sự thô kệch, mà còn là tiếng thở dài trước những phi lý của cuộc đời, nơi cái thẩm mỹ phải chịu sự vùi dập của hoàn cảnh."
+        "interpretation": "Bằng hình ảnh hoán dụ \"lụa đào\" và \"áo tơi\", người bình dân đã nói lên nỗi uất ức trước một sự kết hợp thiếu vắng sự tương xứng. Đó không chỉ là niềm xót xa cho một phẩm hạnh phải gá ép cùng sự thô kệch, mà còn là tiếng thở dài trước những phi lý của cuộc đời, nơi cái thẩm mỹ phải chịu sự vùi dập của hoàn cảnh."
       },
       {
         "poem_text": "Gió đưa lúc lắc cột chòi,\nĐồ đen như mọi mà đòi vợ xinh !",
         "blanks": [
           {
-            "word": "lúc lắc",
+            "word": "cột chòi",
             "options": [
-              "lúc lắc",
-              "đu đưa",
-              "lảo đảo"
+              "cột chòi",
+              "cành tre",
+              "chòi tranh",
+              "ngọn dừa"
             ]
           },
           {
             "word": "vợ xinh",
             "options": [
               "vợ xinh",
-              "vợ hiền",
-              "vợ giàu"
+              "vợ giàu",
+              "vợ ngoan",
+              "vợ hiền"
             ]
           }
         ],
@@ -278,27 +272,21 @@
         "poem_text": "Chồng sang vợ được đi giày,\nVợ sang chồng được ghé ngày cậy trông.",
         "blanks": [
           {
-            "word": "Chồng sang",
-            "options": [
-              "Chồng sang",
-              "Chồng nghèo",
-              "Chồng hiền"
-            ]
-          },
-          {
             "word": "đi giày",
             "options": [
               "đi giày",
-              "cưỡi ngựa",
-              "mặc lụa"
+              "đi guốc",
+              "lên xe",
+              "nhờ thân"
             ]
           },
           {
             "word": "cậy trông",
             "options": [
               "cậy trông",
-              "nương tựa",
-              "nhờ vả"
+              "nhờ vả",
+              "đỡ đần",
+              "gặp may"
             ]
           }
         ],
@@ -312,24 +300,18 @@
             "word": "Cái cóc",
             "options": [
               "Cái cóc",
-              "Con cò",
-              "Con tôm"
+              "Cái kiến",
+              "Con vạc",
+              "Con cò"
             ]
           },
           {
-            "word": "bờ sông",
+            "word": "có tiền",
             "options": [
-              "bờ sông",
-              "bờ ao",
-              "đồng ruộng"
-            ]
-          },
-          {
-            "word": "không có tiền",
-            "options": [
-              "không có tiền",
-              "không có nhà",
-              "không có ruộng"
+              "có tiền",
+              "có duyên",
+              "có tài",
+              "có quyền"
             ]
           }
         ],
@@ -343,24 +325,18 @@
             "word": "gia cảnh",
             "options": [
               "gia cảnh",
-              "bản thân",
-              "số phận"
-            ]
-          },
-          {
-            "word": "vợ đẹp",
-            "options": [
-              "vợ đẹp",
-              "vợ hiền",
-              "chồng sang"
+              "phận mình",
+              "số nghèo",
+              "đôi ta"
             ]
           },
           {
             "word": "nó khinh",
             "options": [
               "nó khinh",
-              "nó chê",
-              "nó ghét"
+              "nó cười",
+              "người khinh",
+              "người chê"
             ]
           }
         ],
@@ -371,58 +347,55 @@
         "poem_text": "Gặp mặt em đây, anh chẳng dám chào,\nSợ cha mẹ hỏi thằng nào biết con ?\nĐôi ta như đôi đũa nòng nòng,\nĐẹp duyên mà chẳng đẹp lòng mẹ cha.\nThấy em anh cũng muốn thương,\nSợ lòng cha mẹ không tường lòng anh.\nĐôi ta làm bạn thong dong,\nNhư đôi đũa ngọc nằm trong mâm vàng.\nBởi chưng thầy mẹ nói ngang,\nNên đôi đũa ngọc mâm vàng cách xa.",
         "blanks": [
           {
-            "word": "chẳng dám chào",
+            "word": "dám chào",
             "options": [
-              "chẳng dám chào",
-              "vội vàng chào",
-              "không dám nhìn"
+              "dám chào",
+              "dám thương",
+              "dám nhìn",
+              "dám thưa"
             ]
           },
           {
             "word": "đôi đũa",
             "options": [
               "đôi đũa",
-              "chiếc lá",
-              "cành cây"
+              "chiếc đũa",
+              "nhành cây",
+              "đôi chim"
             ]
           },
           {
             "word": "cách xa",
             "options": [
               "cách xa",
-              "gần nhau",
-              "phai nhòa"
+              "chia lìa",
+              "rời nhau",
+              "đôi đường"
             ]
           }
         ],
         "introduction": "Trở lại với một trạng huống vốn dĩ đã thành nếp cũ trong xã hội xưa: sự xung đột giữa ái tình trai gái và quyền uy phụ mẫu. Không cứ gì nơi mái tranh vách đất người ta mới gặp cảnh éo le, mà ngay cả ở những gia thế môn đăng hộ đối, cái quyền lực của lễ giáo Khổng Mạnh vẫn luôn đè nặng lên tình cảm lứa đôi. Tình yêu, vốn là bản năng tự nhiên, lắm khi phải nghẹn ngào chùn bước trước lễ nghi gia tộc.",
-        "interpretation": "Thật vậy, ở vào cái thời đại mà mệnh lệnh của tôn trưởng là thiên kinh địa nghĩa, mọi rung động của con tim đều phải nhượng bộ cho chữ \"hiếu\" và chữ \"tòng\". Người bình dân mượn hình ảnh \"đôi đũa ngọc mâm vàng\" để nói lên cái khát vọng lứa đôi xứng viễn, nhưng rồi tự chua xót nhận ra, dẫu có \"đẹp duyên\" đi nữa, nhược bằng không \"đẹp lòng mẹ cha\" thì ái tình cũng đành dở dang. Bài ca dao là một tiếng thở dài nhẫn nhục, phơi bày hiện thực tàn nhẫn của nếp sống phong kiến: nơi mà quyền tự do luyến ái bị bóp nghẹt, để lại những mối tình hoài vọng xa xôi trong bóng tối của gia phong."
+        "interpretation": "Thật vậy, ở vào cái thời đại mà mệnh lệnh của tôn trưởng là thiên kinh địa nghĩa, mọi rung động của con tim đều phải nhượng bộ cho chữ \"hiếu\" và chữ \"tòng\". Người bình dân mượn hình ảnh \"đôi đũa ngọc mâm vàng\" để nói lên cái khát vọng lứa đôi xứng đôi, nhưng rồi tự chua xót nhận ra, dẫu có \"đẹp duyên\" đi nữa, nhược bằng không \"đẹp lòng mẹ cha\" thì ái tình cũng đành dở dang. Bài ca dao là một tiếng thở dài nhẫn nhục, phơi bày hiện thực tàn nhẫn của nếp sống phong kiến: nơi mà quyền tự do luyến ái bị bóp nghẹt, để lại những mối tình hoài vọng xa xôi trong bóng tối của gia phong."
       },
       {
         "poem_text": "Chồng con là cái nợ nần,\nThà rằng ở vậy nuôi thân béo mầm.",
         "blanks": [
           {
-            "word": "cái nợ nần",
+            "word": "nợ nần",
             "options": [
-              "cái nợ nần",
-              "sự trói buộc",
-              "gánh nặng"
-            ]
-          },
-          {
-            "word": "ở vậy",
-            "options": [
-              "ở vậy",
-              "lấy người",
-              "ra đi"
+              "nợ nần",
+              "nợ đời",
+              "duyên nợ",
+              "tình chung"
             ]
           },
           {
             "word": "béo mầm",
             "options": [
               "béo mầm",
-              "nhàn tênh",
-              "sung sướng"
+              "cho xong",
+              "bình yên",
+              "đầu xanh"
             ]
           }
         ],
@@ -433,34 +406,37 @@
         "poem_text": "Gái có chồng như gông đeo cổ,\nTrai có vợ như nhợ buộc chân.",
         "blanks": [
           {
-            "word": "gông đeo cổ",
+            "word": "gông",
             "options": [
-              "gông đeo cổ",
-              "dây trói tay",
-              "gánh nặng vai"
+              "gông",
+              "vòng",
+              "dây",
+              "xích"
             ]
           },
           {
-            "word": "nhợ buộc chân",
+            "word": "nhợ",
             "options": [
-              "nhợ buộc chân",
-              "máng đeo cổ",
-              "dây xích tay"
+              "nhợ",
+              "dây",
+              "lưới",
+              "chỉ"
             ]
           }
         ],
         "introduction": "Tiếp nối cái ý thức e ngại sự trói buộc, dân gian lại đúc kết thành những câu ví von thật não nùng. Bước vào cuộc sống hôn nhân, đối với nhiều người, dường như không phải là tìm thấy bến đỗ an vui, mà lại là một sự đánh đổi cõi tự do lấy những ràng buộc vô hình nhưng đầy sức nặng.",
-        "interpretation": "Hình ảnh \"gông đeo cổ\" và \"nhợ buộc chân\" thốt lên một cách tự nhiên, phơi bày chân thực tâm lý sợ hãi sự kìm kẹp của nếp sống gia đình cựu thời. Dù là nam hay nữ, khi đã bước vào ngưỡng cửa hôn nhân, họ đều cảm thấy bản năng sống tự tại bị đè nén. Lời than vãn này không hẳn là sự chối bỏ ái tình, mà chính là thái độ bi quan trước những hệ lụy của luân thường đạo lý, nơi con người nhận ra mình đang bị giam hãm trong chính những nề nếp do xã hội bày ra."
+        "interpretation": "Hình ảnh \"gông đeo cổ\" and \"nhợ buộc chân\" thốt lên một cách tự nhiên, phơi bày chân thực tâm lý sợ hãi sự kìm kẹp của nếp sống gia đình cựu thời. Dù là nam hay nữ, khi đã bước vào ngưỡng cửa hôn nhân, họ đều cảm thấy bản năng sống tự tại bị đè nén. Lời than vãn này không hẳn là sự chối bỏ ái tình, mà chính là thái độ bi quan trước những hệ lụy của luân thường đạo lý, nơi con người nhận ra mình đang bị giam hãm trong chính những nề nếp do xã hội bày ra."
       },
       {
         "poem_text": "Trai năm thê bảy thiếp,\nGái chính chuyên một chồng.",
         "blanks": [
           {
-            "word": "năm thê",
+            "word": "bảy thiếp",
             "options": [
-              "năm thê",
-              "ba vợ",
-              "nhiều bề"
+              "bảy thiếp",
+              "chín vợ",
+              "ba thiếp",
+              "mười thiếp"
             ]
           },
           {
@@ -468,15 +444,8 @@
             "options": [
               "chính chuyên",
               "thủy chung",
-              "đảm đang"
-            ]
-          },
-          {
-            "word": "một chồng",
-            "options": [
-              "một chồng",
-              "hai con",
-              "ba bề"
+              "đoan trang",
+              "hiền hậu"
             ]
           }
         ],
@@ -491,23 +460,17 @@
             "options": [
               "hao mòn",
               "mất đi",
-              "xấu xí"
-            ]
-          },
-          {
-            "word": "sơn son",
-            "options": [
-              "sơn son",
-              "dát bạc",
-              "thêu hoa"
+              "nhạt phai",
+              "giảm đi"
             ]
           },
           {
             "word": "thếp vàng",
             "options": [
               "thếp vàng",
-              "chạm ngọc",
-              "đính châu"
+              "đeo vòng",
+              "mạ vàng",
+              "bọc đồng"
             ]
           }
         ],
@@ -518,27 +481,21 @@
         "poem_text": "Chơi cho thủng trống long bồng\nRồi ra ta sẽ lấy chồng lập nghiêm.\nChơi cho thủng trống long chiêng,\nRồi ra ta sẽ lập nghiêm lấy chồng.",
         "blanks": [
           {
-            "word": "thủng trống",
+            "word": "long bồng",
             "options": [
-              "thủng trống",
-              "mòn chiêng",
-              "rách áo"
-            ]
-          },
-          {
-            "word": "lấy chồng",
-            "options": [
-              "lấy chồng",
-              "có con",
-              "về nhà"
+              "long bồng",
+              "long chiêng",
+              "long đong",
+              "tung hoành"
             ]
           },
           {
             "word": "lập nghiêm",
             "options": [
               "lập nghiêm",
-              "giữ nết",
-              "làm ăn"
+              "ở vậy",
+              "tu thân",
+              "theo chồng"
             ]
           }
         ],
@@ -549,35 +506,36 @@
   },
   {
     "topic": "Chủ đề về nông nghiệp",
+    "summary": "Nông nghiệp là cội nguồn của đời sống điền dã, nơi mồ hôi nước mắt của người nông dân thấm đẫm từng tấc đất ngọn rau để đổi lấy hạt cơm vàng. Vòng quay lao động quanh năm cần mẫn cùng sự gắn bó máu thịt với ruộng đồng đã kiến tạo nên truyền thống quý trọng điền thổ sâu sắc. Qua đó, cha ông ta muốn răn dạy thế hệ sau về lòng biết ơn đối với công lao cấy cày của người nông phu và đạo lý uống nước nhớ nguồn quý báu.",
     "poems": [
       {
         "poem_text": "Ơn trời mưa nắng phải thì,\nNơi thì bừa cạn, nơi thì cày sâu.\nCông lênh chẳng quản bao lâu,\nNgày nay nước bạc, ngày sau cơm vàng.\nAi ơi, chớ bỏ ruộng hoang,\nBao nhiêu tấc đất, tấc vàng bấy nhiêu.",
         "blanks": [
           {
-            "word": "quản",
+            "word": "chẳng quản",
             "options": [
-              "quản",
-              "kể",
-              "tính",
-              "màng"
+              "chẳng quản",
+              "chẳng ngại",
+              "chẳng tính",
+              "chẳng tiếc"
             ]
           },
           {
-            "word": "bạc",
+            "word": "cơm vàng",
             "options": [
-              "bạc",
-              "đục",
-              "trắng",
-              "lạnh"
+              "cơm vàng",
+              "khoai ngọt",
+              "hạt vàng",
+              "tiền bạc"
             ]
           },
           {
-            "word": "tấc",
+            "word": "tấc vàng",
             "options": [
-              "tấc",
-              "nắm",
-              "thước",
-              "mảnh"
+              "tấc vàng",
+              "tấc bạc",
+              "tấc đất",
+              "hạt ngọc"
             ]
           }
         ],
@@ -588,30 +546,21 @@
         "poem_text": "Ruộng hoang khai khẩn còn thành,\nHuống chi ruộng thuộc sao đành bỏ hoang.",
         "blanks": [
           {
-            "word": "khẩn",
+            "word": "khai khẩn",
             "options": [
-              "khẩn",
-              "phá",
-              "phát",
-              "mở"
+              "khai khẩn",
+              "khai phá",
+              "vỡ hoang",
+              "cấy cày"
             ]
           },
           {
-            "word": "thuộc",
+            "word": "ruộng thuộc",
             "options": [
-              "thuộc",
-              "quen",
-              "cũ",
-              "nhuyễn"
-            ]
-          },
-          {
-            "word": "đành",
-            "options": [
-              "đành",
-              "nỡ",
-              "cam",
-              "chịu"
+              "ruộng thuộc",
+              "ruộng tốt",
+              "ruộng nhà",
+              "ruộng sâu"
             ]
           }
         ],
@@ -622,30 +571,30 @@
         "poem_text": "Lao xao gà gáy rạng ngày,\nVai vác cái cày tay dắt con trâu.\nBước chân xuống cánh đồng sâu,\nMắt nhắm mắt mở đuổi trâu ra cày.\nAi ơi ăn bát cơm đầy,\nNhớ công hôm sớm cấy cày cho chăng.",
         "blanks": [
           {
-            "word": "rạng",
+            "word": "rạng ngày",
             "options": [
-              "rạng",
-              "sáng",
-              "toả",
-              "hửng"
+              "rạng ngày",
+              "nửa đêm",
+              "sớm mai",
+              "hửng đông"
             ]
           },
           {
-            "word": "đuổi",
+            "word": "đuổi trâu",
             "options": [
-              "đuổi",
-              "dắt",
-              "lùa",
-              "dẫn"
+              "đuổi trâu",
+              "dắt trâu",
+              "dắt bò",
+              "kéo trâu"
             ]
           },
           {
-            "word": "sớm",
+            "word": "hôm sớm",
             "options": [
-              "sớm",
-              "tối",
-              "mai",
-              "khuya"
+              "hôm sớm",
+              "ngày tháng",
+              "cày cấy",
+              "vất vả"
             ]
           }
         ],
@@ -653,33 +602,33 @@
         "interpretation": "Cảnh tượng vác cày ra đồng khi \"mắt nhắm mắt mở\" đã phơi bày tất cả sự nhọc nhằn, cùng cực của kiếp mưu sinh bằng nghề nông. Không có những từ ngữ hoa mỹ, tác giả dân gian chỉ dùng nét bút tả thực để ghi lại cái rét mướt, cái vất vả của buổi sớm mai trên cánh đồng sâu. Nhưng chính từ trong sự lam lũ ấy, tiếng gọi \"Ai ơi\" cất lên như một lời thức tỉnh lương tri sâu sắc. Bát cơm đầy đặn trên mâm vốn được kết tinh từ những buổi sớm hôm tăm tối ấy. Hiểu được cảnh ngộ bần hàn của người cày, ta mới thấy rõ cái giá trị đạo lý uống nước nhớ nguồn, một truyền thống bất di bất dịch của dân tộc."
       },
       {
-        "poem_text": "Tháng giêng là tháng ăn chơi,\nTháng hai trồng đậu, trồng khoai, trồng cà.\nTháng ba thì đậu đã già,\nTa đi ta hái về nhà phơi khô.\nTháng tư đi tậu trâu bò,\nĐể ta sắp sửa làm mùa tháng năm.\nSớm ngày đem lúa ra ngâm,\nBao giờ mọc mầm ta sẽ vớt ra.\nGánh đi ta ném ruộng ta,\nĐến khi nên mạ thì ta nhổ về.\nLẩy tiền mượn kẻ cấy thuê,\nCấy xong thì mới trở về nghỉ ngơi.\nCỏ lúa dọn đã sạch rồi,\nNước ruộng vơi mười còn độ một hai.\nRuộng thấp đóng một gàu giai,\nRuộng cao thì phải đóng hai gàu sòng.\nChờ cho lúa trổ đòng đòng,\nBấy giờ ta sẽ trả công cho người.\nBao giờ cho đến tháng mười,\nTa đem liềm hái ra ngoài ruộng ta.\nGặt hái ta đem về nhà,\nPhơi khô quạt sạch ấy là xong công.",
+        "poem_text": "Tháng giêng là tháng ăn chơi,\nTháng hai trồng đậu, trồng khoai, trồng cà.\nTháng ba thì đậu đã già,\nTa đi ta hái về nhà phơi khô.\nTháng tư đi tậu trâu bò,\nĐể ta sắp sửa làm mùa tháng năm.\nSớm ngày đem lúa ra ngâm,\nBao giờ mọc mầm ta sẽ vớt ra.\nGánh đi ta ném ruộng ta,\nĐến khi nên mạ thì ta nhổ về.\nLấy tiền mượn kẻ cấy thuê,\nCấy xong thì mới trở về nghỉ ngơi.\nCỏ lúa dọn đã sạch rồi,\nNước ruộng vơi mười còn độ một hai.\nRuộng thấp đóng một gàu giai,\nRuộng cao thì phải đóng hai gàu sòng.\nChờ cho lúa trổ đòng đòng,\nBấy giờ ta sẽ trả công cho người.\nBao giờ cho đến tháng mười,\nTa đem liềm hái ra ngoài ruộng ta.\nGặt hái ta đem về nhà,\nPhơi khô quạt sạch ấy là xong công.",
         "blanks": [
           {
             "word": "tậu",
             "options": [
               "tậu",
-              "sắm",
+              "bán",
               "mua",
-              "chuốc"
+              "dắt"
             ]
           },
           {
-            "word": "lẩy",
+            "word": "cấy thuê",
             "options": [
-              "lẩy",
-              "lấy",
-              "rút",
-              "vay"
+              "cấy thuê",
+              "làm thuê",
+              "cấy hộ",
+              "gặt hộ"
             ]
           },
           {
-            "word": "trổ",
+            "word": "đòng đòng",
             "options": [
-              "trổ",
-              "ra",
-              "đâm",
-              "nứt"
+              "đòng đòng",
+              "trổ bông",
+              "chín vàng",
+              "uốn câu"
             ]
           }
         ],
@@ -687,33 +636,24 @@
         "interpretation": "Nếu nhìn qua, ta chỉ thấy đây là một bản liệt kê công việc nhà nông. Nhưng đi sâu vào từng câu chữ, ta bắt gặp một sự tuần tự, nề nếp đến đáng kinh ngạc của quy luật sinh tồn. Mười hai tháng trong năm, trừ đi những ngày lễ lạt chốc lát của tiết tháng Giêng, trọn vẹn thời gian còn lại là sự cống hiến không ngừng nghỉ cho ruộng đồng. Nào tậu trâu, ngâm lúa, nào tát nước, làm cỏ... sức lực con người dường như bị vắt kiệt theo sự lớn lên của bông lúa. Sự chân chất trong cách kể chuyện đã xóa bỏ mọi nét lãng mạn viển vông, chỉ để lại một hiện thực rõ nét: người bình dân phải đánh đổi bằng sức lao động bền bỉ, kiên nhẫn qua từng tháng, từng ngày mới mong chạm tay tới thành quả."
       },
       {
-        "poem_text": "Một năm chia mười hai kỳ,\nThiếp ngồi thiếp tính khó gì chẳng ra.\nTháng giêng ăn tết ở nhà,\nTháng hai rồi rãi quay ra nuôi tằm.\nTháng ba đi bán vải thâm,\nTháng tư đi gặt, tháng năm trở về.\nTháng sáu em đi buôn bè,\nTháng bảy, tháng tám trở về đong ngô.\nChín, mười cắt rạ đồng mùa,\nMột chạp vớ dược anh đồ dài lưng.\nAnh ăn rồi anh lại nằm,\nLàm cho thiếp phải quanh năm lo phiền.\nChẳng thà lấy chú lực điền,\nGạo bồ, thóc giống còn phiền nỗi chỉ?",
+        "poem_text": "Một năm chia mười hai kỳ,\nThiếp ngồi thiếp tính khó gì chẳng ra.\nTháng giêng ăn tết ở nhà,\nTháng hai rỗi rãi quay ra nuôi tằm.\nTháng ba đi bán vải thâm,\nTháng tư đi gặt, tháng năm trở về.\nTháng sáu em đi buôn bè,\nTháng bảy, tháng tám trở về đong ngô.\nChín, mười cắt rạ đồng mùa,\nMột chạp vớ được anh đồ dài lưng.\nAnh ăn rồi anh lại nằm,\nLàm cho thiếp phải quanh năm lo phiền.\nChẳng thà lấy chú lực điền,\nGạo bồ, thóc giống còn phiền nỗi chi?",
         "blanks": [
           {
-            "word": "rỗi",
+            "word": "dài lưng",
             "options": [
-              "rỗi",
-              "rảnh",
-              "thảnh",
-              "trống"
+              "dài lưng",
+              "dài tay",
+              "chăm chỉ",
+              "lười nhác"
             ]
           },
           {
-            "word": "vớ",
+            "word": "lực điền",
             "options": [
-              "vớ",
-              "lấy",
-              "vơ",
-              "bắt"
-            ]
-          },
-          {
-            "word": "bồ",
-            "options": [
-              "bồ",
-              "đầy",
-              "kho",
-              "thùng"
+              "lực điền",
+              "nhà nông",
+              "dân cày",
+              "chăn trâu"
             ]
           }
         ],
@@ -724,30 +664,21 @@
         "poem_text": "Cám ơn hạt lúa Nàng Co,\nNợ nần trả hết, lại no tấm lòng.",
         "blanks": [
           {
-            "word": "ơn",
+            "word": "Nàng Co",
             "options": [
-              "ơn",
-              "đức",
-              "nghĩa",
-              "phước"
+              "Nàng Co",
+              "Nàng Hương",
+              "Nàng Thơm",
+              "tám xoan"
             ]
           },
           {
-            "word": "trả",
+            "word": "Nợ nần",
             "options": [
-              "trả",
-              "trang",
-              "đền",
-              "hoàn"
-            ]
-          },
-          {
-            "word": "no",
-            "options": [
-              "no",
-              "đầy",
-              "vui",
-              "ấm"
+              "Nợ nần",
+              "Tiền nong",
+              "Thuế thóc",
+              "Nợ đời"
             ]
           }
         ],
