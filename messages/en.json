@@ -341,9 +341,9 @@
       "cards": {
         "dictionary": {
           "title": "Dictionary of Vietnamese Idioms, Proverbs, and Folk Verses",
-          "bullet1": "Introduction to idioms, proverbs, and folk verses",
-          "bullet2": "Search",
-          "bullet3": "Dictionary lookup",
+          "bullet1": "Look up Viet Chuong dictionary with original scanned page images",
+          "bullet2": "Distinguishing Proverbs & Idioms",
+          "bullet3": "Explore the connection between Folk Poetry & Songs",
           "cta": "Explore Dictionary"
         },
         "fairy-tales": {
@@ -353,12 +353,12 @@
         },
         "qa": {
           "title": "Folk Verse Q&A",
-          "description": "Look up idioms, proverbs, and folk verses from the book series by author Viet Chuong with scanned images of the original pages",
+          "description": "Answer any of your concerns or thoughts using appropriate folk verses.",
           "cta": "Start Q&A"
         },
         "learning": {
           "title": "Learn Idioms, Proverbs, and Folk Verses",
-          "description": "Use semantic search technology to search folk verses visually and deeply.",
+          "description": "Learn folk poetry through an interactive word-fill game, complete with detailed explanations and interpretations.",
           "cta": "Start Learning"
         }
       },
@@ -415,7 +415,9 @@
         "success_message": "Congratulations! You have correctly completed this folk verse.",
         "check_button": "CHECK ANSWER",
         "next_button": "NEXT POEM",
-        "empty_placeholder": "Select word"
+        "empty_placeholder": "Select word",
+        "progress_label": "Poem {current} / {total} ({left} left)",
+        "progress_percent": "Progress: {percent}%"
       }
     }
   },

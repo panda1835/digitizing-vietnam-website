@@ -342,9 +342,9 @@
       "cards": {
         "dictionary": {
           "title": "Từ Điển Thành Ngữ, Tục Ngữ, Ca Dao Việt Nam",
-          "bullet1": "Giới thiệu về thành ngữ, tục ngữ, ca dao Việt Nam",
-          "bullet2": "Tìm kiếm",
-          "bullet3": "Từ điển",
+          "bullet1": "Tra cứu từ điển Việt Chương kèm hình ảnh scan gốc",
+          "bullet2": "Phân biệt Tục ngữ & Thành ngữ",
+          "bullet3": "Khám phá mối liên hệ giữa Ca dao & Dân ca",
           "cta": "Khám phá từ điển"
         },
         "fairy-tales": {
@@ -354,12 +354,12 @@
         },
         "qa": {
           "title": "Ca Dao Vấn Đáp",
-          "description": "Tra cứu thành ngữ, tục ngữ, ca dao từ bộ sách của tác giả Việt Chương kèm hình ảnh scan trang sách gốc",
+          "description": "Giải đáp mọi thắc mắc và tâm sự của bạn bằng những câu ca dao thích hợp.",
           "cta": "Bắt đầu vấn đáp"
         },
         "learning": {
           "title": "Học Thành Ngữ, Tục Ngữ, Ca Dao",
-          "description": "Sử dụng công nghệ tìm kiếm ngữ nghĩa để tra cứu ca dao một cách trực quan và sâu sắc.",
+          "description": "Học ca dao qua trò chơi điền từ vào chỗ trống sinh động, kèm lời giải nghĩa và bình chú chi tiết.",
           "cta": "Tham gia học"
         }
       },
@@ -416,7 +416,9 @@
         "success_message": "Chúc mừng! Bạn đã hoàn thành chính xác bài ca dao này.",
         "check_button": "KIỂM TRA",
         "next_button": "BÀI TIẾP THEO",
-        "empty_placeholder": "Chọn từ"
+        "empty_placeholder": "Chọn từ",
+        "progress_label": "Bài ca dao {current} / {total} (Còn lại {left})",
+        "progress_percent": "Tiến độ: {percent}%"
       }
     }
   },

@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import { renderHtml } from "@/utils/renderHtml";
 import { getTranslations } from "next-intl/server";
 import { fetcher } from "@/lib/api";
@@ -72,11 +71,7 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
 
     const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/pedagogies?${queryString}`;
     const data = await fetcher(url);
-    const blogPost = data.data?.[0];
-
-    if (!blogPost) {
-      notFound();
-    }
+    const blogPost = data.data[0];
 
     post = {
       title: blogPost.title,
@@ -87,11 +82,10 @@ const PedagogicalResource = async ({ params: { slug, locale } }) => {
       ],
       content: blogPost.content,
       slug: blogPost.slug,
-      metadata: blogPost.metadata?.[0] ?? null,
+      metadata: blogPost.metadata[0],
     };
   } catch (error) {
     console.error("Error fetching blog:", error);
-    notFound();
   }
 
   return (

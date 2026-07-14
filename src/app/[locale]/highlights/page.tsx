@@ -103,61 +103,51 @@ const Blogs = async ({ params: { locale } }) => {
           locale={locale}
         />
         {/* Tab */}
-        {blogData.length === 0 ? (
-          <div className="text-center py-10 mt-10">
-            <p className="text-gray-500 font-light font-['Helvetica Neue']">
-              {locale === "en"
-                ? "No highlights available."
-                : "Không có tin tức nổi bật nào."}
-            </p>
-          </div>
-        ) : (
-          <Tabs
-            defaultValue={blogData[0].category_name
-              .replace(/\s/g, "")
-              .toLowerCase()}
-            className="w-full mt-10"
-          >
-            <TabsList className="h-auto p-0 bg-transparent gap-8">
-              {blogData.map((category) => (
-                <TabsTrigger
-                  key={category.category_name}
-                  value={category.category_name.replace(/\s/g, "").toLowerCase()}
-                  className={[
-                    "px-4 py-2 h-auto",
-                    "data-[state=active]:bg-branding-white data-[state=active]:shadow-none",
-                    "data-[state=active]:border-gray-200 data-[state=active]:text-foreground",
-                    "data-[state=active]:border-b-branding-brown",
-                    "rounded-t-lg rounded-b-none border border-b-2 border-transparent text-base font-normal",
-                  ].join(" ")}
-                >
-                  {category.category_name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
+        <Tabs
+          defaultValue={blogData[0].category_name
+            .replace(/\s/g, "")
+            .toLowerCase()}
+          className="w-full mt-10"
+        >
+          <TabsList className="h-auto p-0 bg-transparent gap-8">
             {blogData.map((category) => (
-              <TabsContent
-                value={category.category_name.replace(/\s/g, "").toLowerCase()}
-                className="mt-6 space-y-4"
+              <TabsTrigger
                 key={category.category_name}
+                value={category.category_name.replace(/\s/g, "").toLowerCase()}
+                className={[
+                  "px-4 py-2 h-auto",
+                  "data-[state=active]:bg-branding-white data-[state=active]:shadow-none",
+                  "data-[state=active]:border-gray-200 data-[state=active]:text-foreground",
+                  "data-[state=active]:border-b-branding-brown",
+                  "rounded-t-lg rounded-b-none border border-b-2 border-transparent text-base font-normal",
+                ].join(" ")}
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
-                  {category.blogs.map((item) => (
-                    <ArticleCard
-                      title={item.title}
-                      description={item.content}
-                      date={formatDate(item.date, locale)}
-                      imageUrl={item.thumbnail}
-                      link={`/highlights/${item.slug}`}
-                      key={`/highlights/${item.slug}`}
-                    />
-                  ))}
-                </div>
-              </TabsContent>
+                {category.category_name}
+              </TabsTrigger>
             ))}
-          </Tabs>
-        )}
+          </TabsList>
+
+          {blogData.map((category) => (
+            <TabsContent
+              value={category.category_name.replace(/\s/g, "").toLowerCase()}
+              className="mt-6 space-y-4"
+              key={category.category_name}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
+                {category.blogs.map((item) => (
+                  <ArticleCard
+                    title={item.title}
+                    description={item.content}
+                    date={formatDate(item.date, locale)}
+                    imageUrl={item.thumbnail}
+                    link={`/highlights/${item.slug}`}
+                    key={`/highlights/${item.slug}`}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
       </div>
     </div>
   );

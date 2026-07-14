@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Merriweather } from "next/font/google";
 import { ChevronDown, ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
@@ -61,6 +61,30 @@ export function HocCaDaoContent({ locale }: { locale: string }) {
       })
       .then((json) => {
         setData(json);
+
+        // Read URL search params on initial load
+        const params = new URLSearchParams(window.location.search);
+        const topicParam = params.get("topic");
+        const poemParam = params.get("poem");
+
+        let initTopicIdx = 0;
+        let initPoemIdx = 0;
+
+        if (topicParam !== null) {
+          const tIdx = parseInt(topicParam, 10);
+          if (!isNaN(tIdx) && tIdx >= 0 && tIdx < json.length) {
+            initTopicIdx = tIdx;
+            if (poemParam !== null) {
+              const pIdx = parseInt(poemParam, 10);
+              if (!isNaN(pIdx) && pIdx >= 0 && pIdx < json[tIdx].poems.length) {
+                initPoemIdx = pIdx;
+              }
+            }
+          }
+        }
+
+        setActiveTopicIndex(initTopicIdx);
+        setActivePoemIndex(initPoemIdx);
         setLoading(false);
       })
       .catch((err) => {
@@ -69,9 +93,60 @@ export function HocCaDaoContent({ locale }: { locale: string }) {
       });
   }, []);
 
+  // Sync state changes back to URL without reloading page
+  useEffect(() => {
+    if (loading || data.length === 0) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const currentTopicParam = params.get("topic");
+    const currentPoemParam = params.get("poem");
+
+    const topicStr = activeTopicIndex.toString();
+    const poemStr = activePoemIndex.toString();
+
+    if (currentTopicParam !== topicStr || currentPoemParam !== poemStr) {
+      params.set("topic", topicStr);
+      params.set("poem", poemStr);
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.pushState(null, "", newUrl);
+    }
+  }, [activeTopicIndex, activePoemIndex, loading, data]);
+
+  // Listen to browser navigation (back/forward)
+  useEffect(() => {
+    if (data.length === 0) return;
+
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const topicParam = params.get("topic");
+      const poemParam = params.get("poem");
+
+      if (topicParam !== null) {
+        const tIdx = parseInt(topicParam, 10);
+        if (!isNaN(tIdx) && tIdx >= 0 && tIdx < data.length) {
+          setActiveTopicIndex(tIdx);
+          const pIdx = parseInt(poemParam || "0", 10);
+          if (!isNaN(pIdx) && pIdx >= 0 && pIdx < data[tIdx].poems.length) {
+            setActivePoemIndex(pIdx);
+          }
+        }
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [data]);
+
   // Current active topic & poem
   const currentTopic = data[activeTopicIndex];
   const currentPoem = currentTopic?.poems[activePoemIndex];
+
+  const totalPoems = currentTopic?.poems.length || 0;
+  const currentPoemNum = activePoemIndex + 1;
+  const poemsLeft = totalPoems - currentPoemNum;
+  const progressPercent = totalPoems > 0 ? (currentPoemNum / totalPoems) * 100 : 0;
 
   // Reset answers when changing topic or poem
   useEffect(() => {
@@ -162,11 +237,11 @@ export function HocCaDaoContent({ locale }: { locale: string }) {
   }, [currentPoem]);
 
   // Determine current states
-  const isFilled = (idx: number) => userAnswers[idx] !== undefined;
-  const isCorrect = (idx: number) => {
+  const isFilled = useCallback((idx: number) => userAnswers[idx] !== undefined, [userAnswers]);
+  const isCorrect = useCallback((idx: number) => {
     if (!currentPoem) return false;
     return userAnswers[idx] === currentPoem.blanks[idx].word;
-  };
+  }, [userAnswers, currentPoem]);
 
   // Checks if there are any errors in the current filled answers (only if checked)
   const hasErrors = useMemo(() => {
@@ -175,20 +250,20 @@ export function HocCaDaoContent({ locale }: { locale: string }) {
       const idx = parseInt(key, 10);
       return !isCorrect(idx);
     });
-  }, [userAnswers, currentPoem, hasChecked]);
+  }, [userAnswers, hasChecked, isCorrect]);
 
   // Checks if the poem is fully completed and all answers are correct (only if checked)
   const isSolved = useMemo(() => {
     if (!currentPoem || !hasChecked) return false;
     const allFilled = currentPoem.blanks.every((_, idx) => isFilled(idx));
     return allFilled && !hasErrors;
-  }, [currentPoem, userAnswers, hasErrors, hasChecked]);
+  }, [currentPoem, hasChecked, isFilled, hasErrors]);
 
   // Checks if all blanks are filled, enabling the check button
   const allBlanksFilled = useMemo(() => {
     if (!currentPoem) return false;
     return currentPoem.blanks.every((_, idx) => isFilled(idx));
-  }, [currentPoem, userAnswers]);
+  }, [currentPoem, isFilled]);
 
   const handleSelectOption = (option: string) => {
     if (activeBlankIndex === null || !currentPoem) return;
@@ -280,6 +355,24 @@ export function HocCaDaoContent({ locale }: { locale: string }) {
             ))}
           </div>
         )}
+      </div>
+
+      {/* Progress Bar */}
+      <div className="w-full flex flex-col gap-2">
+        <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-branding-brown">
+          <span>
+            {t("progress_label", { current: currentPoemNum, total: totalPoems, left: poemsLeft })}
+          </span>
+          <span>
+            {Math.round(progressPercent)}%
+          </span>
+        </div>
+        <div className="w-full bg-branding-gray border border-branding-brown/15 rounded-full h-3.5 overflow-hidden shadow-inner p-[2px]">
+          <div 
+            style={{ width: `${progressPercent}%` }}
+            className="h-full bg-branding-brown rounded-full transition-all duration-500 ease-out shadow-sm"
+          />
+        </div>
       </div>
 
       {/* Main Game Card */}

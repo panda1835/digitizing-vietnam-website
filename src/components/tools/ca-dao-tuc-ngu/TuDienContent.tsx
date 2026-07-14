@@ -15,7 +15,7 @@ export function TuDienContent({ locale }: { locale: string }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.tu-dien");
 
   // Tab state
-  const [activeTab, setActiveTab] = useState<"proverbs" | "poetry" | "search">("proverbs");
+  const [activeTab, setActiveTab] = useState<"proverbs" | "poetry" | "search">("search");
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
 
   const toggleItem = (index: number) => {
@@ -310,6 +310,18 @@ export function TuDienContent({ locale }: { locale: string }) {
       {/* Tabs navigation */}
       <div className="flex border-b border-branding-gray/60 overflow-x-auto whitespace-nowrap mt-4 scrollbar-none w-full mx-auto">
         <button
+          onClick={() => setActiveTab("search")}
+          className={`flex items-center gap-2 px-6 py-3 border-b-2 font-medium text-sm transition-all duration-300 ${
+            activeTab === "search"
+              ? "border-branding-brown text-branding-brown font-bold"
+              : "border-transparent text-gray-500 hover:text-branding-brown/80"
+          }`}
+        >
+          <Search className="h-4 w-4" />
+          {t("tab_dictionary_search")}
+        </button>
+
+        <button
           onClick={() => setActiveTab("proverbs")}
           className={`flex items-center gap-2 px-6 py-3 border-b-2 font-medium text-sm transition-all duration-300 ${
             activeTab === "proverbs"
@@ -331,18 +343,6 @@ export function TuDienContent({ locale }: { locale: string }) {
         >
           <Music className="h-4 w-4" />
           {t("tab_poetry_songs")}
-        </button>
-
-        <button
-          onClick={() => setActiveTab("search")}
-          className={`flex items-center gap-2 px-6 py-3 border-b-2 font-medium text-sm transition-all duration-300 ${
-            activeTab === "search"
-              ? "border-branding-brown text-branding-brown font-bold"
-              : "border-transparent text-gray-500 hover:text-branding-brown/80"
-          }`}
-        >
-          <Search className="h-4 w-4" />
-          {t("tab_dictionary_search")}
         </button>
       </div>
 
