@@ -237,6 +237,8 @@ export function HocCaDaoContent({ locale, initialData }: HocCaDaoContentProps) {
         return "Beauty & Integrity";
       case "Chủ đề về nông nghiệp":
         return "Agriculture & Labor";
+      case "Chủ đề đối nhân xử thế":
+        return "Conduct & Social Ethics";
       default:
         return topic;
     }
