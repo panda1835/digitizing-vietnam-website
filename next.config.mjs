@@ -5,7 +5,10 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["res.cloudinary.com", "developers.elementor.com"],
+    domains: ["res.cloudinary.com", "developers.elementor.com", "iiif.digitizingvietnam.com"],
+  },
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
   },
 };
 
