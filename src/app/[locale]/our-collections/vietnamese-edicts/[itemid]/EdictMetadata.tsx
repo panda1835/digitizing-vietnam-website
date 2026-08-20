@@ -22,12 +22,20 @@ interface EdictMetadataProps {
   locale: string;
 }
 
+/**
+ * Matches the label/value typography used by han-nom-collection's Metadata.tsx
+ * so the two collections' item pages read identically: grey Helvetica Neue
+ * label at text-lg with a trailing colon, black light-weight value at
+ * text-base.
+ */
 const Row = ({ label, children }: { label: string; children: React.ReactNode }) => (
-  <div className="mb-6">
-    <div className="font-['Helvetica Neue'] font-bold text-branding-black text-sm uppercase tracking-wide">
-      {label}
+  <div className="items-center gap-3 mt-4">
+    <div className="text-[#777777] text-lg font-normal font-['Helvetica Neue']">
+      {label}:
     </div>
-    <div className="mt-1 text-branding-black font-light leading-relaxed">{children}</div>
+    <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
+      {children}
+    </div>
   </div>
 );
 
@@ -41,11 +49,11 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
 
   return (
     <section className="mt-10">
-      <h2 className="font-['Helvetica Neue'] text-2xl text-branding-black mb-6">
+      <h2 className="font-['Helvetica Neue'] text-2xl text-branding-black mt-10">
         {vi ? "Thông tin mô tả" : "Item details"}
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">
         <Row label={t("CollectionMetadata.title")}>{entry.title}</Row>
 
         {entry.creator && (
@@ -98,7 +106,7 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
             href={EDICTS_REPOSITORY.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-branding-brown hover:underline"
+            className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
           >
             {entry.repository || EDICTS_REPOSITORY.label}
           </a>
@@ -109,7 +117,7 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
             href={entry.rights || EDICTS_REPOSITORY.rightsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-branding-brown hover:underline"
+            className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
           >
             {EDICTS_REPOSITORY.rightsLabel}
           </a>
@@ -128,7 +136,7 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
 
       {/* Provenance: always send the reader back to the holding institution. */}
       <div className="mt-8 rounded-md bg-gray-100 p-5">
-        <p className="text-sm text-branding-black font-light leading-relaxed">
+        <p className="text-sm text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
           {vi
             ? "Tài liệu gốc được lưu giữ tại Eberly Family Special Collections Library, Đại học Penn State. Hình ảnh được tải trực tiếp từ kho số của Penn State."
             : "The original document is held by the Eberly Family Special Collections Library at Penn State University Libraries. Images are loaded directly from Penn State's digital repository."}
@@ -138,7 +146,7 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
             href={entry.permalinkUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-branding-brown hover:underline"
+            className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
           >
             {vi ? "Xem tại Penn State" : "View at Penn State"}
           </a>
@@ -146,7 +154,7 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
             href={EDICTS_REPOSITORY.findingAidUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-branding-brown hover:underline"
+            className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
           >
             {vi ? "Công cụ tra cứu" : "Finding aid"}
           </a>
@@ -154,7 +162,7 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
             href={EDICTS_REPOSITORY.collectionUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-branding-brown hover:underline"
+            className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
           >
             {vi ? "Toàn bộ bộ sưu tập" : "Full collection"}
           </a>
