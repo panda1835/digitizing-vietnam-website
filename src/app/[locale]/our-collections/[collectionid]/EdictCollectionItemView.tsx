@@ -24,6 +24,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import {
   EDICTS_COLLECTION_SLUG,
+  EDICTS_REPOSITORY,
   edictMatchesQuery,
   type EdictEntry,
 } from "@/lib/pennstate-edicts";
@@ -67,6 +68,7 @@ const EdictCollectionItemView = ({
   locale,
 }: EdictCollectionItemViewProps) => {
   const t = useTranslations();
+  const vi = locale === "vi";
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -191,6 +193,75 @@ const EdictCollectionItemView = ({
   return (
     <div className="w-full">
       <div className="max-width mx-auto">
+        {/* Credit sits with the collection itself, not buried on item pages:
+            DVN mirrors this material, Penn State holds and digitised it. */}
+        <div className="mt-8 rounded-md bg-gray-100 p-5">
+          <p className="text-base text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
+            {vi ? (
+              <>
+                Bộ sưu tập gốc do{" "}
+                <a
+                  href={EDICTS_REPOSITORY.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-branding-brown"
+                >
+                  {EDICTS_REPOSITORY.library}
+                </a>
+                , {EDICTS_REPOSITORY.institution}, lưu giữ và số hóa (
+                {EDICTS_REPOSITORY.extent}, {EDICTS_REPOSITORY.dateRange}). Hình ảnh
+                được tải trực tiếp từ kho số của Penn State; phần mô tả dựa theo công
+                cụ tra cứu của thư viện.
+              </>
+            ) : (
+              <>
+                The original collection is held and was digitised by the{" "}
+                <a
+                  href={EDICTS_REPOSITORY.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-branding-brown"
+                >
+                  {EDICTS_REPOSITORY.library}
+                </a>
+                , {EDICTS_REPOSITORY.institution} ({EDICTS_REPOSITORY.extent},{" "}
+                {EDICTS_REPOSITORY.dateRange}). Images are loaded directly from Penn
+                State&rsquo;s digital repository, and the description above is adapted
+                from their finding aid.
+              </>
+            )}
+          </p>
+          <p className="mt-3 text-sm text-[#777777] font-['Helvetica Neue']">
+            {vi ? "Nguồn trích dẫn: " : "Cited as: "}
+            <a
+              href={EDICTS_REPOSITORY.findingAidUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-branding-brown"
+            >
+              {EDICTS_REPOSITORY.findingAidTitle}
+            </a>
+            {`, compiled by ${EDICTS_REPOSITORY.findingAidAuthor}, ${EDICTS_REPOSITORY.findingAidYear}. `}
+            <a
+              href={EDICTS_REPOSITORY.collectionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-branding-brown"
+            >
+              {vi ? "Bộ sưu tập số" : "Digital collection"}
+            </a>
+            {" · "}
+            <a
+              href={EDICTS_REPOSITORY.rightsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-branding-brown"
+            >
+              {EDICTS_REPOSITORY.rightsLabel}
+            </a>
+          </p>
+        </div>
+
         <div className="mt-10 flex flex-col lg:flex-row gap-8">
           <aside className="lg:w-72 shrink-0 bg-gray-100 p-4 rounded-md h-fit lg:sticky lg:top-6">
             <div className="font-['Helvetica Neue'] text-xl text-branding-black">

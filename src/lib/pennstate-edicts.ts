@@ -17,12 +17,29 @@ import {
 /** Slug this collection lives at, and the slug its Strapi record must use. */
 export const EDICTS_COLLECTION_SLUG = "vietnamese-edicts";
 
+/**
+ * Provenance for the collection. Values follow Penn State's own finding aid so
+ * the credit on DVN matches how the holding institution describes itself.
+ */
 export const EDICTS_REPOSITORY = {
   label: "Penn State University Libraries",
-  /** Eberly Family Special Collections Library. */
+  library: "Eberly Family Special Collections Library",
+  institution: "The Pennsylvania State University",
+  address: "104 Paterno Library, University Park, PA 16802",
+  email: "spcollections@psu.edu",
   url: "https://libraries.psu.edu/about/collections/collection-vietnamese-edicts-and-official-documents",
   collectionUrl: "https://digital.libraries.psu.edu/digital/collection/vietscrolls",
   findingAidUrl: "https://archives.libraries.psu.edu/repositories/3/resources/11298",
+  findingAidTitle:
+    "Guide to the Collection of Vietnamese edicts and official documents",
+  findingAidAuthor: "Mae Casey",
+  findingAidYear: "2025",
+  /** Extent and dates as stated in the finding aid. */
+  extent: "32 items",
+  dateRange: "1638–1944",
+  /** How the collection came to Penn State. */
+  acquisition:
+    "Jointly purchased in September 2025 by Penn State's Special Collections Library, Asian Studies Department, and History Department.",
   rightsUrl: "http://rightsstatements.org/vocab/NoC-US/1.0/",
   rightsLabel: "No Copyright – United States",
 } as const;

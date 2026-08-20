@@ -49,15 +49,20 @@ export const STATIC_COLLECTIONS: Record<string, StaticCollectionConfig> = {
   [EDICTS_COLLECTION_SLUG]: {
     slug: EDICTS_COLLECTION_SLUG,
     fallbackHeader: {
+      // Scope drawn from Penn State's finding aid (Guide to the Collection of
+      // Vietnamese edicts and official documents, compiled by Mae Casey, 2025).
+      // Paraphrased rather than copied: their note is itself adapted from the
+      // dealer's description, so DVN summarises it and cites the source instead
+      // of reproducing it.
       en: {
         title: "Vietnamese Edicts and Official Documents",
         abstract:
-          "Thirty-two imperial edicts and official documents of the Lê and Nguyễn dynasties, dating from 1638 to 1944 and handwritten in chữ Nho. Held by the Eberly Family Special Collections Library at Penn State University Libraries, and presented here with their full Hán transcripts, which are searchable.",
+          "Thirty-two imperial edicts and high-level bureaucratic documents from the Lê (1428–1789) and Nguyễn (1802–1945) dynasties, dating from 1638 to 1944 and handwritten in Chinese characters (chữ Nho). The formal edicts are on royal yellow paper, centred on a dragon painted in silver ink among clouds, flaming pearls and knots of longevity, and stamped with the imperial seal of ordinance, Sắc mệnh chi bảo (敕命之寶). Several record emperors naming and promoting the deities of the land — an expression of imperial sovereignty over the gods as well as over subjects — while others grant promotions to military officials. The plainer administrative papers, on white paper and stamped with the seal of the issuing office, document the workings of the Nguyễn court through the period of French colonial rule; one carries a French colonial seal rather than the emperor's. The collection is of particular interest for its continued use of Chinese characters at a time when the practice had largely given way to quốc ngữ.",
       },
       vi: {
         title: "Sắc phong và Văn bản Hành chính Việt Nam",
         abstract:
-          "Ba mươi hai sắc phong và văn bản hành chính thời Lê và Nguyễn, niên đại từ 1638 đến 1944, viết tay bằng chữ Nho. Hiện lưu giữ tại Eberly Family Special Collections Library, Đại học Penn State, và được giới thiệu tại đây kèm toàn văn phiên bản chữ Hán có thể tìm kiếm.",
+          "Ba mươi hai sắc phong và văn bản hành chính cấp cao thời Lê (1428–1789) và Nguyễn (1802–1945), niên đại từ 1638 đến 1944, viết tay bằng chữ Nho. Các sắc phong trang trọng dùng giấy vàng hoàng gia, chính giữa vẽ rồng bằng mực bạc giữa mây, hỏa châu và nút thọ, đóng ấn Sắc mệnh chi bảo (敕命之寶). Một số sắc phong ghi việc hoàng đế ban tên hiệu và thăng phong cho các vị thần bản địa — biểu hiện quyền uy của hoàng đế đối với cả thần linh lẫn thần dân — số khác thăng thưởng cho quan võ. Những văn bản hành chính giản dị hơn, trên giấy trắng và đóng dấu của nha môn ban hành, phản ánh hoạt động của triều Nguyễn trong thời kỳ Pháp thuộc; một văn bản mang dấu của chính quyền thuộc địa Pháp thay vì dấu của hoàng đế. Bộ sưu tập đặc biệt có giá trị ở việc tiếp tục dùng chữ Hán vào giai đoạn mà chữ quốc ngữ đã dần thay thế.",
       },
     },
   },
