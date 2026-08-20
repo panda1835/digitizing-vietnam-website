@@ -17,7 +17,7 @@ import dynamic from "next/dynamic";
 const MiradorViewer = dynamic(() => import("@/components/mirador/MiradorViewer"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[600px] rounded-md bg-gray-100 animate-pulse" />
+    <div className="w-full h-[700px] rounded-md bg-gray-100 animate-pulse" />
   ),
 });
 

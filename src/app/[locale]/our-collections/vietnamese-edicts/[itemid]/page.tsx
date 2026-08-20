@@ -114,8 +114,13 @@ export default async function EdictItemPage({
           <CollectionPermalink />
         </div>
 
-        <div className="mt-8">
-          <EdictViewer manifestUrl={entry.manifestUrl} />
+        {/* `relative` is load-bearing: Mirador's root is absolutely positioned,
+            so without a positioned ancestor it anchors to the viewport and
+            covers the whole page. The han-nom item page does the same. */}
+        <div className="mt-8 flex flex-row">
+          <div className="w-full relative">
+            <EdictViewer manifestUrl={entry.manifestUrl} />
+          </div>
         </div>
 
         {/* The transcript is what DVN adds over PSU's own interface: the text
