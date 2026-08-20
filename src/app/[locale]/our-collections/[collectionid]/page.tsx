@@ -11,6 +11,7 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { getHanNomManifestEntries } from "@/lib/han-nom-collection";
 import { getEdictEntries, EDICTS_COLLECTION_SLUG } from "@/lib/pennstate-edicts";
 import EdictCollectionItemView from "./EdictCollectionItemView";
+import EdictCollectionCredit from "./EdictCollectionCredit";
 import { resolveStaticHeader } from "./staticCollections";
 
 import { Metadata } from "next";
@@ -203,6 +204,10 @@ const OurCollections = async ({
       )}
       <Separator className=" w-full" />
       <FeatureArticle highlights={featuredBlogs} locale={locale} />
+      {/* Closing credit for the mirrored Penn State collection. */}
+      {collectionId === EDICTS_COLLECTION_SLUG && (
+        <EdictCollectionCredit locale={locale} />
+      )}
     </div>
   );
 };
