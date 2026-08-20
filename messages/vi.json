@@ -659,7 +659,10 @@
       "resource_types": "Loại tài nguyên",
       "collection_locations": "Địa điểm bộ sưu tập",
       "access_condition": "Điều kiện truy cập",
-      "online_resource_types": "Loại tài nguyên trực tuyến"
+      "online_resource_types": "Loại tài nguyên trực tuyến",
+      "dynasty": "Triều đại",
+      "era": "Niên hiệu",
+      "document-type": "Loại văn bản"
     }
   },
   "PedagogyVlt": {

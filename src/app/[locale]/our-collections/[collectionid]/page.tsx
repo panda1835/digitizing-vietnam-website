@@ -9,6 +9,9 @@ import CollectionItemView from "./CollectionItemView";
 import FeatureArticle from "./FeatureArticle";
 import { PageHeader } from "@/components/common/PageHeader";
 import { getHanNomManifestEntries } from "@/lib/han-nom-collection";
+import { getEdictEntries, EDICTS_COLLECTION_SLUG } from "@/lib/pennstate-edicts";
+import EdictCollectionItemView from "./EdictCollectionItemView";
+import { resolveStaticHeader } from "./staticCollections";
 
 import { Metadata } from "next";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
@@ -155,33 +158,47 @@ const OurCollections = async ({
     console.error("Error fetching collection:", error);
   }
 
-  const hanNomManifestEntries = getHanNomManifestEntries();
+  // A static collection may have no Strapi record yet (or Strapi may be down),
+  // in which case fall back to locally-defined copy rather than a blank header.
+  const staticHeader = resolveStaticHeader(collectionId, locale, collectionMetadata);
+  const headerTitle = staticHeader?.title ?? collectionMetadata.title;
+  const headerAbstract = staticHeader?.abstract ?? collectionMetadata.abstract;
 
   return (
     <div className="flex flex-col w-full items-center">
       <PageHeader
-        title={collectionMetadata.title}
-        subtitle={collectionMetadata.abstract}
+        title={headerTitle}
+        subtitle={headerAbstract}
         breadcrumbItems={[
           {
             label: t("NavigationBar.our-collections"),
             href: "our-collections",
           },
-          { label: collectionMetadata.title },
+          { label: headerTitle },
         ]}
         locale={locale}
       />
-      {collectionId != "han-nom-collection" ? (
-        <CollectionItemView
-          collectionItems={collectionItems}
-          collectionMetadata={collectionMetadata}
-        />
-      ) : (
+      {/* Collections whose items come from a local snapshot render their own
+          view; everything else uses the Strapi-backed grid. See
+          ./staticCollections.ts for the registry. */}
+      {collectionId === "han-nom-collection" ? (
         <HanNomCollectionItemView
-          items={hanNomManifestEntries}
+          items={getHanNomManifestEntries()}
           initialPage={safeRequestedPage}
           pageSize={20}
           learnMoreLabel={t("Button.learn-more")}
+        />
+      ) : collectionId === EDICTS_COLLECTION_SLUG ? (
+        <EdictCollectionItemView
+          items={getEdictEntries()}
+          initialPage={safeRequestedPage}
+          pageSize={20}
+          locale={locale}
+        />
+      ) : (
+        <CollectionItemView
+          collectionItems={collectionItems}
+          collectionMetadata={collectionMetadata}
         />
       )}
       <Separator className=" w-full" />

@@ -658,7 +658,10 @@
       "resource_types": "Resource types",
       "collection_locations": "Collection locations",
       "access_condition": "Access condition",
-      "online_resource_types": "Online resource types"
+      "online_resource_types": "Online resource types",
+      "dynasty": "Dynasty",
+      "era": "Reign era",
+      "document-type": "Document type"
     }
   },
   "PedagogyVlt": {
