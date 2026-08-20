@@ -7,6 +7,7 @@ import {
   Search,
   ArrowRight,
   BookOpen,
+  Sparkles,
 } from "lucide-react";
 
 import { Link } from "@/i18n/routing";
@@ -102,6 +103,13 @@ export default async function HanNomPage({
         {
           label: locale === "vi" ? "Sách Học thuật" : "Books",
           href: "/our-collections/nghien-cuu-han-nom",
+        },
+        {
+          label:
+            locale === "vi"
+              ? "Kho nghiên cứu thứ cấp"
+              : "Secondary Source Corpus",
+          href: "/research/han-nom/corpus",
         },
         {
           label: t("ResearchHub.HanNomHub.resources.fonts"),
@@ -359,6 +367,52 @@ export default async function HanNomPage({
                   <p className="text-[10px] text-muted-foreground mt-2 italic">
                     {t("ResearchHub.HanNomHub.cards.corpusSearch.description")}
                   </p>
+                </div>
+
+                <div className="bg-white p-8 rounded-3xl shadow-xl border border-branding-brown/10 flex flex-col lg:col-span-2">
+                  <div className="flex items-center gap-2 mb-6 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    <span>
+                      {locale === "vi" ? "Nghiên cứu với AI" : "AI-assisted research"}
+                    </span>
+                  </div>
+                  <h3
+                    className={`${merriweather.className} text-2xl text-branding-black mb-2`}
+                  >
+                    {locale === "vi"
+                      ? "Kho nghiên cứu thứ cấp"
+                      : "Secondary Source Corpus"}
+                  </h3>
+                  <p className="text-muted-foreground font-light mb-6">
+                    {locale === "vi"
+                      ? "Tìm kiếm toàn văn và hỏi đáp có dẫn nguồn trên các công trình nghiên cứu Hán Nôm hiện đại. Mỗi trích dẫn mở đúng trang quét để bạn tự kiểm chứng."
+                      : "Full-text and semantic search across modern Hán-Nôm scholarship, plus a research assistant that must cite its sources. Every citation opens the scanned page so you can check it yourself."}
+                  </p>
+                  <form
+                    action="han-nom/corpus"
+                    method="GET"
+                    className="flex gap-2 mt-auto"
+                  >
+                    <div className="relative flex-grow">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <input
+                        type="text"
+                        name="q"
+                        placeholder={
+                          locale === "vi"
+                            ? "Tìm trong các công trình nghiên cứu…"
+                            : "Search the scholarship…"
+                        }
+                        className="w-full h-[54px] px-5 py-2 pl-11 bg-white shadow-lg rounded-[26px]"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="h-[54px] px-6 rounded-[16px] bg-branding-black text-white font-semibold text-base hover:bg-branding-black/90 transition-colors"
+                    >
+                      {locale === "vi" ? "Tìm kiếm" : "Search"}
+                    </button>
+                  </form>
                 </div>
               </div>
             </section>

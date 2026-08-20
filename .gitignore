@@ -19,3 +19,5 @@ og.tsx
 .claude/
 
 data/ocr
+# Research corpus working store (page text + rendered page images)
+data/corpus

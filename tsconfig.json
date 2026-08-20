@@ -11,6 +11,10 @@
     "moduleResolution": "node",
     // "ignoreDeprecations": "6.0", // Suppress deprecation warnings for moduleResolution node10
     "resolveJsonModule": true,
+    // Lets src/lib/corpus/* use explicit .ts specifiers so scripts/corpus/*.mjs
+    // can import the very same modules under Node's ESM loader (no build step,
+    // no second copy of the folding/offset logic).
+    "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "plugins": [
