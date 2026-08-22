@@ -227,7 +227,7 @@ const HanNomCollectionItemView = ({
     <div className="flex flex-col w-full items-center">
       <div className="flex-col mb-20 w-full">
         <div className="mt-10 flex flex-col lg:flex-row gap-8">
-          <aside className="lg:w-72 shrink-0 bg-gray-100 p-4 rounded-md h-fit lg:sticky lg:top-6">
+          <aside className="lg:w-72 shrink-0 bg-gray-100 p-4 rounded-md h-fit">
             <div className="font-['Helvetica Neue'] text-xl text-branding-black">
               {t("Filter.refine-your-search")}
             </div>

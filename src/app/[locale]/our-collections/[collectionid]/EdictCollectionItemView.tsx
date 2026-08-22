@@ -17,6 +17,7 @@ import { useTranslations } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Merriweather } from "next/font/google";
+import localFont from "next/font/local";
 
 import { Link } from "@/i18n/routing";
 import { Input } from "@/components/ui/input";
@@ -24,11 +25,15 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import {
   EDICTS_COLLECTION_SLUG,
+  EDICTS_REPOSITORY,
   edictMatchesQuery,
   type EdictEntry,
 } from "@/lib/pennstate-edicts";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
+const NomNaTong = localFont({
+  src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+});
 
 interface EdictCollectionItemViewProps {
   items: EdictEntry[];
@@ -44,7 +49,7 @@ const FILTER_KEYS = [
   { key: "languages", field: "language" },
 ] as const;
 
-type FilterKey = (typeof FILTER_KEYS)[number]["key"];
+type FilterKey = typeof FILTER_KEYS[number]["key"];
 
 const PAGE_SIZE_DEFAULT = 20;
 
@@ -73,34 +78,41 @@ const EdictCollectionItemView = ({
   const searchParams = useSearchParams();
 
   const [query, setQuery] = useState(searchParams.get("q") ?? "");
-  const [selectedFilters, setSelectedFilters] = useState<Record<FilterKey, string[]>>(
-    () => {
-      const initial = emptyFilters();
-      for (const filter of FILTER_KEYS) {
-        initial[filter.key] = searchParams.getAll(filter.key);
-      }
-      return initial;
+  const [selectedFilters, setSelectedFilters] = useState<
+    Record<FilterKey, string[]>
+  >(() => {
+    const initial = emptyFilters();
+    for (const filter of FILTER_KEYS) {
+      initial[filter.key] = searchParams.getAll(filter.key);
     }
-  );
+    return initial;
+  });
   const [fromYear, setFromYear] = useState(searchParams.get("from") ?? "");
   const [toYear, setToYear] = useState(searchParams.get("to") ?? "");
   const [currentPage, setCurrentPage] = useState(initialPage);
-  const [showAllOptions, setShowAllOptions] = useState<Record<string, boolean>>({});
+  const [showAllOptions, setShowAllOptions] = useState<Record<string, boolean>>(
+    {}
+  );
 
   const matchesFilters = useCallback(
     (item: EdictEntry, ignore?: FilterKey) => {
       for (const filter of FILTER_KEYS) {
         if (filter.key === ignore) continue;
         const selected = selectedFilters[filter.key];
-        if (selected.length > 0 && !selected.includes(valueOf(item, filter.key))) {
+        if (
+          selected.length > 0 &&
+          !selected.includes(valueOf(item, filter.key))
+        ) {
           return false;
         }
       }
 
       const from = Number.parseInt(fromYear, 10);
       const to = Number.parseInt(toYear, 10);
-      if (!Number.isNaN(from) && (item.year === null || item.year < from)) return false;
-      if (!Number.isNaN(to) && (item.year === null || item.year > to)) return false;
+      if (!Number.isNaN(from) && (item.year === null || item.year < from))
+        return false;
+      if (!Number.isNaN(to) && (item.year === null || item.year > to))
+        return false;
 
       return edictMatchesQuery(item, query);
     },
@@ -153,18 +165,25 @@ const EdictCollectionItemView = ({
     const params = new URLSearchParams();
     if (query.trim()) params.set("q", query.trim());
     for (const filter of FILTER_KEYS) {
-      for (const value of selectedFilters[filter.key]) params.append(filter.key, value);
+      for (const value of selectedFilters[filter.key])
+        params.append(filter.key, value);
     }
     if (fromYear) params.set("from", fromYear);
     if (toYear) params.set("to", toYear);
     if (safeCurrentPage > 1) params.set("page", String(safeCurrentPage));
 
     const search = params.toString();
-    router.replace(search ? `${pathname}?${search}` : pathname, { scroll: false });
+    router.replace(search ? `${pathname}?${search}` : pathname, {
+      scroll: false,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, selectedFilters, fromYear, toYear, safeCurrentPage]);
 
-  const toggleFilterValue = (key: FilterKey, value: string, checked: boolean) => {
+  const toggleFilterValue = (
+    key: FilterKey,
+    value: string,
+    checked: boolean
+  ) => {
     setSelectedFilters((prev) => ({
       ...prev,
       [key]: checked
@@ -193,13 +212,14 @@ const EdictCollectionItemView = ({
     <div className="w-full">
       <div className="max-width mx-auto">
         <div className="mt-10 flex flex-col lg:flex-row gap-8">
-          <aside className="lg:w-72 shrink-0 bg-gray-100 p-4 rounded-md h-fit lg:sticky lg:top-6">
+          <aside className="lg:w-72 shrink-0 bg-gray-100 p-4 rounded-md h-fit">
             <div className="font-['Helvetica Neue'] text-xl text-branding-black">
               {t("Filter.refine-your-search")}
             </div>
 
             <div className="mt-4">
               <Input
+                className={NomNaTong.className}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={
@@ -220,7 +240,9 @@ const EdictCollectionItemView = ({
               {FILTER_KEYS.map((filter) => {
                 const options = optionCountsByKey[filter.key] ?? [];
                 const expanded = showAllOptions[filter.key];
-                const visibleOptions = expanded ? options : options.slice(0, 10);
+                const visibleOptions = expanded
+                  ? options
+                  : options.slice(0, 10);
                 if (options.length === 0) return null;
 
                 return (
@@ -240,14 +262,22 @@ const EdictCollectionItemView = ({
                           >
                             <Checkbox
                               id={`${filter.key}-${option.name}`}
-                              checked={selectedFilters[filter.key].includes(option.name)}
+                              checked={selectedFilters[filter.key].includes(
+                                option.name
+                              )}
                               onCheckedChange={(checked) =>
-                                toggleFilterValue(filter.key, option.name, Boolean(checked))
+                                toggleFilterValue(
+                                  filter.key,
+                                  option.name,
+                                  Boolean(checked)
+                                )
                               }
                             />
                             <span>{option.name}</span>
                           </label>
-                          <span className="text-sm text-gray-600">{option.count}</span>
+                          <span className="text-sm text-gray-600">
+                            {option.count}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -279,7 +309,9 @@ const EdictCollectionItemView = ({
                   className="flex-1"
                   value={fromYear}
                   onChange={(event) =>
-                    setFromYear(event.target.value.replace(/[^\d]/g, "").slice(0, 4))
+                    setFromYear(
+                      event.target.value.replace(/[^\d]/g, "").slice(0, 4)
+                    )
                   }
                   placeholder={t("Filter.year-placeholder")}
                   inputMode="numeric"
@@ -289,7 +321,9 @@ const EdictCollectionItemView = ({
                   className="flex-1"
                   value={toYear}
                   onChange={(event) =>
-                    setToYear(event.target.value.replace(/[^\d]/g, "").slice(0, 4))
+                    setToYear(
+                      event.target.value.replace(/[^\d]/g, "").slice(0, 4)
+                    )
                   }
                   placeholder={t("Filter.year-placeholder")}
                   inputMode="numeric"
@@ -342,7 +376,9 @@ const EdictCollectionItemView = ({
             </div>
 
             {currentItems.length === 0 && (
-              <div className="text-branding-black mt-8">{t("Filter.no-items-match")}</div>
+              <div className="text-branding-black mt-8">
+                {t("Filter.no-items-match")}
+              </div>
             )}
 
             <div className="mt-12 flex flex-col items-center gap-4">
@@ -353,7 +389,9 @@ const EdictCollectionItemView = ({
                 <Button
                   variant="outline"
                   disabled={safeCurrentPage <= 1}
-                  onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.max(1, prev - 1))
+                  }
                 >
                   {t("Button.previous")}
                 </Button>
@@ -363,7 +401,9 @@ const EdictCollectionItemView = ({
                 <Button
                   variant="outline"
                   disabled={safeCurrentPage >= totalPages}
-                  onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.min(totalPages, prev + 1))
+                  }
                 >
                   {t("Button.next")}
                 </Button>
@@ -371,6 +411,23 @@ const EdictCollectionItemView = ({
             </div>
           </div>
         </div>
+
+        <p className="mt-8 mb-8 text-base text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
+          {vi ? "Ghi chú: " : "Note: "}
+          {vi
+            ? `Bộ sưu tập gốc do ${EDICTS_REPOSITORY.library}, ${EDICTS_REPOSITORY.institution}, lưu giữ và số hóa (${EDICTS_REPOSITORY.extent}, ${EDICTS_REPOSITORY.dateRange}). Hình ảnh được tải trực tiếp từ kho số của Penn State, và phần mô tả ở trên được biên soạn dựa theo công cụ tra cứu của thư viện.`
+            : `The original collection is held and was digitised by the ${EDICTS_REPOSITORY.library}, ${EDICTS_REPOSITORY.institution} (${EDICTS_REPOSITORY.extent}, ${EDICTS_REPOSITORY.dateRange}). Images are loaded directly from Penn State's digital repository, and the description above is adapted from their finding aid.`}{" "}
+          <a
+            href={EDICTS_REPOSITORY.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-branding-brown"
+          >
+            {vi
+              ? "Truy cập bộ sưu tập gốc."
+              : "Access the original collection."}
+          </a>
+        </p>
       </div>
     </div>
   );

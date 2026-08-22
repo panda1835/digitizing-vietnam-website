@@ -11,8 +11,6 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { getHanNomManifestEntries } from "@/lib/han-nom-collection";
 import { getEdictEntries, EDICTS_COLLECTION_SLUG } from "@/lib/pennstate-edicts";
 import EdictCollectionItemView from "./EdictCollectionItemView";
-import EdictCollectionCredit from "./EdictCollectionCredit";
-import { resolveStaticHeader } from "./staticCollections";
 
 import { Metadata } from "next";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
@@ -159,29 +157,22 @@ const OurCollections = async ({
     console.error("Error fetching collection:", error);
   }
 
-  // A static collection may have no Strapi record yet (or Strapi may be down),
-  // in which case fall back to locally-defined copy rather than a blank header.
-  const staticHeader = resolveStaticHeader(collectionId, locale, collectionMetadata);
-  const headerTitle = staticHeader?.title ?? collectionMetadata.title;
-  const headerAbstract = staticHeader?.abstract ?? collectionMetadata.abstract;
-
   return (
     <div className="flex flex-col w-full items-center">
       <PageHeader
-        title={headerTitle}
-        subtitle={headerAbstract}
+        title={collectionMetadata.title}
+        subtitle={collectionMetadata.abstract}
         breadcrumbItems={[
           {
             label: t("NavigationBar.our-collections"),
             href: "our-collections",
           },
-          { label: headerTitle },
+          { label: collectionMetadata.title },
         ]}
         locale={locale}
       />
       {/* Collections whose items come from a local snapshot render their own
-          view; everything else uses the Strapi-backed grid. See
-          ./staticCollections.ts for the registry. */}
+          view; everything else uses the Strapi-backed grid. */}
       {collectionId === "han-nom-collection" ? (
         <HanNomCollectionItemView
           items={getHanNomManifestEntries()}
@@ -204,10 +195,6 @@ const OurCollections = async ({
       )}
       <Separator className=" w-full" />
       <FeatureArticle highlights={featuredBlogs} locale={locale} />
-      {/* Closing credit for the mirrored Penn State collection. */}
-      {collectionId === EDICTS_COLLECTION_SLUG && (
-        <EdictCollectionCredit locale={locale} />
-      )}
     </div>
   );
 };

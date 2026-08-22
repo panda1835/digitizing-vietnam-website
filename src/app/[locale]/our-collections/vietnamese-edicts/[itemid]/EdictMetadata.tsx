@@ -48,11 +48,7 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
   const dateLabel = t("CollectionMetadata.date");
 
   return (
-    <section className="mt-10">
-      <h2 className="font-['Helvetica Neue'] text-2xl text-branding-black mt-10">
-        {vi ? "Thông tin mô tả" : "Item details"}
-      </h2>
-
+    <section>
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">
         <Row label={t("CollectionMetadata.title")}>{entry.title}</Row>
 
@@ -103,7 +99,7 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
 
         <Row label={t("CollectionMetadata.location")}>
           <a
-            href={EDICTS_REPOSITORY.url}
+            href={entry.permalinkUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
@@ -132,42 +128,16 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
         <Row label={vi ? "Ghi chú niên đại" : "Date notes"}>{entry.dateNotes}</Row>
       )}
 
-      {entry.notes && <Row label={t("CollectionMetadata.note")}>{entry.notes}</Row>}
-
-      {/* Provenance: always send the reader back to the holding institution. */}
-      <div className="mt-8 rounded-md bg-gray-100 p-5">
-        <p className="text-sm text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
-          {vi
-            ? "Tài liệu gốc được lưu giữ tại Eberly Family Special Collections Library, Đại học Penn State. Hình ảnh được tải trực tiếp từ kho số của Penn State."
-            : "The original document is held by the Eberly Family Special Collections Library at Penn State University Libraries. Images are loaded directly from Penn State's digital repository."}
-        </p>
-        <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <a
-            href={entry.permalinkUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
-          >
-            {vi ? "Xem tại Penn State" : "View at Penn State"}
-          </a>
-          <a
-            href={EDICTS_REPOSITORY.findingAidUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
-          >
-            {vi ? "Công cụ tra cứu" : "Finding aid"}
-          </a>
-          <a
-            href={EDICTS_REPOSITORY.collectionUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-branding-black text-base font-light font-['Helvetica Neue'] underline hover:text-branding-brown"
-          >
-            {vi ? "Toàn bộ bộ sưu tập" : "Full collection"}
-          </a>
+      <Row label={t("CollectionMetadata.note")}>
+        <div className="space-y-3">
+          {entry.notes && <p>{entry.notes}</p>}
+          <p>
+            {vi
+              ? "Tài liệu gốc được lưu giữ tại Eberly Family Special Collections Library thuộc Penn State University Libraries. Hình ảnh do Penn State cung cấp từ kho lưu trữ số của trường."
+              : "The original document is held by the Eberly Family Special Collections Library at Penn State University Libraries. Images are provided from Penn State's digital repository."}
+          </p>
         </div>
-      </div>
+      </Row>
     </section>
   );
 }

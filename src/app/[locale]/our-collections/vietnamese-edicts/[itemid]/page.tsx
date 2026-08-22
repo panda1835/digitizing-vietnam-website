@@ -14,6 +14,7 @@
 
 import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Merriweather } from "next/font/google";
 import localFont from "next/font/local";
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
@@ -31,6 +32,8 @@ import EdictMetadata from "./EdictMetadata";
 const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
+
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export async function generateMetadata({
   params: { itemid },
@@ -71,7 +74,10 @@ export default async function EdictItemPage({
           <BreadcrumbAndSearchBar
             locale={locale}
             breadcrumbItems={[
-              { label: t("NavigationBar.our-collections"), href: "our-collections" },
+              {
+                label: t("NavigationBar.our-collections"),
+                href: "our-collections",
+              },
               {
                 label: collectionTitle,
                 href: `our-collections/${EDICTS_COLLECTION_SLUG}`,
@@ -87,12 +93,15 @@ export default async function EdictItemPage({
   }
 
   return (
-    <div className="flex flex-col items-center max-width">
-      <div className="w-full mb-20">
+    <div className="flex flex-col w-full items-center">
+      <div className="flex-col mb-20 w-full">
         <BreadcrumbAndSearchBar
           locale={locale}
           breadcrumbItems={[
-            { label: t("NavigationBar.our-collections"), href: "our-collections" },
+            {
+              label: t("NavigationBar.our-collections"),
+              href: "our-collections",
+            },
             {
               label: collectionTitle,
               href: `our-collections/${EDICTS_COLLECTION_SLUG}`,
@@ -101,23 +110,27 @@ export default async function EdictItemPage({
           ]}
         />
 
-        <h1 className="font-['Helvetica Neue'] text-branding-black text-[32px] mt-6 leading-tight">
+        <h1
+          className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
+        >
           {entry.title}
         </h1>
-        <p className="text-base text-[#777777] mt-2">
-          {[entry.dynasty ? `${entry.dynasty} dynasty` : "", entry.date, entry.container]
-            .filter(Boolean)
-            .join(" · ")}
-        </p>
+        {entry.description && (
+          <p className="mt-4 max-w-5xl text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed">
+            {entry.description}
+          </p>
+        )}
 
-        <div className="mt-4">
-          <CollectionPermalink />
+        <CollectionPermalink />
+
+        <div className="mt-8">
+          <Separator />
         </div>
 
         {/* `relative` is load-bearing: Mirador's root is absolutely positioned,
             so without a positioned ancestor it anchors to the viewport and
             covers the whole page. The han-nom item page does the same. */}
-        <div className="mt-8 flex flex-row">
+        <div className="flex flex-row mt-10">
           <div className="w-full relative">
             <EdictViewer manifestUrl={entry.manifestUrl} />
           </div>
@@ -137,11 +150,11 @@ export default async function EdictItemPage({
               {entry.transcript}
             </div>
             {entry.transcriptNotes && (
-              <p className="mt-3 text-sm text-[#777777] whitespace-pre-wrap">
+              <p className="mt-3 max-w-5xl text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed whitespace-pre-wrap">
                 {entry.transcriptNotes}
               </p>
             )}
-            <p className="mt-2 text-xs text-[#777777]">
+            <p className="mt-3 max-w-5xl text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed">
               {vi
                 ? `Phiên bản do ${EDICTS_REPOSITORY.label} cung cấp.`
                 : `Transcript provided by ${EDICTS_REPOSITORY.label}.`}
@@ -149,7 +162,9 @@ export default async function EdictItemPage({
           </section>
         )}
 
-        <Separator className="mt-12" />
+        <div className="mt-8">
+          <Separator />
+        </div>
 
         <EdictMetadata entry={entry} locale={locale} />
       </div>
