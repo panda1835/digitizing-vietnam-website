@@ -82,17 +82,18 @@ export default async function ExternalArchivesPage({
 
   const physicalArchives = [
     {
+      name: isVi ? "Viện Nghiên cứu Hán-Nôm" : "Institute of Sino-Nôm Studies",
+      description: isVi
+        ? "Các danh mục thẻ và hồ sơ thư mục đã được số hóa từ Viện Nghiên cứu Hán-Nôm tại Hà Nội."
+        : "Digitized card catalogs and bibliographic records from the Institute of Sino-Nôm Studies in Hanoi.",
+      url: "https://hannom.vass.gov.vn/di-san-han-nom",
+    },
+    {
       name: "BULAC",
       description: isVi
         ? "Thư viện Đại học về Ngôn ngữ và Văn minh: Danh mục nghiên cứu toàn diện cho các bộ sưu tập tiếng Việt và Hán-Nôm phong phú tại Pháp."
         : "Bibliothèque universitaire des langues et civilisations: Comprehensive research catalog for extensive Vietnamese and Hán-Nôm collections in France.",
       url: "https://www.bulac.fr/",
-    },
-    {
-      name: isVi ? "Viện Nghiên cứu Hán-Nôm" : "Institute of Sino-Nôm Studies",
-      description: isVi
-        ? "Các danh mục thẻ và hồ sơ thư mục đã được số hóa từ Viện Nghiên cứu Hán-Nôm tại Hà Nội."
-        : "Digitized card catalogs and bibliographic records from the Institute of Sino-Nôm Studies in Hanoi.",
     },
     {
       name: isVi ? "Thư viện Quốc gia Việt Nam" : "National Library of Vietnam",
