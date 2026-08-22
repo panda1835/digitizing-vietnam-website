@@ -15,7 +15,12 @@
 
 import { getTranslations } from "next-intl/server";
 
-import { EDICTS_REPOSITORY, type EdictEntry } from "@/lib/pennstate-edicts";
+import {
+  EDICTS_REPOSITORY,
+  getEdictText,
+  localizeEdictValue,
+  type EdictEntry,
+} from "@/lib/pennstate-edicts";
 
 interface EdictMetadataProps {
   entry: EdictEntry;
@@ -47,16 +52,27 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
   // the few fields the existing namespace has no key for.
   const dateLabel = t("CollectionMetadata.date");
 
+  // On the Vietnamese site the title is DVN's translation, so PSU's own
+  // catalogue title is kept alongside it — the reader should still be able to
+  // see, and cite, the wording the holding institution uses.
+  const { title, isTranslated } = getEdictText(entry, locale);
+
   return (
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-8 gap-x-6">
-        <Row label={t("CollectionMetadata.title")}>{entry.title}</Row>
+        <Row label={t("CollectionMetadata.title")}>{title}</Row>
+
+        {isTranslated && (
+          <Row label="Nhan đề gốc (Penn State)">{entry.title}</Row>
+        )}
 
         {entry.creator && (
           <Row label={t("CollectionMetadata.authors")}>{entry.creator}</Row>
         )}
 
-        <Row label={vi ? "Loại văn bản" : "Document type"}>{entry.documentType}</Row>
+        <Row label={vi ? "Loại văn bản" : "Document type"}>
+          {localizeEdictValue("documentType", entry.documentType, locale)}
+        </Row>
 
         {entry.dynasty && (
           <Row label={vi ? "Triều đại" : "Dynasty"}>
@@ -74,7 +90,9 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
         )}
 
         {entry.language && (
-          <Row label={t("CollectionMetadata.languages")}>{entry.language}</Row>
+          <Row label={t("CollectionMetadata.languages")}>
+            {localizeEdictValue("language", entry.language, locale)}
+          </Row>
         )}
 
         {entry.subjects.length > 0 && (
@@ -82,7 +100,9 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
         )}
 
         {entry.place && (
-          <Row label={t("CollectionMetadata.place-of-publication")}>{entry.place}</Row>
+          <Row label={t("CollectionMetadata.place-of-publication")}>
+            {localizeEdictValue("place", entry.place, locale)}
+          </Row>
         )}
 
         {entry.physical && (
@@ -90,7 +110,9 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
         )}
 
         {entry.container && (
-          <Row label={vi ? "Vị trí lưu trữ" : "Container"}>{entry.container}</Row>
+          <Row label={vi ? "Vị trí lưu trữ" : "Container"}>
+            {localizeEdictValue("container", entry.container, locale)}
+          </Row>
         )}
 
         {entry.identifier && (
@@ -120,9 +142,9 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
         </Row>
       </div>
 
-      {entry.description && (
-        <Row label={vi ? "Mô tả" : "Description"}>{entry.description}</Row>
-      )}
+      {/* No description row: the scope note is now shown under the heading at
+          the top of the page, where it introduces the document rather than
+          trailing the catalogue fields. */}
 
       {entry.dateNotes && (
         <Row label={vi ? "Ghi chú niên đại" : "Date notes"}>{entry.dateNotes}</Row>

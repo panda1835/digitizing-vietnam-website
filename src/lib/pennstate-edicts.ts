@@ -13,6 +13,11 @@ import {
   PENN_STATE_EDICTS,
   type PennStateEdictRecord,
 } from "@/app/[locale]/our-collections/PennStateEdictsMetadata";
+import {
+  EDICT_VI_LABELS,
+  EDICT_VI_TEXT,
+  type EdictLabelKind,
+} from "@/lib/pennstate-edicts-vi";
 
 /** Slug this collection lives at, and the slug its Strapi record must use. */
 export const EDICTS_COLLECTION_SLUG = "vietnamese-edicts";
@@ -47,6 +52,54 @@ export const EDICTS_REPOSITORY = {
 export type EdictEntry = PennStateEdictRecord;
 
 export const getEdictEntries = (): EdictEntry[] => [...PENN_STATE_EDICTS];
+
+/**
+ * Title and description in the reader's language.
+ *
+ * Penn State catalogues the collection in English only, so DVN carries its own
+ * Vietnamese translations in pennstate-edicts-vi.ts. Anything not translated
+ * yet — and every locale other than Vietnamese — falls back to PSU's text.
+ */
+export const getEdictText = (entry: EdictEntry, locale: string) => {
+  const translated = locale === "vi" ? EDICT_VI_TEXT[entry.dmrecord] : undefined;
+  return {
+    title: translated?.title || entry.title,
+    description: translated?.description || entry.description,
+    /** True when the reader is seeing DVN's translation rather than PSU's text. */
+    isTranslated: Boolean(translated),
+  };
+};
+
+/**
+ * A catalogue value in the reader's language — document type, language, place
+ * or container.
+ *
+ * Translation is display-only: pass the English value straight through as the
+ * filter value and hand the result of this to the label, so filtered URLs stay
+ * identical across locales.
+ */
+export const localizeEdictValue = (
+  kind: EdictLabelKind,
+  value: string,
+  locale: string
+) => {
+  if (locale !== "vi") return value;
+  const labels: Record<string, string> = EDICT_VI_LABELS[kind];
+  return labels[value] ?? value;
+};
+
+/** "Triều Nguyễn" / "Nguyễn dynasty" — the dynasty names need no translation. */
+export const formatEdictDynasty = (dynasty: string, locale: string) =>
+  dynasty ? (locale === "vi" ? `Triều ${dynasty}` : `${dynasty} dynasty`) : "";
+
+/**
+ * The short heading a card carries in the browse grid: document type and era,
+ * e.g. "Sắc phong, Cảnh Hưng" or "Edict, Cảnh Hưng".
+ */
+export const getEdictCardTitle = (entry: EdictEntry, locale: string) => {
+  const type = localizeEdictValue("documentType", entry.documentType, locale);
+  return entry.era ? `${type}, ${entry.era}` : type;
+};
 
 export const getEdictByRecord = (dmrecord: string | number): EdictEntry | undefined => {
   const id = Number(dmrecord);
@@ -86,6 +139,10 @@ export const getSearchHaystack = (entry: EdictEntry) => ({
       entry.description,
       entry.subjects.join(" "),
       entry.identifier,
+      // DVN's Vietnamese wording is indexed in both locales, so "sắc phong"
+      // finds an edict even though PSU's own record says only "Edict".
+      EDICT_VI_TEXT[entry.dmrecord]?.title ?? "",
+      EDICT_VI_TEXT[entry.dmrecord]?.description ?? "",
     ]
       .filter(Boolean)
       .join(" ")

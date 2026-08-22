@@ -26,6 +26,9 @@ import {
   EDICTS_REPOSITORY,
   getEdictByRecord,
   getEdictEntries,
+  getEdictText,
+  formatEdictDynasty,
+  localizeEdictValue,
 } from "@/lib/pennstate-edicts";
 import EdictMetadata from "./EdictMetadata";
 
@@ -36,14 +39,18 @@ const NomNaTong = localFont({
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export async function generateMetadata({
-  params: { itemid },
+  params: { locale, itemid },
 }: {
-  params: { itemid: string };
+  params: { locale: string; itemid: string };
 }): Promise<Metadata> {
   const entry = getEdictByRecord(itemid);
+  if (!entry) return { title: "Document | Digitizing Việt Nam" };
+
+  // Search results and shared links should read in the page's own language.
+  const { title, description } = getEdictText(entry, locale);
   return {
-    title: `${entry?.title ?? "Document"} | Digitizing Việt Nam`,
-    description: entry?.description?.slice(0, 200),
+    title: `${title} | Digitizing Việt Nam`,
+    description: description?.slice(0, 200),
   };
 }
 
@@ -92,6 +99,10 @@ export default async function EdictItemPage({
     );
   }
 
+  // PSU catalogues in English only; on the Vietnamese site the heading and
+  // scope note are DVN's translations. See src/lib/pennstate-edicts-vi.ts.
+  const { title, description } = getEdictText(entry, locale);
+
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex-col mb-20 w-full">
@@ -106,18 +117,19 @@ export default async function EdictItemPage({
               label: collectionTitle,
               href: `our-collections/${EDICTS_COLLECTION_SLUG}`,
             },
-            { label: entry.title },
+            { label: title },
           ]}
         />
+
 
         <h1
           className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
         >
-          {entry.title}
+          {title}
         </h1>
-        {entry.description && (
+        {description && (
           <p className="mt-4 max-w-5xl text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed">
-            {entry.description}
+            {description}
           </p>
         )}
 
