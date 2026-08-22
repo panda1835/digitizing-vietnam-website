@@ -44,7 +44,8 @@ export async function generateMetadata({
     if (manifestUrl) {
       const manifestResponse = await fetch(manifestUrl);
       const manifest: IIIFManifest = await manifestResponse.json();
-      const title = manifest.label?.en?.[0] || t("HanNomCollection.collection-title");
+      const title =
+        manifest.label?.en?.[0] || t("HanNomCollection.collection-title");
 
       return {
         title: `${title} | Digitizing Việt Nam`,
@@ -134,7 +135,7 @@ const HanNomItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        <div className="mt-16">
+        <div className="mt-8">
           <Separator />
         </div>
 
@@ -148,7 +149,7 @@ const HanNomItemViewer = async ({
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-8">
           <Separator />
         </div>
 

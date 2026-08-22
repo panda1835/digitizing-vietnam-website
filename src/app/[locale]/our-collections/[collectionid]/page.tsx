@@ -9,6 +9,8 @@ import CollectionItemView from "./CollectionItemView";
 import FeatureArticle from "./FeatureArticle";
 import { PageHeader } from "@/components/common/PageHeader";
 import { getHanNomManifestEntries } from "@/lib/han-nom-collection";
+import { getEdictEntries, EDICTS_COLLECTION_SLUG } from "@/lib/pennstate-edicts";
+import EdictCollectionItemView from "./EdictCollectionItemView";
 
 import { Metadata } from "next";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
@@ -155,8 +157,6 @@ const OurCollections = async ({
     console.error("Error fetching collection:", error);
   }
 
-  const hanNomManifestEntries = getHanNomManifestEntries();
-
   return (
     <div className="flex flex-col w-full items-center">
       <PageHeader
@@ -171,17 +171,26 @@ const OurCollections = async ({
         ]}
         locale={locale}
       />
-      {collectionId != "han-nom-collection" ? (
-        <CollectionItemView
-          collectionItems={collectionItems}
-          collectionMetadata={collectionMetadata}
-        />
-      ) : (
+      {/* Collections whose items come from a local snapshot render their own
+          view; everything else uses the Strapi-backed grid. */}
+      {collectionId === "han-nom-collection" ? (
         <HanNomCollectionItemView
-          items={hanNomManifestEntries}
+          items={getHanNomManifestEntries()}
           initialPage={safeRequestedPage}
           pageSize={20}
           learnMoreLabel={t("Button.learn-more")}
+        />
+      ) : collectionId === EDICTS_COLLECTION_SLUG ? (
+        <EdictCollectionItemView
+          items={getEdictEntries()}
+          initialPage={safeRequestedPage}
+          pageSize={20}
+          locale={locale}
+        />
+      ) : (
+        <CollectionItemView
+          collectionItems={collectionItems}
+          collectionMetadata={collectionMetadata}
         />
       )}
       <Separator className=" w-full" />
