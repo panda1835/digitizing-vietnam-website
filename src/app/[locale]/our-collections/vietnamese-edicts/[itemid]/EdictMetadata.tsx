@@ -142,9 +142,15 @@ export default async function EdictMetadata({ entry, locale }: EdictMetadataProp
         </Row>
       </div>
 
-      {/* No description row: the scope note is now shown under the heading at
-          the top of the page, where it introduces the document rather than
-          trailing the catalogue fields. */}
+      {/* PSU's own wording, kept in English even on the Vietnamese site — the
+          translated scope note is the one under the heading. Same treatment as
+          the title rows above: read it in your language up top, cite Penn
+          State's text here. */}
+      {entry.description && (
+        <Row label={vi ? "Mô tả gốc (Penn State)" : "Description"}>
+          {entry.description}
+        </Row>
+      )}
 
       {entry.dateNotes && (
         <Row label={vi ? "Ghi chú niên đại" : "Date notes"}>{entry.dateNotes}</Row>
