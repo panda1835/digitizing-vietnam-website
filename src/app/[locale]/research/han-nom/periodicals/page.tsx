@@ -29,14 +29,24 @@ export default async function PeriodicalsPage({
       url: t("Periodicals.list.jvs.url"),
     },
     {
+      name: t("Periodicals.list.tap-chi-han-nom.name"),
+      description: t("Periodicals.list.tap-chi-han-nom.description"),
+      url: t("Periodicals.list.tap-chi-han-nom.url"),
+    },
+    {
       name: t("Periodicals.list.befeo.name"),
       description: t("Periodicals.list.befeo.description"),
       url: t("Periodicals.list.befeo.url"),
     },
     {
-      name: t("Periodicals.list.tap-chi-han-nom.name"),
-      description: t("Periodicals.list.tap-chi-han-nom.description"),
-      url: t("Periodicals.list.tap-chi-han-nom.url"),
+      name: t("Periodicals.list.tap-chi-ngon-ngu.name"),
+      description: t("Periodicals.list.tap-chi-ngon-ngu.description"),
+      url: t("Periodicals.list.tap-chi-ngon-ngu.url"),
+    },
+    {
+      name: t("Periodicals.list.tap-chi-nghien-cuu-phat-hoc.name"),
+      description: t("Periodicals.list.tap-chi-nghien-cuu-phat-hoc.description"),
+      url: t("Periodicals.list.tap-chi-nghien-cuu-phat-hoc.url"),
     },
   ];
   const category = { resources: periodicals };

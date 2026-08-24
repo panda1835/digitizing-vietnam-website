@@ -557,7 +557,7 @@
       "tap-chi-han-nom": {
         "name": "Tạp chí Hán Nôm",
         "description": "The primary scholarly journal of the Institute of Sino-Nôm Studies in Hanoi, featuring research on manuscripts, linguistics, and historical texts.",
-        "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
+        "url": "https://vjol.info.vn/hannom/index/"
       },
       "befeo": {
         "name": "BEFEO",
@@ -568,6 +568,16 @@
         "name": "Journal of Vietnamese Studies",
         "description": "A peer-reviewed academic journal published by the University of California Press, covering all aspects of Vietnamese history, culture, and society.",
         "url": "https://online.ucpress.edu/jvs"
+      },
+      "tap-chi-ngon-ngu": {
+        "name": "Tạp chí Ngôn ngữ",
+        "description": "The journal of the Institute of Linguistics at the Vietnam Academy of Social Sciences, publishing research on the Vietnamese language and linguistics. Issues are hosted on Vietnam Journals Online (VJOL).",
+        "url": "https://vjol.info.vn/ngonngu/en/index/"
+      },
+      "tap-chi-nghien-cuu-phat-hoc": {
+        "name": "Tạp chí Nghiên cứu Phật học",
+        "description": "The journal of the Vietnam Buddhist Sangha, covering Buddhist history, doctrine, and the temples and textual heritage that preserve much of Vietnam's Hán-Nôm corpus.",
+        "url": "https://tapchinghiencuuphathoc.vn/"
       }
     }
   },

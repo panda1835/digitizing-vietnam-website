@@ -558,7 +558,7 @@
       "tap-chi-han-nom": {
         "name": "Tạp chí Hán Nôm",
         "description": "Tạp chí học thuật chính của Viện Nghiên cứu Hán Nôm, đăng tải các nghiên cứu về văn bản, ngôn ngữ và lịch sử.",
-        "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
+        "url": "https://vjol.info.vn/hannom/index/"
       },
       "befeo": {
         "name": "BEFEO",
@@ -569,6 +569,16 @@
         "name": "Journal of Vietnamese Studies",
         "description": "Tạp chí học thuật được bình duyệt bởi Đại học California, bao gồm tất cả các khía cạnh của lịch sử, văn hóa và xã hội Việt Nam.",
         "url": "https://online.ucpress.edu/jvs"
+      },
+      "tap-chi-ngon-ngu": {
+        "name": "Tạp chí Ngôn ngữ",
+        "description": "Tạp chí của Viện Ngôn ngữ học thuộc Viện Hàn lâm Khoa học xã hội Việt Nam, đăng tải các nghiên cứu về tiếng Việt và ngôn ngữ học. Các số được lưu trữ trên Vietnam Journals Online (VJOL).",
+        "url": "https://vjol.info.vn/ngonngu/en/index/"
+      },
+      "tap-chi-nghien-cuu-phat-hoc": {
+        "name": "Tạp chí Nghiên cứu Phật học",
+        "description": "Tạp chí của Giáo hội Phật giáo Việt Nam, đăng tải các nghiên cứu về lịch sử, giáo lý Phật giáo cùng di sản chùa chiền và thư tịch — nơi lưu giữ phần lớn kho tàng Hán-Nôm của Việt Nam.",
+        "url": "https://tapchinghiencuuphathoc.vn/"
       }
     }
   },
