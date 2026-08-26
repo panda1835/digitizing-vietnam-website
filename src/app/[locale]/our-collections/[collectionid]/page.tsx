@@ -11,6 +11,8 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { getHanNomManifestEntries } from "@/lib/han-nom-collection";
 import { getEdictEntries, EDICTS_COLLECTION_SLUG } from "@/lib/pennstate-edicts";
 import EdictCollectionItemView from "./EdictCollectionItemView";
+import { getBorgiaEntries, BORGIA_COLLECTION_SLUG } from "@/lib/vatican-borgia";
+import BorgiaCollectionItemView from "./BorgiaCollectionItemView";
 
 import { Metadata } from "next";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
@@ -183,6 +185,13 @@ const OurCollections = async ({
       ) : collectionId === EDICTS_COLLECTION_SLUG ? (
         <EdictCollectionItemView
           items={getEdictEntries()}
+          initialPage={safeRequestedPage}
+          pageSize={20}
+          locale={locale}
+        />
+      ) : collectionId === BORGIA_COLLECTION_SLUG ? (
+        <BorgiaCollectionItemView
+          items={getBorgiaEntries()}
           initialPage={safeRequestedPage}
           pageSize={20}
           locale={locale}
