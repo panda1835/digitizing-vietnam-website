@@ -63,22 +63,31 @@ export const getBorgiaText = (entry: BorgiaEntry, locale: string) => {
   const description = getBorgiaDescription(entry);
   const vi = locale === "vi";
 
-  const title = description?.title
-    ? vi
-      ? description.title.vi || description.title.en
-      : description.title.en
-    : "";
-  const summary = description?.summary
-    ? vi
-      ? description.summary.vi || description.summary.en
-      : description.summary.en
-    : "";
+  // DVN catalogued this fond in Vietnamese first. Rather than leave an English
+  // reader with a bare shelfmark, fall back to the Vietnamese and let the page
+  // say which language it is showing.
+  const pick = (text?: { vi: string; en?: string }) => {
+    if (!text) return { value: "", isVietnameseFallback: false };
+    if (vi) return { value: text.vi, isVietnameseFallback: false };
+    return text.en
+      ? { value: text.en, isVietnameseFallback: false }
+      : { value: text.vi, isVietnameseFallback: true };
+  };
+
+  const title = pick(description?.title);
+  const summary = pick(description?.summary);
 
   return {
-    title: title || entry.shelfmark,
-    summary,
+    title: title.value || entry.shelfmark,
+    summary: summary.value,
+    /**
+     * True only when the SUMMARY falls back. A Vietnamese title needs no such
+     * note — these are Vietnamese works, and "Truyện nước Annam" is the name of
+     * the book in either language.
+     */
+    isVietnameseFallback: summary.isVietnameseFallback,
     /** False while a volume is still shelfmark-only, as the Vatican leaves it. */
-    isCatalogued: Boolean(title),
+    isCatalogued: Boolean(title.value),
   };
 };
 

@@ -88,10 +88,26 @@ export default async function BorgiaItemPage({
 
   // Until DVN catalogues a volume, the heading is its shelfmark — which is all
   // the Vatican itself shows for it.
-  const { title, summary, isCatalogued } = getBorgiaText(entry, locale);
+  const { title, summary, isCatalogued, isVietnameseFallback } = getBorgiaText(
+    entry,
+    locale
+  );
 
   return (
     <div className="flex flex-col w-full items-center max-width">
+      {/* digi.vatlib.it takes ~3.7s to negotiate TLS; once the connection is up
+          it answers in ~150ms. Opening it while the page is still parsing,
+          rather than when Mirador asks for the manifest, takes that handshake
+          off the critical path.
+
+          Both variants are needed and they are not interchangeable: the browser
+          keys its connection pool on credentials mode, so the crossorigin one
+          warms the socket Mirador's manifest and info.json fetches use, and the
+          plain one warms the socket OpenSeadragon's tile <img> elements use.
+          React hoists both into <head>. */}
+      <link rel="preconnect" href="https://digi.vatlib.it" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://digi.vatlib.it" />
+
       <div className="flex-col mb-20 w-full">
         <BreadcrumbAndSearchBar
           locale={locale}
@@ -113,9 +129,19 @@ export default async function BorgiaItemPage({
         </p>
 
         {summary && (
-          <p className="mt-4 max-w-5xl text-base text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
-            {summary}
-          </p>
+          <div className="mt-4 max-w-5xl">
+            {/* DVN catalogued this fond in Vietnamese. Showing that to an
+                English reader beats a blank page, but it should say so rather
+                than let them wonder why the page changed language. */}
+            {isVietnameseFallback && (
+              <p className="text-sm text-[#777777] italic">
+                Description in Vietnamese; an English translation is in progress.
+              </p>
+            )}
+            <p className="mt-2 text-base text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
+              {summary}
+            </p>
+          </div>
         )}
 
         <div className="mt-4">

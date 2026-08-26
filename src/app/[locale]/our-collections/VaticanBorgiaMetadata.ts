@@ -36,7 +36,10 @@ export interface VaticanBorgiaRecord {
   /** The Vatican's own attribution string, shown in the credit. */
   attribution: string;
   manifestUrl: string;
+  /** The Vatican's curated cover where they publish one, else the first canvas. */
   thumbnailUrl: string;
+  thumbnailIsCuratedCover: boolean;
+  firstCanvasThumbnailUrl: string;
   /** The catalogue record on DigiVatLib. */
   permalinkUrl: string;
   /** The Vatican's own page-turner, offered alongside DVN's viewer. */
@@ -63,7 +66,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.1/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.1/Borg.tonch.1_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.1/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.1/Borg.tonch.1_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.1",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.1"
   },
@@ -86,7 +91,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.2/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.2/Borg.tonch.2_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.2/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.2/Borg.tonch.2_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.2",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.2"
   },
@@ -109,7 +116,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.3/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.3/Borg.tonch.3_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.3/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.3/Borg.tonch.3_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.3",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.3"
   },
@@ -132,7 +141,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.4/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.4/Borg.tonch.4_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.4/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.4/Borg.tonch.4_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.4",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.4"
   },
@@ -155,7 +166,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.5/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.5/Borg.tonch.5_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.5/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.5/Borg.tonch.5_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.5",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.5"
   },
@@ -178,7 +191,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.6/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.6/Borg.tonch.6_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.6/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.6/Borg.tonch.6_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.6",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.6"
   },
@@ -201,7 +216,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.7/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.7/Borg.tonch.7_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.7/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.7/Borg.tonch.7_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.7",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.7"
   },
@@ -224,7 +241,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.8/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.8/Borg.tonch.8_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.8/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.8/Borg.tonch.8_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.8",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.8"
   },
@@ -247,7 +266,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.9/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.9/Borg.tonch.9_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.9/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.9/Borg.tonch.9_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.9",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.9"
   },
@@ -270,7 +291,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.10/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.10/Borg.tonch.10_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.10/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.10/Borg.tonch.10_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.10",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.10"
   },
@@ -293,7 +316,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.11/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.11/Borg.tonch.11_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.11/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.11/Borg.tonch.11_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.11",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.11"
   },
@@ -316,7 +341,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.12/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.12/Borg.tonch.12_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.12/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.12/Borg.tonch.12_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.12",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.12"
   },
@@ -339,7 +366,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.13/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.13/Borg.tonch.13_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.13/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.13/Borg.tonch.13_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.13",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.13"
   },
@@ -362,7 +391,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.14/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.14/Borg.tonch.14_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.14/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.14/Borg.tonch.14_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.14",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.14"
   },
@@ -385,7 +416,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.15/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.15/Borg.tonch.15_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.15/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.15/Borg.tonch.15_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.15",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.15"
   },
@@ -408,7 +441,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.16/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.16/Borg.tonch.16_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.16/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.16/Borg.tonch.16_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.16",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.16"
   },
@@ -431,7 +466,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.17/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.17/Borg.tonch.17_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.17/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.17/Borg.tonch.17_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.17",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.17"
   },
@@ -454,7 +491,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.18/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.18/Borg.tonch.18_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.18/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.18/Borg.tonch.18_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.18",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.18"
   },
@@ -477,7 +516,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.19/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.19/Borg.tonch.19_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.19/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.19/Borg.tonch.19_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.19",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.19"
   },
@@ -500,7 +541,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.20/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.20/Borg.tonch.20_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.20/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.20/Borg.tonch.20_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.20",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.20"
   },
@@ -523,7 +566,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.21/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.21/Borg.tonch.21_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.21/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.21/Borg.tonch.21_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.21",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.21"
   },
@@ -546,7 +591,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.22/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.22/Borg.tonch.22_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.22/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.22/Borg.tonch.22_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.22",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.22"
   },
@@ -569,7 +616,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.23/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.23/Borg.tonch.23_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.23/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.23/Borg.tonch.23_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.23",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.23"
   },
@@ -592,7 +641,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.24/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.24/Borg.tonch.24_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.24/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.24/Borg.tonch.24_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.24",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.24"
   },
@@ -615,7 +666,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.25/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.25/Borg.tonch.25_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.25/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.25/Borg.tonch.25_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.25",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.25"
   },
@@ -638,7 +691,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.26/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.26/Borg.tonch.26_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.26/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.26/Borg.tonch.26_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.26",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.26"
   },
@@ -661,7 +716,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.27/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.27/Borg.tonch.27_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.27/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.27/Borg.tonch.27_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.27",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.27"
   },
@@ -684,7 +741,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.28/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.28/Borg.tonch.28_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.28/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.28/Borg.tonch.28_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.28",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.28"
   },
@@ -707,7 +766,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.29/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.29/Borg.tonch.29_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.29/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.29/Borg.tonch.29_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.29",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.29"
   },
@@ -730,7 +791,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.30/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.30/Borg.tonch.30_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.30/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.30/Borg.tonch.30_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.30",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.30"
   },
@@ -753,7 +816,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.31/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.31/Borg.tonch.31_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.31/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.31/Borg.tonch.31_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.31",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.31"
   },
@@ -776,7 +841,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.32/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.32/Borg.tonch.32_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.32/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.32/Borg.tonch.32_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.32",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.32"
   },
@@ -799,7 +866,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.33/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.33/Borg.tonch.33_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.33/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.33/Borg.tonch.33_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.33",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.33"
   },
@@ -822,7 +891,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.34/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.34/Borg.tonch.34_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.34/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.34/Borg.tonch.34_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.34",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.34"
   },
@@ -845,7 +916,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.35/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.35/Borg.tonch.35_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.35/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.35/Borg.tonch.35_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.35",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.35"
   },
@@ -868,7 +941,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.36/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.36/Borg.tonch.36_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.36/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.36/Borg.tonch.36_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.36",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.36"
   },
@@ -891,7 +966,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.37/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.37/Borg.tonch.37_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.37/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.37/Borg.tonch.37_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.37",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.37"
   },
@@ -914,7 +991,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.38/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.38/Borg.tonch.38_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.38/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.38/Borg.tonch.38_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.38",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.38"
   },
@@ -937,7 +1016,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.39/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.39/Borg.tonch.39_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.39/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.39/Borg.tonch.39_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.39",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.39"
   },
@@ -960,7 +1041,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.40/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.40/Borg.tonch.40_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.40/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.40/Borg.tonch.40_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.40",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.40"
   },
@@ -983,7 +1066,9 @@ export const VATICAN_BORGIA_ITEMS: ReadonlyArray<VaticanBorgiaRecord> = [
     ],
     "attribution": "Images Copyright Biblioteca Apostolica Vaticana",
     "manifestUrl": "https://digi.vatlib.it/iiif/MSS_Borg.tonch.41/manifest.json",
-    "thumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.41/Borg.tonch.41_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
+    "thumbnailUrl": "https://digi.vatlib.it/pub/digit/MSS_Borg.tonch.41/cover/cover.jpg",
+    "thumbnailIsCuratedCover": true,
+    "firstCanvasThumbnailUrl": "https://digi.vatlib.it/iiifimage/MSS_Borg.tonch.41/Borg.tonch.41_0001_al_piatto.anteriore.jp2/full/!400,400/0/default.jpg",
     "permalinkUrl": "https://digi.vatlib.it/mss/detail/Borg.tonch.41",
     "viewerUrl": "https://digi.vatlib.it/view/MSS_Borg.tonch.41"
   }

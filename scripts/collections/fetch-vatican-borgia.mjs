@@ -57,6 +57,31 @@ async function get(url, as = "json") {
 }
 
 /**
+ * Existence check for a static file.
+ *
+ * Their server drops connections under a run's request rate often enough that a
+ * single failed probe is meaningless — an early version of this script reported
+ * "0 covers" for all 41 because of it. So: retry, and fall back to a one-byte
+ * ranged GET for the case where HEAD itself is refused.
+ */
+async function exists(url) {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    for (const init of [{ method: "HEAD" }, { headers: { Range: "bytes=0-0" } }]) {
+      try {
+        const response = await fetch(url, init);
+        if (response.ok) return true;
+        // A definite "no" — don't keep asking.
+        if (response.status === 404 || response.status === 410) return false;
+      } catch {
+        // Connection-level failure; fall through to the next attempt.
+      }
+    }
+    await sleep(500 * (attempt + 1));
+  }
+  return false;
+}
+
+/**
  * The fond's browse page lists every digitised item as a link to
  * /mss/edition/MSS_Borg.tonch.N. Parsing it rather than counting 1..41 means a
  * later addition to the fond is picked up by re-running this script.
@@ -120,6 +145,17 @@ async function main() {
     const canvases = manifest.sequences?.[0]?.canvases ?? [];
     const firstService = canvases[0]?.images?.[0]?.resource?.service?.["@id"] ?? "";
 
+    // Prefer the Vatican's own cover image over the first canvas. The first
+    // canvas is always "piatto.anteriore" — the bare binding, which looks the
+    // same on all 41 and tells a reader nothing. The cover their own catalogue
+    // shows is a curator's choice of a representative page, usually one with
+    // legible text on it. Fall back to the first canvas if a volume has none.
+    const coverUrl = `${HOST}/pub/digit/MSS_${shelfmark}/cover/cover.jpg`;
+    const hasCover = await exists(coverUrl);
+    const iiifThumbnail = firstService
+      ? `${firstService}/full/!400,400/0/default.jpg`
+      : "";
+
     // seeAlso is the catalogue record; fall back to the predictable detail URL.
     const seeAlso = Array.isArray(manifest.seeAlso)
       ? plain(manifest.seeAlso[0])
@@ -142,7 +178,11 @@ async function main() {
       firstPageLabels: canvases.slice(0, 6).map((canvas) => plain(canvas.label)),
       attribution: plain(manifest.attribution),
       manifestUrl,
-      thumbnailUrl: firstService ? `${firstService}/full/!400,400/0/default.jpg` : "",
+      thumbnailUrl: hasCover ? coverUrl : iiifThumbnail,
+      /** True when the thumbnail is the Vatican's curated cover, not canvas 1. */
+      thumbnailIsCuratedCover: hasCover,
+      /** The first canvas, kept as the fallback the cover replaced. */
+      firstCanvasThumbnailUrl: iiifThumbnail,
       permalinkUrl: seeAlso || `${HOST}/mss/detail/${shelfmark}`,
       viewerUrl: `${HOST}/view/MSS_${shelfmark}`,
     });
@@ -171,6 +211,10 @@ async function main() {
   const pages = items.map((item) => item.pageCount);
   console.log(`  ${items.length} items, ${pages.reduce((a, b) => a + b, 0)} pages total`);
   console.log(`  pages per item: ${Math.min(...pages)}–${Math.max(...pages)}`);
+  console.log(
+    `  thumbnails: ${items.filter((item) => item.thumbnailIsCuratedCover).length} curated covers, ` +
+      `${items.filter((item) => !item.thumbnailIsCuratedCover).length} falling back to canvas 1`
+  );
 
   const file = `// ${path.relative(process.cwd(), outPath).replace(/\\/g, "/")}
 //
@@ -210,7 +254,10 @@ export interface VaticanBorgiaRecord {
   /** The Vatican's own attribution string, shown in the credit. */
   attribution: string;
   manifestUrl: string;
+  /** The Vatican's curated cover where they publish one, else the first canvas. */
   thumbnailUrl: string;
+  thumbnailIsCuratedCover: boolean;
+  firstCanvasThumbnailUrl: string;
   /** The catalogue record on DigiVatLib. */
   permalinkUrl: string;
   /** The Vatican's own page-turner, offered alongside DVN's viewer. */

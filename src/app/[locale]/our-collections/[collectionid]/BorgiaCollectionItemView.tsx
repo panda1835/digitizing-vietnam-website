@@ -125,12 +125,21 @@ const BorgiaCollectionItemView = ({
                 <div key={item.itemId}>
                   <Link href={itemHref(item)}>
                     {item.thumbnailUrl && (
+                      /* Deliberately NOT `unoptimized`, unlike the other
+                         collections' grids. The Vatican's image server takes
+                         ~3.7s to negotiate TLS and then answers concurrent
+                         requests one at a time, so twenty thumbnails fetched
+                         straight from Rome leave the grid blank for seconds.
+                         Going through Next's optimiser means DVN fetches each
+                         derivative once and serves it cached from its own
+                         origin. digi.vatlib.it is allow-listed in
+                         next.config.mjs. */
                       <Image
-                        unoptimized
                         src={item.thumbnailUrl}
                         alt={title}
                         width={256}
                         height={228}
+                        sizes="(max-width: 640px) 50vw, (max-width: 1280px) 25vw, 256px"
                         className="object-cover rounded w-full h-40 bg-gray-100"
                       />
                     )}
