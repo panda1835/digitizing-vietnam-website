@@ -128,7 +128,7 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   "Borg.tonch.7": {
     title: {
       vi: "Nhật trình kim thư khất chính Chúa giáo",
-      en: "A Journal of New Letters Petitioning for a Diocesan Bishop",
+      en: "A Journal of Recent Letters Petitioning for a Diocesan Bishop",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.7 hay “Nhật trình kim thư khất chính Chúa giáo” (Những thư từ mới về việc xin Giám mục chính tòa) là một bản tường thuật việc đi sứ của sứ đoàn Đàng Ngoài năm 1796 trong nạn ly giáo Garasa, trước tác bởi Thầy cả Philiphê do Rosario Nguyễn Văn Bỉnh, CO là lãnh đạo của sứ đoàn. Toàn bộ sách được viết bằng tiếng Việt chữ Quốc ngữ. Sách được hoàn thành vào năm 1824 ở Lisbon, Bồ Đào Nha. Sách có thể được chia làm bốn phần và dài 578 trang. Theo lời tựa thì lẽ ra còn có 2 bản khác của sách này bằng tiếng Bồ Đào Nha và chữ Hán để đối chiếu, song không nằm trong bộ sưu tập Borg.tonch. Sách mở đầu với một niên biểu từ năm 1793 khi nạn ly giáo Garasa bắt đầu cho đến năm 1824. Từng mốc thời gian có kèm theo một đoạn văn dài thuật lại mọi việc đã diễn ra trong năm có liên đới đến sứ đoàn hoặc tình hình chính trị ở Châu Âu. Kế tiếp Thầy cả Bỉnh chép lại lá khải đầu tiên mà bổn đạo Dòng Tên ở Đàng Ngoài viết bằng chữ Hán (đã được phiên âm ra Hán-Việt Quốc ngữ) để dâng lên vua Bồ Đào Nha. Kèm theo lá khải này là khoảng 12 cáo trạng từ các bổn đạo ở nhiều giáo xứ hai bên địa phận Đông Tây cáo buộc các Giám mục bản quyền làm chuyện trái lẽ. Bên cạnh các thư cáo, cũng có thư từ Annam gửi sang Bồ Đào Nha do các bổn đạo Dòng Tên viết và thư của Giám mục sở tại khuyên sứ đoàn hối lỗi mà trở về Annam. Cuối sách là những thư mà Thầy cả Bỉnh và các bạn trong sứ đoàn gửi về cho bổn đạo để báo cáo tình hình đi sứ ở Bồ Đào Nha. Ngoài ra ta cũng có những thư mà cộng đồng bổn đạo Dòng Tên ở Đàng Ngoài gửi sang Bồ Đào Nha để báo cáo tình hình trong nước cho sứ đoàn. Ở phần phụ lục, sách bao gồm hơn 20 bài thơ thất ngôn bát cú tiếng Việt mà các thành viên trong sứ đoàn đã soạn từ năm 1793 đến khoảng năm 1810. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về nạn ly giáo Garasa qua các thư từ và báo cáo của Thầy cả Bỉnh.",
@@ -157,8 +157,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.10": {
     title: {
-      vi: "Danh mục các Thừa sai Tông đồ tại nước An Nam Đàng Ngoài; Danh mục 6 Thầy cả, 10 Thầy giảng và các người nhà Dòng Tên tử vì đạo cùng tiểu sử các vị",
-      en: "Index of the Apostolic Missionaries in the Kingdom of An Nam–Đàng Ngoài; Index of Six Priests, Ten Catechists, and Members of the Society of Jesus Who Were Martyred, with Accounts of Their Lives",
+      vi: "Lịch sử các nhà truyền giáo tông đồ tại Vương quốc An Nam",
+      en: "A History of Apostolic Missionaries in the Kingdom of An Nam",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.10 hay “Indice deste livro da Vida os Missionarios Apostólicos do Reyno de Tunkim” (Danh mục các Thừa sai Tông đồ tại nước An Nam Đàng Ngoài) và “Indice 6 Padres e 10 Catquistas e familias da Companhia Martyrir São duas Historias” (Danh mục 6 Thầy cả, 10 Thầy giảng và các người nhà Dòng Tên tử vì đạo cùng tiểu sử các vị) là một sách tiểu sử các thừa sai ngoại quốc của Dòng Tên đã từng đến Việt Nam truyền đạo, chép bởi Thầy cả Philiphê do Rosario Nguyễn Văn Bỉnh, CO. Sách không có năm chép cụ thể, dài tổng cộng 319 trang và được chia ra làm hai phần lớn. Ngôn ngữ của sách hoàn toàn là tiếng Bồ Đào Nha. Từ lời giới thiệu về Thầy cả Jeronimo Maiorica đầu sách, Thầy cả Bỉnh có lẽ đã chép lại những mục truyện về các Thừa sai Dòng Tên từ một nguồn trong Thư khố Dòng Tên tại Roman, có năm ấn hành là 1776. Phần thứ nhất của sách là tiểu sử vắng tắt của khoảng 33 thừa sai người ngoại quốc và Việt Nam của Dòng Tên, từ Thầy cả Alexandre de Rhodes đến các đấng tử vì đạo năm 1737. Phần này có chép cụ thể năm sinh, quê quán cùng hành trạng của từng vị, cùng các tác phẩm được vị đó soạn nếu có. Phần thứ hai kể về truyện tiểu sử và tử vì đạo của 6 linh mục tử vì đạo của Dòng Tên ở nước Việt Nam là Thầy cả Francesco Maria Bucharelli, Giovanni Battista Messari, Bartolomeu Alvares, Manuel de Abreu, Vicente da Cunha và Johann Kaspar Kratz. Ngoài ra, sách cũng có truyện của 10 đấng tử vì đạo là các Thầy giảng và giáo dân người Việt Nam trong cuộc tử vì đạo năm 1723 ở Đồng Mơ, Thăng Long. Việc truyện của các đấng này có tiểu sử cụ thể và được tách riêng khỏi sách chính cho thấy đây có lẽ là tài liệu đã được dùng trong án phong hiển thánh cho các vị. Sách cũng có phụ lục chép các thư từ Bề trên trao đổi với các đấng tử vì đạo trên trong thời gian ngồi tù và truyện kết sau án tử. Đây chắc chắn là tài liệu Thầy cả Bỉnh đã dùng để viết thủ bản Borg.tonch.1 trước đó. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về hành trạng của các thừa sai ngoại quốc đến truyền giáo tại Việt Nam từ năm 1615 cho đến thời kỳ tử vì đạo.",
@@ -167,8 +167,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.11": {
     title: {
-      vi: "[Không có tựa đề]",
-      en: "[Untitled]",
+      vi: "Các trước tác tạp loại về thực hành đạo đức Công giáo.",
+      en: "Miscellaneous Writings on Catholic Devotional Practices",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.11 không có tên tựa, vì là một sách mà Thầy cả Philiphê do Rosario Nguyễn Văn Bỉnh, CO dùng để chép về nhiều chủ đề tu đức, giáo huấn và việc sùng kính đạo đức trong đạo Công giáo. Sách được viết bằng tiếng Bồ Đào Nha, tiếng Latinh và tiếng Việt, với hai thứ tiếng trước được dùng trong phần đầu sách và tiếng Việt được dùng trong toàn bộ các phần còn lại. Sách có tổng cộng 266 trang và có thể được chia làm … phần chính. Phần thứ nhất là những sự liên quan đến phụng vụ trong Thánh lễ Cổ truyền, mở đầu với một bản phổ nhạc của bài kinh Sequentia “Stabat Mater Dolorosa” (Mẹ đứng đó trong đau đớn) nổi tiếng được dùng trong Thánh lễ Missa Cổ truyền kính Đức Bà của Bảy sự Thương khó. Tiếp đến ta có các bài kinh tiếng Latinh được dùng trong thánh lễ kính Đức Bà của Bảy sự Thương khó, làm phép lá trước và phụng vụ trong Lễ Lá, phụng vụ trong các ngày của Tuần Thánh và phụng vụ Chúa Nhật lễ Phục Sinh. Phần thứ hai bằng tiếng Việt, chép lại những việc làm đạo đức sùng kính trong đạo Công giáo và dạy cách làm nhiều nghi thức trong Thánh lễ Missa Cổ truyền. Trước hết thì có những việc lành Thầy cả Bỉnh khuyên giáo dân phải làm để kính Đức Bà của Bảy sự Thương khó, rồi kinh cửu nhật kính ông thánh Giuse. Về nghi thức trong thánh lễ thì ta có Thầy cả Bỉnh dạy cách linh mục làm lễ Cổ truyền, làm phép các vật trong các lễ trọng, lễ truyền phép, lễ Mồ (lễ Cầu hồn), lễ do các Giám mục cử hành. Phần phụ lục sách này có truyện các đấng tử vì đạo trong năm 1723 ở thành Thăng Long. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về các việc sùng kính và ngôn ngữ trong thánh lễ Công giáo của người Việt Nam cuối thế kỷ 18.",
@@ -247,8 +247,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.19": {
     title: {
-      vi: "[Không tựa đề]",
-      en: "[Untitled]",
+      vi: "Sách lễ nhỏ Việt–Bồ Đào Nha–Latinh",
+      en: "Vietnamese-Portuguese-Latin Missalette",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.19 không có tựa sách, nhưng có thể tạm gọi là \"Sách lễ Missa Việt-Bồ-La\", là một sách phụng vụ Thánh Lễ Missa Cổ truyền đuợc soạn bởi Thầy cả Philiphe do Rosario Nguyễn Văn Bỉnh, CO. Sách được hoàn thành vào năm không rõ, có tổng cộng 148 trang và được chia làm 2 phần lớn. Nội dung của sách là tiếng Bồ-Latinh ở phần đầu và tiếng Việt-Latinh ở phần sau. Phần thứ nhất của sách là một bản nghi thức thánh lễ Missa Tridentino Cổ truyền của Giáo hội Công giáo, được trình bày với một dòng kinh Latinh mở đầu và bản dịch tiếng Bồ Đào Nha bên dưới. Phần này có các kinh linh mục đọc khi mặc áo lễ, kinh rảy nước phép, kinh trong phần lễ chầu dưng, kinh trong phần lễ bổn đạo và phần lễ đoạn. Phần thứ hai cũng tương tự như phần thứ nhất về nội dung, nhưng thiếu đi bản dịch tiếng Việt của các kinh mặc áo lễ cùng kinh rảy nước phép. Thêm vào đó, ngay giữa phần này có một đoạn văn dài giải thích về ý nghĩa các thánh Quan thầy trong đạo Công giáo và liệt kê tên nhiều Quan thầy của mọi loại bệnh tật, nghề nghiệp, chức vị. Cuối sách có một bản lời làm phép giải tội dành cho các linh mục bằng tiếng Latinh và tiếng Việt. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về nghi thức thánh lễ Công giáo của các giáo dân Việt Nam vào cuối thế kỷ 18.",
@@ -307,7 +307,7 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.25": {
     title: {
-      vi: "là một tập hợp nhiều sách tu đức Công giáo khác nhau",
+      vi: "Tuyển tập các trước tác đạo đức đa dạng của Dòng Đa Minh",
       en: "A Collection of Catholic Devotional Works",
     },
     summary: {
@@ -327,8 +327,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.27": {
     title: {
-      vi: "[Không tựa đề]",
-      en: "[Untitled]",
+      vi: "Các tài liệu tham khảo khác nhau bằng tiếng Bồ Đào Nha và Latinh",
+      en: "Various Reference Sources in Portuguese and Latin",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.27 không mang tựa, nhưng là tập hợp nhiều hình thức sùng kính dành cho ông thánh Francisco Xavier cùng truyện Quỷ Vương (Anti-Christ) và truyện thánh lễ Missa, chép lại bởi Thầy cả Philiphe do Rosario Nguyễn Văn Bỉnh, CO. Sách được viết bằng bốn tiếng Việt, Bồ Đào Nha, Latinh, Pháp nhưng tiếng Bồ Đào Nha chiếm phần lớn sách. Sách có tổng cộng 390 trang và chia thành 9 phần. Đầu sách là một kinh cầu litania, kế đến là sách \"Verdades sobre a vinda do Anti-Christo\" (Những sự thật về việc Quỷ Vương lại đến) do Thầy cả Bruno de Mendoca Furtado in ấn ở Lisboa năm 1748. Sách này có 20 chương bằng tiếng Bồ Đào Nha và kể lại những dấu hiệu trích từ trong Kinh Thánh cho thấy ngày Tận Thế và Quang Lâm của Đức Chúa Trời đã đến gần. Phần thứ hai trong sách là quyển \"O Santo Sacrificio da Missa\", thuật lại những phép lạ hoặc sự quý giá của thánh lễ Missa đối với linh hồn bổn đạo trong 6 chương. Đây có vẻ cũng là nền tảng giúp Thầy cả Bỉnh viết sách chữ Nôm là thủ bản Borg.tonch.17 về những phép lạ liên quan đến lễ Missa. Phần thứ ba trong sách là quyển: \"Historia da Companhia de Jesu\" thụât lại lịch sử của Dòng Tên từ khi thành lập đến khi lan rộng ra các xứ truyền giáo. Phần thứ năm là cuốn \"Eulogios dos Martyres da Companhia de Jesu no Imperio de Jappão\" là tiểu sử vắn tắt các thánh tử vì đạo của Dòng Tên trong nước Nhật Bản. Phần thứ bảy là tiểu sử ông thánh Francisco Xavier bằng tiếng Bồ Đào Nha, các phép lạ người làm, kinh cầu ông thánh ấy cùng kinh cửu nhật bằng tiếng Pháp, xuất bản tại thành Besancon ở nước ấy. Phần thứ tám là các bảng nghi thức trong đạo Công giáo bằng tiếng Bồ Đào Nha, tiêu biểu như Bí tích Rửa tội, Thêm sức, Thánh Thể, Xức Dầu Kẻ Liệt, cách đưa Mình Thánh trong lễ Missa, lễ Missa votiva, lễ Missa thường, lễ Missa cầu hồn. Phần thứ chín là tập hợp nhiều chủ đề tạp nham như tiểu sử một số thánh Dòng Tên, bài giảng các lễ, về uy quyền của lời Đức Chúa Trời, phép lạ tại Châu Mỹ. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về hành trạng của sứ đoàn Garasa tại Bồ Đào Nha sau khi nạn ly giáo kết thúc.",
@@ -337,8 +337,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.28": {
     title: {
-      vi: "[Không tựa đề]",
-      en: "[Untitled]",
+      vi: "Sách các lời nguyện nhập lễ.",
+      en: "A Book of Collect Prayers",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.28 không mang tựa, nhưng là tập hợp nhiều kinh nguyện tiếng Latinh khác nhau để dùng trong giờ kinh riêng, chép lại bởi Thầy cả Philiphe do Rosario Nguyễn Văn Bỉnh, CO. Sách được viết hoàn toàn bằng tiếng Latinh, trừ phần thơ cuối sách là chữ Nôm, và có 400 trang. Sách không được sắp xếp theo trình tự rõ ràng, nhưng bắt đầu với nhiều kinh nguyện cơ bản như Tin Cậy Mến, Mân Côi rồi chuyển sang gần 50 kinh Collectio khác nhau dùng trong thánh lễ Cổ truyền của nhiều ngày lễ. Cuối sách là bảng hướng dẫn cách thực hành nhiều nghi thức trong đạo như làm phép áo Đức Bà, làm phép chuỗi hạt, ban ơn đại xá trong giờ cận tử, kiệu ảnh, bản giải tội cho các Thầy cả đọc, phép đưa của ăn đàng cho kẻ liệt và nghi thức lễ mồ cho kẻ qua đời. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về hành trạng của Thầy cả Bỉnh tại Bồ Đào Nha sau khi nạn ly giáo kết thúc.",
@@ -347,8 +347,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.29": {
     title: {
-      vi: "Đơn Đệ trình Chữ Nôm của Sáu Thầy cả Đàng Ngoài gửi Đức Giáo hoàng Innocent XI",
-      en: "A Chữ Nôm Petition Submitted by Six Priests from Đàng Ngoài to Pope Innocent XI",
+      vi: "Bản tuyên thệ trung thành với Giáo hoàng Innôcentê XI bằng chữ Nôm",
+      en: "An Oath of Loyalty to Pope Innocent XI in Chữ Nôm",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.29 là một bản đơn đệ trình lên trước Tòa Thánh Vatican của hàng giáo sĩ người Việt, chấp bút bởi một nhóm 6 Thầy cả người Đàng Ngoài. Thư được gửi đến Đức Giáo hoàng Innocent thứ Mười Một và có lẽ được hoàn thành trong khoảng thời gian từ 1676-1689. Toàn bộ thư dài khoảng 12 trang giấy và được viết tay bằng chữ Nôm bởi nhóm Thầy cả trên, gồm Giacôbê Văn Chiến, Antôn Khuê, Philiphê Văn Trà, Simon Kiên, Lêo Trung và Martino. Trong thư, họ thề với Đức Giáo hoàng cùng các Hồng y trong Tòa Thánh rằng bản thân sẽ vâng cứ mọi lời mà Đức Giáo hoàng truyền cho, cùng vâng phục ý nguyện của các Giám mục sở tại Đàng Ngoài là Bề trên của họ. Họ cũng hứa sẽ hoàn thành bổn phận của bản thân là các linh mục xứ (Sacerdotes Parroquias) sẽ đi quản nhiều địa hạt nhỏ trong địa phận Đàng Ngoài. Cuối thư, ở dòng đệ tên những Thầy cả gửi đơn, có dòng tiếng Latinh đi kèm để dịch tên các vị đó sang tiếng Latinh. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về lịch sử truyền giáo của đạo Công giáo tại Việt Nam trong thời kỳ Tòa Thánh Vatican cho phép việc truyền chức các giáo sĩ bản địa.",
@@ -357,8 +357,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.30": {
     title: {
-      vi: "là một bản sao sách \"Dũng Lý Hộ Thần\"",
-      en: "A Copy of Dũng Lý Hộ Thần",
+      vi: "Suy niệm về linh hồn [Dũng Lý Hộ Thần]",
+      en: "Meditation of the Soul [Dũng Lý Hộ Thần]",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.30 là một bản sao của sách \"Meditacao da Alma\" hay \"Dũng Lý Hộ Thần\" bởi Thầy cả Philiphe do Rosario Nguyễn Văn Bỉnh, CO. Đây vốn là một tác phẩm đã bị thất lạc lâu năm, chấp bút bởi Thầy cả Jeronimo Maiorica là thừa sai tiên phong trong nền văn học Nôm Công giáo Việt Nam. Sách được viết bằng chữ Quốc ngữ và có tổng cộng 58 trang. Cuốn sách này được cấu thành từ 31 lý lẽ giúp bổn đạo ngắm trong một tháng, để tự xét mình cùng trau dồi kiến thức về nhiều sự căn bản trong đạo Công giáo. Các điều ngắm trong sách xoay quanh nhiều chủ đề, tiêu biểu như ngắm tứ chung (bốn cái kết của đời người), ngắm thiên đàng địa ngục, ngắm việc ăn năn đền tội, ngắm việc lành nhân đức, ngắm tin cậy mến, ngắm sự hãm mình, ngắm sự yêu người, ngắm việc bắt chước gương Đức Chúa Giêsu v..v... Sách \"Dũng Lý Hộ Thần\" chịu ảnh hưởng rất lớn bởi tác phẩm \"Spiritual Exercise\" (Linh Thao) của ông thánh Ignacio de Loyola là đấng sáng lập Dòng Tên. Toàn bộ sách dài 58 trang và được viết bằng chữ Quốc ngữ, tiếng Việt. Đây là bản Quốc ngữ của các thủ bản Borg.tonch.34, 31 và 35 cũng từ chung sách trên. Cuối sách này có kèm bài tựa sách Dũng Lý Hộ Thần ngắn bằng chữ Nôm. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về một tác phẩm bị thất lạc lâu năm của Thầy cả Jeronimo Maiorica là ông tổ chữ Nôm Công giáo Việt Nam.",
@@ -367,8 +367,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.31": {
     title: {
-      vi: "là một bản sao chữ Nôm của cuốn sách \"Dũng Lý Hộ Thần\"",
-      en: "A Chữ Nôm Copy of Dũng Lý Hộ Thần",
+      vi: "Suy niệm về linh hồn bản chữ Nôm.",
+      en: "Meditation of the Soul in Chữ Nôm",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.31 là một bản sao chữ Nôm cho cuốn sách \"Dũng Lý Hộ Thần\" của Thừa sai Jeronimo Maiorica, chép lại bởi một thành viên trong sứ đoàn Garasa năm 1796, rất có thể là Thầy giảng Thome Vicente Quỳnh Nhân là người đã được ghi chú là đã qua đời tại trang cuối sách này. Sách có bìa ngang với dòng chữ \"Mặc tưởng thần công - Lưu truyền thánh tích\" và \"Dũng lý hộ thần - Phụ danh thành thánh\" để nhận diện. Sách được viết bằng chữ Nôm theo lối viết thảo, nhưng kết thúc đột ngột ở ngay cuối điều ngắm thứ ba mươi mốt, có lẽ là gián đoạn do cái chết của Thầy Quỳnh Nhân. Vì thế ta có thể suy rằng sách này được hoàn thành vào năm 1802 ở Lisboa. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về một tác phẩm bị thất lạc lâu năm của Thầy cả Jeronimo Maiorica là ông tổ chữ Nôm Công giáo Việt Nam.",
@@ -377,8 +377,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.32": {
     title: {
-      vi: "là một bản in của sách \"Thánh Giáo Yếu Lý Quốc Ngữ\"",
-      en: "A Printed Edition of Thánh Giáo Yếu Lý Quốc Ngữ",
+      vi: "Sách giáo lý Đức Tin Thánh (Thánh Giáo Yếu Lý Quốc Ngữ)",
+      en: "Catechism of the Holy Faith (Thánh Giáo Yếu Lý Quốc Ngữ)",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.32 là một bản in của sách Thánh Giáo Yếu Lý Quốc Ngữ nổi tiếng, chấp bút bởi Đức Thầy Pierre de Bigneau của Hội Thừa sai Paris, còn được biết đến với cái tên Bi Nhu Quận Công hay Bá Đa Lộc - thừa sai người Pháp đã ra tay hỗ trợ vua Gia Long lên ngôi Hoàng đế. Sách được trình bày theo dạng hỏi đáp để dẫn đưa người tân tòng đến với giáo lý căn bản trong đạo Công giáo. Sách dài tổng cộng 134 trang. Ở cuối sách thì có kèm nhiều kinh nguyện căn bản trong đạo. Sách được viết hoàn toàn bằng chữ Quốc Ngữ với một bài giới thiệu chữ Hán ở đầu, và được in ấn vào năm 1774. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về tầm quan trọng của một tác phẩm của Thừa sai Bá Đa Lộc trong việc truyền giáo tại Việt Nam vào cuối thế kỷ thứ 18.",
@@ -387,8 +387,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.33": {
     title: {
-      vi: "Kinh nguyện và Truyện đạo Công giáo Chữ Quốc ngữ của Thầy cả Nguyễn Văn Bỉnh",
-      en: "Catholic Prayers and Narratives in Chữ Quốc Ngữ by Father Nguyễn Văn Bỉnh",
+      vi: "Các bài kinh và trích đoạn tạp loại",
+      en: "Miscellaneous Prayers and Excerpts",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.33 không mang tựa đề, là một tập hợp nhiều truyện cùng kinh ngắm trong đạo Công giáo do Thầy cả Philiphe do Rosario Nguyễn Văn Bỉnh, CO soạn. Sách được viết hoàn toàn bằng chữ Quốc ngữ với một vài đoạn bằng tiếng Latinh và có tổng cộng 80 trang. Sách mở đầu với một bản kinh cửu nhật kính ngày lễ Đức Chúa Giêsu Giáng Sinh, kế đến là kinh than khi dọn mình chịu lễ, kinh cảm ơn để chịu lễ, một vài đoạn trích liên quan đến cuộc thương khó trích từ sách Truyện Đức Chúa Giêsu của Thừa sai Maiorica. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về hành trạng của Thầy cả Bỉnh tại Bồ Đào Nha sau khi nạn ly giáo kết thúc.",
@@ -397,8 +397,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.34": {
     title: {
-      vi: "Dũng Lý Hộ Thần và Kinh nguyện Công giáo Chữ Nôm",
-      en: "Dũng Lý Hộ Thần and Catholic Prayers in Chữ Nôm",
+      vi: "Sách suy niệm về linh hồn bản chữ Nôm.",
+      en: "Meditation of the Soul in Chữ Nôm",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.34 là một bản sao chữ Nôm cho cuốn sách \"Dũng Lý Hộ Thần\" của Thừa sai Jeronimo Maiorica, chép lại bởi Thầy cả Philiphe do Rosario Nguyễn Văn Bỉnh, CO. Sách không có năm chép xong và có tổng cộng 112 trang. Sách mở đầu với một vài kinh nguyện trong đạo Công giáo như kinh Đức Chúa Thánh Thần, kinh Mân Côi, với khả năng cao là đã được trích từ thủ bản Borg.tonch.18 trước đó. Kế đến là phần chính của cuốn Dũng Lý Hộ Thần mà ngắm trong 31 ngày. Phần cuối cùng là một vài kinh lần hạt Bảy sự Thương khó Đức Bà, các kinh Thương Khó của Đức Giáo hoàng Gregorio và nhiều kinh nhỏ khác. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về một tác phẩm bị thất lạc lâu năm của Thầy cả Jeronimo Maiorica là ông tổ chữ Nôm Công giáo Việt Nam.",
@@ -417,8 +417,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.36": {
     title: {
-      vi: "Thư Mục vụ Chữ Nôm của Đức Giám mục Guillelmi Piquel gửi Bổn đạo Đàng Trong",
-      en: "A Chữ Nôm Pastoral Letter from Bishop Guillaume Piguel to the Catholic Faithful of Đàng Trong",
+      vi: "Thư mục vụ của Giám mục Guillaume Piguel gửi các Kitô hữu Đàng Trong bằng chữ Nôm",
+      en: "A Pastoral Letter from Bishop Guillaume Piguel to Christians of Cochinchina in Chữ Nôm",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.36 không mang tựa, là một thư tay mà Đức Thầy Guillelmi Piquel là Giám mục hiệu tòa Cana và Giám quản Tông tòa xứ Đàng Trong, Campuchia cùng Xiêm La viết để gửi cho các bổn đạo Công giáo tại Đàng Trong. Thư được viết vào năm 1769, ngày 24 tháng 05 năm ấy là lễ Ngũ Tuần. Thư được viết hoàn toàn bằng chữ Nôm và dài khoảng 20 trang. Nội dung thư thì xoay quanh việc Đức thánh Phapha Clemente thứ Mười Ba đã có ra thánh dụ cấm các bổn đạo phương Đông việc quỳ gối phủ phục trước bàn thờ tiên tổ, vì coi là sự mê tín dị đoan. Đức Thầy Guillelmi vâng lệnh Tông Tòa mà gửi thư khuyến khích các bổn đạo nghe lời mà ngừng việc quỳ lạy bàn thờ kẻ đã chết. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về tập tục trong đời sống của các bổn đạo Công giáo Việt Nam trong thời kỳ vấn đề nghi lễ Trung Hoa đang gây tranh cãi trong Hội thánh.",
@@ -427,8 +427,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.37": {
     title: {
-      vi: "Thơ Chữ Nôm của Sứ đoàn Garasa trong Thời kỳ Ly giáo Đàng Ngoài",
-      en: "Chữ Nôm Poetry by the Garasa Delegation during the Đàng Ngoài Schism",
+      vi: "Tuyển tập thơ của Sứ đoàn Garasa (Phần 1)",
+      en: "Poetry Anthology of the Garasa Delegation (Part 1)",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.37 là một tập thơ gộp nhiều bài thất ngôn bát cú chữ Nôm mà các thành viên trong sứ đoàn Garasa đã soạn ra trong thời kỳ nạn ly giáo diễn ra ở Đàng Ngoài. Tập thơ này thuộc về Thầy giảng Thome Vicente Quỳnh Nhân và gồm toàn bộ các bài thơ đã được đề cập trong thủ bản Borg.tonch.7, nhưng được chép bằng chữ Nôm. Tập thơ này dài khoảng 26 trang và có gần 40 bài thơ, tất cả đều tương ứng với những bài thơ đã đề tên trong sách Nhật trình kim thư khất chính Chúa giáo. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về những cống hiến văn học từ sứ đoàn Garasa trong thời gian bị lưu đày ở Bồ Đào Nha.",
@@ -437,8 +437,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.38": {
     title: {
-      vi: "Thơ Chữ Nôm của Sứ đoàn Garasa trong Thời kỳ Lưu đày tại Bồ Đào Nha",
-      en: "Chữ Nôm Poetry by the Garasa Delegation during Its Exile in Portugal",
+      vi: "Tuyển tập thơ của Sứ đoàn Garasa (Phần 2)",
+      en: "Poetry Anthology of the Garasa Delegation (Part 2)",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.38, tương tự với thủ bản số 37, cũng là một tập thơ chữ Nôm gồm những bài đã được liệt kê trong thủ bản Borg.tonch.7 trước đó. Thủ bản này có lẽ thuộc về một thành viên khác trong sứ đoàn Garasa, song không đề tên người sở hữu. Tập thơ này dài khoảng 24 trang. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về những cống hiến văn học từ sứ đoàn Garasa trong thời gian bị lưu đày ở Bồ Đào Nha.",
@@ -457,8 +457,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.40": {
     title: {
-      vi: "Lịch Phụng vụ Công giáo Chữ Nôm của Đức Giám mục Arnaud-François Lefèbvre năm 1745",
-      en: "A 1745 Chữ Nôm Catholic Liturgical Calendar by Bishop Arnaud-François Lefèbvre",
+      vi: "Suy niệm về linh hồn và tuyển tập thơ của Sứ đoàn Garasa.",
+      en: "Meditation of the Soul and Poetry Anthology of the Garasa Delegation",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.40 là một tờ lịch Công giáo với con ấn Giám mục màu đỏ son của Đức Thầy Arnaud-François Lefèbvre là Giám quản Tông toà Đông Đàng Ngoài. Tờ lịch này được Đức Thầy Lefebvre gửi cho bổn đạo Đông Đàng Ngoài dùng mà xem các ngày lễ trọng và buộc trong năm qua 12 tháng. Tờ lịch được chép bằng chữ Nôm và gửi cho các bổn đạo vào năm 1745. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về lịch phụng vụ của bổn đạo Công giáo Việt Nam trong thời kỳ cấm đạo ở Đàng Trong.",
@@ -467,8 +467,8 @@ export const BORGIA_DESCRIPTIONS: Record<string, BorgiaDescription> = {
   },
   "Borg.tonch.41": {
     title: {
-      vi: "Phép giảng tám ngày cho những kẻ muốn chịu đạo Đức Chúa Trời",
-      en: "The Catechism in Eight Days for Those Who Wish to Embrace the Religion of God",
+      vi: "Lịch phụng vụ Công giáo do Giám mục Arnaud-François Lefèbvre ban hành bằng chữ Nôm",
+      en: "Catholic Liturgical Calendar issued by Bishop Arnaud-François Lefèbvre in Chữ Nôm",
     },
     summary: {
       vi: "Thủ bản Borg.tonch.41 hay sách “Cathechismus pro iis qui volunt suscipere Baptismum in octo dies dies diulus” (Phép giảng tám ngày cho những kẻ muốn chịu đạo Đức Chúa Trời) là một sách giảng đạo được viết bởi Thầy cả Alexandre de Rhodes, nhưng được chép lại bởi một thành viên không rõ tên trong sứ đoàn Garasa năm 1796. Sách được chép hoàn toàn bằng tiếng Việt, chữ Quốc ngữ. Sách dài tổng cộng 148 trang và được chia thành tám đoạn nhỏ hơn tương tự như thủ bản Borg.tonch.22. Thủ bản này giúp các học giả ngành Việt Nam học khai thác thêm về tầm quan trọng của sách “Phép giảng tám ngày” trong cộng đồng giáo dân Công giáo người Việt Nam lúc bấy giờ.",
