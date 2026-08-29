@@ -105,7 +105,7 @@ const BorgiaCollectionItemView = ({
             }
             aria-label={t("Filter.search-title-label")}
           />
-          <p className="mt-2 text-xs text-[#777777]">
+          <p className="mt-2 text-base text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
             {vi
               ? "Thư viện Vatican chỉ ghi ký hiệu cho bộ sưu tập này; phần mô tả do Digitizing Việt Nam biên soạn và đang được bổ sung."
               : "The Vatican catalogues this fond by shelfmark alone; the descriptions are written by Digitizing Việt Nam and are still being added."}

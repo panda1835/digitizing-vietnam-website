@@ -94,7 +94,7 @@ export default async function BorgiaItemPage({
   );
 
   return (
-    <div className="flex flex-col w-full items-center max-width">
+    <div className="flex flex-col w-full items-center">
       {/* digi.vatlib.it takes ~3.7s to negotiate TLS; once the connection is up
           it answers in ~150ms. Opening it while the page is still parsing,
           rather than when Mirador asks for the manifest, takes that handshake
@@ -115,7 +115,7 @@ export default async function BorgiaItemPage({
         />
 
         <h1
-          className={`${merriweather.className} text-branding-black text-4xl max-w-5xl mt-6`}
+          className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
         >
           {title}
         </h1>
@@ -134,7 +134,7 @@ export default async function BorgiaItemPage({
                 English reader beats a blank page, but it should say so rather
                 than let them wonder why the page changed language. */}
             {isVietnameseFallback && (
-              <p className="text-sm text-[#777777] italic">
+              <p className="max-w-5xl text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed italic">
                 Description in Vietnamese; an English translation is in progress.
               </p>
             )}
@@ -144,20 +144,24 @@ export default async function BorgiaItemPage({
           </div>
         )}
 
-        <div className="mt-4">
-          <CollectionPermalink />
+        <CollectionPermalink />
+
+        <div className="mt-8">
+          <Separator />
         </div>
 
         {/* `relative` is load-bearing: Mirador's root is absolutely positioned,
             so without a positioned ancestor it anchors to the viewport and
             covers the whole page. The other item pages do the same. */}
-        <div className="mt-8 flex flex-row">
+        <div className="flex flex-row mt-10">
           <div className="w-full relative">
             <BorgiaViewer manifestUrl={entry.manifestUrl} />
           </div>
         </div>
 
-        <Separator className="mt-12" />
+        <div className="mt-8">
+          <Separator />
+        </div>
 
         <BorgiaMetadata entry={entry} locale={locale} />
       </div>
