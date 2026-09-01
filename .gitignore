@@ -19,3 +19,7 @@ og.tsx
 .claude/
 
 data/ocr
+
+.agents
+
+.DESIGN.md
