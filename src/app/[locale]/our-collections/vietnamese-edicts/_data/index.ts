@@ -1,7 +1,7 @@
-// src/lib/pennstate-edicts.ts
+// Collection data accessors for the Penn State Vietnamese edicts.
 //
 // Accessors for the Penn State Vietnamese edicts collection, mirroring
-// src/lib/han-nom-collection.ts.
+// the Hán-Nôm collection data accessors.
 //
 // The snapshot in PennStateEdictsMetadata.ts is already normalized by the fetch
 // script — dynasty, era and document type are derived at snapshot time so the
@@ -12,7 +12,8 @@
 import {
   PENN_STATE_EDICTS,
   type PennStateEdictRecord,
-} from "@/app/[locale]/our-collections/PennStateEdictsMetadata";
+} from "./PennStateEdictsMetadata";
+import { normalizeSearchText } from "@/lib/utils";
 
 /** Slug this collection lives at, and the slug its Strapi record must use. */
 export const EDICTS_COLLECTION_SLUG = "vietnamese-edicts";
@@ -53,21 +54,6 @@ export const getEdictByRecord = (dmrecord: string | number): EdictEntry | undefi
   if (!Number.isFinite(id)) return undefined;
   return PENN_STATE_EDICTS.find((entry) => entry.dmrecord === id);
 };
-
-/**
- * Folds Latin text for accent-insensitive matching, so "Tu Duc" finds "Tự Đức".
- * Matches the approach used by HanNomCollectionItemView's normalizeSearchText.
- * Hán characters pass through untouched and are matched as plain substrings —
- * they need no folding.
- */
-export const normalizeSearchText = (value: string) =>
-  (value ?? "")
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/đ/g, "d")
-    .replace(/Đ/g, "D")
-    .toLowerCase()
-    .trim();
 
 /**
  * The haystack a free-text query is matched against.

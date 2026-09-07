@@ -4,16 +4,30 @@ import qs from "qs";
 import { fetcher } from "@/lib/api";
 
 import { Separator } from "@/components/ui/separator";
-import HanNomCollectionItemView from "./HanNomCollectionItemView";
+import HanNomCollectionItemView from "../han-nom-collection/_components/HanNomCollectionItemView";
 import CollectionItemView from "./CollectionItemView";
 import FeatureArticle from "./FeatureArticle";
 import { PageHeader } from "@/components/common/PageHeader";
-import { getHanNomManifestEntries } from "@/lib/han-nom-collection";
-import { getEdictEntries, EDICTS_COLLECTION_SLUG } from "@/lib/pennstate-edicts";
-import EdictCollectionItemView from "./EdictCollectionItemView";
+import { getHanNomManifestEntries } from "../han-nom-collection/_data";
+import {
+  getEdictEntries,
+  EDICTS_COLLECTION_SLUG,
+} from "../vietnamese-edicts/_data";
+import EdictCollectionItemView from "../vietnamese-edicts/_components/EdictCollectionItemView";
+import {
+  getBorgiaEntries,
+  BORGIA_COLLECTION_SLUG,
+} from "../the-borgia-tonchinensis-collection/_data";
+import BorgiaCollectionItemView from "../the-borgia-tonchinensis-collection/_components/BorgiaCollectionItemView";
 
 import { Metadata } from "next";
 import { stripHtmlTags, getStrapiImageUrl } from "@/utils/seo";
+
+const STATIC_COLLECTION_SLUGS = new Set([
+  "han-nom-collection",
+  EDICTS_COLLECTION_SLUG,
+  BORGIA_COLLECTION_SLUG,
+]);
 
 export async function generateMetadata({
   params,
@@ -102,6 +116,7 @@ const OurCollections = async ({
   setRequestLocale(locale);
 
   const collectionId = collectionid;
+  const isStaticCollection = STATIC_COLLECTION_SLUGS.has(collectionId);
   const requestedPage = Number.parseInt(searchParams?.page || "1", 10);
   const safeRequestedPage = Number.isNaN(requestedPage) ? 1 : requestedPage;
 
@@ -118,21 +133,24 @@ const OurCollections = async ({
 
   try {
     const queryParamsCollectionItem = {
-      fields: "*",
+      fields: ["slug", "title", "abstract"],
       "filters[slug][$eq]": collectionId,
       populate: [
         "featured_blogs.thumbnail",
         "featured_blogs.blog_authors",
-
-        "collection_items.thumbnail",
-        "collection_items.date_created",
-        "collection_items.languages",
-        "collection_items.contributor",
-        "collection_items.subjects",
-        "collection_items.publisher",
-        "collection_items.collections",
-        "collection_items.contributor.author",
-        "collection_items.contributor.author_role_term",
+        ...(!isStaticCollection
+          ? [
+              "collection_items.thumbnail",
+              "collection_items.date_created",
+              "collection_items.languages",
+              "collection_items.contributor",
+              "collection_items.subjects",
+              "collection_items.publisher",
+              "collection_items.collections",
+              "collection_items.contributor.author",
+              "collection_items.contributor.author_role_term",
+            ]
+          : []),
       ],
       locale: locale,
     };
@@ -144,15 +162,17 @@ const OurCollections = async ({
       next: { revalidate: 3600 }, // Cache for 1 hour
     });
     const collectionData = dataCollectionItem.data[0];
-    collectionItems = collectionData.collection_items;
-    featuredBlogs = collectionData.featured_blogs;
+    collectionItems = collectionData.collection_items ?? [];
+    featuredBlogs = collectionData.featured_blogs ?? [];
     collectionMetadata = {
       slug: collectionData.slug,
       title: collectionData.title,
       abstract: collectionData.abstract,
     };
     // Sort collection items by display order
-    collectionItems.sort((a, b) => a.display_order - b.display_order);
+    if (!isStaticCollection) {
+      collectionItems.sort((a, b) => a.display_order - b.display_order);
+    }
   } catch (error) {
     console.error("Error fetching collection:", error);
   }
@@ -183,6 +203,13 @@ const OurCollections = async ({
       ) : collectionId === EDICTS_COLLECTION_SLUG ? (
         <EdictCollectionItemView
           items={getEdictEntries()}
+          initialPage={safeRequestedPage}
+          pageSize={20}
+          locale={locale}
+        />
+      ) : collectionId === BORGIA_COLLECTION_SLUG ? (
+        <BorgiaCollectionItemView
+          items={getBorgiaEntries()}
           initialPage={safeRequestedPage}
           pageSize={20}
           locale={locale}

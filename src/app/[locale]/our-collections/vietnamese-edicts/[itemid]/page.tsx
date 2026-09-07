@@ -19,15 +19,15 @@ import localFont from "next/font/local";
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import CollectionPermalink from "@/components/CollectionPermalink";
-import EdictViewer from "./EdictViewer";
+import MiradorViewer from "@/components/mirador/MiradorViewer";
 import { Separator } from "@/components/ui/separator";
 import {
   EDICTS_COLLECTION_SLUG,
   EDICTS_REPOSITORY,
   getEdictByRecord,
   getEdictEntries,
-} from "@/lib/pennstate-edicts";
-import EdictMetadata from "./EdictMetadata";
+} from "../_data";
+import EdictMetadata from "../_components/EdictMetadata";
 
 const NomNaTong = localFont({
   src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
@@ -49,7 +49,12 @@ export async function generateMetadata({
 
 /** 32 items — cheap to prerender, and it puts them in the build output. */
 export function generateStaticParams() {
-  return getEdictEntries().map((entry) => ({ itemid: String(entry.dmrecord) }));
+  return ["en", "vi"].flatMap((locale) =>
+    getEdictEntries().map((entry) => ({
+      locale,
+      itemid: String(entry.dmrecord),
+    }))
+  );
 }
 
 export default async function EdictItemPage({
@@ -132,7 +137,7 @@ export default async function EdictItemPage({
             covers the whole page. The han-nom item page does the same. */}
         <div className="flex flex-row mt-10">
           <div className="w-full relative">
-            <EdictViewer manifestUrl={entry.manifestUrl} />
+            <MiradorViewer manifestUrl={entry.manifestUrl} canvasId="" />
           </div>
         </div>
 

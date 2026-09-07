@@ -112,7 +112,7 @@ const Home = async ({ params: { locale } }) => {
                   <span className="text-branding-brown">
                     Digital Humanities
                   </span>{" "}
-                  and <span className="text-branding-brown">AI</span>:
+                  and <span className="text-branding-brown">AI</span>
                 </h1>
               ) : (
                 <h1
@@ -120,7 +120,7 @@ const Home = async ({ params: { locale } }) => {
                 >
                   Việt Nam học trong thời đại{" "}
                   <span className="text-branding-brown">Nhân văn số</span> và{" "}
-                  <span className="text-branding-brown">Trí tuệ nhân tạo</span>:
+                  <span className="text-branding-brown">Trí tuệ nhân tạo</span>
                 </h1>
               )}
             </div>

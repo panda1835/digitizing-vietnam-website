@@ -28,11 +28,11 @@ import {
   EDICTS_REPOSITORY,
   edictMatchesQuery,
   type EdictEntry,
-} from "@/lib/pennstate-edicts";
+} from "../_data";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const NomNaTong = localFont({
-  src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
+  src: "../../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
 interface EdictCollectionItemViewProps {

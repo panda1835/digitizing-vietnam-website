@@ -14,13 +14,7 @@ import {
 } from "@/components/ui/table";
 
 import { MUONG_COMBINED_ROWS, MUONG_WORD_COLUMNS } from "./data";
-
-const normalizeSearchText = (value: string) =>
-  value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
+import { normalizeSearchText } from "@/lib/utils";
 
 const columnsPerPageByWidth = (width: number) => {
   if (width < 640) return 3;

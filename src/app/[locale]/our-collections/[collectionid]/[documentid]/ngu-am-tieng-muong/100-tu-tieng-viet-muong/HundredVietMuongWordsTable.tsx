@@ -14,13 +14,7 @@ import {
 } from "@/components/ui/table";
 
 import { VIET_MUONG_WORDS } from "./data";
-
-const normalizeSearchText = (value: string) =>
-  value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
+import { normalizeSearchText } from "@/lib/utils";
 
 export default function HundredVietMuongWordsTable({
   locale,

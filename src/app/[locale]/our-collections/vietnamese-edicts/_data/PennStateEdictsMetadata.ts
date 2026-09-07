@@ -1,4 +1,4 @@
-// src\app\[locale]\our-collections\PennStateEdictsMetadata.ts
+// src/app/[locale]/our-collections/vietnamese-edicts/_data/PennStateEdictsMetadata.ts
 //
 // GENERATED FILE — do not edit by hand.
 // Run: node scripts/collections/fetch-pennstate-edicts.mjs
