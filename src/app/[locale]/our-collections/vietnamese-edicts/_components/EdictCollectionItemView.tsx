@@ -27,6 +27,9 @@ import {
   EDICTS_COLLECTION_SLUG,
   EDICTS_REPOSITORY,
   edictMatchesQuery,
+  formatEdictDynasty,
+  getEdictCardTitle,
+  localizeEdictValue,
   type EdictEntry,
 } from "../_data";
 
@@ -208,6 +211,17 @@ const EdictCollectionItemView = ({
   const itemHref = (item: EdictEntry) =>
     `/our-collections/${EDICTS_COLLECTION_SLUG}/${item.dmrecord}`;
 
+  /**
+   * Facet checkboxes read in the reader's language while still filtering on
+   * PSU's English value, so `?document-type=Edict` means the same thing on both
+   * sites. Eras and dynasties are Vietnamese names already.
+   */
+  const optionLabel = (key: FilterKey, name: string) => {
+    if (key === "document-type") return localizeEdictValue("documentType", name, locale);
+    if (key === "languages") return localizeEdictValue("language", name, locale);
+    return name;
+  };
+
   return (
     <div className="w-full">
       <div className="max-width mx-auto">
@@ -273,7 +287,7 @@ const EdictCollectionItemView = ({
                                 )
                               }
                             />
-                            <span>{option.name}</span>
+                            <span>{optionLabel(filter.key, option.name)}</span>
                           </label>
                           <span className="text-sm text-gray-600">
                             {option.count}
@@ -353,7 +367,7 @@ const EdictCollectionItemView = ({
                       <Image
                         unoptimized
                         src={item.thumbnailUrl}
-                        alt={item.title}
+                        alt={getEdictCardTitle(item, locale)}
                         width={256}
                         height={228}
                         className="object-cover rounded w-full h-40 bg-gray-100"
@@ -362,12 +376,11 @@ const EdictCollectionItemView = ({
                   </Link>
                   <Link href={itemHref(item)}>
                     <div className="font-['Helvetica Neue'] font-medium text-branding-black text-xl mt-[12px] hover:text-branding-brown hover:underline">
-                      {item.documentType}
-                      {item.era ? `, ${item.era}` : ""}
+                      {getEdictCardTitle(item, locale)}
                     </div>
                   </Link>
                   <div className="text-sm text-[#777777] mt-2">
-                    {[item.dynasty ? `${item.dynasty} dynasty` : "", item.date]
+                    {[formatEdictDynasty(item.dynasty, locale), item.date]
                       .filter(Boolean)
                       .join(" · ")}
                   </div>
@@ -415,8 +428,8 @@ const EdictCollectionItemView = ({
         <p className="mt-8 mb-8 text-base text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
           {vi ? "Ghi chú: " : "Note: "}
           {vi
-            ? `Bộ sưu tập gốc do ${EDICTS_REPOSITORY.library}, ${EDICTS_REPOSITORY.institution}, lưu giữ và số hóa (${EDICTS_REPOSITORY.extent}, ${EDICTS_REPOSITORY.dateRange}). Hình ảnh được tải trực tiếp từ kho số của Penn State, và phần mô tả ở trên được biên soạn dựa theo công cụ tra cứu của thư viện.`
-            : `The original collection is held and was digitised by the ${EDICTS_REPOSITORY.library}, ${EDICTS_REPOSITORY.institution} (${EDICTS_REPOSITORY.extent}, ${EDICTS_REPOSITORY.dateRange}). Images are loaded directly from Penn State's digital repository, and the description above is adapted from their finding aid.`}{" "}
+            ? `Bộ sưu tập gốc do ${EDICTS_REPOSITORY.library}, ${EDICTS_REPOSITORY.institution}, lưu giữ và số hóa (${EDICTS_REPOSITORY.extent}, ${EDICTS_REPOSITORY.dateRange}). Hình ảnh được tải trực tiếp từ kho số của Penn State, và phần mô tả ở trên là nguyên văn ghi chú của thư viện trong công cụ tra cứu.`
+            : `The original collection is held and was digitised by the ${EDICTS_REPOSITORY.library}, ${EDICTS_REPOSITORY.institution} (${EDICTS_REPOSITORY.extent}, ${EDICTS_REPOSITORY.dateRange}). Images are loaded directly from Penn State's digital repository, and the description above is their own scope note, quoted from their finding aid.`}{" "}
           <a
             href={EDICTS_REPOSITORY.url}
             target="_blank"
