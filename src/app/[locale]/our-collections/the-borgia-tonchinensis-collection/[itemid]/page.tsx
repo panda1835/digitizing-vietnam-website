@@ -17,16 +17,15 @@ import { Merriweather } from "next/font/google";
 
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import CollectionPermalink from "@/components/CollectionPermalink";
-import BorgiaViewer from "./BorgiaViewer";
-import BorgiaMetadata from "./BorgiaMetadata";
+import MiradorViewer from "@/components/mirador/MiradorViewer";
+import BorgiaMetadata from "../_components/BorgiaMetadata";
 import { Separator } from "@/components/ui/separator";
 import {
   BORGIA_COLLECTION_SLUG,
-  formatPageCount,
   getBorgiaByItemId,
   getBorgiaEntries,
   getBorgiaText,
-} from "@/lib/vatican-borgia";
+} from "../_data";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -47,7 +46,9 @@ export async function generateMetadata({
 
 /** 41 items — cheap to prerender, and it puts them in the build output. */
 export function generateStaticParams() {
-  return getBorgiaEntries().map((entry) => ({ itemid: entry.itemId }));
+  return ["en", "vi"].flatMap((locale) =>
+    getBorgiaEntries().map((entry) => ({ locale, itemid: entry.itemId }))
+  );
 }
 
 export default async function BorgiaItemPage({
@@ -77,7 +78,10 @@ export default async function BorgiaItemPage({
     return (
       <div className="flex flex-col items-center max-width">
         <div className="w-full mb-20">
-          <BreadcrumbAndSearchBar locale={locale} breadcrumbItems={breadcrumbBase} />
+          <BreadcrumbAndSearchBar
+            locale={locale}
+            breadcrumbItems={breadcrumbBase}
+          />
           <div className="mt-10 text-branding-black">
             {t("HanNomCollection.item-not-found")}
           </div>
@@ -88,10 +92,7 @@ export default async function BorgiaItemPage({
 
   // Until DVN catalogues a volume, the heading is its shelfmark — which is all
   // the Vatican itself shows for it.
-  const { title, summary, isCatalogued, isVietnameseFallback } = getBorgiaText(
-    entry,
-    locale
-  );
+  const { title, summary, isVietnameseFallback } = getBorgiaText(entry, locale);
 
   return (
     <div className="flex flex-col w-full items-center">
@@ -105,7 +106,11 @@ export default async function BorgiaItemPage({
           warms the socket Mirador's manifest and info.json fetches use, and the
           plain one warms the socket OpenSeadragon's tile <img> elements use.
           React hoists both into <head>. */}
-      <link rel="preconnect" href="https://digi.vatlib.it" crossOrigin="anonymous" />
+      <link
+        rel="preconnect"
+        href="https://digi.vatlib.it"
+        crossOrigin="anonymous"
+      />
       <link rel="preconnect" href="https://digi.vatlib.it" />
 
       <div className="flex-col mb-20 w-full">
@@ -119,23 +124,16 @@ export default async function BorgiaItemPage({
         >
           {title}
         </h1>
-        <p className="text-base text-[#777777] mt-2">
-          {[
-            isCatalogued ? entry.shelfmark : "",
-            formatPageCount(entry.pageCount, locale),
-          ]
-            .filter(Boolean)
-            .join(" · ")}
-        </p>
 
         {summary && (
-          <div className="mt-4 max-w-5xl">
+          <div className="mt-4 max-w-7xl">
             {/* DVN catalogued this fond in Vietnamese. Showing that to an
                 English reader beats a blank page, but it should say so rather
                 than let them wonder why the page changed language. */}
             {isVietnameseFallback && (
               <p className="max-w-5xl text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed italic">
-                Description in Vietnamese; an English translation is in progress.
+                Description in Vietnamese; an English translation is in
+                progress.
               </p>
             )}
             <p className="mt-2 text-base text-branding-black font-light font-['Helvetica Neue'] leading-relaxed">
@@ -155,7 +153,7 @@ export default async function BorgiaItemPage({
             covers the whole page. The other item pages do the same. */}
         <div className="flex flex-row mt-10">
           <div className="w-full relative">
-            <BorgiaViewer manifestUrl={entry.manifestUrl} />
+            <MiradorViewer manifestUrl={entry.manifestUrl} canvasId="" />
           </div>
         </div>
 

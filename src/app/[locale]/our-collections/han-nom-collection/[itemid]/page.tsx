@@ -6,8 +6,8 @@ import CollectionPermalink from "@/components/CollectionPermalink";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Separator } from "@/components/ui/separator";
 import { Merriweather } from "next/font/google";
-import HanNomMetadata from "./Metadata";
-import { getHanNomManifestEntryByItemId } from "@/lib/han-nom-collection";
+import HanNomMetadata from "../_components/HanNomMetadata";
+import { getHanNomManifestEntryByItemId } from "../_data";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 

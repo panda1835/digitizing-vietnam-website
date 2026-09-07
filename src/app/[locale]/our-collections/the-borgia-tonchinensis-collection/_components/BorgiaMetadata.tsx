@@ -15,7 +15,7 @@ import {
   formatPageCount,
   getBorgiaDescription,
   type BorgiaEntry,
-} from "@/lib/vatican-borgia";
+} from "../_data";
 
 interface BorgiaMetadataProps {
   entry: BorgiaEntry;

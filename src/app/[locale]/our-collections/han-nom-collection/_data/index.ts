@@ -1,4 +1,4 @@
-import { hanNomColumbiaDlcMetadata } from "@/app/[locale]/our-collections/HanNomColumbiaDLCMetadata";
+import { hanNomColumbiaDlcMetadata } from "./HanNomColumbiaDLCMetadata";
 
 const IIIF_MANIFEST_BASE =
   "https://dlc.library.columbia.edu/iiif/3/presentation";

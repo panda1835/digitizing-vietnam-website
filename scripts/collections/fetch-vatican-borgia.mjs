@@ -10,7 +10,7 @@
 // the IIIF manifests carry a shelfmark and `Language: ["und"]` and nothing
 // else. So this script captures the shape of each manuscript — how many pages,
 // where the scans live, what the first leaves are called — and DVN supplies the
-// descriptive layer by hand in src/lib/vatican-borgia-descriptions.ts.
+// descriptive layer by hand in the collection's _data/descriptions.ts file.
 //
 // Images are NOT mirrored: item pages point Mirador straight at the Vatican's
 // IIIF, which keeps the scans authoritative and the Vatican the host of record.
@@ -34,7 +34,7 @@ const LIST_URL = `${HOST}/mss/${FOND}`;
 
 const DEFAULT_OUT = path.resolve(
   process.cwd(),
-  "src/app/[locale]/our-collections/VaticanBorgiaMetadata.ts"
+  "src/app/[locale]/our-collections/the-borgia-tonchinensis-collection/_data/VaticanBorgiaMetadata.ts"
 );
 
 /** Manifests here run to hundreds of canvases; be a polite client. */
@@ -227,7 +227,7 @@ async function main() {
 //
 // The Vatican catalogues these as shelfmark-only records, so there are no
 // titles, dates or descriptions to snapshot. DVN supplies those by hand in
-// src/lib/vatican-borgia-descriptions.ts; this file holds only what the
+// descriptions.ts; this file holds only what the
 // Vatican itself publishes.
 //
 // Rights: images are copyright Biblioteca Apostolica Vaticana and are NOT

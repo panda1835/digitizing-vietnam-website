@@ -1,4 +1,4 @@
-// src/app/[locale]/our-collections/VaticanBorgiaMetadata.ts
+// src/app/[locale]/our-collections/the-borgia-tonchinensis-collection/_data/VaticanBorgiaMetadata.ts
 //
 // GENERATED FILE — do not edit by hand.
 // Run: node scripts/collections/fetch-vatican-borgia.mjs
@@ -9,7 +9,7 @@
 //
 // The Vatican catalogues these as shelfmark-only records, so there are no
 // titles, dates or descriptions to snapshot. DVN supplies those by hand in
-// src/lib/vatican-borgia-descriptions.ts; this file holds only what the
+// descriptions.ts; this file holds only what the
 // Vatican itself publishes.
 //
 // Rights: images are copyright Biblioteca Apostolica Vaticana and are NOT

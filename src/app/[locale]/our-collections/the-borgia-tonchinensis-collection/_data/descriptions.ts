@@ -1,4 +1,4 @@
-// src/lib/vatican-borgia-descriptions.ts
+// src/app/[locale]/our-collections/the-borgia-tonchinensis-collection/_data/descriptions.ts
 //
 // DVN's descriptive layer for the Borgia Tonchinensis manuscripts.
 //

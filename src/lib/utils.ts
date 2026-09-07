@@ -11,9 +11,6 @@ export function cn(...inputs: ClassValue[]) {
  *
  * Hán and Nôm characters pass through untouched — folding would destroy their
  * identity — so they are matched as plain substrings instead.
- *
- * src/lib/pennstate-edicts.ts carries its own copy of this; that one should be
- * replaced by this export once the edicts branch has landed on main.
  */
 export const normalizeSearchText = (value: string) =>
   (value ?? "")

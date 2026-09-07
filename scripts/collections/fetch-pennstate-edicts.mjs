@@ -32,7 +32,7 @@ const DMWS = `${HOST}/digital/bl/dmwebservices/index.php`;
 
 const DEFAULT_OUT = path.resolve(
   process.cwd(),
-  "src/app/[locale]/our-collections/PennStateEdictsMetadata.ts"
+  "src/app/[locale]/our-collections/vietnamese-edicts/_data/PennStateEdictsMetadata.ts"
 );
 
 /** CONTENTdm returns `{}` for empty fields rather than an empty string. */

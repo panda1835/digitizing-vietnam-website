@@ -15,7 +15,7 @@
 
 import { getTranslations } from "next-intl/server";
 
-import { EDICTS_REPOSITORY, type EdictEntry } from "@/lib/pennstate-edicts";
+import { EDICTS_REPOSITORY, type EdictEntry } from "../_data";
 
 interface EdictMetadataProps {
   entry: EdictEntry;
@@ -23,7 +23,7 @@ interface EdictMetadataProps {
 }
 
 /**
- * Matches the label/value typography used by han-nom-collection's Metadata.tsx
+ * Matches the label/value typography used by Hán-Nôm's HanNomMetadata.tsx
  * so the two collections' item pages read identically: grey Helvetica Neue
  * label at text-lg with a trailing colon, black light-weight value at
  * text-base.

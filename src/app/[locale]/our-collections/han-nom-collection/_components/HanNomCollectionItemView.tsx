@@ -7,10 +7,11 @@ import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import LearnMoreButton from "@/components/LearnMoreButton";
 import { Merriweather } from "next/font/google";
-import { HanNomManifestEntry } from "@/lib/han-nom-collection";
+import type { HanNomManifestEntry } from "../_data";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { normalizeSearchText } from "@/lib/utils";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -30,15 +31,6 @@ const FILTER_KEYS = [
 type FilterKey = typeof FILTER_KEYS[number]["key"];
 
 const PAGE_SIZE_DEFAULT = 20;
-
-const normalizeSearchText = (value: string) =>
-  value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/đ/g, "d")
-    .replace(/Đ/g, "D")
-    .toLowerCase()
-    .trim();
 
 const matchesSearchQuery = (
   item: HanNomManifestEntry,
