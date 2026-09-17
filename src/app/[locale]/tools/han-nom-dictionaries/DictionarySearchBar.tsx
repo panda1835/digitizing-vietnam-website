@@ -311,13 +311,22 @@ export default function DictionarySearchBar({
           <Tooltip>
             <TooltipTrigger asChild>
               <DialogTrigger asChild>
-                <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all">
+                {/* A button, not a div: the tooltip is hover-only, so the
+                    label here is what a keyboard, a screen reader or a touch
+                    user has to go on. */}
+                <button
+                  type="button"
+                  aria-label={t(
+                    "Tools.han-nom-dictionaries.alternative-input-methods.radical-tooltip"
+                  )}
+                  className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all"
+                >
                   <span
                     className={`${notoSerifSC.className} text-xl leading-none antialiased text-white`}
                   >
                     部
                   </span>
-                </div>
+                </button>
               </DialogTrigger>
             </TooltipTrigger>
             <TooltipContent>
@@ -361,9 +370,15 @@ export default function DictionarySearchBar({
           <Tooltip>
             <TooltipTrigger asChild>
               <DialogTrigger asChild>
-                <div className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all">
+                <button
+                  type="button"
+                  aria-label={t(
+                    "Tools.han-nom-dictionaries.alternative-input-methods.handwriting-tooltip"
+                  )}
+                  className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all"
+                >
                   <PencilIcon className="h-5 w-5 text-white" />
-                </div>
+                </button>
               </DialogTrigger>
             </TooltipTrigger>
             <TooltipContent>

@@ -386,7 +386,9 @@
           "ocr": "Công nghệ OCR cho văn bản Hán-Nôm",
           "lookup": "Tra cứu Đa Từ điển",
           "resources": "Tạp chí Chuyên ngành & Sách Tham khảo"
-        }
+        },
+        "readMore": "Xem thêm",
+        "readLess": "Thu gọn"
       },
       "sidebar": {
         "digital-archives": "Kho lưu trữ số",

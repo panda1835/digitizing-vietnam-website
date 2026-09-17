@@ -385,7 +385,9 @@
           "ocr": "State-of-the-art OCR for Hán-Nôm Texts",
           "lookup": "Unified Multi-Dictionary Lookup",
           "resources": "Scholarly Periodicals & Books"
-        }
+        },
+        "readMore": "Read more",
+        "readLess": "Show less"
       },
       "sidebar": {
         "digital-archives": "Digital Archives",

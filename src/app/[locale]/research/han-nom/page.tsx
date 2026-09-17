@@ -142,13 +142,16 @@ export default async function HanNomPage({
   const renderTocItem = (item: TocItem) => (
     <li key={item.label} className="list-none">
       {item.external ? (
+        // The arrow marks the links that leave the site, the same way the
+        // Việt Điển button does.
         <a
           href={item.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={tocLinkClass}
+          className={`${tocLinkClass} inline-flex items-start gap-0.5`}
         >
           {item.label}
+          <ArrowUpRight className="h-3 w-3 shrink-0 mt-[0.2em]" aria-hidden />
         </a>
       ) : (
         <Link href={item.href} className={tocLinkClass}>
@@ -226,7 +229,7 @@ export default async function HanNomPage({
                 <h2 className="font-['Helvetica Neue'] text-3xl md:text-5xl text-branding-black font-bold mb-4 lg:mb-8 leading-tight">
                   {t("ResearchHub.HanNomHub.intro.title")}
                 </h2>
-                <p className="text-base md:text-xl text-branding-black/70 font-light leading-relaxed">
+                <p className="hidden lg:block text-xl text-branding-black/70 font-light leading-relaxed">
                   {t("ResearchHub.HanNomHub.intro.description")}
                 </p>
               </div>
@@ -234,6 +237,29 @@ export default async function HanNomPage({
               <nav className="lg:hidden rounded-2xl border border-branding-brown/15 bg-white/60 p-5">
                 {tocList("inline")}
               </nav>
+
+              {/* On a phone the description is what stands between the reader
+                  and the hub, so it comes after the menu and opens on demand.
+                  A <details>, so it costs no JavaScript and is open to a
+                  search engine either way. */}
+              <details className="lg:hidden group">
+                <summary className="list-none cursor-pointer [&::-webkit-details-marker]:hidden">
+                  {/* No display utility here: line-clamp sets its own
+                      (-webkit-box), and a `block` alongside it can win and
+                      leave the text unclamped. */}
+                  <span className="line-clamp-1 group-open:line-clamp-none text-base text-branding-black/70 font-light leading-relaxed">
+                    {t("ResearchHub.HanNomHub.intro.description")}
+                  </span>
+                  <span className="mt-1 inline-block text-sm font-medium text-branding-brown">
+                    <span className="group-open:hidden">
+                      {t("ResearchHub.HanNomHub.intro.readMore")}
+                    </span>
+                    <span className="hidden group-open:inline">
+                      {t("ResearchHub.HanNomHub.intro.readLess")}
+                    </span>
+                  </span>
+                </summary>
+              </details>
 
               <div className="lg:col-span-2 self-start bg-white/50 backdrop-blur-sm p-6 lg:p-8 rounded-xl border border-branding-brown/10">
                 <h3 className="text-sm font-bold uppercase tracking-widest text-branding-brown mb-5 lg:mb-6">
