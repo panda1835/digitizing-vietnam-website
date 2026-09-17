@@ -428,6 +428,30 @@
           "placeholder": "Search corpus texts...",
           "search": "Search",
           "description": "Full-text search across classical Vietnamese literature and historical documents."
+        },
+        "vietDien": {
+          "alt": "Việt Điển 越典 · Hán-Nôm Digital Library",
+          "description": "A searchable digital library of Hán-Nôm texts. Read source page images alongside their OCR.",
+          "searchPlaceholder": "Search the OCR (characters, phrases)…",
+          "search": "Search",
+          "cta": "Visit Việt Điển",
+          "nav": "Việt Điển",
+          "searchPlaceholderShort": "Search OCR…",
+          "mode": "Kind of search",
+          "modeExact": "Exact",
+          "modeAll": "All of",
+          "modeProximity": "Proximity",
+          "modeConcordance": "Concordance",
+          "nearFirst": "First characters",
+          "nearSecond": "Second characters",
+          "nearFirstShort": "First",
+          "nearSecondShort": "Second",
+          "nearWithin": "within",
+          "nearChars": "characters",
+          "hintExact": "The characters together, in that order.",
+          "hintAll": "Every term appears somewhere on the same page.",
+          "hintProximity": "Both appear within that many characters of one another.",
+          "hintConcordance": "Every occurrence, lined up with the text either side of it."
         }
       },
       "DateConverter": {

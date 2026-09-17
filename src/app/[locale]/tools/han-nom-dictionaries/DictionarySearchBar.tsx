@@ -57,11 +57,15 @@ export default function DictionarySearchBar({
   searchWord,
   hdwd_list = [], // default empty array
   searchPath = "",
+  stackFromXl = false,
 }: {
   placeholder: string;
   searchWord: string | undefined;
   hdwd_list?: string[];
   searchPath?: string;
+  // From xl up, keep the buttons on their own line: for a narrow column on a
+  // wide screen, where the row would squeeze the input.
+  stackFromXl?: boolean;
 }) {
   const t = useTranslations();
 
@@ -253,8 +257,16 @@ export default function DictionarySearchBar({
   };
 
   return (
-    <div className="relative w-full flex items-center gap-2">
-      <div className="relative flex-1">
+    <div
+      className={`relative w-full flex flex-wrap items-center gap-2 ${
+        stackFromXl ? "sm:flex-nowrap xl:flex-wrap" : "sm:flex-nowrap"
+      }`}
+    >
+      <div
+        className={`relative basis-full flex-1 min-w-0 ${
+          stackFromXl ? "sm:basis-auto xl:basis-full" : "sm:basis-auto"
+        }`}
+      >
         <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-700 z-10" />
         <input
           ref={inputRef}

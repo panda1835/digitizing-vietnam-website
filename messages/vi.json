@@ -429,6 +429,30 @@
           "placeholder": "Tìm trong kho ngữ liệu...",
           "search": "Tìm kiếm",
           "description": "Tìm toàn văn trong văn học cổ điển Việt Nam và các tư liệu lịch sử."
+        },
+        "vietDien": {
+          "alt": "Việt Điển 越典 · Thư viện số Hán-Nôm",
+          "description": "Thư viện số có thể tìm kiếm các văn bản Hán-Nôm. Đọc ảnh trang gốc cùng với văn bản OCR.",
+          "searchPlaceholder": "Tìm trong OCR (chữ, cụm từ)…",
+          "search": "Tìm kiếm",
+          "cta": "Truy cập Việt Điển",
+          "nav": "Việt Điển",
+          "searchPlaceholderShort": "Tìm OCR…",
+          "mode": "Kiểu tìm",
+          "modeExact": "Chính xác",
+          "modeAll": "Có tất cả",
+          "modeProximity": "Gần nhau",
+          "modeConcordance": "Ngữ cảnh",
+          "nearFirst": "Chữ thứ nhất",
+          "nearSecond": "Chữ thứ hai",
+          "nearFirstShort": "Chữ 1",
+          "nearSecondShort": "Chữ 2",
+          "nearWithin": "cách nhau trong",
+          "nearChars": "chữ",
+          "hintExact": "Các chữ liền nhau, đúng thứ tự.",
+          "hintAll": "Mọi từ đều xuất hiện trên cùng một trang.",
+          "hintProximity": "Hai từ cách nhau không quá số chữ đã định.",
+          "hintConcordance": "Mọi lần xuất hiện, xếp thẳng hàng cùng ngữ cảnh."
         }
       },
       "DateConverter": {
