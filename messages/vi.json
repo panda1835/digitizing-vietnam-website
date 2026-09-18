@@ -563,6 +563,29 @@
         "location": "Vị trí",
         "script": "Văn tự",
         "excerpt": "Đoạn trích"
+      },
+      "hub": {
+        "lede": "Bộ sưu tập số hóa, OCR, từ điển tra cứu và công cụ số — một nền tảng để khám phá di sản thư tịch của Việt Nam.",
+        "ctaPrimary": "Khám phá bộ sưu tập",
+        "ctaSecondary": "Tìm hiểu thêm",
+        "examples": "Ví dụ:",
+        "about": "Giới thiệu",
+        "featured": {
+          "title": "Nội dung nổi bật"
+        },
+        "projects": {
+          "title": "Dự án và công cụ",
+          "viewAll": "Xem tất cả công cụ",
+          "archivesTags": "Bản thảo · Sắc phong · Văn bản in",
+          "archivesBlurb": "Khám phá các bộ sưu tập lưu trữ đã số hóa từ Việt Nam và các đối tác quốc tế.",
+          "archivesCta": "Xem bộ sưu tập",
+          "ocrTags": "Nhận dạng văn bản · Mô hình Hán-Nôm",
+          "ocrBlurb": "OCR Hán-Nôm với mô hình nhận biết dị thể, phục vụ nghiên cứu.",
+          "ocrCta": "Tìm hiểu thêm",
+          "dateTags": "Âm lịch · Dương lịch · Niên hiệu",
+          "dateBlurb": "Chuyển đổi giữa âm lịch, dương lịch và niên hiệu.",
+          "dateCta": "Mở công cụ"
+        }
       }
     }
   },
@@ -664,6 +687,11 @@
         "name": "Từ điển các biến thể chữ Hán (異體字字典)",
         "description": "Nguồn tham khảo có thẩm quyền của Bộ Giáo dục Đài Loan, thống kê các dạng chữ Hán dị thể, kèm chú giải chi tiết và nguồn tư liệu lịch sử.",
         "url": "https://dict.variants.moe.edu.tw/"
+      },
+      "ddb": {
+        "name": "Từ điển Phật học số (電子佛教辭典)",
+        "description": "Từ điển học thuật về thuật ngữ, kinh sách, nhân vật và tự viện Phật giáo viết bằng chữ Hán, do A. Charles Muller biên soạn.",
+        "url": "http://www.buddhism-dict.net/ddb/"
       }
     }
   },

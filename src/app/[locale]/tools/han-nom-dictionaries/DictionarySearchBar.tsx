@@ -58,6 +58,7 @@ export default function DictionarySearchBar({
   hdwd_list = [], // default empty array
   searchPath = "",
   stackFromXl = false,
+  variant = "pill",
 }: {
   placeholder: string;
   searchWord: string | undefined;
@@ -66,8 +67,20 @@ export default function DictionarySearchBar({
   // From xl up, keep the buttons on their own line: for a narrow column on a
   // wide screen, where the row would squeeze the input.
   stackFromXl?: boolean;
+  // "pill" is the dictionary pages' own tall rounded bar; "flat" matches the
+  // plainer bordered box Việt Điển uses, for sitting beside it on the hub.
+  variant?: "pill" | "flat";
 }) {
   const t = useTranslations();
+
+  const flat = variant === "flat";
+  const fieldHeight = flat ? "h-[42px]" : "h-[54px]";
+  const inputClass = flat
+    ? `${fieldHeight} px-4 pl-10 rounded-md border border-slate-300 bg-white text-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-branding-brown focus:border-branding-brown`
+    : `${fieldHeight} px-5 py-2 pl-12 bg-white shadow-lg rounded-[26px]`;
+  const buttonClass = flat
+    ? `${fieldHeight} rounded-md px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all`
+    : "rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all";
 
   const [searchKeyword, setSearchKeyword] = useState(searchWord || "");
   const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -267,7 +280,11 @@ export default function DictionarySearchBar({
           stackFromXl ? "sm:basis-auto xl:basis-full" : "sm:basis-auto"
         }`}
       >
-        <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-700 z-10" />
+        <MagnifyingGlassIcon
+          className={`absolute ${
+            flat ? "left-3 h-4 w-4" : "left-4 h-5 w-5"
+          } top-1/2 transform -translate-y-1/2 text-gray-700 z-10`}
+        />
         <input
           ref={inputRef}
           type="text"
@@ -277,7 +294,7 @@ export default function DictionarySearchBar({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onFocus={handleInputFocus}
-          className={`${NomNaTong.className} w-full h-[54px] px-5 py-2 pl-12 bg-white shadow-lg rounded-[26px]`}
+          className={`${NomNaTong.className} w-full ${inputClass}`}
           autoComplete="off"
         />
 
@@ -319,7 +336,7 @@ export default function DictionarySearchBar({
                   aria-label={t(
                     "Tools.han-nom-dictionaries.alternative-input-methods.radical-tooltip"
                   )}
-                  className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all"
+                  className={buttonClass}
                 >
                   <span
                     className={`${notoSerifSC.className} text-xl leading-none antialiased text-white`}
@@ -375,7 +392,7 @@ export default function DictionarySearchBar({
                   aria-label={t(
                     "Tools.han-nom-dictionaries.alternative-input-methods.handwriting-tooltip"
                   )}
-                  className="rounded-lg h-12 px-3 border flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 transition-all"
+                  className={buttonClass}
                 >
                   <PencilIcon className="h-5 w-5 text-white" />
                 </button>
@@ -410,7 +427,10 @@ export default function DictionarySearchBar({
         </DialogContent>
       </Dialog>
 
-      <Button onClick={() => handleSearch()} className="h-12 rounded-lg">
+      <Button
+        onClick={() => handleSearch()}
+        className={flat ? `${fieldHeight} rounded-md` : "h-12 rounded-lg"}
+      >
         {t("Button.search")}
       </Button>
     </div>

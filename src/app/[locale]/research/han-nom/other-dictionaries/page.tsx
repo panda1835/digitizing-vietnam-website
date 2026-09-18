@@ -36,6 +36,7 @@ const OtherDictionariesPage = async ({ params: { locale } }) => {
     "pleco",
     "de-rhodes",
     "moe-variants",
+    "ddb",
   ];
   const category = {
     resources: dictionaries.map((key) => ({
