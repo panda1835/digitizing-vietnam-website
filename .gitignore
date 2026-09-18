@@ -19,3 +19,6 @@ og.tsx
 .claude/
 
 data/ocr
+data/corpus
+data/uploads
+remaining.json
