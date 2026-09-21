@@ -68,7 +68,7 @@ export default function VietDienSearch() {
         <button
           type="submit"
           aria-label={t("search")}
-          className="shrink-0 flex items-center justify-center rounded-md bg-[#00196e] h-11 w-11 sm:h-auto sm:w-auto sm:px-5 sm:py-2.5 text-sm font-medium text-white hover:bg-[#001456]"
+          className="shrink-0 flex items-center justify-center rounded-md bg-black h-11 w-11 sm:h-auto sm:w-auto sm:px-5 sm:py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800"
         >
           <Search className="h-5 w-5 sm:hidden" aria-hidden />
           <span className="hidden sm:inline">{t("search")}</span>

@@ -163,7 +163,6 @@ export default async function HanNomPage({
   const featuredContent: {
     key: string;
     href: string;
-    icon: typeof Library;
     // A picture shown across the head of the card, with the part of it the
     // band should keep when the crop bites.
     image?: string;
@@ -172,14 +171,12 @@ export default async function HanNomPage({
     {
       key: "featuredCollection",
       href: "/our-collections/han-nom-collection",
-      icon: Library,
       image: "/images/han-nom-collection-card.jpg",
       crop: "object-top",
     },
     {
       key: "featuredBooks",
       href: "/our-collections/nghien-cuu-han-nom",
-      icon: BookOpen,
       image: "/images/han-nom-books-card.jpg",
       // The stack sits mid-frame; anchoring to the top would crop to the
       // shelf behind it.
@@ -189,7 +186,6 @@ export default async function HanNomPage({
 
   const projects: {
     name: string;
-    tags: string;
     blurb: string;
     cta: string;
     href: string;
@@ -198,7 +194,6 @@ export default async function HanNomPage({
   }[] = [
     {
       name: t("ResearchHub.HanNomHub.digital-archives.title"),
-      tags: t("ResearchHub.HanNomHub.hub.projects.archivesTags"),
       blurb: t("ResearchHub.HanNomHub.hub.projects.archivesBlurb"),
       cta: t("ResearchHub.HanNomHub.hub.projects.archivesCta"),
       href:
@@ -209,7 +204,6 @@ export default async function HanNomPage({
     },
     {
       name: "Hán-Nôm OCR",
-      tags: t("ResearchHub.HanNomHub.hub.projects.ocrTags"),
       blurb: t("ResearchHub.HanNomHub.hub.projects.ocrBlurb"),
       cta: t("ResearchHub.HanNomHub.hub.projects.ocrCta"),
       href: "https://ocr.digitizingvietnam.com/en",
@@ -218,7 +212,6 @@ export default async function HanNomPage({
     },
     {
       name: t("ResearchHub.HanNomHub.DateConverter.title"),
-      tags: t("ResearchHub.HanNomHub.hub.projects.dateTags"),
       blurb: t("ResearchHub.HanNomHub.hub.projects.dateBlurb"),
       cta: t("ResearchHub.HanNomHub.hub.projects.dateCta"),
       href: "/tools/date-converter",
@@ -228,9 +221,9 @@ export default async function HanNomPage({
 
   // One surface per job, rather than one card class for everything.
   const panelClass =
-    "bg-white rounded-2xl border-t-4 border-branding-brown shadow-lg shadow-branding-brown/5";
+    "bg-white rounded-2xl border border-branding-black/10 shadow-lg shadow-branding-brown/5";
   const flatCardClass =
-    "bg-white/70 rounded-xl border border-branding-brown/20 hover:border-branding-brown/60 transition-colors";
+    "bg-white/70 rounded-xl border border-branding-black/10 hover:border-branding-black/25 transition-colors";
   const navLinkClass =
     "inline-flex items-start gap-0.5 text-[15px] leading-[1.4] text-branding-black/75 font-medium hover:text-branding-brown hover:underline underline-offset-2";
 
@@ -255,7 +248,7 @@ export default async function HanNomPage({
   );
 
   return (
-    <div className="flex flex-col items-center max-width w-full">
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="w-full mb-20">
         <BreadcrumbAndSearchBar
           locale={locale}
@@ -266,7 +259,7 @@ export default async function HanNomPage({
         />
 
         {/* --- Hero ------------------------------------------------------- */}
-        <section className="relative isolate mt-2 overflow-hidden rounded-2xl px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-16">
+        <section className="relative isolate mt-2 overflow-hidden rounded-2xl px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12">
           {/* Brushed 漢喃 on paper, cropped to the right so the strokes sit
               beside the text rather than under it. */}
           <Image
@@ -285,23 +278,20 @@ export default async function HanNomPage({
             className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/85 via-white/70 to-white/55 sm:bg-gradient-to-r sm:from-white/92 sm:via-white/75 sm:to-transparent"
           />
 
-          <div className="max-w-3xl">
-            {/* The hub's own name, which the headline below does not say. It
-                sits where the eyebrow did, a size up from decoration. */}
-            <p className="flex items-center gap-3 text-xs sm:text-sm uppercase tracking-[0.2em] text-branding-brown font-bold mb-4">
-              <span className="h-px w-8 bg-branding-brown/60" aria-hidden />
-              {t("ResearchHub.HanNomHub.hero.title")}
-            </p>
+          <div className="">
             <h1
-              className={`${merriweather.className} text-4xl sm:text-5xl xl:text-[3.25rem] leading-[1.1] text-branding-black mb-4`}
+              className={`${merriweather.className} flex max-w-3xl flex-col gap-2 sm:gap-3 text-4xl sm:text-5xl xl:text-[3.25rem] leading-[1.1] text-branding-black mb-4`}
             >
-              {t("ResearchHub.HanNomHub.intro.title")}
+              <span>
+                {locale === "vi"
+                  ? "Cổng thông tin số cho"
+                  : "The Digital Gateway to"}
+              </span>
+              <span>
+                {locale === "vi" ? "Nghiên cứu Hán-Nôm" : "Hán-Nôm Studies"}
+              </span>
             </h1>
-            <span
-              aria-hidden
-              className="block h-1 w-16 rounded-full bg-branding-brown mb-5"
-            />
-            <p className="text-lg text-branding-black/70 leading-relaxed max-w-xl mb-7">
+            <p className="text-lg text-branding-black/70 leading-relaxed max-w-7xl mb-7">
               {t("ResearchHub.HanNomHub.hub.lede")}
             </p>
             <div className="flex flex-wrap items-center gap-3">
@@ -316,25 +306,31 @@ export default async function HanNomPage({
                 {t("ResearchHub.HanNomHub.hub.ctaPrimary")}
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href="#about"
-                className="inline-flex items-center gap-2 rounded-lg border border-branding-black/25 bg-white/60 px-6 py-3 text-sm font-bold text-branding-black hover:border-branding-brown hover:text-branding-brown hover:-translate-y-0.5 transition-all"
-              >
-                {t("ResearchHub.HanNomHub.hub.ctaSecondary")}
-              </a>
             </div>
           </div>
         </section>
 
+        {/* --- About ------------------------------------------------------- */}
+        <section id="about" className="mt-8 lg:mt-10 scroll-mt-32">
+          <h2
+            className={`${merriweather.className} text-2xl text-branding-black mb-3`}
+          >
+            {t("ResearchHub.HanNomHub.hub.about")}
+          </h2>
+          <p className="text-base text-branding-black/70 leading-relaxed max-w-7xl">
+            {t("ResearchHub.HanNomHub.intro.description")}
+          </p>
+        </section>
+
         {/* --- The four sections of the hub -------------------------------- */}
-        <section className="mt-10 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
+        <section className="mt-8 lg:mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
           {navGroups.map((group) => (
             <div
               key={group.title}
-              className="flex flex-col bg-white/70 rounded-xl border-l-4 border-branding-brown shadow-sm shadow-branding-brown/5 p-5"
+              className="flex flex-col bg-white/70 rounded-xl border border-branding-black/10 shadow-sm shadow-branding-brown/5 p-5"
             >
               <h2
-                className={`${merriweather.className} flex items-center gap-2 text-[15px] text-branding-black font-bold pb-2.5 mb-3 border-b border-branding-brown/25`}
+                className={`${merriweather.className} flex items-center gap-2 text-[15px] text-branding-black font-bold pb-2.5 mb-3 border-b border-branding-black/10`}
               >
                 <span className="p-1.5 rounded-md bg-branding-brown/10 text-branding-brown shrink-0">
                   <group.icon className="h-4 w-4" />
@@ -351,11 +347,10 @@ export default async function HanNomPage({
         </section>
 
         {/* --- Featured content -------------------------------------------- */}
-        <section className={`${panelClass} mt-12 lg:mt-16 px-6 py-8 sm:px-8`}>
+        <section className="mt-10">
           <h2
-            className={`${merriweather.className} flex items-center gap-3 text-2xl text-branding-black mb-6`}
+            className={`${merriweather.className} flex items-center gap-3 text-2xl text-branding-black mb-4`}
           >
-            <span className="h-px w-8 bg-branding-brown" aria-hidden />
             {t("ResearchHub.HanNomHub.hub.featured.title")}
           </h2>
 
@@ -369,7 +364,7 @@ export default async function HanNomPage({
                 {/* A plate from the collection, shown as a picture: full
                     strength, its own band across the head of the card. */}
                 {card.image && (
-                  <div className="relative h-40 sm:h-44 w-full border-b border-branding-brown/20 bg-branding-brown/5">
+                  <div className="relative h-40 sm:h-44 w-full border-b border-branding-black/10 bg-branding-brown/5">
                     <Image
                       src={card.image}
                       alt={t(`ResearchHub.HanNomHub.cards.${card.key}.title`)}
@@ -381,11 +376,7 @@ export default async function HanNomPage({
                     />
                   </div>
                 )}
-                <div className="p-7 flex flex-col justify-center">
-                  <p className="flex items-center gap-2 uppercase tracking-widest text-branding-brown/70 text-[11px] font-bold mb-2">
-                    <card.icon className="h-3.5 w-3.5" aria-hidden />
-                    {t(`ResearchHub.HanNomHub.cards.${card.key}.label`)}
-                  </p>
+                <div className="p-5 sm:p-6 flex flex-col justify-center">
                   <h3
                     className={`${merriweather.className} text-2xl sm:text-[28px] leading-snug text-branding-black mb-2`}
                   >
@@ -405,15 +396,14 @@ export default async function HanNomPage({
         </section>
 
         {/* --- Search band ------------------------------------------------ */}
-        <section
-          id="search"
-          className={`${panelClass} mt-12 lg:mt-16 overflow-hidden`}
-        >
-          {/* Two rows, shared by both halves through subgrid: whichever
-              heading block is taller sets the line the two search boxes
-              start from, so they sit level on desktop. */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_1fr] divide-y lg:divide-y-0 lg:divide-x divide-branding-brown/15">
-            <div className="p-6 sm:p-8 lg:row-span-2 lg:grid lg:grid-rows-subgrid">
+        <section id="search" className="mt-10">
+          <h2
+            className={`${merriweather.className} text-2xl text-branding-black mb-4`}
+          >
+            {t("ResearchHub.HanNomHub.cards.corpusSearch.title")}
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className={`${panelClass} p-5 sm:p-6 flex flex-col`}>
               <div>
                 {/* The name and its icon are the way into the tool itself, the
                     way Việt Điển's logo is the way to Việt Điển. */}
@@ -439,7 +429,7 @@ export default async function HanNomPage({
                   {t("ResearchHub.HanNomHub.cards.quickLookup.description")}
                 </p>
               </div>
-              <div className="mt-5">
+              <div className="mt-5 flex-1">
                 <DictionarySearchBar
                   searchWord={undefined}
                   placeholder={t(
@@ -476,7 +466,9 @@ export default async function HanNomPage({
 
             {/* Việt Điển keeps its own type and its navy, so the panel reads as
                 that site sitting inside ours. */}
-            <div className="p-6 sm:p-8 text-center lg:row-span-2 lg:grid lg:grid-rows-subgrid">
+            <div
+              className={`${panelClass} p-5 sm:p-6 text-center flex flex-col`}
+            >
               <div className="flex flex-col justify-center">
                 <a
                   href={VIET_DIEN_URL}
@@ -496,18 +488,19 @@ export default async function HanNomPage({
                   {t("ResearchHub.HanNomHub.cards.vietDien.description")}
                 </p>
               </div>
-              <VietDienSearch />
+              <div className="mt-auto">
+                <VietDienSearch />
+              </div>
             </div>
           </div>
         </section>
 
         {/* --- Projects and tools ------------------------------------------- */}
-        <section className="mt-12 lg:mt-16">
-          <div className="flex items-end justify-between gap-4 mb-6">
+        <section className="mt-10">
+          <div className="flex items-end justify-between gap-4 mb-4">
             <h2
               className={`${merriweather.className} flex items-center gap-3 text-2xl text-branding-black`}
             >
-              <span className="h-px w-8 bg-branding-brown" aria-hidden />
               {t("ResearchHub.HanNomHub.hub.projects.title")}
             </h2>
             <Link
@@ -535,9 +528,6 @@ export default async function HanNomPage({
                         <ArrowUpRight className="h-4 w-4" aria-hidden />
                       )}
                     </h3>
-                    <p className="mt-1 uppercase tracking-[0.15em] text-[10px] font-bold text-branding-brown/70">
-                      {project.tags}
-                    </p>
                     <p className="mt-2 text-sm text-muted-foreground">
                       {project.blurb}
                     </p>
@@ -571,18 +561,6 @@ export default async function HanNomPage({
               );
             })}
           </div>
-        </section>
-
-        {/* --- About ------------------------------------------------------- */}
-        <section id="about" className="mt-12 lg:mt-16 scroll-mt-32 max-w-3xl">
-          <h2
-            className={`${merriweather.className} text-xl text-branding-brown mb-3`}
-          >
-            {t("ResearchHub.HanNomHub.hub.about")}
-          </h2>
-          <p className="text-base text-branding-black/70 leading-relaxed">
-            {t("ResearchHub.HanNomHub.intro.description")}
-          </p>
         </section>
       </div>
     </div>
