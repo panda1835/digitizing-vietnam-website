@@ -1,0 +1,238 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "86 - 203",
+  "total_stories": 25,
+  "sections": [
+    {
+      "section_id": "I",
+      "section_title": "I. NGUỒN GỐC SỰ VẬT",
+      "stories": [
+        {
+          "story_number": 1,
+          "title": "SỰ TÍCH DƯA HẤU",
+          "start_page": 86,
+          "end_page": 89,
+          "markdown_file": "story_001.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 2,
+          "title": "SỰ TÍCH TRẦU, CAU VÀ VÔI",
+          "start_page": 90,
+          "end_page": 94,
+          "markdown_file": "story_002.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 3,
+          "title": "SỰ TÍCH TRÁI SẦU RIÊNG",
+          "start_page": 95,
+          "end_page": 97,
+          "markdown_file": "story_003.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 4,
+          "title": "SỰ TÍCH CÂY HUYẾT DỤ",
+          "start_page": 98,
+          "end_page": 99,
+          "markdown_file": "story_004.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 5,
+          "title": "SỰ TÍCH CHIM HÍT CÔ",
+          "start_page": 100,
+          "end_page": 102,
+          "markdown_file": "story_005.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 6,
+          "title": "SỰ TÍCH CHIM TU HÚ",
+          "start_page": 103,
+          "end_page": 106,
+          "markdown_file": "story_006.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 7,
+          "title": "SỰ TÍCH CHIM QUỐC",
+          "start_page": 107,
+          "end_page": 110,
+          "markdown_file": "story_007.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 8,
+          "title": "SỰ TÍCH CHIM NĂM-TRÂU-SÁU-CỘT VÀ CHIM BẮT-CÔ-TRÓI-CỘT",
+          "start_page": 111,
+          "end_page": 114,
+          "markdown_file": "story_008.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 9,
+          "title": "SỰ TÍCH CHIM ĐA ĐA",
+          "start_page": 115,
+          "end_page": 117,
+          "markdown_file": "story_009.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 10,
+          "title": "SỰ TÍCH CON NHÁI",
+          "start_page": 118,
+          "end_page": 120,
+          "markdown_file": "story_010.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 11,
+          "title": "SỰ TÍCH CON MUỖI",
+          "start_page": 121,
+          "end_page": 126,
+          "markdown_file": "story_011.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 12,
+          "title": "SỰ TÍCH CON KHỈ",
+          "start_page": 127,
+          "end_page": 143,
+          "markdown_file": "story_012.md",
+          "has_khao_di": true,
+          "footnote_count": 24
+        },
+        {
+          "story_number": 13,
+          "title": "SỰ TÍCH CÁ HE",
+          "start_page": 144,
+          "end_page": 150,
+          "markdown_file": "story_013.md",
+          "has_khao_di": true,
+          "footnote_count": 7
+        },
+        {
+          "story_number": 14,
+          "title": "SỰ TÍCH CON SAM",
+          "start_page": 151,
+          "end_page": 152,
+          "markdown_file": "story_014.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 15,
+          "title": "SỰ TÍCH CON DÃ TRÀNG",
+          "start_page": 153,
+          "end_page": 165,
+          "markdown_file": "story_015.md",
+          "has_khao_di": true,
+          "footnote_count": 17
+        },
+        {
+          "story_number": 16,
+          "title": "GỐC TÍCH BỘ LÔNG QUẠ VÀ BỘ LÔNG CÔNG",
+          "start_page": 166,
+          "end_page": 169,
+          "markdown_file": "story_016.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 17,
+          "title": "GỐC TÍCH TIẾNG KÊU CỦA VẠC, CỘC, DỦ DỈ, ĐA ĐA VÀ CHUỘT",
+          "start_page": 170,
+          "end_page": 171,
+          "markdown_file": "story_017.md",
+          "has_khao_di": false,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 18,
+          "title": "GỐC TÍCH CÁI NỐT DƯỚI CỔ CON TRÂU",
+          "start_page": 172,
+          "end_page": 174,
+          "markdown_file": "story_018.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 19,
+          "title": "SỰ TÍCH CÁI CHÂN SAU CON CHÓ",
+          "start_page": 175,
+          "end_page": 176,
+          "markdown_file": "story_019.md",
+          "has_khao_di": false,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 20,
+          "title": "SỰ TÍCH CÁI CHỔI",
+          "start_page": 177,
+          "end_page": 178,
+          "markdown_file": "story_020.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 21,
+          "title": "SỰ TÍCH ÔNG ĐẦU RAU",
+          "start_page": 179,
+          "end_page": 185,
+          "markdown_file": "story_021.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 22,
+          "title": "SỰ TÍCH ÔNG BÌNH VÔI",
+          "start_page": 186,
+          "end_page": 188,
+          "markdown_file": "story_022.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 23,
+          "title": "SỰ TÍCH CÂY NÊU NGÀY TẾT",
+          "start_page": 189,
+          "end_page": 196,
+          "markdown_file": "story_023.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 24,
+          "title": "GỐC TÍCH BÁNH CHƯNG VÀ BÁNH DẦY",
+          "start_page": 197,
+          "end_page": 198,
+          "markdown_file": "story_024.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 25,
+          "title": "GỐC TÍCH RUỘNG THÁC ĐAO HAY LÀ TRUYỆN LÊ PHỤNG HIỂU",
+          "start_page": 199,
+          "end_page": 203,
+          "markdown_file": "story_025.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        }
+      ]
+    }
+  ]
+}

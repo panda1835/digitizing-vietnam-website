@@ -1,0 +1,51 @@
+# THƯ MỤC THAM KHẢO
+
+## III. TÀI LIỆU CHÉP TAY
+
+- Cổ tích và tiểu dẫn (Mạnh Sào Quan).
+- Nghệ-an tỉnh khai sách, tài liệu chữ nôm chép tay của Thư viện Khoa học xã hội, Hà-nội, ký hiệu từ VNv. 19 đến VNv. 55 và từ VNv. 1826 đến VNv. 1830.
+- Chủ yếu là các bản:
+- Bản khai của thôn An-trạch xã Giang-triều
+- Bản khai của thôn Bùi-ngọa
+- Bản khai của thôn Cát-ngạn
+- Bản khai của thôn Chính-đích xã Mỹ-lợi
+- Bản khai của thôn Điển-lễ
+- Bản khai của xã Đức-mỹ
+- Bản khai của xã Hoàng-nghĩa
+- Bản khai của xã Hoàng-tràng
+- Bản khai của thôn Hướng-dương
+- Bản khai của sách Hữu-lập, sách Vĩnh-lại, sách Nhiêu-hợp
+- Bản khai của thôn Ngọc-sơn, xã Xuân-lâm
+- Bản khai của thôn Quang-lãng
+- Bản khai của tổng Quỳ-dương
+- Bản khai của tổng Quỳnh-lâm
+- Bản khai của thôn Thanh-đoài
+- Bản khai của xã Thanh-tân
+- Bản khai của tổng Thanh-xuyên
+- Bản khai của thôn Vĩnh-an
+- Bản khai của xã Võ-liệt
+- Bản khai của xã Xuân-thịnh
+- Bản những truyện dân gian: cây cỏ, chim muông, yêu ma
+- Sự tích Nùng Trí Cao (Hoàng Quyết)
+- Tài liệu tham khảo văn học Việt-nam (nhiều người kể)
+- [Tài liệu truyện kể] (nhiều người kể)
+- Thần tích 神 跡 (điều tra phong tục của Hội Folklore Đông - dương), tài liệu chữ hán chép tay của Thư viện Khoa học xã hội, Hà-nội. Ký hiệu Q.418 từ 1 đến 37 và AE
+- Thần tích xã Bạch-ngọc
+- Thần tích xã Đa-mỗi
+- Thần tích xã Đại-quan
+- Thần tích xã Đại-trạch
+- Thần tích xã Lại-thâm
+- Thần tích xã Lý-trai
+- Thần tích xã Mễ-trì
+- Thần tích xã Phương-viên
+- Thần tích xã Thế-lộc
+- Thần tích xã Xuân-cảo
+- Tiên-hương thần tích
+- [Truyện cổ Hà-tĩnh] (Thanh Minh)
+- Truyện bể dâu (Mạnh Sào Quan)
+- Truyện cổ tích Tày (Thân Văn Lư)
+- Truyện cổ tích Thái-lan (lược dịch của Dương Xuân Cương)
+- [Truyện cổ, truyền thuyết Tày Nùng] (Hoàng Quyết)
+- Truyện dân gian ngày xưa (Nguyễn Phi Tạo)
+- [Văn học dân gian Nghệ - Tĩnh] (Ninh Viết Giao)
+- Văn học dân gian sưu tầm ở Ích-hậu (Nguyễn Đổng Chi và Đoàn Thị Tịnh)

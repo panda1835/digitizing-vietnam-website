@@ -1,0 +1,53 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "59 - 72",
+  "total_essays": 5,
+  "sections": [
+    {
+      "section_id": "II",
+      "section_title": "II. LAI LỊCH TRUYỆN CỔ TÍCH",
+      "essays": [
+        {
+          "essay_number": 1,
+          "title": "CON ĐƯỜNG PHÁT TRIỂN TỪ THẦN THOẠI ĐẾN CỔ TÍCH",
+          "start_page": 59,
+          "end_page": 61,
+          "markdown_file": "essay_01.md",
+          "footnote_count": 3
+        },
+        {
+          "essay_number": 2,
+          "title": "TRUYỀN THUYẾT, CỔ TÍCH ĐÃ DỰA TRÊN VŨ TRỤ QUAN NÀO?",
+          "start_page": 61,
+          "end_page": 63,
+          "markdown_file": "essay_02.md",
+          "footnote_count": 1
+        },
+        {
+          "essay_number": 3,
+          "title": "SỰ XUẤT HIỆN VÀ SỰ SUY TÀN CỦA TRUYỆN CỔ TÍCH",
+          "start_page": 63,
+          "end_page": 66,
+          "markdown_file": "essay_03.md",
+          "footnote_count": 1
+        },
+        {
+          "essay_number": 4,
+          "title": "QUÁ TRÌNH HÌNH THÀNH MỘT TRUYỆN CỔ TÍCH",
+          "start_page": 66,
+          "end_page": 69,
+          "markdown_file": "essay_04.md",
+          "footnote_count": 3
+        },
+        {
+          "essay_number": 5,
+          "title": "TÁC GIẢ TRUYỆN CỔ TÍCH",
+          "start_page": 69,
+          "end_page": 72,
+          "markdown_file": "essay_05.md",
+          "footnote_count": 1
+        }
+      ]
+    }
+  ]
+}

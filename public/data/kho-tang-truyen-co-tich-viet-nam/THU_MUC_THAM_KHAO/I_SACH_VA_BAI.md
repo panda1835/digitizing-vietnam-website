@@ -1,0 +1,521 @@
+# THƯ MỤC THAM KHẢO
+
+## I. SÁCH VÀ BÀI
+
+- AARNE (A.), THOMPSON (S.) - Types of the Folktale in World literature - FFC, số 74, Helsinki, 1923.
+- ARCHAIMBAULT (CH.) - Le cycle de Nang Oua - Nang Malong et son substrat sociologique - FA, số 170 (1961).
+- ARNOUX - Contes annamites: La belle - mère qui accuse sa bru. L'habile tailleur - RI, 1974.
+- AULNOY (Comtesse d') - Contes des fées - 1698.
+- AYMONIER (E.) - Littérature cambodgienne (textes traduits pour la première fois) - P, 1877.
+  - Légendes historiques des Chams - ER, số 32, 1890.
+- B.(T.K.O.) - Conte annamite. Les quatre jeunes filles qui veulent épouser un fils du roi - RI, số 2, 1904.
+- Ba túi chuyện (Tập truyện cổ tích) - Nxb. Kim đồng, H, 1960.
+- BẠCH LAN (L.T.) - Vietnamese legends - Kim lai ấn quán, S, 1958.
+- Bản quốc dị văn lục - Sách hán chép tay (A. 3178).
+- BÀNG THÚC LONG, GIÀNG MI SẢI - Tình yêu Nùng Phai và Chọi với vua (Truyện cổ tích dân tộc Mông) - Nxb. Phổ thông, H, 1957.
+- BÀNG THÚC LONG - Nux Mfleiz (Nùng Phai). Tập truyện cổ tích miền núi - Nxb. Dân tộc, H, 1962.
+- Bao Công kỳ án 包 公 奇 案 (Trần Văn Bình dịch) - Tín đức thư xã, S, 1954.
+- BARTHÉLEMY (A.) Histoire du roi Naaman (Conte arabe dans l'idiome vulgaire de Syrie) - JA, 8è série, t. X, 1887.
+- BARTHÉLEMY (Marquis de) - Mon vieil Annam (Ses hommes, contes et récits) - Challamel, P, 1927.
+- BASSET (R.) - Folklore d'Éthiopie - Revue d' Ethnographie et de sociologie, t. II, 1911.
+  - Les contes indiens et orientaux dans la littérature chinoise - RTP, VII - 1912.
+  - Contes et légendes de l'Extrême-Orient - RTP, 1920 và RETP, t. I, 1920.
+  - Contes et légendes de la Grèce Ancienne - RETP, t. I. 1920 - 21.
+  - Mille et un contes, récits et légendes arabes - Maisonneuve frères, P, 1927.
+- BAYARD (J.P.) - Histoire des légendes - Presses universitaires de France, P, 1961.
+- BERMAN (L.) - Contes du Talmud (choisis et transcrits de l'hébreu) - Rieder, P, 1927.
+- BERNARD (S.) - Quelques aspects de la chance dans les contes populaires du Cambodge - BSEI, t. XXVII, số 3, 1952.
+- BERNARD (S.), THIERRY - Notes de littérature populaire comparée. BSEI, t. XXVIII, số 1, 1953.
+- BÌNH THANH - Đôi mắt lại sáng (Cổ tích Mèo). Ở hiền gặp tiên - NCVH, H, số 11, 1960.
+- BITARD (P.) - Essai sur la satire sociale dans la littérature du Cambodge - BSEI, t. XXVI, số 2, 1951.
+- BONIFACY (A.) - Contes populaires des Mans du Tonkin-BEFEO, t. II, q.3, 1902.
+  - Contes Thổ recueillis sur les bords de la rivière Claire - RI, III - 1905.
+  - La légende de Tsun, d'après les Mans Quần Cộc - RI, XII - 1905.
+  - Légendes indochinoises. Le pèlerin, conte annamite - Revue des Troupes coloniales, I, 1907.
+  - Légendes indochinoises. Le pieux orphelin, conte Thổ - Revue des Troupes coloniales, II, 1907.
+  - Fragilité de la vertu des femmes, conte Man - Revue des Troupes coloniales, II, 1907.
+  - Cinq cents contes et apologues extraits du Tripikata chinois (4 t.) - E. Leroux, P, 1910.
+  - Traduction. Contes et légendes du Bouddhisme chinois - P. 1921.
+- CHÉON (A.) - Légende tonkinoise. Pourquoi le chant du Grillon est-il si plaintif à la venue de l'Automne? - BSEI, q.2, 1890.
+  - Chuyện anh xứ Đông với anh xứ Nam (Conte annamite) - H, 1898.
+  - Recueil des compositions données aux Examens de la langue annamite et de caractères chinois au Tonkin - F. H. Schneider, H, 1899.
+  - Recueil de onze textes annamites originaux - F. H. Schneider, H, 1901.
+  - Recueil de six textes annamites - F. H. Schneider, H, 1902.
+  - Recueil de textes nouveaux (Faisant suite au cours de langue annamite) - F. H. Schneider, H, 1903.
+  - Recueil de cent textes annamites (Annotés et traduits et faisant suite au cours d'Annamite) (2è éd.) - F. H. Schneider, H, 1905.
+- CHỈ QUA THỊ - Mưu đàn bà (Truyện ngắn Ba-tư) - Nhà sách Thăng-long, H, 1953.
+- Chiếc nhẫn thần (Tập truyện cổ tích) - Nxb. Kim Đồng, H, 1960.
+- CHIVAS - BARON (CH.) - Contes et légendes de l'Annam - Challamel, P, 1917.
+- CHU NGỌC CHỈ - Chuyện Trương Chi - Nhà sách Thụy Ký, H, 1928.
+- Chuyện trẻ con của Ch. Perrault tiên sinh (Les contes de Perrault traduit par Nguyễn Văn Vĩnh) - H, 1928.
+- Con bò biết bay (Truyện cổ tích Ấn-độ) - Nxb. Kim Đồng, H, 1959.
+- Con ngựa vàng - Nxb. Khu tự trị Việt-bắc, Thái-nguyên, 1960.
+- Conte d'Aboukir et d'Abousir (Texte arabe et traduction par J. Richet) - Alger, 1876.
+- Contes chinois (Traduits par Panking et Kou Hong-ming) - La Politique de Pékin, Pékin, 1924.
+- Contes chinois de Ye Cheng-tao - Ed. en langues étrangères, Pékin, 1960.
+- (Les) contes du Perroquet. Texte persan publié et traduit pour la première fois en français par L. Bogdanoi, I - P. Geuthner, P, 1927.
+- (Les) contes du vieux Japon (Traduits par J. Dautremer) - publiés par T. Hasegawa, Tokyo.
+- COSQUIN (E.) - L'origine des contes populaires européens et les théories de M. Lang - Bibliothèque des Annales économiques, P, 1891.
+  - Les contes populaires et leur origine (Dernier état de la question) - Lib. Bouillon, P, 1895.
+  - Fantaisies biblico-mythologiques d'un chef d'école (M. Edouard Stucken et le folklore) - V. Lecoffre, P, 1905.
+  - Le lait de la mère et le coffre flottant (Légendes, contes et mythes comparés à propos d'une légende historique musulmane de Java) - P, 1908.
+  - Le conte du chat et de la chandelle (Dans l'Europe du Moyen-âge et en Orient) - H. Champion, P, 1912.
+  - Les Mongols et leur prétendu rôle dans la transmission des contes indiens vers l'Occident européen - Clouzot, Niort, 1913.
+  - Contes populaires de Lorraine (Comparés avec les contes des autres provinces de France et des pays étrangers) I. II - F. Vieweg, P, 1915.
+  - Un épisode d'un évangile syriaque et les contes de l'lnde - Revue biblique de l'École pratique d'Études bibliques, P, I-IV - 1919.
+  - Les contes indiens et l'Occident - H. Champion, P, 1922.
+  - Études folkloriques (Recherches sur les migrations des contes populaires et leur point de départ) - H. Champion, P, 1922.
+- COX (Miss MARIAN) - Cinderella - Londres, 1893.
+- Cổ tích miền núi - x. TRƯÒNG SƯ PHẠM MIỀN NÚI.
+- CÔNG THÀNH (sao lục) - Chuyện tiếu lâm và cổ tích, I, II - Phạm Văn Mạnh xb, Gia-định, 1950.
+- CỦA (PAULUS) - Chuyện giải buồn. Rút trong các sách hay (in lần thứ tư) - Imp. Commerciale, S, 1904.
+  - Tiếp theo chuyện giải buồn - Bản in nhà hàng, S, 1886.
+- Dã sử 野 史 - Sách hán chép tay (A. 1303).
+- Dã sử 野 史 (bản dịch Hồ Đắc Ý) - Trung tâm học liệu, S, 1968.
+- Dân gian văn nghệ tuyển tập 民 間 聞 藝 選 集 - Nhân dân văn học xb. xã, Bắc-kinh.
+- [Nam-hải] dị văn [南 海] 異 聞 - Sách hán chép tay (phụ trong Lĩnh-nam chích quái) (VHv. 1266).
+- DOÃN THANH, LÊ TRUNG VŨ - Truyện cổ Dao - Nxb. Văn hóa dân tộc, H, 1978.
+- DOÃN THANH, PHAN ĐĂNG NHẬT - Truyện khèn chàng Phờ-lay - NCVH, H, số 8, 1962.
+- DOÃN THANH, THƯƠNG NGUYỄN, HOÀNG THAO - Truyện cổ dân tộc Mèo - Nxb. Văn học, H, 1963.
+- Dũng sĩ Ha-ba-na (Tập truyện cổ tích dân gian của nhiều nước) - Nxb. Kim Đồng, H, 1964.
+- DUY CƯƠNG - Chàng kỵ mã nhái (Truyện cổ tích chọn lọc) - Nxb. Phổ thông, H, 1957.
+  - Tham thì thâm, Cây bút thần, Thầy Tôn Quả, Mưu thần (Truyện cổ tích) - Nxb. Phổ thông, H, 1957.
+- DUY CƯƠNG, THỤC ĐOAN - Gà đắt hơn trâu - Nxb. Kim Đồng, H, 1958.
+- Dưa vàng đậu bạc - Tập truyện dân gian Trung-quốc (Trần Hải và Lê Bầu phỏng dịch) - Nxb. Kim Đồng, H, 1962.
+- DƯƠNG ĐÌNH KHUÊ - Vài nhận xét về loại truyện dị thường của Tây phương và Việt-nam - BK, S, số 322, 323, 1970.
+- ĐA-VLE-XTỐP (K.X. DAVLESTOV) - Sáng tác dân gian là một loại hình nghệ thuật - Nxb. Khoa học, Mát-xcơ-va, 1966.
+- Đại Nam kỳ truyện 大 南 奇 傳 - Sách hán chép tay (A. 229).
+- ĐÀO QUẢN, TRƯÒNG SƠN, ĐINH VĂN THÀNH - Vỏ quýt chưa dày - Nxb. Phổ thông, H, 1958.
+- ĐÀO TỬ CHÍ, ĐINH VĂN THÀNH - Cô gái thứ mười (truyện cổ tích của đồng bào Re và Tây-nguyên) - Nxb. Kim Đồng, H, 1957.
+- ĐÀO [VĂN] TIẾN - Sự tích "sáo ôi" hay là truyện chàng Khun Lồ và nàng U Tiêm - NCVH, H, số 9, 1962.
+  - Chú Cuội (truyện dân gian Mường) - NCVH, H, số 5, 1961.
+- ĐÀO VŨ - Nhị Lang bắt mặt trời (Truyện cổ tích Trung-quốc) - Nxb. Kim Đồng, H, 1957.
+- ĐẶNG LÊ NGHI - Chàng nhái Kiển Tiên thơ (Bổn cũ soạn lại) - Nhà sách Phát Toán, S, 1910.
+  - Con Tấm con Cám thơ (Bổn cũ soạn lại) - Nhà sách Phát Toán, S, 1911.
+- ĐẶNG MINH LƯƠNG, TRẦN DŨNG - Sự tích con gà rừng (Tập truyện cổ tích miền núi) - Nxb. Kim Đồng, H, 1959.
+- ĐINH GIA KHÁNH - Qua việc nghiên cứu danh từ riêng trong một số truyện cổ tích - NCVH, H, số 3, 1962.
+  - Sơ bộ tìm hiểu những vấn đề của truyện cổ tích qua truyện Tấm Cám - Nxb. Văn Học, H, 1968.
+- ĐINH GIA KHÁNH, CHU XUÂN DIÊN - Văn học dân gian I, II (Giáo trình lịch sử văn học Việt-nam) - Nxb. Đại học và trung học chuyên nghiệp, H, 1972 - 73.
+- [ĐINH TÚ] - Thiên lôi bị đòn (Truyện cổ tích Việt-nam) - Nxb. Nguyễn Du, H, 1957.
+- ĐINH TÚ - Cô gái đẹp lấy chồng rắn (Truyện cổ tích các nước) - Nxb. Nguyễn Du, H, 1957.
+  - Chuột biến thành người (Truyện cổ tích) - Nxb. Nguyễn Du, H. 1958
+  - Truyện cổ tích Diến-điện - Nxb. Nguyễn Du, H, 1958.
+  - Truyện cổ tích Nam-dương - Nxb. Nguyễn Du, H, 1958.
+  - Truyện cổ tích Mã-lai - Nxb. Nguyễn Du, H, 1958.
+  - Truyện cổ tích nước Lào - Nxb. Nguyễn Du, H, 1958.
+- ĐINH VĂN THÀNH - Truyện cổ tích Tây-nguyên - Nxb. Nguyễn Du, H, 1957.
+  - Ú và Cao (Cổ tích Tây-nguyên) - NCVH, H, số 10. 1960.
+  - Tu-cờ-rơm (Dân tộc Cor - Văn nghệ, H, số 45, 1961.
+  - Chuyện chàng gãy cưa (Cổ tích Chiêm-thành) - NCVH, H, số 6, 1961.
+- ĐOÀN CÔNG HOẠT - Truyền thuyết Sơn tinh Thủy tinh ở vùng núi Ba-vì - Tập san Văn hóa Hà-tây, VII - 1969.
+- (HỒNG HÀ phu nhân) ĐOÀN [THỊ ĐIỂM] 紅 霞 夫 人 鍛 [氏 點] - Truyền kỳ tân phả傳 奇 新 譜 - Lạc Thiện đường tàng bản, Gia Long 10 [1811].
+- (HỒNG HÀ nữ sĩ) ĐOÀN THỊ ĐIỂM 紅 霞 夫 人 鍛 氏 點 - Truyền kỳ tân phả 傳 奇 新 譜 (Ngô Lập Chi, Trần Văn Giáp dịch và chú) - Nxb. Giáo dục, H, 1962.
+- ĐỖ HÀO ĐÌNH - Bàn về truyện cổ An-nam ta - NP, số 46, 1921.
+- ĐỖ THẬN - Une version annamite du conte de Cendrillon - BEFEO, t.VII số 1-2, 1907.
+- ĐỖ THIỆN - Chú thỏ tinh khôn (Dân tộc Khơ-me) - Văn nghệ, H, số 45, 1961.
+- ĐỖ THIỆN, NGỌC ANH, ĐINH VĂN THÀNH - Truyện cổ Tây nguyên - Nxb. Văn Hóa (Viện Văn học), H, 1961.
+- ĐỨC HÙNG, PHÙ NINH - Truyện cổ tích (Nàng Ái Kao) - Ty thông tin văn hóa Tuyên-quang, 1974.
+- Đường nhân tiểu thuyết 唐 人 小 説 (Bành Trạch, Uông Quốc, Viên Tịch Cường hiệu lục) - Cổ điển văn học xb. xã, Thượng-hải, 1955.
+- DANDOUAU (A.) - Contes populaires des Salalava et des Tsimihety de la région d'Anslalava - J. Carbonel, Alger, 1922.
+- DAUDIN (P.) - Récits populaires Yunnanais - BSEI, t. X, số 4, 1935.
+- DE GROOT (J.J.M.) - Les fêtes annuellement célébrées à Emoui (Amoy) - Annales du Musée Guimet, t. IIe, E. Leroux, P, 1886.
+- DECOURDEMANCHE (J.A) - Les ruses des femmes (Mikrizenan) et extrait du Plaisir après la peine Feredj bad chiddch (Traduits du Turc) - E. Leroux, P, 1896.
+  - Les plaisanteries de Nasr-Eddin Hodja (Traduits du Turc), seconde éd. augmentation des Naïvetés du Karacouch - E. Leroux, P, 1908.
+- DEGEORGE (P. J. B.) - Légendes des Tay, Annam - Anthropos XVI -XVII, 1921 - 22; XVIII - XIX, 1923 - 24; XX, 1925.
+- DELARUE (P.) - Những đặc tính của truyện dân gian Pháp - Bản dịch đánh máy Viện Văn học.
+- DELARUE (P.), TENEZE (M.L.) - Le conte populaire français (Catalogue raisonné des versions de France et des pays de langue française d'outremer, Canada, Louisane, Ilots francais des États Unis, Antilles françaises, Haỉti, Ile Maurice, La Réunion) I, II - GP. Maisonneuve et Larose, P, [1964].
+- DE ROCHEMONTEIX (M.) - Contes du Sous et de l'oasis de Tafilelt (Maroc) - JA, 8è série, t.XIII, 1889.
+- DEROMPS (M.) - Les vingt cinq récits du mauvais génie (Traduits de l'hindi) - Geuthner, P, 1912.
+- DES MICHELS (ABEL) - Huit contes en langue cochin-chinoise - Maisonneuve et Cie, P, 1869.
+  - Truyện chơi văn chương. Chrestomathie Cochinchinoise (recueil de textes annamites) - Maisonneuve et Cie, P, 1872.
+  - Quelques contes annamites traduits, nouveaux mélanges orientaux (Publiés par les professeurs de l'École des langues orientales vivantes) số 7, 1886.
+  - Chuyện đời xưa. Contes plaisants annamites (Traduits en français pour la première fois) - E. Leroux, P, 1888.
+- DESPARMET (J.) - Conte Maure (Recueillis à Blida) - RTP, 1918; RETP, t. II, 1921.
+- DESPIERRE (R.) - La légende de la tortue d'or et de la cité de Cổ-loa - Sud-Est, số 13, VI - 1950.
+- DEVEZE (G.) - Le Bãitãl Paccĩsĩ - Le Muséum, t. XI, XII, 1892 - 93.
+- DEVI (SHOVONA) - The Orient Pearls, Indian Folklore - London, 1915.
+- DEYDIER (H.) - À propos d' un conte Mường - BSEI, t. XXIV, số 1, 1949.
+- DOURNES (J.) - Le maître des Eaux (Conte montagnard Srê) - FA, số 9, XII - 1953.
+- DULAC (H.) - Contes Arabes en dialecte de la Haute Égypte - JA, 8è série, t. V, 1885.
+- DUMÉZIL (G.) - Contes Lazes - Institut d' Ethnologie, P, 1937.
+- DUMOUTIER (G.) - Le lac de l'épée et la montagne de jade - L'Avenir du Tonkin, H, số 65-67, IX - 1887.
+  - Légendes et traditions du Tonkin et de l'Annam - Revue de l'histoire des Religions, t. XVIII, số 2, 1888.
+  - Choix de légendes historiques de l'Annam et du Tonkin - Revue d'Ethnographie, t. VIII, 1889.
+  - Folklore tonkinois - RTP. t. VIII, 1892.
+  - Une cendrillon annamite (Extrait de l'Archivio per lo Studio delle tradizione populari) - Palerme, 1893.
+  - Folklore sino-annamite - RI, 1907 - 08.
+  - Essai sur les Tonkinois - IDEO, H, Hải-phòng, 1908.
+  - La géomancie chez les Annamites - RI, t. XXI, số 3, III - 1914.
+- EBERKHARD (W.) - Các kiểu truyện cổ tích Trung-quốc - Helsinki, 1937, FFC, số 120.
+- FEER (M.) - Le Chaddanta - Jâtaka - JA, 9è série, t. V, 1895.
+  - Études cambodgiennes. La collection Hennecart de la bibliothèque nationale - JA 7è série, t. IX, 1877.
+- FERRAND (G.) - Contes populaires malgaches - P, 1893.
+- FINOT (L.) - Recherches sur la littérature Laotienne - BEFEO, t.XVII, số 5. 1917.
+- FOUJITA - Légendes japonaises (Recueillies et illustrées) - Ed. de l'Abeille d'or, P, 1922.
+- FRAZER (J.G.) - L'origine magique de la royauté - Paul Hyacintha Layson, P, 1920.
+  - Le trésor légendaire de l'humanité. Feuilles détachées du Rameau d'or par Laddy Frazer - Rieder, P, 1925.
+- FREY (CI) - Les Égyptiens préhistoriques identifiés avec les Annamites - P, 1905.
+- FUKUJIRO WAKATSUKI - Légendes Japonaises (3è éd.) - Ancienne lib. G. Duplet et J. Desvigne et Cie. successeurs (1923).
+- Gà đắt hơn trâu - x. DUY CƯƠNG.
+- GARINE - Contes Coréens (Adaptation française de Serge Persky) Lib. Delagrave, P, 1925.
+- GÉNIBREL (F) - Truyện đời xưa mới in ra lần đầu hết (Fable et légende annamite encore inédite) - Imp. de la Misson, S, 1899.
+- GIẢ CHI, TẠ KIẾM BĂNG - Trung-quốc dân gian cố sự tuyển 中 國 民 間 故 事 選 - Nhân dân văn học xb. xã, Bắc-kinh, 1959.
+- GOUINEAU (ANDRÉE - YVETTE) - Les élèves du Lycée Pavie de Vientiane vous racontent quelques fables et légendes de leur pavs, telle que la tradition orale les leur à transmises - FA, số 118-120, 1956.
+- GUESDON (Abbé J.) - Réach Kol (Analyse et critique du poème khmer) Anthoropos, t. I, 1906.
+- GUILLOT - Contes d'Afrique (sous la direction d'A. Charton) - P, 1933.
+- GUXEP (V.E. GOUSSEB) - Mỹ học folklore (Hoàng Ngọc Hiến dịch)
+  - Bản in rô-nê-ô Hội Văn nghệ dân gian Việt-nam.
+- Hai con trâu đực to bằng hạt đậu nành (Cổ tích Hung-ga-ri) - Nxb. Kim Đồng, H, 1959.
+- HALEVY (J.) Miscellanées sémitologiques - JA, 8è série, t. II, 1883.
+- HALPHEN (J.) - Contes chinois traduits du chinois - Champion, P, 1923.
+- HERVIER (P.L) - Trần Văn Phẩm, l'homme aux dix jonques, légende d'Annam - Ed. de Géorge Servant, P [?]
+- HOA BẰNG - Một vấn đề rất đáng chú ý trong văn học và sử học (1 - Diệu Trang Vương phải chăng là một ông chúa Trịnh? 2 - Chúa Ba Diệu Thiện phải chăng là một cô gái Việt? 3-Hương-sơn trong Quan Thế âm chân kinh phải chăng là núi Hương-tích ở hạt Hà-đông?) - Tri tân, H, số 121 - 122, 1943).
+  - Gốc tích truyện Tấm Cám - Tri tân, H, số 156, 1944.
+  - Khảo luận về truyện Thạch Sanh - Nxb. Văn sử địa, H, 1967.
+- Hoa quốc kỳ duyên 華 國 奇 緣 (Nguyễn Sĩ Sự dịch) - Nguyễn Ngọc Xuân xb, H, 1914.
+- HOÀNG ANH NHÂN, VƯƠNG ANH, BÙI THIỆN - Truyện cổ Mường - Nxb. Văn hóa dân tộc, H, 1978.
+- HOÀNG LÂM, XU-VĂN-THON - Truyện dân gian Lào - Nxb. Văn hóa (Viện Văn học), H, 1962.
+- HOÀNG LƯƠNG - Bàn góp về vấn đề tô-tem của người Việt nguyên thủy - NCLS, H, số 5, l959.
+- HOÀNG QUYẾT - A Sún Phăng Khim (Cổ tích Nùng) - NCVH, H, số 10, 1961.
+  - Truyện cổ Tày Nùng - Nxb. Văn hóa, H, 1974.
+- HOÀNG QUYẾT, HOÀNG THAO, MAI SƠN - Truyện cổ Việt-bắc Nxb. Văn hóa (Viện Văn học), H, 1963.
+- HOÀNG THỊ ĐẬU - Một số tư liệu để tiến tới so sánh truyện Tấm Cám của Việt-nam và Ru-ma-ni - TCVH, H, số 3, 1963.
+- HOÀNG TRỌNG MIÊN - Việt-nam văn học toàn thư, II, - Quốc-hoa, S,
+- HOÀNG TRÚC LY - Truyện cổ Việt-nam - Khai trí, S, 1970.
+- HOÀNG SƠN (Cử) - Thằng Lía (Tục gọi Dương đoàn Văn Lía), II. Cha Hồ chú Nhẫn (Tiếp theo thơ Văn Lía - Nhà in Xưa nay, S. [1934].
+- HUBER (ED.) - Etudes de littérature bouddhique - BEFEO, t. IV, số 3, 1904.
+- HUET (G.) - Le conte des soeurs jalouses - RES, t. I, số 8-10, 1910; t. II, 1911.
+  - Les contes populaires - E. Flammarion, P, 1923.
+- Huit aventures du gourou Paramârtha - Le Muséum, t. VIII-IX, 1889 - 90.
+- HUỲNH HỮU BAN - Étude de la légende de la mère et l'enfant - FA. số 91, 1955.
+- HƯ CHU - Nam-hải truyền kỳ, I - Nhà sách Hư Chu, S, 1952.
+- HƯƠNG GIANG - Un conte du Vielnam du passé: Cette tache rouge - Sud-Est, số 16, VIII - 1950.
+- Hữu Ké tân truyện - Nhà in Văn Minh, H, Hải-phòng, 1913.
+- IMBAULT - HUART (C.) - Miscellanées chinois - JA. 7è série. t. XVIII. 1881.
+- JAMMES (H.L.) - Au pays annamites - Challamel. P, 1898.
+- JAYA PANRANG - Chuyện cổ tích Chàm: Trạng tí hon hay Rajakar Aneh - PT, S, số 217, II - 1969.
+- JIROMUNXKI (V. N. JIRMUNSKI) - Những công trình nghiên cứu lịch sử ngữ văn - Mát-xcơ-va, 1976.
+- JOUIN (Dr. B.Y.) - Légende du Sadet du Feu, Deux contes Rhadé - BSEI, t. XXVI, số 1, 1951.
+- JULIEN (S.) Les Avadânas (Contes et apologues indiens inconnus jusqu'à ce jour suivis de fables, de poésies et de nouvelles chinoises), I, II, III, B. Duprat, P, 1858.
+- Kara Keuz Zoulou - [la jolie aux yeux noirs] Conte Kirghize (traduit du Turc Tartare d'après Radlott). - Mémoires de la Sté des études Japonaises Chinoises, Tartares, Indochinoises et Océaniennes, t. III, 1880 - 84.
+- KARPELES (S.) - Six contes Palis tirés de la Dhamma - padatthakathã - RI, số 1-2, 1924.
+- Kể chuyện đời xưa - Nxb. Giáo dục, H, 1975.
+- Khún Lù Nàng Ủa (Chuyện cổ tích miền núi) - Nxb. Phổ thông, H, 1961.
+- KIÊN GIANG - Người đẹp bán tơ: Chuyện cổ tích thuần túy Việt-nam - Nhà sách Hồng Hoa, Chợ-lớn, 1961.
+- Kim cổ kỳ quan 今 古 奇 觀 Cố Học Hiệt 顧 學 頡 chú.
+- KRAVTXÔVI (N.J. KRAVTSOVI) - Sáng tác dân gian như là một nghệ thuật lời nói - Nxb. Đại học, Mát-xcơ-va, 1966.
+- LÃ VĂN LÔ - Quanh vấn đề An Dương Vương Thục Phán hay là truyền thuyết "Cẩu chủa cheng vùa" của đồng bào Tày - NCLS, số 50, 1963.
+- LACÔTE (F.) - L'histoire romanesque d'Udayana, roi de Vatsa (Extraits du Katha - Sarit - Sâgara de Soma Déva) - Ed. Bossand, P, 1924.
+- LAFONT (P. - B.) - Contes P'u tai - BSEI, t. XLVI, số 1, 1971.
+- LAN TRÌ 蘭 池 - Kiến văn lục 見 聞 錄 - x. VŨ NGUYÊN HANH.
+- LANDES (A.) - Contes et légendes annamites - ER, S, t. VIII-XI, số 20-26, 1885 - 86.
+  - Contes tjames - ER, S, t. XIII, số 29, 1887.
+- LANGLET (E.) - Dragons et génies (Contes rares et récits légendaires inédits recueillis oralement au pays d'Annam et traduits par E. Langlet) - Lib. Orientaliste, P. Geuthner, P, 1928.
+- LĂNG TUYẾT - Chuyện lạ nước nhà: Sùng sơn đại chiến sử - Imp. Nam mỹ, H, 1933.
+- LAUNAY (A.) - Légendes historiques du Tonkin. Origine du lac Dạ-trạch et fondation de Bắc-ninh - Bulletin comité Études agricoles, industrielles et commerciales Annam, Tonkin, 1887.
+- LAVAL (R.A) - Contes populaires du Chili - RETP, t. I, 1920 - 23.
+- LECLÈRE (A.) - Cambodge, contes et légendes - Bouillon, P, 1895.
+  - Deux contes indochinois: La sandale d'or (la Cendrillon chame); Prâng et Iang (conte pnong), P, 1898.
+  - Contes Laotiens et contes Cambodgiens - E. Leroux, P, 1903.
+- LE ROUZIC (Z.) - Carnac (Légendes, Traditions, Coutumes et Contes du pays) - Imp. A. Cugas et Cie, Nantes, 1909.
+- Légendes et traditions historiques de l'archipel indien (Sedjarat malayou, traduits et notes par L. Marcel Devic) - E. Leroux, P, 1878.
+- LEMIRE (CH.) Contes Siamois - BSEI, q.3, 1890.
+- LÉVI (SYLVAIN) - La Brihatkathãmanjarĩ de Kschendra - JA, 8è série, t. VI-VII, 1885 - 86.
+- LÉVY (ANDRÉ) - Études sur le conte et le roman chinois - Publication de l'EFEO, q. LXXXII, P, 1971.
+- LÊ BÁ CƠ - Đánh chết Diêm vương (Chuyện cổ tích) - Nxb. Nguyễn Du, H, 1958.
+- LÊ DOÃN VỸ - Le livre du petit (Pour la jeunesse scolaire, dirigé par Lê Doãn Vỹ) - Ed. Mai Lĩnh, H, Hải-phòng, S, Phúc-yên, 1940-41.
+- LÊ DUY HẠP - Vietnamese legends (Rev. ed. with annotations) - Nhà sách Khai trí, S, 1964.
+- LÊ DUY THIỆN - Thơ nàng Út - Tín đức thư xã, S, 1930.
+- LÊ HƯƠNG - Truyện cổ Cao-miên. I, II - Nxb. Khai trí, S, 1969.
+  - Truyện cổ quốc tế - Nxb. Sống mới, S, 1969.
+  - Truyện thằng Chey - PT, S, số 251-254, VIII-X - 1970.
+  - Truyện tích Việt-nam - Một nhóm văn hữu xb, S, 1970.
+  - Truyện cổ Ấn-độ: quỉ Vêtâla - Nxb. Bông lau, S, 1972.
+- LÊ TRỌNG HÀM - Minh đô sử 明 都 史 Sách hán chép tay - Thư viện Viện Sử học (HV.285).
+- LÊ TRỌNG KHÁNH, AN LY, ĐỖ THIỆN - Truyện dân gian Căm-pu-chia - Nxb. Văn hóa (Viện Văn học), H, 1962.
+- LÊ TRUNG CANG (ANNA) - Folklore indochinois: Le pont des corbeaux - FA số 324, 1946.
+  - LÊ TRUNG HOA - Một giai thoại văn chương bình dân: Hai bảy mười ba - BK, S, số 357, XI - 1971.
+- LÊ TRUNG VŨ - Truyện cổ dân tộc Mèo - Nxb. Văn hóa, H, 1975.
+- LÊ VĂN CHINH - Les aventures de Tư-Thuk - RI, số 49, I - 1907.
+- LÊ VĂN HẢO - Đi tìm An Dương Vương, Mỵ Châu - Trọng Thủy từ lịch sử đến truyền thuyết - Nxb. Trình bày, S, 1966.
+- LÊ VĂN PHÁT - La vie intime d'un Annamite de Cochinchine et ses croyances vulgaires - BSEI, số 51-53, 1906.
+  - Contes et légendes du pays d'Annam, I - F. H. Schneider, S, 1913.
+- LIÊN TỔ VĂN HỌC VIỆT-NAM - Lịch sử văn học Việt-nam (tập I, in lần thứ 3) - Nxb. Giáo dục, H, 1970.
+- Liêu trai chí dị 聊 齋 志 異 (Đào Trinh Nhất tuyển dịch) - Nhà sách Mặc lâm, S, 1968.
+- Lĩnh-nam chích quái liệt truyện 嶺 南 滴 怪 列 傳 - Sách hán chép tay - Thư viện Viện Sử học (HV.486).
+- Les littératures populaires de toutes les nations. Traditions, légendes, contes, chansons, proverbes, devinettes, superstitions (34t) - GP. Maisonneuve et Larose - P, 1967-68.
+- Lọ nước trường sinh (tập truyện cổ tích) - Nxb. Kim Đồng, H, 1958.
+- Loại cổ tích hay, I - Nxb. Cây thông, H.
+- LƯƠNG VĂN CHONG - Lin Thong và Can (Sưu tầm cổ tích Thái) - NCVH, H, số 2, 1960.
+- LƯU KÍNH THÚC 劉 敬 叔 - Dị uyển 異 苑.
+- LƯU VĂN THUẬN - Truyện cổ tích, 1 - Nhà in Tân dân, H, 1928.
+- LƯU VĂN THUẬN, PHẠM VĂN PHƯƠNG - Truyện cổ tích - Tân dân thư quán, H, 1926.
+- LÝ TẾ XUYÊN 李 濟 川 - Việt điện u linh 越 甸 幽 零 (Trịnh Đình Ru dịch) - Nxb. Văn hóa (Viện Văn học), H, 1960.
+- MẠC PHI - Cô gái đẹp có mẹ hổ (Ý Nọi nàng xưa, tập truyện cổ tích Thái) - Nxb. Phổ thông, H, 1957.
+- MẠC PHI, MAI TRÂN - Xí pá hả lăng (Cổ tích Thái) - NCVH, H, số 5, 1960.
+- MACEY (F.) - Folklore Laotien (Pho-lâ et Maha Sêthi) - RI, số 89-90, 91-92, IX-X - 1908.
+- Mahabharata, sử thi Ấn-độ (Cao Huy Đỉnh, Phạm Thủy Ba dịch) Nxb. Khoa học xã hội, H, 1979.
+- MAI VĂN TẤN - Truyện cổ Vân-kiều - Nxb. Văn hóa, H, 1974.
+- MAITRE (HENRI) - Les régions Moïs du Sud indochinois - Plon, P, 1909.
+- MALLARMÉ (STÉPHANE) - Contes indiennes - L. Castelet, P, 1927.
+- MARTINI (F.), BERNARD (S.) - Contes populaires inédits du Cambodge - GP, Maisonneuve, P, 1946.
+- MASPÉRO (G.) Sur une version arabe du conte de Rhampisinite - JA, 8è série, t. VI, 1885.
+- MAUNG HTIN AUNG - Miến-điện dân gian cố sự 緬 甸 民 間 故 事 (Thi Hàm Vinh dịch) - Tác gia xb. xã, Bắc-kinh, 1957.
+- Mấy nhạc sĩ thành Brem (Cổ tích Grim) - Nxb. Kim Đồng, H, 1960.
+- MÊLÊTINXKI (E.M.MELETINSKI) - Nhân vật trong truyện cổ tích hoang đường, xuất xứ của hình tượng (Nguyễn Văn Dao, Phan Hồng Giang dịch từ Nga văn) - Bản đánh máy của Viện Văn học.
+- MÉRAVILLE (MARIE - AIMÉE) - Contes pupulaires de l'Auvergne (Suivi d'une mémoire sur la langue et le patois) - GP, Maisonneuve et Larose, P, 1970.
+- MERCIER (G.) - Cinq textes berbères en dialecte Chaouia - JA, nouvelle série, t. XVI, 1900.
+- MIDAN (P.) - Histoire du juge lièvre (Recueil des contes cambodgiens, traduits et annotés) - BSEI, t. VIII, số 4, 1933.
+- (Les) mille et une nuits (Contes arabes traduits par Galland) 3t. - Ed. Garnier frères, P, 1949.
+- MINH CHIẾU - Truyện cổ Phật giáo (6q) - Phật học viện Trung phần xb, Đà-nẵng, 1962.
+- MINH HUYỀN - Lão vua ngốc và hai chàng ăn trộm (Tập truyện giải trí về giáo dục) - Nxb. Phổ thông, H, 1957.
+- MOHAMED EL FASI, DERMENGHEM (E.) - Contes Fasis (3è éd) - F. Rieder et Cie, P, 1926.
+- MONTEIL (C.) Contes soudanais - P, 1905.
+- Một nghìn lẻ một đêm (Nguyễn Quân dịch) I, II, III - Nxb. Sống mới, S, 1968.
+- MUS (P.) - Deux légendes Chames (Études indiennes et indochinoises) - BEFEO, t. XXXI, 1931.
+- N. X. T. - Contes et légendes (En quốc ngữ et en français) - [1910].
+- Nam-hoa mộc tượng ký 南 華 木 匠 記 (Trong [Nam-hải] dị văn [南 海] 異 闻).
+- Nàng tiên ốc (cổ tích nước bạn) - Nxb. Thanh niên, H, 1956.
+- NẮNG MAI HỒNG - Truyện cổ tích Mông-cổ - Nxb. Nguyễn Du, H, 1957.
+  - Chàng láu giết rồng (Truyện cổ tích) - Nxb. Nguyễn Du, H, 1958.
+  - Truyện cổ tích Cao-miên (Khơ-me) - Nxb. Nguyễn Du, H, 1958.
+- NGHIÊM TOẢN - Việt-nam văn học sử trích yếu - Nhà sách Vĩnh Bảo, S, 1949.
+- NGỌC ANH - Chàng Rôk (Cổ tích Tây-nguyên) - NCVH, H, số 8, 1960.
+  - Cái rìu vàng (Tập truyện cổ tích miền núi) - Nxb. Kim Đồng, H, 1961.
+  - Chàng ná - NCVH, số 6, 1963.
+- NGỌC BỘI - Một làng ở Bà-rịa bầu một con cọp làm hương chức - PT, S, số 249, VI - 1970.
+- (TRÚC KHÊ) NGÔ VĂN TRIỆN - Tình sử Việt-nam - Nhà in Tân dân, H, 1935.
+- NGUYỄN BÍNH - Truyện cổ tích Việt-nam (in lần thứ 3) - Nxb. Nguyễn Du, H, 1952.
+- NGUYỄN CHÍ THÀNH - Gốc tích thành Lồi ở Huế - Khai trí tiến đức tập san, H, số 4, 1941.
+- (THIÊN LÝ) NGUYỄN DI LUÂN - Việt-nam dã sử - Nhà sách Bạch-đằng, S, 1950.
+- NGUYỄN DUY - Truyện cổ Việt-nam - Nhà sách Bốn phương, S, 1949.
+- NGUYỄN DỮ 阮 與 - Truyền kỳ mạn lục 傳 奇 漫 錄
+  - Cảnh Hưng 24 (1763) (VHv. 1840).
+- NGUYỄN ĐỈNH NAM (THƯỢNG HIỀN) 阮 鼎 南 (尚 賢)
+  - Hát-đông thư dị. 喝 東 書 異 Sách hán chép tay (VHv. 2382).
+- NGUYỄN ĐỔNG CHI - Ý nghĩa truyện Chử đồng tử - Tập san Nghiên cứu Văn Sử Địa, H, số 17, 1956.
+  - Lược khảo về thần thoại Việt-nam - Nxb. Văn sử địa, H, 1956.
+- NGUYỄN KINH CHI, NGUYỄN ĐỔNG CHI - Mọi Kon-tum - Mộng Thương thư trai xb, Huế, 1937.
+- NGUYỄN HUY TƯỞNG - Thằng Quẩy (Truyện cổ Tây-nguyên) - Nxb. Thanh niên, H, 1955.
+- NGUYỄN HUY TƯỞNG, THANH THANH - Con cóc là cậu ông giời - Nxb. Thanh niên, H, 1956.
+- NGUYỄN HỮU RẰNG - Thơ ông Thủ Huồn - S, 1915.
+- NGUYÊN KHẮC NGŨ - Cổ tích Chàm - VHNS, S, số 38, 1959.
+  - Một giả thiết về truyện Tấm Cám - VHNS, S, số 41,42,44, 1959.
+  - Bà Xá-y-nư tức bà Ba Tranh (Dã sử Chiêm-thành) - VHNS, S, số 51, 1960.
+- NGUYỄN KHẮC XƯƠNG - Truyền thuyết Hùng Vương - Ty văn hóa thông tin Phú-thọ, 1963.
+- NGUYỄN QUỲNH - Cổ tích nực cười (Sự tích của năm vị tướng tài là người Việt-nam) - S (?).
+- NGUYỄN THỊ DƯƠNG HIỀN - ông thiện ông ác - Nxb. Nguyễn Du, H, 1958.
+- NGUYỄN THỊ NGỌC THẮM - Công việc ghi chép và sắp xếp truyện cổ dân gian - BK, S, số 344, V - 1971.
+- NGUYỄN THÚC KHIÊM - Sự tích Dương Đình Chung, hay là Trạng Lợn - Nhà in Thái Sơn đường, H, 1934.
+  - Truyện ông Nghè Tân - NP, số 153, 1930.
+  - Dã sử quan Trạng Gầu (Tống Trân - Cúc Hoa) NP, số 150-160, 1931.
+- (ÔN NHƯ) NGUYỄN VĂN NGỌC - Truyện cổ nước Nam: A-Người ta; B-Muông chim (2 tập) - Vĩnh Hưng Long thư quán, H, 1933-34.
+- NGUYỄN VĂN XUÂN - Giai thoại một thời: đôi hia - BK, S, số 382, XI - 1972.
+- NGUYỄN VỸ - Vết son trên má tiểu thư - PT, S, số 14, VI - 1959.
+- Người lấy cóc - Nhà in Quảng tế, H, 1942.
+- Người thông minh (Truyện dân gian Trung-quốc) - Nxb. Kim Đồng, H, 1961.
+- Nhà sư và người thợ mộc (Truyện cổ tích Mông-cổ, Trần Cao Thụy dịch) - Nxb. Kim Đồng, H, 1957.
+- Nhớ nguồn (Năm truyện cổ tích) - Nxb. Minh Đức, H, 1957.
+- NIPPGEN (J) - Les contes de Siddhi-Kũr - RETP, t. IV, 1923.
+- Nói chuyện cũ - Thực nghiệp dân báo, H, 1923 - 24.
+- NORDEMANN (E.) - Chrestomathie annamite (2è éd.) - IDEO, H, Hải Phòng, 1917.
+  - Chrestomathie sino-annamite (4 tập) - Nhà in Mạc Đình Tư, H, 1914.
+- NÔNG TRUNG - Chu Hùng Ú (dân tộc Nhắng) - Văn nghệ, H, số 45, 1961.
+- NÔNG TRUNG, HẢI CHI - Cô gái đẹp với hạt cơm nguội (Truyện cổ tích miền núi) - Nxb. Kim Đồng, H, 1960.
+- NÔNG VIẾT TOẠI - Hai em bé mồ côi (Truyện cổ tích Tày, Việt-bắc) Nxb. Phổ thông, H, 1957.
+- Ông lão dưới giếng (Tập truyện cổ tích) - Nxb. Kim Đồng, H, 1960.
+- Ông Vũ trị thủy (Tập truyện cổ tích dân gian của nhiều nước xã hội chủ nghĩa) - Nxb. Kim Đồng, H, 1964.
+- PALUMBO (V.O.) - Mythologie populaire comparée - Le Muséum, t.I, q.III, 1882.
+- (Le) Pantcha-Tantra ou les cinq ruses (Traduit par l'abbé G.A Dubois) - A. Barraud, P, 1872.
+- PAVET DE COURTEILLE (A.) - Nouvelles et mélanges - JA, 7è série. t. IV, 1886.
+- PAVIE (A.) - Contes populaires du Cambodge, du Laos et du Siam - E. Leroux, P, 1903.
+- PAVIE (TH.) - Choix de contes et nouvelles traduites du Chinois - Duprat, P, 1839.
+- PERCHERON (M.) - Contes et légendes d'Indochine - F. Nathan, P, 1955.
+- PERET (B.) - Anthologie des mythes, légendes et contes populaires d'Amérique. - Abel Michel, P, 1960).
+- PERI (NOEL) - Un conte hindu au Japon - BEFEO, t. XV, số 3, 1915.
+- PHẠM DUY KHIÊM - Légendes des terres sereines - Taupin, H, 1942.
+  - La jeune femme de Nam-xương - Taupin, H, 1941.
+- PHẠM ĐÌNH DỤC 范 廷 煜 - Vân nang tiểu sử 雲 囊 小 史 - NP, (phần chữ Hán), số 5 - 15 (1917 - 18).
+- PHẠM ĐÌNH HỔ 范 廷 琥, NGUYỄN ÁN 阮 案 - Tang thương ngẫu lục 桑 滄 偶 錄 - Hiệu thư lâu tàng bản, Minh Mệnh 17 [1836], (VHv. 1413).
+- PHẠM ĐÌNH HỔ 范 廷 琥 - Vũ trung tùy bút. 雨 中 随 筆 - Sách hán chép tay (VHv. 1466).
+- PHẠM QUANG - Chiếc gương thần (Truyện cổ Việt-nam) - Linh Quang xb, S, 1962.
+- PHẠM THÀNH KỈNH - Vè con cua - Nhà in H.K. Danh, S, 1913.
+- PHẠM VĂN DIÊU - Truyện cổ Việt-nam - VHNS, S, số 37, 1958 - 59.
+- PHẠM VĂN THÌNH - Chuyện đời xưa - Nhà sách Bảo tồn, S, 1930.
+- PHẠM XUÂN THÔNG - Người đàn bà tóc trắng (Truyện cổ tích Chiêm-thành) - Nxb. Phổ thông, H, 1961.
+  - Hoa Bơ Nga Chơ re (Truyện dân gian Chàm) - Nxb. Kim Đồng, H, 1973.
+- PHAN [ĐĂNG] NHẬT - Tìm hiểu Thạch Sanh Ở Cao-bình, Hòa-an, Cao-bằng - TCVH, H, số 6, 1972.
+- PHAN KẾ BÍNH - Nam-hải dị nhân liệt truyện - H, 1912.
+- PHONG CHÂU - Tấm Cám có thật ở Việt-nam không? - Tập san Nghiên cứu Văn Sử Địa, H, số 39, 1958.
+- Phù dung giai thoại 芙 蓉 佳 話 - Sách hán chép tay (AB. 235).
+- PHỤNG HOÀNG SANG, DƯƠNG DIẾP - Truyện tiếu đàm (in lần thứ 2) - Imp. de l'Union, S, 1914.
+- PHƯƠNG HÀ, PHAN THIỆN - Chuyện chàng Khum Cọ (Tập truyện cổ tích miền núi) - Nxb. Phổ thông, H, 1960.
+- PHƯỢNG NAM - Việt-nam thần tích - Tứ dân văn uyển, H, 1938.
+- PORÉE MASPÉRO (ÉVELINE) - Étude sur les rites agraires des Cambodgiens - P, 1969.
+- POUCHAT (J.), PHẠM VĂN THÙY (dịch) - Các truyện dị đoan thuộc về loài cây và loài vật mà An-nam ta xưa nay hay tin xằng - IDEO, H, 1911.
+- POURRA (H.) - Le trésor des contes - Gallimard, P, 1948 - 51.
+- PÔRÊMANXÉP (E.V. PORÉMANSEV) - Truyện dân gian Nga (Nguyễn Hải Sa dịch) - Nxb. Văn hóa (Viện Văn học), H, 1960.
+- PRỐP (V. VA PROPP) - Hình thái học của truyện cổ tích (xb. lần thứ hai) - Nxb. Khoa học Mát-xcơ-va, 1969.
+- PRZYLUSKI (J.) - La princesse à l'odeur de poisson et la nâgi dans les traditions de l'Asie orientale - Etudes Asiatiques, EFEO, t.II.
+  - Les prologue-cadre des Mille et une nuits et le thème du Svagamvara (Contribution à l'histoire des contes indiens) - JA, t.CCV, 1924.
+- PUTILÔP (B.N. POUTILOV) - Phương pháp luận nghiên cứu lịch sử so sánh về folklore - (Bản dịch đánh máy của Phan Ngọc, Ban Văn hóa dân gian).
+- Quả nho rừng (Tập truyện cổ tích của các nước bạn, Trần Cao Nguyễn và Nguyễn Kiên dịch) - Nxb. Phổ thông, H, 1957.
+- QUAN VIÊN - Chúa Trổm I,II - Nhà in Non nước, H, 1935.
+  - Thánh địa lý Tả Ao - [?].
+- QUELLIEN (N.) - Contes et nouvelles du pays du Tréguier - GP, Maisonneuve et Larose, P, [?].
+- QUỐC CHÍNH - Truyện cổ nước Lào - Nhà sách Khai trí, S, 1969.
+- QUỐC THẾ - Truyện cổ Trung-hoa - Nhà sách Khai trí, S, 1969.
+  - Truyện cổ Đông phương - Nhà sách Khai trí, S, 1970.
+- RENEL (CH.) - Contes de Madagascar (2 tập) - P, 1910.
+- RICHARD (HENRY) - Contes du pays d'Annam - RI, số 5, 1904.
+- RICHARD (M.) - Le chant de Hiawatha (légende indienne) - Piazza, P, 1927.
+- RICQUEBOURG (J.) - La légende de la montagne de marbre - RI, 1905.
+  - La terre du dragon - Sansot et Cie, P, 1907.
+- RÍPTIN (B. RYFTINE), KHAXANỐP (M. KHASSANOV) - Truyện cổ và truyền thuyết dân gian Đun-gan - Nxb. Khoa học, Mát-xcơ-va, 1977. (Bản dịch đánh máy của Nguyễn Hưng, Ban Văn hóa dân gian).
+- ROLLET - L'Afrique nous a conté - P, 1936.
+- SAINTYVES - Les vierges-mères et les Naissances miraculeuses - Nourry, P, 1908.
+  - Les contes du Perrault - [?], 1923.
+- SALLET (Dr. A.) - Le sorcier et la sorcière (Thầy Thím). Contribution au folklore du Sud Annam - Extrême-Asie, số 5, III - 1925.
+  - Étiologie populaire d'Annam - Mémoire de l'académie des sciences de Toulouse, 13 série, t.IV, 1944.
+  - Les souvenirs chams dans le folklore et les croyances annamites du Quảng-nam - BAVH, Huế, IV-VI - 1923.
+- SÉBILLOT (P.) - Contes populaires de la Haute Bretagne - Ed. Charpentier, P, 1881.
+  - La Bretagne enchantée. Poésies sur les thèmes populaires - GP, Maisonneuve et Larose, P, [?].
+  - Le folklore de France (4 tập) - Guil moto, P, [(?].
+- SEILER (G.) - La dette d'amour, légende annamite - RI, 1912.
+  - Le crapaud (Conte annamite) - RI, t.XXXVIII, số 9-10, 1922.
+- SIMARD - Contes et légendes annammites - RI, số 28, 56, 1906-07.
+- SOMADEVA - The ocean of story being C.H. Tawney's translation of Somadeva's Katha Sarit Sagara (Or ocean of streams of Story). Now éditée with introduction fresh explanatory notes and terminal essay by N. M. Penser, London.
+- SOMBSTHAY (E.) Trente contes et légendes tonkinois - F. H. Schneider, H, 1893.
+- SÔNG GIANH - Mưu cóc tía - Nxb. Kim Đồng, H, 1969.
+- Sơn cư tạp thuật 山 居 雜 述 - Sách hán chép tay (A.822).
+- SƠN NAM - Chuyện xưa tích cũ (in lần thứ 2) - Nxb. Rạng đông, S, 1963.
+  - Chuyện xưa tích cũ I, II - Nhà sách Khai trí, S, 1968-69.
+- Sự tích con gà rừng (Tập truyện cổ tích miền núi) - Nxb. Kim Đồng, H, 1959.
+- Sự tích ông Trạng Lợn - Gia Liễu đường, Khải Định 9 [1924] (AB.452).
+- Sự tích ông Trạng Quỳnh - Liễu Văn đường (AB.405).
+- Sử Nam chí dị 史 南 志 異 - Sách nôm chép tay, Tự Đức 30 [1877] (AB.385).
+- Sưu thần ký 搜 神 記 - Trung-hoa thư cục, Bắc-kinh.
+- TẠ MINH HỘI, ĐÀO TỬ CHÍ - Lấy vợ tiên (Truyện cổ tích Tây-nguyên) Nxb. Phổ thông, H, 1957.
+  - Thằng Cuội (Cổ tích Tây-nguyên) - Nxb. Phổ thông, H, 1957
+- TATTEVIN - Mythe et légendes du Sud de l'ile Pentecôte, Nouvelle Hébride - Anthropos, t.XXVII, 1931.
+- Tấm gương nhỏ (Tập truyện cổ tích) - Nxb. Kim Đồng, H, 1960.
+- TAUPIN (J.) - Une douzaine d'équitables jugements de Bodisattwa - BSEI, 1886.
+- Tân tề hài 新 齊 諧 - Bản chép tay gia đình.
+- Tập truyện kể cho thiếu niên (Cổ tích trong và ngoài nước) - Nxb. Bộ Giáo dục, H, 1957.
+- TERRAL (I.) - Samuddaghosa jatâka. Conte pâli tiré du Pannã jãtãka - BEFEO, t. XLVIII, q.I, 1948.
+- Thái-bình quảng ký 太 平 廣 記 - Trung-hoa thư cục, Bắc-kinh.
+- THÁI HOÀNG, ĐINH TÚ - Truyện cổ tích Diến-điện - Nxb. Nguyễn Du, H, 1985.
+- THÁI KIM ĐỈNH - Cá gáy hóa rồng (Truyện dân gian Hà-tĩnh), tập 1 - Ty văn hóa Hà-tĩnh xb, 1972.
+  - Núi Thiên-cầm (Truyện dân gian), tập II - Ty văn hóa và Hội Văn nghệ Hà-tĩnh xb, 1975.
+- THÁI VĂN KIỂM - Hai sự trạng trái ngược của một danh y - VHNS, số II, 1956.
+- THANH LÃNG - Văn học khởi thảo: Văn chương bình dân.
+- Thánh Tông di thảo 聖 宗 遺 草 - Sách hán chép tay (A.202).
+- Thánh Tông di thảo 聖 宗 遺 草 - (Nguyễn Bích Ngô dịch) - Nxb. Văn hóa (Viện Văn học), H, 1963.
+- THAO NHOUY - Folklore Laotien Xine-Xay - BSEI, t.IX, số 4, 1934.
+- Thằng Cuội (Cổ tích Tây-nguyên) - Nxb. Kim Đồng, H, 1958.
+- THI ĐẠT CHÍ - Truyện cổ Việt-nam, Truyện thành ngữ Trung-hoa - Nhà sách Khai trí, S, 1961.
+- Thiên lôi bị đòn - x. ĐINH TÚ.
+- Thính văn dị lục 聽 聞 異 錄 - Sách hán chép tay (A.393).
+- THÙY DƯƠNG TỬ - Vua Nam-chiếu - PT, S, số 244-246, V-VI - 1970.
+- TIÊN ĐÀM - Cai Vàng là người thế nào? - Tri tân, H, số 25, 1941.
+  - Sự thực về ông Nghè Tân - Tri tân, H, số 30, 1942.
+- Tiếng gọi cô ơi! (Truyện cổ tích miền núi) - Nxb. Dân tộc, Việt-bắc, 1961.
+- TISSOT - Cours Supérieur d'Annamite, 1910.
+- TOAN ÁNH - Nếp cũ, Hội hè đình đám, quyển Thượng và Hạ - Nam Chi tùng thư, S, 1969, 1974.
+  - Thần thoại và tôn giáo thoại - BK, số 336, I - 1971.
+- TÔ LINH THẢO - x. VŨ NGUYÊN HANH.
+- Tống Trân - Cúc Hoa - Imp. Ngô Tử Hạ, H, 1932.
+- TRẦN HƯƠNG TỬ - Điểm sách "Luận lý và tư tưởng trong huyền thoại" - BK, S, số 272, V - 1968.
+- TRẦN KIM, ĐÀO THẢN - Ông thần núi (Truyện cổ tích) - Nxb. Kim Đồng, H, 1957.
+- TRẦN LÊ VĂN - Nàng trắng nàng đen (Chuyện Tấm Cám của đồng bào Tây-bắc) - Nxb. Ánh sáng, H, 1955.
+- TRẦN NGHĨA - Truyền thuyết Mỵ Châu - Trọng Thủy phát triển qua các thời đại - NCVH, H, số 4, 1962.
+- TRẦN NGỌC NINH - Huyền thoại Việt-nam (tìm hiểu huyền thoại dân tộc qua huyền thoại học so sánh) - Tân văn nguyệt san, S, số 13-14, 1969.
+  - Huyền thoại học và huyền thoại lý học Việt-nam - Văn hóa tập san, S, số 2, 1974.
+- TRẦN PHÚC LÊ - Chuyện giải buồn (2è éd., revue et corrige) - F. H. Schneider, S, 1910.
+- TRẦN THÁI ĐỈNH - Con người huyền thoại - Tân văn nguyệt san, S, số 7-8, 1968.
+  - Sống và chín, hay là áp dụng thuyết cơ cấu vào dân tộc học - Tân văn nguyệt san, S, số 11-12, 1969.
+- TRẦN THANH MẠI - Quan điểm duy vật máy móc và duy vật biện chứng trong cách nhận định một truyện cổ tích - Nxb. Sông Lô, H, 1955.
+  - Tìm hiểu và phân tích truyện cổ tích Việt-nam I, II - Nxb. Sông Lô, H, 1955.
+- TRẦN TỪ, BẠCH ĐÌNH - Cõi sống và cõi chết trong quan niệm cổ truyền của người Mường - NCLS, H, số 140-141, 1971.
+- TRẦN VĂN GIÁP - Sách Lĩnh-nam chích quái - NCLS, H, số 115, 1968.
+  - Lược khảo sách Việt điện u linh tập - TCVH, H, số 8, 1968.
+- TRẦN VƯỢNG - Lọ nước thần hay là truyện vợ chồng anh hàng hành (Cổ tích Việt-nam) - Nxb. Phổ thông, H, 1958.
+- (NHẬT NHAM) TRỊNH NHƯ TẤU - Bắc-giang địa chí - Nhà in Chân Phương, H, 1937.
+- TRỊNH THỤC OANH, TRIAIRE (M.) - La Tortue d'or (Contes du pays d'Annam) - IDEO, H, 1940.
+- Truyền thống anh hùng dân tộc trong loại hình tự sự dân gian Việt-nam - Nxb. Khoa học xã hội, H, 1971.
+- Truyền văn tân lục 傳 聞 新 錄 - (bản chữ hán chép tay).
+- Truyện chàng Chuối - Nhà in Kim Khuê, H, 1929.
+- Truyện cổ Ba-na (Tây-nguyên) I, II - Nxb. Văn học, H, 1965.
+- Truyện cổ Ca-tu - Nxb. Văn học, H, 1968.
+- Truyện cổ Chàm - Nxb. Văn hóa dân tộc, H, 1978.
+- Truyện cổ dân gian [của các dân tộc] Việt-nam (4 tập) - tổ Văn học dân gian, Viện Văn học hiệu chỉnh - Nxb. Văn hóa (Viện Văn học), H, 1963 - 67.
+- Truyện cổ dân gian Thanh hóa I - Ty Văn hóa Thanh-hóa.
+- Truyện cổ Tây-nguyên - Nxb. Phổ thông, H, 1962.
+- Truyện cổ Thái - Nxb. Văn hóa, H, 1980.
+- Truyện cổ tích Ấn-độ - Nxb. Nguyễn Du, H, 1957.
+- Truyện cổ tích In-đô-nê-xi-a - Nxb. Kim Đồng, H, 1959.
+- Truyện cổ tích Nhật-bản - Nxb. Nguyễn Du, H, 1957.
+- Truyện cổ tích trẻ em - Nhà in Ngọc Hưng, H, 1952.
+- Truyện cổ tích Việt-nam. 1-Những truyện kỳ lạ. 2-Truyện cười - Nxb. Nguyễn Du, H, 1957.
+- Truyện cổ Việt-bắc I. II, III, - Nxb. Việt-bắc, 1973 - 76.
+- Truyện cổ Việt-bắc - x. HOÀNG QUYẾT. HOÀNG THAO...
+- Truyện dân gian Căm-pu-chia - x. LÊ TRỌNG KHÁNH...
+- Truyện dân gian Miến-điện (Minh Trí, Văn Minh, Hoàng Hải dịch) - Nxb. Văn học, H, l963.
+- Truyện dân gian Trung-quốc I - Nxb. Ngoại văn, Bắc - kinh, 1958.
+- Truyện dân gian Trung-quốc (Thái Hoàng, Bùi Văn Nguyên dịch) - Nxb. Văn hóa (Viện Văn học), H, 1963.
+- Truyện đời xưa (Sách dùng cho học sinh cấp I phổ thông) - Nxb. Giáo dục. H. 1969
+- Truyện thần tiên Á đông I, II - Imp. Đức lưu phương, S, 1928.
+- Truyện Trương Chi - Nhà in Phúc Chi, H, [?].
+- TRƯƠNG QUANG LỘC - Vú đá (Cổ tích và truyền thuyết dân gian miền Nam) - Nxb. Phổ thông, H, 1957.
+- TRƯƠNG QUỐC DỤNG 張 國 用 - Thoái thực ký văn 退 食 記 聞-Sách hán chép tay (A. 1499).
+- TRƯƠNG VĨNH KÝ (P.) Ước lược truyện tích nước Nam - S, 1887.
+  - Chuyện đời xưa (Lựa nhón lấy những chuyện hay và có ích) - Lib. Imp. Qui-nhơn, 1909.
+  - Chuyện khôi hài. Passe temps - C. Guillot et Martinon, S, 1882.
+- TRƯƠNG VĨNH TỐNG - Mỹ ấm tùy bút (Nhàn trung đàm thoại) -
+- Nông công thương, S, từ số 89 (1938-39) [chưa hết].
+  - Truyện lạ nước Nam (Cổ tích bị khảo) - Nông công thương, S, từ số 88 (1938 - 39).
+- TRƯỜNG SƯ PHẠM MIỀN NÚI - Truyện cổ tích miền núi - Nxb. Văn hóa, H, 1958.
+- TÙNG LÂM - Truyện cổ chọn lọc - Nxb. Thế giới, S, 1957.
+- Truyện cổ Trung-hoa - Nxb. Thế giới, S, 1957.
+- TUYẾT NGA - Histoire de Chử đồng tử - FA, số 40, 1949.
+- Tư liệu tham khảo văn học Việt-nam, t.I: Văn học dân gian. I, II - Nxb. Giáo dục, H, 1974.
+- Un écho du folklore cambodgien - FA, số 37-38, IV-V - 1949.
+- VALLON (R.) Seigneur tigre et Cie. Conte d'Annam - S, 1942.
+- VAN BERCHEM (MAX) - Conte arabe en dialecte égyptien - JA, 8è série, t. XIV, 1889.
+- VAN GENNEP (A.) - Religion, moeurs et légendes. Essais d'ethnographie et de linguistique (5 tập) - Mercure de France, P, 1908.
+  - La formation des légendes - Flammarion, P, 1912.
+- Văn học dân gian cổ truyền Hà-giang - Ty văn hóa Hà-giang, 1971.
+- Văn học dân gian tỉnh Lao-cai (4 tập) - Ty văn hóa thông tin Lào-cai, [1963 - 70]
+- VĂN TÂN - Mấy ý kiến về truyện cổ tích (nhân đọc Truyện cổ tích Việt-nam của Vũ Ngọc Phan và quyển Quan điểm duy vật máy móc và duy vật biện chứng trong cách nhận định một truyện cổ tích của Trần Thanh Mại) - Tập san Nghiên cứu Văn Sử Địa, H, số 14, 1956.
+- VĂN TRỌNG - Chuyện lạ nhà Nam (Les contes fantastiques du pays d'Annam) 2 tập - Imp. Indochinoise, H, 1934.
+- VÂN HẠC - Chuyện "Giết chó khuyên chồng" có phải là chuyện nước ta không? - Trung Bắc chủ nhật, H, số 222, 1944.
+- VÂN HẢI - Con cá có mỏ (Tập truyện cổ tích Căm-pu-chia) - Nxb. Kim Đồng, H, 1963.
+- VÂN UYÊN (cô) - Huyền thoại Cao Biền yểm đất ở dãy núi đèo Cả - PT, S, số 247, VI - 1970.
+- Vè chú Lía - Sách nôm chép tay ở Bình-định.
+- Vết chân lạc đà (Truyện cổ tích) - Nxb. Kim Đồng, H, 1957.
+- Vỏ quýt chưa dày - x. ĐÀO QUẢN...
+- VÕ QUANG NHƠN - Chàng Đam Thí - Nxb. Kim Đồng, H, 1972.
+- VÕ XUÂN PHỐ - Góp ý kiến về nguồn gốc truyện Thạch Sanh - Tập san Nghiên cứu Văn Sử Địa, số 19, 1956.
+- VOSSION (L.) - Contes Birmans, d'après le Thoudamma Sâri Dammazat - E. Leroux, P, 1901.
+- VŨ KHẮC MINH, PHAN HÀN KHANH - Truyện chúa Chổm - Nhà in Mạc Đình Tư, H, 1914.
+- VŨ LANG - Cổ tích Chàm và cổ tích Việt-nam - Văn hóa Á châu, S, số 15-16, 1959.
+- VŨ NGỌC PHAN - Tiễu Nhiên Mị Cơ - Nxb. Hương-sơn, H, [1941].
+  - Truyện cổ Việt-nam - Nxb. Văn sử địa, H, 1955.
+  - Tìm hiểu quá trình hoàn chỉnh của một số truyện cổ dân gian Việt-nam - TCVH, H, số 5, 1964.
+  - Quả bầu kỳ lạ (Truyện cổ tích Việt-nam) - Nxb. Kim Đồng, H, 1965.
+- [VŨ NGỌC PHAN] - Tấm gương nhỏ - Nxb. Kim Đồng, H, 1960.
+- VŨ NGUYÊN HANH [TRINH] 武 元 亨 [貞] - Kiến văn lục 見 聞 錄
+  - Sách hán chép tay (A. 1 562).
+- (LAN TRÌ) VŨ NGUYÊN HANH (蘭 池) 武 元 亨 - Đại Nam kỳ nhân liệt truyện (Tô Linh Thảo dịch) - Nhà in Quảng Thịnh, H, 1930.
+- VŨ PHƯƠNG ĐỀ 武 芳 提 - Công dư tiệp ký 公 餘 捷 記 (Đoàn Thăng dịch) - Bản đánh máy của Viện Văn học.
+- VŨ QUỲNH 武 瓊, KIỀU PHÚ 橋 富 - Lĩnh-nam chích quái 嶺 南 滴 怪, truyện cổ dân gian Việt-nam (Đinh Gia Khánh, Nguyễn Ngọc San dịch) - Nxb. Văn hóa (Viện Văn học), H, 1960.
+- VŨ TUẤN SAN - Truyền thuyết về Thánh Gióng - NCLS, H, số 106, 1968.
+- VŨ TƯỜNG KHANH - Truyện cổ Việt-nam - Nxb. Thế giới, S, 1969.
+- VŨ VĂN LỄ - Truyện công chúa Nân Manôra - VHNS, S, Số 29, 1958.
+- VƯƠNG HỒNG SỂN - Ngọc diện miếu - PT, S, số 96, 1963.
+- WIÉGER S.J.(L.) - Rudiments, 5 et 6, Narrations populaires - lmp. de la Mission Catholique, Hà-gian phủ, 1903.
+  - Folklore chinois moderne - lmp. de la Mission Catholique, Hà-gian phủ, 1909.
+- Y KHƯU (kể), NHẬT LAI (ghi) - Truyện anh Dông Tư - Nxb. Phổ thông, H, 1957.
+- ZACHARKO (Mnt E. DE) - Contes Sartes - le Muséum. t.XXXIX, 1926
+- ZELTNER (F. DE) - Contes du Sénégal et du Niger - P. 1913.
+- ZUCCHELLI (P.FLORENT) - Contes populaires du Việt-nam d'autre fois - Coconnier ed., [P], 1968.

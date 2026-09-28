@@ -1,0 +1,45 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "1341 - 1392",
+  "total_essays": 4,
+  "sections": [
+    {
+      "section_id": "IV",
+      "section_title": "IV. ĐẶC ĐIỂM CỦA TRUYỆN CỔ TÍCH VIỆT-NAM",
+      "essays": [
+        {
+          "essay_number": 1,
+          "title": "YẾU TỐ TƯỢNG TRƯNG TRONG LOẠI HÌNH TRUYỆN CỔ TÍCH VIỆT NAM NÓI CHUNG ÍT XA LẠ VỚI NHÂN TÍNH; LOẠI TRUYỆN SINH HOẠT CHIẾM MỘT TỶ LỆ TƯƠNG ĐỐI CAO; LOẠI TRUYỆN THẦN KỲ, TRUYỆN LÀI VẬT, TRUYỆN PHIÊU LƯU MẠO HIỂM CHIẾM MỘT TỶ LỆ TƯƠNG ĐỐI THẤP",
+          "start_page": 1341,
+          "end_page": 1356,
+          "markdown_file": "essay_01.md",
+          "footnote_count": 18
+        },
+        {
+          "essay_number": 2,
+          "title": "TRUYỆN CỔ TÍCH VIỆT-NAM THẤM ĐẬM CHẤT LIỆU ĐỜI SỐNG XÃ HỘI VIỆT CỔ; LÀ BIẾU TRƯNG NGHệ THUẬT CỦA CÁI HIỀN HÒA, NHÂN ÁI, HAY TÍNH CHỪNG MỰC TRONG TÂM LÝ DÂN TỘC",
+          "start_page": 1356,
+          "end_page": 1371,
+          "markdown_file": "essay_02.md",
+          "footnote_count": 5
+        },
+        {
+          "essay_number": 3,
+          "title": "TÍNH CÁCH PHÊ PHÁN HIỆN THỰC KHÁ ĐẬM TRONG TRUYỆN CỔ TÍCH VIỆT NAM; NHÂN VẬT TÍCH CỰC THƯỜNG TỎ RA KHÔNG BẰNG LÒNG VỚI TRẬT TỰ TẬP TỤC CÓ SẴN, PHẢN ỨNG LẠI CÁI TI TIỆN TẦM THƯỜNG",
+          "start_page": 1371,
+          "end_page": 1383,
+          "markdown_file": "essay_03.md",
+          "footnote_count": 8
+        },
+        {
+          "essay_number": 4,
+          "title": "TRUYỆN CỔ TÍCH VIỆT-NAM CÓ MỘT MẢNG ĐÁNG KỂ NÊU BẬT VAI TRÒ TÍCH CỰC CỦA NGƯỜI NỮ: ĐỀ CẬP ĐẾN ƯỚC MƠ TÌNH YÊU VÀ HÔN NHÂN TỰ DO",
+          "start_page": 1383,
+          "end_page": 1392,
+          "markdown_file": "essay_04.md",
+          "footnote_count": 7
+        }
+      ]
+    }
+  ]
+}

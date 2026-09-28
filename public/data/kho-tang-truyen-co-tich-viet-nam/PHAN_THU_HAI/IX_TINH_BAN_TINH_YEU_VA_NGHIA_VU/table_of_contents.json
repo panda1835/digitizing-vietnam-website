@@ -1,0 +1,175 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "1123 - 1255",
+  "total_stories": 18,
+  "sections": [
+    {
+      "section_id": "IX",
+      "section_title": "IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ",
+      "stories": [
+        {
+          "story_number": 171,
+          "title": "BÀ CHÚA ONG",
+          "start_page": 1123,
+          "end_page": 1126,
+          "markdown_file": "story_171.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 172,
+          "title": "ANH CHÀNG HỌ ĐÀO",
+          "start_page": 1127,
+          "end_page": 1129,
+          "markdown_file": "story_172.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 173,
+          "title": "DUYÊN NỢ TÁI SINH",
+          "start_page": 1130,
+          "end_page": 1138,
+          "markdown_file": "story_173.md",
+          "has_khao_di": true,
+          "footnote_count": 10
+        },
+        {
+          "story_number": 174,
+          "title": "MỴ CHÂU - TRỌNG THỦY HAY LÀ TRUYỆN NỎ THẦN",
+          "start_page": 1139,
+          "end_page": 1147,
+          "markdown_file": "story_174.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 175,
+          "title": "CÔ GÁI CON THẦN NƯỚC MÊ CHÀNG ĐÁNH CÁ",
+          "start_page": 1148,
+          "end_page": 1152,
+          "markdown_file": "story_175.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 176,
+          "title": "QUAN ÂM THỊ KÍNH",
+          "start_page": 1160,
+          "end_page": 1165,
+          "markdown_file": "story_176.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 177,
+          "title": "NGUYỄN THỊ BÍCH CHÂU",
+          "start_page": 1166,
+          "end_page": 1171,
+          "markdown_file": "story_177.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 178,
+          "title": "SỰ TÍCH BÃI ÔNG NAM",
+          "start_page": 1172,
+          "end_page": 1174,
+          "markdown_file": "story_178.md",
+          "has_khao_di": false,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 179,
+          "title": "CHIẾC GIÀY THƠM",
+          "start_page": 1175,
+          "end_page": 1179,
+          "markdown_file": "story_179.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 180,
+          "title": "BÁN TÓC ĐÃI BẠN",
+          "start_page": 1180,
+          "end_page": 1183,
+          "markdown_file": "story_180.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 181,
+          "title": "TRỌNG NGHĨA KHINH TÀI",
+          "start_page": 1184,
+          "end_page": 1188,
+          "markdown_file": "story_181.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 182,
+          "title": "Ả CHỨC CHÀNG NGƯU",
+          "start_page": 1189,
+          "end_page": 1223,
+          "markdown_file": "story_182.md",
+          "has_khao_di": true,
+          "footnote_count": 39
+        },
+        {
+          "story_number": 183,
+          "title": "BỐN NGƯỜI BẠN",
+          "start_page": 1224,
+          "end_page": 1227,
+          "markdown_file": "story_183.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 184,
+          "title": "NGƯỜI CƯỚI MA",
+          "start_page": 1228,
+          "end_page": 1235,
+          "markdown_file": "story_184.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 185,
+          "title": "VỢ CHÀNG TRƯƠNG",
+          "start_page": 1236,
+          "end_page": 1240,
+          "markdown_file": "story_185.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 186,
+          "title": "SỰ TÍCH KHĂN TANG",
+          "start_page": 1241,
+          "end_page": 1247,
+          "markdown_file": "story_186.md",
+          "has_khao_di": true,
+          "footnote_count": 7
+        },
+        {
+          "story_number": 187,
+          "title": "NGẬM NGẢI TÌM TRẦM HAY LÀ SỰ TÍCH NÚI MẪU-TỬ",
+          "start_page": 1248,
+          "end_page": 1251,
+          "markdown_file": "story_187.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 188,
+          "title": "CÁI VẾT ĐỎ TRÊN MÁ CÔNG NƯƠNG",
+          "start_page": 1252,
+          "end_page": 1255,
+          "markdown_file": "story_188.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        }
+      ]
+    }
+  ]
+}

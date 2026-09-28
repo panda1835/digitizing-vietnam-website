@@ -1,0 +1,103 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "204 - 254",
+  "total_stories": 10,
+  "sections": [
+    {
+      "section_id": "II",
+      "section_title": "II. SỰ TÍCH ĐẤT NƯỚC VIỆT",
+      "stories": [
+        {
+          "story_number": 26,
+          "title": "SỰ TÍCH HỒ GƯƠM",
+          "start_page": 204,
+          "end_page": 209,
+          "markdown_file": "story_026.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 27,
+          "title": "SỰ TÍCH HỒ BA-BỂ",
+          "start_page": 210,
+          "end_page": 216,
+          "markdown_file": "story_027.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 28,
+          "title": "SỰ TÍCH ĐẦM NHẤT-DẠ VÀ BÃI TỰ-NHIÊN",
+          "start_page": 217,
+          "end_page": 222,
+          "markdown_file": "story_028.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 29,
+          "title": "SỰ TÍCH ĐẦM MỰC",
+          "start_page": 223,
+          "end_page": 225,
+          "markdown_file": "story_029.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 30,
+          "title": "SỰ TÍCH SÔNG NHÀ-BÈ HAY LÀ TRUYỆN THỦ HUỒN",
+          "start_page": 226,
+          "end_page": 231,
+          "markdown_file": "story_030.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 31,
+          "title": "TẠI SAO SÔNG TÔ-LỊCH VÀ SÔNG THIÊN-PHÙ HẸP LẠI?",
+          "start_page": 232,
+          "end_page": 235,
+          "markdown_file": "story_031.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 32,
+          "title": "SỰ TÍCH ĐÁ VỌNG PHU",
+          "start_page": 236,
+          "end_page": 242,
+          "markdown_file": "story_032.md",
+          "has_khao_di": true,
+          "footnote_count": 11
+        },
+        {
+          "story_number": 33,
+          "title": "SỰ TÍCH ĐÁ BÀ-RẦU",
+          "start_page": 243,
+          "end_page": 244,
+          "markdown_file": "story_033.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 34,
+          "title": "SỰ TÍCH THÀNH LỒI",
+          "start_page": 245,
+          "end_page": 251,
+          "markdown_file": "story_034.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 35,
+          "title": "SỰ TÍCH NÚI NGŨ-HÀNH",
+          "start_page": 252,
+          "end_page": 254,
+          "markdown_file": "story_035.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        }
+      ]
+    }
+  ]
+}

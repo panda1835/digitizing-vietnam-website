@@ -745,5 +745,17 @@
       "pdfUnavailable": "PDF URL is not available for this item yet.",
       "openSourceFile": "Open source file"
     }
+  },
+  "KhoTangTruyen": {
+    "contentsTitle": "Contents",
+    "searchPlaceholder": "Search by title…",
+    "searchLabel": "Search stories and essays by title",
+    "partTab": "Part {n}",
+    "bibliographyTab": "Bibliography",
+    "partIntroduction": "Introduction",
+    "noResults": "No matching entries.",
+    "previous": "Previous",
+    "next": "Next",
+    "footnote": "Footnote {n}"
   }
 }

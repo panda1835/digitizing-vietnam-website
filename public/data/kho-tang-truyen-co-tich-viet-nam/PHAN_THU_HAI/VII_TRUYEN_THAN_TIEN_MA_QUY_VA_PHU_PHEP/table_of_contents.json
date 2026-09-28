@@ -1,0 +1,229 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "691 - 900",
+  "total_stories": 24,
+  "sections": [
+    {
+      "section_id": "VII",
+      "section_title": "VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP",
+      "stories": [
+        {
+          "story_number": 116,
+          "title": "HÀ Ô LÔI",
+          "start_page": 691,
+          "end_page": 695,
+          "markdown_file": "story_116.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 117,
+          "title": "MIẾNG TRẦU KỲ DIỆU",
+          "start_page": 696,
+          "end_page": 700,
+          "markdown_file": "story_117.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 118,
+          "title": "TÚ UYÊN",
+          "start_page": 701,
+          "end_page": 704,
+          "markdown_file": "story_118.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 119,
+          "title": "NỢ DUYÊN TRONG MỘNG",
+          "start_page": 705,
+          "end_page": 714,
+          "markdown_file": "story_119.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 120,
+          "title": "TỪ ĐẠO HẠNH HAY SỰ TÍCH THÁNH LÁNG",
+          "start_page": 715,
+          "end_page": 728,
+          "markdown_file": "story_120.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 121,
+          "title": "CHÀNG ĐỐN CỦI VÀ CON TINH",
+          "start_page": 729,
+          "end_page": 739,
+          "markdown_file": "story_121.md",
+          "has_khao_di": true,
+          "footnote_count": 10
+        },
+        {
+          "story_number": 122,
+          "title": "NGƯỜI THỢ ĐÚC VÀ ANH HỌC NGHỀ",
+          "start_page": 740,
+          "end_page": 744,
+          "markdown_file": "story_122.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 123,
+          "title": "SỰ TÍCH ĐÌNH LÀNG ĐA HÒA",
+          "start_page": 745,
+          "end_page": 751,
+          "markdown_file": "story_123.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 124,
+          "title": "CON CHIM KHÁCH MÀU NHIỆM",
+          "start_page": 752,
+          "end_page": 759,
+          "markdown_file": "story_124.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 125,
+          "title": "CÂY TRE TRĂM ĐỐT",
+          "start_page": 760,
+          "end_page": 762,
+          "markdown_file": "story_125.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 126,
+          "title": "NGƯỜI LẤY CÓC",
+          "start_page": 763,
+          "end_page": 775,
+          "markdown_file": "story_126.md",
+          "has_khao_di": true,
+          "footnote_count": 14
+        },
+        {
+          "story_number": 127,
+          "title": "CÂY THUỐC CẢI TỬ HOÀN SINH HAY LÀ SỰ TÍCH THẰNG CUỘI CUNG TRĂNG",
+          "start_page": 776,
+          "end_page": 786,
+          "markdown_file": "story_127.md",
+          "has_khao_di": true,
+          "footnote_count": 14
+        },
+        {
+          "story_number": 128,
+          "title": "LẤY CHỒNG DÊ",
+          "start_page": 787,
+          "end_page": 816,
+          "markdown_file": "story_128.md",
+          "has_khao_di": true,
+          "footnote_count": 36
+        },
+        {
+          "story_number": 129,
+          "title": "NGƯỜI LẤY ẾCH",
+          "start_page": 817,
+          "end_page": 820,
+          "markdown_file": "story_129.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 130,
+          "title": "SỰ TÍCH ĐỘNG TỪ THỨC",
+          "start_page": 821,
+          "end_page": 825,
+          "markdown_file": "story_130.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 131,
+          "title": "NGƯỜI HỌC TRÒ VÀ BA CON QUỶ",
+          "start_page": 826,
+          "end_page": 834,
+          "markdown_file": "story_131.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 132,
+          "title": "HAI CÔ GÁI VÀ CỤC BƯỚU",
+          "start_page": 835,
+          "end_page": 837,
+          "markdown_file": "story_132.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 133,
+          "title": "NGƯỜI HÓA DẾ",
+          "start_page": 838,
+          "end_page": 842,
+          "markdown_file": "story_133.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 134,
+          "title": "THÁNH GIÓNG",
+          "start_page": 843,
+          "end_page": 854,
+          "markdown_file": "story_134.md",
+          "has_khao_di": true,
+          "footnote_count": 13
+        },
+        {
+          "story_number": 135,
+          "title": "AI MUA HÀNH TÔI HAY LÀ LỌ NƯỚC THẦN",
+          "start_page": 855,
+          "end_page": 862,
+          "markdown_file": "story_135.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 136,
+          "title": "NGƯỜI DÂN NGHÈO VÀ NGỌC HOÀNG",
+          "start_page": 863,
+          "end_page": 869,
+          "markdown_file": "story_136.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 137,
+          "title": "SỰ TÍCH CÔNG CHÚA LIỄU HẠNH",
+          "start_page": 877,
+          "end_page": 883,
+          "markdown_file": "story_137.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 138,
+          "title": "NGƯỜI THỢ SĂN VÀ MỤ CHẰNG",
+          "start_page": 884,
+          "end_page": 894,
+          "markdown_file": "story_138.md",
+          "has_khao_di": true,
+          "footnote_count": 11
+        },
+        {
+          "story_number": 139,
+          "title": "QUAN TRIỀU HAY LÀ CHIẾC ÁO TÀNG HÌNH",
+          "start_page": 895,
+          "end_page": 900,
+          "markdown_file": "story_139.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        }
+      ]
+    }
+  ]
+}

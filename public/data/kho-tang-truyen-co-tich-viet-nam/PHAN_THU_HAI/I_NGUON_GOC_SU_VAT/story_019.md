@@ -1,0 +1,19 @@
+# I. NGUỒN GỐC SỰ VẬT
+
+## 19. SỰ TÍCH CÁI CHÂN SAU CON CHÓ
+
+Ngày xưa có một người đàn bà tên là Thanh Đề rất sùng đạo Phật. Bà ta sùng Phật đến nỗi cho rằng những cơm bánh do lúa gạo người ta trồng ra ở đồng ruộng thì không thể nào tinh khiết được, nên không một thứ nào đáng đem lễ Phật. Vì thế, hằng năm bà ta trồng lúa nếp trong những cái gáo dừa đựng đất sạch. Luôn luôn bà treo cái gáo đó lên một chỗ cao vì sợ có người bước qua. Khi lúa chín, bà thận trọng rứt từng hạt một, giã nó bằng một cán dao mới tinh, rồi mới đưa nắm gạo đó đựng vào bát thờ mà dâng lên chùa.
+
+Một hôm, ở một ngôi chùa lớn trong vùng có mở hội đón tiếp khách thập phương. Vị hòa thượng chùa ấy cắt đặt một số sư tiếp nhận những lễ vật của thiện nam tín nữ đem đến cúng Phật. Bà nghe tin không quản đường xa, vội đưa nắm gạo nếp tinh khiết của mình tìm đến cúng ở chùa đó. Không ngờ mấy vị sư kia chỉ chú ý đến lễ vật hậu hỹ của những người khác, mà chả ai tưởng đến bà và nắm gạo của bà. Chờ suốt một ngày không thấy ai nhận, người đàn bà nọ tức mình, ném nắm gạo xuống đất rồi bỏ ra về.
+
+Ít lâu sau, bà ta sửa một lễ cúng Phật tại nhà mình rồi mời hòa thượng và các sư chùa đó đến tụng kinh. Theo lệ thường, trước khi ra về chủ nhân phải làm bánh tặng họ ăn đường. Để làm nhục bọn sư bất lương, bà ta giết một con chó lấy thịt băm nhỏ với các thứ rau thơm làm nhân bánh. Sau bữa cơm chay, bà ta đem bánh đó tặng mỗi người một chiếc. Đoán được mưu mẹo của người đàn bà, vị hòa thượng dặn các nhà sư cầm bánh về chứ đừng ăn. Họ đều vâng lời, duy chỉ có một nhà sư là quên mất. Dọc đường thấy bánh thom ngon, sư ta bèn bóc ăn kỳ hết. Những người khác khi đưa bánh về biết là nhân thịt chó đều quẳng cả vào gốc cây bồ đề ở trước chùa.
+
+Tất cả những việc đó đều thấu tai đức Phật. Trước hết, đức Phật trị tội bọn sư bất lương và tham lam. Bọn họ bị bắt xuống địa ngục. Con chó chết oan được sống lại. Nhưng vì nó đã bị nhà sư kia ăn mất một chân nên lúc trở về cõi thế chỉ còn có ba chân. Đức Phật thấy thế chắp cho nó một chân giả khác để nó tiện đi lại[^1]. Những thứ rau thơm làm nhân bánh bị vứt dưới gốc bồ đề cũng nhờ phép Phật mọc lại xanh tốt. Đó là ba cây rau om, hành và sả. Vì những loại cây ấy bị nhà chùa coi là đã uế tạp cho nên sau này những người xuất gia đều kiêng không dùng. Về phần người đàn bà cũng bị tội nặng: Phật bắt bà ta bỏ vào tầng ngục thứ mười. Có người bảo đó là bà mẹ ông Mục Liên, sau này ông ta từng xuống dưới đó thăm mẹ[^2].
+
+---
+
+### Chú thích
+
+[^1]: (Trang 175) Theo Lăng-đờ (Landes). Sách đã dẫn.
+
+[^2]: (Trang 175-176) Xem thêm Lược khảo về thần thoại Việt-nam, phần "Cuộc tu bổ lại các giống vật". Sách đã dẫn; tr.88 - 89. Truyện bà mẹ Mục Liên đại khái như sau: Xưa có ông La Bốc mồ côi cha rất có hiếu với mẹ... Nhưng mẹ ông ta lại tham lam quỷ quyệt. Ông chịu khó làm ăn được nhiều tiền gửi cho mẹ. Mẹ phung phí hết nhưng lại nói dối với con là đem cúng Phật. Mẹ chết, La Bốc theo đức Phật tu hành, lấy tên là Đại Mục Kiên Liên (hay Mục Liên). Trong một chuyến đi vào nơi âm hồn ở, Mục Liên chỉ gặp bố không thấy mẹ, hỏi Phật thì Phật cho biết vì gian tham nên bị đày xuống địa ngục. Mục Liên xin phép xuống thăm. Qua ngục Hung-giao, ngục Khôi-hà, hết ngục này đến ngục khác, được xem hàng nghìn cách hành hạ tội nhân, nhưng ông vẫn chưa gặp mẹ. Mãi sau một tên quỷ đưa đến ngục A-tỳ mới gặp. Thấy mẹ kêu cứu, ông thương quá toan đưa mẹ đi nhưng quỷ không cho. Sau xin mãi với Phật, Phật biến người mẹ thành chó cái đi theo Mục Liên. Sau đó, Mục Liên hóa phép cho mẹ thành người và khuyên phải sửa đổi tính xấu. Bà mẹ nghe lời và nhờ đó, một hôm, vào ngày rằm tháng Bảy được Phật cho lên trời. Từ đó vào ngày rằm tháng Bảy, người ta quen cúng lễ người chết, nhà chùa thường làm chay "phá ngục cho tội nhân, cũng gọi là ngày "vong nhân xá tội" (theo Mục Liên cứu mẫu kinh diễn âm), xem thêm truyện Thủ Huồn số 30.

@@ -1,0 +1,45 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "1392 - 1433",
+  "total_essays": 4,
+  "sections": [
+    {
+      "section_id": "V",
+      "section_title": "V. THỬ TÌM NGUỒN GỐC TRUYỆN CỐ TÍCH VIỆT - NAM",
+      "essays": [
+        {
+          "essay_number": 1,
+          "title": "CÁC TRƯỜNG PHÁI CỔ TÍCH HỌC XƯA NAY VỚI VẤN ĐỀ CÁI \"CHUNG\" VÀ CÁI \"RIÊNG\" TRONG LOẠI HÌNH CỔ TÍCH",
+          "start_page": 1392,
+          "end_page": 1397,
+          "markdown_file": "essay_01.md",
+          "footnote_count": 10
+        },
+        {
+          "essay_number": 2,
+          "title": "NGUỒN GỐC NGOẠI LAI CỦA TRUYỆN CỔ TÍCH VIỆT-NAM",
+          "start_page": 1397,
+          "end_page": 1413,
+          "markdown_file": "essay_02.md",
+          "footnote_count": 30
+        },
+        {
+          "essay_number": 3,
+          "title": "THU HÚT TINH HOA KHO TRUYỆN CỦA CÁC DÂN TỘC ANH EM",
+          "start_page": 1413,
+          "end_page": 1423,
+          "markdown_file": "essay_03.md",
+          "footnote_count": 14
+        },
+        {
+          "essay_number": 4,
+          "title": "NGUỒN GỐC BẢN ĐỊA CỦA TRUYỆN CỔ TÍCH VIỆT NAM",
+          "start_page": 1424,
+          "end_page": 1433,
+          "markdown_file": "essay_04.md",
+          "footnote_count": 3
+        }
+      ]
+    }
+  ]
+}

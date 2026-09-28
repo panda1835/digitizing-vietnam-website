@@ -1,0 +1,33 @@
+{
+  "title": "THƯ MỤC THAM KHẢO",
+  "folder": "THU_MUC_THAM_KHAO",
+  "start_page": 1435,
+  "end_page": 1466,
+  "introduction": "THU_MUC_THAM_KHAO/introduction.md",
+  "sections": [
+    {
+      "section_id": "I",
+      "section_title": "I. SÁCH VÀ BÀI",
+      "markdown_file": "THU_MUC_THAM_KHAO/I_SACH_VA_BAI.md",
+      "start_page": 1437,
+      "end_page": 1462,
+      "entry_count": 517
+    },
+    {
+      "section_id": "II",
+      "section_title": "II. BÁO VÀ TẠP CHÍ",
+      "markdown_file": "THU_MUC_THAM_KHAO/II_BAO_VA_TAP_CHI.md",
+      "start_page": 1462,
+      "end_page": 1464,
+      "entry_count": 52
+    },
+    {
+      "section_id": "III",
+      "section_title": "III. TÀI LIỆU CHÉP TAY",
+      "markdown_file": "THU_MUC_THAM_KHAO/III_TAI_LIEU_CHEP_TAY.md",
+      "start_page": 1464,
+      "end_page": 1466,
+      "entry_count": 47
+    }
+  ]
+}

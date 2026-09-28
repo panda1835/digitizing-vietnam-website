@@ -1,0 +1,247 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "255 - 414",
+  "total_stories": 26,
+  "sections": [
+    {
+      "section_id": "III",
+      "section_title": "III. SỰ TÍCH CÁC CÂU VÍ",
+      "stories": [
+        {
+          "story_number": 36,
+          "title": "THẠCH SÙNG CÒN THIẾU MẺ KHO HAY LÀ SỰ TÍCH CON MỐI",
+          "start_page": 255,
+          "end_page": 260,
+          "markdown_file": "story_036.md",
+          "has_khao_di": true,
+          "footnote_count": 7
+        },
+        {
+          "story_number": 37,
+          "title": "BÒ BÉO BÒ GẦY",
+          "start_page": 261,
+          "end_page": 263,
+          "markdown_file": "story_037.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 38,
+          "title": "NỮ HÀNH GIÀNH BẠC",
+          "start_page": 264,
+          "end_page": 265,
+          "markdown_file": "story_038.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 39,
+          "title": "LẨY BẨY NHƯ CAO BIỀN DẬY NON",
+          "start_page": 266,
+          "end_page": 273,
+          "markdown_file": "story_039.md",
+          "has_khao_di": true,
+          "footnote_count": 12
+        },
+        {
+          "story_number": 40,
+          "title": "BỤNG LÀM DẠ CHỊU HAY LÀ TRUYỆN THẦY HÍT",
+          "start_page": 274,
+          "end_page": 283,
+          "markdown_file": "story_040.md",
+          "has_khao_di": true,
+          "footnote_count": 10
+        },
+        {
+          "story_number": 41,
+          "title": "ĐỒNG TIỀN VẠN LỊCH",
+          "start_page": 296,
+          "end_page": 308,
+          "markdown_file": "story_041.md",
+          "has_khao_di": true,
+          "footnote_count": 20
+        },
+        {
+          "story_number": 42,
+          "title": "CỦA THIÊN TRẢ ĐỊA",
+          "start_page": 309,
+          "end_page": 311,
+          "markdown_file": "story_042.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 43,
+          "title": "NỢ TÌNH CHƯA TRẢ CHO AI, KHỐI TÌNH MANG XUỐNG TUYỀN ĐÀI CHƯA TAN",
+          "start_page": 312,
+          "end_page": 315,
+          "markdown_file": "story_043.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 44,
+          "title": "NỢ NHƯ CHÚA CHỔM",
+          "start_page": 316,
+          "end_page": 320,
+          "markdown_file": "story_044.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 45,
+          "title": "HỒN TRƯƠNG BA, DA HÀNG THỊT",
+          "start_page": 321,
+          "end_page": 323,
+          "markdown_file": "story_045.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 46,
+          "title": "SINH CON RỒI MỚI SINH CHA SINH CHÁU GIỮ NHÀ RỒI MỚI SINH ÔNG",
+          "start_page": 324,
+          "end_page": 327,
+          "markdown_file": "story_046.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 47,
+          "title": "CON VỢ KHÔN LẤY THẰNG CHỒNG DẠI NHƯ BÔNG HOA LÀI CẮM BÃI CỨT TRÂU",
+          "start_page": 328,
+          "end_page": 332,
+          "markdown_file": "story_047.md",
+          "has_khao_di": true,
+          "footnote_count": 7
+        },
+        {
+          "story_number": 48,
+          "title": "CỨU VẬT VẬT TRẢ ÂN CỨU NHÂN NHÂN TRẢ OÁN",
+          "start_page": 333,
+          "end_page": 345,
+          "markdown_file": "story_048.md",
+          "has_khao_di": true,
+          "footnote_count": 15
+        },
+        {
+          "story_number": 49,
+          "title": "ĐỨA CON TRỜI ĐÁNH HAY LÀ TRUYỆN TIẾC GÀ CHÔN MẸ",
+          "start_page": 346,
+          "end_page": 347,
+          "markdown_file": "story_049.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 50,
+          "title": "GIẾT CHÓ KHUYÊN CHỒNG",
+          "start_page": 348,
+          "end_page": 351,
+          "markdown_file": "story_050.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 51,
+          "title": "CHA MẸ NUÔI CON BỂ HỒ LAI LÁNG CON NUÔI CHA MẸ KỂ THÁNG KỂ NGÀY",
+          "start_page": 352,
+          "end_page": 355,
+          "markdown_file": "story_051.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 52,
+          "title": "CHƯA ĐỖ ÔNG NGHÈ ĐÃ ĐE HÀNG TỔNG",
+          "start_page": 356,
+          "end_page": 359,
+          "markdown_file": "story_052.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 53,
+          "title": "DÌ PHẢI THẰNG CHẾT TRÔI, TÔI PHẢI ĐÔI SẤU SÀNH",
+          "start_page": 360,
+          "end_page": 363,
+          "markdown_file": "story_053.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 54,
+          "title": "CÁI KIẾN MÀY KIỆN CỦ KHOAI",
+          "start_page": 364,
+          "end_page": 366,
+          "markdown_file": "story_054.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 55,
+          "title": "VẬN KHỨ HOÀI SƠN NĂNG TRÍ TỬ, THỜI LAI BẠCH THỦY KHẢ THÔI SINH",
+          "start_page": 367,
+          "end_page": 369,
+          "markdown_file": "story_055.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 56,
+          "title": "TRINH PHỤ HAI CHỒNG",
+          "start_page": 370,
+          "end_page": 372,
+          "markdown_file": "story_056.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 57,
+          "title": "KIỆN NGÀNH ĐA",
+          "start_page": 373,
+          "end_page": 379,
+          "markdown_file": "story_057.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 58,
+          "title": "TO ĐẦU MÀ DẠI, NHỎ DÁI MÀ KHÔN",
+          "start_page": 380,
+          "end_page": 388,
+          "markdown_file": "story_058.md",
+          "has_khao_di": true,
+          "footnote_count": 12
+        },
+        {
+          "story_number": 59,
+          "title": "NHÂN THAM TÀI NHI TỬ, ĐIỂU THAM THỰC NHI VONG",
+          "start_page": 389,
+          "end_page": 392,
+          "markdown_file": "story_059.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 60,
+          "title": "NÓI DỐI NHƯ CUỘI",
+          "start_page": 393,
+          "end_page": 411,
+          "markdown_file": "story_060.md",
+          "has_khao_di": true,
+          "footnote_count": 12
+        },
+        {
+          "story_number": 61,
+          "title": "CỦA TRỜI TRỜI LẠI LẤY ĐI GIƯƠNG ĐÔI MẮT ẾCH LÀM CHI ĐƯỢC TRỜI",
+          "start_page": 412,
+          "end_page": 414,
+          "markdown_file": "story_061.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+# THƯ MỤC THAM KHẢO
+
+## II. BÁO VÀ TẠP CHÍ
+
+- Anthropos
+- Bách khoa (BK)
+- Bulletin de la société des Études indochinoises (BSEI)
+- Bulletin des amis du vieux Huế (BAVH)
+- Bulletin de 1École française d'Extrême-orient (BEFEO)
+- Dân gian văn học 民 間 聞 學, Bắc-kinh
+- Đông thanh tạp chí
+- Đuốc tuệ
+- Excursions et Reconnaissances (ER)
+- Extrême - Asie
+- Folklore Fellows Communications (FFC)
+- France - Asie (FA)
+- Hà-nội báo
+- Hữu thanh tạp chí
+- Institut indochinois de l'Étude de l'homme (IIEH)
+- Journal Asiatique (JA)
+- Le Muséum
+- Nam phong tạp chí (NP)
+- Nghiên cứu lịch sử (NCLS)
+- Nghiên cứu văn học (NCVH)
+- Nghiên cứu Văn Sử Địa
+- Nông công thương
+- Notre revue
+- Nước non tuần báo
+- Orient and Occident
+- (Les) pages de l'Indochine
+- Phổ thông (PT)
+- Phụ nữ tân văn
+- Phương Đông
+- Revue d'Ethnographie et des Traditions populaires (RETP)
+- Revue d'Ethnographie et de Sociologie (RES)
+- Revue des Traditions populaires (RTP)
+- Revue des troupes coloniales
+- Revue franco - annamite
+- Sud - Est
+- Tạp chí văn học (TCVH)
+- Tân thanh tạp chí
+- Tân văn
+- Thanh Nghệ Tĩnh tân văn
+- Thực nghiệp dân báo
+- Tiểu thuyết chủ nhật
+- Tiểu thuyết thứ bảy
+- Tràng an
+- Trí tân tạp chí
+- Trung Bắc chủ nhật
+- Trung Bắc tân văn
+- Tứ dân văn uyển
+- Văn hóa Á châu
+- Văn hóa nguyệt san (VHNS)
+- Văn hóa tập san
+- Văn nghệ
+- Văn nghệ dân gian

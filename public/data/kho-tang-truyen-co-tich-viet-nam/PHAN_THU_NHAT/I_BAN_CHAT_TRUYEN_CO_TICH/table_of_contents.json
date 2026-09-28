@@ -1,0 +1,61 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "43 - 58",
+  "total_essays": 6,
+  "sections": [
+    {
+      "section_id": "I",
+      "section_title": "I. BẢN CHẤT TRUYỆN CỔ TÍCH",
+      "essays": [
+        {
+          "essay_number": 1,
+          "title": "PHÂN LOẠI TRUYỆN CỔ, MỘT VẤN ĐỀ ĐẶT RA TỪ LÂU, NHƯNG VẪN CÒN RẤT MỚI MẺ",
+          "start_page": 43,
+          "end_page": 45,
+          "markdown_file": "essay_01.md",
+          "footnote_count": 2
+        },
+        {
+          "essay_number": 2,
+          "title": "TRUYỆN CỔ TÍCH KHÁC VỚI NHỮNG LOẠI CHUYỆN NÀO?",
+          "start_page": 45,
+          "end_page": 47,
+          "markdown_file": "essay_02.md",
+          "footnote_count": 3
+        },
+        {
+          "essay_number": 3,
+          "title": "RANH GIỚI GIỮA TRUYỀN THUYẾT VÀ CỔ TÍCH",
+          "start_page": 47,
+          "end_page": 50,
+          "markdown_file": "essay_03.md",
+          "footnote_count": 2
+        },
+        {
+          "essay_number": 4,
+          "title": "ĐẶC TRƯNG THỂ LOẠI CỦA CỔ TÍCH",
+          "start_page": 50,
+          "end_page": 53,
+          "markdown_file": "essay_04.md",
+          "footnote_count": 0
+        },
+        {
+          "essay_number": 5,
+          "title": "CÓ MẤY LOẠI TRUYỆN CỔ TÍCH?",
+          "start_page": 53,
+          "end_page": 55,
+          "markdown_file": "essay_05.md",
+          "footnote_count": 2
+        },
+        {
+          "essay_number": 6,
+          "title": "PHÂN BIỆT TRUYỆN CỔ TÍCH VỚI LỊCH SỬ VÀ VỚI TIỂU THUYẾT",
+          "start_page": 55,
+          "end_page": 58,
+          "markdown_file": "essay_06.md",
+          "footnote_count": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "extracted_range": "901 - 1122",
+  "total_stories": 31,
+  "sections": [
+    {
+      "section_id": "VIII",
+      "section_title": "VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN",
+      "stories": [
+        {
+          "story_number": 140,
+          "title": "THỬ THẦN VÀ MIÊU THẦN HAY LÀ SỰ TÍCH CHUỘT VÀ MÈO",
+          "start_page": 901,
+          "end_page": 904,
+          "markdown_file": "story_140.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 141,
+          "title": "CON CÓC LIẾM NƯỚC MƯA",
+          "start_page": 905,
+          "end_page": 908,
+          "markdown_file": "story_141.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 142,
+          "title": "THẦY CỨU TRÒ",
+          "start_page": 909,
+          "end_page": 912,
+          "markdown_file": "story_142.md",
+          "has_khao_di": false,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 143,
+          "title": "HAI CON CÒ VÀ CON RÙA",
+          "start_page": 913,
+          "end_page": 915,
+          "markdown_file": "story_143.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 144,
+          "title": "CÔ GÁI LẤY CHỒNG HOÀNG TỬ",
+          "start_page": 916,
+          "end_page": 920,
+          "markdown_file": "story_144.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 145,
+          "title": "NGƯỜI DÌ GHẺ ÁC NGHIỆT HAY LÀ SỰ TÍCH CON DẾ",
+          "start_page": 921,
+          "end_page": 923,
+          "markdown_file": "story_145.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 146,
+          "title": "LÀM ƠN HÓA HẠI",
+          "start_page": 924,
+          "end_page": 926,
+          "markdown_file": "story_146.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 147,
+          "title": "HUYỀN QUANG",
+          "start_page": 927,
+          "end_page": 932,
+          "markdown_file": "story_147.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 148,
+          "title": "TIÊU DIỆT MÃNG XÀ",
+          "start_page": 933,
+          "end_page": 948,
+          "markdown_file": "story_148.md",
+          "has_khao_di": true,
+          "footnote_count": 20
+        },
+        {
+          "story_number": 149,
+          "title": "GIÁP HẢI",
+          "start_page": 949,
+          "end_page": 958,
+          "markdown_file": "story_149.md",
+          "has_khao_di": true,
+          "footnote_count": 10
+        },
+        {
+          "story_number": 150,
+          "title": "TAM VÀ TỨ",
+          "start_page": 959,
+          "end_page": 967,
+          "markdown_file": "story_150.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 151,
+          "title": "BÍNH VÀ ĐINH",
+          "start_page": 968,
+          "end_page": 973,
+          "markdown_file": "story_151.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 152,
+          "title": "HÀ RẦM HÀ RẠC",
+          "start_page": 974,
+          "end_page": 978,
+          "markdown_file": "story_152.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 153,
+          "title": "ÔNG GIÀ HỌ LÊ",
+          "start_page": 979,
+          "end_page": 983,
+          "markdown_file": "story_153.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 154,
+          "title": "TẤM CÁM",
+          "start_page": 984,
+          "end_page": 1019,
+          "markdown_file": "story_154.md",
+          "has_khao_di": true,
+          "footnote_count": 27
+        },
+        {
+          "story_number": 155,
+          "title": "AO PHẬT",
+          "start_page": 1020,
+          "end_page": 1022,
+          "markdown_file": "story_155.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 156,
+          "title": "PHẠM NHĨ HAY LÀ SỰ TÍCH ÔNG BA MƯƠI",
+          "start_page": 1023,
+          "end_page": 1024,
+          "markdown_file": "story_156.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 157,
+          "title": "CON MA BÁO THÙ",
+          "start_page": 1025,
+          "end_page": 1027,
+          "markdown_file": "story_157.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 158,
+          "title": "RẮN BÁO OÁN",
+          "start_page": 1028,
+          "end_page": 1034,
+          "markdown_file": "story_158.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 159,
+          "title": "RẠCH ĐÙI GIẤU NGỌC",
+          "start_page": 1035,
+          "end_page": 1038,
+          "markdown_file": "story_159.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 160,
+          "title": "NGƯỜI HỌC TRÒ VÀ CON HỔ",
+          "start_page": 1039,
+          "end_page": 1045,
+          "markdown_file": "story_160.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 161,
+          "title": "SỰ TÍCH ĐỀN CỜN",
+          "start_page": 1046,
+          "end_page": 1049,
+          "markdown_file": "story_161.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 162,
+          "title": "HOẰNG TÍN HẦU",
+          "start_page": 1050,
+          "end_page": 1055,
+          "markdown_file": "story_162.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 163,
+          "title": "QUÂN TỬ",
+          "start_page": 1056,
+          "end_page": 1060,
+          "markdown_file": "story_163.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 164,
+          "title": "CƯỜNG BẠO ĐẠI VƯƠNG",
+          "start_page": 1061,
+          "end_page": 1072,
+          "markdown_file": "story_164.md",
+          "has_khao_di": true,
+          "footnote_count": 15
+        },
+        {
+          "story_number": 165,
+          "title": "MŨI DÀI",
+          "start_page": 1073,
+          "end_page": 1084,
+          "markdown_file": "story_165.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 166,
+          "title": "BỐN CÔ GÁI MUỐN LẤY CHỒNG HOÀNG TỬ",
+          "start_page": 1085,
+          "end_page": 1098,
+          "markdown_file": "story_166.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 167,
+          "title": "ÔNG DÀI ÔNG CỘC HAY LÀ SỰ TÍCH THẦN SÔNG KỲ-CÙNG",
+          "start_page": 1099,
+          "end_page": 1106,
+          "markdown_file": "story_167.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 168,
+          "title": "SỰ TÍCH THÁP BÁO ÂN",
+          "start_page": 1107,
+          "end_page": 1110,
+          "markdown_file": "story_168.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 169,
+          "title": "NÀNG XUÂN HƯƠNG",
+          "start_page": 1111,
+          "end_page": 1116,
+          "markdown_file": "story_169.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 170,
+          "title": "VỤ KIỆN CHÂU CHẤU",
+          "start_page": 1117,
+          "end_page": 1122,
+          "markdown_file": "story_170.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        }
+      ]
+    }
+  ]
+}
