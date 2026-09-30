@@ -26,15 +26,6 @@ export default async function ExternalArchivesPage({
 
   const onlineArchives = [
     {
-      name: isVi
-        ? "Bảo tàng Mở Hán Nôm (Đài Loan)"
-        : "Hán-Nôm Open Museum (Taiwan)",
-      description: isVi
-        ? "Bộ sưu tập kỹ thuật số các tài liệu Hán-Nôm từ Bảo tàng Mở của Đài Loan, bao gồm các văn bản lịch sử và nghệ thuật."
-        : "Digital catalog of Hán-Nôm materials from Taiwan's Open Museum.",
-      url: "https://hannom.openmuseum.tw/",
-    },
-    {
       name: "Vietnamica",
       description: isVi
         ? "Cơ sở dữ liệu bản đồ này chứa 20.980 bản dập văn bia được Trường Viễn Đông Bác cổ Pháp thực hiện tại Việt Nam từ năm 1910 đến năm 1944. Một chương trình ERC của École Pratique des Hautes Études."
@@ -78,6 +69,29 @@ export default async function ExternalArchivesPage({
         : "Hán-Nôm documents and manuscripts preserved on the Internet Archive.",
       url: "https://archive.org/search?query=subject%3A%22ch%E1%BB%AF+N%C3%B4m%22",
     },
+    {
+      name: isVi
+        ? "Bộ sưu tập Cảnh Phước (Đại học Kyoto)"
+        : "Cảnh Phước Collection (Kyoto University)",
+      description: isVi
+        ? "98 tư liệu Phật giáo bằng chữ Hán-Nôm từ cuối thế kỷ XIX đến thế kỷ XX, phát hiện tại chùa Cảnh Phước, một ngôi chùa Việt ở Bangkok, Thái Lan. Được số hóa trong Kho lưu trữ số tư liệu quý hiếm của Đại học Kyoto (Trung tâm Nghiên cứu Đông Nam Á)."
+        : "98 Buddhist texts in Hán-Nôm from the late nineteenth to the twentieth century, discovered at Cảnh Phước, a Vietnamese temple in Bangkok, Thailand. Digitized in the Kyoto University Rare Materials Digital Archive (Center for Southeast Asian Studies).",
+      url: "https://rmda.kulib.kyoto-u.ac.jp/en/collection/cseas/canhphuoc",
+    },
+    {
+      name: "Kanripo (漢籍リポジトリ)",
+      description: isVi
+        ? "Kho văn bản điện tử mở gồm khoảng 9.000 thư tịch chữ Hán tiền hiện đại, phân theo Kinh, Sử, Tử, Tập, Đạo tạng và Phật tạng, phát hành theo giấy phép Creative Commons."
+        : "Open repository of about 9,000 premodern Chinese texts, arranged by Classics, Histories, Masters, Collections, Daoist and Buddhist canons, and released under a Creative Commons license.",
+      url: "https://www.kanripo.org/",
+    },
+    {
+      name: isVi ? "Thức Điển Cổ Tịch (识典古籍)" : "Shidian Guji (识典古籍)",
+      description: isVi
+        ? "Nền tảng đọc và chỉnh lý cổ tịch Trung Quốc của Phòng thí nghiệm mở Nhân văn số Đại học Bắc Kinh – ByteDance, cho phép tìm kiếm toàn văn và đối chiếu với ảnh bản gốc của hàng nghìn bộ sách, từ Tứ bộ tùng san, Tứ khố toàn thư đến Bách nạp bản Nhị thập tứ sử."
+        : "Reading and collation platform for premodern Chinese books from the Peking University–ByteDance Digital Humanities Open Lab, with full-text search checked against page scans for thousands of titles drawn from the Sibu congkan, Siku quanshu, and Bona edition of the Twenty-Four Histories.",
+      url: "https://www.shidianguji.com/",
+    },
   ];
 
   const physicalArchives = [
@@ -87,6 +101,13 @@ export default async function ExternalArchivesPage({
         ? "Các danh mục thẻ và hồ sơ thư mục đã được số hóa từ Viện Nghiên cứu Hán-Nôm tại Hà Nội."
         : "Digitized card catalogs and bibliographic records from the Institute of Sino-Nôm Studies in Hanoi.",
       url: "https://hannom.vass.gov.vn/di-san-han-nom",
+    },
+    {
+      name: isVi ? "Bảo tàng Mở Hán Nôm" : "Hán-Nôm Open Museum",
+      description: isVi
+        ? "Danh mục bằng tiếng Trung về các tư liệu Hán-Nôm, phần lớn cũng đã có trong danh mục của Viện Nghiên cứu Hán-Nôm."
+        : "A Chinese-language catalog of Hán-Nôm materials, most of which are also covered by the Institute of Sino-Nôm Studies catalog.",
+      url: "https://hannom.openmuseum.tw/",
     },
     {
       name: "BULAC",
