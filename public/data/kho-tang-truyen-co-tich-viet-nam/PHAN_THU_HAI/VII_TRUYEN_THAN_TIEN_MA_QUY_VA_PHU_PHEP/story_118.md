@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 118. TÚ UYÊN
+## 118. Tú Uyên
 
 Vào đời Hồng Đức, có một người học trò nghèo, cha mẹ chết sớm, trọ học ở phường Bích-câu, phía Nam thành Thăng-long. Chàng rất hay chữ, tuy chưa đỗ đạt gì, người ta cũng gọi chàng là Tú Uyên.
 

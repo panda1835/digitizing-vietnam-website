@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 55. VẬN KHỨ HOÀI SƠN NĂNG TRÍ TỬ, THỜI LAI BẠCH THỦY KHẢ THÔI SINH[^1]
+## 55. Vận khứ hoài sơn năng trí tử, thời lai bạch thủy khả thôi sinh[^1]
 
 Ngày xưa, có một ông lang xem mạch chữa bệnh rất giỏi. Các môn nội khoa cũng như ngoại khoa ông đều thành thạo. Ông lại là một người chính trực. Mọi nơi tôn ông làm danh sư, vì vậy nổi tiếng một thời.
 

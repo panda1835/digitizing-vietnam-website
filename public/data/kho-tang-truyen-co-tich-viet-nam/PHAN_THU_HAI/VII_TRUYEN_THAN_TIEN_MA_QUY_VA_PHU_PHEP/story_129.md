@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 129. NGƯỜI LẤY ẾCH
+## 129. Người lấy ếch
 
 Vào đời nhà Lê, có ông bà Trần Cao ngày rằm tháng bảy một năm nọ theo lệ thường mang vàng hương lễ vật tìm đến miếu Long Hải vương để làm lễ cầu phúc. Miếu này ở trên một ngọn núi sát bờ biển có tiếng linh thiêng. Lần này hai vợ chồng lại đưa cả con trai là Trần Sinh đi theo. Cúng xong, cả gia đình quây quần ở trước hiên miếu chuẩn bị ngủ lại để cầu mộng. Đêm ấy, Trần Cao mộng thấy một người mặt đỏ râu dài, oai phong lẫm liệt, mặc áo lụa, lưng thắt đai vàng, đến trước mặt mình mà bảo rằng:
 

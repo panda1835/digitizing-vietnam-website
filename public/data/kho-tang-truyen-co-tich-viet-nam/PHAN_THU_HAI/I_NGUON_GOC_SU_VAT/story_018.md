@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 18. GỐC TÍCH CÁI NỐT DƯỚI CỔ CON TRÂU
+## 18. Gốc tích cái nốt dưới cổ con trâu
 
 Ngày đó trâu cùng nói một thứ tiếng với người. Nhờ thế người dùng lời nói để sai khiến con vật theo ý muốn của mình rất tiện. Cũng như thế, những gã mục đồng đối với trâu không dám đánh đập tàn tệ hoặc cho ăn thiếu thốn vì sợ trâu mách chủ.
 

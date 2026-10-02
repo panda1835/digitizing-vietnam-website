@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 101. BA VÀNH
+## 101. Ba Vành
 
 Ngày xưa, ở làng Minh-giám có một chàng trai nổi tiếng khỏe mạnh. Lúc mới sinh có nhiều tướng lạ: tay dài quá gối, răng liền một hàng, trên trán có ba đường chỉ ngang. Vì thế lớn lên, người ta quen gọi chàng là Ba Vành. Còn một điều đặc biệt nữa là ở mỗi bên chân có một chòm lông xoăn. Hai chòm lông này có phép rất mầu nhiệm. Hễ lúc nào nắm lấy chòm lông mà vuốt thì thân thể tự nhiên nhẹ nhõm, có thể nhảy một phóc vọt qua nóc nhà, hay từ trên cây cao buông người rơi xuống đất mà không việc gì. Tuy có tướng lạ, Ba Vành vẫn giấu không cho ai biết.
 

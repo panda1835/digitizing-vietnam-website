@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "204 - 254",
   "total_stories": 10,
   "sections": [
     {
       "section_id": "II",
-      "section_title": "II. SỰ TÍCH ĐẤT NƯỚC VIỆT",
+      "section_title": "II. Sự tích đất nước Việt",
       "stories": [
         {
           "story_number": 26,
-          "title": "SỰ TÍCH HỒ GƯƠM",
+          "title": "Sự tích Hồ Gươm",
           "start_page": 204,
           "end_page": 209,
           "markdown_file": "story_026.md",
@@ -18,7 +18,7 @@
         },
         {
           "story_number": 27,
-          "title": "SỰ TÍCH HỒ BA-BỂ",
+          "title": "Sự tích hồ Ba-Bể",
           "start_page": 210,
           "end_page": 216,
           "markdown_file": "story_027.md",
@@ -27,7 +27,7 @@
         },
         {
           "story_number": 28,
-          "title": "SỰ TÍCH ĐẦM NHẤT-DẠ VÀ BÃI TỰ-NHIÊN",
+          "title": "Sự tích đầm Nhất-Dạ và bãi Tự-Nhiên",
           "start_page": 217,
           "end_page": 222,
           "markdown_file": "story_028.md",
@@ -36,7 +36,7 @@
         },
         {
           "story_number": 29,
-          "title": "SỰ TÍCH ĐẦM MỰC",
+          "title": "Sự tích đầm Mực",
           "start_page": 223,
           "end_page": 225,
           "markdown_file": "story_029.md",
@@ -45,7 +45,7 @@
         },
         {
           "story_number": 30,
-          "title": "SỰ TÍCH SÔNG NHÀ-BÈ HAY LÀ TRUYỆN THỦ HUỒN",
+          "title": "Sự tích sông Nhà-Bè hay là truyện Thủ Huồn",
           "start_page": 226,
           "end_page": 231,
           "markdown_file": "story_030.md",
@@ -54,7 +54,7 @@
         },
         {
           "story_number": 31,
-          "title": "TẠI SAO SÔNG TÔ-LỊCH VÀ SÔNG THIÊN-PHÙ HẸP LẠI?",
+          "title": "Tại sao sông Tô-Lịch và sông Thiên-Phù hẹp lại?",
           "start_page": 232,
           "end_page": 235,
           "markdown_file": "story_031.md",
@@ -63,7 +63,7 @@
         },
         {
           "story_number": 32,
-          "title": "SỰ TÍCH ĐÁ VỌNG PHU",
+          "title": "Sự tích đá Vọng Phu",
           "start_page": 236,
           "end_page": 242,
           "markdown_file": "story_032.md",
@@ -72,7 +72,7 @@
         },
         {
           "story_number": 33,
-          "title": "SỰ TÍCH ĐÁ BÀ-RẦU",
+          "title": "Sự tích đá Bà-Rầu",
           "start_page": 243,
           "end_page": 244,
           "markdown_file": "story_033.md",
@@ -81,7 +81,7 @@
         },
         {
           "story_number": 34,
-          "title": "SỰ TÍCH THÀNH LỒI",
+          "title": "Sự tích thành Lồi",
           "start_page": 245,
           "end_page": 251,
           "markdown_file": "story_034.md",
@@ -90,7 +90,7 @@
         },
         {
           "story_number": 35,
-          "title": "SỰ TÍCH NÚI NGŨ-HÀNH",
+          "title": "Sự tích núi Ngũ-Hành",
           "start_page": 252,
           "end_page": 254,
           "markdown_file": "story_035.md",

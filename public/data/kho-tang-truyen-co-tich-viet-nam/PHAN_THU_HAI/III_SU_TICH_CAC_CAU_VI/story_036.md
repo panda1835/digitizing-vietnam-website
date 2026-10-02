@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ[^1]
+# III. Sự tích các câu ví[^1]
 
-## 36. THẠCH SÙNG CÒN THIẾU MẺ KHO HAY LÀ SỰ TÍCH CON MỐI
+## 36. Thạch Sùng còn thiếu mẻ kho hay là sự tích con mối
 
 Ngày xưa, có hai vợ chồng một người nghèo khó tên là Thạch Sùng. Họ sống chui rúc trong một túp lều gần chợ, xin ăn qua ngày. Cuộc sống thật là vất vả. Nhưng Thạch Sùng là người có chí kinh doanh lớn, lại có nhiều thủ đoạn. Từ lâu hai vợ chồng ăn nhịn để dành, lần hồi góp nhặt một số vốn chôn ở góc nhà. Số tiền ấy ngày một lớn mãi lên. Nhưng họ vẫn giả bộ nghèo khó, làm nghề hành khất như cũ.
 

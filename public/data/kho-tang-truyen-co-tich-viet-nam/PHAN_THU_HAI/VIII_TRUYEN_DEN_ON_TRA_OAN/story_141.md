@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 141. CON CÓC LIẾM NƯỚC MƯA
+## 141. Con cóc liếm nước mưa
 
 Có hai người bạn Ân và Nghĩa cùng làm nghề sơn tràng. Thường ngày họ vào trong rừng sâu tìm cây đốn ngã xuống, phạt cành lá, rồi cho trâu kéo ra bán cho bọn lái gỗ. Những ngày lên rừng họ thường làm chung với nhau, và cùng sống cạnh nhau vui vẻ hòa thuận. Sau đó ít lâu Ân lấy vợ. Vợ Ân rất đẹp. Hai vợ chồng sống rất tương đắc.
 

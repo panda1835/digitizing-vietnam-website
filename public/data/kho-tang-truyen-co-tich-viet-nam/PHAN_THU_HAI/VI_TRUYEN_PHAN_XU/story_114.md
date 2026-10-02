@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 114. NGƯỜI ĐÀN BÀ MẤT TÍCH
+## 114. Người đàn bà mất tích
 
 Vào đời nhà Lê, có một người đàn bà trẻ tuổi lấy chồng họ Mai. Một hôm nghe tin người chị ruột của mình đau nặng, nàng bèn nói với chồng để mình đi lại chăm sóc thuốc men vì nhà chị rất neo người.
 

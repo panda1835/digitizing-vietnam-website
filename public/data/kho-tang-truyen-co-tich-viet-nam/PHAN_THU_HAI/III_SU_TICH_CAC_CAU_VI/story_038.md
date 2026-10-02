@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 38. NỮ HÀNH GIÀNH BẠC
+## 38. Nữ hành giành bạc
 
 Ngày xưa có nhà phú hộ có một người con trai mười lăm tuổi cho đi học tại nhà một cụ đồ trong làng. Anh chàng bẩm tính ngu độn lại thích chơi bời lêu lổng, nhét cho mấy, chữ cũng không vào. Rồi qua năm sau cha mẹ kiếm cho một người vợ. Vợ hắn là con gái một nhà nho, nhan sắc xinh đẹp, đã hay chữ lại tính nết rất đoan chính.
 

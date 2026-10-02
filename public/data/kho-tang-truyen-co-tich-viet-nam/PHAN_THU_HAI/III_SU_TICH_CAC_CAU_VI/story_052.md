@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 52. CHƯA ĐỖ ÔNG NGHÈ ĐÃ ĐE HÀNG TỔNG
+## 52. Chưa đỗ ông nghè đã đe hàng tổng
 
 Ngày xưa có một người học trò nghèo nhưng học giỏi, được Thiên đình rất chú ý. Trong sổ thiên tào hồi đó đã ghi cho anh chàng đậu tiến sĩ, làm quan đến thượng thư. Mỗi lần anh đi học thường qua một ngôi đền thờ thần ở làng bên cạnh. Vị thần làng đó vốn đã có đọc ở sổ thiên tào nên tỏ vẻ cung kính người học trò ấy. Những khi anh ta đi qua đền thì tượng thần đang ngồi trên bệ lật đật đứng dậy rất lễ phép.
 

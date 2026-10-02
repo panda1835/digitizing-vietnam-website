@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 44. NỢ NHƯ CHÚA CHỔM
+## 44. Nợ như Chúa Chổm
 
 Vào thời nhà Lê, có một ông quan lớn trong triều tên là Mạc Đăng Dung có chí muốn cướp ngôi vua. Nhà vua biết được tin đó nhưng thế lực của Mạc rất lớn, ông ta cầm binh quyền, bè đảng lại đông nên không thể làm gì được. Cuối cùng nhà vua lẻn trốn đi nhưng chẳng được bao lâu đã bị Mạc Đăng Dung bắt đem về giam lại.
 

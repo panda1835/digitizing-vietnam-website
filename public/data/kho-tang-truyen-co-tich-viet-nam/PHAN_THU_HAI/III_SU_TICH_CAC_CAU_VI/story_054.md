@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 54. CÁI KIẾN MÀY KIỆN CỦ KHOAI
+## 54. Cái kiến mày kiện củ khoai
 
 Ngày xưa, có một anh chàng sinh trưởng trong một gia đình giàu có. Nhà hắn có ao thả cá, có trâu bò, ruộng vườn khá nhiều. Ngày ấy ở gần làng hắn có một cô gái nết na, nhan sắc xinh đẹp, chỉ phải cái tội nghèo. Hàng ngày cô gái phải làm thuê làm mướn kiếm ăn. Anh chàng nhà giàu kia từng ngây ngất vì nhan sắc của cô. Mặc dầu không môn đăng hộ đối, nhưng hắn ao ước được cùng nàng kết làm bạn trăm năm. Sau đó nhờ có một người đàn bà làm mối, hắn được gặp nàng nhiều lần và chỉ non thề bể quyết lấy nàng làm vợ. Nghe hắn nói thế, cô gái vô cùng sung sướng và hiến thân cho hắn không tiếc thương gì nữa.
 

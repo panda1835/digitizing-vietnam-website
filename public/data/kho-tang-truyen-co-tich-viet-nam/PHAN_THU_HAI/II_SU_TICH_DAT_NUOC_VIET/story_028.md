@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 28. SỰ TÍCH ĐẦM NHẤT-DẠ VÀ BÃI TỰ-NHIÊN
+## 28. Sự tích đầm Nhất-Dạ và bãi Tự-Nhiên
 
 Vua Hùng Vương thứ ba có một nàng công chúa rất xinh đẹp. Người ta nói thuở mới lọt lòng, nàng được các bà tiên tô điểm, nên về sau mới có nhan sắc như thế. Vì vậy vua đặt tên là Tiên Dung. Vua Hùng là người hay nuông con. Đối với Tiên Dung vua lại càng yêu chiều, muốn gì được nấy.
 

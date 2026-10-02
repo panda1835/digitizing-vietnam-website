@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 70. ÔNG Ồ
+## 70. Ông Ồ
 
 Ngày xưa ở cửa Sót thuộc Hà-tĩnh có một người làng chài có sức khỏe hơn đời. Ông ta làm việc gấp đôi gấp ba người thường, sức ăn mỗi bữa có thể hết một nồi mười cơm. Nghề vật thì rất giỏi, những tay đô vật trong vùng đều hàng phục. Ông ta vẫn lấy thế làm kiêu hãnh.
 

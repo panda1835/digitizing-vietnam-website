@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 14. SỰ TÍCH CON SAM
+## 14. Sự tích con sam
 
 Ngày xưa có hai vợ chồng một người đánh cá nghèo. Một hôm người chồng ra khơi với bạn nghề. Không may có một trận bão rất lớn nổi lên giữa lúc họ đang thả lưới. Không một người nào thoát khỏi tai nạn.
 

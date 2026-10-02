@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 153. ÔNG GIÀ HỌ LÊ
+## 153. Ông già họ Lê
 
 Ngày xưa có một ông già góa vợ họ Lê. Nhà ông tiền kho bạc đụn không sao tiêu hết. Nhưng ông lại không có con trai, chỉ sinh độc một mụn con gái, lớn lên, gả cho một anh chàng con nhà gia thế trong vùng. Chàng rể của ông người họ Bùi. Hắn lấy con gái ông là cốt nhìn vào gia tài kếch sù của ông. Về phía ông già họ Lê cũng bụng bảo dạ:
 

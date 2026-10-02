@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 79. BÙI CẦM HỔ
+## 79. Bùi Cầm Hổ
 
 Vào thời nhà Lê có một anh chàng nghèo khổ quê ở Kẻ-treo sát chân núi Hồng-lĩnh tên là Hổ. Lúc còn nhỏ Hổ có đi học dăm ba chữ với một cụ đồ già. Lớn lên Hổ sống một thân một mình không cha mẹ anh em gì cả. Cuối cùng chàng phải sinh nhai bằng nghề giữ trâu bò cho xóm, gia sản chỉ có một cái tù và, một con dao và một cái giỏ.
 

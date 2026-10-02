@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 172. ANH CHÀNG HỌ ĐÀO
+## 172. Anh chàng họ Đào
 
 Ngày xưa ở huyện Đông-sơn có một anh học trò họ Đào. Anh đẹp trai, học giỏi, chỉ phải một tội là nhà rất nghèo. Thường ngày anh cắp sách sang làng bên cạnh học với một ông đồ. Nhưng cũng có những lúc anh phải đi làm thuê, làm mướn để kiếm tiền gạo nuôi thân. Cuộc sống bữa no bữa đói khá là vất vả. Trong năm năm, mặc cho kẻ cười người chê, anh vẫn vừa làm vừa học không chịu bỏ dở. Ở chỗ làng anh đến học, có một cô gái con nhà khá giả yêu anh và cũng được anh yêu lại. Hai bên có tình ý với nhau như vậy đã được vài năm.
 

@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 5. SỰ TÍCH CHIM HÍT CÔ
+## 5. Sự tích chim hít cô
 
 Ngày xưa, có hai cô cháu ở chung với nhau một nhà. Người cô già, chồng chết từ lâu. Đứa cháu còn bé chừng mười hai tuổi mồ côi cha mẹ. Nhà họ nghèo, chỉ có vài sào ruộng, không đủ sống. Cho nên cô cháu ngày ngày phải đi mò cua bắt ốc hoặc mót hái kiếm ăn. Mấy năm trời được mùa, hai cô cháu tuy không lấy gì làm đầy đủ nhưng cũng sống vui. Ngày ngày cháu theo cô xách giỏ ra đồng, miệng hát có vẻ thích chí.
 

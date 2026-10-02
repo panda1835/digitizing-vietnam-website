@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 69. ĐẠI VƯƠNG HAI HAY LÀ TRUYỆN GIẾT THUỒNG LUỒNG
+## 69. Đại vương Hai hay là truyện giết thuồng luồng
 
 Ngày xưa, ở làng Hoa-viên, bây giờ thuộc tỉnh Hà-tĩnh, có một anh chàng tên là Hai. Lúc còn trẻ, cha mất sớm, anh chàng mặc sức chơi bời, mẹ không thể ngăn cản nổi. Hàng ngày ra đồng, anh lên một mô đất cao cùng với chúng bạn tập nhảy, tập vật.
 

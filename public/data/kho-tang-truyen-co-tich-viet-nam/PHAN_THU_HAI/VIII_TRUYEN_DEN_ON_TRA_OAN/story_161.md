@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 161. SỰ TÍCH ĐỀN CỜN
+## 161. Sự tích đền Cờn
 
 Ngày xưa có một ông vua một nước láng giềng tên là Đế Bính. Vua lên ngôi giữa lúc nước nhà có giặc ngoài đột nhập bờ cõi. Quân giặc rất đông và rất mạnh. Quân đội nhà vua chống chọi không nổi đành chịu thất bại. Vì thế chúng tiến rất nhanh, đi đến đâu cũng như vào chỗ không người. Chẳng bao lâu chúng đã chiếm lấy kinh thành và ruổi về phương Nam. Vua tôi Đế Bính chỉ còn biết đem nhau chạy dài. Trong cơn nguy cập, một người trung thần đưa vua và hoàng hậu lên thuyền kéo buồm chạy trốn ra biển khơi. Không ngờ đoàn thuyền đi được ba ngày thì một trận bão nổi lên đánh đắm tất cả. Những người trên thuyền đều không tránh khỏi tai nạn, trong đó có Đế Bính. Chỉ còn hoàng hậu và hai người con gái bấu vào được một mảnh ván đành để mặc cho nước trôi sóng giạt.
 

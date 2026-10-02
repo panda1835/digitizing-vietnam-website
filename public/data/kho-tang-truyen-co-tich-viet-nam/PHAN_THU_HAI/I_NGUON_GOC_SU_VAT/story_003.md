@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 3. SỰ TÍCH TRÁI SẦU RIÊNG
+## 3. Sự tích trái sầu riêng
 
 Ngày ấy, vào thời Tây Sơn, có một chàng trẻ tuổi người vùng Đồng-nai. Chàng là người tài kiêm văn võ, đã từng vung gươm hưởng ứng cái bất bình của mọi người. Chàng từng cầm quân mấy lần làm cho tớ thầy chúa Nguyễn chạy dài.
 

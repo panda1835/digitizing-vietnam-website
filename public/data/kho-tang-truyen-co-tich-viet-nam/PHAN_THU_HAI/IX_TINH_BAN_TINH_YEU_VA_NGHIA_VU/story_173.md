@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 173. DUYÊN NỢ TÁI SINH
+## 173. Duyên nợ tái sinh
 
 Ngày xưa, có một anh học trò trẻ tuổi nhà nghèo xơ nghèo xác. Vì có cha mẹ già, anh phải lang thang đây đó làm nghề gõ đầu trẻ để nuôi thân và nuôi cha mẹ. Mãi về sau, anh được một phú ông ở một làng nọ mời về "ngồi" tại nhà mình để dạy cho con học. Anh mừng thầm từ nay có chỗ yên thân để ôn luyện văn bài. Phú ông có nhiều nhà, y cho thầy đồ ở riêng ngôi nhà thờ ở góc vườn để được tĩnh mịch dạy học. Ngoài ba bữa cơm hàng ngày của phú ông, anh còn nhận được tiền gạo của những người khác có con đến học với anh, nên anh cảm thấy đầy đủ.
 

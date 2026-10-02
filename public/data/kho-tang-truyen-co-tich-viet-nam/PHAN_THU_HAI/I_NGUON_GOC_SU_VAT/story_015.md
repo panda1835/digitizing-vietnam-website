@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 15. SỰ TÍCH CON DÃ TRÀNG
+## 15. Sự tích con dã tràng
 
 Có hai vợ chồng một ông già tên là Dã Tràng. Trong vườn họ có một hang rắn. Thường ngày làm cỏ gần đấy, ông già vẫn thấy có một cặp vợ chồng rắn hổ mang ra vào trong hang.
 

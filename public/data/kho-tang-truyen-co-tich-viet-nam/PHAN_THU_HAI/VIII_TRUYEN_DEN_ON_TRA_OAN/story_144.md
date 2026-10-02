@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 144. CÔ GÁI LẤY CHỒNG HOÀNG TỬ
+## 144. Cô gái lấy chồng hoàng tử
 
 Ngày xưa ở một làng nọ có một cô con gái đẹp. Thấy mọi người đều trầm trồ về nhan sắc của mình, cô bỗng có cái nguyện vọng thầm kín là được lấy hoàng tử làm chồng. Ngày ngày cô đi chợ mua hương đến một ngôi đền trong vùng cầu thần phù hộ cho mình lấy được chồng như nguyện.
 

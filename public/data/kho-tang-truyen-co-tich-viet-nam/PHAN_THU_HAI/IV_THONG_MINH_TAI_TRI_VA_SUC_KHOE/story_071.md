@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 71. ÂM DƯƠNG GIAO CHIẾN
+## 71. Âm dương giao chiến
 
 Ngày ấy, có một trận mưa lụt rất dữ dội; khúc đê ở xã Thọ-triền bị vỡ, mùa màng hư hại, nhà cửa, súc vật trôi nổi theo dòng nước bạc. Một ông quận công họ Điền được lệnh vua đi đốc suất dân phu hàn lại đoạn đê đó. Thuyền của ông sắp đến khúc sông làng Kim-lũ, bọn thủy thủ bảo ông rằng:
 

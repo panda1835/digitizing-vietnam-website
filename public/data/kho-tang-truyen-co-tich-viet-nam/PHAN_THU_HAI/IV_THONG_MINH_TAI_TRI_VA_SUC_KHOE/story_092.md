@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 92. CON CHÓ, CON MÈO VÀ ANH CHÀNG NGHÈO KHỔ
+## 92. Con chó, con mèo và anh chàng nghèo khổ
 
 Ngày xưa có hai mẹ con một anh chàng nhà nghèo rớt mùng tơi. Anh chàng lang thang đi kiếm việc làm nhưng chả có ai thuê cả. Mãi sau có một chủ thuyền buôn thấy anh khỏe mạnh lại biết bơi lội mới thuê làm thủy thủ. Hắn hứa cho anh cơm một ngày ba bữa và bốn mươi quan tiền trả trước. Anh chàng mừng rỡ tưởng không có hạnh phúc nào hơn thế nữa, vội cầm ba mươi quan đem về cho mẹ tiêu, còn mười quan thì mang theo định để dành may mặc.
 

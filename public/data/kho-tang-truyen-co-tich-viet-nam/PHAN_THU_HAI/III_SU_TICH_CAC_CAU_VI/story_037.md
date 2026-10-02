@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 37. BÒ BÉO BÒ GẦY
+## 37. Bò béo bò gầy
 
 Ngày ấy vào thời vua Lê chúa Trịnh có hai vợ chồng một người nho sinh họ Lê. Nhân ngày cuối năm dắt nhau về thăm quê quán trong thành. Sau mấy năm đi làm ăn xa, họ có để dành được một số bạc nhỏ đưa về định làm vốn sống ở quê nhà.
 

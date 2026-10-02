@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 57. KIỆN NGÀNH[^1] ĐA
+## 57. Kiện ngành[^1] đa
 
 Ngày xưa có hai vợ chồng một người lái buôn hương. Họ chưa có con cái gì cả. Chồng vắng nhà liên miên, chỉ thỉnh thoảng mới về một lần. Có lần chồng đi khá lâu. Vợ ở nhà lọt vào mắt một tên xã trưởng. Dựa vào quyền thế, xã trưởng tìm cách quyến rũ người đàn bà đó và cuối cùng hai người tằng tịu với nhau. Nhưng hắn rất khôn ngoan, thỉnh thoảng mượn cớ đi tuần đến với người đàn bà một lần. Vì thế trong xóm ngoài làng chả một ai ngờ cả.
 

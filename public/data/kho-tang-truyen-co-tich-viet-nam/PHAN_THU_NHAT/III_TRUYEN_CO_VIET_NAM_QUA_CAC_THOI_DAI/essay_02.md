@@ -1,6 +1,6 @@
-# III. TRUYỆN CỔ VIỆT NAM QUA CÁC THỜI ĐẠI
+# III. Truyện cổ Việt Nam qua các thời đại
 
-## 2. TRUYỆN CỔ TÍCH THỜI PHONG KIẾN TỰ CHỦ
+## 2. Truyện cổ tích thời phong kiến tự chủ
 
 Truyện cổ tích xuất hiện trong thời đại tự chủ có phần đột xuất hơn trước về chất cũng như về lượng. Hầu hết đều thể hiện rõ đặc điểm tính cách của người nông dân Việt-nam, nói lên quan điểm của họ về số phận và cuộc đời, về cảnh nghèo túng, nỗi đau khổ, những ước mơ và hy vọng. Bên cạnh đó là những truyện phản ánh luân lý, trí tuệ và sức mạnh của người Việt. Ngoài ra, người ta còn sáng tác những truyện cổ tích lịch sử, trong đó hoặc nói về một ông vua (Đinh Tiên Hoàng), một võ sĩ (Lê Phụng Hiểu), một tăng lữ (Từ Đạo Hạnh), hoặc là một thổ hào địa phương (Phạm Bạch Hổ tức vua Mây), v.v... So với truyền thuyết thời Bắc thuộc thì nội dung của truyện bây giờ đã khác trước. Bóng dáng những con người phóng khoáng, hiên ngang, trung thực, vô tư của thần thoại, truyền thuyết đến đây đã quá phai nhạt. Những nhân vật giữ được tầm vóc của quá khứ như ông Khổng Lồ trong truyện Khổng Lồ đúc chuông hay Sự tích trâu vàng hồ Tây[^1] thật là hiếm hoi. Tất nhiên, đây không phải đơn thuần là một bước lùi. Lịch sử càng đi lên, càng mở rộng tầm thước, thì con người xây dựng nên lịch sử càng phải xuất hiện đúng với vóc dáng của hiện thực, mang sức mạnh của hiện thực.
 

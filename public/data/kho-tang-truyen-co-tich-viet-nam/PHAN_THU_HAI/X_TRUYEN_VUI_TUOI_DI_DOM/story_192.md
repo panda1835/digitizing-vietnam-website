@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 192. HÒA THƯỢNG VÀ NGƯỜI THỢ GIÀY
+## 192. Hòa thượng và người thợ giày
 
 Có một nhà sư tên là Diệu Kế trụ trì ở một ngôi chùa lớn làng Bích-khê. Sư ta vốn ít chữ nhưng được cái sáng dạ, trải qua những ngày cạo đầu cắp níp đi theo các bậc tu hành cũng võ vẽ được ít nhiều kinh kệ. Sống lâu lên lão làng, nhờ chuyên cần gõ mõ tụng kinh, nên chẳng mấy chốc được leo lên hàng sư bác. Từ đó Diệu Kế đã được dân làng vùng này vùng khác đón về thờ Phật cai quản chúng tăng. Qua nhiều lần ăn mày lộc Phật ở rất nhiều chùa, Diệu Kế đã nắm được cái chân lý: cuộc đời tu hành của mình chẳng qua cũng là một cách mưu sinh. Vậy thì tội gì mình theo "năm điều răn" cho mệt xác. Vì vậy, về mặt đức hạnh, Diệu Kế tuy không phải là hạng hổ mang, nhưng cũng chẳng phải thuộc hàng chân tu. Thỉnh thoảng sư ta cũng biết lén lút tìm cách làm vợi bớt những món tiền quyên cúng của thập phương đang ngộn lên ở tráp.
 

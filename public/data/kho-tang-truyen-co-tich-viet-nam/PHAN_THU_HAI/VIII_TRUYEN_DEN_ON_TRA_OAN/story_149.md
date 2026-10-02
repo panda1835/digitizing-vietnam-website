@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 149. GIÁP HẢI
+## 149. Giáp Hải
 
 Vào đời nhà Lê, tại làng Công-luận thuộc trấn Kinh-bắc có một người đàn bà góa nghèo khổ không nơi nương tựa. Từ lâu bà mở một ngôi hàng nước ở ven đê để sống qua ngày.
 

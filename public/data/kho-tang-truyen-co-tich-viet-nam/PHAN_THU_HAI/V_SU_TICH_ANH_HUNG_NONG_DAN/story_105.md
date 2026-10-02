@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 105. NGƯỜI THỢ MỘC NAM-HOA
+## 105. Người thợ mộc Nam-Hoa
 
 Làng Nam-hoa có một người thợ mộc khéo tay tên là Chuẩn. Thuở trẻ ông lưu lạc khắp nơi vừa làm thuê vừa học nghề. Nghe ở đâu có thợ khéo là ông cố nằn nì xin học cho được, dù có phải phục dịch thế nào cũng rất vui lòng. Tuy nhiên, sau khi đi lang thang mấy chục năm trời, ông vẫn chưa gặp được thầy nào vừa ý.
 

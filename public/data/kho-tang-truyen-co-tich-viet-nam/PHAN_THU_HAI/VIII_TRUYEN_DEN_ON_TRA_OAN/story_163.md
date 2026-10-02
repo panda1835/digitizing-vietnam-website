@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 163. QUÂN TỬ
+## 163. Quân tử
 
 Ngày xưa, có một anh chàng nghèo sống một thân một mình. Anh thường ăn ở nhân đức với mọi người, lòng nhân đức của anh còn ban phát đến cả giống vật. Bởi thế người ta quen gọi anh là Quân tử.
 

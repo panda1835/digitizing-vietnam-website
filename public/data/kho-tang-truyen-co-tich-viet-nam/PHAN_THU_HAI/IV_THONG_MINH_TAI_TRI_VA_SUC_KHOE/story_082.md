@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 82. THẦN GIỮ CỦA
+## 82. Thần giữ của
 
 Ngày xưa ở vạn Lai-triều thuộc trấn Sơn-nam có một người lái buôn nước ngoài sang ta sinh cơ lập nghiệp. Sau mấy chục năm nhờ có mánh khóe tích trữ: buôn lúc đầu mùa, bán khi giáp hạt, lãi mẹ đẻ lãi con, hắn trở nên giàu có lớn. Trong nhà hắn vàng bạc châu báu kể có ức vạn, những tay vương hầu cơ hồ không ai ăn đứt.
 

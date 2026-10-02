@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 125. CÂY TRE TRĂM ĐỐT
+## 125. Cây tre trăm đốt
 
 Ngày xưa, có một anh nông phu nhà rất nghèo, phải đi ở cho một phú ông. Phú ông tính rất keo kiệt. Đối với kẻ ăn người ở, hắn có rất nhiều mánh khóe để bòn công mà không phải trả thêm tiền. Trong nhà hắn có một cô con gái chưa gả chồng. Thấy anh đầy tớ tuổi đã lớn mà chưa có vợ, hắn vờ vịt:
 

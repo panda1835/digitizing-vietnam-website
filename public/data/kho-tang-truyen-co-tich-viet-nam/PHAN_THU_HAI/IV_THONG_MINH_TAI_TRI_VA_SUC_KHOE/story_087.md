@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 87. CON THỎ VÀ CON HỔ
+## 87. Con thỏ và con hổ
 
 Hổ bị thỏ chơi một mẻ mất mặt, thề từ nay không đội trời chung với thỏ.
 

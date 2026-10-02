@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 152. HÀ RẦM HÀ RẠC
+## 152. Hà rầm hà rạc
 
 Ngày xưa, một nhà nọ có hai anh em cha mẹ mất sớm để lại một tư cơ cũng vào hạng khá trong vùng. Từ trước hai người vẫn ở chung với nhau. Ít lâu sau người anh lấy vợ. Anh bảo em:
 

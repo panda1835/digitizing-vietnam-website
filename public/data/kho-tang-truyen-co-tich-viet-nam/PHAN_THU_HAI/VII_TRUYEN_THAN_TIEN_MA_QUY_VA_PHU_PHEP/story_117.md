@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 117. MIẾNG TRẦU KỲ DIỆU
+## 117. Miếng trầu kỳ diệu
 
 Ngày xưa, có một anh học trò tầm thường tên là Hồ Sinh. Gia tư của hắn cũng không lấy gì làm thiếu thốn, nhưng ngày đêm, hắn chỉ những mong muốn một chút danh phận. Vì thế, khi nghe nói ở huyện có khuyết chân thơ lại là hắn vội bán ruộng cố đi lo lót cho được. Sau mấy phen chạy vạy không xong, hắn sực nhớ đến một người bạn học cũ có người thân quen biết với cụ Thượng, bèn tìm đến nhờ vả.
 

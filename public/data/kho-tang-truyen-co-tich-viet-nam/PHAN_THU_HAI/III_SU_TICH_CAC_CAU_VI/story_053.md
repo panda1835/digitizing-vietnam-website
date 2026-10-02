@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 53. DÌ PHẢI THẰNG CHẾT TRÔI, TÔI PHẢI ĐÔI SẤU SÀNH
+## 53. Dì phải thằng chết trôi, tôi phải đôi sấu sành
 
 Ngày xưa có một anh chàng trẻ tuổi kiết xác, chưa có vợ. Nhà anh ta lại ở bên cạnh nhà một phú ông có cô con gái đến tuổi lấy chồng. Anh ta cũng võ vẽ năm ba chữ, có ý ngấp nghé con gái phú ông, nhưng ngặt vì nhà phú ông với nhà hắn như trời với vực; đời nào phú ông lại chịu gả - "Lấy được cô ả mới gỡ được nạn nghèo, mà muốn lấy cô ả phi dùng mẹo không xong!". Nghĩ thế, hắn mới quyết chí tìm cách để lấy cho được.
 

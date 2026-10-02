@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 195. LÀM CHO CÔNG CHÚA NÓI ĐƯỢC
+## 195. Làm cho công chúa nói được
 
 Ngày xưa có một nàng công chúa con một ông vua nước nọ nổi tiếng xinh đẹp, nhưng có điều đặc biệt là nàng vốn ít điều ít lời, thường rất hà tiện lời nói. Trừ những lúc thật cần thiết, còn ít khi nàng chịu mở miệng nói ra. Khi công chúa đến tuổi lấy chồng, nhà vua cho niêm yết khắp nơi rằng cho phép bọn con trai bất kể là sang hay hèn, thôn quê hay thị thành, ai có cách làm cho con gái mình nói lên ba câu thì sẽ gả ngay cho người đó. Nhưng nếu trong một ngày mà không làm xong thì sẽ đánh trăm trượng, đuổi về.
 

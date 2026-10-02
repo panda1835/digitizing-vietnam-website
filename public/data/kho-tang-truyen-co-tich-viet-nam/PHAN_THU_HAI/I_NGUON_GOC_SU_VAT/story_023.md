@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 23. SỰ TÍCH CÂY NÊU NGÀY TẾT
+## 23. Sự tích cây nêu ngày Tết
 
 Ngày ấy, không biết từ bao giờ và cũng không biết bằng cách gì, Quỷ chiếm đoạt tất cả đất nước. Người chỉ ăn nhờ ở đậu và làm rẽ ruộng đất của Quỷ. Quỷ đối với Người ngày càng quá tay. Chúng nó dần dần tăng số phải nộp lên gấp đôi và mỗi năm mỗi nhích lên một ít. Cuối cùng, chúng nó bắt Người phải nộp theo một thể lệ đặc biệt do chúng nó nghĩ ra là "ăn ngọn cho gốc". Người không chịu. Chúng nó lấy áp lực, bắt Người phải theo. Vì thế, năm ấy sau vụ gặt, Người chỉ còn trơ ra những rạ là rạ. Cảnh tượng xương bọc da thê thảm diễn ra khắp mọi nơi. Bên cạnh bọn Quỷ reo cười đắc ý, Người cơ hồ muốn chết rũ.
 

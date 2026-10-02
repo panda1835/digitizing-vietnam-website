@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 48. CỨU VẬT VẬT TRẢ ÂN CỨU NHÂN NHÂN TRẢ OÁN
+## 48. Cứu vật vật trả ân cứu nhân nhân trả oán
 
 Ngày xưa, có một anh chàng không có tài nghệ gì cả, chỉ được cái hiền lành hay thương người. Từ lúc vợ chết, anh ta trở nên túng bấn tợn. Có dạo phải ngửa tay ăn xin. Thấy nghề này hèn hạ lại không nuôi nổi tấm thân, anh chàng mới xoay sang đi làm thuê. Nhưng chỉ làm được một ngày anh đã thấy mệt nhọc và bị chủ la mắng nhục nhã, nên lại dự định làm nghề đi câu là nghề anh cho là thong thả, tự do hơn. Chiều hôm đó, người ta trả công cho ba mươi đồng kẽm. Anh chàng bèn lấy số tiền đó làm vốn, mua lưỡi mua dây quyết chí làm ăn bằng nghề nghiệp mới.
 

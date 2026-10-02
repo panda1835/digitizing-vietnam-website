@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 76. BỢM LẠI GẶP BỢM HAY BỢM GIÀ MẮC BẪY CÒ KE
+## 76. Bợm lại gặp bợm hay bợm già mắc bẫy cò ke
 
 Ngày ấy, chợ Xuân là một nơi đô hội lớn của trấn Hải-dương. Vào khoảng ngày phiên, khách buôn bán, người qua lại đông nghìn nghịt.
 

@@ -1,6 +1,6 @@
-# THƯ MỤC THAM KHẢO
+# Thư mục tham khảo
 
-## I. SÁCH VÀ BÀI
+## I. Sách và bài
 
 - AARNE (A.), THOMPSON (S.) - Types of the Folktale in World literature - FFC, số 74, Helsinki, 1923.
 - ARCHAIMBAULT (CH.) - Le cycle de Nang Oua - Nang Malong et son substrat sociologique - FA, số 170 (1961).

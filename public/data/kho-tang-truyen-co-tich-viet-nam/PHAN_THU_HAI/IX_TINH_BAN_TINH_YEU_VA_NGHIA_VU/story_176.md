@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 176. QUAN ÂM THỊ KÍNH
+## 176. Quan Âm Thị Kính
 
 Ngày xửa ngày xưa, có một người trải đã nhiều kiếp, kiếp nào từ bé đến lớn cũng giữ mình đức hạnh và thành bậc chân tu. Cứ luân hồi chuyển kiếp như vậy liên tiếp đến chín lần, nhưng chưa kiếp nào được thành Phật.
 

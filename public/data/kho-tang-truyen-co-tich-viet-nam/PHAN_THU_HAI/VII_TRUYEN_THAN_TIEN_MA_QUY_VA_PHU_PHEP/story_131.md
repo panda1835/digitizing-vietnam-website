@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 131. NGƯỜI HỌC TRÒ VÀ BA CON QUỶ
+## 131. Người học trò và ba con quỷ
 
 Ngày xưa, ở một vùng nọ có hai vợ chồng một nhà phú hộ tuổi đã già mới sinh được mụn con gái, nên hết sức chiều chuộng. Cô gái lớn lên hình dung đẹp đẽ ít ai bì kịp, bố mẹ lại càng nâng niu như vàng như ngọc. Họ bỏ tiền ra xây một ngôi lầu cho con ở. Lầu dựng xong, phú hộ lại cho người đi tìm hoa thơm cỏ lạ trồng xung quanh vườn để con thưởng ngoạn.
 

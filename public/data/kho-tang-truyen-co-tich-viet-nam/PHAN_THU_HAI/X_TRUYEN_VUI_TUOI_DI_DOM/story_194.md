@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 194. CHÀNG RỂ THONG MANH
+## 194. Chàng rể thong manh
 
 Có một anh chàng đẹp trai, lanh lợi, nhưng bị tật thong manh từ thuở nhỏ. Cặp mắt anh vẫn trong trẻo nên người ngoài không ai biết là mù. Nhưng anh thì rất khôn khéo, cố tìm cách giấu không cho người lạ biết mình có tật.
 

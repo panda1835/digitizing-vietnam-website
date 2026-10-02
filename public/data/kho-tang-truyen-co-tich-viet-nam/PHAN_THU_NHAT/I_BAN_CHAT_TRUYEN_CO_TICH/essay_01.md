@@ -1,6 +1,6 @@
-# I. BẢN CHẤT TRUYỆN CỔ TÍCH
+# I. Bản chất truyện cổ tích
 
-## 1. PHÂN LOẠI TRUYỆN CỔ, MỘT VẤN ĐỀ ĐẶT RA TỪ LÂU, NHƯNG VẪN CÒN RẤT MỚI MẺ
+## 1. Phân loại truyện cổ, một vấn đề đặt ra từ lâu, nhưng vẫn còn rất mới mẻ
 
 Khi nói đến mấy tiếng "truyện cổ tích" hay "truyện đời xưa", chúng ta đều sẵn có quan niệm rằng, đấy là một danh từ chung bao gồm hết thảy các loại truyện do quần chúng vô danh sáng tác và lưu truyền qua các thời đại. Trong đó, có truyện đượm tính chất hoang đường, có truyện gần với sự thật, có truyện ngụ một ý nghĩa sâu xa, có truyện không quan tâm đến đạo đức triết lý, có truyện mang tính nghệ thuật cao, có truyện hãy còn mộc mạc chưa được gia công tô điểm, có truyện nghiêm trang, có truyện buồn cười, có truyện dài, có truyện rất ngắn, có truyện từ ngàn xưa để lại, có truyện mới đặt gần đây, v.v...
 

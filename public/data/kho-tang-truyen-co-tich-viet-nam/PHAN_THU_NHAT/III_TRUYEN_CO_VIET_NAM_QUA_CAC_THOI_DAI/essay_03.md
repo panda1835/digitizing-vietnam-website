@@ -1,6 +1,6 @@
-# III. TRUYỆN CỔ VIỆT NAM QUA CÁC THỜI ĐẠI
+# III. Truyện cổ Việt Nam qua các thời đại
 
-## 3. VIỆT ĐIỆN U LINH TẬP, LĨNH-NAM CHÍCH QUÁI VÀ NHỮNG SÁCH SƯU TẦM TRUYỆN CỔ SAU ĐÓ
+## 3. Việt điện u linh tập, Lĩnh-Nam chích quái và những sách sưu tầm truyện cổ sau đó
 
 Vào thời Bắc thuộc đã có những viên đô hộ ghi chép một số truyện cổ của người Việt, như sách Giao-châu ký của Triệu Công và Tăng Cổn, sách Lĩnh biểu lục dị của Lưu Tuân đều ở đời Đường. Họ ghi chép một số ít truyện, do tính hiếu kỳ hơn là do ý muốn sưu tầm. Nhưng nó cũng chứng tỏ rằng truyện cổ của cha ông chúng ta xưa đã được người nước ngoài để ý trong khi tìm hiểu về đất Việt, người Việt.
 

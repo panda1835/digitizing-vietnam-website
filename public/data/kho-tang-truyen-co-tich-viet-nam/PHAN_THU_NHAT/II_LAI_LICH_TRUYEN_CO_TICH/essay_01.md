@@ -1,6 +1,6 @@
-# II. LAI LỊCH TRUYỆN CỔ TÍCH
+# II. Lai lịch truyện cổ tích
 
-## 1. CON ĐƯỜNG PHÁT TRIỂN TỪ THẦN THOẠI ĐẾN CỔ TÍCH
+## 1. Con đường phát triển từ thần thoại đến cổ tích
 
 Truyền thuyết cổ tích xuất hiện vào thời kỳ nào?
 

@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 138. NGƯỜI THỢ SĂN VÀ MỤ CHẰNG
+## 138. Người thợ săn và mụ chằng
 
 Ngày xưa có một người thợ săn trẻ tuổi. Như lệ thường, một hôm anh vào rừng sâu săn thú. Mải đuổi theo một con hươu, không ngờ anh lạc vào một nơi chân mình chưa bước tới bao giờ. Đói và mệt, anh cố tìm đường trở ra. Nhưng anh càng đi lại càng lạc.
 

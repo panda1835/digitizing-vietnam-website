@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 147. HUYỀN QUANG
+## 147. Huyền Quang
 
 Vào thời nhà Trần có một người học trò trẻ tuổi ở xứ Bắc tên là Huyền Quang. Nhà chàng không đất cắm dùi nhưng cha mẹ chàng thì cố công cố sức làm thuê làm mướn các nơi để nuôi con ăn học. Khi Huyền Quang đến tuổi lấy vợ, cha mẹ dạm cho một cô gái, con một nhà khá giả trong vùng.
 

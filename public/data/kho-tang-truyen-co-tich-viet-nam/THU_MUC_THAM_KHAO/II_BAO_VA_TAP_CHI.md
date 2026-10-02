@@ -1,6 +1,6 @@
-# THƯ MỤC THAM KHẢO
+# Thư mục tham khảo
 
-## II. BÁO VÀ TẠP CHÍ
+## II. Báo và tạp chí
 
 - Anthropos
 - Bách khoa (BK)

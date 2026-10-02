@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 49. ĐỨA CON TRỜI ĐÁNH HAY LÀ TRUYỆN TIẾC GÀ CHÔN MẸ
+## 49. Đứa con trời đánh hay là truyện tiếc gà chôn mẹ
 
 Xưa có một người đàn ông tính rất vũ phu. Đối với vợ con, hơi động một tý là hắn đánh đập không tiếc tay. Hắn ham chơi gà chọi, ham đến nỗi trên đời ngoài gà ra, hắn cho không còn thú gì tiêu khiển hơn thế được. Lần đó hắn mua được một con gà thật tốt. Con gà ấy có nước đá rất hay, đã từng đoạt được nhiều giải. Hắn quý gà vô cùng, chăm sóc từng ly từng tý một.
 

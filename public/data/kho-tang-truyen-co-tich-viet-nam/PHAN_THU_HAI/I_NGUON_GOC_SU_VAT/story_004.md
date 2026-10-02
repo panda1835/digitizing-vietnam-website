@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 4. SỰ TÍCH CÂY HUYẾT DỤ
+## 4. Sự tích cây huyết dụ
 
 Ngày xưa có một bác đồ tể chuyên mua lợn về giết thịt để mang bán ở chợ. Nhà bác ta ở bên cạnh một ngôi chùa làng. Hàng ngày, vào lúc mờ sáng là lúc sư cụ bên chùa theo lệ thường thức dậy tụng kinh. Và cũng theo lệ thường, sư cụ thức chú tiểu dậy gõ một hồi chuông mai. Bấy giờ cũng là lúc bác đồ tể sửa soạn giết lợn, cho nên bác ta quen lấy tiếng chuông làm chừng thức dậy làm việc hàng ngày. Cứ như thế, ngày nào cũng như ngày ấy không bao giờ sai lạc.
 

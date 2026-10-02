@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 102. HAI NÀNG CÔNG CHÚA NHÀ TRẦN
+## 102. Hai nàng công chúa nhà Trần
 
 Vào thời nhà Trần có một ông vua sinh được năm nàng công chúa, trong đó có hai nàng xinh đẹp: một người tên là Bảo Nương, một người tên là Ngọc Nương. Năm hai nàng đến tuổi lấy chồng, vua cha toan hạ chiếu kén rể nhưng cả hai đều từ chối. Họ chỉ thích đi xem núi sông cảnh vật trong nước. Họ tâu với vua cha trong một buổi vấn an:
 

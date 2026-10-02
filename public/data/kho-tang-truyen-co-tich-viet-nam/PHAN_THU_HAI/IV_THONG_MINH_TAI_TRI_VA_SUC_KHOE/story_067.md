@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 67. KHỔNG LỒ ĐÚC CHUÔNG HAY LÀ SỰ TÍCH TRÂU VÀNG HỒ TÂY
+## 67. Khổng lồ đúc chuông hay là sự tích trâu vàng Hồ Tây
 
 Vào đời nhà Lý có một người gọi là Khổng Lồ. Nhìn thấy thân thể ông, các tay lực sĩ trong triều ngoài quận đều khiếp sợ, mặc dầu ông chưa từng đọ sức với ai. Từ trẻ Khổng Lồ đã đi tu, ông thường đi chu du thiên hạ. Vật tùy thân của ông có một cây gậy sắt nặng không thể tưởng tượng được. Lại có một cái đãy rất màu nhiệm. Đãy trông không khác gì những đãy thường nhưng có thể bỏ lọt vào đấy bao nhiêu đồ vật to lớn, cồng kềnh. Dù chất chứa thế nào đãy cũng không đầy và không to thêm.
 

@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 160. NGƯỜI HỌC TRÒ VÀ CON HỔ
+## 160. Người học trò và con hổ
 
 Một con hổ đi dạo trong rừng, vô tình bị lọt vào bẫy. Con vật hung hăng giãy giụa, hết húc đầu đến dùng răng gặm bẫy tìm cách chui ra, nhưng bẫy làm bằng những cây tre đực rất chắc nên không thể làm gì được. Đương cơn nguy khốn, bỗng có một người học trò đi qua. Thấy người học trò, hổ bèn lấy giọng ngọt ngào:
 

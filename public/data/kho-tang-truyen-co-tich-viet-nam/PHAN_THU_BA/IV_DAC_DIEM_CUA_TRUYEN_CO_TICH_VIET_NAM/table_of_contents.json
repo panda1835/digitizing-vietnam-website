@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "1341 - 1392",
   "total_essays": 4,
   "sections": [
     {
       "section_id": "IV",
-      "section_title": "IV. ĐẶC ĐIỂM CỦA TRUYỆN CỔ TÍCH VIỆT-NAM",
+      "section_title": "IV. Đặc điểm của truyện cổ tích Việt-Nam",
       "essays": [
         {
           "essay_number": 1,
-          "title": "YẾU TỐ TƯỢNG TRƯNG TRONG LOẠI HÌNH TRUYỆN CỔ TÍCH VIỆT NAM NÓI CHUNG ÍT XA LẠ VỚI NHÂN TÍNH; LOẠI TRUYỆN SINH HOẠT CHIẾM MỘT TỶ LỆ TƯƠNG ĐỐI CAO; LOẠI TRUYỆN THẦN KỲ, TRUYỆN LÀI VẬT, TRUYỆN PHIÊU LƯU MẠO HIỂM CHIẾM MỘT TỶ LỆ TƯƠNG ĐỐI THẤP",
+          "title": "Yếu tố tượng trưng trong loại hình truyện cổ tích Việt Nam nói chung ít xa lạ với nhân tính; loại truyện sinh hoạt chiếm một tỷ lệ tương đối cao; loại truyện thần kỳ, truyện loài vật, truyện phiêu lưu mạo hiểm chiếm một tỷ lệ tương đối thấp",
           "start_page": 1341,
           "end_page": 1356,
           "markdown_file": "essay_01.md",
@@ -17,7 +17,7 @@
         },
         {
           "essay_number": 2,
-          "title": "TRUYỆN CỔ TÍCH VIỆT-NAM THẤM ĐẬM CHẤT LIỆU ĐỜI SỐNG XÃ HỘI VIỆT CỔ; LÀ BIẾU TRƯNG NGHệ THUẬT CỦA CÁI HIỀN HÒA, NHÂN ÁI, HAY TÍNH CHỪNG MỰC TRONG TÂM LÝ DÂN TỘC",
+          "title": "Truyện cổ tích Việt-Nam thấm đậm chất liệu đời sống xã hội Việt cổ; là biểu trưng nghệ thuật của cái hiền hòa, nhân ái, hay tính chừng mực trong tâm lý dân tộc",
           "start_page": 1356,
           "end_page": 1371,
           "markdown_file": "essay_02.md",
@@ -25,7 +25,7 @@
         },
         {
           "essay_number": 3,
-          "title": "TÍNH CÁCH PHÊ PHÁN HIỆN THỰC KHÁ ĐẬM TRONG TRUYỆN CỔ TÍCH VIỆT NAM; NHÂN VẬT TÍCH CỰC THƯỜNG TỎ RA KHÔNG BẰNG LÒNG VỚI TRẬT TỰ TẬP TỤC CÓ SẴN, PHẢN ỨNG LẠI CÁI TI TIỆN TẦM THƯỜNG",
+          "title": "Tính cách phê phán hiện thực khá đậm trong truyện cổ tích Việt Nam; nhân vật tích cực thường tỏ ra không bằng lòng với trật tự tập tục có sẵn, phản ứng lại cái ti tiện tầm thường",
           "start_page": 1371,
           "end_page": 1383,
           "markdown_file": "essay_03.md",
@@ -33,7 +33,7 @@
         },
         {
           "essay_number": 4,
-          "title": "TRUYỆN CỔ TÍCH VIỆT-NAM CÓ MỘT MẢNG ĐÁNG KỂ NÊU BẬT VAI TRÒ TÍCH CỰC CỦA NGƯỜI NỮ: ĐỀ CẬP ĐẾN ƯỚC MƠ TÌNH YÊU VÀ HÔN NHÂN TỰ DO",
+          "title": "Truyện cổ tích Việt-Nam có một mảng đáng kể nêu bật vai trò tích cực của người nữ: đề cập đến ước mơ tình yêu và hôn nhân tự do",
           "start_page": 1383,
           "end_page": 1392,
           "markdown_file": "essay_04.md",

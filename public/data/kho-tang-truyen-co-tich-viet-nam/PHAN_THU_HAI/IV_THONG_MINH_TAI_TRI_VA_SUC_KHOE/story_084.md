@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 84. CON MỤ LƯỜNG
+## 84. Con mụ Lường
 
 Ngày xưa, có hai vợ chồng một người phú thương trẻ tuổi. Chồng thường rong buồm chạy khắp trong Nam ngoài Bắc và các nước xa xôi, chuyên bán hàng đi và cất hàng về.
 

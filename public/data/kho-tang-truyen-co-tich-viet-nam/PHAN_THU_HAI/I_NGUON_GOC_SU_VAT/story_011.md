@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 11. SỰ TÍCH CON MUỖI
+## 11. Sự tích con muỗi
 
 Có hai vợ chồng nhà nọ yêu nhau rất mực. Ngày mới lấy nhau, họ đã từng ăn thề hẹn không bỏ nhau. Nếu không may một trong hai người chết đi thì người kia sẽ chết theo để xuống âm ty cho có bạn.
 

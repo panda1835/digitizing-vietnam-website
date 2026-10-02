@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "43 - 58",
   "total_essays": 6,
   "sections": [
     {
       "section_id": "I",
-      "section_title": "I. BẢN CHẤT TRUYỆN CỔ TÍCH",
+      "section_title": "I. Bản chất truyện cổ tích",
       "essays": [
         {
           "essay_number": 1,
-          "title": "PHÂN LOẠI TRUYỆN CỔ, MỘT VẤN ĐỀ ĐẶT RA TỪ LÂU, NHƯNG VẪN CÒN RẤT MỚI MẺ",
+          "title": "Phân loại truyện cổ, một vấn đề đặt ra từ lâu, nhưng vẫn còn rất mới mẻ",
           "start_page": 43,
           "end_page": 45,
           "markdown_file": "essay_01.md",
@@ -17,7 +17,7 @@
         },
         {
           "essay_number": 2,
-          "title": "TRUYỆN CỔ TÍCH KHÁC VỚI NHỮNG LOẠI CHUYỆN NÀO?",
+          "title": "Truyện cổ tích khác với những loại chuyện nào?",
           "start_page": 45,
           "end_page": 47,
           "markdown_file": "essay_02.md",
@@ -25,7 +25,7 @@
         },
         {
           "essay_number": 3,
-          "title": "RANH GIỚI GIỮA TRUYỀN THUYẾT VÀ CỔ TÍCH",
+          "title": "Ranh giới giữa truyền thuyết và cổ tích",
           "start_page": 47,
           "end_page": 50,
           "markdown_file": "essay_03.md",
@@ -33,7 +33,7 @@
         },
         {
           "essay_number": 4,
-          "title": "ĐẶC TRƯNG THỂ LOẠI CỦA CỔ TÍCH",
+          "title": "Đặc trưng thể loại của cổ tích",
           "start_page": 50,
           "end_page": 53,
           "markdown_file": "essay_04.md",
@@ -41,7 +41,7 @@
         },
         {
           "essay_number": 5,
-          "title": "CÓ MẤY LOẠI TRUYỆN CỔ TÍCH?",
+          "title": "Có mấy loại truyện cổ tích?",
           "start_page": 53,
           "end_page": 55,
           "markdown_file": "essay_05.md",
@@ -49,7 +49,7 @@
         },
         {
           "essay_number": 6,
-          "title": "PHÂN BIỆT TRUYỆN CỔ TÍCH VỚI LỊCH SỬ VÀ VỚI TIỂU THUYẾT",
+          "title": "Phân biệt truyện cổ tích với lịch sử và với tiểu thuyết",
           "start_page": 55,
           "end_page": 58,
           "markdown_file": "essay_06.md",

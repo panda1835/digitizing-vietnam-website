@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 29. SỰ TÍCH ĐẦM MỰC
+## 29. Sự tích đầm Mực
 
 Ngày ấy vào đời nhà Trần có một cụ đồ nho ở xã Quang-liệt tên là Chu An. Học vấn của cụ sâu và rộng. Cũng vì tiếng tăm của cụ truyền khắp mọi nơi nên học trò xa gần đến học rất đông.
 

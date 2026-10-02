@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 197. CÔ GÁI LỪA THÀY SÃI, XÃ TRƯỞNG VÀ ÔNG QUAN HUYỆN
+## 197. Cô gái lừa thày sãi, xã trưởng và ông quan huyện
 
 Ở một huyện nọ có một chị góa chồng mặt mày sáng sủa dễ coi, lại khôn ngoan lanh lợi. Thấy có đóa hoa xinh dễ vin dễ hái, nhiều anh chàng thường ngấp nghé. Trong số những người lui tới, có cả một thầy sãi, một xã trưởng và một quan huyện. Cả ba đều dày công thả lời ong bướm, ai cũng tưởng mình lọt vào mắt xanh cô nàng. Thực ra cô nàng chưa chút tơ vương. "Cả ba người đều có vai có vế, nhà ta từng đôi ba phen nhờ vả, thật khó mà ngang nhiên cự tuyệt". Nghĩ vậy, chị ta vẫn tiếp đãi cả ba rất ngọt ngào; trước những cái liếc mắt đưa tình, những câu bóng gió, tuy chị không vồ vập, nhưng cũng không tỏ ra thờ ơ. Cả ba thấy thế tưởng rằng cá đã cắn câu nên lại ra công theo đuổi. Tuy nhiên cuối cùng cô nàng cũng buộc phải tỏ rõ thái độ, không thể giả lả qua ngày, nhất là đối với xã trưởng là tay quyền thế trong làng, lại gần đường lui tới nên cứ săn đón luôn canh. Chị ta bụng bảo dạ:
 

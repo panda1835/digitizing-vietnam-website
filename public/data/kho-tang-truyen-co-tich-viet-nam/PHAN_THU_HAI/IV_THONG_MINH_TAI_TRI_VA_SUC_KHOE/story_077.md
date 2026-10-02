@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 77. QUẬN GIÓ
+## 77. Quận Gió
 
 Ngày xưa vào đời vua Lê Thánh Tông ở kinh thành Thăng-long có một tay đại bợm. Hắn đã định tâm lấy của ai là thế nào cũng có kết quả. Hắn từng làm cho bọn quan lại và bọn trọc phú mất ăn mất ngủ.
 

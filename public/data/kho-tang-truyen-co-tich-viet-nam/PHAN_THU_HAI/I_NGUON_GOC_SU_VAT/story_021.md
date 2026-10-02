@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 21. SỰ TÍCH ÔNG ĐẦU RAU[^1]
+## 21. Sự tích ông đầu rau[^1]
 
 Ngày xưa, có hai vợ chồng son nhà nghèo. Họ đều sinh nhai bằng nghề làm thuê làm mướn. Tuy nghèo nhưng họ rất yêu nhau. Thường buổi tối sau khi đi làm về, hai vợ chồng ngồi bên bếp lửa hay dưới ánh trăng kể cho nhau những chuyện xa gần mới nghe được, hay hát những câu tình duyên, có khi vui vẻ quên cả cơm nước.
 

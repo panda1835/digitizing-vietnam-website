@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 33. SỰ TÍCH ĐÁ BÀ-RẦU
+## 33. Sự tích đá Bà-Rầu
 
 Ngày xưa, có gia đình một người thuyền chài có một cô gái rất xinh tươi. Khi cô đã lớn, nhiều chàng trai muốn xin kết duyên với nàng, nhưng chưa có đám nào thành cả. Mãi về sau một chàng trai người Quảng lấy được nàng làm vợ. Anh chàng là người khỏe mạnh, làm nghề buôn hàng bằng thuyền mà ở đây người ta gọi là buôn ghe.
 

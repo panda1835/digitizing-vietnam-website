@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 178. SỰ TÍCH BÃI ÔNG NAM
+## 178. Sự tích bãi Ông Nam
 
 Ngày ấy, những người dân chài vùng biển Nam trong khi ra khơi làm ăn thường bị nạn bão tố. Mỗi lần bão tố thình lình xảy ra, nếu trên đất liền chỉ đổ cửa đổ nhà thì trên mặt biển khơi có thể chết hàng trăm hàng ngàn mạng người. Không những thế, nó còn chôn vùi xuống đáy biển biết bao nhiêu là chài lưới thuyền mảng, những của cải mồ hôi nước mắt tích góp không phải chỉ một ngày. Vì vậy, những dân chài vùng biển Nam luôn luôn kêu gào oán trời trách đất độc ác phũ phàng, làm cho con mất cha, vợ lìa chồng, tán gia bại sản. Cuối cùng lời kêu gào của họ cũng động đến tòa sen.
 

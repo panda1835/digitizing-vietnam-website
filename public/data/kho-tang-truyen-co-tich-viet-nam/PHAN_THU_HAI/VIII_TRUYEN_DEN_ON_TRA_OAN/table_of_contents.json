@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "901 - 1122",
   "total_stories": 31,
   "sections": [
     {
       "section_id": "VIII",
-      "section_title": "VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN",
+      "section_title": "VIII. Truyện đền ơn trả oán",
       "stories": [
         {
           "story_number": 140,
-          "title": "THỬ THẦN VÀ MIÊU THẦN HAY LÀ SỰ TÍCH CHUỘT VÀ MÈO",
+          "title": "Thử Thần và Miêu Thần hay là sự tích chuột và mèo",
           "start_page": 901,
           "end_page": 904,
           "markdown_file": "story_140.md",
@@ -18,7 +18,7 @@
         },
         {
           "story_number": 141,
-          "title": "CON CÓC LIẾM NƯỚC MƯA",
+          "title": "Con cóc liếm nước mưa",
           "start_page": 905,
           "end_page": 908,
           "markdown_file": "story_141.md",
@@ -27,7 +27,7 @@
         },
         {
           "story_number": 142,
-          "title": "THẦY CỨU TRÒ",
+          "title": "Thầy cứu trò",
           "start_page": 909,
           "end_page": 912,
           "markdown_file": "story_142.md",
@@ -36,7 +36,7 @@
         },
         {
           "story_number": 143,
-          "title": "HAI CON CÒ VÀ CON RÙA",
+          "title": "Hai con cò và con rùa",
           "start_page": 913,
           "end_page": 915,
           "markdown_file": "story_143.md",
@@ -45,7 +45,7 @@
         },
         {
           "story_number": 144,
-          "title": "CÔ GÁI LẤY CHỒNG HOÀNG TỬ",
+          "title": "Cô gái lấy chồng hoàng tử",
           "start_page": 916,
           "end_page": 920,
           "markdown_file": "story_144.md",
@@ -54,7 +54,7 @@
         },
         {
           "story_number": 145,
-          "title": "NGƯỜI DÌ GHẺ ÁC NGHIỆT HAY LÀ SỰ TÍCH CON DẾ",
+          "title": "Người dì ghẻ ác nghiệt hay là sự tích con dế",
           "start_page": 921,
           "end_page": 923,
           "markdown_file": "story_145.md",
@@ -63,7 +63,7 @@
         },
         {
           "story_number": 146,
-          "title": "LÀM ƠN HÓA HẠI",
+          "title": "Làm ơn hóa hại",
           "start_page": 924,
           "end_page": 926,
           "markdown_file": "story_146.md",
@@ -72,7 +72,7 @@
         },
         {
           "story_number": 147,
-          "title": "HUYỀN QUANG",
+          "title": "Huyền Quang",
           "start_page": 927,
           "end_page": 932,
           "markdown_file": "story_147.md",
@@ -81,7 +81,7 @@
         },
         {
           "story_number": 148,
-          "title": "TIÊU DIỆT MÃNG XÀ",
+          "title": "Tiêu diệt mãng xà",
           "start_page": 933,
           "end_page": 948,
           "markdown_file": "story_148.md",
@@ -90,7 +90,7 @@
         },
         {
           "story_number": 149,
-          "title": "GIÁP HẢI",
+          "title": "Giáp Hải",
           "start_page": 949,
           "end_page": 958,
           "markdown_file": "story_149.md",
@@ -99,7 +99,7 @@
         },
         {
           "story_number": 150,
-          "title": "TAM VÀ TỨ",
+          "title": "Tam và Tứ",
           "start_page": 959,
           "end_page": 967,
           "markdown_file": "story_150.md",
@@ -108,7 +108,7 @@
         },
         {
           "story_number": 151,
-          "title": "BÍNH VÀ ĐINH",
+          "title": "Bính và Đinh",
           "start_page": 968,
           "end_page": 973,
           "markdown_file": "story_151.md",
@@ -117,7 +117,7 @@
         },
         {
           "story_number": 152,
-          "title": "HÀ RẦM HÀ RẠC",
+          "title": "Hà rầm hà rạc",
           "start_page": 974,
           "end_page": 978,
           "markdown_file": "story_152.md",
@@ -126,7 +126,7 @@
         },
         {
           "story_number": 153,
-          "title": "ÔNG GIÀ HỌ LÊ",
+          "title": "Ông già họ Lê",
           "start_page": 979,
           "end_page": 983,
           "markdown_file": "story_153.md",
@@ -135,7 +135,7 @@
         },
         {
           "story_number": 154,
-          "title": "TẤM CÁM",
+          "title": "Tấm Cám",
           "start_page": 984,
           "end_page": 1019,
           "markdown_file": "story_154.md",
@@ -144,7 +144,7 @@
         },
         {
           "story_number": 155,
-          "title": "AO PHẬT",
+          "title": "Ao Phật",
           "start_page": 1020,
           "end_page": 1022,
           "markdown_file": "story_155.md",
@@ -153,7 +153,7 @@
         },
         {
           "story_number": 156,
-          "title": "PHẠM NHĨ HAY LÀ SỰ TÍCH ÔNG BA MƯƠI",
+          "title": "Phạm Nhĩ hay là sự tích Ông Ba Mươi",
           "start_page": 1023,
           "end_page": 1024,
           "markdown_file": "story_156.md",
@@ -162,7 +162,7 @@
         },
         {
           "story_number": 157,
-          "title": "CON MA BÁO THÙ",
+          "title": "Con ma báo thù",
           "start_page": 1025,
           "end_page": 1027,
           "markdown_file": "story_157.md",
@@ -171,7 +171,7 @@
         },
         {
           "story_number": 158,
-          "title": "RẮN BÁO OÁN",
+          "title": "Rắn báo oán",
           "start_page": 1028,
           "end_page": 1034,
           "markdown_file": "story_158.md",
@@ -180,7 +180,7 @@
         },
         {
           "story_number": 159,
-          "title": "RẠCH ĐÙI GIẤU NGỌC",
+          "title": "Rạch đùi giấu ngọc",
           "start_page": 1035,
           "end_page": 1038,
           "markdown_file": "story_159.md",
@@ -189,7 +189,7 @@
         },
         {
           "story_number": 160,
-          "title": "NGƯỜI HỌC TRÒ VÀ CON HỔ",
+          "title": "Người học trò và con hổ",
           "start_page": 1039,
           "end_page": 1045,
           "markdown_file": "story_160.md",
@@ -198,7 +198,7 @@
         },
         {
           "story_number": 161,
-          "title": "SỰ TÍCH ĐỀN CỜN",
+          "title": "Sự tích đền Cờn",
           "start_page": 1046,
           "end_page": 1049,
           "markdown_file": "story_161.md",
@@ -207,7 +207,7 @@
         },
         {
           "story_number": 162,
-          "title": "HOẰNG TÍN HẦU",
+          "title": "Hoằng Tín Hầu",
           "start_page": 1050,
           "end_page": 1055,
           "markdown_file": "story_162.md",
@@ -216,7 +216,7 @@
         },
         {
           "story_number": 163,
-          "title": "QUÂN TỬ",
+          "title": "Quân tử",
           "start_page": 1056,
           "end_page": 1060,
           "markdown_file": "story_163.md",
@@ -225,7 +225,7 @@
         },
         {
           "story_number": 164,
-          "title": "CƯỜNG BẠO ĐẠI VƯƠNG",
+          "title": "Cường Bạo Đại Vương",
           "start_page": 1061,
           "end_page": 1072,
           "markdown_file": "story_164.md",
@@ -234,7 +234,7 @@
         },
         {
           "story_number": 165,
-          "title": "MŨI DÀI",
+          "title": "Mũi dài",
           "start_page": 1073,
           "end_page": 1084,
           "markdown_file": "story_165.md",
@@ -243,7 +243,7 @@
         },
         {
           "story_number": 166,
-          "title": "BỐN CÔ GÁI MUỐN LẤY CHỒNG HOÀNG TỬ",
+          "title": "Bốn cô gái muốn lấy chồng hoàng tử",
           "start_page": 1085,
           "end_page": 1098,
           "markdown_file": "story_166.md",
@@ -252,7 +252,7 @@
         },
         {
           "story_number": 167,
-          "title": "ÔNG DÀI ÔNG CỘC HAY LÀ SỰ TÍCH THẦN SÔNG KỲ-CÙNG",
+          "title": "Ông Dài ông Cộc hay là sự tích thần sông Kỳ-Cùng",
           "start_page": 1099,
           "end_page": 1106,
           "markdown_file": "story_167.md",
@@ -261,7 +261,7 @@
         },
         {
           "story_number": 168,
-          "title": "SỰ TÍCH THÁP BÁO ÂN",
+          "title": "Sự tích tháp Báo Ân",
           "start_page": 1107,
           "end_page": 1110,
           "markdown_file": "story_168.md",
@@ -270,7 +270,7 @@
         },
         {
           "story_number": 169,
-          "title": "NÀNG XUÂN HƯƠNG",
+          "title": "Nàng Xuân Hương",
           "start_page": 1111,
           "end_page": 1116,
           "markdown_file": "story_169.md",
@@ -279,7 +279,7 @@
         },
         {
           "story_number": 170,
-          "title": "VỤ KIỆN CHÂU CHẤU",
+          "title": "Vụ kiện châu chấu",
           "start_page": 1117,
           "end_page": 1122,
           "markdown_file": "story_170.md",

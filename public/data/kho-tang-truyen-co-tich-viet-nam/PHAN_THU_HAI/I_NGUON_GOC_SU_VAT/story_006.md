@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 6. SỰ TÍCH CHIM TU HÚ
+## 6. Sự tích chim tu hú
 
 Ngày xưa có hai nhà sư Năng Nhẫn và Bất Nhẫn. Hai người cùng cạo đầu xuất gia từ ngày còn trẻ và cùng tu ở một ngôi chùa hẻo lánh.
 

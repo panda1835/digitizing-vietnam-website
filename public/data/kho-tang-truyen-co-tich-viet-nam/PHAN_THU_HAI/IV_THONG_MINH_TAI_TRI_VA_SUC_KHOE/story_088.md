@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 88. MƯU CON THỎ
+## 88. Mưu con thỏ
 
 Ngày ấy trên rừng không có miếng gì ăn, một chú thỏ mò xuống một ruộng khoai bới trộm. Ngờ đâu chủ ruộng đã nấp sẵn ở túp lều bên cạnh, ập đến tóm ngay lấy thỏ. Thỏ ta giả bộ chết nằm sóng soài. Chủ ruộng khoai lật đi lật lại mấy lần không thấy thỏ động cựa tin là chết thật, vội nắm lấy tai xách về. Đến một cái quán bên đường, hắn vứt thỏ xuống gốc cây, thỏ cũng không chạy. Nhưng thừa dịp người ấy vào hàng uống nước, thỏ ta chồm dậy trốn mất.
 

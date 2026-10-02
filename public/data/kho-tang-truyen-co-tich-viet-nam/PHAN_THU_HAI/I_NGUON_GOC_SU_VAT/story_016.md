@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 16. GỐC TÍCH BỘ LÔNG QUẠ VÀ BỘ LÔNG CÔNG
+## 16. Gốc tích bộ lông quạ và bộ lông công
 
 Xưa kia Quạ và Công là đôi bạn chí thân. Cũng vì màu lông của chúng giống nhau: con nào con nấy đều xám xịt như vừa rúc ở bùn lên. Lúc ấy chúng làm gì đã có bộ cánh như bây giờ. Cả hai con đều tự biết mình xấu nên không dám chơi với ai cả. Riêng Công dưới mắt Quạ thì lại càng xấu tệ: cái đầu bé tý chẳng cân xứng với con người. Thêm vào đó, một cái cổ dài và ngẳng nghiu, thật khó coi hết sức. Một hôm Quạ bảo Công:
 

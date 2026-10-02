@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 93. NGƯỜI HỌ LIÊU VÀ DIÊM VƯƠNG
+## 93. Người họ Liêu và Diêm Vương
 
 Ngày ấy có dòng họ Liêu, không hiểu do nguyên cớ nào mà người trong họ thường bị nạn chết non. Bọn lính tráng của Diêm vương luôn luôn để ý rình mò dòng họ này, hễ thấy người nào chừng quá ba mươi tuổi là bắt đi ngay. Người nào may mắn có sót lại thì cũng chỉ đến bốn mươi là hết hạn. Bởi vậy, những ai trót sinh vào nhà họ Liêu thường bảo nhau cứ đến ba mươi tuổi là trối trăng và sắm hòm ván sớm đi, nếu không là y như vất vả.
 

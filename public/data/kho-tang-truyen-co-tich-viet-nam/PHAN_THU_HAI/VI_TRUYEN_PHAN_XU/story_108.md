@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 108. CHÀNG NGỐC ĐƯỢC KIỆN
+## 108. Chàng ngốc được kiện
 
 Ngày xưa có anh chàng nghèo khổ không nhà không cửa, không cha không mẹ, tính ngốc nghếch, nên người ta gọi là chàng Ngốc. Anh đi ở với một nhà trọc phú, làm quần quật suốt ngày này sang ngày khác không biết mệt. Trọc phú thấy anh khỏe mạnh dễ sai, nên sau năm năm, lúc anh ngửa tay đòi tiền công, hắn bèn dỗ dành anh làm thêm năm năm nữa. Nghe những lời ngon ngọt của hắn, anh lại vui lòng ở thêm một thời hạn mới. Lại năm năm nữa trôi qua. Thấy anh đòi tiền ông để về, trọc phú lại dỗ:
 

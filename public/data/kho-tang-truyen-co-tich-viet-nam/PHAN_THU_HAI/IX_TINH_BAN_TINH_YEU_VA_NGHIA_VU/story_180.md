@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 180. BÁN TÓC ĐÃI BẠN
+## 180. Bán tóc đãi bạn
 
 Ngày xưa, có ba người học trò là Tùng, Trúc, Mai, quê ở ba miền khác nhau, tình cờ cùng học với nhau một thầy. Cha mẹ họ đều nghèo túng nhưng vẫn cố gắng cho con đi học. Trong những ngày xa nhà vùi đầu vào sách vở, bộ ba ấy kết bạn và nhau rất thân thiết. Họ ước với nhau rằng nếu sau này người nào làm ăn khấm khá thì sẽ không quên những người cùng sống trong buổi hàn vi, và sẽ cố tìm cách giúp đỡ bạn qua cơn nghèo ngặt. Sau một thời gian học hành, cả ba người đều vì hoàn cảnh nên từ giã nhau mỗi người đi một ngả.
 

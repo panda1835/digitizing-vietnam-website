@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 156. PHẠM NHĨ HAY LÀ SỰ TÍCH ÔNG BA MƯƠI
+## 156. Phạm Nhĩ hay là sự tích Ông Ba Mươi
 
 Đã từ lâu lắm, trên cõi trời có một người có sức khỏe lạ lùng, những việc dời núi, lấp biển, đội đá, bẻ cây,... không một ai bì kịp. Nói về tài phép, ông cũng thần thông biến hóa vượt xa nhiều vị trên Thiên Đình. Đặc biệt ông có hai vành tai dài và rách, vì lúc nhỏ ông thường dùng hai tai cho nhiều người móc vào mà đu, rồi xoay họ như chong chóng. Cũng vì thế người ta quen gọi ông là Phạm Nhĩ. Vốn tinh nghịch và hung hăng quen thói từ hồi trẻ, Phạm Nhĩ không mấy khi ngồi yên. Ông thường hay gây sự đánh nhau với những kẻ mà ông thù ghét. Nhưng người ta đều tránh né ông, chẳng mấy ai dám đọ sức, vì đã từng có bao nhiêu anh hùng hảo hán không chịu nổi chỉ một cú đấm, cái gạt của ông.
 

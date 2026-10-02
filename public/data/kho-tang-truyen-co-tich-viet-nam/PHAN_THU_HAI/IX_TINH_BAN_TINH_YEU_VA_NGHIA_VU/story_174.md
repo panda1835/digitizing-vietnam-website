@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 174. MỴ CHÂU - TRỌNG THỦY HAY LÀ TRUYỆN NỎ THẦN
+## 174. Mỵ Châu - Trọng Thủy hay là truyện nỏ thần
 
 Ngày xưa trị vì cõi đất Âu-lạc có một ông vua tên là An Dương Vương. Vua có một nàng công chúa tên là Mỵ Châu. Mỵ Châu rất xinh đẹp và ngày ấy đã đến tuổi yêu đương. Vua chỉ có một mình nàng là con gái nên rất yêu thương chiều chuộng.
 

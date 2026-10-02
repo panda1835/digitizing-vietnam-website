@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 35. SỰ TÍCH NÚI NGŨ-HÀNH
+## 35. Sự tích núi Ngũ-Hành
 
 Ngày xưa, có một ông cụ già sống một thân một mình trong một túp lều còn trên bãi biển vắng. Những người dân gần đó không biết ông cụ đến đấy làm gì và đến từ lúc nào.
 

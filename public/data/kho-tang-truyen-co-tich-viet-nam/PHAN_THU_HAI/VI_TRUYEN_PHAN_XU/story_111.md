@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 111. NGUYỄN KHOA ĐĂNG
+## 111. Nguyễn Khoa Đăng
 
 Ngày xưa, có nội tán Nguyễn Khoa Đăng là người có tài xử đoán. Khi còn làm một chức quan nhỏ, ông đến trị nhậm hạt nào thường được mọi người mến phục, không chỉ vì tài xét xử mà còn vì lòng tốt của ông lúc nào cũng lo trừ hại cho dân.
 

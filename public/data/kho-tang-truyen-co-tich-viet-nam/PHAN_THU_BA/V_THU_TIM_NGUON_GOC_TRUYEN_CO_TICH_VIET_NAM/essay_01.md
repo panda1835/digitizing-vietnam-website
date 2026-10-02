@@ -1,6 +1,6 @@
-# V. THỬ TÌM NGUỒN GỐC TRUYỆN CỐ TÍCH VIỆT - NAM
+# V. Thử tìm nguồn gốc truyện cổ tích Việt-Nam
 
-## 1. CÁC TRƯỜNG PHÁI CỔ TÍCH HỌC XƯA NAY VỚI VẤN ĐỀ CÁI "CHUNG" VÀ CÁI "RIÊNG" TRONG LOẠI HÌNH CỔ TÍCH
+## 1. Các trường phái cổ tích học xưa nay với vấn đề cái "chung" và cái "riêng" trong loại hình cổ tích
 
 Như chúng ta biết, lịch sử bộ môn văn học dân gian thế giới phát triển mạnh mẽ chừng khoảng một thế kỷ gần đây đã gợi lên nhiều vấn đề lý thú, làm nổ ra nhiều cuộc tranh luận đến nay hầu như chưa vơi ý nghĩa, đóng lại nhiều hướng tìm tòi đã quá lỗi thời, cũng như mở ra nhiều con đường thuận lợi giúp các nhà cổ tích học nhiều nước xích lại gần nhau về phương pháp, do đó đưa lại nhiều triển vọng trong nhận thức, khám phá ra nhiều điều mới mẻ của thế giới cổ tích nước mình mà trở về trước tưởng chùng như luôn luôn vẫn là điều bí ẩn.
 

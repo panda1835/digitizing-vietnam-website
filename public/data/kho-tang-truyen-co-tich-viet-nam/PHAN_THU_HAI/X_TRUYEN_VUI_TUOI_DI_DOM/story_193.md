@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 193. HAI ANH EM VÀ CON CHÓ ĐÁ
+## 193. Hai anh em và con chó đá
 
 Ngày xưa có hai anh em ruột, người nào cũng đã có vợ và ở riêng. Vợ chồng người anh thóc bồ rạ đụn, có của ăn của để, nhưng keo cú thì không ai bằng. Trái lại, vợ chồng người em tuy không đất cắm dùi nhưng lại tốt bụng, đối đãi với bà con làng xóm như bát nước đầy. Tuy họ phải đi làm thuê làm mướn nuôi thân, nhưng ai nghèo khó vẫn sẵn lòng giúp đỡ.
 

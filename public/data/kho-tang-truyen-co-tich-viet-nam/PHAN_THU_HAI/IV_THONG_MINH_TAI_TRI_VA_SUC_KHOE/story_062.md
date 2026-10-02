@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 62. HAI ÔNG TƯỚNG ĐÁ RÃI
+## 62. Hai ông tướng Đá Rãi
 
 Dưới thời nhà Lý, có một ông vua, nhân một hôm đi du ngoạn về miền núi xứ Đoài, tự nhiên thấy ở sườn núi nứt ra một khe rộng, rồi từ trong đi ra hai người to lớn lạ thường, mỗi người vác trên vai một phiến đá tảng như cái bồ, coi bộ không có tý gì là mệt nhọc.
 

@@ -1,6 +1,6 @@
-# V. THỬ TÌM NGUỒN GỐC TRUYỆN CỐ TÍCH VIỆT - NAM
+# V. Thử tìm nguồn gốc truyện cổ tích Việt-Nam
 
-## 2. NGUỒN GỐC NGOẠI LAI CỦA TRUYỆN CỔ TÍCH VIỆT-NAM
+## 2. Nguồn gốc ngoại lai của truyện cổ tích Việt-Nam
 
 Nói đến cái "chung", chúng ta hãy hướng về một mảng gồm khá nhiều truyện có những dấu hiệu cho biết chúng có nguồn gốc ngoại lai vì vẫn còn những dị bản hoặc gần hoặc xa thuộc kho truyện của các dân tộc lớn nhỏ trên các lục địa và đảo quốc. Trong đó đáng nêu lên đầu tiên - và cũng chỉ nêu như thế trong tình hình tài liệu hiện nay - là một số những dị bản có liên quan đến những truyện cổ tích và những huyền thoại Trung-quốc và Ấn-độ, con đẻ của hai nền văn minh vĩ đại và cổ kính trên thế giới, lại gần gũi về không gian với Việt-nam.
 

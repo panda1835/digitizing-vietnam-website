@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ[^1]
+# III. Sự tích các câu ví[^1]
 
-## 41. ĐỒNG TIỀN VẠN LỊCH
+## 41. Đồng tiền Vạn Lịch
 
 Ngày xưa có người lái buôn tên là Vạn Lịch. Hắn ta buôn to, giàu có vào hạng nhất nhì trong nước. Hắn có ngót một trăm chiếc thuyền dùng vào việc chở hàng. Chiếc thuyền riêng của Lịch có buồng ăn, buồng nằm.... không khác gì nhà ở trên đất. Xung quanh chỗ ngồi trang sức bằng gấm vóc. Đồ dùng toàn bằng vàng bạc.
 

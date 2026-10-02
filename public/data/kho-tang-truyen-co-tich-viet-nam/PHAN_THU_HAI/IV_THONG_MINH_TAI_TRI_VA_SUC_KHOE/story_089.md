@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 89. BỢM GIÀ MẮC BẪY HAY LÀ MƯU TRÍ ĐÀN BÀ
+## 89. Bợm già mắc bẫy hay là mưu trí đàn bà
 
 Ngày xưa có một anh chàng, nhà giàu có nhưng phải cái ngu ngốc thì không ai bằng. Một hôm, nghe nói trong vùng có đám hội lớn mở luôn mười đêm ngày, hắn vội vã thắng bộ cánh rất sang: áo gấm, quần lụa, khăn điều, nón lông, giày hạ. Hắn lại cưỡi một con ngựa có yên khấu trang sức đắt tiền. Dọc đường gặp ai hắn cũng hỏi:
 

@@ -1,6 +1,6 @@
-# I. BẢN CHẤT TRUYỆN CỔ TÍCH
+# I. Bản chất truyện cổ tích
 
-## 3. RANH GIỚI GIỮA TRUYỀN THUYẾT VÀ CỔ TÍCH
+## 3. Ranh giới giữa truyền thuyết và cổ tích
 
 Truyền thuyết, cổ tích đều là những truyện tự sự nằm trong loại hình tự sự dân gian, do quần chúng tưởng tượng nên, cốt truyện tương đối dài, kết thúc trọn vẹn, các tình tiết được thuật theo trình tự thời gian, và trong không gian ba tầng của người thời cổ: cõi người, cõi trời (bao gồm cả cõi tiên), cõi đất (âm phủ và thủy phủ). Nội dung của chúng, hoặc hoang đường, huyền diệu hoặc không, thường thường đề cập đến những mối quan hệ giữa con người trong xã hội có giai cấp nhiều hơn là giữa con người với tự nhiên. Mục đích là gây hứng thú thẩm mỹ cho người nghe, người đọc, đồng thời cũng để giáo dục họ, nhưng không cốt gây cười, cũng không ngụ ý như các thể loại tự sự dân gian khác.
 

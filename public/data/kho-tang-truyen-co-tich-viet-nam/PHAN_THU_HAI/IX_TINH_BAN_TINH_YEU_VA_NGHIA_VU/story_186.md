@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 186. SỰ TÍCH KHĂN TANG
+## 186. Sự tích khăn tang
 
 Ngày xưa có vợ chồng nhà phú hộ nọ sinh được năm người con gái. Giàu có, lại không con trai, nên bao nhiêu tình thương, họ đều dồn vào những cô con gái. Họ cưng như trứng mỏng, hễ con đòi gì là được nấy.
 

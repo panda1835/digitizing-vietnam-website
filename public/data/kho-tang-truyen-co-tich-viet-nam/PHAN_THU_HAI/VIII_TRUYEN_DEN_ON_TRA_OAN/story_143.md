@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 143. HAI CON CÒ VÀ CON RÙA
+## 143. Hai con cò và con rùa
 
 Ngày trước, có một người đàn bà rất mực kiêu căng và chua ngoa. Hễ giận người nào hay gặp việc gì trái ý là bà ta nói cạnh nói khóe chửi bới không tiếc lời, cố gào đến tận tam đại người ta cho được mới nghe.
 

@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 1. SỰ TÍCH DƯA HẤU
+## 1. Sự tích dưa hấu
 
 Ngày xưa có một người trẻ tuổi tên là Mai An Tiêm. Chàng là người ở một nước đâu tận vùng biển phía Nam, bị bán làm nô. Một hôm, chàng bị bọn lái buôn chở đến bán cho Hùng Vương. Mai An Tiêm học nói tiếng Việt rất chóng. Chàng nhớ nhiều chuyện, biết nhiều điều thường thức, lại lắm tài nghề. Càng ngày vua càng yêu dấu, không lúc nào rời. Năm ba mươi lăm tuổi, chàng làm quan hầu cận, có một ngôi nhà riêng ở gần cung vua. Vợ Mai là con gái nuôi của vua đã sinh được một trai lên năm tuổi. Mai có đủ mọi người hầu hạ, trong nhà của ngon vật lạ không thiếu thứ gì. Tuy oai quyền không lớn lắm nhưng chàng được mọi người sợ phục. Nhiều kẻ vẫn thường lui tới cầu cạnh. Nhưng thấy Mai có địa vị cao, cũng không hiếm gì những kẻ sinh lòng ghen ghét.
 

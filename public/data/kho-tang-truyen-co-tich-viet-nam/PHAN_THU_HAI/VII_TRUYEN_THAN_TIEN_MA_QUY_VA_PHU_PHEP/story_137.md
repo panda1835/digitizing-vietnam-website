@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 137. SỰ TÍCH CÔNG CHÚA LIỄU HẠNH
+## 137. Sự tích công chúa Liễu Hạnh
 
 Ngày xưa, ở trên thiên đình có cô con gái Ngọc Hoàng tên là Liễu Hạnh. Tính tình cô phóng túng ngang bướng, không chịu theo khuôn phép nhà trời. Ngọc Hoàng hết lòng dạy dỗ nhưng vô ích, cô chứng nào vẫn giữ tật ấy. Giận vì trong nhà có con gái hư không thể làm vì cho thiên hạ, Ngọc Hoàng quyết trị tội để cho con tu tỉnh. Nhân một lần Liễu Hạnh phạm lỗi, Ngọc Hoàng bèn đày nàng xuống trần trong ba năm. Sau khi xuống trần, Liễu Hạnh hóa thân thành một cô gái đẹp, dựng một cái quán ở chân núi đèo Ngang. Đây là nơi rừng núi vắng vẻ nhưng cũng là nơi con đường thiên lý từ Bắc vào Nam vắt qua, nên hàng ngày không bao giờ ngớt bộ hành đi lại. Từ xưa đến nay, vì sợ giặc cướp và thú dữ, không ai dám đến đó mở quán bán hàng. Vì vậy ngôi hàng độc nhất của Liễu Hạnh ngày nào cũng đông khách. Bất kỳ ai lên đèo xuống đèo, đã đi qua quán không thể không ghé lại nghỉ chân, huống gì trong quán lại có cô gái tuyệt sắc.
 

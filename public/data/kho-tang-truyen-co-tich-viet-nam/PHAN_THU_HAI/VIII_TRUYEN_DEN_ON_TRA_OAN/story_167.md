@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 167. ÔNG DÀI ÔNG CỘC HAY LÀ SỰ TÍCH THẦN SÔNG KỲ-CÙNG
+## 167. Ông Dài ông Cộc hay là sự tích thần sông Kỳ-Cùng
 
 Ngày xưa, ở vùng sông Tranh thuộc về tỉnh Đông có hai vợ chồng một nhà nọ, gia tư cũng vào hạng khá, nhưng tuổi già mà chưa có con. Thường ngày họ cầu trời có một đứa con cho vui tuổi già. Một hôm, trong khi ra đồng phát ruộng, người chồng nhặt được hai quả trứng to bằng nắm tay, bèn đưa cho vợ xem. Xem xong, chồng định vứt đi, nhưng người vợ ngăn lại:
 

@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 133. NGƯỜI HÓA DẾ
+## 133. Người hóa dế
 
 Vào đời nhà Lê người ta hay chơi trò chọi dế. Người ta cố tìm những con dế khỏe mạnh khéo chọi và bán giá cao. Mỗi lần có cuộc chọi dế, người đánh cuộc vây vòng trong vòng ngoài, chủ nhân của những con dế thắng trận vừa được những món tiền thưởng lớn lại vừa được đám đông trầm trồ thán phục. Vì thế, từ quan chí dân, ai nấy đua nhau nuôi dế chọi, chính nhà vua lại là người say mê thú chơi này đệ nhất. Có những viên quan chuyên có mỗi một việc nuôi và chăm sóc đàn dế chọi cho nhà vua. Có những viên nội giám chuyên đi lùng dế trong dân. Trong cung thường mở những ngày hội chọi dế, có nhiều quan lớn các trấn về dự các trận đấu. Để luôn luôn có dế tốt, vua ra lệnh cho mỗi tổng ở gần kinh kỳ phải tìm cho được ít nhất là một con dế chọi đem nộp, nếu quả là dế hay thì sẽ miễn trừ sưu thuế, trái lại nếu nộp dế xấu hay không có đế, thì phải tội nặng.
 

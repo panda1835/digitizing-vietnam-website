@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 148. TIÊU DIỆT MÃNG XÀ
+## 148. Tiêu diệt mãng xà
 
 Ngày xưa, trong một hang núi nọ có một con mãng xà. Đầu nó to bằng cái chum, trên đầu có mào đỏ, hai mắt như hai quả quýt, thân dài hơn trượng. Nó đi đến đâu là cuốn thành bão đến đấy, cây cối đổ rào rào, bụi bốc mù mịt. Nó đã ăn thịt không biết bao nhiêu là súc vật và người. Người ta dùng nhiều cách để diệt trừ, nhưng mãng xà đã không chết mà còn phá hoại dữ dội hơn. Cuối cùng nhà vua phải sai dựng cho nó một cái đền và hứa mỗi năm khấn một mạng người để nó đỡ phá phách. Nhà vua ra lệnh bắt các làng mỗi năm phải nộp một người con gái để dâng cúng mãng xà, nhưng cũng cho rao trong nước, ai tiêu diệt được con quái vật ấy thì sẽ phong quận công và cho lấy công chúa làm vợ.
 

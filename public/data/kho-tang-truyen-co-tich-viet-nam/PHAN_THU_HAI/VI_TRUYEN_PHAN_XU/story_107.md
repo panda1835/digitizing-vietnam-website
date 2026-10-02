@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 107. BA CHÀNG THIỆN NGHỆ
+## 107. Ba chàng thiện nghệ
 
 Ngày xưa, có nhà họ Lê có một cô gái nhan sắc xinh đẹp. Không những thế, nàng còn văn hay chữ tốt, lại thạo đủ các nghề. Những cô gái đẹp trong vùng khó có cô nào ăn đứt. Khi nàng đã đến tuổi lấy chồng, có nhiều chàng trai hoặc con quan, hoặc con nhà giàu, hoặc tú cử đến cầu hôn, nhưng ông già họ Lê đều từ chối. Ông nói với mọi người:
 

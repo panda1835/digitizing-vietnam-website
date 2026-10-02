@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 9. SỰ TÍCH CHIM ĐA ĐA
+## 9. Sự tích chim đa đa
 
 Ngày xưa có một em bé mồ côi cha từ hồi còn nhỏ. Người mẹ sau một thời gian tang chế cũng đi lấy chồng. Vì bà con thân thích nội ngoại không còn ai nên nó phải theo mẹ về ở với bố ghẻ. Bố ghẻ tính rất vũ phu, coi cả hai mẹ con như kẻ ăn đứa ở. Nhất là thằng bé chưa biết làm gì cả, nên hắn lại càng ghét dữ. Nhiều lúc có việc trái ý, hắn đánh thằng bé thâm tím cả mình mẩy.
 

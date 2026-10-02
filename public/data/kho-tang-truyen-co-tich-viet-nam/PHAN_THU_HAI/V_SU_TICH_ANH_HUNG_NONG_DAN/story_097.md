@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 97. QUẬN HE
+## 97. Quận He
 
 Vào thời nhà Lê, có hai vợ chồng một nhà nghèo ở làng Đồng-lùi, sinh được một người con trai đặt tên là Nguyễn Hữu Cầu. Thuở trẻ, Cầu mồ côi bố, người mẹ túng bấn phải cho chàng đi ở, nhưng sau cũng cố gắng cho đi học. Trong lớp, chàng là người ngỗ nghịch không chịu kém ai. Bấy giờ có một bạn học kình địch với Cầu là Phạm Đình Trọng. Hắn là người thường được thầy khen nết na chăm chỉ, nhưng Cầu thì nhất định không phục.
 

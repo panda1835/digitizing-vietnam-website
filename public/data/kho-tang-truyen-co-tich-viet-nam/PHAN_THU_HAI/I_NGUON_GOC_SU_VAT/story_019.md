@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 19. SỰ TÍCH CÁI CHÂN SAU CON CHÓ
+## 19. Sự tích cái chân sau con chó
 
 Ngày xưa có một người đàn bà tên là Thanh Đề rất sùng đạo Phật. Bà ta sùng Phật đến nỗi cho rằng những cơm bánh do lúa gạo người ta trồng ra ở đồng ruộng thì không thể nào tinh khiết được, nên không một thứ nào đáng đem lễ Phật. Vì thế, hằng năm bà ta trồng lúa nếp trong những cái gáo dừa đựng đất sạch. Luôn luôn bà treo cái gáo đó lên một chỗ cao vì sợ có người bước qua. Khi lúa chín, bà thận trọng rứt từng hạt một, giã nó bằng một cán dao mới tinh, rồi mới đưa nắm gạo đó đựng vào bát thờ mà dâng lên chùa.
 

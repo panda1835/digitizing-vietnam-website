@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "73 - 84",
   "total_essays": 4,
   "sections": [
     {
       "section_id": "III",
-      "section_title": "III. TRUYỆN CỔ VIỆT NAM QUA CÁC THỜI ĐẠI",
+      "section_title": "III. Truyện cổ Việt Nam qua các thời đại",
       "essays": [
         {
           "essay_number": 1,
-          "title": "THẦN THOẠI, TRUYỀN THUYẾT, LOẠI TRUYỆN XƯA NHẤT CỦA NGƯỜI VIỆT",
+          "title": "Thần thoại, truyền thuyết, loại truyện xưa nhất của người Việt",
           "start_page": 73,
           "end_page": 75,
           "markdown_file": "essay_01.md",
@@ -17,7 +17,7 @@
         },
         {
           "essay_number": 2,
-          "title": "TRUYỆN CỔ TÍCH THỜI PHONG KIẾN TỰ CHỦ",
+          "title": "Truyện cổ tích thời phong kiến tự chủ",
           "start_page": 75,
           "end_page": 77,
           "markdown_file": "essay_02.md",
@@ -25,7 +25,7 @@
         },
         {
           "essay_number": 3,
-          "title": "VIỆT ĐIỆN U LINH TẬP, LĨNH-NAM CHÍCH QUÁI VÀ NHỮNG SÁCH SƯU TẦM TRUYỆN CỔ SAU ĐÓ",
+          "title": "Việt điện u linh tập, Lĩnh-Nam chích quái và những sách sưu tầm truyện cổ sau đó",
           "start_page": 77,
           "end_page": 80,
           "markdown_file": "essay_03.md",
@@ -33,7 +33,7 @@
         },
         {
           "essay_number": 4,
-          "title": "THỜI KỲ SUY TÀN CỦA TRUYỆN CỔ TÍCH VIỆT-NAM",
+          "title": "Thời kỳ suy tàn của truyện cổ tích Việt-Nam",
           "start_page": 80,
           "end_page": 84,
           "markdown_file": "essay_04.md",

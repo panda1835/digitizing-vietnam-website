@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 159. RẠCH ĐÙI GIẤU NGỌC
+## 159. Rạch đùi giấu ngọc
 
 Ngày xưa, một ông vua nước ngoài có một viên ngọc vô cùng quý giá. Viên ngọc có hai điều lạ: một là cầm trên tay tưởng chừng rất nhẹ, thế nhưng đặt vào đâu thì ở đấy nặng trĩu; hai là đêm đến ngọc tỏa ánh sáng rực, dẫu cất chỗ kín thế nào đi nữa, ánh sáng vẫn cứ lọt ra ngoài. Từ lúc được làm chủ viên ngọc, nhà vua mừng lắm, đêm ngày ôm ấp không rời.
 

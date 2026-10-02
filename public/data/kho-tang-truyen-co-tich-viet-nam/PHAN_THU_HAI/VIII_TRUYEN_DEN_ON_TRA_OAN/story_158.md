@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 158. RẮN BÁO OÁN
+## 158. Rắn báo oán
 
 Ngày ấy, trong một gò đất cây cối mọc um tùm ở làng Nhị Khê gọi là gò Rùa, có một con rắn mẹ sống với một đàn con. Con rắn làm tổ ở đó đã ngót một trăm năm, chỉ còn chờ ít lâu nữa là thành xà tinh có thể đi mây về gió, biến hóa huyền diệu. Vào thời ấy có một ông đồ họ Nguyễn mở trường dạy học trong làng. Thấy đám đất ở gò Rùa có mạch rất đẹp: trước mặt là đầm làm minh đường, sau lưng là gò làm án, ông đồ bèn xin làng cấp cho mình đám đất để dựng một ngôi nhà làm nơi tĩnh mịch dạy học. Được phép làng, một buổi chiều nọ trước khi tan lớp, thầy bảo trò:
 

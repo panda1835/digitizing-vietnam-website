@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 32. SỰ TÍCH ĐÁ VỌNG PHU
+## 32. Sự tích đá Vọng Phu
 
 Ngày xưa, có đôi vợ chồng nghèo sinh được hai mụn con: đứa lớn là trai mười một tuổi, đứa bé là gái lên sáu tuổi. Mỗi lần hai vợ chồng đi làm đồng hay đi đâu vắng, thường để hai con ở lại nhà, dặn anh trông nom em gái. Một hôm trước khi đi làm, người mẹ trao cho hai con một cây mía, bảo con lớn ở nhà chặt cho em ăn và đưa em đi chơi. Thường ngày mẹ vẫn nhắc:
 

@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 190. PHIÊU LƯU CỦA ANH CHÀNG NGỐC HAY LÀ LÀM THEO VỢ DẶN
+## 190. Phiêu lưu của anh chàng ngốc hay là làm theo vợ dặn
 
 Ngày xưa có một anh chàng ngốc nghếch đần độn. Từ ngày có vợ, vợ anh thấy chồng ăn không ngồi rồi ngày này sang tháng khác, thì không được vui lòng. Cho nên một hôm, nàng thủ thỉ:
 

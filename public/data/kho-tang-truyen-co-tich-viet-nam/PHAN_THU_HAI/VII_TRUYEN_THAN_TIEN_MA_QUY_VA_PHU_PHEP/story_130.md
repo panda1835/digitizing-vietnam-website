@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 130. SỰ TÍCH ĐỘNG TỪ THỨC
+## 130. Sự tích động Từ Thức
 
 Vào đời nhà Trần ở châu Ái có một chàng trẻ tuổi tên là Từ Thức. Chàng vốn con nhà quan. Năm 20 tuổi nhờ học giỏi thi đỗ cao, chàng được bổ một chân tri huyện ở một huyện vùng Bắc. Khác với bọn quan lại khác, Từ Thức vốn là người phóng khoáng, không chịu ràng buộc vào khuôn phép. Chàng lại không thích những chuyện nịnh trên, nạt dưới, mà chỉ thích uống rượu ngâm thơ, và đi chơi ngắm cảnh. Ở gần vùng Từ Thức trị nhậm có một ngôi chùa lớn. Trước sân và xung quanh vườn trồng toàn một loại cây mẫu đơn. Mỗi năm vào khoảng tháng giêng là mùa hoa nở rộ, cũng là kỳ cúng Phật. Nhân dịp đó, các thiện nam tín nữ các nơi đua nhau về chùa lễ Phật và ngắm hoa. Vì thế người ta cũng gọi là hội xem hoa hay là hội mẫu đơn.
 

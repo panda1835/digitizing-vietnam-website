@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 123. SỰ TÍCH ĐÌNH LÀNG ĐA HÒA
+## 123. Sự tích đình làng Đa Hòa
 
 Ngày xưa ở làng Đa-hòa có một ông thầy phù thủy cao tay, tên là Dọng. Không những ông có nhiều phép lạ mà còn có lòng thương người.
 

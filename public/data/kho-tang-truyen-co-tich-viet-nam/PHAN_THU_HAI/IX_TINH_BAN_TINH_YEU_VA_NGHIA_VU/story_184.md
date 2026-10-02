@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 184. NGƯỜI CƯỚI MA
+## 184. Người cưới ma
 
 Ngày xưa có một anh đồ họ Lê, nhà nghèo khó phải bỏ đi khắp nơi làm nghề gõ đầu trẻ. Về sau, anh được phú ông một làng nọ đón về "ngồi" ở nhà để cho con khỏi phải đi học xa. Phú ông có một cô con gái chưa chồng. Từ ngày có anh đồ đến ở nhà mình cô gái đâm ra phải lòng chàng trẻ tuổi. Thấy cô gái thực bụng yêu mình, anh đồ cũng yêu lại một cách thắm thiết. Hai bên từng chỉ non thề biển quyết sống với nhau đến đầu bạc răng long.
 

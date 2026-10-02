@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 63. LÊ NHƯ HỔ
+## 63. Lê Như Hổ
 
 Ở làng Tiên-châu bây giờ thuộc về tỉnh Hưng-yên, ngày trước có một anh học trò họ Lê. Người anh to cao, ăn khỏe như hổ, bởi thế người ta gọi là Như Hổ. Cha mẹ anh nhà nghèo nhưng cũng cố gắng nuôi con ăn học. Từ lúc Hổ biết làm văn bài, mỗi bữa cha mẹ cho ăn một nổi bảy cơm. Nhưng chỉ được nửa năm trong nhà hết veo cả gạo, phải cho anh chàng đi gửi rể.
 

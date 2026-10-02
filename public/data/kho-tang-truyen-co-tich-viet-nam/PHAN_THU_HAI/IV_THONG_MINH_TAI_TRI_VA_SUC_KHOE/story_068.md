@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 68. THẠCH SANH
+## 68. Thạch Sanh
 
 Ngày xưa ở quận Cao-bình có hai vợ chồng tuổi già mà chưa có con. Nhà họ nghèo hàng ngày phải lên rừng chặt những bó củi về đổi lấy gạo nuôi thân. Họ ham giúp người như đắp đường khơi cống, đỡ đần kẻ già người yếu mà không nề hà gì cả. Thấy họ tốt bụng, Ngọc Hoàng bèn sai thái tử xuống đầu thai làm con. Từ đó người vợ có mang, nhưng trải đã mấy năm mà không sinh nở. Giữa khi ấy, người chồng lâm bệnh rồi chết. Mãi về sau người vợ mới sinh được một đứa con trai.
 

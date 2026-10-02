@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 179. CHIẾC GIÀY THƠM
+## 179. Chiếc giày thơm
 
 Ngày xưa, ở chợ Đồng-xuân có cô gái họ Trương, con một gia đình giàu có lớn. Cô gái mặt hoa da phấn và đã đến tuổi yêu đương. Thường ngày sống trong nhung lụa, có kẻ hầu người hạ nên cô ít khi bước chân ra ngoài.
 

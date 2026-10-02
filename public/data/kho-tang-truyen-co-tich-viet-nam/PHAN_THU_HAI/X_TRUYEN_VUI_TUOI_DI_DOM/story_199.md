@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 199. "GIẬN MÀY TAO Ở VỚI AI" HAY LÀ TRUYỆN PHƯỢNG HOÀNG ĐẤT
+## 199. "Giận mày tao ở với ai" hay là truyện phượng hoàng đất
 
 Ngày xưa có một phú ông tự cho mình có tính nhẫn nại, ít ai bì kịp. Phú ông có một cô con gái nhan sắc xinh đẹp. Ngày con gái đến tuổi lấy chồng, phú ông cho yết bảng ở cổng nói rằng hễ ai làm cho lão nổi nóng hoặc giận dữ thì lão sẽ gả ngay con gái cho người đó. Nhưng trong vòng một tháng mà không làm được thì sẽ bị đánh một trăm hèo rồi đuổi về. Đã có nhiều chàng trai lần lượt nộp đơn xin làm rể với nhiều mưu mẹo mà vẫn không làm được lão nổi giận, đành chịu nhận lấy trận đòn đau mà tay không trở ra, mọi công phu làm rể coi như xôi hỏng bỏng không. Vì thế đã bao năm tháng, cô gái vẫn phòng không bóng chiếc.
 

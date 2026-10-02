@@ -1,6 +1,6 @@
-# I. BẢN CHẤT TRUYỆN CỔ TÍCH
+# I. Bản chất truyện cổ tích
 
-## 4. ĐẶC TRƯNG THỂ LOẠI CỦA CỔ TÍCH
+## 4. Đặc trưng thể loại của cổ tích
 
 Như vậy, đặc trưng của cổ tích biểu hiện ở những chỗ nào? Thực cũng khó mà vạch một cách thật dứt khoát ranh giới của thể loại này; vì như ta đã biết, tất cả mọi loại hình tự sự dân gian đều được sáng tạo nên bằng cảm quan nghệ thuật của quần chúng, nên đều mang những kết cấu khá thống nhất, có những mô-típ tương đối ổn định. Thêm vào đó, chúng lại được sáng tác, chỉnh lý và truyền tụng bằng miệng nên cũng ảnh hưởng qua lại với nhau một cách mật thiết. Tuy nhiên, tìm hiểu cho sâu, vẫn có thể phân biệt được loại hình này với loại hình khác trên những nét căn bản. Theo chúng tôi, có ba đặc điểm đáng chú ý hơn cả để nhìn nhận loại hình cổ tích:
 

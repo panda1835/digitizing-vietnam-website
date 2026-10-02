@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 150. TAM VÀ TỨ
+## 150. Tam và Tứ
 
 Ngày xưa có một người làm nghề bưng trống tên là Tam. Mỗi lần làm xong một số hàng có đủ trống con trống lớn, ông thường mang đi các vùng lân cận để bán. Bán hết, ông lại trở về làm chuyến khác. Một hôm ông gánh hàng đi bán ở một vùng khá xa. Vừa trèo lên một ngọn đèo, ông bỗng thấy một người ngồi ẩn dưới bóng một cây đa. Thấy mệt và nóng bức nên ông cũng dừng lại ở đây nghỉ chân. Trong khi trò chuyện, hai người hỏi tên tuổi và nghề nghiệp của nhau. Người hàng trống biết khách thên là Tứ làm nghề buôn vặt nhưng hết vốn, đang định tìm chỗ làm thuê để nuôi miệng.
 

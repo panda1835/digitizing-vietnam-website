@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 56. TRINH PHỤ HAI CHỒNG
+## 56. Trinh phụ hai chồng
 
 Ngày xưa có một gia đình nọ có một người con gái xinh xắn nết na. Lúc nàng lớn lên có một người học trò nghèo họ Đỗ đưa trầu cau đến hỏi làm vợ. Chàng là tay văn hay chữ tốt, tính nết rất hiền lành. Thấy thế, người cha cô gái vui lòng hứa hôn. Cô gái sung sướng được người chồng xứng đôi vừa lứa. Lễ cưới vừa xong thì cha nàng nhuốm bệnh qua đời.
 

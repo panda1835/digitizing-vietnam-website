@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 120. TỪ ĐẠO HẠNH HAY SỰ TÍCH THÁNH LÁNG
+## 120. Từ Đạo Hạnh hay sự tích Thánh Láng
 
 Vào thời Lý có một ông sư quê ở làng Láng gần kinh đô, tên là Từ Vinh. Từ Vinh học được phép tàng hình. Không những thế, hắn còn biết cả phép biến mình thành bất cứ con vật gì hay bất cứ một người nào khác. Khi học được phép lạ, hắn không nghĩ đến việc lợi dụng phép thuật để giúp đỡ người nguy kẻ khó mà chỉ nghĩ cách tìm khoái lạc cho bản thân. Cho nên, hắn đi khắp mọi vùng, bề ngoài làm bộ giảng đạo nhưng kỳ thực là để gần gụi những người đàn bà mà mình ưa thích. Hắn đã có phép, lại không kém khôn ngoan, nên chả một ai hay biết cả.
 

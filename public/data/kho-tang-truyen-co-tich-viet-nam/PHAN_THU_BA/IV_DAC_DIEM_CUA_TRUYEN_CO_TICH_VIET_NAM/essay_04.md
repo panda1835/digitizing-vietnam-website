@@ -1,6 +1,6 @@
-# IV. ĐẶC ĐIỂM CỦA TRUYỆN CỔ TÍCH VIỆT-NAM
+# IV. Đặc điểm của truyện cổ tích Việt-Nam
 
-## 4. TRUYỆN CỔ TÍCH VIỆT-NAM CÓ MỘT MẢNG ĐÁNG KỂ NÊU BẬT VAI TRÒ TÍCH CỰC CỦA NGƯỜI NỮ: ĐỀ CẬP ĐẾN ƯỚC MƠ TÌNH YÊU VÀ HÔN NHÂN TỰ DO
+## 4. Truyện cổ tích Việt-Nam có một mảng đáng kể nêu bật vai trò tích cực của người nữ: đề cập đến ước mơ tình yêu và hôn nhân tự do
 
 Thời kỳ chế độ quân chủ ngự trị cũng chính là thời kỳ địa vị của người nữ trong gia đình và trong xã hội thực tế trở nên thấp kém so với người nam. Điều đó được phản ánh khá rõ trong văn học bác học cũng như văn học dân gian của nhiều dân tộc. Nhân vật anh hùng đánh Đông dẹp Bắc lập bao nhiêu kỳ tích thường là nam giới, như I-van (Ivan) con người hùng trong cổ tích Nga, chàng Gấu (hay Tai Gấu) dũng mãnh trong cổ tích người A-va-rơ (Avares) v.v... Truyện cổ tích Việt-nam cũng không ra khỏi thông lệ đó. Người nữ trong số lớn truyện cổ của chúng ta thường đóng vai thụ động, là nơi gửi gắm niềm trắc ẩn, hay là đối tượng ra tay giải cứu của các trang nam tử anh hùng. Là nạn nhân của những con quỷ hiếu sắc đã đành, họ còn phải cáng đáng cả những nghĩa vụ nặng nề mà vai trò người nam lẽ ra phải thay thế, như việc nộp mạng thường kỳ cho mãng xà, chằn tinh, thủy phủ... Điều đó chứng tỏ dấu vết của nghi lễ hiến tế trong các tập tục tín ngưỡng thời cổ đã để lại ảnh hưởng tâm lý sâu nặng, kích thích nghệ thuật sáng tạo cổ tích, mà một trong những nhân tố kích thích mạnh nhất là lòng xót thương đối với người phụ nữ chịu mọi sự thiệt thòi.
 

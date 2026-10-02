@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "691 - 900",
   "total_stories": 24,
   "sections": [
     {
       "section_id": "VII",
-      "section_title": "VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP",
+      "section_title": "VII. Truyện thần tiên ma quỷ và phù phép",
       "stories": [
         {
           "story_number": 116,
-          "title": "HÀ Ô LÔI",
+          "title": "Hà Ô Lôi",
           "start_page": 691,
           "end_page": 695,
           "markdown_file": "story_116.md",
@@ -18,7 +18,7 @@
         },
         {
           "story_number": 117,
-          "title": "MIẾNG TRẦU KỲ DIỆU",
+          "title": "Miếng trầu kỳ diệu",
           "start_page": 696,
           "end_page": 700,
           "markdown_file": "story_117.md",
@@ -27,7 +27,7 @@
         },
         {
           "story_number": 118,
-          "title": "TÚ UYÊN",
+          "title": "Tú Uyên",
           "start_page": 701,
           "end_page": 704,
           "markdown_file": "story_118.md",
@@ -36,7 +36,7 @@
         },
         {
           "story_number": 119,
-          "title": "NỢ DUYÊN TRONG MỘNG",
+          "title": "Nợ duyên trong mộng",
           "start_page": 705,
           "end_page": 714,
           "markdown_file": "story_119.md",
@@ -45,7 +45,7 @@
         },
         {
           "story_number": 120,
-          "title": "TỪ ĐẠO HẠNH HAY SỰ TÍCH THÁNH LÁNG",
+          "title": "Từ Đạo Hạnh hay sự tích Thánh Láng",
           "start_page": 715,
           "end_page": 728,
           "markdown_file": "story_120.md",
@@ -54,7 +54,7 @@
         },
         {
           "story_number": 121,
-          "title": "CHÀNG ĐỐN CỦI VÀ CON TINH",
+          "title": "Chàng đốn củi và con tinh",
           "start_page": 729,
           "end_page": 739,
           "markdown_file": "story_121.md",
@@ -63,7 +63,7 @@
         },
         {
           "story_number": 122,
-          "title": "NGƯỜI THỢ ĐÚC VÀ ANH HỌC NGHỀ",
+          "title": "Người thợ đúc và anh học nghề",
           "start_page": 740,
           "end_page": 744,
           "markdown_file": "story_122.md",
@@ -72,7 +72,7 @@
         },
         {
           "story_number": 123,
-          "title": "SỰ TÍCH ĐÌNH LÀNG ĐA HÒA",
+          "title": "Sự tích đình làng Đa Hòa",
           "start_page": 745,
           "end_page": 751,
           "markdown_file": "story_123.md",
@@ -81,7 +81,7 @@
         },
         {
           "story_number": 124,
-          "title": "CON CHIM KHÁCH MÀU NHIỆM",
+          "title": "Con chim khách màu nhiệm",
           "start_page": 752,
           "end_page": 759,
           "markdown_file": "story_124.md",
@@ -90,7 +90,7 @@
         },
         {
           "story_number": 125,
-          "title": "CÂY TRE TRĂM ĐỐT",
+          "title": "Cây tre trăm đốt",
           "start_page": 760,
           "end_page": 762,
           "markdown_file": "story_125.md",
@@ -99,7 +99,7 @@
         },
         {
           "story_number": 126,
-          "title": "NGƯỜI LẤY CÓC",
+          "title": "Người lấy cóc",
           "start_page": 763,
           "end_page": 775,
           "markdown_file": "story_126.md",
@@ -108,7 +108,7 @@
         },
         {
           "story_number": 127,
-          "title": "CÂY THUỐC CẢI TỬ HOÀN SINH HAY LÀ SỰ TÍCH THẰNG CUỘI CUNG TRĂNG",
+          "title": "Cây thuốc cải tử hoàn sinh hay là sự tích thằng Cuội cung trăng",
           "start_page": 776,
           "end_page": 786,
           "markdown_file": "story_127.md",
@@ -117,7 +117,7 @@
         },
         {
           "story_number": 128,
-          "title": "LẤY CHỒNG DÊ",
+          "title": "Lấy chồng dê",
           "start_page": 787,
           "end_page": 816,
           "markdown_file": "story_128.md",
@@ -126,7 +126,7 @@
         },
         {
           "story_number": 129,
-          "title": "NGƯỜI LẤY ẾCH",
+          "title": "Người lấy ếch",
           "start_page": 817,
           "end_page": 820,
           "markdown_file": "story_129.md",
@@ -135,7 +135,7 @@
         },
         {
           "story_number": 130,
-          "title": "SỰ TÍCH ĐỘNG TỪ THỨC",
+          "title": "Sự tích động Từ Thức",
           "start_page": 821,
           "end_page": 825,
           "markdown_file": "story_130.md",
@@ -144,7 +144,7 @@
         },
         {
           "story_number": 131,
-          "title": "NGƯỜI HỌC TRÒ VÀ BA CON QUỶ",
+          "title": "Người học trò và ba con quỷ",
           "start_page": 826,
           "end_page": 834,
           "markdown_file": "story_131.md",
@@ -153,7 +153,7 @@
         },
         {
           "story_number": 132,
-          "title": "HAI CÔ GÁI VÀ CỤC BƯỚU",
+          "title": "Hai cô gái và cục bướu",
           "start_page": 835,
           "end_page": 837,
           "markdown_file": "story_132.md",
@@ -162,7 +162,7 @@
         },
         {
           "story_number": 133,
-          "title": "NGƯỜI HÓA DẾ",
+          "title": "Người hóa dế",
           "start_page": 838,
           "end_page": 842,
           "markdown_file": "story_133.md",
@@ -171,7 +171,7 @@
         },
         {
           "story_number": 134,
-          "title": "THÁNH GIÓNG",
+          "title": "Thánh Gióng",
           "start_page": 843,
           "end_page": 854,
           "markdown_file": "story_134.md",
@@ -180,7 +180,7 @@
         },
         {
           "story_number": 135,
-          "title": "AI MUA HÀNH TÔI HAY LÀ LỌ NƯỚC THẦN",
+          "title": "Ai mua hành tôi hay là lọ nước thần",
           "start_page": 855,
           "end_page": 862,
           "markdown_file": "story_135.md",
@@ -189,7 +189,7 @@
         },
         {
           "story_number": 136,
-          "title": "NGƯỜI DÂN NGHÈO VÀ NGỌC HOÀNG",
+          "title": "Người dân nghèo và Ngọc Hoàng",
           "start_page": 863,
           "end_page": 869,
           "markdown_file": "story_136.md",
@@ -198,7 +198,7 @@
         },
         {
           "story_number": 137,
-          "title": "SỰ TÍCH CÔNG CHÚA LIỄU HẠNH",
+          "title": "Sự tích công chúa Liễu Hạnh",
           "start_page": 877,
           "end_page": 883,
           "markdown_file": "story_137.md",
@@ -207,7 +207,7 @@
         },
         {
           "story_number": 138,
-          "title": "NGƯỜI THỢ SĂN VÀ MỤ CHẰNG",
+          "title": "Người thợ săn và mụ chằng",
           "start_page": 884,
           "end_page": 894,
           "markdown_file": "story_138.md",
@@ -216,7 +216,7 @@
         },
         {
           "story_number": 139,
-          "title": "QUAN TRIỀU HAY LÀ CHIẾC ÁO TÀNG HÌNH",
+          "title": "Quan triều hay là chiếc áo tàng hình",
           "start_page": 895,
           "end_page": 900,
           "markdown_file": "story_139.md",

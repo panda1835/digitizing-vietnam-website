@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 74. BẢY GIAO, CHÍN QUỲ
+## 74. Bảy Giao, Chín Quỳ
 
 Ngày xưa ở làng chợ Cả-sê bây giờ thuộc tỉnh Mỹ-tho có hai anh em ruột: một người tên là Bảy Giao, một người tên là Chín Quỳ. Cha mẹ họ mất sớm chỉ để lại cho vài mẫu ruộng xấu. Vốn người lực lưỡng, hai anh em có chí muốn đưa sức ra thi thố với đời. Nghe nói ở Bình-định có nhiều tay giỏi võ, họ mới bán hết số ruộng của mình rồi đeo khăn gói ra ngoài đó học. Họ đã học với rất nhiều thầy, chẳng bao lâu thông thuộc đủ mười tám ban võ nghệ. Hai chàng nức chí muốn lập công danh. Nhưng gặp lúc triều đình mở rộng cửa văn khép chặt cửa võ, nên cuối cùng họ không biết làm gì kiếm ăn, đành phải trở về quê cũ. Về đến làng, hai chàng dạy võ cho người ta để kiếm ăn nhưng tiếc thay tài nghệ không đủ nuôi miệng.
 

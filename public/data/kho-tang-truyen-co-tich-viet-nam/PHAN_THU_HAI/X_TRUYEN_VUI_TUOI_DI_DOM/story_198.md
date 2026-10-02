@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 198. THẦY LANG BẤT ĐẮC DĨ
+## 198. Thầy lang bất đắc dĩ
 
 Ngày xưa có một anh chàng tên là Tân làm nghề cày ruộng. Anh là người thông minh nhưng tính tình có phần nhút nhát, lại phải cái hay phũ phàng với vợ. Người vợ căm lắm, quyết tìm dịp báo thù cho bõ ghét.
 

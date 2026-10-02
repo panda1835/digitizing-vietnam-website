@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 115. TINH CON CHUỘT
+## 115. Tinh con chuột
 
 Ngày xưa có một anh học trò, con một nhà phú hộ, được nuông chiều và chăm chút rất mực. Năm hai mươi tuổi, cha mẹ lấy vợ cho. Vợ chàng là một người có nhan sắc lại đoan chính. Hai người rất yêu nhau. Lấy vợ được nửa năm, chàng được lệnh cha mẹ bảo lên học với cụ nghè trên tỉnh. Chàng đưa theo một người lão bộc để lo cơm nước và hầu hạ. Vì đường sá cách trở, lại vì bài vở học tập ngày một nhiều, nên đã nửa năm, chàng chẳng có dịp nào về thăm vợ cả.
 

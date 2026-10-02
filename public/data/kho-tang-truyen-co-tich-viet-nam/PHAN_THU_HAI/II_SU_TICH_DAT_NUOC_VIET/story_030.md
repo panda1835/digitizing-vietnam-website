@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 30. SỰ TÍCH SÔNG NHÀ-BÈ HAY LÀ TRUYỆN THỦ HUỒN
+## 30. Sự tích sông Nhà-Bè hay là truyện Thủ Huồn
 
 Ngày xưa ở Gia-định có một người tên là Thủ Huồn. Hắn xuất thân làm thơ lại. Trong hơn hai mươi năm luồn lọt trong các nha các ti, hắn đã làm cho bao nhiêu gia đình tan nát, bao nhiêu người bị oan uổng; do đó hắn đã vơ vét được bao nhiêu là tiền của. Vợ hắn chết sớm lại không có con cho nên tiền bạc của hắn không biết tiêu đâu cho hết. Ngoài số chôn cất, hắn đem tiền tậu ruộng làm nhà. Ruộng của hắn cò bay thẳng cánh, mỗi mùa thu hoạch kể hàng ngàn "giạ" lúa.
 

@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "590 - 633",
   "total_stories": 12,
   "sections": [
     {
       "section_id": "V",
-      "section_title": "V. SỰ TÍCH ANH HÙNG NÔNG DÂN",
+      "section_title": "V. Sự tích anh hùng nông dân",
       "stories": [
         {
           "story_number": 94,
-          "title": "CỐ GHÉP",
+          "title": "Cố Ghép",
           "start_page": 590,
           "end_page": 592,
           "markdown_file": "story_094.md",
@@ -18,7 +18,7 @@
         },
         {
           "story_number": 95,
-          "title": "ÔNG NAM CƯỜNG",
+          "title": "Ông Nam Cường",
           "start_page": 593,
           "end_page": 594,
           "markdown_file": "story_095.md",
@@ -27,7 +27,7 @@
         },
         {
           "story_number": 96,
-          "title": "CỐ BU",
+          "title": "Cố Bu",
           "start_page": 595,
           "end_page": 597,
           "markdown_file": "story_096.md",
@@ -36,7 +36,7 @@
         },
         {
           "story_number": 97,
-          "title": "QUẬN HE",
+          "title": "Quận He",
           "start_page": 598,
           "end_page": 601,
           "markdown_file": "story_097.md",
@@ -45,7 +45,7 @@
         },
         {
           "story_number": 98,
-          "title": "HẦU TẠO",
+          "title": "Hầu Tạo",
           "start_page": 602,
           "end_page": 604,
           "markdown_file": "story_098.md",
@@ -54,7 +54,7 @@
         },
         {
           "story_number": 99,
-          "title": "LÊ LỢI",
+          "title": "Lê Lợi",
           "start_page": 605,
           "end_page": 607,
           "markdown_file": "story_099.md",
@@ -63,7 +63,7 @@
         },
         {
           "story_number": 100,
-          "title": "LÊ VĂN KHÔI",
+          "title": "Lê Văn Khôi",
           "start_page": 608,
           "end_page": 612,
           "markdown_file": "story_100.md",
@@ -72,7 +72,7 @@
         },
         {
           "story_number": 101,
-          "title": "BA VÀNH",
+          "title": "Ba Vành",
           "start_page": 613,
           "end_page": 616,
           "markdown_file": "story_101.md",
@@ -81,7 +81,7 @@
         },
         {
           "story_number": 102,
-          "title": "HAI NÀNG CÔNG CHÚA NHÀ TRẦN",
+          "title": "Hai nàng công chúa nhà Trần",
           "start_page": 617,
           "end_page": 618,
           "markdown_file": "story_102.md",
@@ -90,7 +90,7 @@
         },
         {
           "story_number": 103,
-          "title": "VỢ BA CAI VÀNG",
+          "title": "Vợ ba Cai Vàng",
           "start_page": 619,
           "end_page": 622,
           "markdown_file": "story_103.md",
@@ -99,7 +99,7 @@
         },
         {
           "story_number": 104,
-          "title": "VUA HEO",
+          "title": "Vua Heo",
           "start_page": 623,
           "end_page": 627,
           "markdown_file": "story_104.md",
@@ -108,7 +108,7 @@
         },
         {
           "story_number": 105,
-          "title": "NGƯỜI THỢ MỘC NAM-HOA",
+          "title": "Người thợ mộc Nam-Hoa",
           "start_page": 628,
           "end_page": 633,
           "markdown_file": "story_105.md",

@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 157. CON MA BÁO THÙ
+## 157. Con ma báo thù
 
 Ngày xưa ở Gia-định có một tên cướp lợi hại bị bắt và kết án tử hình. Trong ngục, hắn ta bảo người nhà đem hậu lễ đến chạy chọt với tên quan án để mong quan cố tìm cách cứu hắn thoát chết. Quan án nhận lời, đòi phải có đủ hai mươi nén bạc mới có thể lo lót xong. Người nhà tên cướp lo đủ số bạc. Nhưng sau khi nhận đủ bạc rồi, quan lại muốn ăn không một mình, không muốn chia với bọn quan đầu tỉnh và bọn quan trong bộ. Vì thế, cái đơn xin ân xá của tên cướp bị bộ bác, tên cướp vẫn bị đem ra pháp trường xử trảm. Còn quan án ta sau đó, để tránh mặt, bèn cố chạy chọt để được đổi về kinh làm lang trung bộ Hộ.
 

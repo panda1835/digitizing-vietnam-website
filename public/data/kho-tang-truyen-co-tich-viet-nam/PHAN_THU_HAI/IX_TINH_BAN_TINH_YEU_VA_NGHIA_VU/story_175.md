@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 175. CÔ GÁI CON THẦN NƯỚC MÊ CHÀNG ĐÁNH CÁ
+## 175. Cô gái con thần nước mê chàng đánh cá
 
 Ngày xưa, có một chàng đánh cá trẻ tuổi có giọng hát trong trẻo du dương. Nhà chàng vốn nghèo, tài sản chỉ có một con thuyền nhỏ và một túp lều dựng ở ven sông. Ngày ngày chàng chống thuyền ra giữa sông cùng với cha buông câu thả lưới làm kế sinh nhai. Trong khi làm việc, chàng thường cất cao giọng hát. Tiếng hát ấy vọng khắp xa gần làm cho mọi người ưa thích. Tiếng hát ấy còn làm cho một nàng công chúa thủy phủ say mê. Hàng ngày nàng vẫn đội lốt cá quanh quẩn bên thuyền để được nghe tiếng hát của chàng trai người trần.
 

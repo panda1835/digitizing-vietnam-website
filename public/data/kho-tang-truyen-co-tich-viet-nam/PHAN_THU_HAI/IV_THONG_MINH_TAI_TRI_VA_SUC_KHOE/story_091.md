@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 91. BÀ LỚN ĐƯỜI ƯƠI
+## 91. Bà lớn đười ươi
 
 Trong vùng rừng núi miền Tuyên Hưng có giống khỉ gọi là dã nữ. Thỉnh thoảng người ta bắt được vài con đem về tập cho nói một vài tiếng người. Họ nuôi chơi làm cảnh, và quen gọi là đười ươi.
 

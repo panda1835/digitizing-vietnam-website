@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 86. CON THỎ, CON GÀ VÀ CON HỔ
+## 86. Con thỏ, con gà và con hổ
 
 Thỏ, hổ và gà có lần ở chung với nhau để hợp sức phát nương rẫy. Ngày đầu tiên, thỏ và hổ đi cắt tranh, giao cho gà nhiệm vụ trông nhà và nấu ăn.
 

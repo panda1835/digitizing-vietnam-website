@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 58. TO ĐẦU MÀ DẠI, NHỎ DÁI MÀ KHÔN
+## 58. To đầu mà dại, nhỏ dái mà khôn
 
 Một hôm voi đang đủng đỉnh đi chơi bỗng gặp hổ. Hai bên chào hỏi chuyện trò chán chê, đoạn hổ bảo với voi:
 

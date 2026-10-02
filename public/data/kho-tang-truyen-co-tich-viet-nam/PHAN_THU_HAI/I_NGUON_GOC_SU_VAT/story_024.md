@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 24. GỐC TÍCH BÁNH CHƯNG VÀ BÁNH DẦY
+## 24. Gốc tích bánh chưng và bánh dầy
 
 Ngày đó vua Hùng trị vì đất nước. Vua tuổi đã già, ngồi trên ngai vàng đằng đẵng đã bao nhiêu năm. Thấy sức khỏe của mình ngày một suy, vua có ý định chọn một người nối ngôi. Các bà vợ của vua sinh được cả thảy hai mươi người con trai. Họ đều khôn lớn cả. Vua nghĩ:
 

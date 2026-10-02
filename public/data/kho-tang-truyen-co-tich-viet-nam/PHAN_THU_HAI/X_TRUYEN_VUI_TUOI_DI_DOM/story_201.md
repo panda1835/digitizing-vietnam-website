@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 201. HAI BẢY MƯỜI BA
+## 201. Hai bảy mười ba
 
 Ngày xưa, ở huyện Hà-đông thuộc tỉnh Quảng có hai vợ chồng nhà nọ, chồng quen thói lấn lướt vợ, nhưng vợ cũng không phải tay vừa.
 

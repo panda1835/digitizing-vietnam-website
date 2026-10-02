@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "634 - 690",
   "total_stories": 10,
   "sections": [
     {
       "section_id": "VI",
-      "section_title": "VI. TRUYỆN PHÂN XỬ",
+      "section_title": "VI. Truyện phân xử",
       "stories": [
         {
           "story_number": 106,
-          "title": "NGƯỜI ĐẦY TỚ VÀ NGƯỜI ĂN TRỘM",
+          "title": "Người đầy tớ và người ăn trộm",
           "start_page": 634,
           "end_page": 637,
           "markdown_file": "story_106.md",
@@ -18,7 +18,7 @@
         },
         {
           "story_number": 107,
-          "title": "BA CHÀNG THIỆN NGHỆ",
+          "title": "Ba chàng thiện nghệ",
           "start_page": 638,
           "end_page": 653,
           "markdown_file": "story_107.md",
@@ -27,7 +27,7 @@
         },
         {
           "story_number": 108,
-          "title": "CHÀNG NGỐC ĐƯỢC KIỆN",
+          "title": "Chàng ngốc được kiện",
           "start_page": 654,
           "end_page": 658,
           "markdown_file": "story_108.md",
@@ -36,7 +36,7 @@
         },
         {
           "story_number": 109,
-          "title": "NGƯỜI ĐÀN BÀ BỊ VU OAN",
+          "title": "Người đàn bà bị vu oan",
           "start_page": 659,
           "end_page": 663,
           "markdown_file": "story_109.md",
@@ -45,7 +45,7 @@
         },
         {
           "story_number": 110,
-          "title": "TRA TẤN HÒN ĐÁ",
+          "title": "Tra tấn hòn đá",
           "start_page": 664,
           "end_page": 665,
           "markdown_file": "story_110.md",
@@ -54,7 +54,7 @@
         },
         {
           "story_number": 111,
-          "title": "NGUYỄN KHOA ĐĂNG",
+          "title": "Nguyễn Khoa Đăng",
           "start_page": 666,
           "end_page": 670,
           "markdown_file": "story_111.md",
@@ -63,7 +63,7 @@
         },
         {
           "story_number": 112,
-          "title": "SỢI BẤC TÌM RA THỦ PHẠM",
+          "title": "Sợi bấc tìm ra thủ phạm",
           "start_page": 671,
           "end_page": 672,
           "markdown_file": "story_112.md",
@@ -72,7 +72,7 @@
         },
         {
           "story_number": 113,
-          "title": "PHÂN XỬ TÀI TÌNH",
+          "title": "Phân xử tài tình",
           "start_page": 673,
           "end_page": 678,
           "markdown_file": "story_113.md",
@@ -81,7 +81,7 @@
         },
         {
           "story_number": 114,
-          "title": "NGƯỜI ĐÀN BÀ MẤT TÍCH",
+          "title": "Người đàn bà mất tích",
           "start_page": 679,
           "end_page": 681,
           "markdown_file": "story_114.md",
@@ -90,7 +90,7 @@
         },
         {
           "story_number": 115,
-          "title": "TINH CON CHUỘT",
+          "title": "Tinh con chuột",
           "start_page": 682,
           "end_page": 690,
           "markdown_file": "story_115.md",

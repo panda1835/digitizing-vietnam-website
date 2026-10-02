@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 2. SỰ TÍCH TRẦU, CAU VÀ VÔI
+## 2. Sự tích trầu, cau và vôi
 
 Ngày xưa một nhà nọ có Tân và Lang là hai anh em ruột, đặc biệt dáng người và mặt mày giống nhau như đúc, đến nỗi chính người nhà cũng nhiều phen nhầm lẫn. Cha họ là một người cao to nhất trong vùng đã từng được vua Hùng triệu về Phong-châu ban thưởng và đặt tên là Cao. Từ đó gia đình lấy tiếng "Cao" làm tên họ.
 

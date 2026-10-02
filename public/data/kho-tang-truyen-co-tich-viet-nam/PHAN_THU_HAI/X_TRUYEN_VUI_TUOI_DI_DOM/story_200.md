@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 200. CÁI CHẾT CỦA BỐN ÔNG SƯ
+## 200. Cái chết của bốn ông sư
 
 Xưa có một người làm nghề kiếm mật ong và sáp nuôi thân. Hàng ngày ông ta đeo trên lưng một chiếc gùi[^1], tay cầm cán có buộc bùi nhùi và giẻ đi vào rừng tìm tổ ong. Một hôm đang đi trên một con đường vắng, ông bỗng nghe ong kêu vù vù, ngẩng nhìn lên thì thấy một tổ ong mật. Mừng quá, bèn như thường lệ, ông đốt bùi nhùi rồi trèo lên cây đuổi ong đi để gỡ lấy sáp và mật. Nhưng tổ ong hôm ấy lớn quá, ông thu được một gùi đầy ắp nên không thể xuống được, vì cây vốn đã khó trèo, lại sợ không khéo đổ hết mật thì uổng. Đành phải ngồi lại ở một cành chẽ ba, đợi có người đi qua nhờ họ giúp cho xuống. Đợi đến trưa, ông bỗng nhác thấy bóng một con voi sắp sửa đi tới, trên đầu có một thằng nài. Người kiếm mật mừng quá, bèn nói lớn:
 

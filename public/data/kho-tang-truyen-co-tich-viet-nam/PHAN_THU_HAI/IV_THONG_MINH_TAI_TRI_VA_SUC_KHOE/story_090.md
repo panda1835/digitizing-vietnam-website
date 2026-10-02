@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 90. GÁI NGOAN DẠY CHỒNG
+## 90. Gái ngoan dạy chồng
 
 Ngày xưa có một người nhà giàu, vợ chết sớm, chỉ có độc một người con trai, đứa con vốn người xấu nết, đần độn, lại là tay chơi bời lêu lổng không chịu học hành hay làm ăn gì cả. Thấy con không lo nối nghiệp nhà, người nhà giàu rất buồn phiền, biết rằng của cải của mình sẽ có một ngày đội nón ra đi mà thôi. Bởi vậy, ông mới tính chuyện kiếm cho con một người vợ khôn ngoan đảm đang, để may chi nó sẽ ngăn chặn tay chồng, bảo vệ một phần nào cơ nghiệp. Nghĩ vậy, ông cất công đi khắp nơi tìm kiếm, nhưng đi đã nhiều nơi mà vẫn chưa thấy một người nào vừa ý.
 

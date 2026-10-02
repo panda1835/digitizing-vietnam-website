@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 8. SỰ TÍCH CHIM NĂM-TRÂU-SÁU-CỘT VÀ CHIM BẮT-CÔ-TRÓI-CỘT
+## 8. Sự tích chim năm-trâu-sáu-cột và chim bắt-cô-trói-cột
 
 Ngày xưa, có một bác lực điền tên là Ba ở trong một xóm dưới chân núi. Bác không có ruộng phải làm rẽ năm sào của một phú ông ở làng bên cạnh. Phú ông là tay giàu có nhất tổng: ruộng đất trâu bò ở rải rác các thôn xóm nhiều không đếm xiết. Thấy bác là tá điền cũ, tính nết thật thà chăm chỉ, lúc nào cũng nộp thóc sòng phẳng, phú ông có lòng tin giao cho bác nuôi trâu. Từ đấy công việc của bác Ba thêm bận rộn. Ngày ngày bác phải chăn một bầy trâu của phú ông từ độ ấy sinh nở tổng cộng đã được năm con.
 

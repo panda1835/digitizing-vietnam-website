@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 20. SỰ TÍCH CÁI CHỔI
+## 20. Sự tích cái chổi
 
 Ngày xưa ở trên cung điện nhà trời có một người đàn bà nấu ăn rất khéo tay. Bà chế những món bánh trái tuyệt phẩm, làm những thức ăn ngon đến nỗi chỉ nếm qua một miếng là không thể nào quên được. Cho nên Ngọc Hoàng thượng đế cho bà chuyên trông nom công việc nấu ăn cho mình ở Thiên trù. Nhưng bà lại hay ăn vụng và tham lam. Lệ nhà trời những người hầu hạ đều có thức ăn riêng, nhất thiết không được đụng chạm đến ngự thiện, dù là Ngọc Hoàng ăn thừa cũng vậy. Nhưng luật lệ đó không ngăn được những người đang sẵn thèm khát. Người đàn bà vẫn tìm đủ mọi cách để làm cho kho thức ăn của nhà Trời hao hụt.
 

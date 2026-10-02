@@ -1,6 +1,6 @@
-# II. LAI LỊCH TRUYỆN CỔ TÍCH
+# II. Lai lịch truyện cổ tích
 
-## 5. TÁC GIẢ TRUYỆN CỔ TÍCH
+## 5. Tác giả truyện cổ tích
 
 Trước tiên chúng ta sẽ nói đến những phần tử trí thức tức là hạng nho sĩ hay tăng lữ. Bọn họ thuộc nhiều tầng lớp khác nhau và có những khuynh hướng tư tưởng khác nhau.
 

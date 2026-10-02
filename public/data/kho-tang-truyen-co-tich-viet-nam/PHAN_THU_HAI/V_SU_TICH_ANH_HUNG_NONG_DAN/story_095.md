@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 95. ÔNG NAM CƯỜNG
+## 95. Ông Nam Cường
 
 Vào thời ấy chẳng rõ là thời nào, ở làng Quần-anh có một người phù thủy có nhiều phép thuật lạ lùng. Thường mỗi lần nằm ngủ, ông ngủ liền ba ngày ba đêm, tiếng ngáy như sấm. Tỉnh dậy một cái, người nhà đã thấy ông lật đật ra đi, không ai rõ là đi đâu.
 

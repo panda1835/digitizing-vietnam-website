@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 47. CON VỢ KHÔN LẤY THẰNG CHỒNG DẠI NHƯ BÔNG HOA LÀI[^1] CẮM BÃI CỨT TRÂU
+## 47. Con vợ khôn lấy thằng chồng dại như bông hoa lài[^1] cắm bãi cứt trâu
 
 Xưa, có một người đàn bà làm nghề dệt vải. Nàng bản tính thông minh tháo vát, nhưng lấy phải người chồng đần độn không làm được nghề gì nên thân. Một hôm, vợ đưa cho chồng mấy tấm vải bảo mang ra chợ bán. Vợ dặn:
 

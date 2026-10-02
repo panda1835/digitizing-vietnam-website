@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 155. AO PHẬT
+## 155. Ao Phật
 
 Ngày ấy, vùng đất mà bây giờ là Trà-vinh còn là một vùng biển cả. Trên bờ biển, Người sống rất cơ cực. Phật thấy vậy thương tình, bèn hóa phép làm cho biển nổi lên thành những giải đất nối liền với bờ. Những giải đất này đặc biệt rất màu mỡ. Vì thế, Người dắt díu nhau ra đây chăm chút làm ăn, lúa khoai lúc nào cũng đầy nồi, cuộc sống trở nên vui tươi hơn trước.
 

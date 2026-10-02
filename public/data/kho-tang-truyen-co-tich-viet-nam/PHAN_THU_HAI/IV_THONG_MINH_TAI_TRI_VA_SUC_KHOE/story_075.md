@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 75. NGƯỜI Ả ĐÀO VỚI GIẶC MINH
+## 75. Người ả đào với giặc Minh
 
 Làng Đào-đặng thuộc tỉnh Hưng-yên khi xưa có một thôn, trong thôn có nhiều con gái người đẹp hát hay, hầu hết đều làm nghề ả đào.
 

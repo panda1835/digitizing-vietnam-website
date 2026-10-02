@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 104. VUA HEO
+## 104. Vua Heo
 
 Ngày xưa có một đứa bé không cha không mẹ, được người ta nhặt về nuôi để sai vặt. Vì nó bẩn như lợn nên người ta gọi là thằng Heo.[^1] Mặc cho ai muốn chế nhạo khinh bỉ mình thế nào, Heo vẫn coi thường mọi người. Trải qua những năm đói kém, Heo vẫn sống và ngày một lớn. Năm mười lăm tuổi, Heo đến ở với một ông quan lớn.
 

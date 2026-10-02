@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 106. NGƯỜI ĐẦY TỚ VÀ NGƯỜI ĂN TRỘM
+## 106. Người đầy tớ và người ăn trộm
 
 Ngày xưa có hai anh chàng cùng yêu một cô gái và cùng một lúc đến dạm nàng làm vợ. Trong khi cô gái đang phân vân chưa biết nên lấy người nào thì hai người đàn ông đã rủ nhau ra một quán rượu làm quen và tỏ ý thương lượng với nhau về việc dạm vợ.
 

@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 45. HỒN TRƯƠNG BA, DA HÀNG THỊT
+## 45. Hồn Trương Ba, da hàng thịt
 
 Ngày xưa, có một người tên là Trương Ba, còn trẻ tuổi nhưng đánh cờ tướng rất cao. Nước cờ của anh chàng không mấy ai trong thiên hạ địch nổi. Bao nhiêu giải cờ trong những hội hè mùa xuân đều về tay anh. Tiếng đồn vang khắp nước, sang đến tận Trung-quốc. Buổi ấy ở Trung-quốc có ông Kỵ Như cũng nổi tiếng cao cờ. Khi nghe tiếng Trương Ba, Kỵ Như liền xách khăn gói sang Nam tìm đến tận nhà tỉ thí. Hai người đọ tài nhau mấy ván liền không phân thua được. Nhưng đến ván thứ ba, Trương Ba dồn Kỵ Như vào thế bí. Thấy đối phương vò đầu suy nghĩ, Trương Ba kiêu hãnh bảo:
 

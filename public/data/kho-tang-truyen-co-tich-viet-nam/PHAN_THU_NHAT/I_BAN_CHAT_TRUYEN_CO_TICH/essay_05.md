@@ -1,6 +1,6 @@
-# I. BẢN CHẤT TRUYỆN CỔ TÍCH
+# I. Bản chất truyện cổ tích
 
-## 5. CÓ MẤY LOẠI TRUYỆN CỔ TÍCH?
+## 5. Có mấy loại truyện cổ tích?
 
 Truyện cổ tích bao gồm nhiều thứ: truyện nói về người, truyện nói về vật; về ma quỷ, về Tiên Phật, cả những truyện về Thần Thánh nữa. Nhưng không nên dựa vào đấy mà phân loại. Thực ra đối với cổ tích và ngay cả đối với truyện cổ dân gian nói chung, bất kỳ một sự phân loại nào cũng chỉ có ý nghĩa chính xác tương đối. Nếu cần phải chia, thì theo ý chúng tôi nên chia làm ba loại sau đây:
 

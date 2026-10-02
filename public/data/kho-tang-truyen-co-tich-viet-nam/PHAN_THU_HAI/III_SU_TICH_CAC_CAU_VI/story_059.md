@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 59. NHÂN THAM TÀI NHI TỬ, ĐIỂU THAM THỰC NHI VONG
+## 59. Nhân tham tài nhi tử, điểu tham thực nhi vong
 
 Ngày xưa, có hai anh em nhà kia cha mẹ đều chết cả. Họ ở chung với nhau một nhà. Người anh tính nết tham lam, còn em đang ít tuổi có phần khờ dại. Rồi đó người anh lấy vợ. Cũng như chồng, người đàn bà ấy vừa tham lam vừa độc ác. Không muốn cho em ở chung với mình, hai vợ chồng quyết định chia gia tài, lấy cớ rằng để ai lo phận nấy. Khi chia của, họ chiếm hết gia tư, điền sản quý giá của cha mẹ để lại, chỉ để cho em một gian nhà nhỏ, với mấy thửa ruộng xấu.
 

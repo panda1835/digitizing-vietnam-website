@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 168. SỰ TÍCH THÁP BÁO ÂN
+## 168. Sự tích tháp Báo Ân
 
 Ngày xưa ở xã Bình-quân, huyện Cẩm-giàng, có vợ chồng một phú ông nọ sinh được mỗi một cô con gái. Cô xinh đẹp nhất làng, tính nết lại dịu dàng, hiền hậu, nhân nhà cô có nuôi thầy cho con trai học, phú ông cũng cho con gái theo đòi nghiên bút. Cô rất thông minh học chóng tiến tới, chẳng bao lâu đã thông kinh sách.
 

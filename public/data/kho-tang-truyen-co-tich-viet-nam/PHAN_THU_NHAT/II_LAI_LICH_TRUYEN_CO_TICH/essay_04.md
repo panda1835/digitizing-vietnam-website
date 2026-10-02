@@ -1,6 +1,6 @@
-# II. LAI LỊCH TRUYỆN CỔ TÍCH
+# II. Lai lịch truyện cổ tích
 
-## 4. QUÁ TRÌNH HÌNH THÀNH MỘT TRUYỆN CỔ TÍCH
+## 4. Quá trình hình thành một truyện cổ tích
 
 Truyện cổ tích cũng chịu chung cái công lệ của văn học truyền miệng là mọi việc sáng tác, diễn xướng, truyền bá đều có tính chất tập thể. Tác giả của truyện không phải là người của cùng một thời, một xứ, mà là nhiều người, trong những thời gian và không gian khác nhau. Đây là một công cuộc sáng tác và chỉnh lý liên tục, người sau nối tiếp công việc của người trước. Có khi người sau dựa vào cốt truyện của người trước mà đặt ra một truyện khác mới hẳn. Cố nhiên, trong hai truyện đó truyện nào khỏe mạnh hơn, gợi hứng thú người nghe hơn thì sẽ tồn tại lâu hơn. Cho đến một lúc nào đó, câu chuyện tương đối hoàn chỉnh hay đã được ghi vào sách vở, thì nó sẽ đứng lại.
 

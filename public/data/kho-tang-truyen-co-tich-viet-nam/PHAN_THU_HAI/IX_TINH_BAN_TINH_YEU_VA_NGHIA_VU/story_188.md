@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 188. CÁI VẾT ĐỎ TRÊN MÁ CÔNG NƯƠNG
+## 188. Cái vết đỏ trên má công nương
 
 Ngày ấy có một ông thượng thư đầu triều nổi tiếng là người nghiêm khắc và hách dịch. Ông có tính nóng như lửa. Đã thế ông lại có quyền "tiền trảm hậu tấu" nên không khỏi giết oan một số người vô tội. Trong triều ngoài quận người ta coi ông như vị hung thần. Mỗi lần ông thét đao phủ chém một người nào, thì dù là kẻ thân thiết nhất cũng không ai có thể can được, cho nên những người ở gần đều sợ ông như cọp.
 

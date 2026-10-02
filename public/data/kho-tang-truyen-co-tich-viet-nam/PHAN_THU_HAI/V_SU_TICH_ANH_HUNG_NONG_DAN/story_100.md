@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 100. LÊ VĂN KHÔI
+## 100. Lê Văn Khôi
 
 Ngày xưa vào triều Minh Mạng, có một chàng trai nhà nghèo nhưng có sức khỏe tuyệt trần. Anh chàng thường chống đò ngang ở bến đò Thiên-tả kiếm ăn. Lúc mới sinh, anh có ba cái nốt đỏ ở bụng, ai nấy đều bảo là tướng rất quý. Tiếng đồn thổi mỗi ngày một rộng. Quan trên nghe tin, cho là tướng nghịch, toan bắt nộp triều đình để lấy thưởng. Biết được tin ấy, anh bỏ lên miền núi rừng tỉnh Cao-bằng. Từ đây, anh kêu gọi các hài kiệt nhóm họp lại, làm giặc chống lại triều đình. Trong số đồ đảng của anh có Nguyễn Hựu Khôi, một chàng trẻ tuổi, nhưng sức khỏe và gan dạ thì được mọi người trầm trồ khen ngợi.
 

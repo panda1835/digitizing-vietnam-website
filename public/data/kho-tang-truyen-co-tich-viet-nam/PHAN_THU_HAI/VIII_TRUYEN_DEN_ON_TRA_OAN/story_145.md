@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 145. NGƯỜI DÌ GHẺ ÁC NGHIỆT HAY LÀ SỰ TÍCH CON DẾ
+## 145. Người dì ghẻ ác nghiệt hay là sự tích con dế
 
 Ngày xưa, có một người đàn ông hai vợ, người vợ cả chết sớm để lại một đứa con trai còn bé tên là Văn Linh. Người vợ lẽ cũng sinh được một đứa con trai khác tên là Văn Lang. Văn Lang hơn Văn Linh những năm tuổi, nhưng hai anh em chơi với nhau thân thiết hơn cả anh em cùng một mẹ. Những khi Văn Linh bị trẻ con lối xóm ăn hiếp, Văn Lang lập tức bênh vực. Nhưng Văn Lang không biết rằng mẹ chàng trai lại coi Văn Linh như kẻ thù.
 

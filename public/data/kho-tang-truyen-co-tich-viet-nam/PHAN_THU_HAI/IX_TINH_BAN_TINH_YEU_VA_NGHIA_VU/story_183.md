@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 183. BỐN NGƯỜI BẠN
+## 183. Bốn người bạn
 
 Xưa có bốn người bạn, mỗi người quê quán một phương. Vì thuở trẻ cùng học với nhau một thầy nên họ có dịp sống chung lâu ngày, rồi dần dần trở nên những người bạn nối khố. Về sau lớn lên họ lại từ giã thầy, mỗi người làm ăn một ngả. Trong số bốn người ấy, chỉ có Giáp làm chủ một tư cơ đồ sộ, mỗi ngày một giàu đến nứt đố đổ vách, còn ba người kia thì nghèo rớt mùng tơi. Nhưng Giáp lại là một người thâm hiểm và hiểu sắc. Tuy giàu có sung sướng, trong lòng Giáp vẫn cảm thấy phiền muộn, vì hắn lấy phải một người vợ tuy mang về nhiều của nả nhưng bề nhan sắc lại chẳng ra gì. Ngày còn đi học được trông thấy người vợ của Ất - một trong ba người bạn - xinh đẹp dễ coi, hắn đâm ra ganh tỵ với bạn. Hắn suy nghĩ rất nhiều về người đàn bà này và ao ước có ngày chiếm được người ngọc vào tay mới thỏa dạ.
 

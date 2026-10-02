@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 181. TRỌNG NGHĨA KHINH TÀI
+## 181. Trọng nghĩa khinh tài
 
 Ngày xưa ở Thanh-hóa có một người tên là Nguyễn Đình Phương. Nhà ông vườn cau ao cá, lại có chừng ba chục mẫu ruộng: trong nhà, vợ con, kẻ làm người lụng khá đông. Nhưng ông vốn là người hào hiệp. Khi có ai túng thiếu đến nhờ vả, ông sẵn lòng chu cấp, hay cho vay mượn, ít khi để họ phải về không.
 

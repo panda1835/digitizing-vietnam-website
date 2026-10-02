@@ -1,4 +1,4 @@
-# PHẦN THỨ HAI. KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM
+# Phần thứ hai. Kho tàng truyện cổ tích Việt-Nam
 
 1. Trong phần kho tàng truyện cổ tích trình bày sau đây, chúng tôi đã gắng chọn lọc lấy những truyện tiêu biểu, sắp xếp theo một hệ thống nhất định, bỏ bớt đi một số những truyện hoặc không phải là truyện cổ tích Việt-nam, hoặc không có giá trị tiêu biểu cho truyện cổ tích Việt-nam. Nói chọn lọc không phải những truyện được đem vào đây là hoàn toàn có tư tưởng tiến bộ. Chúng tôi cũng đem vào một số truyện lạc hậu về phương diện này hay phương diện khác, để bạn đọc thấy được toàn diện truyện cổ tích nước nhà.
 

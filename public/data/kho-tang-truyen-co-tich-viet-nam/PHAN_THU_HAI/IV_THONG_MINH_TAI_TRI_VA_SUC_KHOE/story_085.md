@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 85. CON SÁO VÀ PHÚ TRƯỞNG GIẢ
+## 85. Con sáo và phú trưởng giả
 
 Ngày xưa có một con sáo nói được tiếng người và hiểu được ý người. Từ lâu, sáo làm bạn với một bác nông dân rất nghèo. Hôm ấy, bác đi cày bắt được sáo ta bị thương nằm nép trong bụi lúa, bèn đưa về chăm sóc, dần dần dạy sáo học, sáo biết đủ mọi thứ. Đối với sáo bác rất tận tình; mỗi khi có miếng ăn đều dành phần cho sáo. Bác bảo sáo:
 

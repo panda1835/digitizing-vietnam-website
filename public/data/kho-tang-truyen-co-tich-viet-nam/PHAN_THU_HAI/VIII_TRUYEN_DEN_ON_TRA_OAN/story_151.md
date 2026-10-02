@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 151. BÍNH VÀ ĐINH
+## 151. Bính và Đinh
 
 Có hai anh em một nhà họ Nguyễn: anh tên là Bính đã có vợ, còn em tên là Đinh thì còn bé, chưa vợ con gì. Từ ngày bố mẹ mất, Đinh sống chung với anh chị một nhà. Nhưng tính của vợ chồng Bính tham lam, thường coi em như kẻ ăn người ở. Bao nhiêu ruộng tốt, nhà gạch và đồ đạc quý giá của bố mẹ để lại, Bính giành lấy tất cả. Đã thế đối với em, vợ chồng Bính thường tiếng chì tiếng bấc suốt ngày. Đinh lớn lên thấy khó chiều ăn ở, bèn xin ra ở riêng. Vợ chồng Bính chia cho Đinh một gian nhà tranh, mấy đám ruộng xấu, một ít đồ đạc lặt vặt không đáng kể và nói:
 

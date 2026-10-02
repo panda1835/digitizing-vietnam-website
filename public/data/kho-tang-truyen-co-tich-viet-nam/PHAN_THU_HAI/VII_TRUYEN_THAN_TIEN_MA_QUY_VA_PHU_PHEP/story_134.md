@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 134. THÁNH GIÓNG
+## 134. Thánh Gióng
 
 Vào thời Hùng Vương có một người đàn bà đã nhiều tuổi nhưng sống một thân một mình. Một hôm sáng dậy bà đi thăm nương, bỗng nhìn thấy một vết chân giẫm nát cả mấy luống cà. Bà kinh ngạc kêu lên:
 

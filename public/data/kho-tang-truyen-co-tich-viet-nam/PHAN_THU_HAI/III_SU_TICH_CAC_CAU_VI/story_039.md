@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 39. LẨY BẨY NHƯ CAO BIỀN DẬY NON
+## 39. Lẩy bẩy như Cao Biền dậy non
 
 Ngày xưa ở Trung-quốc có Cao Biền rất giỏi nghề địa lý. Những phép hô thần tróc quỷ, ông đều thông thạo. Tiếng đồn vang khắp nơi. Hoàng đế Trung-quốc nghe tiếng liền triệu Biền vào cung ủy thác cho việc kiếm một ngôi đất xây dựng lăng tẩm. Cao Biền vâng lệnh và sau năm năm tìm tòi, đã kiếm được một kiểu đất quý mà theo ông có thể giữ ngôi nhà Đường vững như bàn thạch.
 

@@ -1,6 +1,6 @@
-# II. LAI LỊCH TRUYỆN CỔ TÍCH
+# II. Lai lịch truyện cổ tích
 
-## 3. SỰ XUẤT HIỆN VÀ SỰ SUY TÀN CỦA TRUYỆN CỔ TÍCH
+## 3. Sự xuất hiện và sự suy tàn của truyện cổ tích
 
 Truyền thuyết và cổ tích có quan hệ không ít đến tín ngưỡng, phong tục của một dân tộc, ăn sâu vào những tập quán của tư duy, tín ngưỡng và phong tục vốn bao giờ cũng có sức kích thích ảo giác rất mạnh. Cho nên xung quanh phong tục, nhất là tín ngưỡng, thường vẫn có truyền thuyết hoặc cổ tích lưu hành. Nhiều mô-típ hoặc hình tượng trong truyền thuyết và cổ tích còn lại đến nay, mặc dù đã phai nhạt dấu vết nguyên thủy nhưng nếu suy nguyên cặn kẽ và thận trọng, cũng có thể tìm ra các lớp nghĩa tối cổ, phản ánh những phong tục, tín ngưỡng xa xưa mà con người hiện đại rất khó cảm thông (chẳng hạn tục hôn nhân đồng tính ở thời kỳ suy tàn trong truyện Sự tích đá Vọng-phu; tục chị em vợ lấy chung một chồng, anh em chồng lấy chung một vợ trong truyện Tấm Cám, truyện Lấy chồng dê, truyện Sự tích trầu, cau và vôi; tục thờ thần rắn và tín ngưỡng hiến tế thần linh trong truyện Thạch Sanh, truyện Tiêu diệt mãng xà, truyện Ao Phật; tín ngưỡng phồn thực trong truyện Hai anh em và con chó đá, Sự tích chim Bắt-cô-trói-cột (dị bản)...). Có thể nói tín ngưỡng là vú nuôi của truyền thuyết cổ tích, ngược lại truyền thuyết cổ tích là kẻ tuyên truyền đắc lực cho tín ngưỡng.
 

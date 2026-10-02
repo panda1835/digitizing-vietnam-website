@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 12. SỰ TÍCH CON KHỈ
+## 12. Sự tích con khỉ
 
 Ngày xưa có một người con gái đi ở với một nhà trưởng giả. Nàng phải làm việc quần quật suốt ngày, lại bị chủ đối đãi rất tệ. Cái ăn cái mặc đã chả có gì mà thỉnh thoảng còn bị đánh đập chửi mắng. Vì thế, cô gái tuổi mới đôi mươi mà người cứ quắt lại, trông xấu xí bệ rạc hết chỗ nói.
 

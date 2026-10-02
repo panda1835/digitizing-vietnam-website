@@ -1,6 +1,6 @@
-# I. BẢN CHẤT TRUYỆN CỔ TÍCH
+# I. Bản chất truyện cổ tích
 
-## 6. PHÂN BIỆT TRUYỆN CỔ TÍCH VỚI LỊCH SỬ VÀ VỚI TIỂU THUYẾT
+## 6. Phân biệt truyện cổ tích với lịch sử và với tiểu thuyết
 
 Truyền thuyết cũng như cổ tích lịch sử là những truyện có gắn liền với một ý nghĩa, một cái tên lịch sử (tên người, tên đất, v.v...) chứ không phải là lịch sử thực sự. Nhưng đối với người đời xưa thì truyền thuyết, cổ tích, cả thần thoại nữa, thường bị lẫn lộn với lịch sử. Khi chép tiểu truyện Chu An đời Trần, hay Nguyễn Trãi đời Lê, người ta không ngần ngại đưa cả Sự tích đầm Mực[^1] hay truyện Rắn báo oán[^2] xen lẫn với sử liệu thực.
 

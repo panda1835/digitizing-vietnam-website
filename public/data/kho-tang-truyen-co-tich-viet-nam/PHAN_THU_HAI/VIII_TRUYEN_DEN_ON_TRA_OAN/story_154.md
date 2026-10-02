@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 154. TẤM CÁM
+## 154. Tấm Cám
 
 Ngày xưa, có Tấm và Cám là hai chị em cùng cha khác mẹ. Hai chị em suýt soát tuổi nhau. Tấm là con vợ cả, Cám là con vợ lẽ. Mẹ Tấm đã chết từ hồi Tấm còn bé. Sau đó mấy năm thì cha Tấm cũng chết. Tấm ở với dì ghẻ là mẹ của Cám. Nhưng dì ghẻ của Tấm là người rất cay nghiệt. Hàng ngày, Tấm phải làm lụng luôn canh, hết chăn trâu, gánh nước, đến thái khoai, vớt bèo; đêm lại còn xay lúa giã gạo mà không hết việc. Trong khi đó thì Cám được mẹ nuông chiều, được ăn trắng mặc trơn, suốt ngày quanh quẩn ở nhà không phải làm việc nặng.
 

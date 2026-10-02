@@ -1,6 +1,6 @@
-# V. THỬ TÌM NGUỒN GỐC TRUYỆN CỐ TÍCH VIỆT - NAM
+# V. Thử tìm nguồn gốc truyện cổ tích Việt-Nam
 
-## 4. NGUỒN GỐC BẢN ĐỊA CỦA TRUYỆN CỔ TÍCH VIỆT NAM
+## 4. Nguồn gốc bản địa của truyện cổ tích Việt Nam
 
 Cuối cùng, ta hãy nói tới mảng truyện không biết xếp vào bất kỳ một mô hình nào trong các sơ đồ cốt truyện quốc tế cũng như các sơ đồ khu vực, sau khi đã trải qua khâu đối chiếu so sánh nhiều lần. Khâu đối chiếu này chắc chắn còn phải thực hiện tiếp, với nhiều thao tác chi tiết và khoa học hơn nữa. Dù sao trong một chừng mực tương đối, cũng có thể hướng tới một kết luận có nhiều khả năng gần sự thật nhất: đây là nhóm truyện có nguồn gốc không ở đâu xa mà là từ bản địa.
 

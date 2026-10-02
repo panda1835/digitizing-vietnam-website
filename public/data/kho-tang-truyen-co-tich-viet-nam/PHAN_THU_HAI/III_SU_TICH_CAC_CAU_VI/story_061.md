@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 61. CỦA TRỜI TRỜI LẠI LẤY ĐI GIƯƠNG ĐÔI MẮT ẾCH LÀM CHI ĐƯỢC TRỜI
+## 61. Của trời trời lại lấy đi giương đôi mắt ếch làm chi được trời
 
 Ngày xưa có một người nghèo khổ quá. Ngày ngày ông ra bãi biển cố sức mò cua bắt ốc để lấy miếng ăn, nhưng không bao giờ đủ. Thấy người ta sung sướng giàu có, ông ao ước được như họ. Luôn luôn ông cầu Trời khấn Phật xin cho đỡ khổ một tí, dù có bị giảm tuổi thọ đi bao nhiêu cũng được. Ông cầu khấn như thế trong ba năm liền. Tuy không thấy thân phận khá hơn chút nào nhưng ông vẫn kêu xin không mỏi.
 

@@ -1,6 +1,6 @@
-# I. BẢN CHẤT TRUYỆN CỔ TÍCH
+# I. Bản chất truyện cổ tích
 
-## 2. TRUYỆN CỔ TÍCH KHÁC VỚI NHỮNG LOẠI CHUYỆN NÀO?
+## 2. Truyện cổ tích khác với những loại chuyện nào?
 
 Trước tiên, chúng ta hãy kiểm điểm lại danh từ "truyện cổ tích" hay "truyện đời xưa" nhiều khi vẫn thường được dùng một cách quá rộng rãi. Người ta dùng danh từ đó để chỉ bất cứ loại truyện nào có thể gắn lên đầu hai tiếng "ngày xưa...". Bây giờ đây chúng ta nên trả lại cái tên truyện cổ tích cho môn loại của nó. Còn cái tên dùng để chỉ chung cho tất cả các loại truyện truyền miệng, chúng ta tạm gọi nó là truyện khi chưa tìm được tiếng nào thích hợp hơn. Khái niệm "truyện đời xưa" thật ra vẫn không được bao quát, vì ngoài những truyện đời xưa đúng nghĩa ra, không phải không có những truyện mới được sáng tác hôm qua hôm kia, những truyện "đời nay" mà vẫn cứ là truyện như thường.
 

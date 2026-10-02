@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 119. NỢ DUYÊN TRONG MỘNG
+## 119. Nợ duyên trong mộng
 
 Ngày xưa ở động Sơn-la thuộc Hưng-hóa có một chàng trẻ tuổi tên là Chu sinh. Bố mẹ mất sớm, chàng được chú đưa về nuôi cho ăn học. Nhưng người chú yêu dấu cháu bao nhiêu thì người thím lại ghét bỏ bấy nhiêu. Thấy phải nuôi báo cô một đứa cháu dài lưng tốn vải ăn no lại nằm, người đàn bà ấy rất bực mình. Lâu dần, người thím không kiêng nể nữa, mỗi khi có chuyện không vừa ý, chửi mắng chàng hết lời.
 

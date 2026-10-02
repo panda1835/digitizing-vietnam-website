@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 116. HÀ Ô LÔI
+## 116. Hà Ô Lôi
 
 Vào thời nhà Trần, ở làng Ma-la gần thành Thăng-long có Đặng Sĩ Dinh tuổi còn trẻ mà đã làm quan to. Ông ta có một người vợ rất đẹp. Hai vợ chồng yêu nhau rất mực. Nhưng một hôm, nhà vua sai ông đi sứ Trung-quốc. Không thể từ chối, ông đành trở về từ biệt vợ lên đường.
 

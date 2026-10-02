@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "59 - 72",
   "total_essays": 5,
   "sections": [
     {
       "section_id": "II",
-      "section_title": "II. LAI LỊCH TRUYỆN CỔ TÍCH",
+      "section_title": "II. Lai lịch truyện cổ tích",
       "essays": [
         {
           "essay_number": 1,
-          "title": "CON ĐƯỜNG PHÁT TRIỂN TỪ THẦN THOẠI ĐẾN CỔ TÍCH",
+          "title": "Con đường phát triển từ thần thoại đến cổ tích",
           "start_page": 59,
           "end_page": 61,
           "markdown_file": "essay_01.md",
@@ -17,7 +17,7 @@
         },
         {
           "essay_number": 2,
-          "title": "TRUYỀN THUYẾT, CỔ TÍCH ĐÃ DỰA TRÊN VŨ TRỤ QUAN NÀO?",
+          "title": "Truyền thuyết, cổ tích đã dựa trên vũ trụ quan nào?",
           "start_page": 61,
           "end_page": 63,
           "markdown_file": "essay_02.md",
@@ -25,7 +25,7 @@
         },
         {
           "essay_number": 3,
-          "title": "SỰ XUẤT HIỆN VÀ SỰ SUY TÀN CỦA TRUYỆN CỔ TÍCH",
+          "title": "Sự xuất hiện và sự suy tàn của truyện cổ tích",
           "start_page": 63,
           "end_page": 66,
           "markdown_file": "essay_03.md",
@@ -33,7 +33,7 @@
         },
         {
           "essay_number": 4,
-          "title": "QUÁ TRÌNH HÌNH THÀNH MỘT TRUYỆN CỔ TÍCH",
+          "title": "Quá trình hình thành một truyện cổ tích",
           "start_page": 66,
           "end_page": 69,
           "markdown_file": "essay_04.md",
@@ -41,7 +41,7 @@
         },
         {
           "essay_number": 5,
-          "title": "TÁC GIẢ TRUYỆN CỔ TÍCH",
+          "title": "Tác giả truyện cổ tích",
           "start_page": 69,
           "end_page": 72,
           "markdown_file": "essay_05.md",

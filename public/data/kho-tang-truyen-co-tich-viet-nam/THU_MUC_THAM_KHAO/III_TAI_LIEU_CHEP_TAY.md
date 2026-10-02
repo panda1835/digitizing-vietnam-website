@@ -1,6 +1,6 @@
-# THƯ MỤC THAM KHẢO
+# Thư mục tham khảo
 
-## III. TÀI LIỆU CHÉP TAY
+## III. Tài liệu chép tay
 
 - Cổ tích và tiểu dẫn (Mạnh Sào Quan).
 - Nghệ-an tỉnh khai sách, tài liệu chữ nôm chép tay của Thư viện Khoa học xã hội, Hà-nội, ký hiệu từ VNv. 19 đến VNv. 55 và từ VNv. 1826 đến VNv. 1830.

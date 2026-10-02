@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 34. SỰ TÍCH THÀNH LỒI
+## 34. Sự tích thành Lồi
 
 Ngày xưa, có một ông vua nước Chăm muốn lấy một nàng công chúa nước Đại Việt làm vợ. Nhà vua nghe nói công chúa Huyền Trân nhan sắc tuyệt trần, những phi tần trong cung vua khó bề sánh kịp. Ao ước người đẹp, nhà vua đêm mơ ngày tưởng. Vua nghĩ đến việc dâng vàng bạc, châu báu, kỳ nam và voi ngựa để làm sính lễ, nhưng những món ấy chưa hẳn đã đưa lại kết quả như ý muốn. Một viên nội thị rỉ vào tai vua:
 

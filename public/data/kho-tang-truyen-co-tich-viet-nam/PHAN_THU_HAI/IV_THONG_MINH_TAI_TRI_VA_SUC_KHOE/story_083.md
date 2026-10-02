@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 83. KẺ TRỘM DẠY HỌC TRÒ
+## 83. Kẻ trộm dạy học trò
 
 Ngày xưa có một tay ăn trộm lành nghề. Lão ta thấy mình tuổi già sức yếu nên muốn truyền cái bí kíp của lối sinh nhai "trèo tường khoét vách" cho một vài đồ đệ. Có nhiều người tới xin nhập môn, nhưng đối với ai lão cũng buộc một điều kiện là phải chịu một cuộc thử thách bằng cách đi "ăn sương" với lão một đêm để cho lão xem bản lĩnh sao rồi mới chịu dạy.
 

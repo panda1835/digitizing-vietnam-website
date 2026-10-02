@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 127. CÂY THUỐC CẢI TỬ HOÀN SINH HAY LÀ SỰ TÍCH THẰNG CUỘI CUNG TRĂNG
+## 127. Cây thuốc cải tử hoàn sinh hay là sự tích thằng Cuội cung trăng
 
 Ngày xưa ở một miền nọ có thằng Cuội làm nghề đốn củi. Tất cả tài sản của Cuội chỉ có một chiếc rìu. Một hôm như thường lệ, Cuội vác rìu đi vào rừng sâu tìm cây mà chặt. Khi lội qua một con suối nhỏ, Cuội bỗng giật mình trông thấy một cái hang hổ. Nhìn trước nhìn sau, chỉ thấy có bốn con hổ con đang vờn nhau trước hang, Cuội bèn xông đến vung rìu bổ cho mỗi con một nhát lăn quay ra đất. Nhưng vừa lúc đó, con hổ mẹ cũng về tới nơi. Nghe một tiếng gầm kinh khủng ở sau lưng, Cuội chỉ kịp quăng rìu leo thoăn thoắt lên một ngọn cây cao. Từ trên cây nhìn xuống, Cuội thấy hổ mẹ lồng lộn trước đàn con đã tắt thở.
 

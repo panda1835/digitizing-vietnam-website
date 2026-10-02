@@ -1,6 +1,6 @@
-# II. LAI LỊCH TRUYỆN CỔ TÍCH
+# II. Lai lịch truyện cổ tích
 
-## 2. TRUYỀN THUYẾT, CỔ TÍCH ĐÃ DỰA TRÊN VŨ TRỤ QUAN NÀO?
+## 2. Truyền thuyết, cổ tích đã dựa trên vũ trụ quan nào?
 
 Truyền thuyết và cổ tích được thừa hưởng một vũ trụ quan phong phú do người nguyên thủy để lại trong các thần thoại. Nhưng thế giới thần linh lúc này không còn nguyên vẹn tính cụ thể và đơn giản như thời kỳ nguyên thủy. Người ta đem tôn ti trật tự mới có của xã hội loài người áp dụng vào xã hội vốn tự do bình đẳng của thần. Người ta sắp đặt thứ bậc theo chức vụ, phân phối ma quỷ thần thánh theo từng khu vực khác nhau. Lẽ tự nhiên, sau nhiều quá trình "cải tạo" lại, thế giới thần linh dần dần trở thành hình ảnh trung thực của thế giới con người. Vũ trụ quan tự phát của nhân dân kết hợp với hình thức triết lý chính thống, đã chuyển hóa thành một vũ trụ quan mới trong tưởng tượng của dân chúng.
 

@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 139. QUAN TRIỀU HAY LÀ CHIẾC ÁO TÀNG HÌNH
+## 139. Quan triều hay là chiếc áo tàng hình
 
 Ngày xưa ở vùng Cao-bằng có một chàng trẻ tuổi, nay đây mai đó làm nghề chài lưới, tên là Triều. Gia sản của anh không có gì ngoài một bộ đồ nghề làm ăn. Nhưng tính anh vốn hay thương người. Mỗi lần đánh được nhiều cá, anh thường đổi lấy gạo đem chu cấp cho những người túng thiếu mà anh gặp. Vì vậy người nghèo khổ trong vùng ai cũng mến anh.
 

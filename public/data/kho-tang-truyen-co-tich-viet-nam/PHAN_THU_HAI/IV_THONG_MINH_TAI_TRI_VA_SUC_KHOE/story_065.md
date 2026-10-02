@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 65. ANH EM SINH NĂM
+## 65. Anh em sinh năm
 
 Ngày xưa có hai vợ chồng nhà nọ chỉ sinh được có mỗi một người con gái. Vì thế họ nuôi nấng dạy dỗ rất chăm chút. Khi cô gái lớn lên, cha mẹ dạy cho đạo thánh hiền. Năm nàng mười lăm tuổi vẫn bị cấm cung không được tiếp xúc với người ngoài. Một hôm người mẹ lên chùa lễ Phật. Lần đầu tiên bà đưa con gái ra khỏi nhà. Bấy giờ có một vị thiên thần muốn mượn cô gái đồng trinh làm chỗ đầu thai, mới nhân lúc cô gái ra vườn vãng cảnh, hiện làm một bông hoa có năm cánh rất đẹp. Cô gái thích quá ngắt lấy ngắm nghía hồi lâu, rồi bỗng dưng bỏ vào miệng nuốt đi.
 

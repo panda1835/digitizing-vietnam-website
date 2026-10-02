@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 124. CON CHIM KHÁCH MÀU NHIỆM
+## 124. Con chim khách màu nhiệm
 
 Vào một ngày xa xưa, có hai anh em con một nhà quan nọ một hôm đi chơi thấy có một nhà đạo sĩ ngồi bên vệ đường. Trước mặt đạo sĩ có đặt một cái lồng, trong có một con chim khách. Hai anh em sán lại xem và hỏi:
 

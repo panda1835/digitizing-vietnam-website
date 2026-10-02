@@ -1,4 +1,4 @@
-# PHẦN THỨ BA. NHẬN ĐỊNH TỔNG QUÁT VỀ KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM
+# Phần thứ ba. Nhận định tổng quát về kho tàng truyện cổ tích Việt-Nam
 
 Chúng tôi tạm kết thúc công việc dẫn dắt bạn đọc đi thăm kho tàng truyện cổ tích Việt-nam, một bộ phận quan trọng của những sáng tác tự sự truyền thống nói riêng và của nền văn hóa dân gian nói chung.
 

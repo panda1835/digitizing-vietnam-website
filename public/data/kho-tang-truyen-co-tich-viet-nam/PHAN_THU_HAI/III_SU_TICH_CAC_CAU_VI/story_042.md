@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 42. CỦA THIÊN TRẢ ĐỊA
+## 42. Của thiên trả địa
 
 Ngày xưa, có Thiên và Địa là hai anh chàng cày thuê cuốc mướn cùng ở một làng. Họ giống nhau ở chỗ anh nào anh ấy đều nghèo rớt mùng tơi và đều mồ côi cha mẹ. Nhưng Thiên rất sáng dạ, bảo gì hiểu nấy. Một hôm Địa bảo hắn:
 

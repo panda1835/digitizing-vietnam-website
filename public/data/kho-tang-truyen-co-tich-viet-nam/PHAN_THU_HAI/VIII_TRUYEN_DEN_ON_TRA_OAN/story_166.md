@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 166. BỐN CÔ GÁI MUỐN LẤY CHỒNG HOÀNG TỬ
+## 166. Bốn cô gái muốn lấy chồng hoàng tử
 
 Ngày xưa, có vợ chồng một nhà phú hộ nọ sinh được bốn cô con gái. Lớn lên, cô nào cô ấy nhan sắc xinh đẹp, trong vùng khó có ai sánh kịp. Cha mẹ các cô muốn tìm nơi môn đăng hộ đối để gả chồng, nhưng khi hỏi đến, cả bốn cô đều trả lời:
 

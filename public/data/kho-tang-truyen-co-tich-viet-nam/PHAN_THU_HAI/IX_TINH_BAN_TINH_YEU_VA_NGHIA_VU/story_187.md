@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 187. NGẬM NGẢI TÌM TRẦM HAY LÀ SỰ TÍCH NÚI MẪU-TỬ
+## 187. Ngậm ngải tìm trầm hay là sự tích núi Mẫu-Tử
 
 Ngày xưa, trên một vùng núi cao tại một tỉnh Đàng trong, có hai vợ chồng nhà nọ đến sinh cơ lập nghiệp. Họ cũng trồng lúa bắp, chăn nuôi gà lợn và săn chim bắt thỏ như mọi nhà khác. Nhưng nhờ của cải của bố mẹ để lại, họ sống có vẻ phong lưu. Vì thế tuy có vất vả, hai vợ chồng vẫn vui thú gia đình với đứa con trai lên năm tuổi.
 

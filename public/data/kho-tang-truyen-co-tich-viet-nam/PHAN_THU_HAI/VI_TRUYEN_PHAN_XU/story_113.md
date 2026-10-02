@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 113. PHÂN XỬ TÀI TÌNH
+## 113. Phân xử tài tình
 
 Ngày xưa, có một ông quan huyện có tài xét xử. Trong dân gian có vụ nào rắc rối gay go nhất, ông đều có cách tìm ra manh mối và phân xử công bằng.
 

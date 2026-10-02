@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 13. SỰ TÍCH CÁ HE[^1]
+## 13. Sự tích cá he[^1]
 
 Ngày xưa có một nhà sư trẻ tuổi rất ngoan đạo. Sau hơn ba mươi năm khổ công tu luyện, sư thuộc lòng tất cả các kinh kệ nhà Phật, lại giỏi thuyết pháp. Vậy mà lâu rồi vẫn chưa được thành chính quả. Sư, bụng bảo dạ:
 

@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 99. LÊ LỢI
+## 99. Lê Lợi
 
 Hồi ấy, giặc Minh sang xâm chiếm nước ta, đối đãi với dân ta vô cùng tàn ác. Không một ai là không nghiến răng chau mày. Bấy giờ có Lê Lợi nổi quân đánh bại lại chúng; nhưng trong lúc mới khởi nghĩa, quân ít lương thiếu, mấy lần bị giặc đánh đuổi, mỗi người chạy một nơi. Nhưng ông không ngã lòng nản chí. Ít lâu sau, được mọi nơi giúp của giúp người nên thanh thế lại dần nổi lên.
 

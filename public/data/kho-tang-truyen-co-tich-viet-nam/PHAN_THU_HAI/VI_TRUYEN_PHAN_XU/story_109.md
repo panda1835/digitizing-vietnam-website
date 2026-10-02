@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 109. NGƯỜI ĐÀN BÀ BỊ VU OAN
+## 109. Người đàn bà bị vu oan
 
 Ngày xưa, có hai người lái buôn tơ lụa, một người tên là Lý, một người tên là Tình. Tuy quê ở hai nơi nhưng họ thường đến bán hàng và thường gặp nhau ở một thị trấn nọ. Trong cuộc buôn bán kinh doanh, họ dần dần quen nhau, thỉnh thoảng mời nhau chè chén có vẻ thân mật.
 

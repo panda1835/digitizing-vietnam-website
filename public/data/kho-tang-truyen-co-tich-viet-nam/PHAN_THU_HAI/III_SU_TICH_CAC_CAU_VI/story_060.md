@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 60. NÓI DỐI NHƯ CUỘI
+## 60. Nói dối như Cuội
 
 Ngày xưa có một anh chàng trẻ tuổi tên là Cuội. Từ thuở nhỏ, Cuội mồ côi cả cha lẫn mẹ phải đi ở với chú thím. Hắn ta là tay láu lỉnh, đặc biệt về môn lừa người thì rất thành thạo. Một lão trọc phú ở trong miền nghe tiếng đồn về Cuội tỏ vẻ không tin. Một hôm, hắn cho người gọi Cuội đến và bảo:
 

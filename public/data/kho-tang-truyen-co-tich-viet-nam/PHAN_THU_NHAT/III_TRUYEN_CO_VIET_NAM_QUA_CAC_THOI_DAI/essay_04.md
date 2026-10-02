@@ -1,6 +1,6 @@
-# III. TRUYỆN CỔ VIỆT NAM QUA CÁC THỜI ĐẠI
+# III. Truyện cổ Việt Nam qua các thời đại
 
-## 4. THỜI KỲ SUY TÀN CỦA TRUYỆN CỔ TÍCH VIỆT-NAM
+## 4. Thời kỳ suy tàn của truyện cổ tích Việt-Nam
 
 Trong thời kỳ cuối Lê cho đến đầu Nguyễn có bốn sự kiện lịch sử ảnh hưởng đến truyện cổ tích đương thời:
 

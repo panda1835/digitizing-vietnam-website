@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 50. GIẾT CHÓ KHUYÊN CHỒNG
+## 50. Giết chó khuyên chồng
 
 Ngày xưa có hai anh em nhà kia, anh có lắm tiền nhiều bạc, còn em thì cam phận túng bấn. Nhưng người anh vẫn không mấy khi đoái hoài tới em mình, trái lại chỉ thân thiết với bọn vô lại, nay rượu chè, mai cờ bạc làm vui. Hắn riết róng với em bao nhiêu thì lại hào phóng với bọn chúng bấy nhiêu. Mặc dầu thế, người em vẫn không oán anh nửa lời. Chỉ có vợ người anh vẫn thường khuyên chồng nên tránh bạn xấu, vì họ chẳng qua "Khi vui thì vỗ tay vào; Đến khi hoạn nạn thì nào thấy ai". Chồng ra sức cãi:
 

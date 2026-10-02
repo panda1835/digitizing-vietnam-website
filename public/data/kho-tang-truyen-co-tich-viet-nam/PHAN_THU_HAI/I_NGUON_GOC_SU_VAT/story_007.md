@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 7. SỰ TÍCH CHIM QUỐC
+## 7. Sự tích chim quốc
 
 Ngày ấy có đôi bạn chí thân là Quắc và Nhân. Họ đều là con nhà học trò nghèo, lại đều mồ côi cha mẹ, Quắc được học nhiều hơn bạn: anh chàng làm thầy đồ dạy trẻ. Tuy bổng lộc chẳng có là bao nhưng Quắc vẫn thường giúp đỡ Nhân. Đối lại, có lần Quắc bị ốm nặng, giá không có bạn thuốc thang ngày đêm thì anh khó lòng sống nổi. Sau đó cũng vì sinh kế, đôi bạn phải chia tay mỗi người mỗi ngả.
 

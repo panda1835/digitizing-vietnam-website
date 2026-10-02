@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 46. SINH CON RỒI MỚI SINH CHA SINH CHÁU GIỮ NHÀ RỒI MỚI SINH ÔNG
+## 46. Sinh con rồi mới sinh cha sinh cháu giữ nhà rồi mới sinh ông
 
 Ngày xưa có Giáp và Ất là hai người kết bạn với nhau. Nhà Giáp có của ăn của để, còn Ất thì túng bấn lắm, thường phải nhờ vả Giáp. Một hôm, để có vốn, Ất nằn nì vay của Giáp mười nén bạc rồi bán nhà cửa đưa vợ đi chỗ khác làm ăn. Đến một cái chợ vùng Nam, hắn và vợ hắn xoay ra buôn bán và cho vay lấy lãi. Hắn rất hà tiện và chịu khó trong mọi việc. Gặp mấy dịp may, hắn phất to, tiền của đổ về như nước. Không đầy mươi năm, vợ chồng hắn trở nên khá giả, có cơ nghiệp lớn ở vùng đó. Tuy làm nên, nhưng hắn cố tình quên mất người bạn cũ và số tiền nợ của bạn.
 

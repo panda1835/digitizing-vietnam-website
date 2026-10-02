@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 164. CƯỜNG BẠO ĐẠI VƯƠNG
+## 164. Cường Bạo Đại Vương
 
 Ngày xửa ngày xưa, có một chàng trẻ tuổi làm nghề mò tôm bắt cá tại vùng sông Bồi. Tuy quanh năm chỉ che thân một mảnh khố rách, chui rúc trong một túp lều ven sông, nhưng anh vẫn vui vẻ làm ăn, miệng luôn ca hát. Bố mất từ thuở lọt lòng, anh sống với người mẹ cho đến khôn lớn, rồi bỏ nhà đến đây. Vốn tính ngang tàng, từ người đến thần, anh chẳng sợ một ai, lại thường tự xưng mình là Cường Bạo. Nhất sinh Cường Bạo chỉ làm quen với Táo Quân. Lúc bắt được cá ngon tôm béo, Cường Bạo thường dọn mời Táo Quân cùng ăn. Bởi thế hai bên chơi với nhau thân thiết lắm. Những khi trời sắp bão lụt, hay ở đâu có xảy ra việc gì lạ, Táo Quân thường bảo cho Cường Bạo biết. Cậy có chỗ dựa tốt, Cường Bạo ngày càng tỏ ra kiêu căng, khinh thị mọi yêu ma thần thánh, thậm chí coi Trời chỉ bằng cái vung.
 

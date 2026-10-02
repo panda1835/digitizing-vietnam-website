@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 64. CHÀNG LÍA
+## 64. Chàng Lía
 
 Ngày xưa có một nhà nông phu nghèo ở Gò Sặt, tỉnh Bình-định có một đứa con trai tên là Lía. Từ thuở lọt lòng, Lía đã mồ côi cha nhưng chóng lớn và khỏe mạnh. Năm lên bảy, một mình Lía có thể hạ bọn trẻ cùng lứa tuổi trong những keo vật. Một vài năm sau tất cả những đứa trẻ trong vùng đó đều sợ Lía.
 

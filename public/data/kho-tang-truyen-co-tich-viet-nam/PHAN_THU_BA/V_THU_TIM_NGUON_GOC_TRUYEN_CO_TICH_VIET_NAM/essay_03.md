@@ -1,6 +1,6 @@
-# V. THỬ TÌM NGUỒN GỐC TRUYỆN CỐ TÍCH VIỆT - NAM
+# V. Thử tìm nguồn gốc truyện cổ tích Việt-Nam
 
-## 3. THU HÚT TINH HOA KHO TRUYỆN CỦA CÁC DÂN TỘC ANH EM
+## 3. Thu hút tinh hoa kho truyện của các dân tộc anh em
 
 Ngoài hai nguồn quan trọng nói trên, kho tàng truyện cổ tích Việt-nam còn thu hút rất nhiều những "truyện hay tích đẹp" của các dân tộc gần xa, mà trước hết là của các dân tộc anh em trong cộng đồng quốc gia chung. Không được phép quên rằng bên cạnh kho tàng truyện cổ tích của dân tộc chủ thể, còn có rất nhiều kho tàng truyện cổ tích và văn học dân gian của trên 50 dân tộc sống rải rác trên nhiều vùng miền của đất nước. Có thể nói, mỗi kho truyện của một dân tộc lại là một thế giới riêng, với ngôn ngữ riêng, cách tạo hình riêng.
 

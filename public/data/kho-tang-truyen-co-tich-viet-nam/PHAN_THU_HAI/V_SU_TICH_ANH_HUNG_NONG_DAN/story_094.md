@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 94. CỐ GHÉP
+## 94. Cố Ghép
 
 Ngày xưa, ở dưới chân núi Hồng-lĩnh về phía Đông nam, có một xóm nhỏ gồm mấy gia đình đánh cá. Họ luôn sống giữa những tiếng gầm thét của sóng biển. Nhưng không may, một ngày kia, một trận bão lớn đã cuốn đi khá nhiều nhân mạng cùng thuyền mảng và lưới chài xuống thủy phủ. Những người sống sót hết đường sinh nhai, đành rủ nhau ngày ngày lên núi kiếm củi đem về bán ở chợ. Đó là nghề ít vốn nhất nhưng lại là nghề mệt nhọc nhất đối với họ, vì sườn núi phía họ ở mọc dựng đứng như bức tường, muốn leo núi với gánh củi trên vai không thể không đi đường vòng ngoắt ngoéo qua bao nhiêu thôn xóm khác. Thành ra, rừng thì gần nhưng đường thì lại quá xa. Cho nên mọi người ước làm sao có một con đường từ xóm thẳng lên núi để đi được nhanh chóng.
 

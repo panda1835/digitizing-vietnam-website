@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 196. RỦ NHAU ĐI KIẾM MẬT ONG
+## 196. Rủ nhau đi kiếm mật ong
 
 Có hai anh tên là Bự và Ngốc đều không ai chịu kém ai về mặt ngu đần. Nhưng Bự vẫn thường cho mình là khôn hơn Ngốc. Một hôm, nghe người ta nói đi kiếm mật ong vừa được ăn, vừa bán có tiền, hai anh bèn rủ nhau đi làm một chuyến. Nhưng cả hai lại quên hỏi xem đi hướng nào thì có tổ ong. Suy nghĩ hồi lâu, Bự làm mặt thạo, bảo Ngốc:
 

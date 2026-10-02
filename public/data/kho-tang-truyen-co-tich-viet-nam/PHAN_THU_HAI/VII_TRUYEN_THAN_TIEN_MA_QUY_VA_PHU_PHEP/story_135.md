@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 135. AI MUA HÀNH TÔI HAY LÀ LỌ NƯỚC THẦN
+## 135. Ai mua hành tôi hay là lọ nước thần
 
 Ngày xưa có một anh chàng trẻ tuổi chưa có vợ, sống bằng nghề làm ruộng. Một ngày nọ anh xách búa lên rừng đốn củi. Trong khi đang lúi húi chặt cây, anh trông thấy một con quạ tha một con chim sẻ tới đậu trên một phiến đá ở gần chỗ mình làm việc. Nhìn thấy thế, anh bỗng động lòng thương con chim bé bỏng sắp sửa lọt vào miệng loài ác điểu.
 

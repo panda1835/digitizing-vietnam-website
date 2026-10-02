@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 80. EM BÉ THÔNG MINH
+## 80. Em bé thông minh
 
 Ngày xưa có một ông vua sai một viên quan đi dò la khắp nước tìm người tài giỏi. Viên quan ấy đã đi nhiều nơi, đến đâu cũng đưa ra những câu đố oái oăm để hút mọi người, nhưng tuy mất nhiều công mà chưa thấy có người nào thật lỗi lạc.
 

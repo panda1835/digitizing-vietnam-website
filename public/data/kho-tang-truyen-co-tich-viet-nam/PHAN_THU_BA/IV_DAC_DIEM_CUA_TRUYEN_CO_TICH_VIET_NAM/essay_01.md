@@ -1,6 +1,6 @@
-# IV. ĐẶC ĐIỂM CỦA TRUYỆN CỔ TÍCH VIỆT-NAM
+# IV. Đặc điểm của truyện cổ tích Việt-Nam
 
-## 1. YẾU TỐ TƯỢNG TRƯNG TRONG LOẠI HÌNH TRUYỆN CỔ TÍCH VIỆT NAM NÓI CHUNG ÍT XA LẠ VỚI NHÂN TÍNH; LOẠI TRUYỆN SINH HOẠT CHIẾM MỘT TỶ LỆ TƯƠNG ĐỐI CAO; LOẠI TRUYỆN THẦN KỲ, TRUYỆN LÀI VẬT, TRUYỆN PHIÊU LƯU MẠO HIỂM CHIẾM MỘT TỶ LỆ TƯƠNG ĐỐI THẤP
+## 1. Yếu tố tượng trưng trong loại hình truyện cổ tích Việt Nam nói chung ít xa lạ với nhân tính; loại truyện sinh hoạt chiếm một tỷ lệ tương đối cao; loại truyện thần kỳ, truyện loài vật, truyện phiêu lưu mạo hiểm chiếm một tỷ lệ tương đối thấp
 
 Trước khi đề cập đến đặc điểm thứ nhất này cũng nên biết trong kho tàng truyện cổ tích Việt-nam, loại truyện thần kỳ không có nhiều, hay nói khác đi, yếu tố thần kỳ tuy vẫn có mặt trong kho tàng truyện cổ tích chúng ta, nhưng không đậm nét. Như ở Phần thứ nhất đã có trình bày, có thể chia truyện cổ tích Việt-nam thành ba loại (hay tiểu loại)[^1]: 1) tiểu loại thần kỳ (hay hoang đường); 2) tiểu loại thế sự (hay sinh hoạt); 3) tiểu loại lịch sử. Từ những truyện sưu tầm được của bộ sách này (bao gồm cả truyện chính lẫn truyện phụ, nhưng không tính vào đó những truyện ngụ ngôn, khôi hài, tiếu lâm và những mẩu chuyện, v.v...), chúng tôi tạm làm thử một thống kê, cũng đã thấy:
 

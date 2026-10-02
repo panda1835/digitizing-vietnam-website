@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 165. MŨI DÀI
+## 165. Mũi dài
 
 Ngày xưa, có một anh chàng trẻ tuổi tên là Đê. Nhà anh nghèo khó, cha mẹ phải cho đi ở tại một nhà lão trọc phú. Trọc phú bắt anh chăn trâu. Nhưng anh có thói ham chơi bời, khi đã lao vào cuộc đánh khăng, đánh đáo hay bày trận, thả diều thì chẳng còn biết gì trời đất. Vì thế đã nhiều phen anh để cho trâu ăn lúa, ăn khoai và cũng nhiều phen, anh bị chủ nọc đánh dữ dội.
 

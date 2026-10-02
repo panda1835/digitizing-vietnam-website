@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 146. LÀM ƠN HÓA HẠI
+## 146. Làm ơn hóa hại
 
 Xưa có Trần Công là người có lòng sốt sắng. Ai có việc gì nhờ vả, ông đều sẵn sàng. Trong đời ông, ông đã từng đi lại nhiều nơi, đến đâu cũng hết lòng giúp đỡ người nguy kẻ khó mà không quản ngại.
 

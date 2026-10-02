@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 182. Ả CHỨC CHÀNG NGƯU
+## 182. Ả Chức chàng Ngưu
 
 Vào một ngày rất xưa, trong khu rừng sâu có một giếng nước trong mát luôn năm không bao giờ cạn, gọi là giếng tiên. Vì giếng ở cách xa dân cư, người trần không mấy ai qua lại nên các nàng tiên trên trời thường dùng chỗ ấy làm nơi hội tụ. Ở đấy họ thỉnh thoảng đến lấy nước, hoặc có khi trút bộ cánh trên bờ, xuống bơi lội đùa giỡn cho thỏa thích.
 

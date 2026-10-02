@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 10. SỰ TÍCH CON NHÁI
+## 10. Sự tích con nhái
 
 Ngày xưa có một vị hòa thượng trẻ tuổi nổi tiếng chân tu. Mọi "thị dục" của bản thân, hòa thượng đều kiên quyết cắt đứt, chỉ một lòng chuyên chú vào lẽ hư vô của đạo Thiền. Nhà vua nghe tiếng, vô cùng kính trọng, vời về cung, ban tước quốc sư và sai tu bổ một ngôi chùa ở phía Nam kinh thành để cho sư trụ trì. Nhưng hòa thượng từ tạ vua, chỉ xin phép đi xem chùa chiền, cảnh đẹp trong thiên hạ.
 

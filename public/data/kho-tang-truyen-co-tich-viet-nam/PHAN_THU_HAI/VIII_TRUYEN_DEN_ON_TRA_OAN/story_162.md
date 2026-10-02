@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 162. HOẰNG TÍN HẦU
+## 162. Hoằng Tín Hầu
 
 Vào thời nhà Lê, có một người nhờ sức khỏe và võ nghệ cao cường nên lập công to với triều đình, được vua cho làm quan đại thần, lại được phong tước quận công. Quận công còn được vua ban cho một làng ở Hải-dương là làng Phú-thị để hưởng lộc và bắt dân phục dịch. Có quyền thế nghiêng trời, lại được vua tin chúa cậy, nên từ ngày về trí sĩ, quận công rất hống hách với dân trong vùng. Ai đi qua trước cửa phải cất nón cúi đầu hoặc xuống ngựa. Ai hơi trái ý là đòi đến nọc cổ đánh ngay, bất kể người đó là quan hay dân. Cho nên cả một trấn chẳng ai dám ho he. Đối với dân làng Phú-thị, quận công tuyên bố ngài sẽ rộng lượng tha cho tất cả sưu thuế, phu phen, nhưng mọi chi phí trong gia đình ngài thì làng phải đài thọ; mọi việc trong nhà ngài, làng phải chu toàn. Khi ngài muốn bất cứ điều gì, làng phải làm ngay không được chậm trễ.
 

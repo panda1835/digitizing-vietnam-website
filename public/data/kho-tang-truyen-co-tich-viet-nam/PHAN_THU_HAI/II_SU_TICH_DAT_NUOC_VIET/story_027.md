@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 27. SỰ TÍCH HỒ BA-BỂ
+## 27. Sự tích hồ Ba-Bể
 
 Vào hồi đó ở xã Nam-mẫu có mở một hội "vô già" cúng Phật. Mọi người nô nức đi xem. Ai nấy đều lo ăn chay niệm Phật và làm những việc từ thiện như buông cá, thả chim.v.v... để cầu phúc trong mấy ngày hội.
 

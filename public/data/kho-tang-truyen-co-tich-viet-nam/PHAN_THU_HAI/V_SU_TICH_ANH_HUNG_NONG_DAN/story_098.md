@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 98. HẦU TẠO
+## 98. Hầu Tạo
 
 Ở làng Tuần-lễ thuộc xứ Nghệ có một anh chàng tên là Tạo. Tạo sinh ra có một nốt đỏ trong vành tai, người ta cho là có tướng lạ. Chàng chẳng những có sức khỏe như voi mà còn có mưu lược hơn người. Thuở nhỏ, Tạo đi học thường được thầy khen văn hay và viết nhanh. Nhưng anh học trò ấy chẳng thích chuyện thi cử đỗ đạt mà chỉ muốn đua sức mạnh, nên sau đó bỏ văn sang học võ. Sau mấy năm luyện tập đủ nghề khiên mộc giáo roi và binh thư đồ trận, chàng để mẹ và vợ ở nhà, đi lang thang khắp mọi miền. Chàng kết giao với nhiều bạn ở các vùng sông La, sông Lam, đi lại khoảng ngàn Trươi, ngàn Hống. Và chàng đã tai nghe mắt thấy rất nhiều những việc bất bình trong thiên hạ.
 

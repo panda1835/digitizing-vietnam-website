@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 26. SỰ TÍCH HỒ GƯƠM
+## 26. Sự tích Hồ Gươm
 
 Vào thời ấy, giặc Minh đặt ách đô hộ ở nước Nam. Chúng coi dân ta như cỏ rác, thi hành nhiều điều bạo ngược làm cho thiên hạ căm giận đến tận xương tủy. Bấy giờ, ở vùng Lam-sơn nghĩa quân đã nổi dậy chống lại chúng, nhưng buổi đầu thế lực còn non yếu nên nhiều lần bị giặc đánh cho tan tác, Thấy vậy, đức Long quân quyết định cho họ mượn thanh gươm thần để họ giết giặc.
 

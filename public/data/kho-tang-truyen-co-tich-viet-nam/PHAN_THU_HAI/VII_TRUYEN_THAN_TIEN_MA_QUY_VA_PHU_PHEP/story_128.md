@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 128. LẤY CHỒNG DÊ
+## 128. Lấy chồng dê
 
 Ngày xưa, ở một vùng gần biển, có hai vợ chồng nhà nọ, đầu tóc đã hoa râm mà vẫn hiếm hoi. Hai vợ chồng cầu khấn khắp nơi mong có mụn con khỏi phải hiu quạnh lúc tuổi già. Thế rồi người vợ bỗng có mang, chín tháng mười ngày đẻ ra một bọc, khi mở ra thì không phải là người mà là một con dê đực. Chồng bực mình bảo vợ đem ném xuống sông cho khuất mắt, nhưng người vợ không nỡ, khuyên chồng cứ để lại nuôi.
 

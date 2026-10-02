@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM
+# X. Truyện vui tươi dí dỏm
 
-## 191. THỊT GÀ THUỐC CHỒNG
+## 191. Thịt gà thuốc chồng
 
 Xưa, có hai vợ chồng nhà nọ lấy nhau lâu ngày. Người vợ bỗng sinh trắc nết gian díu với một chàng trai. Hai bên say mê nhau và điều ước muốn của người đàn bà là làm sao cho chồng sớm chết để mình được tự do đi lại với tình nhân. Hàng ngày người đàn bà sửa lễ ra đền khẩn vái cầu thần hóa phép cho chồng chết đi, sẽ xin hậu tạ. Việc ngoại tình của người vợ cuối cùng cũng đến tai người chồng. Hắn đã rình rập đôi ba phen nhưng chưa kết quả. Thấy vợ lui tới đền thờ thần luôn thì hắn sinh mối ngờ vực, bèn một hôm lẻn đến trước, nấp ở sau pho tượng.
 

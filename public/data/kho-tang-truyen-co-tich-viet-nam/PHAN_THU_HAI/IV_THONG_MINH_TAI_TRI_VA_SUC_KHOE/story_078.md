@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 78. CON MỐI LÀM CHỨNG
+## 78. Con mối làm chứng
 
 Ngày xưa có hai vợ chồng một nhà nghèo đói nọ, có một đứa con, chừng mười một, mười hai tuổi nhưng thông minh lanh lợi hơn người. Thiếu ăn, nhà ấy thường phải đâm đầu đi vay nợ. Một năm nọ, trời làm đói kém, hai vợ chồng phải vay nhà Bá cả vốn lẫn lãi là ba mươi quan. Tuy hạn vay đã hết, họ vẫn không thể góp đủ số tiền để trả. Chủ nợ mấy lần cho người đến đòi, hai vợ chồng nhà ấy một van nài xin khất.
 

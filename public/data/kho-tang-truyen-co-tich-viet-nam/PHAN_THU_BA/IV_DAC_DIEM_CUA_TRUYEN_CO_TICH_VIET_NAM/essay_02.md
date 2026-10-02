@@ -1,6 +1,6 @@
-# IV. ĐẶC ĐIỂM CỦA TRUYỆN CỔ TÍCH VIỆT-NAM
+# IV. Đặc điểm của truyện cổ tích Việt-Nam
 
-## 2. TRUYỆN CỔ TÍCH VIỆT-NAM THẤM ĐẬM CHẤT LIỆU ĐỜI SỐNG XÃ HỘI VIỆT CỔ; LÀ BIẾU TRƯNG NGHệ THUẬT CỦA CÁI HIỀN HÒA, NHÂN ÁI, HAY TÍNH CHỪNG MỰC TRONG TÂM LÝ DÂN TỘC
+## 2. Truyện cổ tích Việt-Nam thấm đậm chất liệu đời sống xã hội Việt cổ; là biểu trưng nghệ thuật của cái hiền hòa, nhân ái, hay tính chừng mực trong tâm lý dân tộc
 
 1. Mặc dù trong kho tàng cổ tích truyền thuyết của dân tộc có một phân số không nhỏ vốn mang nguồn gốc ngoại lai hoặc có liên quan với truyện của các dân tộc khác như chương sau sẽ đề cập, nhìn chung truyện cổ tích Việt-nam vẫn là những ống kính vạn hoa đặc sắc, giúp ta nhìn vào bề sâu lịch sử cộng đồng dân tộc Việt, tìm kiếm lại bóng dáng sự sống nhiều vẻ và đầy hoạt động của các hình thức xã hộ Việt-nam cổ truyền. Mặt khác, thông qua quy luật thẩm mỹ, đây cũng là những tia hồi quang soi rõ vẻ đẹp và sức sống của tâm hồn, tình cảm, trí tuệ dân gian Việt-nam.
 

@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 81. TRẠNG HIỀN
+## 81. Trạng Hiền
 
 Vào thời nhà Trần, ở một làng nọ bây giờ thuộc về Nam-định có một em bé tên là Hiền. Hiền được cha mẹ cạo đầu làm tiểu, cho ở với một ông sư trên chùa. Hàng ngày, Hiền phải hầu hạ sư, quét dọn chùa và làm các công việc vặt rồi mới được sư dạy cho học. Thế nhưng Hiền học một biết mười, chả mấy chốc đã nổi tiếng thần đồng.
 

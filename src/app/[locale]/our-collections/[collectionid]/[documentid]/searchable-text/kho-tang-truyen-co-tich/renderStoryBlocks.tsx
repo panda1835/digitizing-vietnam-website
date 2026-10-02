@@ -73,7 +73,7 @@ const toListItems = (lines: string[]) => {
 };
 
 const HEADING_CLASSES: Record<number, string> = {
-  1: "text-base uppercase tracking-wide text-branding-brown",
+  1: "text-base tracking-wide text-branding-brown",
   2: `${merriweather.className} text-[32px] text-branding-black mt-2`,
   3: `${merriweather.className} text-2xl text-branding-brown mt-10`,
 };

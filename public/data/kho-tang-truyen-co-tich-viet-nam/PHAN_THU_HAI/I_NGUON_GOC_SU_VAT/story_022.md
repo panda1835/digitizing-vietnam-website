@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 22. SỰ TÍCH ÔNG BÌNH VÔI
+## 22. Sự tích ông bình vôi
 
 Ngày xưa, có một người con gái con một nhà giàu có. Cô rất đẹp nhưng cũng rất kiêu. Cô đã từng làm cho các bạn gái xa lánh mình. Cô làm cho các chàng trai ghét cô vô hạn. Cũng vì thế đến tuổi lấy chồng, cô gái vẫn chưa có đám nào vừa ý. Chàng trai nào cũng bị cô sổ toẹt, vì "cao chê ngỏng, thấp chê lùn, lớn chê béo trục béo tròn, gầy chê xương sống xương sườn bày ra".
 

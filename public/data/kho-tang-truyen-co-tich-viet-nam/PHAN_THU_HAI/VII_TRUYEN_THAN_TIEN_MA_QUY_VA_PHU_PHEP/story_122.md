@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 122. NGƯỜI THỢ ĐÚC VÀ ANH HỌC NGHỀ
+## 122. Người thợ đúc và anh học nghề
 
 Xưa có đức thánh Khổng Lồ, chuyên trông nom về nghề đúc và nghề rèn ở hạ giới. Đức thánh thường thân hành đi lại các nơi; khi giáng xuống miền này, lúc hiện ra xứ nọ, thành người trần, để tìm cách dạy thêm cho những người thợ về kỹ xảo. Nhưng trong khi theo dõi việc dạy nghề, đức thánh nhận thấy đám đệ tử của mình có những kẻ còn phạm thói lọc lừa điên đảo. Bởi vậy, đức thánh lại phải để tâm chữa cả thói hư tật xấu của họ.
 

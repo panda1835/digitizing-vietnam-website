@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 66. BỐN ANH TÀI
+## 66. Bốn anh tài
 
 Ngày xưa có hai vợ chồng nhà nghèo mà không có con. Hai người khấn vái hết đền này đến chùa khác, mãi sau mới sinh được một mụn con trai. Thằng bé lớn lên như thổi. Nhưng càng lớn hắn càng ăn rất tợn: bung kia, chảo nọ nấu lên bao nhiêu cũng vơi. Hai vợ chồng cố sức làm lụng để nuôi con nhưng không nuôi nổi. Trong nhà có vật gì đáng tiền, họ đều bán sạch để cho con chèn dạ dày. Sau rồi họ nghĩ chỉ có cách cho con đi tha phương cầu thực thì mới đỡ khốn vì nó. Một hôm người cha gọi con lại bảo rằng:
 

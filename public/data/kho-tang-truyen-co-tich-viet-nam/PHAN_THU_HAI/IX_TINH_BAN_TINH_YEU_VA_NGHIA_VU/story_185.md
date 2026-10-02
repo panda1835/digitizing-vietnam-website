@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 185. VỢ CHÀNG TRƯƠNG
+## 185. Vợ chàng Trương
 
 Ngày xưa, ở làng Nam-xương có cô gái tên là Vũ Thị Thiết, người đã xinh đẹp lại thùy mị nết na. Nàng lấy chồng là Trương sinh vốn là người cùng làng. Trương sinh có tính cả ghen, hay để tâm xét nét vợ, nhưng vợ chàng thường giữ gìn khuôn phép nên không có chuyện gì xảy ra.
 

@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 40. BỤNG LÀM DẠ CHỊU HAY LÀ TRUYỆN THẦY HÍT
+## 40. Bụng làm dạ chịu hay là truyện thầy hít
 
 Ngày xưa, có một anh chàng vô công rồi nghề, ngày ngày chỉ biết ăn bám vợ và khoác lác. Người vợ rất lấy làm bực mình vì phải nai lưng ra làm nuôi chồng và ba đứa con. Một hôm, chị vợ bắt anh ta phải đi học một nghề gì để nuôi thân vì mình không cáng đáng nổi nữa. Anh chàng đi lang thang suốt buổi, hết đứng bụi này lại ngồi bụi kia chả học nghề ngỗng gì cả, cho đến xế trưa lại về.
 

@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 132. HAI CÔ GÁI VÀ CỤC BƯỚU
+## 132. Hai cô gái và cục bướu
 
 Xưa có một cô gái con nhà nghèo khó. Không may cho cô là khi sinh ra đã mang một cục bướu ở mặt. Người càng lớn cục bướu càng to, vì vậy nhan sắc của cô thua em kém chị. Tuy nhiên cô vẫn không lấy thế làm buồn, suốt ngày thường vui đùa ca hát.
 

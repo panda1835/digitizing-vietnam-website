@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "86 - 203",
   "total_stories": 25,
   "sections": [
     {
       "section_id": "I",
-      "section_title": "I. NGUỒN GỐC SỰ VẬT",
+      "section_title": "I. Nguồn gốc sự vật",
       "stories": [
         {
           "story_number": 1,
-          "title": "SỰ TÍCH DƯA HẤU",
+          "title": "Sự tích dưa hấu",
           "start_page": 86,
           "end_page": 89,
           "markdown_file": "story_001.md",
@@ -18,7 +18,7 @@
         },
         {
           "story_number": 2,
-          "title": "SỰ TÍCH TRẦU, CAU VÀ VÔI",
+          "title": "Sự tích trầu, cau và vôi",
           "start_page": 90,
           "end_page": 94,
           "markdown_file": "story_002.md",
@@ -27,7 +27,7 @@
         },
         {
           "story_number": 3,
-          "title": "SỰ TÍCH TRÁI SẦU RIÊNG",
+          "title": "Sự tích trái sầu riêng",
           "start_page": 95,
           "end_page": 97,
           "markdown_file": "story_003.md",
@@ -36,7 +36,7 @@
         },
         {
           "story_number": 4,
-          "title": "SỰ TÍCH CÂY HUYẾT DỤ",
+          "title": "Sự tích cây huyết dụ",
           "start_page": 98,
           "end_page": 99,
           "markdown_file": "story_004.md",
@@ -45,7 +45,7 @@
         },
         {
           "story_number": 5,
-          "title": "SỰ TÍCH CHIM HÍT CÔ",
+          "title": "Sự tích chim hít cô",
           "start_page": 100,
           "end_page": 102,
           "markdown_file": "story_005.md",
@@ -54,7 +54,7 @@
         },
         {
           "story_number": 6,
-          "title": "SỰ TÍCH CHIM TU HÚ",
+          "title": "Sự tích chim tu hú",
           "start_page": 103,
           "end_page": 106,
           "markdown_file": "story_006.md",
@@ -63,7 +63,7 @@
         },
         {
           "story_number": 7,
-          "title": "SỰ TÍCH CHIM QUỐC",
+          "title": "Sự tích chim quốc",
           "start_page": 107,
           "end_page": 110,
           "markdown_file": "story_007.md",
@@ -72,7 +72,7 @@
         },
         {
           "story_number": 8,
-          "title": "SỰ TÍCH CHIM NĂM-TRÂU-SÁU-CỘT VÀ CHIM BẮT-CÔ-TRÓI-CỘT",
+          "title": "Sự tích chim năm-trâu-sáu-cột và chim bắt-cô-trói-cột",
           "start_page": 111,
           "end_page": 114,
           "markdown_file": "story_008.md",
@@ -81,7 +81,7 @@
         },
         {
           "story_number": 9,
-          "title": "SỰ TÍCH CHIM ĐA ĐA",
+          "title": "Sự tích chim đa đa",
           "start_page": 115,
           "end_page": 117,
           "markdown_file": "story_009.md",
@@ -90,7 +90,7 @@
         },
         {
           "story_number": 10,
-          "title": "SỰ TÍCH CON NHÁI",
+          "title": "Sự tích con nhái",
           "start_page": 118,
           "end_page": 120,
           "markdown_file": "story_010.md",
@@ -99,7 +99,7 @@
         },
         {
           "story_number": 11,
-          "title": "SỰ TÍCH CON MUỖI",
+          "title": "Sự tích con muỗi",
           "start_page": 121,
           "end_page": 126,
           "markdown_file": "story_011.md",
@@ -108,7 +108,7 @@
         },
         {
           "story_number": 12,
-          "title": "SỰ TÍCH CON KHỈ",
+          "title": "Sự tích con khỉ",
           "start_page": 127,
           "end_page": 143,
           "markdown_file": "story_012.md",
@@ -117,7 +117,7 @@
         },
         {
           "story_number": 13,
-          "title": "SỰ TÍCH CÁ HE",
+          "title": "Sự tích cá he",
           "start_page": 144,
           "end_page": 150,
           "markdown_file": "story_013.md",
@@ -126,7 +126,7 @@
         },
         {
           "story_number": 14,
-          "title": "SỰ TÍCH CON SAM",
+          "title": "Sự tích con sam",
           "start_page": 151,
           "end_page": 152,
           "markdown_file": "story_014.md",
@@ -135,7 +135,7 @@
         },
         {
           "story_number": 15,
-          "title": "SỰ TÍCH CON DÃ TRÀNG",
+          "title": "Sự tích con dã tràng",
           "start_page": 153,
           "end_page": 165,
           "markdown_file": "story_015.md",
@@ -144,7 +144,7 @@
         },
         {
           "story_number": 16,
-          "title": "GỐC TÍCH BỘ LÔNG QUẠ VÀ BỘ LÔNG CÔNG",
+          "title": "Gốc tích bộ lông quạ và bộ lông công",
           "start_page": 166,
           "end_page": 169,
           "markdown_file": "story_016.md",
@@ -153,7 +153,7 @@
         },
         {
           "story_number": 17,
-          "title": "GỐC TÍCH TIẾNG KÊU CỦA VẠC, CỘC, DỦ DỈ, ĐA ĐA VÀ CHUỘT",
+          "title": "Gốc tích tiếng kêu của vạc, cộc, dủ dỉ, đa đa và chuột",
           "start_page": 170,
           "end_page": 171,
           "markdown_file": "story_017.md",
@@ -162,7 +162,7 @@
         },
         {
           "story_number": 18,
-          "title": "GỐC TÍCH CÁI NỐT DƯỚI CỔ CON TRÂU",
+          "title": "Gốc tích cái nốt dưới cổ con trâu",
           "start_page": 172,
           "end_page": 174,
           "markdown_file": "story_018.md",
@@ -171,7 +171,7 @@
         },
         {
           "story_number": 19,
-          "title": "SỰ TÍCH CÁI CHÂN SAU CON CHÓ",
+          "title": "Sự tích cái chân sau con chó",
           "start_page": 175,
           "end_page": 176,
           "markdown_file": "story_019.md",
@@ -180,7 +180,7 @@
         },
         {
           "story_number": 20,
-          "title": "SỰ TÍCH CÁI CHỔI",
+          "title": "Sự tích cái chổi",
           "start_page": 177,
           "end_page": 178,
           "markdown_file": "story_020.md",
@@ -189,7 +189,7 @@
         },
         {
           "story_number": 21,
-          "title": "SỰ TÍCH ÔNG ĐẦU RAU",
+          "title": "Sự tích ông đầu rau",
           "start_page": 179,
           "end_page": 185,
           "markdown_file": "story_021.md",
@@ -198,7 +198,7 @@
         },
         {
           "story_number": 22,
-          "title": "SỰ TÍCH ÔNG BÌNH VÔI",
+          "title": "Sự tích ông bình vôi",
           "start_page": 186,
           "end_page": 188,
           "markdown_file": "story_022.md",
@@ -207,7 +207,7 @@
         },
         {
           "story_number": 23,
-          "title": "SỰ TÍCH CÂY NÊU NGÀY TẾT",
+          "title": "Sự tích cây nêu ngày Tết",
           "start_page": 189,
           "end_page": 196,
           "markdown_file": "story_023.md",
@@ -216,7 +216,7 @@
         },
         {
           "story_number": 24,
-          "title": "GỐC TÍCH BÁNH CHƯNG VÀ BÁNH DẦY",
+          "title": "Gốc tích bánh chưng và bánh dầy",
           "start_page": 197,
           "end_page": 198,
           "markdown_file": "story_024.md",
@@ -225,7 +225,7 @@
         },
         {
           "story_number": 25,
-          "title": "GỐC TÍCH RUỘNG THÁC ĐAO HAY LÀ TRUYỆN LÊ PHỤNG HIỂU",
+          "title": "Gốc tích ruộng thác đao hay là truyện Lê Phụng Hiểu",
           "start_page": 199,
           "end_page": 203,
           "markdown_file": "story_025.md",

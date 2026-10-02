@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 25. GỐC TÍCH RUỘNG THÁC ĐAO[^1] HAY LÀ TRUYỆN LÊ PHỤNG HIỂU
+## 25. Gốc tích ruộng thác đao[^1] hay là truyện Lê Phụng Hiểu
 
 Đời Lý, ở vùng Thanh-hóa có Lê Phụng Hiểu. Nhà Hiểu ở gần một hòn núi nhỏ nhô lên ở giữa cánh đồng gọi là núi Bơng (Băng-sơn) nên người ta cũng gọi Hiểu là ông Bơng. Hiểu là người to lớn khỏe mạnh. Mẹ chàng lúc trước khi lên núi trông thấy dấu chân to lạ thường. Bà ướm chân mình vào thử, không ngờ tự nhiên cảm động mà có thai, về sau sinh ra Hiểu.
 

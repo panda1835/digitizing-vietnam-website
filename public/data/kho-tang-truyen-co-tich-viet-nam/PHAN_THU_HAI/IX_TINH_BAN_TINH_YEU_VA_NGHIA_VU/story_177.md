@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 177. NGUYỄN THỊ BÍCH CHÂU
+## 177. Nguyễn Thị Bích Châu
 
 Ngày xưa, có nàng Nguyễn Thị Bích Châu là vợ vua Duệ Tông nhà Trần. Nàng có nhan sắc xinh đẹp, hơn nữa lại văn hay chữ tốt, trong cung đình nhà vua khó có phi tần nào sánh kịp. Vì vậy khi được tuyển vào cung hầu hạ, Bích Châu sớm được vua yêu, chỉ ít lâu sau được nhắc lên bậc quý phi, thường giúp vua trong việc giấy tờ nghiên bút.
 

@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 43. NỢ TÌNH CHƯA TRẢ CHO AI, KHỐI TÌNH MANG XUỐNG TUYỀN ĐÀI CHƯA TAN
+## 43. Nợ tình chưa trả cho ai, khối tình mang xuống tuyền đài chưa tan
 
 Ngày xưa ở huyện Thanh-trì có một anh chàng học trò nghèo họ Nguyễn. Anh ta mồ côi cha, nhà cửa sa sút. Người mẹ làm nghề chống đò ngang cố nuôi cho con ăn học. Nhưng nghề đó không đủ nuôi cả mẹ liền con. Nhiều lúc anh ta phải nghỉ học trở về chống đò thay mẹ tuổi già sức yếu. Nhà anh ta là một túp lều dựng bên sông. Anh có giọng hát rất hay lại rất đẹp trai làm cho những cô gái vùng đó phải say mê ngây ngất.
 

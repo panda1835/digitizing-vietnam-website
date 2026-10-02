@@ -1,4 +1,4 @@
-# THƯ MỤC THAM KHẢO
+# Thư mục tham khảo
 
 Những sách báo, tài liệu kê dưới đây không phải thuộc một tổng thư mục chuyên đề về truyền thuyết cổ tích. Nó chỉ bao gồm những thư tịch nào mà bộ sách này có sử dụng, hay nếu không cũng ít nhiều liên quan (hoặc phần truyện chính, hoặc phần khảo dị, hoặc phần nghiên cứu, v. v...)
 

@@ -1,6 +1,6 @@
-# X. TRUYỆN VUI TƯƠI DÍ DỎM[^1]
+# X. Truyện vui tươi dí dỏm[^1]
 
-## 189. CHÀNG NGỐC HỌC KHÔN
+## 189. Chàng ngốc học khôn
 
 Ngày xưa, ở một làng nọ có anh chàng Ngốc bố mẹ mất sớm. Ngày bố mẹ anh còn sống có cưới cho anh một người vợ và để lại cho hai vợ chồng một ngôi nhà, một đám vườn và vài sào ruộng. Nhưng thấy Ngốc đần độn, vợ anh có ý định bỏ anh đi lấy người khác. Cho nên, sau khi bố mẹ chồng nối nhau qua đời, vợ Ngốc cũng bỏ về nhà bố mẹ đẻ hơn một năm trời không trở lại. Giữa lúc ấy có một thầy khóa góa vợ, thấy vợ Ngốc coi được thì muốn lấy tranh. Bố mẹ vợ Ngốc vốn ham của và ham chức vị nên hối hả nhận lời. Bèn bảo chàng rể mới cứ chuẩn bị lễ vật rồi làm lễ cưới bừa, dù Ngốc có biết cũng không hơi sức đâu mà kiện tụng, vả chăng anh em họ hàng nhà Ngốc chẳng còn có ai để mà bày vẽ. Về phía Ngốc, tuy bị vợ bỏ, nhưng anh cũng không biết làm thế nào để khuyên dỗ vợ trở lại với mình, cũng chẳng nghĩ gì đến chuyện thưa kiện, vì đối với anh, việc đó to lớn rắc rối quá, y như chim chích lạc vào rừng vậy.
 

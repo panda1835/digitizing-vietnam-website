@@ -1,6 +1,6 @@
-# III. SỰ TÍCH CÁC CÂU VÍ
+# III. Sự tích các câu ví
 
-## 51. CHA MẸ NUÔI CON BỂ HỒ LAI LÁNG CON NUÔI CHA MẸ KỂ THÁNG KỂ NGÀY
+## 51. Cha mẹ nuôi con bể hồ lai láng con nuôi cha mẹ kể tháng kể ngày
 
 Xưa, có hai vợ chồng một nhà nọ làm ăn chí thú. Họ sinh được ba người con, đều là con trai. Hai vợ chồng nuôi con rất chăm chút. Từ lâu, tay họ làm ra rất nhiều tiền của, ruộng vườn, nhưng có miếng gì cũng nhịn ăn để dành, những mong gây dựng cho mỗi con một cơ nghiệp riêng. Cho đến ngày cưới vợ cho đứa thứ ba xong, chồng bảo vợ:
 

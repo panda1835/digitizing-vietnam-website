@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 103. VỢ BA CAI VÀNG
+## 103. Vợ ba Cai Vàng
 
 Ngày xưa ở tổng Hoàng-vân có một viên cai tổng, người ta thường gọi là Cai Vàng. Thuở trẻ ông ta bắt được một viên ngọc kỵ đạn, đeo vào người có phép làm cho những mũi tên hòn đạn sắp đụng vào da thịt phải rẽ đi lối khác. Ông rất mừng rỡ, từ đó đeo vào người không bao giờ rời.
 

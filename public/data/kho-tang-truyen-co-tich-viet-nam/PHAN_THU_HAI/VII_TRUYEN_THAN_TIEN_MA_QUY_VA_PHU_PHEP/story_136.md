@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 136. NGƯỜI DÂN NGHÈO VÀ NGỌC HOÀNG
+## 136. Người dân nghèo và Ngọc Hoàng
 
 Ngày xưa, có một nhà kia trải đã mấy đời sống trong cảnh khố rách áo ôm. Đến đời người cháu nội là một anh học trò không đất cắm dùi. Ngày ngày anh cố công làm thuê làm mướn để tối đến học năm ba chữ, may chi thay đổi được số phận, nhưng mãi đến năm ba mươi tuổi, cuộc sống của anh vẫn không nhích lên được tí nào. Không chịu được nỗi đói khổ dằn vặt, một hôm anh ngồi than thở một mình:
 

@@ -1,6 +1,6 @@
-# IX. TÌNH BẠN, TÌNH YÊU VÀ NGHĨA VỤ
+# IX. Tình bạn, tình yêu và nghĩa vụ
 
-## 171. BÀ CHÚA ONG
+## 171. Bà chúa ong
 
 Ngày xưa có một người học trò nhà nghèo rớt mùng tơi tên là Sĩ. Anh ở với bà mẹ già lụ khụ. Anh muốn lấy vợ để vợ đỡ đần công việc nhà và phụng dưỡng mẹ già, nhưng hỏi mấy đám, người ta thấy nhà anh luôn năm thiếu ăn nên đều lắc đầu từ chối. Vì thế, anh vẫn phải sống một thân một mình với nghề đi củi. Hàng ngày, buổi sáng tinh sương, anh lên rừng chặt củi đem ra chợ bán. Chiều lại, ăn xong, anh mới cầm lấy quyển sách.
 

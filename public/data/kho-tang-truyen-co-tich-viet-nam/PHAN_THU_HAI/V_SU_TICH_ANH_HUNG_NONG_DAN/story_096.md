@@ -1,6 +1,6 @@
-# V. SỰ TÍCH ANH HÙNG NÔNG DÂN
+# V. Sự tích anh hùng nông dân
 
-## 96. CỐ BU
+## 96. Cố Bu
 
 Ngày xưa ở làng Phan-xá thuộc Hà-tĩnh - một làng ngay sát nách con sông mà nước thủy triều vẫn lên xuống đều đều - có một người nghèo tên là Bu. Bu mới lọt lòng mẹ, người ta thấy dưới gan bàn chân có ba cái lông trắng, dấu hiệu của tài bơi lặn. Lớn lên quả nhiên ông lặn lội rất tài, có thể ở được lâu dưới nước. Không những có tài bơi lặn, Bu còn có một sức khỏe tuyệt trần. Bu đi học võ với một ông thầy. Thấy là người có tài lạ, thầy truyền cho mười tám ban võ nghệ và các môn nhâm cầm độn toán. Bu không có chí làm quan với triều đình, chỉ đi lang thang hết xứ Đông đến xứ Đoài, ở đâu ông cũng có rất nhiều bè bạn.
 

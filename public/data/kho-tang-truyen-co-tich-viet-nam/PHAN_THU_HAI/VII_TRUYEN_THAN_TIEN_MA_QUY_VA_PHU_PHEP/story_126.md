@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 126. NGƯỜI LẤY CÓC
+## 126. Người lấy cóc
 
 Ngày xưa có hai vợ chồng một người phú hộ hiếm hoi; mãi đến khi tuổi già xế bóng, người vợ mới có mang. Hai người bụng mừng khấp khởi nhưng đến khi giở dạ đẻ ra thì không phải người mà là một con cóc. Cả nhà toan đem ném đi cho khuất mắt. Bỗng cóc cất tiếng nói:
 

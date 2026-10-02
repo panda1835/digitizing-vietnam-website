@@ -1,6 +1,6 @@
-# VII. TRUYỆN THẦN TIÊN MA QUỶ VÀ PHÙ PHÉP
+# VII. Truyện thần tiên ma quỷ và phù phép
 
-## 121. CHÀNG ĐỐN CỦI VÀ CON TINH
+## 121. Chàng đốn củi và con tinh
 
 Ngày xưa có một anh chàng nghèo khó, sống một thân một mình. Tuy làm việc tất lực nhưng đói rách vẫn hoàn đói rách. Những bông lúa đẹp do bàn tay chàng vun bón thì cứ thi nhau chạy về nhà lão trọc phú. Cuối cùng, chàng đành bán tất cả những thứ còn lại trong nhà để mua một lưỡi búa, với ý định từ nay làm nghề đốn củi nuôi thân, may chi thay đổi được số phận.
 

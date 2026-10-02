@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 169. NÀNG XUÂN HƯƠNG
+## 169. Nàng Xuân Hương
 
 Ngày xưa ở tỉnh Bắc có nàng con gái trong trắng như hoa thủy tiên nên có tên là Xuân Hương. Cha nàng là một ông đồ nhà nghèo, đã mất từ lâu. Nàng ở với mẹ, hai mẹ con tần tảo nuôi nhau. Vào thời ấy, các cô gái con nhà gia thế thường được bố mẹ cho đi học. Xuân Hương lúc nhỏ có được bố dạy cho chữ nghĩa, nên cô cũng biết võ vẽ. Năm mười lăm tuổi, nàng xin phép mẹ đến học ở trường một cụ đồ già trong làng.
 

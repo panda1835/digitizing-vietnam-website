@@ -1,15 +1,15 @@
 {
-  "book_title": "KHO TÀNG TRUYỆN CỔ TÍCH VIỆT-NAM",
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
   "extracted_range": "1256 - 1338",
   "total_stories": 13,
   "sections": [
     {
       "section_id": "X",
-      "section_title": "X. TRUYỆN VUI TƯƠI DÍ DỎM",
+      "section_title": "X. Truyện vui tươi dí dỏm",
       "stories": [
         {
           "story_number": 189,
-          "title": "CHÀNG NGỐC HỌC KHÔN",
+          "title": "Chàng ngốc học khôn",
           "start_page": 1256,
           "end_page": 1261,
           "markdown_file": "story_189.md",
@@ -18,7 +18,7 @@
         },
         {
           "story_number": 190,
-          "title": "PHIÊU LƯU CỦA ANH CHÀNG NGỐC HAY LÀ LÀM THEO VỢ DẶN",
+          "title": "Phiêu lưu của anh chàng ngốc hay là làm theo vợ dặn",
           "start_page": 1262,
           "end_page": 1269,
           "markdown_file": "story_190.md",
@@ -27,7 +27,7 @@
         },
         {
           "story_number": 191,
-          "title": "THỊT GÀ THUỐC CHỒNG",
+          "title": "Thịt gà thuốc chồng",
           "start_page": 1270,
           "end_page": 1278,
           "markdown_file": "story_191.md",
@@ -36,7 +36,7 @@
         },
         {
           "story_number": 192,
-          "title": "HÒA THƯỢNG VÀ NGƯỜI THỢ GIÀY",
+          "title": "Hòa thượng và người thợ giày",
           "start_page": 1279,
           "end_page": 1286,
           "markdown_file": "story_192.md",
@@ -45,7 +45,7 @@
         },
         {
           "story_number": 193,
-          "title": "HAI ANH EM VÀ CON CHÓ ĐÁ",
+          "title": "Hai anh em và con chó đá",
           "start_page": 1287,
           "end_page": 1291,
           "markdown_file": "story_193.md",
@@ -54,7 +54,7 @@
         },
         {
           "story_number": 194,
-          "title": "CHÀNG RỂ THONG MANH",
+          "title": "Chàng rể thong manh",
           "start_page": 1292,
           "end_page": 1296,
           "markdown_file": "story_194.md",
@@ -63,7 +63,7 @@
         },
         {
           "story_number": 195,
-          "title": "LÀM CHO CÔNG CHÚA NÓI ĐƯỢC",
+          "title": "Làm cho công chúa nói được",
           "start_page": 1297,
           "end_page": 1300,
           "markdown_file": "story_195.md",
@@ -72,7 +72,7 @@
         },
         {
           "story_number": 196,
-          "title": "RỦ NHAU ĐI KIẾM MẬT ONG",
+          "title": "Rủ nhau đi kiếm mật ong",
           "start_page": 1301,
           "end_page": 1306,
           "markdown_file": "story_196.md",
@@ -81,7 +81,7 @@
         },
         {
           "story_number": 197,
-          "title": "CÔ GÁI LỪA THÀY SÃI, XÃ TRƯỞNG VÀ ÔNG QUAN HUYỆN",
+          "title": "Cô gái lừa thày sãi, xã trưởng và ông quan huyện",
           "start_page": 1307,
           "end_page": 1316,
           "markdown_file": "story_197.md",
@@ -90,7 +90,7 @@
         },
         {
           "story_number": 198,
-          "title": "THẦY LANG BẤT ĐẮC DĨ",
+          "title": "Thầy lang bất đắc dĩ",
           "start_page": 1317,
           "end_page": 1321,
           "markdown_file": "story_198.md",
@@ -99,7 +99,7 @@
         },
         {
           "story_number": 199,
-          "title": "\"GIẬN MÀY TAO Ở VỚI AI\" HAY LÀ TRUYỆN PHƯỢNG HOÀNG ĐẤT",
+          "title": "\"Giận mày tao ở với ai\" hay là truyện phượng hoàng đất",
           "start_page": 1322,
           "end_page": 1327,
           "markdown_file": "story_199.md",
@@ -108,7 +108,7 @@
         },
         {
           "story_number": 200,
-          "title": "CÁI CHẾT CỦA BỐN ÔNG SƯ",
+          "title": "Cái chết của bốn ông sư",
           "start_page": 1328,
           "end_page": 1335,
           "markdown_file": "story_200.md",
@@ -117,7 +117,7 @@
         },
         {
           "story_number": 201,
-          "title": "HAI BẢY MƯỜI BA",
+          "title": "Hai bảy mười ba",
           "start_page": 1336,
           "end_page": 1338,
           "markdown_file": "story_201.md",

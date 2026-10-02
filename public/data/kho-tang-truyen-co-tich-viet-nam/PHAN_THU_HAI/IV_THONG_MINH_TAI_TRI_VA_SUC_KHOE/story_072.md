@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 72. YẾT KIÊU
+## 72. Yết Kiêu
 
 Ngày xưa có một người tên là Yết Kiêu ở làng Hạ-bì làm nghề đánh cá.
 

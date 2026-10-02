@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 140. THỬ THẦN VÀ MIÊU THẦN HAY LÀ SỰ TÍCH CHUỘT VÀ MÈO
+## 140. Thử Thần và Miêu Thần hay là sự tích chuột và mèo
 
 Ngày ấy các kho của nhà trời thường hay bị nạn trộm cắp, vì vậy Ngọc Hoàng thượng đế cần tìm một kẻ chuyên trông nom kho tàng. Nhiều người tiến cử Thử thần vì cho rằng ông ta là người tốt, chăm chỉ, lại nhanh nhẹn, được việc. Thấy thế, Ngọc Hoàng bèn trao cho Thử thần chùm chìa khóa, phong cho chức Thiên khố giám và dặn:
 

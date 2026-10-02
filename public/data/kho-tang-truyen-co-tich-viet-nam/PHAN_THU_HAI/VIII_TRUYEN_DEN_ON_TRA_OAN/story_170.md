@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 170. VỤ KIỆN CHÂU CHẤU
+## 170. Vụ kiện châu chấu
 
 Ngày ấy có một con châu chấu mải mê kiếm ăn lạc mất đường về. Tối đến, trời rét lại mưa rơi rả rích, làm cho châu chấu ta run rẩy. Nó muốn tìm một chỗ ngủ, nhưng bóng đen dày đặc chẳng biết đường nào mà lần.
 

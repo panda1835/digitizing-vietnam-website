@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 112. SỢI BẤC TÌM RA THỦ PHẠM
+## 112. Sợi bấc tìm ra thủ phạm
 
 Ngày xưa có một tay phú thương tên là Phong. Hắn ta có mười chiếc mành lớn chở hàng hóa bán khắp trong Nam ngoài Bắc. Mỗi một chiếc mành đều có một người lái do một thủ hạ tin cẩn cai quản. Trong số các lái có một người tên là Ninh, vốn tính nhanh nhảu được việc, nên được chủ rất tin cậy. Nhưng từ lâu, Ninh đã tằng tịu với vợ Phong mà Phong không hay. Hai người say mê nhau và điều ước muốn của họ là cuối cùng được công khai lấy nhau mới thỏa dạ.
 

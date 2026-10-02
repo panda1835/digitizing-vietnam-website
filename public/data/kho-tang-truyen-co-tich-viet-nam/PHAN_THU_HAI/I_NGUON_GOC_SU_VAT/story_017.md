@@ -1,6 +1,6 @@
-# I. NGUỒN GỐC SỰ VẬT
+# I. Nguồn gốc sự vật
 
-## 17. GỐC TÍCH TIẾNG KÊU CỦA VẠC, CỘC, DỦ DỈ, ĐA ĐA VÀ CHUỘT
+## 17. Gốc tích tiếng kêu của vạc, cộc, dủ dỉ, đa đa và chuột
 
 Xưa Cò, Vạc, Cộc, Dủ dỉ và Đa đa ăn ở với nhau như anh em một nhà. Chúng nó sống một cuộc đời sung sướng và hòa thuận. Con nào con ấy đều có nhà cửa, ruộng đồng riêng, nhưng mỗi khi kiếm được món gì ngon như mớ cá, rổ tép, v.v... trong đồng của mình thì chúng thường chia nhau ăn rất vui vẻ, tử tế.
 

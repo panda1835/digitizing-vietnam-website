@@ -1,6 +1,6 @@
-# III. TRUYỆN CỔ VIỆT NAM QUA CÁC THỜI ĐẠI
+# III. Truyện cổ Việt Nam qua các thời đại
 
-## 1. THẦN THOẠI, TRUYỀN THUYẾT, LOẠI TRUYỆN XƯA NHẤT CỦA NGƯỜI VIỆT
+## 1. Thần thoại, truyền thuyết, loại truyện xưa nhất của người Việt
 
 Trước khi kể truyện cổ tích Việt-nam, tưởng cũng nên giới thiệu sơ qua quá trình phát triển của nó trong lịch sử văn học truyền miệng của dân tộc.
 

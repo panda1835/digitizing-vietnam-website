@@ -1,6 +1,6 @@
-# VI. TRUYỆN PHÂN XỬ
+# VI. Truyện phân xử
 
-## 110. TRA TẤN HÒN ĐÁ
+## 110. Tra tấn hòn đá
 
 Ngày xưa có hai vợ chồng một người nghèo, suốt năm đầu tắt mặt tối, ăn bữa sớm không biết có bữa chiều. Kỳ ấy năm hết Tết đến mà trong nhà không có lấy một bát gạo. Mãi về sau người chồng chạy hết các cửa nhà giàu, nói sùi bọt mép mới vay được ba công non. Mừng quá, chồng vội vã mang về để đến sáng mai là ngày ba mươi cho vợ kịp đi sắm Tết.
 

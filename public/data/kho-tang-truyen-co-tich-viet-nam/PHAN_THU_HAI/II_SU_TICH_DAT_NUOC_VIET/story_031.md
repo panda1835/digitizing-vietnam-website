@@ -1,6 +1,6 @@
-# II. SỰ TÍCH ĐẤT NƯỚC VIỆT
+# II. Sự tích đất nước Việt
 
-## 31. TẠI SAO SÔNG TÔ-LỊCH VÀ SÔNG THIÊN-PHÙ HẸP LẠI?
+## 31. Tại sao sông Tô-Lịch và sông Thiên-Phù hẹp lại?
 
 Ngày xưa về đời nhà Lý có một ông vua bị bệnh đau mắt. Mấy ông thầy thuốc chuyên môn chữa mắt ở trong kinh thành cũng như ngoài nội đều được vời vào cung chạy chữa, trong số đó cũng có những tay lương y nổi tiếng, nhưng tất cả mọi cố gắng đều vô hiệu. Cặp mắt của vua cứ sưng húp lên, đêm ngày nhức nhối rất khó chịu. Đã gần tròn hai tháng vua không thể ra điện Kính-thiên coi chầu được. Triều đình vì việc vua đau mà rối cả lên. Những cung giám chạy khắp nơi tìm thầy chạy thuốc, và lễ bái các chùa đền nhưng mắt của thiên tử vẫn không thấy bớt.
 

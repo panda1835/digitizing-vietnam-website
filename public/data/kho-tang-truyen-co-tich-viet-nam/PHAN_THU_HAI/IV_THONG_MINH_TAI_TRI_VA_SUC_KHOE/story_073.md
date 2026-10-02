@@ -1,6 +1,6 @@
-# IV. THÔNG MINH TÀI TRÍ VÀ SỨC KHỎE
+# IV. Thông minh tài trí và sức khỏe
 
-## 73. LÝ ÔNG TRỌNG HAY LÀ SỰ TÍCH THÁNH CHÈM
+## 73. Lý Ông Trọng hay là sự tích Thánh Chèm
 
 Ngày xưa, ở làng Chèm có một người họ Lý khỏe mạnh lạ thường. Đặc biệt thân thể của anh ta quá khổ, đo được hai trượng sáu thước bề cao. Vì thế đi đâu ai cũng kinh sợ người ta gọi là Ông Trọng.
 

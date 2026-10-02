@@ -1,6 +1,6 @@
-# VIII. TRUYỆN ĐỀN ƠN TRẢ OÁN
+# VIII. Truyện đền ơn trả oán
 
-## 142. THẦY CỨU TRÒ
+## 142. Thầy cứu trò
 
 Ngày xưa có một anh học trò côi cút hiền lành. Nghe tin ở một tỉnh Đàng ngoài có một ông thầy nổi tiếng tài cao học rộng, ngoài "bách gia chư tử", các môn "nhâm, cầm, độn, toán" thảy đều tinh thông, anh học trò liền để người vợ trẻ ở nhà, cố lặn ngòi noi nước tìm đến tận nơi theo học. Học được ba năm, một hôm anh bỗng nhớ tới vợ bèn xin phép thầy trở về thăm quê. Thầy bảo trò ngửa bàn tay cho xem, xem xong, thầy bảo:
 
