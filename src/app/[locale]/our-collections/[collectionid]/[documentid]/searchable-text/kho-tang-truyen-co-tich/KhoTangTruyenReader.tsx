@@ -163,7 +163,7 @@ export default function KhoTangTruyenReader({
               {visibleGroups.map(({ division, introduction, entries, sections }) => (
                 <div key={division.id}>
                   {searching && (
-                    <div className="px-6 py-2 bg-branding-brown/10 text-sm font-normal text-branding-black uppercase">
+                    <div className="px-6 py-2 bg-branding-brown/10 text-sm font-normal text-branding-black">
                       {division.title}
                     </div>
                   )}
@@ -172,7 +172,7 @@ export default function KhoTangTruyenReader({
                   {entries.map((item) => renderEntryButton(item, item.title))}
                   {sections.map((section) => (
                     <div key={section.id}>
-                      <div className="px-6 py-2 bg-gray-100 text-sm font-normal text-branding-brown uppercase">
+                      <div className="px-6 py-2 bg-gray-100 text-sm font-normal text-branding-brown">
                         {section.title}
                       </div>
                       {section.entries.map((item) =>

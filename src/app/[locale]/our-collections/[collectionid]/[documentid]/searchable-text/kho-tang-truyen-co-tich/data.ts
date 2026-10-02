@@ -13,6 +13,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 import { parseStoryMarkdown, type ParsedStory } from "./parseStoryMarkdown";
+import { toTitleCase } from "./titleCase";
 
 /** The Collection Item this reader replaces Mirador on. */
 export const KHO_TANG_COLLECTION_ID = "vietnamese-folk-literature";
@@ -146,7 +147,7 @@ const sectionEntries = (part: TocPart, section: TocSection) => {
   const base = {
     divisionId: partDivisionId(part),
     sectionId: section.section_id,
-    sectionTitle: section.section_title,
+    sectionTitle: toTitleCase(section.section_title),
   };
   const stories = (section.stories ?? []).map((story) => ({
     entry: {
@@ -154,7 +155,7 @@ const sectionEntries = (part: TocPart, section: TocSection) => {
       kind: "story" as const,
       muc: `truyen-${story.story_number}`,
       number: story.story_number,
-      title: story.title,
+      title: toTitleCase(story.title),
       hasKhaoDi: story.has_khao_di,
       footnoteCount: story.footnote_count,
     },
@@ -166,7 +167,7 @@ const sectionEntries = (part: TocPart, section: TocSection) => {
       kind: "essay" as const,
       muc: `phan-${part.part_number}-muc-${section.section_id.toLowerCase()}-bai-${essay.essay_number}`,
       number: essay.essay_number,
-      title: essay.title,
+      title: toTitleCase(essay.title),
       footnoteCount: essay.footnote_count,
     },
     mdPath: join(DATA_DIR, section.folder, essay.markdown_file),
@@ -208,7 +209,7 @@ const loadBook = (): Book => {
             kind: "introduction",
             muc: `${divisionId}-loi-dan`,
             divisionId,
-            title: part.part_title,
+            title: toTitleCase(part.part_title),
           },
           part.introduction
         )
@@ -219,7 +220,7 @@ const loadBook = (): Book => {
       items.forEach(({ entry, mdPath }) => add(entry, mdPath));
       return {
         id: section.section_id,
-        title: section.section_title,
+        title: toTitleCase(section.section_title),
         entries: items.map(({ entry }) => entry),
       };
     });
@@ -227,7 +228,7 @@ const loadBook = (): Book => {
     divisions.push({
       id: divisionId,
       partNumber: part.part_number,
-      title: part.part_title,
+      title: toTitleCase(part.part_title),
       introduction,
       entries: [],
       sections,
@@ -243,7 +244,7 @@ const loadBook = (): Book => {
             kind: "introduction",
             muc: `${divisionId}-loi-dan`,
             divisionId,
-            title: bibliography.title,
+            title: toTitleCase(bibliography.title),
           },
           bibliography.introduction
         )
@@ -255,15 +256,15 @@ const loadBook = (): Book => {
           muc: `${divisionId}-${section.section_id.toLowerCase()}`,
           divisionId,
           sectionId: section.section_id,
-          sectionTitle: section.section_title,
-          title: section.section_title,
+          sectionTitle: toTitleCase(section.section_title),
+          title: toTitleCase(section.section_title),
         },
         section.markdown_file
       )
     );
     divisions.push({
       id: divisionId,
-      title: bibliography.title,
+      title: toTitleCase(bibliography.title),
       introduction,
       entries: sectionsAsEntries,
       sections: [],

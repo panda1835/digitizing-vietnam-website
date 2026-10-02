@@ -83,7 +83,7 @@ export const renderStoryBlocks = (
   renderFootnote: RenderFootnote,
   { variant = "body", bulletLists = false }: RenderOptions = {}
 ): ReactNode[] => {
-  const textSize = variant === "body" ? "text-xl" : "text-sm";
+  const textSize = "text-base";
   const nodes: ReactNode[] = [];
 
   markdown
