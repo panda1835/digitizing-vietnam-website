@@ -748,14 +748,18 @@
   },
   "KhoTangTruyen": {
     "contentsTitle": "Contents",
-    "searchPlaceholder": "Search by title…",
-    "searchLabel": "Search stories and essays by title",
+    "searchPlaceholder": "Search the Story Name Index…",
+    "searchLabel": "Search tale names in the Story Name Index",
     "partTab": "Part {n}",
     "bibliographyTab": "Bibliography",
     "partIntroduction": "Introduction",
-    "noResults": "No matching entries.",
+    "noResults": "No matching tale names.",
     "previous": "Previous",
     "next": "Next",
-    "footnote": "Footnote {n}"
+    "footnote": "Footnote {n}",
+    "indexNamesHeading": "Story Name Index",
+    "indexLocationStory": "Story",
+    "indexLocationKhaoDi": "Variants (Khảo dị)",
+    "indexLocationChuThich": "Footnote (Chú thích)"
   }
 }

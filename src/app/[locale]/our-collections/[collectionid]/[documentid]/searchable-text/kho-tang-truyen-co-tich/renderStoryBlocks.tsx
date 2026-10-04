@@ -1,9 +1,13 @@
 // Renders the narrow markdown subset the extraction pipeline emits for this
 // book (extractor/formatters.py in vsc-tri-thuc-ban-dia): #/##/### headings,
 // plain-text paragraphs, "> " verse lines, the Bibliography's "- " bullet
-// lists (one nested level, "  - "), and the `[k](#fn-i)` footnote links
+// lists (one nested level, "  - "), "-> " right-aligned lines (the hand-written
+// Preface's place/date and signature), and the `[k](#fn-i)` footnote links
 // parseStoryMarkdown generates. Nothing else occurs in this corpus, so nothing
 // else is handled — and no markdown dependency is needed.
+//
+// An optional Index Name is wrapped in yellow <mark>s wherever findNameMatches
+// finds it in a text run, footnote markers included (see renderInline).
 //
 // Bullet lists are opt-in: Stories and Essays open dialogue lines with "- ",
 // which must stay prose.
@@ -12,6 +16,7 @@ import type { ReactNode } from "react";
 import { Merriweather } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { findNameMatches } from "./findNameMatches";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -19,6 +24,7 @@ const FOOTNOTE_LINK = /\[(\d+)\]\(#fn-(\d+)\)/g;
 const HEADING = /^(#{1,3})\s+(.*)$/;
 const VERSE_LINE = /^>\s?/;
 const LIST_ITEM = /^( *)- (.*)$/;
+const RIGHT_ALIGNED_LINE = /^->\s?/;
 
 export type RenderFootnote = (displayNumber: number, index: number) => ReactNode;
 
@@ -28,19 +34,70 @@ export interface RenderOptions {
   variant?: Variant;
   /** Render "- " lines as bullet lists (Bibliography Entries only). */
   bulletLists?: boolean;
+  /** Index Name to highlight, in the Story text's spelling. */
+  highlight?: string;
 }
 
-type RunKind = "verse" | "list" | "text";
+type RunKind = "verse" | "list" | "right" | "text";
 
-const renderInline = (text: string, renderFootnote: RenderFootnote): ReactNode[] => {
-  const nodes: ReactNode[] = [];
+export const HIGHLIGHT_CLASSES = "bg-yellow-200 text-inherit rounded-sm";
+
+/**
+ * A text run's footnote links become footnote nodes; the rest is plain text.
+ * The highlight is matched on the whole run with each footnote link read as
+ * one space (as the Story Name Index builder does), so a name with a marker
+ * inside ("hoa lài[^1] cắm") still matches; its <mark> is split around the
+ * footnote node, and that stand-in space is never rendered.
+ */
+const renderInline = (
+  text: string,
+  renderFootnote: RenderFootnote,
+  highlight?: string
+): ReactNode[] => {
+  let plain = "";
+  const footnotes: { at: number; node: ReactNode }[] = [];
   let last = 0;
   for (const match of Array.from(text.matchAll(FOOTNOTE_LINK))) {
-    if (match.index! > last) nodes.push(text.slice(last, match.index));
-    nodes.push(renderFootnote(Number(match[1]), Number(match[2])));
+    plain += text.slice(last, match.index);
+    footnotes.push({
+      at: plain.length,
+      node: renderFootnote(Number(match[1]), Number(match[2])),
+    });
+    plain += " ";
     last = match.index! + match[0].length;
   }
-  if (last < text.length) nodes.push(text.slice(last));
+  plain += text.slice(last);
+
+  const marks = highlight ? findNameMatches(plain, highlight) : [];
+  const nodes: ReactNode[] = [];
+  let pos = 0;
+  let markIndex = 0;
+  /** Pushes plain[pos, end), wrapping the parts inside a match in <mark>. */
+  const pushPlain = (end: number) => {
+    while (pos < end) {
+      while (markIndex < marks.length && marks[markIndex][1] <= pos) markIndex++;
+      const mark = marks[markIndex];
+      if (mark && mark[0] <= pos) {
+        const stop = Math.min(end, mark[1]);
+        nodes.push(
+          <mark key={`mark-${pos}`} className={HIGHLIGHT_CLASSES}>
+            {plain.slice(pos, stop)}
+          </mark>
+        );
+        pos = stop;
+      } else {
+        const stop = Math.min(end, mark ? mark[0] : end);
+        nodes.push(plain.slice(pos, stop));
+        pos = stop;
+      }
+    }
+  };
+  for (const { at, node } of footnotes) {
+    pushPlain(at);
+    nodes.push(node);
+    pos = at + 1;
+  }
+  pushPlain(plain.length);
   return nodes;
 };
 
@@ -50,9 +107,11 @@ const splitRuns = (lines: string[], bulletLists: boolean) => {
   for (const line of lines) {
     const kind: RunKind = VERSE_LINE.test(line)
       ? "verse"
-      : bulletLists && LIST_ITEM.test(line)
-        ? "list"
-        : "text";
+      : RIGHT_ALIGNED_LINE.test(line)
+        ? "right"
+        : bulletLists && LIST_ITEM.test(line)
+          ? "list"
+          : "text";
     const current = runs[runs.length - 1];
     if (current?.kind === kind) current.lines.push(line);
     else runs.push({ kind, lines: [line] });
@@ -81,8 +140,9 @@ const HEADING_CLASSES: Record<number, string> = {
 export const renderStoryBlocks = (
   markdown: string,
   renderFootnote: RenderFootnote,
-  { variant = "body", bulletLists = false }: RenderOptions = {}
+  { variant = "body", bulletLists = false, highlight }: RenderOptions = {}
 ): ReactNode[] => {
+  const inline = (text: string) => renderInline(text, renderFootnote, highlight);
   const textSize = "text-base";
   const nodes: ReactNode[] = [];
 
@@ -97,7 +157,7 @@ export const renderStoryBlocks = (
         const Tag = `h${level}` as "h1" | "h2" | "h3";
         nodes.push(
           <Tag key={blockIndex} className={HEADING_CLASSES[level]}>
-            {renderInline(heading[2], renderFootnote)}
+            {inline(heading[2])}
           </Tag>
         );
         return;
@@ -116,12 +176,12 @@ export const renderStoryBlocks = (
             >
               {toListItems(run.lines).map((item, itemIndex) => (
                 <li key={itemIndex}>
-                  {renderInline(item.text, renderFootnote)}
+                  {inline(item.text)}
                   {item.children.length > 0 && (
                     <ul className="list-[circle] pl-6 mt-1 space-y-1">
                       {item.children.map((child, childIndex) => (
                         <li key={childIndex}>
-                          {renderInline(child, renderFootnote)}
+                          {inline(child)}
                         </li>
                       ))}
                     </ul>
@@ -142,11 +202,25 @@ export const renderStoryBlocks = (
             >
               {run.lines.map((line, lineIndex) => (
                 <div key={lineIndex}>
-                  {renderInline(line.replace(VERSE_LINE, ""), renderFootnote)}
+                  {inline(line.replace(VERSE_LINE, ""))}
                 </div>
               ))}
             </div>
           );
+        } else if (run.kind === "right") {
+          run.lines.forEach((line, lineIndex) => {
+            nodes.push(
+              <p
+                key={`${key}-${lineIndex}`}
+                className={cn(
+                  "font-['Helvetica Neue'] font-light leading-relaxed text-right",
+                  textSize
+                )}
+              >
+                {inline(line.replace(RIGHT_ALIGNED_LINE, ""))}
+              </p>
+            );
+          });
         } else {
           nodes.push(
             <p
@@ -156,7 +230,7 @@ export const renderStoryBlocks = (
                 textSize
               )}
             >
-              {renderInline(run.lines.join(" "), renderFootnote)}
+              {inline(run.lines.join(" "))}
             </p>
           );
         }

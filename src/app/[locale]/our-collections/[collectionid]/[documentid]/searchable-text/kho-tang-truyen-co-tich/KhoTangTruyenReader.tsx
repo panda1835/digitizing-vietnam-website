@@ -1,9 +1,14 @@
 "use client";
 
-// Two-pane reader: a contents panel (title search, one tab per Part and one
-// for the Bibliography) and the open Entry with previous/next links. The open
+// Two-pane reader: a contents panel (Story Name Index search, one tab per Part
+// and one for the Bibliography) and the open Entry with previous/next links. The open
 // Entry lives in the ?muc= search param, so every Entry is linkable; the
 // server reads it and parses that Entry's markdown.
+//
+// The search box matches Index Names (the printed Story Name Index); while it
+// has a query, the results replace the tab's contents. Opening one adds ?ten=
+// (and ?chu-thich= for a Footnote target) so the Story highlights the name;
+// opening any other Entry drops them.
 
 import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
@@ -14,8 +19,15 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn, normalizeSearchText } from "@/lib/utils";
-import type { BookDivision, BookSection, Entry } from "./data";
+import type {
+  BookDivision,
+  BookSection,
+  Entry,
+  IndexNameLocation,
+  IndexNameRow,
+} from "./data";
 import type { ParsedStory } from "./parseStoryMarkdown";
+import { NAME_SEPARATOR } from "./findNameMatches";
 import StoryMarkdown from "./StoryMarkdown";
 
 interface DivisionGroup {
@@ -25,20 +37,44 @@ interface DivisionGroup {
   sections: BookSection[];
 }
 
+const LOCATION_LABEL_KEYS: Record<IndexNameLocation, string> = {
+  story: "indexLocationStory",
+  "khao-di": "indexLocationKhaoDi",
+  "chu-thich": "indexLocationChuThich",
+};
+
+/**
+ * Case- and diacritic-insensitive, with runs of whitespace and hyphens read as
+ * one space, so "a dao" finds "A-dao".
+ */
+const searchKey = (text: string) =>
+  normalizeSearchText(text).replace(NAME_SEPARATOR, " ").trim();
+
+/** Search params an Index Name result adds; dropped when opening another Entry. */
+const HIGHLIGHT_PARAMS = ["ten", "chu-thich"];
+
 export default function KhoTangTruyenReader({
   divisions,
+  indexNames,
   entry,
   previous,
   next,
   body,
   bulletLists,
+  highlightName,
+  targetFootnoteIndex,
 }: {
   divisions: BookDivision[];
+  indexNames: IndexNameRow[];
   entry: Entry;
   previous?: Entry;
   next?: Entry;
   body: ParsedStory;
   bulletLists: boolean;
+  /** Index Name to highlight in the open Entry. */
+  highlightName?: string;
+  /** 0-based index of the Footnote to scroll to and open. */
+  targetFootnoteIndex?: number;
 }) {
   const t = useTranslations("KhoTangTruyen");
   const router = useRouter();
@@ -55,50 +91,60 @@ export default function KhoTangTruyenReader({
   }, [entry.muc, entry.divisionId]);
 
   const introductionLabel = t("partIntroduction");
-  const searching = normalizeSearchText(query) !== "";
-
   const activeDivision = divisions.find((d) => d.id === activeTab);
 
-  const visibleGroups = useMemo((): DivisionGroup[] => {
-    const needle = normalizeSearchText(query);
-    if (!needle) {
-      return activeDivision ? [{ division: activeDivision, ...activeDivision }] : [];
-    }
-    // While searching, match titles across every division; the tabs don't
-    // filter. An introduction's title is its division's title.
-    const matches = (text: string) => normalizeSearchText(text).includes(needle);
-    return divisions
-      .map((division) => ({
-        division,
-        introduction:
-          division.introduction && matches(division.introduction.title)
-            ? division.introduction
-            : undefined,
-        entries: division.entries.filter((e) => matches(e.title)),
-        sections: division.sections
-          .map((section) => ({
-            ...section,
-            entries: section.entries.filter((e) => matches(e.title)),
-          }))
-          .filter((section) => section.entries.length > 0),
-      }))
-      .filter(
-        (group) =>
-          group.introduction || group.entries.length > 0 || group.sections.length > 0
-      );
-  }, [divisions, query, activeDivision]);
+  const searching = searchKey(query) !== "";
+  const visibleGroups: DivisionGroup[] =
+    !searching && activeDivision
+      ? [{ division: activeDivision, ...activeDivision }]
+      : [];
 
-  const hrefFor = (muc: string) => {
+  const searchableIndexNames = useMemo(
+    () =>
+      indexNames.map((row, position) => ({
+        row,
+        position,
+        haystack: [row.name, row.textName ?? ""].map(searchKey),
+      })),
+    [indexNames]
+  );
+
+  // Matched on the printed and the in-text spelling.
+  const visibleIndexNames = useMemo(() => {
+    const needle = searchKey(query);
+    if (!needle) return [];
+    return searchableIndexNames.filter(({ haystack }) =>
+      haystack.some((text) => text.includes(needle))
+    );
+  }, [searchableIndexNames, query]);
+
+  const hrefFor = (muc: string, highlight: Record<string, string> = {}) => {
     const params = new URLSearchParams(searchParams.toString());
+    HIGHLIGHT_PARAMS.forEach((key) => params.delete(key));
     params.set("muc", muc);
+    Object.entries(highlight).forEach(([key, value]) => params.set(key, value));
     return `${pathname}?${params.toString()}`;
   };
 
-  const selectEntry = (muc: string) => {
+  const selectEntry = (muc: string, highlight?: Record<string, string>) => {
     startTransition(() => {
-      router.replace(hrefFor(muc), { scroll: false });
+      router.replace(hrefFor(muc, highlight), { scroll: false });
     });
   };
+
+  // An unresolved target (no textName) opens its Story with no highlight.
+  const selectIndexName = (row: IndexNameRow) =>
+    selectEntry(
+      row.muc,
+      row.textName
+        ? {
+            ten: row.textName,
+            ...(row.location === "chu-thich" && row.footnote
+              ? { "chu-thich": row.footnote }
+              : {}),
+          }
+        : {}
+    );
 
   const renderEntryButton = (item: Entry, label: string, number?: number) => (
     <button
@@ -157,16 +203,11 @@ export default function KhoTangTruyenReader({
 
           <ScrollArea className="h-[500px] md:h-[600px] w-full">
             <div className="flex flex-col">
-              {visibleGroups.length === 0 && (
+              {searching && visibleIndexNames.length === 0 && (
                 <div className="px-6 py-4 text-gray-500">{t("noResults")}</div>
               )}
               {visibleGroups.map(({ division, introduction, entries, sections }) => (
                 <div key={division.id}>
-                  {searching && (
-                    <div className="px-6 py-2 bg-branding-brown/10 text-sm font-normal text-branding-black">
-                      {division.title}
-                    </div>
-                  )}
                   {introduction &&
                     renderEntryButton(introduction, introductionLabel)}
                   {entries.map((item) => renderEntryButton(item, item.title))}
@@ -182,6 +223,32 @@ export default function KhoTangTruyenReader({
                   ))}
                 </div>
               ))}
+              {visibleIndexNames.length > 0 && (
+                <div>
+                  <div className="px-6 py-2 bg-branding-brown/10 text-sm font-normal text-branding-black">
+                    {t("indexNamesHeading")}
+                  </div>
+                  {visibleIndexNames.map(({ row, position }) => (
+                    <button
+                      key={position}
+                      type="button"
+                      onClick={() => selectIndexName(row)}
+                      className="block w-full text-left px-6 py-3 border-b border-gray-100 transition-colors text-gray-800 hover:bg-gray-50 hover:border-l-4 hover:border-l-branding-brown"
+                    >
+                      <div>
+                        {row.name}
+                        {row.qualifier && (
+                          <span className="text-gray-500"> · {row.qualifier}</span>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        → {row.storyNumber}. {row.storyTitle} ·{" "}
+                        {t(LOCATION_LABEL_KEYS[row.location])}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </ScrollArea>
         </div>
@@ -194,7 +261,13 @@ export default function KhoTangTruyenReader({
           isPending && "opacity-50"
         )}
       >
-        <StoryMarkdown body={body} bulletLists={bulletLists} />
+        <StoryMarkdown
+          key={`${entry.muc}|${highlightName ?? ""}|${targetFootnoteIndex ?? ""}`}
+          body={body}
+          bulletLists={bulletLists}
+          highlight={highlightName}
+          targetFootnoteIndex={targetFootnoteIndex}
+        />
 
         {(previous || next) && (
           <nav className="mt-12 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between font-['Helvetica Neue'] font-light">

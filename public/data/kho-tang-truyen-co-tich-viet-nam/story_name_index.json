@@ -1,0 +1,8936 @@
+[
+  {
+    "printed": "A-đao dũng cảm",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "A-dao dũng cảm"
+      }
+    ]
+  },
+  {
+    "printed": "A-lát và sư tử",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "A-lát và sư tử"
+      }
+    ]
+  },
+  {
+    "printed": "A-sét A-tiêng",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "A-sét A-tiêng"
+      }
+    ]
+  },
+  {
+    "printed": "A Sún Phàng Khỉm",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "A Sún Phàng Khim"
+      }
+    ]
+  },
+  {
+    "printed": "Ả Chức chàng Ngưu",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "story",
+        "textName": "Ả Chức chàng Ngưu"
+      }
+    ]
+  },
+  {
+    "printed": "Ai mua hành tôi hay là lọ nước thần",
+    "targets": [
+      {
+        "story": 135,
+        "tap": "III",
+        "location": "story",
+        "textName": "Ai mua hành tôi hay là lọ nước thần"
+      }
+    ]
+  },
+  {
+    "printed": "Anh Ba và quan thổ ty",
+    "targets": [
+      {
+        "story": 149,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Anh Ba và quan thổ ty"
+      }
+    ]
+  },
+  {
+    "printed": "Anh chàng canh rẫy",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Anh chàng canh rẫy"
+      }
+    ]
+  },
+  {
+    "printed": "Anh chàng diệt quỷ",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Anh chàng diệt quỷ"
+      }
+    ]
+  },
+  {
+    "printed": "Anh chàng họ Đào",
+    "targets": [
+      {
+        "story": 172,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Anh chàng họ Đào"
+      }
+    ]
+  },
+  {
+    "printed": "Anh chàng lười",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Anh chàng lười"
+      }
+    ]
+  },
+  {
+    "printed": "Anh chàng mê công chúa",
+    "targets": [
+      {
+        "story": 43,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Anh chàng mê công chúa"
+      }
+    ]
+  },
+  {
+    "printed": "Anh chàng thong manh",
+    "targets": [
+      {
+        "story": 194,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "anh chàng thong manh"
+      }
+    ]
+  },
+  {
+    "printed": "Anh chồng ngốc",
+    "targets": [
+      {
+        "story": 47,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Anh chồng ngốc"
+      }
+    ]
+  },
+  {
+    "printed": "Anh em mồ côi",
+    "targets": [
+      {
+        "story": 193,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Anh em mồ côi"
+      }
+    ]
+  },
+  {
+    "printed": "Anh em sinh năm",
+    "targets": [
+      {
+        "story": 65,
+        "tap": "II",
+        "location": "story",
+        "textName": "Anh em sinh năm"
+      }
+    ]
+  },
+  {
+    "printed": "Anh hùng Ghi-ông",
+    "targets": [
+      {
+        "story": 44,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Anh hùng Ghi-ông"
+      }
+    ]
+  },
+  {
+    "printed": "Anh tình nhân trong cái hòm",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Anh tình nhân trong cái hòm"
+      }
+    ]
+  },
+  {
+    "printed": "Ao Phật",
+    "targets": [
+      {
+        "story": 155,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Ao Phật"
+      }
+    ]
+  },
+  {
+    "printed": "Ăn mề gà mù mắt",
+    "targets": [
+      {
+        "story": 191,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Ăn mề gà mù mắt"
+      }
+    ]
+  },
+  {
+    "printed": "Âm dương giao chiến",
+    "targets": [
+      {
+        "story": 71,
+        "tap": "II",
+        "location": "story",
+        "textName": "Âm dương giao chiến"
+      }
+    ]
+  },
+  {
+    "printed": "Ba anh em",
+    "qualifier": "truyện Triều Tiên",
+    "targets": [
+      {
+        "story": 61,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Ba anh em"
+      }
+    ]
+  },
+  {
+    "printed": "Ba anh em",
+    "qualifier": "truyện Pháp",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "ba anh em"
+      }
+    ]
+  },
+  {
+    "printed": "Ba anh em và thây người bố",
+    "targets": [
+      {
+        "story": 113,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ba anh em và thây người bố"
+      }
+    ]
+  },
+  {
+    "printed": "Ba chàng thiện nghệ",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ba chàng thiện nghệ"
+      }
+    ]
+  },
+  {
+    "printed": "Ba cô con gái của ông già",
+    "targets": [
+      {
+        "story": 186,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Ba cô con gái của ông già"
+      }
+    ]
+  },
+  {
+    "printed": "Ba điều dạy của Xa-lô-mông",
+    "targets": [
+      {
+        "story": 57,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Ba điều dạy của Xa-lô-mông"
+      }
+    ]
+  },
+  {
+    "printed": "Ba mươi hai truyện về ngai vàng",
+    "targets": [
+      {
+        "story": 39,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Ba mươi hai truyện về ngai vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Ba người vợ tranh nhau một chồng",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ba người vợ tranh nhau một chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Ba quả trứng rồng",
+    "targets": [
+      {
+        "story": 16,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Ba quả trứng rồng"
+      }
+    ]
+  },
+  {
+    "printed": "Ba sợi tóc vàng của chúa quỷ",
+    "targets": [
+      {
+        "story": 136,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ba sợi tóc vàng của chúa quỷ"
+      }
+    ]
+  },
+  {
+    "printed": "Ba Vành",
+    "targets": [
+      {
+        "story": 101,
+        "tap": "III",
+        "location": "story",
+        "textName": "Ba Vành"
+      }
+    ]
+  },
+  {
+    "printed": "Ba Vành",
+    "qualifier": "truyện miền Bắc",
+    "targets": [
+      {
+        "story": 101,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ba Vành"
+      }
+    ]
+  },
+  {
+    "printed": "Bà chúa Ba",
+    "targets": [
+      {
+        "story": 176,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Bà chúa Ba"
+      }
+    ]
+  },
+  {
+    "printed": "Bà chúa Ong",
+    "targets": [
+      {
+        "story": 171,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Bà chúa ong"
+      }
+    ]
+  },
+  {
+    "printed": "Bà chúa Ya Nôm",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Bà chúa Ya Nôm"
+      }
+    ]
+  },
+  {
+    "printed": "Bà Hôn",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Bà Hôn"
+      }
+    ]
+  },
+  {
+    "printed": "Bà lớn đười ươi",
+    "targets": [
+      {
+        "story": 91,
+        "tap": "II",
+        "location": "story",
+        "textName": "Bà lớn đười ươi"
+      }
+    ]
+  },
+  {
+    "printed": "Bà mẹ họ Đậu cắt tóc lấy tiền thết khách",
+    "targets": [
+      {
+        "story": 180,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Bà mẹ họ Đậu cắt tóc lấy tiền thết khách"
+      }
+    ]
+  },
+  {
+    "printed": "Bà tiên chồn",
+    "targets": [
+      {
+        "story": 136,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Bà tiên chồn"
+      }
+    ]
+  },
+  {
+    "printed": "Bán cái tủ đứng",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Bán cái tủ đứng"
+      }
+    ]
+  },
+  {
+    "printed": "Bán tóc đãi bạn",
+    "targets": [
+      {
+        "story": 180,
+        "tap": "V",
+        "location": "story",
+        "textName": "Bán tóc đãi bạn"
+      }
+    ]
+  },
+  {
+    "printed": "Bạn của những người nghèo",
+    "targets": [
+      {
+        "story": 136,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Bạn của những người nghèo"
+      }
+    ]
+  },
+  {
+    "printed": "Bảy Giao, Chín Quỳ",
+    "targets": [
+      {
+        "story": 74,
+        "tap": "II",
+        "location": "story",
+        "textName": "Bảy Giao, Chín Quỳ"
+      }
+    ]
+  },
+  {
+    "printed": "Bảy người Kinh",
+    "targets": [
+      {
+        "story": 34,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Bảy người Kinh"
+      }
+    ]
+  },
+  {
+    "printed": "Bi-a Nát",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Bi-a Nát"
+      }
+    ]
+  },
+  {
+    "printed": "Bính và Đinh",
+    "targets": [
+      {
+        "story": 151,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Bính và Đinh"
+      }
+    ]
+  },
+  {
+    "printed": "Bò béo bò gầy",
+    "targets": [
+      {
+        "story": 37,
+        "tap": "I",
+        "location": "story",
+        "textName": "Bò béo bò gầy"
+      }
+    ]
+  },
+  {
+    "printed": "Bót Hét",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Bót Hét"
+      }
+    ]
+  },
+  {
+    "printed": "Bót Rơ kén rể",
+    "targets": [
+      {
+        "story": 63,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Bớt Rơ kén rể"
+      }
+    ]
+  },
+  {
+    "printed": "Bồ câu của nàng I-lê-a-na Cô-sin-de-a-na",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Bồ câu của nàng I-lê-a-na Cô-sin-de-a-na"
+      }
+    ]
+  },
+  {
+    "printed": "Bốc Cơ-lốc",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Bốc Cơ-lốc"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn anh tài",
+    "targets": [
+      {
+        "story": 66,
+        "tap": "II",
+        "location": "story",
+        "textName": "Bốn anh tài"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn anh thầy chùa đi làm đám",
+    "targets": [
+      {
+        "story": 200,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Bốn anh thầy chùa đi làm đám"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn cây phượng",
+    "targets": [
+      {
+        "story": 166,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Bốn cây phượng"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn chàng hói",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Bốn chàng hói"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn chàng ngốc",
+    "targets": [
+      {
+        "story": 196,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Bốn chàng ngốc"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn cô gái muốn lấy chồng hoàng tử",
+    "targets": [
+      {
+        "story": 166,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Bốn cô gái muốn lấy chồng hoàng tử"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn người bạn",
+    "targets": [
+      {
+        "story": 183,
+        "tap": "V",
+        "location": "story",
+        "textName": "Bốn người bạn"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn nhà sư",
+    "targets": [
+      {
+        "story": 200,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Bốn nhà sư"
+      }
+    ]
+  },
+  {
+    "printed": "Bốn ông lão ngốc đi tìm vợ",
+    "targets": [
+      {
+        "story": 196,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Bốn ông lão ngốc đi tìm vợ"
+      }
+    ]
+  },
+  {
+    "printed": "Bợm già mắc bẫy hay là mưu trí đàn bà",
+    "targets": [
+      {
+        "story": 89,
+        "tap": "II",
+        "location": "story",
+        "textName": "Bợm già mắc bẫy hay là mưu trí đàn bà"
+      }
+    ]
+  },
+  {
+    "printed": "Bợm lại gặp bợm hay bợm già mắc bẫy cò ke",
+    "targets": [
+      {
+        "story": 76,
+        "tap": "II",
+        "location": "story",
+        "textName": "Bợm lại gặp bợm hay bợm già mắc bẫy cò ke"
+      }
+    ]
+  },
+  {
+    "printed": "Bù chì",
+    "targets": [
+      {
+        "story": 51,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Bù chì"
+      }
+    ]
+  },
+  {
+    "printed": "Bùi Cầm Hổ",
+    "targets": [
+      {
+        "story": 79,
+        "tap": "II",
+        "location": "story",
+        "textName": "Bùi Cầm Hổ"
+      }
+    ]
+  },
+  {
+    "printed": "Bụng làm dạ chịu hay là truyện thầy hít",
+    "targets": [
+      {
+        "story": 40,
+        "tap": "I",
+        "location": "story",
+        "textName": "Bụng làm dạ chịu hay là truyện thầy hít"
+      }
+    ]
+  },
+  {
+    "printed": "Bút Bời",
+    "targets": [
+      {
+        "story": 57,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Bút Bời"
+      }
+    ]
+  },
+  {
+    "printed": "Ca-dong và Ha-lớc",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ca-dong và Ha-lớc"
+      }
+    ]
+  },
+  {
+    "printed": "Ca-đốp và Ca-đoéc",
+    "targets": [
+      {
+        "story": 193,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Ca-đốp và Ca-đoéc"
+      }
+    ]
+  },
+  {
+    "printed": "Cá bống nuốt cá trê",
+    "targets": [
+      {
+        "story": 89,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cá bống nuốt cá trê"
+      }
+    ]
+  },
+  {
+    "printed": "Cái chết của bốn ông sư",
+    "targets": [
+      {
+        "story": 200,
+        "tap": "V",
+        "location": "story",
+        "textName": "Cái chết của bốn ông sư"
+      }
+    ]
+  },
+  {
+    "printed": "Cái chết màu nhiệm",
+    "targets": [
+      {
+        "story": 121,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Cái chết mầu nhiệm"
+      }
+    ]
+  },
+  {
+    "printed": "Cái hoa chanh",
+    "targets": [
+      {
+        "story": 173,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cái hoa chanh"
+      }
+    ]
+  },
+  {
+    "printed": "Cái kiến mày kiện củ khoai",
+    "targets": [
+      {
+        "story": 54,
+        "tap": "II",
+        "location": "story",
+        "textName": "Cái kiến mày kiện củ khoai"
+      }
+    ]
+  },
+  {
+    "printed": "Cái vết đỏ trên má công nương",
+    "targets": [
+      {
+        "story": 188,
+        "tap": "V",
+        "location": "story",
+        "textName": "Cái vết đỏ trên má công nương"
+      }
+    ]
+  },
+  {
+    "printed": "Cao phi viễn tẩu",
+    "aliasOf": "Giáp Kén-xã Nhộng",
+    "targets": [
+      {
+        "story": 191,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Giáp Kén - xã Nhộng"
+      }
+    ]
+  },
+  {
+    "printed": "Cắt trộm lưỡi trâu",
+    "targets": [
+      {
+        "story": 111,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Cắt trộm lưỡi trâu"
+      }
+    ]
+  },
+  {
+    "printed": "Cậu bé nói dối",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cậu bé nói dối"
+      }
+    ]
+  },
+  {
+    "printed": "Cây cam và con ong",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cây cam và con ong"
+      }
+    ]
+  },
+  {
+    "printed": "Cây đàn",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Cây đàn"
+      }
+    ]
+  },
+  {
+    "printed": "Cây khế",
+    "targets": [
+      {
+        "story": 59,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cây khế"
+      }
+    ]
+  },
+  {
+    "printed": "Cây nêu và ngày Tết",
+    "targets": [
+      {
+        "story": 23,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "cây nêu ngày Tết"
+      }
+    ]
+  },
+  {
+    "printed": "Cây sáo và cái trống biết nói",
+    "targets": [
+      {
+        "story": 48,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cây sáo và cái trống biết nói"
+      }
+    ]
+  },
+  {
+    "printed": "Cây thuốc cải tử hoàn sinh hay là sự tích thằng Cuội cung trăng",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "story",
+        "textName": "Cây thuốc cải tử hoàn sinh hay là sự tích thằng Cuội cung trăng"
+      }
+    ]
+  },
+  {
+    "printed": "Cây tre trăm đốt",
+    "targets": [
+      {
+        "story": 125,
+        "tap": "III",
+        "location": "story",
+        "textName": "Cây tre trăm đốt"
+      }
+    ]
+  },
+  {
+    "printed": "Cha để bán",
+    "targets": [
+      {
+        "story": 186,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Của để bán"
+      }
+    ]
+  },
+  {
+    "printed": "Cha gấu",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Cha gấu"
+      }
+    ]
+  },
+  {
+    "printed": "Cha mẹ nuôi con bể hồ lai láng, con nuôi cha mẹ kể tháng kể ngày",
+    "targets": [
+      {
+        "story": 51,
+        "tap": "II",
+        "location": "story",
+        "textName": "Cha mẹ nuôi con bể hồ lai láng con nuôi cha mẹ kể tháng kể ngày"
+      }
+    ]
+  },
+  {
+    "printed": "Chà Lúc Chà Lắc",
+    "targets": [
+      {
+        "story": 193,
+        "tap": "V",
+        "location": "chu-thich",
+        "textName": "Chà Lúc Chà Lắc",
+        "footnote": "3"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Bầu",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng Bầu"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng ca-đác",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "chàng Ca-đác"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Chuối",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng Chuối"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Chuối",
+    "qualifier": "truyện ở Vĩnh-yên, Phú-thọ",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng Chuối"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng cóc",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng cóc"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng con côi (Ý Pơ-ja)",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Chàng con côi (Ý Pơ-ja)"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Cơm Cháy",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chàng Cơm Cháy"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng dê",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "chàng dê"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Dưa",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Chàng Dưa"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng đánh cá trở thành vua",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chàng đánh cá trở thành vua"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng đốn củi và con tinh",
+    "targets": [
+      {
+        "story": 121,
+        "tap": "III",
+        "location": "story",
+        "textName": "Chàng đốn củi và con tinh"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng gấu",
+    "qualifier": "truyện Pháp",
+    "targets": [
+      {
+        "story": 68,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chàng Gấu"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng gấu",
+    "qualifier": "truyện A-va-rơ",
+    "targets": [
+      {
+        "story": 68,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chàng Gấu"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng kỵ mã",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng kỵ mã"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Lía",
+    "targets": [
+      {
+        "story": 64,
+        "tap": "II",
+        "location": "story",
+        "textName": "Chàng Lía"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Lợn",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng lợn"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng lừa phỉnh và chàng nói khoác",
+    "targets": [
+      {
+        "story": 40,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Chàng lừa phỉnh và chàng nói khoác"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng mồ côi",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "chàng mồ côi"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng nghiện rượu và chàng nghiện thuốc phiện",
+    "targets": [
+      {
+        "story": 165,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Chàng nghiện rượu và chàng nghiện thuốc phiện"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Ngốc",
+    "targets": [
+      {
+        "story": 90,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chàng ngốc"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Ngốc đi buôn",
+    "targets": [
+      {
+        "story": 108,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng Ngốc đi buôn"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Ngốc đi học",
+    "targets": [
+      {
+        "story": 47,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chàng ngốc đi học"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Ngốc được kiện",
+    "targets": [
+      {
+        "story": 108,
+        "tap": "III",
+        "location": "story",
+        "textName": "Chàng ngốc được kiện"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Ngốc học khôn",
+    "targets": [
+      {
+        "story": 189,
+        "tap": "V",
+        "location": "story",
+        "textName": "Chàng ngốc học khôn"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Nhái Kiển Tiên thơ",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng Nhái kiến Tiên Thơ"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Rá",
+    "targets": [
+      {
+        "story": 63,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chàng Rá"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Rắn",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng rắn"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng rể thong manh",
+    "targets": [
+      {
+        "story": 194,
+        "tap": "V",
+        "location": "story",
+        "textName": "Chàng rể thong manh"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng rùa",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng rùa"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Sơn",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chàng Sơn"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Ta Luông",
+    "targets": [
+      {
+        "story": 175,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Chàng Ta Luông"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng tẹt mũi",
+    "targets": [
+      {
+        "story": 165,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Chàng tẹt mũi"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng thổi khèn",
+    "targets": [
+      {
+        "story": 135,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng thổi khèn"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng trai săn",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Chàng trai săn"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng trồng bí",
+    "targets": [
+      {
+        "story": 152,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Chàng trồng bí"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Ư - châu",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng Ư-châu"
+      }
+    ]
+  },
+  {
+    "printed": "Chàng Y Ban",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chàng Y Ban"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc áo lông chim",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chiếc áo lông chim"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc áo tàng hình",
+    "targets": [
+      {
+        "story": 139,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "chiếc áo tàng hình"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc chiếu đạo sĩ",
+    "targets": [
+      {
+        "story": 117,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chiếc chiếu đạo sĩ"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc giày để lại làm chứng",
+    "targets": [
+      {
+        "story": 179,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Chiếc giày để lại làm chứng"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc giày thơm",
+    "targets": [
+      {
+        "story": 179,
+        "tap": "V",
+        "location": "story",
+        "textName": "Chiếc giày thơm"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc hài cườm pha lê",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "chu-thich",
+        "textName": "Chiếc hài cườm pha lê",
+        "footnote": "13"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc nhẫn thần",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "chu-thich",
+        "textName": "Chiếc nhẫn thần",
+        "footnote": "6"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc roi trả hận",
+    "targets": [
+      {
+        "story": 121,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chiếc roi trả hận"
+      }
+    ]
+  },
+  {
+    "printed": "Chiếc sừng nai và mụ Hùm",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Chiếc sừng nai và mụ Hùm"
+      }
+    ]
+  },
+  {
+    "printed": "Chiền chiện và ông sư",
+    "targets": [
+      {
+        "story": 170,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Chiền chiện và ông sư"
+      }
+    ]
+  },
+  {
+    "printed": "Chim khảm khắc",
+    "targets": [
+      {
+        "story": 8,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Chim khảm khắc"
+      }
+    ]
+  },
+  {
+    "printed": "Chim phượng hoàng",
+    "targets": [
+      {
+        "story": 59,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chim phượng hoàng"
+      }
+    ]
+  },
+  {
+    "printed": "Chín chàng trai kỳ tài",
+    "targets": [
+      {
+        "story": 65,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chín chàng trai kỳ tài"
+      }
+    ]
+  },
+  {
+    "printed": "Chôn tiền bị mất",
+    "targets": [
+      {
+        "story": 57,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Chôn tiền bị mất"
+      }
+    ]
+  },
+  {
+    "printed": "Chồng cóc",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chồng cóc"
+      }
+    ]
+  },
+  {
+    "printed": "Chu Hùng Ú",
+    "targets": [
+      {
+        "story": 104,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Chu Hùng Ú"
+      }
+    ]
+  },
+  {
+    "printed": "Chuông vàng",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Chuông vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Chuyện về giống chuột",
+    "targets": [
+      {
+        "story": 170,
+        "tap": "IV",
+        "location": "chu-thich",
+        "textName": "chuyện về giống chuột",
+        "footnote": "5"
+      }
+    ]
+  },
+  {
+    "printed": "Chử Sinh",
+    "targets": [
+      {
+        "story": 173,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Chử Sinh"
+      }
+    ]
+  },
+  {
+    "printed": "Chưa đỗ ông nghè đã đe hàng tổng",
+    "targets": [
+      {
+        "story": 52,
+        "tap": "II",
+        "location": "story",
+        "textName": "Chưa đỗ ông nghè đã đe hàng tổng"
+      }
+    ]
+  },
+  {
+    "printed": "Cóc và Bia Phu",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Cóc và Bia Phu"
+      }
+    ]
+  },
+  {
+    "printed": "Cóc và chuột",
+    "targets": [
+      {
+        "story": 143,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cóc và chuột"
+      }
+    ]
+  },
+  {
+    "printed": "Con bà Dằn",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con bà Dằn"
+      }
+    ]
+  },
+  {
+    "printed": "Con cá vàng",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con cá vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Con chim khách màu nhiệm",
+    "targets": [
+      {
+        "story": 124,
+        "tap": "III",
+        "location": "story",
+        "textName": "Con chim khách màu nhiệm"
+      }
+    ]
+  },
+  {
+    "printed": "Con chim nói sự thật",
+    "targets": [
+      {
+        "story": 166,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con chim nói sự thật"
+      }
+    ]
+  },
+  {
+    "printed": "Con chim sẻ bị cắt lưỡi",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Con chim sẻ bị cắt lưỡi"
+      }
+    ]
+  },
+  {
+    "printed": "Con chim xanh",
+    "qualifier": "truyện Pháp",
+    "targets": [
+      {
+        "story": 124,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Con chim xanh"
+      }
+    ]
+  },
+  {
+    "printed": "Con chim xanh",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con chim xanh"
+      }
+    ]
+  },
+  {
+    "printed": "Con chim toóc toóc",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Con chim toóc toóc"
+      }
+    ]
+  },
+  {
+    "printed": "Con chó, con mèo và anh chàng nghèo khổ",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "story",
+        "textName": "Con chó, con mèo và anh chàng nghèo khổ"
+      }
+    ]
+  },
+  {
+    "printed": "Con chó, con mèo và con chuột",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con chó, con mèo và con chuột"
+      }
+    ]
+  },
+  {
+    "printed": "Con chồn bị giết oan",
+    "targets": [
+      {
+        "story": 57,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con chồn bị giết oan"
+      }
+    ]
+  },
+  {
+    "printed": "Con cóc liếm nước mưa",
+    "targets": [
+      {
+        "story": 141,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Con cóc liếm nước mưa"
+      }
+    ]
+  },
+  {
+    "printed": "Con cua",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Con cua"
+      }
+    ]
+  },
+  {
+    "printed": "Con dế",
+    "targets": [
+      {
+        "story": 133,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "con dế"
+      }
+    ]
+  },
+  {
+    "printed": "Con Dơn",
+    "targets": [
+      {
+        "story": 84,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con Dơn"
+      }
+    ]
+  },
+  {
+    "printed": "Con gà trắng và chiếc nhẫn đồng",
+    "targets": [
+      {
+        "story": 173,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con gà trắng và chiếc nhẫn đồng"
+      }
+    ]
+  },
+  {
+    "printed": "Con gà trống dũng cảm",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Con gà trống dũng cảm"
+      }
+    ]
+  },
+  {
+    "printed": "Con gái ông lão và con gái bà lão",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con gái ông lão và con gái bà lão"
+      }
+    ]
+  },
+  {
+    "printed": "Con hổ, con cóc tía và con khỉ",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con hổ, con cóc tía và con khỉ"
+      }
+    ]
+  },
+  {
+    "printed": "Con hổ, con cóc tía và con rùa",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con hổ, con cóc tía và con rùa"
+      }
+    ]
+  },
+  {
+    "printed": "Con khướu",
+    "targets": [
+      {
+        "story": 85,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con khướu"
+      }
+    ]
+  },
+  {
+    "printed": "Con là nợ",
+    "qualifier": "truyện khác",
+    "targets": [
+      {
+        "story": 149,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con là nợ"
+      }
+    ]
+  },
+  {
+    "printed": "Con ma",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Con ma"
+      }
+    ]
+  },
+  {
+    "printed": "Con ma báo thù",
+    "targets": [
+      {
+        "story": 157,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Con ma báo thù"
+      }
+    ]
+  },
+  {
+    "printed": "Con mèo cái trắng",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Con mèo cái trắng"
+      }
+    ]
+  },
+  {
+    "printed": "Con mối làm chứng",
+    "targets": [
+      {
+        "story": 78,
+        "tap": "II",
+        "location": "story",
+        "textName": "Con mối làm chứng"
+      }
+    ]
+  },
+  {
+    "printed": "Con mụ Lường",
+    "targets": [
+      {
+        "story": 84,
+        "tap": "II",
+        "location": "story",
+        "textName": "Con mụ Lường"
+      }
+    ]
+  },
+  {
+    "printed": "Con nai cái trắng",
+    "targets": [
+      {
+        "story": 166,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con nai cái trắng"
+      }
+    ]
+  },
+  {
+    "printed": "Con nghê ngói",
+    "targets": [
+      {
+        "story": 53,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con nghê ngói"
+      }
+    ]
+  },
+  {
+    "printed": "Con ngỗng kỳ lạ",
+    "targets": [
+      {
+        "story": 125,
+        "tap": "III",
+        "location": "chu-thich",
+        "textName": "Con ngỗng kỳ lạ",
+        "footnote": "2"
+      }
+    ]
+  },
+  {
+    "printed": "Con ngỗng vàng",
+    "targets": [
+      {
+        "story": 125,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Con ngỗng vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Con ngựa đất",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Con ngựa đất"
+      }
+    ]
+  },
+  {
+    "printed": "Con nhái",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "con nhái"
+      }
+    ]
+  },
+  {
+    "printed": "Con ốc vàng",
+    "targets": [
+      {
+        "story": 166,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con ốc vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Con rắn tám đầu",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con rắn tám đầu"
+      }
+    ]
+  },
+  {
+    "printed": "Con rùa",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "con rùa"
+      }
+    ]
+  },
+  {
+    "printed": "Con rùa vàng",
+    "qualifier": "truyện Lào",
+    "targets": [
+      {
+        "story": 48,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con rùa vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Con rùa vàng",
+    "qualifier": "truyện Tày",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Con rùa vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Con sáo và phú trưởng giả",
+    "targets": [
+      {
+        "story": 85,
+        "tap": "II",
+        "location": "story",
+        "textName": "Con sáo và phú trưởng giả"
+      }
+    ]
+  },
+  {
+    "printed": "Con sếu và con rùa",
+    "targets": [
+      {
+        "story": 143,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con sếu và con rùa"
+      }
+    ]
+  },
+  {
+    "printed": "Con sói trắng",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Con sói trắng"
+      }
+    ]
+  },
+  {
+    "printed": "Con thỏ, con gà và con hổ",
+    "targets": [
+      {
+        "story": 86,
+        "tap": "II",
+        "location": "story",
+        "textName": "Con thỏ, con gà và con hổ"
+      }
+    ]
+  },
+  {
+    "printed": "Con thỏ và con hổ",
+    "targets": [
+      {
+        "story": 87,
+        "tap": "II",
+        "location": "story",
+        "textName": "Con thỏ và con hổ"
+      }
+    ]
+  },
+  {
+    "printed": "Con tìm mẹ",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Con tìm mẹ"
+      }
+    ]
+  },
+  {
+    "printed": "Con tôm vàng",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con tôm vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Con trai Bốc Rơ",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Con trai bốc Rơ"
+      }
+    ]
+  },
+  {
+    "printed": "Con vẹt của Ích-va-ra",
+    "targets": [
+      {
+        "story": 85,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Con Vẹt của Ích-va-ra"
+      }
+    ]
+  },
+  {
+    "printed": "Con vợ khôn lấy thằng chồng dại, như bông hoa lài cắm bãi cứt trâu",
+    "targets": [
+      {
+        "story": 47,
+        "tap": "II",
+        "location": "story",
+        "textName": "Con vợ khôn lấy thằng chồng dại như bông hoa lài  cắm bãi cứt trâu"
+      }
+    ]
+  },
+  {
+    "printed": "Cor-na-chiu",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cor-na-chiu"
+      }
+    ]
+  },
+  {
+    "printed": "Cô bé An-net",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cô bé An-nét"
+      }
+    ]
+  },
+  {
+    "printed": "Cô con gái người thợ mộc",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cô con gái người thợ mộc"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái ăn mày",
+    "targets": [
+      {
+        "story": 90,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cô gái ăn mày"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái bán phấn",
+    "targets": [
+      {
+        "story": 179,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "cô gái bán phấn"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái bán tóc để thết Phật",
+    "targets": [
+      {
+        "story": 180,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Cô gái bán tóc để thết Phật"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái con thần nước mê chàng đánh cá",
+    "targets": [
+      {
+        "story": 175,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Cô gái con thần nước mê chàng đánh cá"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái con vua và ba công trạng",
+    "targets": [
+      {
+        "story": 163,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cô gái con vua và ba công trạng"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái đẹp và ba chàng trai",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Cô gái đẹp và ba chàng trai"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái lấy chồng hoàng tử",
+    "targets": [
+      {
+        "story": 144,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Cô gái lấy chồng hoàng tử"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái lừa thầy sãi, xã trưởng và ông quan huyện",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "story",
+        "textName": "Cô gái lừa thày sãi, xã trưởng và ông quan huyện"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái mồ côi thương người",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Cô gái mồ côi thương người"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái thương người được cứu thoát nạn lụt",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Cô gái thương người được cứu thoát nạn lụt"
+      }
+    ]
+  },
+  {
+    "printed": "Cô gái tóc vàng",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cô gái tóc vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Cô hồn đền ơn",
+    "targets": [
+      {
+        "story": 151,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cô hồn đền ơn"
+      }
+    ]
+  },
+  {
+    "printed": "Cô Krao Chao Phò",
+    "targets": [
+      {
+        "story": 32,
+        "tap": "I",
+        "location": "chu-thich",
+        "textName": "Cô Krao Chao Phò",
+        "footnote": "2"
+      }
+    ]
+  },
+  {
+    "printed": "Cô Mari ở túp lều trong rừng",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cô Ma-ri ở túp lều trong rừng"
+      }
+    ]
+  },
+  {
+    "printed": "Cô Tro Bếp",
+    "aliasOf": "Chiếc hài cườm pha lê",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "chu-thich",
+        "textName": "Chiếc hài cườm pha lê",
+        "footnote": "13"
+      }
+    ]
+  },
+  {
+    "printed": "Cố Bu",
+    "targets": [
+      {
+        "story": 96,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Cố Bu"
+      }
+    ]
+  },
+  {
+    "printed": "Cố Ghép",
+    "targets": [
+      {
+        "story": 94,
+        "tap": "III",
+        "location": "story",
+        "textName": "Cố Ghép"
+      }
+    ]
+  },
+  {
+    "printed": "Côi, cô gái mồ côi",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Côi, cô gái mồ côi"
+      }
+    ]
+  },
+  {
+    "printed": "Công chúa ếch",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Công chúa ếch"
+      }
+    ]
+  },
+  {
+    "printed": "Công chúa Liên Hoa",
+    "targets": [
+      {
+        "story": 119,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Công chúa Liên Hoa"
+      }
+    ]
+  },
+  {
+    "printed": "Công chúa Mai Châu",
+    "targets": [
+      {
+        "story": 177,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Công chúa Mai Châu"
+      }
+    ]
+  },
+  {
+    "printed": "Công chúa Nân (hoặc Nang) Ma-nô-ra",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Công chúa Nân (hoặc Nang) Ma-nô-ra"
+      }
+    ]
+  },
+  {
+    "printed": "Công chúa Sát-sa hay là Mát-cút-sa",
+    "targets": [
+      {
+        "story": 195,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Công chúa Sát-sa hay là Mát-cút-sa"
+      }
+    ]
+  },
+  {
+    "printed": "Công Dã Tràng",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Công dã tràng"
+      }
+    ]
+  },
+  {
+    "printed": "Con và Nắc",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cơn và Nắc"
+      }
+    ]
+  },
+  {
+    "printed": "Củ và Kỷ",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Củ và Kỳ"
+      }
+    ]
+  },
+  {
+    "printed": "Của Thiên trả Địa",
+    "targets": [
+      {
+        "story": 42,
+        "tap": "II",
+        "location": "story",
+        "textName": "Của thiên trả địa"
+      }
+    ]
+  },
+  {
+    "printed": "Của trời trời lại lấy đi, giương đôi mắt ếch làm chi được trời",
+    "targets": [
+      {
+        "story": 61,
+        "tap": "II",
+        "location": "story",
+        "textName": "Của trời trời lại lấy đi giương đôi mắt ếch làm chi được trời"
+      }
+    ]
+  },
+  {
+    "printed": "Cục thịt",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "cục thịt"
+      }
+    ]
+  },
+  {
+    "printed": "Cuộc chiến đấu giữa hổ và diều",
+    "targets": [
+      {
+        "story": 88,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cuộc chiến đấu giữa hổ và diều"
+      }
+    ]
+  },
+  {
+    "printed": "Cường Bạo đại vương",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Cường Bạo Đại Vương"
+      }
+    ]
+  },
+  {
+    "printed": "Cướp ô",
+    "targets": [
+      {
+        "story": 113,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "cướp ô"
+      }
+    ]
+  },
+  {
+    "printed": "Cứu vật vật trả ơn, cứu nhân nhân trả oán",
+    "targets": [
+      {
+        "story": 48,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cứu vật vật trả ơn, cứu nhân nhân trả oán"
+      }
+    ]
+  },
+  {
+    "printed": "Cứu vật vật trả ơn, cứu nhân nhân trả oán",
+    "qualifier": "truyện Trung-quốc",
+    "targets": [
+      {
+        "story": 48,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Cứu vật vật trả ơn, cứu nhân nhân trả oán"
+      }
+    ]
+  },
+  {
+    "printed": "Dê đực, chồn và gấu",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Dê đực, chồn và gấu"
+      }
+    ]
+  },
+  {
+    "printed": "Dì phải thằng chết trôi, tôi phải đôi sấu sành",
+    "targets": [
+      {
+        "story": 53,
+        "tap": "II",
+        "location": "story",
+        "textName": "Dì phải thằng chết trôi, tôi phải đôi sấu sành"
+      }
+    ]
+  },
+  {
+    "printed": "Doãn Uẩn làm vua nước Xiêm",
+    "targets": [
+      {
+        "story": 103,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Doãn Uẩn làm vua nước Xiêm"
+      }
+    ]
+  },
+  {
+    "printed": "Dũng sĩ mặt trăng",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Dũng sĩ mặt trăng"
+      }
+    ]
+  },
+  {
+    "printed": "Duyên nợ tái sinh",
+    "targets": [
+      {
+        "story": 173,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Duyên nợ tái sinh"
+      }
+    ]
+  },
+  {
+    "printed": "Duyên tiên",
+    "targets": [
+      {
+        "story": 175,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Duyên tiên"
+      }
+    ]
+  },
+  {
+    "printed": "Đại Càn quốc gia Nam-hải tứ vị ngọc phả lục",
+    "targets": [
+      {
+        "story": 161,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Đại Càn quốc gia Nam-hải tứ vị ngọc phả lục"
+      }
+    ]
+  },
+  {
+    "printed": "Đại vương Hai hay là truyện giết thuồng luồng",
+    "targets": [
+      {
+        "story": 69,
+        "tap": "II",
+        "location": "story",
+        "textName": "Đại vương Hai hay là truyện giết thuồng luồng"
+      }
+    ]
+  },
+  {
+    "printed": "Đam Bơ",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Đam Bơ"
+      }
+    ]
+  },
+  {
+    "printed": "Đám cưới của Thao Bút-sa-ba",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Đám cưới của Thao Bút-sa-ba"
+      }
+    ]
+  },
+  {
+    "printed": "Đánh thần Sét",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Đánh thần Sét"
+      }
+    ]
+  },
+  {
+    "printed": "Đăm Tay",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Đăm Tay"
+      }
+    ]
+  },
+  {
+    "printed": "Đầu nó vỡ rồi",
+    "targets": [
+      {
+        "story": 141,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Đầu nó vỡ rồi"
+      }
+    ]
+  },
+  {
+    "printed": "Đẻ đất đẻ nước",
+    "targets": [
+      {
+        "story": 193,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Đẻ đất đẻ nước"
+      }
+    ]
+  },
+  {
+    "printed": "Điền Phương Sinh đánh chết Diêm Vương",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Điền Phương Sinh đánh chết Diêm vương"
+      }
+    ]
+  },
+  {
+    "printed": "Đóng giường nằm cho vua Thủy tề",
+    "targets": [
+      {
+        "story": 105,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Đóng giường nằm cho vua Thủy tề"
+      }
+    ]
+  },
+  {
+    "printed": "Đô Dũng đại tướng quân",
+    "targets": [
+      {
+        "story": 162,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Đô dũng đại tướng quân"
+      }
+    ]
+  },
+  {
+    "printed": "Đô Hùng đại tướng quân",
+    "targets": [
+      {
+        "story": 25,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Đô Hùng đại tướng quân"
+      }
+    ]
+  },
+  {
+    "printed": "Đồi Chiềng-on hóa thành ao sâu",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Đồi Chiềng-on hóa thành ao sâu"
+      }
+    ]
+  },
+  {
+    "printed": "Đồng Đắc",
+    "targets": [
+      {
+        "story": 111,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Đồng Đắc"
+      }
+    ]
+  },
+  {
+    "printed": "Đồng tiền Vạn Lịch",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "story",
+        "textName": "Đồng tiền Vạn Lịch"
+      }
+    ]
+  },
+  {
+    "printed": "Đươm Be",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Đươm Be"
+      }
+    ]
+  },
+  {
+    "printed": "Đứa con của thần",
+    "targets": [
+      {
+        "story": 176,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Đứa con của thần"
+      }
+    ]
+  },
+  {
+    "printed": "Đứa con người đánh cá",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Đứa con người đánh cá"
+      }
+    ]
+  },
+  {
+    "printed": "Đứa con người thợ vá giày",
+    "targets": [
+      {
+        "story": 139,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Đứa con người thợ vá giày"
+      }
+    ]
+  },
+  {
+    "printed": "Đứa con trời đánh hay là truyện tiếc gà chôn mẹ",
+    "targets": [
+      {
+        "story": 49,
+        "tap": "II",
+        "location": "story",
+        "textName": "Đứa con trời đánh hay là truyện tiếc gà chôn mẹ"
+      }
+    ]
+  },
+  {
+    "printed": "Đực rựa",
+    "targets": [
+      {
+        "story": 152,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "đực rựa"
+      }
+    ]
+  },
+  {
+    "printed": "Em bé thông minh",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "story",
+        "textName": "Em bé thông minh"
+      }
+    ]
+  },
+  {
+    "printed": "Em bé và chim vàng anh",
+    "targets": [
+      {
+        "story": 85,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Em bé và chim vàng anh"
+      }
+    ]
+  },
+  {
+    "printed": "Em Cốc",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "chu-thich",
+        "textName": "Em Cốc",
+        "footnote": "12"
+      }
+    ]
+  },
+  {
+    "printed": "Eng Cuội",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Eng Cuội"
+      }
+    ]
+  },
+  {
+    "printed": "Ếch lấy con vua",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ếch lấy con vua"
+      }
+    ]
+  },
+  {
+    "printed": "Gả em thế chị",
+    "targets": [
+      {
+        "story": 52,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Gả em thế chị"
+      }
+    ]
+  },
+  {
+    "printed": "Gái ngoan dạy chồng",
+    "targets": [
+      {
+        "story": 90,
+        "tap": "II",
+        "location": "story",
+        "textName": "Gái ngoan dạy chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Gái ngoan dạy chồn",
+    "qualifier": "truyện Nam Trung Bộ",
+    "targets": [
+      {
+        "story": 90,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Gái ngoan dạy chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Gầu Nà",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Gầu Nà"
+      }
+    ]
+  },
+  {
+    "printed": "Gầu Nà Gầu Rềnh",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Gầu Nà, Gầu Rềnh"
+      }
+    ]
+  },
+  {
+    "printed": "Gia sản một bức tranh",
+    "targets": [
+      {
+        "story": 153,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Gia sản một bức tranh"
+      }
+    ]
+  },
+  {
+    "printed": "Giáp Hải",
+    "targets": [
+      {
+        "story": 149,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Giáp Hải"
+      }
+    ]
+  },
+  {
+    "printed": "Giáp Kén xã Nhộng",
+    "targets": [
+      {
+        "story": 191,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Giáp Kén - xã Nhộng"
+      }
+    ]
+  },
+  {
+    "printed": "Giấc mộng kê vàng",
+    "aliasOf": "Giấc mộng Nam-kha",
+    "targets": [
+      {
+        "story": 117,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Giấc mộng Nam-kha"
+      }
+    ]
+  },
+  {
+    "printed": "Giấc mộng kê vàng thứ hai",
+    "targets": [
+      {
+        "story": 117,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Giấc mộng kê vàng thứ hai"
+      }
+    ]
+  },
+  {
+    "printed": "Giấc mộng Nam Kha",
+    "targets": [
+      {
+        "story": 117,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Giấc mộng Nam-kha"
+      }
+    ]
+  },
+  {
+    "printed": "\"Giận mày tao ở với ai\" hay là truyện Phượng hoàng đất",
+    "targets": [
+      {
+        "story": 199,
+        "tap": "V",
+        "location": "story",
+        "textName": "\"Giận mày tao ở với ai\" hay là truyện phượng hoàng đất"
+      }
+    ]
+  },
+  {
+    "printed": "Giấu đình dưới giếng",
+    "targets": [
+      {
+        "story": 123,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Giấu đình dưới giếng"
+      }
+    ]
+  },
+  {
+    "printed": "Giết chó khuyên chồng",
+    "targets": [
+      {
+        "story": 50,
+        "tap": "II",
+        "location": "story",
+        "textName": "Giết chó khuyên chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Giết quỷ bốn mồm năm mũi",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Giết quỷ bốn mồm năm mũi"
+      }
+    ]
+  },
+  {
+    "printed": "Gốc tích bánh chưng và bánh dày",
+    "targets": [
+      {
+        "story": 24,
+        "tap": "I",
+        "location": "story",
+        "textName": "Gốc tích bánh chưng và bánh dầy"
+      }
+    ]
+  },
+  {
+    "printed": "Gốc tích bộ da con hổ",
+    "targets": [
+      {
+        "story": 86,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "gốc tích bộ da con hổ"
+      }
+    ]
+  },
+  {
+    "printed": "Gốc tích bộ lông quạ và bộ lông công",
+    "targets": [
+      {
+        "story": 16,
+        "tap": "I",
+        "location": "story",
+        "textName": "Gốc tích bộ lông quạ và bộ lông công"
+      }
+    ]
+  },
+  {
+    "printed": "Gốc tích cái nốt dưới cổ con trâu",
+    "targets": [
+      {
+        "story": 18,
+        "tap": "I",
+        "location": "story",
+        "textName": "Gốc tích cái nốt dưới cổ con trâu"
+      }
+    ]
+  },
+  {
+    "printed": "Gốc tích ruộng thác đao hay là truyện Lê Phụng Hiểu",
+    "targets": [
+      {
+        "story": 25,
+        "tap": "I",
+        "location": "story",
+        "textName": "Gốc tích ruộng thác đao  hay là truyện Lê Phụng Hiểu"
+      }
+    ]
+  },
+  {
+    "printed": "Gốc tích tiếng kêu của vạc, cộc, dủ dỉ, đa đa và chuột",
+    "targets": [
+      {
+        "story": 17,
+        "tap": "I",
+        "location": "story",
+        "textName": "Gốc tích tiếng kêu của vạc, cộc, dủ dỉ, đa đa và chuột"
+      }
+    ]
+  },
+  {
+    "printed": "Gơ-liu Gơ-lát",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Gơ-liu Gơ-lát"
+      }
+    ]
+  },
+  {
+    "printed": "Ha-rô-gô-mô hay là chiếc áo lông",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Ha-rô-gô-mô là chiếc áo lông"
+      }
+    ]
+  },
+  {
+    "printed": "Hà Ô Lôi",
+    "targets": [
+      {
+        "story": 116,
+        "tap": "III",
+        "location": "story",
+        "textName": "Hà Ô Lôi"
+      }
+    ]
+  },
+  {
+    "printed": "Hà Rầm Hà Rạc",
+    "targets": [
+      {
+        "story": 152,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Hà rầm hà rạc"
+      }
+    ]
+  },
+  {
+    "printed": "Hai anh em",
+    "targets": [
+      {
+        "story": 195,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Hai anh em"
+      }
+    ]
+  },
+  {
+    "printed": "Hai anh em họ Lê ở Thần đầu",
+    "targets": [
+      {
+        "story": 52,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hai anh em họ Lê ở Thần-đầu"
+      }
+    ]
+  },
+  {
+    "printed": "Hai anh em Lê Nại, Lê Đỉnh",
+    "targets": [
+      {
+        "story": 63,
+        "tap": "II",
+        "location": "story",
+        "textName": "Hai anh em Lê Nại, Lê Đỉnh"
+      }
+    ]
+  },
+  {
+    "printed": "Hai anh em Pờ-rang và Dang",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Hai anh em Pờ-rang và Dang"
+      }
+    ]
+  },
+  {
+    "printed": "Hai anh em và con chó đá",
+    "targets": [
+      {
+        "story": 193,
+        "tap": "V",
+        "location": "story",
+        "textName": "Hai anh em và con chó đá"
+      }
+    ]
+  },
+  {
+    "printed": "Hai bảy mười ba",
+    "targets": [
+      {
+        "story": 201,
+        "tap": "V",
+        "location": "story",
+        "textName": "Hai bảy mười ba"
+      }
+    ]
+  },
+  {
+    "printed": "Hai chàng rể",
+    "targets": [
+      {
+        "story": 68,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hai chàng rể"
+      }
+    ]
+  },
+  {
+    "printed": "Hai chị em",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "hai chị em"
+      }
+    ]
+  },
+  {
+    "printed": "Hai chị em và chàng trẻ tuổi",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Hai chị em và chàng trẻ tuổi"
+      }
+    ]
+  },
+  {
+    "printed": "Hai con cò và con rùa",
+    "targets": [
+      {
+        "story": 143,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Hai con cò và con rùa"
+      }
+    ]
+  },
+  {
+    "printed": "Hai con ngỗng và con rùa",
+    "targets": [
+      {
+        "story": 143,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Hai con ngỗng và con rùa"
+      }
+    ]
+  },
+  {
+    "printed": "Hai cô gái và cục bướu",
+    "targets": [
+      {
+        "story": 132,
+        "tap": "III",
+        "location": "story",
+        "textName": "Hai cô gái và cục bướu"
+      }
+    ]
+  },
+  {
+    "printed": "Hai cụ già và lũ quỷ",
+    "targets": [
+      {
+        "story": 132,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Hai cụ già và lũ quỷ"
+      }
+    ]
+  },
+  {
+    "printed": "Hai đứa mồ côi",
+    "targets": [
+      {
+        "story": 193,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Hai đứa mồ côi"
+      }
+    ]
+  },
+  {
+    "printed": "Hai nàng công chúa nhà Trần",
+    "targets": [
+      {
+        "story": 102,
+        "tap": "III",
+        "location": "story",
+        "textName": "Hai nàng công chúa nhà Trần"
+      }
+    ]
+  },
+  {
+    "printed": "Hai người đầy tớ trung thành",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hai người đầy tớ trung thành"
+      }
+    ]
+  },
+  {
+    "printed": "Hai ông tướng đá rãi",
+    "targets": [
+      {
+        "story": 62,
+        "tap": "II",
+        "location": "story",
+        "textName": "Hai ông tướng Đá Rãi"
+      }
+    ]
+  },
+  {
+    "printed": "Hai tên ăn trộm",
+    "targets": [
+      {
+        "story": 83,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hai tên ăn trộm"
+      }
+    ]
+  },
+  {
+    "printed": "Hang rồng",
+    "targets": [
+      {
+        "story": 131,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Hang rồng"
+      }
+    ]
+  },
+  {
+    "printed": "Hầu Tạo",
+    "targets": [
+      {
+        "story": 98,
+        "tap": "III",
+        "location": "story",
+        "textName": "Hầu Tạo"
+      }
+    ]
+  },
+  {
+    "printed": "Hậu Nghệ",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Hậu Nghệ"
+      }
+    ]
+  },
+  {
+    "printed": "Hoa hồng đẹp",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "chu-thich",
+        "textName": "Hoa hồng đẹp",
+        "footnote": "32"
+      }
+    ]
+  },
+  {
+    "printed": "Hòa thượng và người thợ giày",
+    "targets": [
+      {
+        "story": 192,
+        "tap": "V",
+        "location": "story",
+        "textName": "Hòa thượng và người thợ giày"
+      }
+    ]
+  },
+  {
+    "printed": "Hoàng Tú tân truyện",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Hoàng tú tân truyện"
+      }
+    ]
+  },
+  {
+    "printed": "Hoàng tử Cam",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hoàng tử Cam"
+      }
+    ]
+  },
+  {
+    "printed": "Hoàng tử em rể chó sói",
+    "targets": [
+      {
+        "story": 13,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Hoàng tử em rể chó sói"
+      }
+    ]
+  },
+  {
+    "printed": "Hoàng tử Khỏe",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Hoàng tử Khỏe"
+      }
+    ]
+  },
+  {
+    "printed": "Hoàng tử ở cõi âm",
+    "targets": [
+      {
+        "story": 68,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hoàng tử ở cõi âm"
+      }
+    ]
+  },
+  {
+    "printed": "Hoàng tử rắn",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Hoàng tử rắn"
+      }
+    ]
+  },
+  {
+    "printed": "Hoàng tử và con ngựa",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Hoàng tử và con ngựa"
+      }
+    ]
+  },
+  {
+    "printed": "Hoắc sinh",
+    "targets": [
+      {
+        "story": 109,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Hoắc sinh"
+      }
+    ]
+  },
+  {
+    "printed": "Hoằng Tín Hầu",
+    "targets": [
+      {
+        "story": 162,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Hoằng Tín Hầu"
+      }
+    ]
+  },
+  {
+    "printed": "Hòn gạch nên vợ nên chồng",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hòn gạch nên vợ chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Hố vàng hố bạc",
+    "targets": [
+      {
+        "story": 152,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Hố vàng hố bạc"
+      }
+    ]
+  },
+  {
+    "printed": "Hổ già và khỉ",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hổ già và khỉ"
+      }
+    ]
+  },
+  {
+    "printed": "Hổ, ngựa và chó sói",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hổ, ngựa và chó sói"
+      }
+    ]
+  },
+  {
+    "printed": "Hổ và cáo",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hổ và cáo"
+      }
+    ]
+  },
+  {
+    "printed": "Hổ, voi sợ cóc",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hổ, voi sợ cóc"
+      }
+    ]
+  },
+  {
+    "printed": "Hồn Trương Ba da hàng thịt",
+    "targets": [
+      {
+        "story": 45,
+        "tap": "II",
+        "location": "story",
+        "textName": "Hồn Trương Ba, da hàng thịt"
+      }
+    ]
+  },
+  {
+    "printed": "Hột Nhồi",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hột Nhồi"
+      }
+    ]
+  },
+  {
+    "printed": "Hũ vàng hũ rắn",
+    "targets": [
+      {
+        "story": 151,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Hũ vàng hũ rắn"
+      }
+    ]
+  },
+  {
+    "printed": "Huyền Quang",
+    "targets": [
+      {
+        "story": 147,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Huyền Quang"
+      }
+    ]
+  },
+  {
+    "printed": "Huyền Quang hành",
+    "targets": [
+      {
+        "story": 147,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Huyền Quang hành"
+      }
+    ]
+  },
+  {
+    "printed": "Hữu Ké tân truyện",
+    "targets": [
+      {
+        "story": 53,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Hữu Ké tân truyện"
+      }
+    ]
+  },
+  {
+    "printed": "I-phi-jê-ni",
+    "targets": [
+      {
+        "story": 177,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "I-phi-jê-ni"
+      }
+    ]
+  },
+  {
+    "printed": "Jăng đuy Gô-ghê đi Héc-nhi ăn ngỗng",
+    "targets": [
+      {
+        "story": 144,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Jăng đuy Gô-ghê đi Héc-nhi ăn ngỗng"
+      }
+    ]
+  },
+  {
+    "printed": "Jăng nghèo và Jăng nghèo",
+    "targets": [
+      {
+        "story": 200,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Jăng nghèo và Jăng giàu"
+      }
+    ]
+  },
+  {
+    "printed": "Jăng, thằng ngốc",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Jăng, thằng ngốc"
+      }
+    ]
+  },
+  {
+    "printed": "Jăng và Pi-e",
+    "targets": [
+      {
+        "story": 199,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Jăng và Pi-e"
+      }
+    ]
+  },
+  {
+    "printed": "Kẻ trộm dạy học trò",
+    "targets": [
+      {
+        "story": 83,
+        "tap": "II",
+        "location": "story",
+        "textName": "Kẻ trộm dạy học trò"
+      }
+    ]
+  },
+  {
+    "printed": "Kén rể",
+    "targets": [
+      {
+        "story": 199,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Kén rể"
+      }
+    ]
+  },
+  {
+    "printed": "Khiên Ngưu Chức Nữ",
+    "qualifier": "truyện khác",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Khiên Ngưu Chức nữ"
+      }
+    ]
+  },
+  {
+    "printed": "Khiên Ngưu Chức Nữ",
+    "qualifier": "truyện khác",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Khiên Ngưu Chức nữ"
+      }
+    ]
+  },
+  {
+    "printed": "Không bao giờ biết giận",
+    "targets": [
+      {
+        "story": 199,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Không bao giờ biết giận"
+      }
+    ]
+  },
+  {
+    "printed": "Không nên lấy oán trả ân",
+    "targets": [
+      {
+        "story": 160,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Không nên lấy oán trả ân"
+      }
+    ]
+  },
+  {
+    "printed": "Khổng Lồ đúc chuông hay là sự tích trâu vàng Hồ Tây",
+    "targets": [
+      {
+        "story": 67,
+        "tap": "II",
+        "location": "story",
+        "textName": "Khổng lồ đúc chuông hay là sự tích trâu vàng Hồ Tây"
+      }
+    ]
+  },
+  {
+    "printed": "Khổng Tử và cô gái",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Khổng Tử và cô gái"
+      }
+    ]
+  },
+  {
+    "printed": "Khước Yêu",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Khước Yêu"
+      }
+    ]
+  },
+  {
+    "printed": "Kiện ngành đa",
+    "targets": [
+      {
+        "story": 57,
+        "tap": "II",
+        "location": "story",
+        "textName": "Kiện ngành  đa"
+      }
+    ]
+  },
+  {
+    "printed": "Kiếp này chẳng lành để dành kiếp sau",
+    "targets": [
+      {
+        "story": 173,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Kiếp này chẳng lành để dành kiếp sau"
+      }
+    ]
+  },
+  {
+    "printed": "Kim Quế",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Kim Quế"
+      }
+    ]
+  },
+  {
+    "printed": "Lai lịch ông Sấm",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Lai lịch ông Sấm"
+      }
+    ]
+  },
+  {
+    "printed": "Làm cho công chúa nói được",
+    "targets": [
+      {
+        "story": 195,
+        "tap": "V",
+        "location": "story",
+        "textName": "Làm cho công chúa nói được"
+      }
+    ]
+  },
+  {
+    "printed": "Làm giường cho vợ đẻ",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Làm giường cho vợ đẻ"
+      }
+    ]
+  },
+  {
+    "printed": "Làm ơn hóa hại",
+    "targets": [
+      {
+        "story": 146,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Làm ơn hóa hại"
+      }
+    ]
+  },
+  {
+    "printed": "Lạng Chượng đánh Mường Muỗi",
+    "targets": [
+      {
+        "story": 174,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Lạng Chương đánh Mường Muỗi"
+      }
+    ]
+  },
+  {
+    "printed": "Lân Hổ đô thống đại vương",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Lân Hồ đô thống đại vương"
+      }
+    ]
+  },
+  {
+    "printed": "Lâu đài và hoa huệ",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Lâu đài và hoa huệ"
+      }
+    ]
+  },
+  {
+    "printed": "Lấy chồng dê",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "story",
+        "textName": "Lấy chồng dê"
+      }
+    ]
+  },
+  {
+    "printed": "Lấy chồng dê (Thánh Tông di thảo)",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Lấy chồng dê"
+      }
+    ]
+  },
+  {
+    "printed": "Lấy chồng dê",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Lấy chồng dê"
+      }
+    ]
+  },
+  {
+    "printed": "Lấy chồng dê (Nghìn lẻ một đêm)",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Lấy chồng dê"
+      }
+    ]
+  },
+  {
+    "printed": "Lấy chồng lang",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Lấy chồng lang"
+      }
+    ]
+  },
+  {
+    "printed": "Lẩy bẩy như Cao Biền dậy non",
+    "targets": [
+      {
+        "story": 39,
+        "tap": "I",
+        "location": "story",
+        "textName": "Lẩy bẩy như Cao Biền dậy non"
+      }
+    ]
+  },
+  {
+    "printed": "Lê Lợi",
+    "targets": [
+      {
+        "story": 99,
+        "tap": "III",
+        "location": "story",
+        "textName": "Lê Lợi"
+      }
+    ]
+  },
+  {
+    "printed": "Lê Như Hổ",
+    "targets": [
+      {
+        "story": 63,
+        "tap": "II",
+        "location": "story",
+        "textName": "Lê Như Hổ"
+      }
+    ]
+  },
+  {
+    "printed": "Lê Văn Khôi",
+    "targets": [
+      {
+        "story": 100,
+        "tap": "III",
+        "location": "story",
+        "textName": "Lê Văn Khôi"
+      }
+    ]
+  },
+  {
+    "printed": "Lệnh Trừ",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Lệnh Trừ"
+      }
+    ]
+  },
+  {
+    "printed": "Linh Lang đại vương",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Linh Lang đại vương"
+      }
+    ]
+  },
+  {
+    "printed": "Long vương mời tiệc",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Long vương mời tiệc"
+      }
+    ]
+  },
+  {
+    "printed": "Lô Chí trưởng giả",
+    "targets": [
+      {
+        "story": 115,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Lô Chí trưởng giả"
+      }
+    ]
+  },
+  {
+    "printed": "Lộ Ban với cây bút thần",
+    "targets": [
+      {
+        "story": 39,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Lộ Ban với cây bút thần"
+      }
+    ]
+  },
+  {
+    "printed": "Lu Lô nhận ra Ma Chuôn và sau đó thấy rõ lòng chàng",
+    "targets": [
+      {
+        "story": 181,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Lu Lô nhận ra Ma Chuôn và sau đó thấy rõ lòng chàng"
+      }
+    ]
+  },
+  {
+    "printed": "Lúa chàng Nai",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Lúa chàng Nai"
+      }
+    ]
+  },
+  {
+    "printed": "Lục Pịa",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Lục Pịa"
+      }
+    ]
+  },
+  {
+    "printed": "Lửa tình",
+    "targets": [
+      {
+        "story": 179,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Lửa tình"
+      }
+    ]
+  },
+  {
+    "printed": "Lưỡi búa của thần sét",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Lưỡi búa của thần sét"
+      }
+    ]
+  },
+  {
+    "printed": "Lưỡi dao thần",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Lưỡi dao thần"
+      }
+    ]
+  },
+  {
+    "printed": "Lương Nhân",
+    "targets": [
+      {
+        "story": 11,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Lương Nhân"
+      }
+    ]
+  },
+  {
+    "printed": "Lưu Bình - Dương Lễ",
+    "targets": [
+      {
+        "story": 181,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Lưu Bình - Dương Lễ"
+      }
+    ]
+  },
+  {
+    "printed": "Lý Ông Trọng hay là sự tích Thánh Chèm",
+    "targets": [
+      {
+        "story": 73,
+        "tap": "II",
+        "location": "story",
+        "textName": "Lý Ông Trọng hay là sự tích Thánh Chèm"
+      }
+    ]
+  },
+  {
+    "printed": "Lý triều đệ tam hoàng hậu sự tích",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Lý triều đệ tam hoàng hậu sự tích"
+      }
+    ]
+  },
+  {
+    "printed": "Ma rai",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ma rai"
+      }
+    ]
+  },
+  {
+    "printed": "Mã Lương với cây bút thần",
+    "targets": [
+      {
+        "story": 39,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Mã Lương với cây bút thần"
+      }
+    ]
+  },
+  {
+    "printed": "Mã Sài Lao Pản",
+    "targets": [
+      {
+        "story": 90,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Mã Sài Lao Pản"
+      }
+    ]
+  },
+  {
+    "printed": "Mài dao dạy vợ",
+    "targets": [
+      {
+        "story": 50,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Mài dao dạy vợ"
+      }
+    ]
+  },
+  {
+    "printed": "Mãng xà vương Tân bằng",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Mãng xà vương Tân-bằng"
+      }
+    ]
+  },
+  {
+    "printed": "Mẹ chồng đổ tội cho nàng dâu",
+    "targets": [
+      {
+        "story": 113,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Mẹ chồng đổ tội cho nàng dâu"
+      }
+    ]
+  },
+  {
+    "printed": "Mẹ con hoàng hậu bị dài mũi",
+    "targets": [
+      {
+        "story": 165,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Mẹ con hoàng hậu bị dài mũi"
+      }
+    ]
+  },
+  {
+    "printed": "Mê-a-dơng",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Mê-a-dơng"
+      }
+    ]
+  },
+  {
+    "printed": "Mế Cụt",
+    "targets": [
+      {
+        "story": 167,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "mế Cụt"
+      }
+    ]
+  },
+  {
+    "printed": "Miếng trầu kỳ diệu",
+    "targets": [
+      {
+        "story": 117,
+        "tap": "III",
+        "location": "story",
+        "textName": "Miếng trầu kỳ diệu"
+      }
+    ]
+  },
+  {
+    "printed": "Một người dại nhất",
+    "targets": [
+      {
+        "story": 108,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Một người dại nhất"
+      }
+    ]
+  },
+  {
+    "printed": "Mụ tiên ác",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Mụ tiên ác"
+      }
+    ]
+  },
+  {
+    "printed": "Mục Liên thăm mẹ ở địa ngục",
+    "targets": [
+      {
+        "story": 19,
+        "tap": "I",
+        "location": "chu-thich",
+        "textName": "Truyện bà mẹ Mục Liên",
+        "footnote": "2"
+      }
+    ]
+  },
+  {
+    "printed": "Mũi dài",
+    "targets": [
+      {
+        "story": 165,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Mũi dài"
+      }
+    ]
+  },
+  {
+    "printed": "Muỗi thần",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Muỗi thần"
+      }
+    ]
+  },
+  {
+    "printed": "Mượn đình",
+    "targets": [
+      {
+        "story": 123,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "mượn đình"
+      }
+    ]
+  },
+  {
+    "printed": "Mưu con thỏ",
+    "targets": [
+      {
+        "story": 88,
+        "tap": "II",
+        "location": "story",
+        "textName": "Mưu con thỏ"
+      }
+    ]
+  },
+  {
+    "printed": "Mưu con thỏ",
+    "qualifier": "truyện Chăm-pa",
+    "targets": [
+      {
+        "story": 87,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Mưu con thỏ"
+      }
+    ]
+  },
+  {
+    "printed": "Mưu đàn bà",
+    "targets": [
+      {
+        "story": 191,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Mưu đàn bà"
+      }
+    ]
+  },
+  {
+    "printed": "Mỵ Châu - Trọng Thủy hay là truyện nỏ thần",
+    "targets": [
+      {
+        "story": 174,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Mỵ Châu - Trọng Thủy hay là truyện nỏ thần"
+      }
+    ]
+  },
+  {
+    "printed": "Nam-hải Quan Thế Âm toàn truyện",
+    "targets": [
+      {
+        "story": 176,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Nam-hải Quan Thế Âm toàn truyện"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Can-tóc và Song Ang-cát",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nàng Can-tóc và nàng Song Ang-cát"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Câu Dặc",
+    "targets": [
+      {
+        "story": 173,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nàng Câu Dặc"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng dâu thông minh",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Nàng dâu thông minh"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Diệp Hạn",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nàng Diệp hạn"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Hơ-lúi",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Nàng Hơ-lúi"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Khao, nàng Đăm",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Nàng Khao, nàng Đăm"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Long Nữ và chàng Tam Lan",
+    "targets": [
+      {
+        "story": 175,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nàng Long Nữ và chàng Tam Lan"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Nhái",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Nàng Nhái"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng tiên cá",
+    "targets": [
+      {
+        "story": 175,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nàng tiên cá"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng tiên khỉ",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Nàng tiên khỉ"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng tiên thứ chín",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Nàng tiên thứ chín"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng tiên trong vỏ ốc",
+    "targets": [
+      {
+        "story": 118,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Nàng tiên trong vỏ ốc"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng tiên trứng",
+    "targets": [
+      {
+        "story": 163,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nàng tiên trứng"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Út diễn ca",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "truyện Nàng Út"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Xáy",
+    "targets": [
+      {
+        "story": 135,
+        "tap": "III",
+        "location": "chu-thich",
+        "textName": "Nàng Xáy",
+        "footnote": "6"
+      }
+    ]
+  },
+  {
+    "printed": "Nàng Xuân Hương",
+    "targets": [
+      {
+        "story": 169,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Nàng Xuân Hương"
+      }
+    ]
+  },
+  {
+    "printed": "Năm con chuột",
+    "targets": [
+      {
+        "story": 140,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Năm con chuột"
+      }
+    ]
+  },
+  {
+    "printed": "Năng Nhẫn Bất Năng Nhẫn hành",
+    "targets": [
+      {
+        "story": 6,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Năng Nhẫn Bất Năng Nhẫn hành"
+      }
+    ]
+  },
+  {
+    "printed": "Ngải trăm ngày",
+    "targets": [
+      {
+        "story": 187,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Ngải trăm ngày"
+      }
+    ]
+  },
+  {
+    "printed": "Ngậm ngải tìm trầm hay là sự tích núi Mẫu tử",
+    "targets": [
+      {
+        "story": 187,
+        "tap": "V",
+        "location": "story",
+        "textName": "Ngậm ngải tìm trầm hay là sự tích núi Mẫu-Tử"
+      }
+    ]
+  },
+  {
+    "printed": "Nghêu Sò Ốc Hến",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Nghêu Sò Ốc Hến"
+      }
+    ]
+  },
+  {
+    "printed": "Nghĩa vợ chồng",
+    "targets": [
+      {
+        "story": 173,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nghĩa vợ chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Ngoại tình bị bại lộ",
+    "targets": [
+      {
+        "story": 57,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Ngoại tình bị bại lộ"
+      }
+    ]
+  },
+  {
+    "printed": "Ngọt miệng chua lòng",
+    "targets": [
+      {
+        "story": 186,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Ngọt miệng chua lòng"
+      }
+    ]
+  },
+  {
+    "printed": "Ngô Trân",
+    "targets": [
+      {
+        "story": 158,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ngô Trân"
+      }
+    ]
+  },
+  {
+    "printed": "Ngốc buôn mắm tôm",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Ngốc buôn mắm tôm"
+      }
+    ]
+  },
+  {
+    "printed": "Ngôn ngữ của những dấu hiệu",
+    "targets": [
+      {
+        "story": 192,
+        "tap": "V",
+        "location": "story",
+        "textName": "Ngôn ngữ của những dấu hiệu"
+      }
+    ]
+  },
+  {
+    "printed": "Ngu Công dời núi",
+    "targets": [
+      {
+        "story": 94,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ngu Công dời núi"
+      }
+    ]
+  },
+  {
+    "printed": "Nguồn gốc bộ da con hổ và hàm trên con trâu",
+    "targets": [
+      {
+        "story": 86,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Nguồn gốc bộ da con hổ và hàm trên con trâu"
+      }
+    ]
+  },
+  {
+    "printed": "Nguồn gốc loài người và người đàn bà đầu tiên",
+    "targets": [
+      {
+        "story": 39,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Nguồn gốc loài người và người đàn bà đầu tiên"
+      }
+    ]
+  },
+  {
+    "printed": "Nguyễn Khắc Hoành",
+    "targets": [
+      {
+        "story": 46,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Nguyễn Khắc Hoành"
+      }
+    ]
+  },
+  {
+    "printed": "Nguyễn Khoa Đăng",
+    "targets": [
+      {
+        "story": 111,
+        "tap": "III",
+        "location": "story",
+        "textName": "Nguyễn Khoa Đăng"
+      }
+    ]
+  },
+  {
+    "printed": "Nguyễn Thị Bích Châu",
+    "targets": [
+      {
+        "story": 177,
+        "tap": "V",
+        "location": "story",
+        "textName": "Nguyễn Thị Bích Châu"
+      }
+    ]
+  },
+  {
+    "printed": "Nguyễn Văn Giai",
+    "targets": [
+      {
+        "story": 149,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nguyễn Văn Giai"
+      }
+    ]
+  },
+  {
+    "printed": "Ngư tinh",
+    "targets": [
+      {
+        "story": 155,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ngư tinh"
+      }
+    ]
+  },
+  {
+    "printed": "Người ả đào với giặc Minh",
+    "targets": [
+      {
+        "story": 75,
+        "tap": "II",
+        "location": "story",
+        "textName": "Người ả đào với giặc Minh"
+      }
+    ]
+  },
+  {
+    "printed": "Người anh tham lam",
+    "targets": [
+      {
+        "story": 150,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Người anh tham lam"
+      }
+    ]
+  },
+  {
+    "printed": "Người ăn trộm và bốn cô gái",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Người ăn trộm và bốn cô gái"
+      }
+    ]
+  },
+  {
+    "printed": "Người bảy ống",
+    "targets": [
+      {
+        "story": 66,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Người bảy ống"
+      }
+    ]
+  },
+  {
+    "printed": "Người câu cá trẻ tuổi",
+    "targets": [
+      {
+        "story": 130,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Người câu cá trẻ tuổi"
+      }
+    ]
+  },
+  {
+    "printed": "Người chồng tội phạm",
+    "targets": [
+      {
+        "story": 47,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Người chồng tội phạm"
+      }
+    ]
+  },
+  {
+    "printed": "Người có mười con trâu",
+    "targets": [
+      {
+        "story": 108,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Người có mười con trâu"
+      }
+    ]
+  },
+  {
+    "printed": "Người con gái cá",
+    "targets": [
+      {
+        "story": 42,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Người con gái cá"
+      }
+    ]
+  },
+  {
+    "printed": "Người cưới ma",
+    "targets": [
+      {
+        "story": 184,
+        "tap": "V",
+        "location": "story",
+        "textName": "Người cưới ma"
+      }
+    ]
+  },
+  {
+    "printed": "Người cưới ma",
+    "qualifier": "truyện khác",
+    "targets": [
+      {
+        "story": 184,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Người cưới ma"
+      }
+    ]
+  },
+  {
+    "printed": "Người dân nghèo và Ngọc Hoàng",
+    "targets": [
+      {
+        "story": 136,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người dân nghèo và Ngọc Hoàng"
+      }
+    ]
+  },
+  {
+    "printed": "Người dì ghẻ ác nghiệt hay là sự tích con dế",
+    "targets": [
+      {
+        "story": 145,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Người dì ghẻ ác nghiệt hay là sự tích con dế"
+      }
+    ]
+  },
+  {
+    "printed": "Người dụ dỗ",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Người dụ dỗ"
+      }
+    ]
+  },
+  {
+    "printed": "Người đàn bà bị vu oan",
+    "targets": [
+      {
+        "story": 109,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người đàn bà bị vu oan"
+      }
+    ]
+  },
+  {
+    "printed": "Người đàn bà lấy rồng",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Người đàn bà lấy rồng"
+      }
+    ]
+  },
+  {
+    "printed": "Người đàn bà mất tích",
+    "targets": [
+      {
+        "story": 114,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người đàn bà mất tích"
+      }
+    ]
+  },
+  {
+    "printed": "Người đánh cá và hung thần",
+    "targets": [
+      {
+        "story": 160,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Người đánh cá và hung thần"
+      }
+    ]
+  },
+  {
+    "printed": "Người đầy tớ và người ăn trộm",
+    "targets": [
+      {
+        "story": 106,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người đầy tớ và người ăn trộm"
+      }
+    ]
+  },
+  {
+    "printed": "Người đẻ trứng",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Người đẻ trứng"
+      }
+    ]
+  },
+  {
+    "printed": "Người đi câu nơi ao Trời",
+    "targets": [
+      {
+        "story": 105,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Người đi câu nơi ao Trời"
+      }
+    ]
+  },
+  {
+    "printed": "Người đi dạo âm phủ",
+    "targets": [
+      {
+        "story": 30,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Người đi dạo âm phủ"
+      }
+    ]
+  },
+  {
+    "printed": "Người điên thứ ba",
+    "targets": [
+      {
+        "story": 139,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Người điên thứ ba"
+      }
+    ]
+  },
+  {
+    "printed": "Người đốt than",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Người đốt than"
+      }
+    ]
+  },
+  {
+    "printed": "Người em tài giỏi",
+    "targets": [
+      {
+        "story": 163,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Người em tài giỏi"
+      }
+    ]
+  },
+  {
+    "printed": "Người em út",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Người em út"
+      }
+    ]
+  },
+  {
+    "printed": "Người hiểu tiếng loài vật",
+    "qualifier": "truyện Việt-nam",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Người hiểu tiếng loài vật"
+      }
+    ]
+  },
+  {
+    "printed": "Người hiểu tiếng loài vật",
+    "qualifier": "truyện Goa-đờ-lúp",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Người hiểu tiếng loài vật"
+      }
+    ]
+  },
+  {
+    "printed": "Người họ Liêu và Diêm Vương",
+    "targets": [
+      {
+        "story": 93,
+        "tap": "II",
+        "location": "story",
+        "textName": "Người họ Liêu và Diêm Vương"
+      }
+    ]
+  },
+  {
+    "printed": "Người hóa dế",
+    "targets": [
+      {
+        "story": 133,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người hóa dế"
+      }
+    ]
+  },
+  {
+    "printed": "Người học trò không sợ Trời",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Người học trò không sợ Trời"
+      }
+    ]
+  },
+  {
+    "printed": "Người học trò và con hổ",
+    "targets": [
+      {
+        "story": 160,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Người học trò và con hổ"
+      }
+    ]
+  },
+  {
+    "printed": "Người học trò ba con quỷ",
+    "targets": [
+      {
+        "story": 131,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người học trò và ba con quỷ"
+      }
+    ]
+  },
+  {
+    "printed": "Người kết anh em với quỷ",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Người kết anh em với quỷ"
+      }
+    ]
+  },
+  {
+    "printed": "Người lấy cóc",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người lấy cóc"
+      }
+    ]
+  },
+  {
+    "printed": "Người lấy cóc",
+    "qualifier": "truyện miền Bắc",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Người lấy cóc"
+      }
+    ]
+  },
+  {
+    "printed": "Người lấy ếch",
+    "targets": [
+      {
+        "story": 129,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người lấy ếch"
+      }
+    ]
+  },
+  {
+    "printed": "Người lấy ma",
+    "targets": [
+      {
+        "story": 184,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Người lấy ma"
+      }
+    ]
+  },
+  {
+    "printed": "Người lấy tiên",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Người lấy tiên"
+      }
+    ]
+  },
+  {
+    "printed": "Người mua khôn",
+    "targets": [
+      {
+        "story": 57,
+        "tap": "II",
+        "location": "chu-thich",
+        "textName": "Người mua khôn",
+        "footnote": "5"
+      }
+    ]
+  },
+  {
+    "printed": "Người tham vỡ bụng",
+    "targets": [
+      {
+        "story": 59,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Người tham vỡ bụng"
+      }
+    ]
+  },
+  {
+    "printed": "Người thợ dệt và sứ thần",
+    "targets": [
+      {
+        "story": 192,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Người thợ dệt và sứ thần"
+      }
+    ]
+  },
+  {
+    "printed": "Người thợ đúc và anh học nghề",
+    "targets": [
+      {
+        "story": 122,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người thợ đúc và anh học nghề"
+      }
+    ]
+  },
+  {
+    "printed": "Người thợ mộc Nam-hoa",
+    "targets": [
+      {
+        "story": 105,
+        "tap": "III",
+        "location": "story",
+        "textName": "Người thợ mộc Nam-Hoa"
+      }
+    ]
+  },
+  {
+    "printed": "Người thợ săn và mụ Chằng",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Người thợ săn và mụ chằng"
+      }
+    ]
+  },
+  {
+    "printed": "Người vợ chung thủy",
+    "targets": [
+      {
+        "story": 109,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Người vợ chung thủy"
+      }
+    ]
+  },
+  {
+    "printed": "Người vợ hi sinh cho thần Biển cứu chồng",
+    "targets": [
+      {
+        "story": 177,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Người vợ hy sinh cho thần Biển cứu chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Người vợ thông minh",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Người vợ thông minh"
+      }
+    ]
+  },
+  {
+    "printed": "Nhà kiến trúc, vợ anh ta và ba vị đại thần của Gu-va-chia",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Nhà kiến trúc, vợ anh ta và ba vị đại nhân của vua Gu-va-chia"
+      }
+    ]
+  },
+  {
+    "printed": "Nhà lang với anh Tới",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Nhà lang với anh Tới"
+      }
+    ]
+  },
+  {
+    "printed": "Nhà sư già muốn lấy vợ",
+    "targets": [
+      {
+        "story": 200,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Nhà sư già muốn lấy vợ"
+      }
+    ]
+  },
+  {
+    "printed": "Nhà sư hoàn tục và ba cô gái",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Nhà sư hoàn tục và ba cô gái"
+      }
+    ]
+  },
+  {
+    "printed": "Nhà sư và cá kình",
+    "targets": [
+      {
+        "story": 136,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Nhà sư và cá kình"
+      }
+    ]
+  },
+  {
+    "printed": "Nhảy vào lửa cứu chồng",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Nhảy vào lửa cứu chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Nhã, người săn nai",
+    "aliasOf": "Chiếc sừng nai và mụ Hùm",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Chiếc sừng nai và mụ Hùm"
+      }
+    ]
+  },
+  {
+    "printed": "Nhân tham tài nhi tử, điểu tham thực nhi vong",
+    "targets": [
+      {
+        "story": 59,
+        "tap": "II",
+        "location": "story",
+        "textName": "Nhân tham tài nhi tử, điểu tham thực nhi vong"
+      }
+    ]
+  },
+  {
+    "printed": "Nhẹ và Nặng",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nhẹ và Nặng"
+      }
+    ]
+  },
+  {
+    "printed": "Những con vật biết ơn",
+    "targets": [
+      {
+        "story": 92,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Những con vật biết ơn"
+      }
+    ]
+  },
+  {
+    "printed": "Nói dối như Cuội",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "story",
+        "textName": "Nói dối như Cuội"
+      }
+    ]
+  },
+  {
+    "printed": "Nói dối như Cuội",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Nói dối như Cuội"
+      }
+    ]
+  },
+  {
+    "printed": "Nói khoác mất con gái",
+    "targets": [
+      {
+        "story": 195,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Nói khoác mất con gái"
+      }
+    ]
+  },
+  {
+    "printed": "Non thúc Pa-ca-ra-man",
+    "targets": [
+      {
+        "story": 39,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Non thúc Pa-ca-ra-man"
+      }
+    ]
+  },
+  {
+    "printed": "Nông dân với quỷ",
+    "targets": [
+      {
+        "story": 23,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Nông dân với quỷ"
+      }
+    ]
+  },
+  {
+    "printed": "Nông dân với Thành hoàng",
+    "targets": [
+      {
+        "story": 23,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Nông dân với Thành hoàng"
+      }
+    ]
+  },
+  {
+    "printed": "Nợ duyên trong mộng",
+    "targets": [
+      {
+        "story": 119,
+        "tap": "III",
+        "location": "story",
+        "textName": "Nợ duyên trong mộng"
+      }
+    ]
+  },
+  {
+    "printed": "Nợ như chúa Chổm",
+    "targets": [
+      {
+        "story": 44,
+        "tap": "II",
+        "location": "story",
+        "textName": "Nợ như Chúa Chổm"
+      }
+    ]
+  },
+  {
+    "printed": "Nợ tình chưa trả cho ai, khối tình mang xuống tuyền đài chưa tan",
+    "targets": [
+      {
+        "story": 43,
+        "tap": "II",
+        "location": "story",
+        "textName": "Nợ tình chưa trả cho ai, khối tình mang xuống tuyền đài chưa tan"
+      }
+    ]
+  },
+  {
+    "printed": "Núi Phù Lê",
+    "targets": [
+      {
+        "story": 99,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Núi Phù Lê"
+      }
+    ]
+  },
+  {
+    "printed": "Nữ hành giành bạc",
+    "targets": [
+      {
+        "story": 38,
+        "tap": "I",
+        "location": "story",
+        "textName": "Nữ hành giành bạc"
+      }
+    ]
+  },
+  {
+    "printed": "Nước mắt cá sấu pu-a-nha",
+    "targets": [
+      {
+        "story": 160,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Nước mắt cá sấu pu-a-nha"
+      }
+    ]
+  },
+  {
+    "printed": "Ò Pẻn Ò Kín",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ò Pẻn Ò Kín"
+      }
+    ]
+  },
+  {
+    "printed": "Ông Dài, ông Cộc hay là sự tích thần sông Kỳ cùng",
+    "targets": [
+      {
+        "story": 167,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Ông Dài ông Cộc hay là sự tích thần sông Kỳ-Cùng"
+      }
+    ]
+  },
+  {
+    "printed": "Ông già họ Lê",
+    "targets": [
+      {
+        "story": 153,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Ông già họ Lê"
+      }
+    ]
+  },
+  {
+    "printed": "Ông già trên cung trăng",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ông già trên cung trăng"
+      }
+    ]
+  },
+  {
+    "printed": "Ông hiếu liêm họ Vũ",
+    "targets": [
+      {
+        "story": 11,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Ông hiếu liêm họ Vũ"
+      }
+    ]
+  },
+  {
+    "printed": "Ông Hộ giết thuồng luồng",
+    "targets": [
+      {
+        "story": 69,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "ông Hộ giết thuồng luồng"
+      }
+    ]
+  },
+  {
+    "printed": "Ông lão lái đò",
+    "targets": [
+      {
+        "story": 48,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Ông lão lái đò"
+      }
+    ]
+  },
+  {
+    "printed": "Ông Nam Cường",
+    "targets": [
+      {
+        "story": 95,
+        "tap": "III",
+        "location": "story",
+        "textName": "Ông Nam Cường"
+      }
+    ]
+  },
+  {
+    "printed": "Ông Ồ",
+    "targets": [
+      {
+        "story": 70,
+        "tap": "II",
+        "location": "story",
+        "textName": "Ông Ồ"
+      }
+    ]
+  },
+  {
+    "printed": "Ông Sét",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ông Sét"
+      }
+    ]
+  },
+  {
+    "printed": "Ông Tài Ngào",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Ông Tài Ngào"
+      }
+    ]
+  },
+  {
+    "printed": "Ông thầy pháp",
+    "targets": [
+      {
+        "story": 40,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Ông thầy pháp"
+      }
+    ]
+  },
+  {
+    "printed": "Ông Thiện ông Ác",
+    "targets": [
+      {
+        "story": 150,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ông Thiện ông Ác"
+      }
+    ]
+  },
+  {
+    "printed": "Ông tiên hươu",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Ông tiên hươu"
+      }
+    ]
+  },
+  {
+    "printed": "Ông tổ họ Hoàng giúp làng Thượng Nguyên",
+    "targets": [
+      {
+        "story": 25,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Ông tổ họ Hoàng giúp làng Thượng-nguyên"
+      }
+    ]
+  },
+  {
+    "printed": "Ông vua hiểu tiếng loài vật",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Ông vua hiểu tiếng loài vật"
+      }
+    ]
+  },
+  {
+    "printed": "Ống thuốc thần",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ống thuốc thần"
+      }
+    ]
+  },
+  {
+    "printed": "Phạm Nhĩ hay là sự tích ông Ba mươi",
+    "targets": [
+      {
+        "story": 156,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Phạm Nhĩ hay là sự tích Ông Ba Mươi"
+      }
+    ]
+  },
+  {
+    "printed": "Phân xử tài tình",
+    "targets": [
+      {
+        "story": 113,
+        "tap": "III",
+        "location": "story",
+        "textName": "Phân xử tài tình"
+      }
+    ]
+  },
+  {
+    "printed": "Phiêu lưu của anh chàng ngốc hay là làm theo vợ dặn",
+    "targets": [
+      {
+        "story": 190,
+        "tap": "V",
+        "location": "story",
+        "textName": "Phiêu lưu của anh chàng ngốc hay là làm theo vợ dặn"
+      }
+    ]
+  },
+  {
+    "printed": "Phìn pản phan",
+    "targets": [
+      {
+        "story": 136,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Phìn pản phân"
+      }
+    ]
+  },
+  {
+    "printed": "Phor-tuy-na-tuyx",
+    "targets": [
+      {
+        "story": 165,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Phor-tuy-na-tuyx"
+      }
+    ]
+  },
+  {
+    "printed": "Phương Chính Học",
+    "targets": [
+      {
+        "story": 158,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Phương Chính Học"
+      }
+    ]
+  },
+  {
+    "printed": "Phượng hoàng đậu cây khế",
+    "targets": [
+      {
+        "story": 59,
+        "tap": "II",
+        "location": "chu-thich",
+        "textName": "Phượng hoàng đậu cây khế",
+        "footnote": "2"
+      }
+    ]
+  },
+  {
+    "printed": "Pi-e, anh chàng ngốc",
+    "targets": [
+      {
+        "story": 190,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Pi-e, anh chàng ngốc"
+      }
+    ]
+  },
+  {
+    "printed": "Pô Ta-bai",
+    "targets": [
+      {
+        "story": 120,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Pô Ta-bai"
+      }
+    ]
+  },
+  {
+    "printed": "Pxi-sê",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Pxi-sê"
+      }
+    ]
+  },
+  {
+    "printed": "Quạ và bìm bịp",
+    "targets": [
+      {
+        "story": 16,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Quạ và Bìm bịp"
+      }
+    ]
+  },
+  {
+    "printed": "Quạ vàng",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Quạ vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Quả chuối tiêu kỳ lạ",
+    "targets": [
+      {
+        "story": 165,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Quả chuối tiêu kỳ lạ"
+      }
+    ]
+  },
+  {
+    "printed": "Quả lúc lắc",
+    "targets": [
+      {
+        "story": 165,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Quả lúc lắc"
+      }
+    ]
+  },
+  {
+    "printed": "Quan Âm Nam-hải",
+    "aliasOf": "Bà chúa Ba",
+    "targets": [
+      {
+        "story": 176,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Bà chúa Ba"
+      }
+    ]
+  },
+  {
+    "printed": "Quan Âm Thị Kính",
+    "targets": [
+      {
+        "story": 176,
+        "tap": "V",
+        "location": "story",
+        "textName": "Quan Âm Thị Kính"
+      }
+    ]
+  },
+  {
+    "printed": "Quan Âm Thị Kính, điệu kể hạnh",
+    "targets": [
+      {
+        "story": 176,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Quan âm Thị Kính theo diệu kể hạnh"
+      }
+    ]
+  },
+  {
+    "printed": "Quan huyện và người thợ giày",
+    "targets": [
+      {
+        "story": 192,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Quan huyện và người thợ giày"
+      }
+    ]
+  },
+  {
+    "printed": "Quan Triều",
+    "qualifier": "truyện Bắc-giang",
+    "targets": [
+      {
+        "story": 139,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Quan triều"
+      }
+    ]
+  },
+  {
+    "printed": "Quan Triều",
+    "qualifier": "truyện Tày",
+    "targets": [
+      {
+        "story": 139,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Quan triều"
+      }
+    ]
+  },
+  {
+    "printed": "Quan Triều hay là chiếc áo tàng hình",
+    "targets": [
+      {
+        "story": 139,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Quan triều hay là chiếc áo tàng hình"
+      }
+    ]
+  },
+  {
+    "printed": "Quân tử",
+    "targets": [
+      {
+        "story": 163,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Quân tử"
+      }
+    ]
+  },
+  {
+    "printed": "Quân tử ruồi",
+    "targets": [
+      {
+        "story": 163,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Quân tử ruồi"
+      }
+    ]
+  },
+  {
+    "printed": "Quận Gió",
+    "targets": [
+      {
+        "story": 77,
+        "tap": "II",
+        "location": "story",
+        "textName": "Quận Gió"
+      }
+    ]
+  },
+  {
+    "printed": "Quận He",
+    "targets": [
+      {
+        "story": 97,
+        "tap": "III",
+        "location": "story",
+        "textName": "Quận He"
+      }
+    ]
+  },
+  {
+    "printed": "Quậy",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Quậy"
+      }
+    ]
+  },
+  {
+    "printed": "Quỷ háng trắng",
+    "targets": [
+      {
+        "story": 101,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Quỷ háng trắng"
+      }
+    ]
+  },
+  {
+    "printed": "Quỷ Xương Cuồng",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Quỷ Xương Cuồng"
+      }
+    ]
+  },
+  {
+    "printed": "Quyền làm chồng",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Quyền làm chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Ra-ma-ya-na",
+    "qualifier": "truyện Khơ-me",
+    "targets": [
+      {
+        "story": 120,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ra-ma-ya-na"
+      }
+    ]
+  },
+  {
+    "printed": "Rạch đùi giấu ngọc",
+    "targets": [
+      {
+        "story": 159,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Rạch đùi giấu ngọc"
+      }
+    ]
+  },
+  {
+    "printed": "Rắn báo oán",
+    "targets": [
+      {
+        "story": 158,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Rắn báo oán"
+      }
+    ]
+  },
+  {
+    "printed": "Rắn, chuột trả ơn",
+    "targets": [
+      {
+        "story": 48,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Rắn, chuột trả ơn"
+      }
+    ]
+  },
+  {
+    "printed": "Rắn cụt đuôi",
+    "targets": [
+      {
+        "story": 167,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Rắn cụt đuôi"
+      }
+    ]
+  },
+  {
+    "printed": "Rắn hóa vàng",
+    "targets": [
+      {
+        "story": 151,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Rắn hóa vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Ren-nê với ông chúa",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Ren-nê với ông chúa"
+      }
+    ]
+  },
+  {
+    "printed": "Ri-sơ-đô",
+    "targets": [
+      {
+        "story": 60,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Ri-sơ-đô"
+      }
+    ]
+  },
+  {
+    "printed": "Rì cắn ri câu",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Rì cắn rì câu"
+      }
+    ]
+  },
+  {
+    "printed": "Rớt và Quỷ",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Rớt và Quỷ"
+      }
+    ]
+  },
+  {
+    "printed": "Rủ nhau đi kiếm mật ong",
+    "targets": [
+      {
+        "story": 196,
+        "tap": "V",
+        "location": "story",
+        "textName": "Rủ nhau đi kiếm mật ong"
+      }
+    ]
+  },
+  {
+    "printed": "Rùa giúp Trương Nghi xây thành",
+    "targets": [
+      {
+        "story": 174,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Rùa giúp Trương Nghi xây thành"
+      }
+    ]
+  },
+  {
+    "printed": "Rùa kết bạn với vịt trời",
+    "targets": [
+      {
+        "story": 143,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Rùa kết bạn với vịt trời"
+      }
+    ]
+  },
+  {
+    "printed": "Rùa và hổ",
+    "targets": [
+      {
+        "story": 88,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Rùa và hổ"
+      }
+    ]
+  },
+  {
+    "printed": "Rùa và le biển",
+    "targets": [
+      {
+        "story": 143,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Rùa và le biển"
+      }
+    ]
+  },
+  {
+    "printed": "Rum Dứ với nàng tiên",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Rum Dứ với nàng tiên"
+      }
+    ]
+  },
+  {
+    "printed": "Run và Rai",
+    "targets": [
+      {
+        "story": 150,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Run và Rai"
+      }
+    ]
+  },
+  {
+    "printed": "Sáu tài tử",
+    "targets": [
+      {
+        "story": 66,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Sáu tài tử"
+      }
+    ]
+  },
+  {
+    "printed": "Sấu mất lưỡi",
+    "targets": [
+      {
+        "story": 88,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Sấu mất lưỡi"
+      }
+    ]
+  },
+  {
+    "printed": "Sim-chen",
+    "targets": [
+      {
+        "story": 177,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Sim-chen"
+      }
+    ]
+  },
+  {
+    "printed": "Sinh con rồi mới sinh cha, sinh cháu giữ nhà rồi mới sinh ông",
+    "targets": [
+      {
+        "story": 46,
+        "tap": "II",
+        "location": "story",
+        "textName": "Sinh con rồi mới sinh cha sinh cháu giữ nhà rồi mới sinh ông"
+      }
+    ]
+  },
+  {
+    "printed": "Sinh Lữ cứu con Ngọc Hoàng",
+    "targets": [
+      {
+        "story": 68,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Sinh Lữ cứu con Ngọc Hoàng"
+      }
+    ]
+  },
+  {
+    "printed": "Sinh nở dưới mồ",
+    "targets": [
+      {
+        "story": 184,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Sinh nở dưới mồ"
+      }
+    ]
+  },
+  {
+    "printed": "Sip-pây-ta-rô",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Sip-pây-ta-rô"
+      }
+    ]
+  },
+  {
+    "printed": "Sọ Dừa",
+    "qualifier": "truyện Chăm-pa",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Sọ Dừa"
+      }
+    ]
+  },
+  {
+    "printed": "Sọ Dừa, Kinh hóa",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "truyện Sọ Dừa"
+      }
+    ]
+  },
+  {
+    "printed": "Sọ Dừa",
+    "qualifier": "truyện dân tộc Lê",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Sọ Dừa"
+      }
+    ]
+  },
+  {
+    "printed": "Sóc lành, Sóc ác hay là Sự tích cây cỏ may",
+    "targets": [
+      {
+        "story": 150,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Sóc-lành Sóc-ác hay là Sự tích cây cỏ may"
+      }
+    ]
+  },
+  {
+    "printed": "Sóc và Sau",
+    "targets": [
+      {
+        "story": 197,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Sóc và Sau"
+      }
+    ]
+  },
+  {
+    "printed": "Sơ kính tân trang",
+    "targets": [
+      {
+        "story": 173,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Sơ kính tân trang"
+      }
+    ]
+  },
+  {
+    "printed": "Sợi bấc tìm ra thủ phạm",
+    "targets": [
+      {
+        "story": 112,
+        "tap": "III",
+        "location": "story",
+        "textName": "Sợi bấc tìm ra thủ phạm"
+      }
+    ]
+  },
+  {
+    "printed": "Su-đi-ja-khát và Chan-ta-khát",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Su-đi-ja-khát và Chan-ta-khát"
+      }
+    ]
+  },
+  {
+    "printed": "Sứ giả vua Tạng đi cầu hôn",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Sứ giả vua Tạng đi cầu hôn"
+      }
+    ]
+  },
+  {
+    "printed": "Sự bí mật",
+    "targets": [
+      {
+        "story": 50,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Sự bí mật"
+      }
+    ]
+  },
+  {
+    "printed": "Sự gian dối của đàn bà",
+    "targets": [
+      {
+        "story": 11,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự gian dối của đàn bà"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích bái ông Nam",
+    "targets": [
+      {
+        "story": 178,
+        "tap": "V",
+        "location": "story",
+        "textName": "Sự tích bãi Ông Nam"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích Bồ tát Chân nhân",
+    "targets": [
+      {
+        "story": 120,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Sự tích Bồ tát Chân Nhân"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cá he",
+    "targets": [
+      {
+        "story": 13,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích cá he"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cái chân sau con chó",
+    "targets": [
+      {
+        "story": 19,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích cái chân sau con chó"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cái chổi",
+    "targets": [
+      {
+        "story": 20,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích cái chổi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cái ống nhổ",
+    "targets": [
+      {
+        "story": 22,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích cái ống nhổ"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cây chay",
+    "targets": [
+      {
+        "story": 176,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Sự tích cây chay"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cây chuối rừng",
+    "targets": [
+      {
+        "story": 121,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Sự tích cây chuối rừng"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cây huyết dụ",
+    "targets": [
+      {
+        "story": 4,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích cây huyết dụ"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cây nêu ngày Tết",
+    "targets": [
+      {
+        "story": 23,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích cây nêu ngày Tết"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cây phướn nhà chùa",
+    "targets": [
+      {
+        "story": 13,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích cây phướn nhà chùa"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cây tràm",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Sự tích cây tràm"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chị Hằng",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Sự tích chị Hằng"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim bắt cô trói cột",
+    "targets": [
+      {
+        "story": 8,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích chim bắt-cô-trói-cột"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim bìm bịp",
+    "targets": [
+      {
+        "story": 13,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích chim bìm bịp"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim bóp thì bóp",
+    "targets": [
+      {
+        "story": 32,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích chim bóp-thì-bóp"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim đa đa",
+    "targets": [
+      {
+        "story": 9,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích chim đa đa"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim hít cô",
+    "targets": [
+      {
+        "story": 5,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích chim hít cô"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim năm trâu sầu cột",
+    "targets": [
+      {
+        "story": 8,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích chim năm-trâu-sáu-cột"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích năm trâu sáu cột và chim bắt cô trói cột",
+    "targets": [
+      {
+        "story": 8,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích chim năm-trâu-sáu-cột và chim bắt-cô-trói-cột"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim quốc",
+    "targets": [
+      {
+        "story": 7,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích chim quốc"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim quốc",
+    "qualifier": "truyện Trung-quốc",
+    "targets": [
+      {
+        "story": 7,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích chim quốc"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim quốc",
+    "qualifier": "truyện Mường",
+    "targets": [
+      {
+        "story": 7,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích chim quốc"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim quốc",
+    "qualifier": "truyện Nghệ-an",
+    "targets": [
+      {
+        "story": 7,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích chim quốc"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim tu hú",
+    "targets": [
+      {
+        "story": 6,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích chim tu hú"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chim vua quan trói cột",
+    "targets": [
+      {
+        "story": 8,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích chim vua quan trói cột"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích chuông, trống và mõ",
+    "targets": [
+      {
+        "story": 160,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Sự tích chuông, trống và mõ"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con dã tràng",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích con dã tràng"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con dế",
+    "aliasOf": "Người dì ghẻ ác nghiệt",
+    "targets": [
+      {
+        "story": 145,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Người dì ghẻ ác nghiệt hay là sự tích con dế"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con ếch",
+    "targets": [
+      {
+        "story": 10,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích con ếch"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con khỉ",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích con khỉ"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con khỉ",
+    "qualifier": "truyện Nghệ-an",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích con khỉ"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con mối",
+    "targets": [
+      {
+        "story": 36,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "sự tích con mối"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con muỗi",
+    "targets": [
+      {
+        "story": 11,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích con muỗi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con muỗi",
+    "qualifier": "truyện Khơ-me",
+    "targets": [
+      {
+        "story": 11,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích con muỗi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con nhái",
+    "targets": [
+      {
+        "story": 10,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích con nhái"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con sam",
+    "targets": [
+      {
+        "story": 14,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích con sam"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích con thỏ cung trăng",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Sự tích con thỏ cung trăng"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích công chúa Liễu Hạnh",
+    "targets": [
+      {
+        "story": 137,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Sự tích công chúa Liễu Hạnh"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích cửa ô Cầu-dền",
+    "targets": [
+      {
+        "story": 118,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Sự tích cửa ô Cầu-dền"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích dưa hấu",
+    "targets": [
+      {
+        "story": 1,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích dưa hấu"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích đá Bà-rầu",
+    "targets": [
+      {
+        "story": 33,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích đá Bà-Rầu"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích đá Vọng phu",
+    "targets": [
+      {
+        "story": 32,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích đá Vọng Phu"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích đá Vọng phu",
+    "qualifier": "truyện Trung-quốc",
+    "targets": [
+      {
+        "story": 32,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích đá Vọng Phu"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích đầm Mực",
+    "targets": [
+      {
+        "story": 29,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích đầm Mực"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích đầm Nhất dạ và bãi Tự nhiên",
+    "targets": [
+      {
+        "story": 28,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích đầm Nhất-Dạ và bãi Tự-Nhiên"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích đền Cờn",
+    "targets": [
+      {
+        "story": 161,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Sự tích đền Cờn"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích đền Cờn",
+    "qualifier": "truyện đời Trần",
+    "targets": [
+      {
+        "story": 161,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Sự tích đền Cờn"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích đình làng Đa Hòa",
+    "targets": [
+      {
+        "story": 123,
+        "tap": "III",
+        "location": "story",
+        "textName": "Sự tích đình làng Đa Hòa"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích động Từ Thức",
+    "targets": [
+      {
+        "story": 130,
+        "tap": "III",
+        "location": "story",
+        "textName": "Sự tích động Từ Thức"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích hồ Ba Bể",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích hồ Ba-Bể"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích hồ Ba Bể",
+    "qualifier": "truyện Tày",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích hồ Ba-Bể"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích hồ Gươm",
+    "targets": [
+      {
+        "story": 26,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích Hồ Gươm"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích hồ Hai Bể",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích hồ Hai-bể"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích hồ I-kim-ba",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích hồ I-kim-ba"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích hồ Ki-vu",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích hồ Ki-vu"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích khăn tang",
+    "targets": [
+      {
+        "story": 186,
+        "tap": "V",
+        "location": "story",
+        "textName": "Sự tích khăn tang"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích mặt nạ",
+    "targets": [
+      {
+        "story": 185,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Sự tích mặt nạ"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích mười tám ông Phật La Hán",
+    "targets": [
+      {
+        "story": 61,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Sự tích mười tám ông Phật La hán"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích núi mẫu tử",
+    "aliasOf": "Ngậm ngải tìm trầm",
+    "targets": [
+      {
+        "story": 187,
+        "tap": "V",
+        "location": "story",
+        "textName": "Ngậm ngải tìm trầm hay là sự tích núi Mẫu-Tử"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích núi Ngũ hành",
+    "targets": [
+      {
+        "story": 35,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích núi Ngũ-Hành"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích núi thần",
+    "targets": [
+      {
+        "story": 27,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích núi thần"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích Nguyệt lão và dây tơ hồng",
+    "targets": [
+      {
+        "story": 32,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích Nguyệt lão và dây tơ hồng"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích núi Yang-kô",
+    "aliasOf": "Đầu nó vỡ rồi",
+    "targets": [
+      {
+        "story": 141,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Đầu nó vỡ rồi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích ong mật",
+    "targets": [
+      {
+        "story": 131,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Sư tích ong mật"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích ông bạo ngược",
+    "targets": [
+      {
+        "story": 164,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Sự tích ông Bạo Ngược"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích ông bình vôi",
+    "targets": [
+      {
+        "story": 22,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích ông bình vôi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích ông đầu rau",
+    "targets": [
+      {
+        "story": 21,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích ông đầu rau"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích sao hôm, sao mai và sao rua",
+    "targets": [
+      {
+        "story": 32,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích sao hôm, sao mai và sao rua"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích sông Nhà Bè hay là truyện Thủ Huồn",
+    "targets": [
+      {
+        "story": 30,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích sông Nhà-Bè hay là truyện Thủ Huồn"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích sư ông Huyền Chân",
+    "targets": [
+      {
+        "story": 30,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích sư ông Huyền Chân"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích thành Lồi",
+    "targets": [
+      {
+        "story": 34,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích thành Lồi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích Thánh Chèm",
+    "aliasOf": "Lý Ông Trọng",
+    "targets": [
+      {
+        "story": 73,
+        "tap": "II",
+        "location": "story",
+        "textName": "Lý Ông Trọng hay là sự tích Thánh Chèm"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích tháp Báo Ân",
+    "targets": [
+      {
+        "story": 168,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Sự tích tháp Báo Ân"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích tháp Nhạn",
+    "targets": [
+      {
+        "story": 34,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích tháp Nhạn"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích thần bếp",
+    "targets": [
+      {
+        "story": 21,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích thần Bếp"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích trái sầu riêng",
+    "targets": [
+      {
+        "story": 3,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích trái sầu riêng"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích trâu vàng Hồ Tây",
+    "aliasOf": "Khổng Lồ đúc chuông",
+    "targets": [
+      {
+        "story": 67,
+        "tap": "II",
+        "location": "story",
+        "textName": "Khổng lồ đúc chuông hay là sự tích trâu vàng Hồ Tây"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích trầu, cau và vôi",
+    "targets": [
+      {
+        "story": 2,
+        "tap": "I",
+        "location": "story",
+        "textName": "Sự tích trầu, cau và vôi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích trầu cau và vôi",
+    "qualifier": "truyện Nghệ-an",
+    "targets": [
+      {
+        "story": 2,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Sự tích trầu, cau và vôi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích về chùa Thiên tượng",
+    "targets": [
+      {
+        "story": 158,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Sự tích về chùa Thiên-tượng"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích vua Kơ-long Ga-rai xây tháp thi",
+    "targets": [
+      {
+        "story": 34,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "sự tích vua Kơ-long Gia-rai xây tháp thi"
+      }
+    ]
+  },
+  {
+    "printed": "Sự tích xã Bộ đầu",
+    "targets": [
+      {
+        "story": 73,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Sự tích xã Bộ-đầu"
+      }
+    ]
+  },
+  {
+    "printed": "Ta-ca-rô và Ba-ni-hi Ma-ma-ta, người đàn bà ở xứ Mặt trời",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Ta-ca-rô và Ba-ni-hi Ma-ma-ta, người đàn bà ở xứ Mặt trời"
+      }
+    ]
+  },
+  {
+    "printed": "Ta-kheo Ranh với cây thuốc bất tử",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Ta-kheo Ranh với cây thuốc bất tử"
+      }
+    ]
+  },
+  {
+    "printed": "Tài xì phoòng",
+    "targets": [
+      {
+        "story": 175,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tài Xì Phoòng"
+      }
+    ]
+  },
+  {
+    "printed": "Tại sao bụng con ve không có ruột",
+    "targets": [
+      {
+        "story": 170,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tại sao bụng con ve không có ruột"
+      }
+    ]
+  },
+  {
+    "printed": "Tại sao gọi chuột là ông Cống?",
+    "targets": [
+      {
+        "story": 115,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Tại sao gọi chuột là ông cống?"
+      }
+    ]
+  },
+  {
+    "printed": "Tại sao phải kính trọng người già?",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Tại sao phải kính trọng người già?"
+      }
+    ]
+  },
+  {
+    "printed": "Tại sao sông Tô Lịch và sông Thiên Phù hẹp lại?",
+    "targets": [
+      {
+        "story": 31,
+        "tap": "I",
+        "location": "story",
+        "textName": "Tại sao sông Tô-Lịch và sông Thiên-Phù hẹp lại?"
+      }
+    ]
+  },
+  {
+    "printed": "Tại sao ve (mành khẳm) không có ruột?",
+    "targets": [
+      {
+        "story": 170,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tại sao ve (mành khằm) không có ruột?"
+      }
+    ]
+  },
+  {
+    "printed": "Tam và Tứ",
+    "targets": [
+      {
+        "story": 150,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Tam và Tứ"
+      }
+    ]
+  },
+  {
+    "printed": "Tám cuộc phiêu lưu của tôn sư Pa-ra-mác-tha",
+    "targets": [
+      {
+        "story": 196,
+        "tap": "V",
+        "location": "chu-thich",
+        "textName": "Tám cuộc phiêu lưu của tôn sư (gu-ru) Pa-ra-mác-tha",
+        "footnote": "3"
+      }
+    ]
+  },
+  {
+    "printed": "Tấm Cám",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Tấm Cám"
+      }
+    ]
+  },
+  {
+    "printed": "Tấm Cám",
+    "qualifier": "truyện miền Nam",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tấm Cám"
+      }
+    ]
+  },
+  {
+    "printed": "Tất suất bi thu",
+    "targets": [
+      {
+        "story": 145,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tất suất bi thu"
+      }
+    ]
+  },
+  {
+    "printed": "Thạch Sanh",
+    "targets": [
+      {
+        "story": 68,
+        "tap": "II",
+        "location": "story",
+        "textName": "Thạch Sanh"
+      }
+    ]
+  },
+  {
+    "printed": "Thạch Sanh",
+    "qualifier": "truyện Tày",
+    "targets": [
+      {
+        "story": 68,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Thạch Sanh"
+      }
+    ]
+  },
+  {
+    "printed": "Thạch Sanh chém chằng",
+    "targets": [
+      {
+        "story": 68,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Thạch Sanh chém chằng"
+      }
+    ]
+  },
+  {
+    "printed": "Thạch Sùng còn thiếu mẻ kho hay là sự tích con mối",
+    "targets": [
+      {
+        "story": 36,
+        "tap": "I",
+        "location": "story",
+        "textName": "Thạch Sùng còn thiếu mẻ kho hay là sự tích con mối"
+      }
+    ]
+  },
+  {
+    "printed": "Thạch tướng quân",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Thạch tướng quân"
+      }
+    ]
+  },
+  {
+    "printed": "Thái thú Diễn Châu",
+    "targets": [
+      {
+        "story": 149,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Thái thú Diễn-châu"
+      }
+    ]
+  },
+  {
+    "printed": "Thái thú Nam Kha",
+    "targets": [
+      {
+        "story": 119,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Thái thú Nam-kha"
+      }
+    ]
+  },
+  {
+    "printed": "Thánh Đản",
+    "targets": [
+      {
+        "story": 105,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Thánh Đản"
+      }
+    ]
+  },
+  {
+    "printed": "Thánh Gióng",
+    "targets": [
+      {
+        "story": 134,
+        "tap": "III",
+        "location": "story",
+        "textName": "Thánh Gióng"
+      }
+    ]
+  },
+  {
+    "printed": "Thánh Tản Viên",
+    "targets": [
+      {
+        "story": 105,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Thánh Tản Viên"
+      }
+    ]
+  },
+  {
+    "printed": "Thánh Jor",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Thánh Jor"
+      }
+    ]
+  },
+  {
+    "printed": "Tháp Dương Lệ",
+    "targets": [
+      {
+        "story": 34,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Tháp Dương-lệ"
+      }
+    ]
+  },
+  {
+    "printed": "Thằng bé gù",
+    "targets": [
+      {
+        "story": 136,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Thằng bé gù"
+      }
+    ]
+  },
+  {
+    "printed": "Thằng Còm",
+    "targets": [
+      {
+        "story": 191,
+        "tap": "V",
+        "location": "story",
+        "textName": "Thằng Còm"
+      }
+    ]
+  },
+  {
+    "printed": "Thằng quáng [thong manh] đi làm rể",
+    "targets": [
+      {
+        "story": 194,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Thằng quáng [thong manh] đi làm rể"
+      }
+    ]
+  },
+  {
+    "printed": "Thần Bếp",
+    "targets": [
+      {
+        "story": 21,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "thần Bếp"
+      }
+    ]
+  },
+  {
+    "printed": "Thần Ếch xanh",
+    "targets": [
+      {
+        "story": 129,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Thần Ếch xanh"
+      }
+    ]
+  },
+  {
+    "printed": "Thần giữ của",
+    "targets": [
+      {
+        "story": 82,
+        "tap": "II",
+        "location": "story",
+        "textName": "Thần giữ của"
+      }
+    ]
+  },
+  {
+    "printed": "Thần tích làng Xuân Cảo",
+    "targets": [
+      {
+        "story": 31,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Thần tích làng Xuân-cảo"
+      }
+    ]
+  },
+  {
+    "printed": "Thần với Thần đồng",
+    "targets": [
+      {
+        "story": 52,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Thần với Thần đồng"
+      }
+    ]
+  },
+  {
+    "printed": "Thần yêu",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Thần yêu"
+      }
+    ]
+  },
+  {
+    "printed": "Thầy bói với hai ông bà già",
+    "targets": [
+      {
+        "story": 88,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Thầy bói với hai ông bà già"
+      }
+    ]
+  },
+  {
+    "printed": "Thầy cứu trò",
+    "targets": [
+      {
+        "story": 142,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Thầy cứu trò"
+      }
+    ]
+  },
+  {
+    "printed": "Thầy lang bất đắc dĩ",
+    "targets": [
+      {
+        "story": 198,
+        "tap": "V",
+        "location": "story",
+        "textName": "Thầy lang bất đắc dĩ"
+      }
+    ]
+  },
+  {
+    "printed": "Thầy mo ngửi",
+    "targets": [
+      {
+        "story": 40,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Thầy mo ngửi"
+      }
+    ]
+  },
+  {
+    "printed": "Thầy Thím",
+    "targets": [
+      {
+        "story": 123,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Thầy Thím"
+      }
+    ]
+  },
+  {
+    "printed": "Thiên lực không phải nhân lực",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Thiên lực không phải nhân lực"
+      }
+    ]
+  },
+  {
+    "printed": "Thịt gà thuốc chồng",
+    "targets": [
+      {
+        "story": 191,
+        "tap": "V",
+        "location": "story",
+        "textName": "Thịt gà thuốc chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Thỏ làm quan tòa lừa ma",
+    "targets": [
+      {
+        "story": 115,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Thỏ làm quan tòa lừa ma"
+      }
+    ]
+  },
+  {
+    "printed": "Thỏ rơ-pai",
+    "targets": [
+      {
+        "story": 87,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Thỏ rơ-pai"
+      }
+    ]
+  },
+  {
+    "printed": "Thơ-mênh Chây",
+    "targets": [
+      {
+        "story": 192,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Thơ-mênh Chây"
+      }
+    ]
+  },
+  {
+    "printed": "Thủ phạm là con sói hung",
+    "targets": [
+      {
+        "story": 170,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Thủ phạm là con sói hung"
+      }
+    ]
+  },
+  {
+    "printed": "Thử thần và miêu thần",
+    "targets": [
+      {
+        "story": 140,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Thử Thần và Miêu Thần"
+      }
+    ]
+  },
+  {
+    "printed": "Tiếng loài chim",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Tiếng loài chim"
+      }
+    ]
+  },
+  {
+    "printed": "Tiếng nói loài vật",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Tiếng nói loài vật"
+      }
+    ]
+  },
+  {
+    "printed": "Tiêu diệt mãng xà",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Tiêu diệt mãng xà"
+      }
+    ]
+  },
+  {
+    "printed": "Tiều Ca-lang",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Tiều Ca-lang"
+      }
+    ]
+  },
+  {
+    "printed": "Tinh con chuột",
+    "targets": [
+      {
+        "story": 115,
+        "tap": "III",
+        "location": "story",
+        "textName": "Tinh con chuột"
+      }
+    ]
+  },
+  {
+    "printed": "Tinh con chuột",
+    "qualifier": "truyện ở Huế",
+    "targets": [
+      {
+        "story": 115,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Tinh con chuột"
+      }
+    ]
+  },
+  {
+    "printed": "Tình nhân biến thành trầu cau",
+    "targets": [
+      {
+        "story": 2,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Tình nhân biến thành trầu cau"
+      }
+    ]
+  },
+  {
+    "printed": "Tình yêu chân chính",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Tình yêu chân chính"
+      }
+    ]
+  },
+  {
+    "printed": "To đầu mà dại, nhỏ dái mà khôn",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "story",
+        "textName": "To đầu mà dại, nhỏ dái mà khôn"
+      }
+    ]
+  },
+  {
+    "printed": "To đầu mà dại, nhỏ dái mà khôn",
+    "qualifier": "truyện Quảng-bình",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "To đầu mà dại, nhỏ dái mà khôn"
+      }
+    ]
+  },
+  {
+    "printed": "Tô thị Vọng phu",
+    "targets": [
+      {
+        "story": 32,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Tô Thị vọng phu"
+      }
+    ]
+  },
+  {
+    "printed": "Tống Trân - Cúc Hoa",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Tống Trân-Cúc Hoa"
+      }
+    ]
+  },
+  {
+    "printed": "Tống Trân - Cúc Hoa",
+    "targets": [
+      {
+        "story": 115,
+        "tap": "III",
+        "location": "chu-thich",
+        "textName": "Tống Trân - Cúc Hoa",
+        "footnote": "2"
+      }
+    ]
+  },
+  {
+    "printed": "Tờ-rít-xtăng và I-dớt",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tờ-rít-xtăng và I-dớt"
+      }
+    ]
+  },
+  {
+    "printed": "Tra tấn hòn đá",
+    "targets": [
+      {
+        "story": 110,
+        "tap": "III",
+        "location": "story",
+        "textName": "Tra tấn hòn đá"
+      }
+    ]
+  },
+  {
+    "printed": "Trạng",
+    "qualifier": "truyện Chăm-pa",
+    "targets": [
+      {
+        "story": 47,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "trạng"
+      },
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "trạng"
+      },
+      {
+        "story": 109,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Trạng"
+      }
+    ]
+  },
+  {
+    "printed": "Trạng Ếch",
+    "targets": [
+      {
+        "story": 63,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Trạng Ếch"
+      },
+      {
+        "story": 192,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Trạng ếch"
+      }
+    ]
+  },
+  {
+    "printed": "Trạng Hiền",
+    "targets": [
+      {
+        "story": 81,
+        "tap": "II",
+        "location": "story",
+        "textName": "Trạng Hiền"
+      }
+    ]
+  },
+  {
+    "printed": "Tranh nhau pho tượng",
+    "targets": [
+      {
+        "story": 39,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Tranh nhau pho tượng"
+      }
+    ]
+  },
+  {
+    "printed": "Triều đương cố sự phú",
+    "aliasOf": "Con cua",
+    "targets": [
+      {
+        "story": 15,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Con cua"
+      }
+    ]
+  },
+  {
+    "printed": "Trinh phụ hai chồng",
+    "targets": [
+      {
+        "story": 56,
+        "tap": "II",
+        "location": "story",
+        "textName": "Trinh phụ hai chồng"
+      }
+    ]
+  },
+  {
+    "printed": "Tro Bếp nam",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tro Bếp nam"
+      }
+    ]
+  },
+  {
+    "printed": "Trò đùa và lừa gạt",
+    "targets": [
+      {
+        "story": 196,
+        "tap": "V",
+        "location": "chu-thich",
+        "textName": "Trò đùa và lừa gạt",
+        "footnote": "3"
+      }
+    ]
+  },
+  {
+    "printed": "Trọng nghĩa khinh tài",
+    "targets": [
+      {
+        "story": 181,
+        "tap": "V",
+        "location": "story",
+        "textName": "Trọng nghĩa khinh tài"
+      }
+    ]
+  },
+  {
+    "printed": "Truyền thuyết Hùng Vương",
+    "targets": [
+      {
+        "story": 69,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Truyền thuyết Hùng Vương"
+      }
+    ]
+  },
+  {
+    "printed": "Truyện ba chàng thiện nghệ",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "chu-thich",
+        "textName": "Truyện ba chàng thiện nghệ",
+        "footnote": "14"
+      }
+    ]
+  },
+  {
+    "printed": "Truyện bà Hiếu",
+    "targets": [
+      {
+        "story": 30,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Truyện bà Hiếu"
+      }
+    ]
+  },
+  {
+    "printed": "Truyện đức Lý Quốc Sư",
+    "targets": [
+      {
+        "story": 67,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Truyện đức Lý quốc sư"
+      }
+    ]
+  },
+  {
+    "printed": "Truyện nỏ thần",
+    "aliasOf": "Mỵ Châu - Trọng Thủy",
+    "targets": [
+      {
+        "story": 174,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Mỵ Châu - Trọng Thủy hay là truyện nỏ thần"
+      }
+    ]
+  },
+  {
+    "printed": "Truyện rắn thần",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Truyện rắn thần"
+      }
+    ]
+  },
+  {
+    "printed": "Trứng ngựa",
+    "targets": [
+      {
+        "story": 196,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Trứng ngựa"
+      }
+    ]
+  },
+  {
+    "printed": "Trứng ngựa",
+    "qualifier": "truyện Pháp",
+    "targets": [
+      {
+        "story": 196,
+        "tap": "V",
+        "location": "chu-thich",
+        "textName": "Trứng ngựa",
+        "footnote": "3"
+      }
+    ]
+  },
+  {
+    "printed": "Trứng trời",
+    "targets": [
+      {
+        "story": 182,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Trứng trời"
+      }
+    ]
+  },
+  {
+    "printed": "Trương Chi",
+    "targets": [
+      {
+        "story": 43,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Trương Chi"
+      }
+    ]
+  },
+  {
+    "printed": "Tu-cờ-rơm",
+    "targets": [
+      {
+        "story": 39,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Tu-cờ-rơm"
+      }
+    ]
+  },
+  {
+    "printed": "Tua gia tua nhi",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tua Gia Tua Nhi"
+      }
+    ]
+  },
+  {
+    "printed": "Tù lì tám tiền",
+    "targets": [
+      {
+        "story": 190,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Tù lì tám tiền"
+      }
+    ]
+  },
+  {
+    "printed": "Tú Uyên",
+    "targets": [
+      {
+        "story": 118,
+        "tap": "III",
+        "location": "story",
+        "textName": "Tú Uyên"
+      }
+    ]
+  },
+  {
+    "printed": "Túi tiền, cái còi và cái mũi",
+    "targets": [
+      {
+        "story": 165,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Túi tiền, cái còi và cái mũ"
+      }
+    ]
+  },
+  {
+    "printed": "Tùng bách thuyết thoại",
+    "targets": [
+      {
+        "story": 181,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Tùng bách thuyết thoại"
+      }
+    ]
+  },
+  {
+    "printed": "Từ Đạo Hạnh hay là sự tích Thánh Láng",
+    "targets": [
+      {
+        "story": 120,
+        "tap": "III",
+        "location": "story",
+        "textName": "Từ Đạo Hạnh hay sự tích Thánh Láng"
+      }
+    ]
+  },
+  {
+    "printed": "Từ Thức",
+    "targets": [
+      {
+        "story": 130,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Từ Thức"
+      }
+    ]
+  },
+  {
+    "printed": "Từ Thức",
+    "qualifier": "truyện khác",
+    "targets": [
+      {
+        "story": 130,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Từ Thức"
+      }
+    ]
+  },
+  {
+    "printed": "Tứ hải giai huynh đệ",
+    "targets": [
+      {
+        "story": 107,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Tứ hải giai huynh đệ"
+      }
+    ]
+  },
+  {
+    "printed": "Tứ thánh miếu sự tích",
+    "targets": [
+      {
+        "story": 161,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Tứ thánh miếu sự tích"
+      }
+    ]
+  },
+  {
+    "printed": "Ú Thêm",
+    "targets": [
+      {
+        "story": 166,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ú Thêm"
+      }
+    ]
+  },
+  {
+    "printed": "Vận khứ hoài sơn năng trí tử, thời lai bạch thủy khả thôi sinh",
+    "targets": [
+      {
+        "story": 55,
+        "tap": "II",
+        "location": "story",
+        "textName": "Vận khứ hoài sơn năng trí tử, thời lai bạch thủy khả thôi sinh"
+      }
+    ]
+  },
+  {
+    "printed": "Vè chàng Lía",
+    "targets": [
+      {
+        "story": 64,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Vè chàng Lía"
+      }
+    ]
+  },
+  {
+    "printed": "Vè người hóa dế",
+    "targets": [
+      {
+        "story": 133,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "bài vè"
+      }
+    ]
+  },
+  {
+    "printed": "Vì sao chúc mào đỏ đít",
+    "targets": [
+      {
+        "story": 16,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Vì sao chúc mào đỏ đít"
+      }
+    ]
+  },
+  {
+    "printed": "Vì sao có nguyệt thực",
+    "targets": [
+      {
+        "story": 127,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Vì sao có nguyệt thực"
+      }
+    ]
+  },
+  {
+    "printed": "Vì sao có tục treo cua đầu nương",
+    "targets": [
+      {
+        "story": 152,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Vì sao có tục treo cua đầu nương"
+      }
+    ]
+  },
+  {
+    "printed": "Vì sao hổ và khỉ trở nên thù địch",
+    "targets": [
+      {
+        "story": 58,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Vì sao hổ và khỉ trở nên thù địch"
+      }
+    ]
+  },
+  {
+    "printed": "Vì sao trâu không có hàm trên",
+    "targets": [
+      {
+        "story": 86,
+        "tap": "II",
+        "location": "chu-thich",
+        "textName": "Vì sao trâu không có hàm trên",
+        "footnote": "1"
+      }
+    ]
+  },
+  {
+    "printed": "Việt-nam thần tích",
+    "targets": [
+      {
+        "story": 71,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Việt-nam thần tích"
+      }
+    ]
+  },
+  {
+    "printed": "Vợ ba Cai Vàng",
+    "targets": [
+      {
+        "story": 103,
+        "tap": "III",
+        "location": "story",
+        "textName": "Vợ ba Cai Vàng"
+      }
+    ]
+  },
+  {
+    "printed": "Vợ chàng rắn",
+    "targets": [
+      {
+        "story": 128,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Vợ chàng Rắn"
+      }
+    ]
+  },
+  {
+    "printed": "Vợ chàng Trương",
+    "targets": [
+      {
+        "story": 185,
+        "tap": "V",
+        "location": "story",
+        "textName": "Vợ chàng Trương"
+      }
+    ]
+  },
+  {
+    "printed": "Vợ chồng anh mò ốc",
+    "targets": [
+      {
+        "story": 135,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Vợ chồng anh mò ốc"
+      }
+    ]
+  },
+  {
+    "printed": "Vợ cóc",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "vợ cóc"
+      }
+    ]
+  },
+  {
+    "printed": "Vợ người nô lệ",
+    "targets": [
+      {
+        "story": 41,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Vợ người nô lệ"
+      }
+    ]
+  },
+  {
+    "printed": "Vụ kiện châu chấu",
+    "targets": [
+      {
+        "story": 170,
+        "tap": "IV",
+        "location": "story",
+        "textName": "Vụ kiện châu chấu"
+      }
+    ]
+  },
+  {
+    "printed": "Vũ Công Duệ",
+    "targets": [
+      {
+        "story": 78,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Vũ Công Duệ"
+      }
+    ]
+  },
+  {
+    "printed": "Vua A Tứ",
+    "targets": [
+      {
+        "story": 135,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "vua A Tú"
+      }
+    ]
+  },
+  {
+    "printed": "Vua bếp",
+    "targets": [
+      {
+        "story": 21,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Vua bếp"
+      }
+    ]
+  },
+  {
+    "printed": "Vua dao",
+    "targets": [
+      {
+        "story": 57,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Vua Dao"
+      }
+    ]
+  },
+  {
+    "printed": "Vua Đa-ri-uyx",
+    "targets": [
+      {
+        "story": 192,
+        "tap": "V",
+        "location": "khao-di",
+        "textName": "Vua Đa-ri-uyx"
+      }
+    ]
+  },
+  {
+    "printed": "Vua heo",
+    "targets": [
+      {
+        "story": 104,
+        "tap": "III",
+        "location": "story",
+        "textName": "Vua Heo"
+      }
+    ]
+  },
+  {
+    "printed": "Vua Kơ-long Ga-rai",
+    "targets": [
+      {
+        "story": 67,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Vua Kơ-long Ga-rai"
+      }
+    ]
+  },
+  {
+    "printed": "Vua nước Ba-la-nai (Benares) nghe tiếng gọi ở bãi tha ma",
+    "targets": [
+      {
+        "story": 151,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Vua nước Ba-la-nại (Bénarès) nghe tiếng gọi ở bãi tha ma"
+      }
+    ]
+  },
+  {
+    "printed": "Vua quạ",
+    "targets": [
+      {
+        "story": 126,
+        "tap": "III",
+        "location": "chu-thich",
+        "textName": "Vua Quạ",
+        "footnote": "14"
+      }
+    ]
+  },
+  {
+    "printed": "Vua Rơ, anh Hơ-rít và con thỏ",
+    "targets": [
+      {
+        "story": 80,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Vua Rơ, anh Hơ-rít và con thỏ"
+      }
+    ]
+  },
+  {
+    "printed": "Vua Xa-lô-mông và kẻ trộm ngỗng",
+    "targets": [
+      {
+        "story": 113,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Vua Xa-lô-mông và kẻ trộm ngỗng"
+      }
+    ]
+  },
+  {
+    "printed": "Vua Xa-lô-mông và Mác-côn",
+    "targets": [
+      {
+        "story": 78,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Vua Xa-lô-mông và Mác-côn"
+      }
+    ]
+  },
+  {
+    "printed": "Vua Xa-lô-mông xử kiện",
+    "targets": [
+      {
+        "story": 113,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Vua Xa-lô-mông xử kiện"
+      }
+    ]
+  },
+  {
+    "printed": "Vừng khoai lang",
+    "targets": [
+      {
+        "story": 54,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "vừng khoai lang"
+      }
+    ]
+  },
+  {
+    "printed": "Xác công tử, hồn ông sư",
+    "targets": [
+      {
+        "story": 45,
+        "tap": "II",
+        "location": "khao-di",
+        "textName": "Xác công tử, hồn ông sư"
+      }
+    ]
+  },
+  {
+    "printed": "Xây thành giấy",
+    "targets": [
+      {
+        "story": 34,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Xây thành giấy"
+      }
+    ]
+  },
+  {
+    "printed": "Xóc cà tực",
+    "targets": [
+      {
+        "story": 166,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Xóc cà tực"
+      }
+    ]
+  },
+  {
+    "printed": "Xuân Hương truyện",
+    "targets": [
+      {
+        "story": 169,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Xuân Hương truyện"
+      }
+    ]
+  },
+  {
+    "printed": "Xử phiến đá",
+    "targets": [
+      {
+        "story": 110,
+        "tap": "III",
+        "location": "khao-di",
+        "textName": "Xử phiến đá"
+      }
+    ]
+  },
+  {
+    "printed": "Y Rít",
+    "targets": [
+      {
+        "story": 138,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Y Rít"
+      }
+    ]
+  },
+  {
+    "printed": "Y Rít giết đại bàng",
+    "targets": [
+      {
+        "story": 148,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Y Rít giết đại bàng"
+      }
+    ]
+  },
+  {
+    "printed": "Ý Đớn Ý Đăm",
+    "targets": [
+      {
+        "story": 12,
+        "tap": "I",
+        "location": "khao-di",
+        "textName": "Ý Đớn, Ý Đăm"
+      }
+    ]
+  },
+  {
+    "printed": "Ý Ưởi Ý Noọng",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ý Ưởi Ý Noọng"
+      }
+    ]
+  },
+  {
+    "printed": "Ý Ưởi Ý Ót",
+    "targets": [
+      {
+        "story": 154,
+        "tap": "IV",
+        "location": "khao-di",
+        "textName": "Ý Ưởi Ý Ôi"
+      }
+    ]
+  },
+  {
+    "printed": "Yết Kiêu",
+    "targets": [
+      {
+        "story": 72,
+        "tap": "II",
+        "location": "story",
+        "textName": "Yết Kiêu"
+      }
+    ]
+  }
+]

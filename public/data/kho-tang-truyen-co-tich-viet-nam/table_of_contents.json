@@ -1,5 +1,10 @@
 {
   "book_title": "Kho tàng truyện cổ tích Việt-Nam",
+  "preface": {
+    "title": "Lời nói đầu",
+    "markdown_file": "loi_noi_dau.md",
+    "footnote_count": 0
+  },
   "parts": [
     {
       "part_id": "PHAN_THU_NHAT",

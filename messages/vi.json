@@ -749,14 +749,18 @@
   },
   "KhoTangTruyen": {
     "contentsTitle": "Mục lục",
-    "searchPlaceholder": "Tìm theo tên truyện, bài…",
-    "searchLabel": "Tìm theo tên truyện hoặc bài",
+    "searchPlaceholder": "Tìm trong bảng tra cứu tên truyện…",
+    "searchLabel": "Tìm tên truyện trong Bảng tra cứu tên truyện",
     "partTab": "Phần {n}",
     "bibliographyTab": "Thư mục",
     "partIntroduction": "Lời dẫn",
-    "noResults": "Không tìm thấy mục phù hợp.",
+    "noResults": "Không tìm thấy tên truyện phù hợp.",
     "previous": "Trước",
     "next": "Tiếp",
-    "footnote": "Chú thích {n}"
+    "footnote": "Chú thích {n}",
+    "indexNamesHeading": "Bảng tra cứu tên truyện",
+    "indexLocationStory": "Truyện",
+    "indexLocationKhaoDi": "Khảo dị",
+    "indexLocationChuThich": "Chú thích"
   }
 }

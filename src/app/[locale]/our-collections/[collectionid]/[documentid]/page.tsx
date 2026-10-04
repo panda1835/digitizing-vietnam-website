@@ -98,6 +98,8 @@ const CollectionItemViewer = async ({
     topic?: string;
     line?: string;
     muc?: string;
+    ten?: string;
+    "chu-thich"?: string;
   };
 }) => {
   const locale = params.locale;
@@ -343,7 +345,11 @@ const CollectionItemViewer = async ({
           />
         ) : collectionId === KHO_TANG_COLLECTION_ID &&
           documentId === KHO_TANG_DOCUMENT_ID ? (
-          <KhoTangTruyen muc={searchParams?.muc} />
+          <KhoTangTruyen
+            muc={searchParams?.muc}
+            highlightName={searchParams?.ten}
+            targetFootnote={searchParams?.["chu-thich"]}
+          />
         ) : (
           <div className="flex flex-row mt-10">
             {/* Item viewer */}
