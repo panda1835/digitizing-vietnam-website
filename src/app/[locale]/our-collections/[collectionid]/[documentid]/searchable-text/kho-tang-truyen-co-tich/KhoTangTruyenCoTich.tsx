@@ -13,9 +13,9 @@ import {
   getIndexNameRows,
   lookupEntry,
 } from "./data";
-import KhoTangTruyenReader from "./KhoTangTruyenReader";
+import KhoTangTruyenCoTichReader from "./KhoTangTruyenCoTichReader";
 
-export default function KhoTangTruyen({
+export default function KhoTangTruyenCoTich({
   muc,
   highlightName,
   targetFootnote,
@@ -34,7 +34,7 @@ export default function KhoTangTruyen({
       : undefined;
 
   return (
-    <KhoTangTruyenReader
+    <KhoTangTruyenCoTichReader
       divisions={getDivisions()}
       indexNames={getIndexNameRows()}
       entry={entry}

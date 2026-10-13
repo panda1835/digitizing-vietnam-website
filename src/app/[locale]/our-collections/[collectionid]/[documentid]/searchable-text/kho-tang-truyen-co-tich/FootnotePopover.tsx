@@ -28,7 +28,7 @@ export default function FootnotePopover({
   autoOpen?: boolean;
   children: ReactNode;
 }) {
-  const t = useTranslations("KhoTangTruyen");
+  const t = useTranslations("KhoTangTruyenCoTich");
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 

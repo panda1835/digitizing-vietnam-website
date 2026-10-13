@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 
 import type { ParsedStory } from "./parseStoryMarkdown";
 import { findNameMatches } from "./findNameMatches";
@@ -29,6 +30,7 @@ export default function StoryMarkdown({
   /** 0-based index of the Footnote to scroll to and open. */
   targetFootnoteIndex?: number;
 }) {
+  const t = useTranslations("KhoTangTruyenCoTich");
   const articleRef = useRef<HTMLElement>(null);
   const opensFootnote =
     !!highlight &&
@@ -76,6 +78,23 @@ export default function StoryMarkdown({
         bulletLists,
         highlight,
       })}
+      {footnotes.length > 0 && (
+        <section aria-label={t("footnotesHeading")} className="mt-10 space-y-4">
+          {renderStoryBlocks(`### ${t("footnotesHeading")}`, noFootnotes)}
+          <ol className="list-decimal space-y-4 pl-6">
+            {footnotes.map((footnote, index) => (
+              <li key={index} id={`fn-${index}`} className="scroll-mt-6 pl-2">
+                <div className="space-y-2">
+                  {renderStoryBlocks(footnote, noFootnotes, {
+                    variant: "footnote",
+                    highlight,
+                  })}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
     </article>
   );
 }

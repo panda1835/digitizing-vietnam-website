@@ -23,12 +23,7 @@ import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-m
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
 import NotFound from "@/app/not-found";
 import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
-import KhoTangTruyen from "./searchable-text/kho-tang-truyen-co-tich/KhoTangTruyen";
-import {
-  KHO_TANG_COLLECTION_ID,
-  KHO_TANG_DOCUMENT_ID,
-  getEntryBySlug,
-} from "./searchable-text/kho-tang-truyen-co-tich/data";
+import KhoTangTruyenCoTich from "./searchable-text/kho-tang-truyen-co-tich/KhoTangTruyenCoTich";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -37,10 +32,8 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 export async function generateMetadata({
   params,
-  searchParams,
 }: {
   params: { locale: string; collectionid: string; documentid: string };
-  searchParams?: { muc?: string };
 }): Promise<Metadata> {
   const t = await getTranslations();
 
@@ -62,16 +55,9 @@ export async function generateMetadata({
       const item = data.data[0];
       const description = stripHtmlTags(item.abstract);
       const ogImage = getStrapiImageUrl(item.thumbnail?.url);
-      // The Kho Tàng reader titles the page after the open Entry.
-      const khoTangEntry =
-        params.collectionid === KHO_TANG_COLLECTION_ID &&
-        params.documentid === KHO_TANG_DOCUMENT_ID &&
-        searchParams?.muc
-          ? getEntryBySlug(searchParams.muc)
-          : undefined;
 
       return {
-        title: `${khoTangEntry?.title ?? item.title} | Digitizing Việt Nam`,
+        title: `${item.title} | Digitizing Việt Nam`,
         description,
         openGraph: {
           ...(ogImage ? { images: [{ url: ogImage }] } : {}),
@@ -343,9 +329,9 @@ const CollectionItemViewer = async ({
             documentId={documentId}
             canvasId={originalCanvasId}
           />
-        ) : collectionId === KHO_TANG_COLLECTION_ID &&
-          documentId === KHO_TANG_DOCUMENT_ID ? (
-          <KhoTangTruyen
+        ) : collectionId === "vietnamese-folk-literature" &&
+          documentId === "truyen-co-tich-viet-nam" ? (
+          <KhoTangTruyenCoTich
             muc={searchParams?.muc}
             highlightName={searchParams?.ten}
             targetFootnote={searchParams?.["chu-thich"]}

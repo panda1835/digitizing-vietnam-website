@@ -746,7 +746,7 @@
       "openSourceFile": "Open source file"
     }
   },
-  "KhoTangTruyen": {
+  "KhoTangTruyenCoTich": {
     "contentsTitle": "Contents",
     "searchPlaceholder": "Search the Story Name Index…",
     "searchLabel": "Search tale names in the Story Name Index",
@@ -756,6 +756,7 @@
     "noResults": "No matching tale names.",
     "previous": "Previous",
     "next": "Next",
+    "footnotesHeading": "Footnotes",
     "footnote": "Footnote {n}",
     "indexNamesHeading": "Story Name Index",
     "indexLocationStory": "Story",

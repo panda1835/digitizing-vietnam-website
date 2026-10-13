@@ -53,7 +53,7 @@ const searchKey = (text: string) =>
 /** Search params an Index Name result adds; dropped when opening another Entry. */
 const HIGHLIGHT_PARAMS = ["ten", "chu-thich"];
 
-export default function KhoTangTruyenReader({
+export default function KhoTangTruyenCoTichReader({
   divisions,
   indexNames,
   entry,
@@ -76,7 +76,7 @@ export default function KhoTangTruyenReader({
   /** 0-based index of the Footnote to scroll to and open. */
   targetFootnoteIndex?: number;
 }) {
-  const t = useTranslations("KhoTangTruyen");
+  const t = useTranslations("KhoTangTruyenCoTich");
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -172,7 +172,9 @@ export default function KhoTangTruyenReader({
       <aside className="w-full lg:w-96 shrink-0 min-w-0 font-light font-['Helvetica Neue']">
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
           <div className="p-4 border-b border-gray-200 bg-branding-brown uppercase flex justify-center">
-            <h2 className="text-xl font-normal text-white">{t("contentsTitle")}</h2>
+            <h2 className="text-xl font-normal text-white">
+              {t("contentsTitle")}
+            </h2>
           </div>
 
           <div className="p-4 space-y-3 border-b border-gray-200">
@@ -206,23 +208,25 @@ export default function KhoTangTruyenReader({
               {searching && visibleIndexNames.length === 0 && (
                 <div className="px-6 py-4 text-gray-500">{t("noResults")}</div>
               )}
-              {visibleGroups.map(({ division, introduction, entries, sections }) => (
-                <div key={division.id}>
-                  {introduction &&
-                    renderEntryButton(introduction, introductionLabel)}
-                  {entries.map((item) => renderEntryButton(item, item.title))}
-                  {sections.map((section) => (
-                    <div key={section.id}>
-                      <div className="px-6 py-2 bg-gray-100 text-sm font-normal text-branding-brown">
-                        {section.title}
+              {visibleGroups.map(
+                ({ division, introduction, entries, sections }) => (
+                  <div key={division.id}>
+                    {introduction &&
+                      renderEntryButton(introduction, introductionLabel)}
+                    {entries.map((item) => renderEntryButton(item, item.title))}
+                    {sections.map((section) => (
+                      <div key={section.id}>
+                        <div className="px-6 py-2 bg-gray-100 text-sm font-normal text-branding-brown">
+                          {section.title}
+                        </div>
+                        {section.entries.map((item) =>
+                          renderEntryButton(item, item.title, item.number)
+                        )}
                       </div>
-                      {section.entries.map((item) =>
-                        renderEntryButton(item, item.title, item.number)
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
+                    ))}
+                  </div>
+                )
+              )}
               {visibleIndexNames.length > 0 && (
                 <div>
                   <div className="px-6 py-2 bg-branding-brown/10 text-sm font-normal text-branding-black">
@@ -238,7 +242,10 @@ export default function KhoTangTruyenReader({
                       <div>
                         {row.name}
                         {row.qualifier && (
-                          <span className="text-gray-500"> · {row.qualifier}</span>
+                          <span className="text-gray-500">
+                            {" "}
+                            · {row.qualifier}
+                          </span>
                         )}
                       </div>
                       <div className="text-sm text-gray-500">
@@ -262,7 +269,9 @@ export default function KhoTangTruyenReader({
         )}
       >
         <StoryMarkdown
-          key={`${entry.muc}|${highlightName ?? ""}|${targetFootnoteIndex ?? ""}`}
+          key={`${entry.muc}|${highlightName ?? ""}|${
+            targetFootnoteIndex ?? ""
+          }`}
           body={body}
           bulletLists={bulletLists}
           highlight={highlightName}
@@ -270,7 +279,7 @@ export default function KhoTangTruyenReader({
         />
 
         {(previous || next) && (
-          <nav className="mt-12 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between font-['Helvetica Neue'] font-light">
+          <nav className="mt-12 pt-6 flex flex-col sm:flex-row gap-4 justify-between font-['Helvetica Neue'] font-light">
             {previous ? (
               <NeighbourLink
                 href={hrefFor(previous.muc)}
@@ -300,8 +309,8 @@ const neighbourLabel = (item: Entry, introductionLabel: string) =>
   item.kind === "introduction"
     ? `${introductionLabel} — ${item.title}`
     : item.number === undefined
-      ? item.title
-      : `${item.number}. ${item.title}`;
+    ? item.title
+    : `${item.number}. ${item.title}`;
 
 function NeighbourLink({
   href,
@@ -320,7 +329,7 @@ function NeighbourLink({
       scroll={false}
       rel={rel}
       className={cn(
-        "group block sm:max-w-[48%] rounded-lg border border-gray-200 px-4 py-3 hover:border-branding-brown transition-colors",
+        "group block sm:max-w-[48%] px-4 py-3 transition-colors",
         rel === "next" && "sm:text-right sm:ml-auto"
       )}
     >
