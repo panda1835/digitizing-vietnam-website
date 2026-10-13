@@ -800,5 +800,22 @@
       "pdfUnavailable": "Hiện chưa có URL PDF cho tài liệu này.",
       "openSourceFile": "Mở tệp nguồn"
     }
+  },
+  "KhoTangTruyenCoTich": {
+    "contentsTitle": "Mục lục",
+    "searchPlaceholder": "Tìm trong bảng tra cứu tên truyện…",
+    "searchLabel": "Tìm tên truyện trong Bảng tra cứu tên truyện",
+    "partTab": "Phần {n}",
+    "bibliographyTab": "Thư mục",
+    "partIntroduction": "Lời dẫn",
+    "noResults": "Không tìm thấy tên truyện phù hợp.",
+    "previous": "Trước",
+    "next": "Tiếp",
+    "footnotesHeading": "Chú thích",
+    "footnote": "Chú thích {n}",
+    "indexNamesHeading": "Bảng tra cứu tên truyện",
+    "indexLocationStory": "Truyện",
+    "indexLocationKhaoDi": "Khảo dị",
+    "indexLocationChuThich": "Chú thích"
   }
 }

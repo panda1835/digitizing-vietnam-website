@@ -1,0 +1,45 @@
+{
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
+  "extracted_range": "73 - 84",
+  "total_essays": 4,
+  "sections": [
+    {
+      "section_id": "III",
+      "section_title": "III. Truyện cổ Việt Nam qua các thời đại",
+      "essays": [
+        {
+          "essay_number": 1,
+          "title": "Thần thoại, truyền thuyết, loại truyện xưa nhất của người Việt",
+          "start_page": 73,
+          "end_page": 75,
+          "markdown_file": "essay_01.md",
+          "footnote_count": 0
+        },
+        {
+          "essay_number": 2,
+          "title": "Truyện cổ tích thời phong kiến tự chủ",
+          "start_page": 75,
+          "end_page": 77,
+          "markdown_file": "essay_02.md",
+          "footnote_count": 1
+        },
+        {
+          "essay_number": 3,
+          "title": "Việt điện u linh tập, Lĩnh-Nam chích quái và những sách sưu tầm truyện cổ sau đó",
+          "start_page": 77,
+          "end_page": 80,
+          "markdown_file": "essay_03.md",
+          "footnote_count": 6
+        },
+        {
+          "essay_number": 4,
+          "title": "Thời kỳ suy tàn của truyện cổ tích Việt-Nam",
+          "start_page": 80,
+          "end_page": 84,
+          "markdown_file": "essay_04.md",
+          "footnote_count": 7
+        }
+      ]
+    }
+  ]
+}

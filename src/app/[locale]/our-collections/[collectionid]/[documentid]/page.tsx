@@ -23,6 +23,7 @@ import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-m
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
 import NotFound from "@/app/not-found";
 import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
+import KhoTangTruyenCoTich from "./searchable-text/kho-tang-truyen-co-tich/KhoTangTruyenCoTich";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -82,6 +83,9 @@ const CollectionItemViewer = async ({
     page?: string;
     topic?: string;
     line?: string;
+    muc?: string;
+    ten?: string;
+    "chu-thich"?: string;
   };
 }) => {
   const locale = params.locale;
@@ -187,7 +191,7 @@ const CollectionItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        <div className="mt-[32px]">
+        <div id="document-header-divider" className="mt-[32px]">
           <Separator />
         </div>
 
@@ -324,6 +328,13 @@ const CollectionItemViewer = async ({
             locale={locale}
             documentId={documentId}
             canvasId={originalCanvasId}
+          />
+        ) : collectionId === "vietnamese-folk-literature" &&
+          documentId === "truyen-co-tich-viet-nam" ? (
+          <KhoTangTruyenCoTich
+            muc={searchParams?.muc}
+            highlightName={searchParams?.ten}
+            targetFootnote={searchParams?.["chu-thich"]}
           />
         ) : (
           <div className="flex flex-row mt-10">

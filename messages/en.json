@@ -799,5 +799,22 @@
       "pdfUnavailable": "PDF URL is not available for this item yet.",
       "openSourceFile": "Open source file"
     }
+  },
+  "KhoTangTruyenCoTich": {
+    "contentsTitle": "Contents",
+    "searchPlaceholder": "Search the Story Name Index…",
+    "searchLabel": "Search tale names in the Story Name Index",
+    "partTab": "Part {n}",
+    "bibliographyTab": "Bibliography",
+    "partIntroduction": "Introduction",
+    "noResults": "No matching tale names.",
+    "previous": "Previous",
+    "next": "Next",
+    "footnotesHeading": "Footnotes",
+    "footnote": "Footnote {n}",
+    "indexNamesHeading": "Story Name Index",
+    "indexLocationStory": "Story",
+    "indexLocationKhaoDi": "Variants (Khảo dị)",
+    "indexLocationChuThich": "Footnote (Chú thích)"
   }
 }

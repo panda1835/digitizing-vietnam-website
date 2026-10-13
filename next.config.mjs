@@ -4,6 +4,17 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    // The Kho Tàng Truyện reader reads its Book's markdown with fs at request
+    // time via computed paths the tracer can't follow, so ship the files with
+    // the Collection Item route's serverless bundle explicitly. Brackets are
+    // escaped: keys are picomatch globs matched against the route.
+    outputFileTracingIncludes: {
+      "our-collections/\\[collectionid\\]/\\[documentid\\]": [
+        "./public/data/kho-tang-truyen-co-tich-viet-nam/**/*",
+      ],
+    },
+  },
   images: {
     domains: ["res.cloudinary.com", "developers.elementor.com"],
     // digi.vatlib.it sends no Cache-Control, ETag or Last-Modified at all, so
