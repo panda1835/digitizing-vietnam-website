@@ -191,7 +191,7 @@ const CollectionItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        <div className="mt-[32px]">
+        <div id="document-header-divider" className="mt-[32px]">
           <Separator />
         </div>
 

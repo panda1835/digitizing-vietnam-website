@@ -10,7 +10,7 @@
 // (and ?chu-thich= for a Footnote target) so the Story highlights the name;
 // opening any other Entry drops them.
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -83,6 +83,21 @@ export default function KhoTangTruyenCoTichReader({
   const [isPending, startTransition] = useTransition();
   const [query, setQuery] = useState("");
   const [activeTab, setActiveTab] = useState(entry.divisionId);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const scrollTargetRef = useRef<string>();
+
+  useEffect(() => {
+    if (scrollTargetRef.current !== entry.muc) return;
+    scrollTargetRef.current = undefined;
+    // Match the lg breakpoint where the menu moves beside the content.
+    const target = window.matchMedia("(min-width: 1024px)").matches
+      ? document.getElementById("document-header-divider")
+      : contentRef.current;
+    target?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [entry.muc]);
 
   // The active tab follows the open Entry's division, re-syncing on every
   // Entry switch (even within the same division) after a manual tab change.
@@ -200,7 +215,9 @@ export default function KhoTangTruyenCoTichReader({
                 ))}
               </TabsList>
             </Tabs>
-            <div className="text-sm text-gray-600">{activeDivision?.title}</div>
+            <div className="text-base font-medium text-gray-800">
+              {activeDivision?.title}
+            </div>
           </div>
 
           <ScrollArea className="h-[500px] md:h-[600px] w-full">
@@ -216,7 +233,7 @@ export default function KhoTangTruyenCoTichReader({
                     {entries.map((item) => renderEntryButton(item, item.title))}
                     {sections.map((section) => (
                       <div key={section.id}>
-                        <div className="px-6 py-2 bg-gray-100 text-sm font-normal text-branding-brown">
+                        <div className="block w-full text-left px-6 py-3 border-b border-gray-100 font-medium text-branding-brown">
                           {section.title}
                         </div>
                         {section.entries.map((item) =>
@@ -263,6 +280,7 @@ export default function KhoTangTruyenCoTichReader({
 
       {/* Open Entry */}
       <div
+        ref={contentRef}
         className={cn(
           "mt-5 w-full min-w-0 transition-opacity",
           isPending && "opacity-50"
@@ -283,6 +301,9 @@ export default function KhoTangTruyenCoTichReader({
             {previous ? (
               <NeighbourLink
                 href={hrefFor(previous.muc)}
+                onSelect={() => {
+                  scrollTargetRef.current = previous.muc;
+                }}
                 direction={t("previous")}
                 label={neighbourLabel(previous, introductionLabel)}
                 rel="prev"
@@ -293,6 +314,9 @@ export default function KhoTangTruyenCoTichReader({
             {next && (
               <NeighbourLink
                 href={hrefFor(next.muc)}
+                onSelect={() => {
+                  scrollTargetRef.current = next.muc;
+                }}
                 direction={t("next")}
                 label={neighbourLabel(next, introductionLabel)}
                 rel="next"
@@ -314,11 +338,13 @@ const neighbourLabel = (item: Entry, introductionLabel: string) =>
 
 function NeighbourLink({
   href,
+  onSelect,
   direction,
   label,
   rel,
 }: {
   href: string;
+  onSelect: () => void;
   direction: string;
   label: string;
   rel: "prev" | "next";
@@ -327,6 +353,18 @@ function NeighbourLink({
     <Link
       href={href}
       scroll={false}
+      onClick={(event) => {
+        if (
+          event.defaultPrevented ||
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        )
+          return;
+        onSelect();
+      }}
       rel={rel}
       className={cn(
         "group block sm:max-w-[48%] px-4 py-3 transition-colors",
