@@ -39,7 +39,7 @@ const OurCollections = async ({ params: { locale } }) => {
 
     // Strapi defaults to 25 results. Fetch every page so categories are not
     // omitted when their collections fall outside the first page.
-    const collectionData = [];
+    const collectionData: Record<string, any>[] = [];
     let page = 1;
     let pageCount = 1;
     do {
