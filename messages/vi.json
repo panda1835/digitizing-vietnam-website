@@ -803,12 +803,9 @@
   },
   "KhoTangTruyenCoTich": {
     "contentsTitle": "Mục lục",
-    "searchPlaceholder": "Tìm trong bảng tra cứu tên truyện…",
-    "searchLabel": "Tìm tên truyện trong Bảng tra cứu tên truyện",
     "partTab": "Phần {n}",
     "bibliographyTab": "Thư mục",
     "partIntroduction": "Lời dẫn",
-    "noResults": "Không tìm thấy tên truyện phù hợp.",
     "previous": "Trước",
     "next": "Tiếp",
     "footnotesHeading": "Chú thích",
@@ -816,6 +813,16 @@
     "indexNamesHeading": "Bảng tra cứu tên truyện",
     "indexLocationStory": "Truyện",
     "indexLocationKhaoDi": "Khảo dị",
-    "indexLocationChuThich": "Chú thích"
+    "indexLocationChuThich": "Chú thích",
+    "khoTang": {
+      "searchPlaceholder": "Tìm trong bảng tra cứu tên truyện…",
+      "searchLabel": "Tìm tên truyện trong Bảng tra cứu tên truyện",
+      "noResults": "Không tìm thấy tên truyện phù hợp."
+    },
+    "cham": {
+      "searchPlaceholder": "Tìm tên truyện…",
+      "searchLabel": "Tìm theo tên truyện",
+      "noResults": "Không tìm thấy truyện phù hợp."
+    }
   }
 }

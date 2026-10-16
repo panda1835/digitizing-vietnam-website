@@ -24,6 +24,7 @@ import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-t
 import NotFound from "@/app/not-found";
 import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
 import KhoTangTruyenCoTich from "./searchable-text/kho-tang-truyen-co-tich/KhoTangTruyenCoTich";
+import { findBook } from "./searchable-text/kho-tang-truyen-co-tich/books";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -98,6 +99,7 @@ const CollectionItemViewer = async ({
   const currentPage = searchParams?.page || "1";
   const currentTopic = searchParams?.topic || "";
   const highlightedLine = searchParams?.line || "";
+  const book = findBook(collectionId, documentId);
 
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -329,9 +331,9 @@ const CollectionItemViewer = async ({
             documentId={documentId}
             canvasId={originalCanvasId}
           />
-        ) : collectionId === "vietnamese-folk-literature" &&
-          documentId === "truyen-co-tich-viet-nam" ? (
+        ) : book ? (
           <KhoTangTruyenCoTich
+            book={book}
             muc={searchParams?.muc}
             highlightName={searchParams?.ten}
             targetFootnote={searchParams?.["chu-thich"]}

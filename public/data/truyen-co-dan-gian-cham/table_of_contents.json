@@ -1,0 +1,476 @@
+{
+  "book_title": "Truyện cổ dân gian Chăm",
+  "preface": {
+    "title": "Lời giới thiệu",
+    "markdown_file": "loi_gioi_thieu.md",
+    "start_page": 5,
+    "end_page": 7,
+    "footnote_count": 0
+  },
+  "stories": [
+    {
+      "story_number": 1,
+      "title": "Sự tích gà gáy sáng",
+      "start_page": 9,
+      "end_page": 13,
+      "markdown_file": "story_001.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 2,
+      "title": "Chàng Cuội cây đa",
+      "start_page": 14,
+      "end_page": 17,
+      "markdown_file": "story_002.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 3,
+      "title": "Sự tích bò thần Kapin",
+      "start_page": 18,
+      "end_page": 23,
+      "markdown_file": "story_003.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 4,
+      "title": "Sự tích con bìm bịp",
+      "start_page": 24,
+      "end_page": 26,
+      "markdown_file": "story_004.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 5,
+      "title": "Prăm Tịch, Prăm Lắc",
+      "start_page": 27,
+      "end_page": 30,
+      "markdown_file": "story_005.md",
+      "footnote_count": 4
+    },
+    {
+      "story_number": 6,
+      "title": "Sự tích táo quân",
+      "start_page": 31,
+      "end_page": 40,
+      "markdown_file": "story_006.md",
+      "footnote_count": 2
+    },
+    {
+      "story_number": 7,
+      "title": "Sự tích vua TaBài và nàng BìLà",
+      "start_page": 41,
+      "end_page": 51,
+      "markdown_file": "story_007.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 8,
+      "title": "Sự tích con khỉ",
+      "start_page": 52,
+      "end_page": 54,
+      "markdown_file": "story_008.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 9,
+      "title": "Sự tích Pô Nai",
+      "start_page": 55,
+      "end_page": 58,
+      "markdown_file": "story_009.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 10,
+      "title": "Pô Ri Yak (Thần sóng)",
+      "start_page": 59,
+      "end_page": 62,
+      "markdown_file": "story_010.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 11,
+      "title": "Trời không phụ người nhân đức",
+      "start_page": 63,
+      "end_page": 71,
+      "markdown_file": "story_011.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 12,
+      "title": "Con gà trắng và chiếc nhẫn đồng",
+      "start_page": 72,
+      "end_page": 77,
+      "markdown_file": "story_012.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 13,
+      "title": "Cu Cai - Ma Rút",
+      "start_page": 78,
+      "end_page": 89,
+      "markdown_file": "story_013.md",
+      "footnote_count": 4
+    },
+    {
+      "story_number": 14,
+      "title": "Bảy chàng trai khoẻ",
+      "start_page": 90,
+      "end_page": 102,
+      "markdown_file": "story_014.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 15,
+      "title": "Cái Ná chín rãnh",
+      "start_page": 103,
+      "end_page": 109,
+      "markdown_file": "story_015.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 16,
+      "title": "Nha Rúi và Tầm Dang",
+      "start_page": 110,
+      "end_page": 121,
+      "markdown_file": "story_016.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 17,
+      "title": "Chàng Rít",
+      "start_page": 122,
+      "end_page": 141,
+      "markdown_file": "story_017.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 18,
+      "title": "Người tiều phu và ba vật quý",
+      "start_page": 142,
+      "end_page": 145,
+      "markdown_file": "story_018.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 19,
+      "title": "Nàng út lấy chồng trăn",
+      "start_page": 146,
+      "end_page": 152,
+      "markdown_file": "story_019.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 20,
+      "title": "Bánh biết nói",
+      "start_page": 153,
+      "end_page": 157,
+      "markdown_file": "story_020.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 21,
+      "title": "Trạng xử kiện",
+      "start_page": 158,
+      "end_page": 168,
+      "markdown_file": "story_021.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 22,
+      "title": "Trạng tí hon",
+      "start_page": 169,
+      "end_page": 176,
+      "markdown_file": "story_022.md",
+      "footnote_count": 2
+    },
+    {
+      "story_number": 23,
+      "title": "Chàng khổ",
+      "start_page": 177,
+      "end_page": 184,
+      "markdown_file": "story_023.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 24,
+      "title": "Nai Ka Điêng",
+      "start_page": 185,
+      "end_page": 193,
+      "markdown_file": "story_024.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 25,
+      "title": "Chàng Răn",
+      "start_page": 194,
+      "end_page": 210,
+      "markdown_file": "story_025.md",
+      "footnote_count": 7
+    },
+    {
+      "story_number": 26,
+      "title": "Voi bảy ngà",
+      "start_page": 211,
+      "end_page": 230,
+      "markdown_file": "story_026.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 27,
+      "title": "Gậy đầu sinh đầu tử",
+      "start_page": 231,
+      "end_page": 246,
+      "markdown_file": "story_027.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 28,
+      "title": "Kén rể",
+      "start_page": 247,
+      "end_page": 250,
+      "markdown_file": "story_028.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 29,
+      "title": "Vợ người cắt cỏ",
+      "start_page": 251,
+      "end_page": 255,
+      "markdown_file": "story_029.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 30,
+      "title": "Ba chị em",
+      "start_page": 256,
+      "end_page": 262,
+      "markdown_file": "story_030.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 31,
+      "title": "Xin chôn núi vàng",
+      "start_page": 263,
+      "end_page": 265,
+      "markdown_file": "story_031.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 32,
+      "title": "Kathăr ăn phân chó",
+      "start_page": 266,
+      "end_page": 272,
+      "markdown_file": "story_032.md",
+      "footnote_count": 2
+    },
+    {
+      "story_number": 33,
+      "title": "Hoàng tử TềWa MừNô",
+      "start_page": 273,
+      "end_page": 314,
+      "markdown_file": "story_033.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 34,
+      "title": "Hoàng tử UmRúp và cô gái chăn dê",
+      "start_page": 315,
+      "end_page": 408,
+      "markdown_file": "story_034.md",
+      "footnote_count": 12
+    },
+    {
+      "story_number": 35,
+      "title": "Người hoá chì",
+      "start_page": 409,
+      "end_page": 415,
+      "markdown_file": "story_035.md",
+      "footnote_count": 1
+    },
+    {
+      "story_number": 36,
+      "title": "Thỏ và ốc sên chạy đua",
+      "start_page": 416,
+      "end_page": 418,
+      "markdown_file": "story_036.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 37,
+      "title": "Tình ruột thịt",
+      "start_page": 419,
+      "end_page": 420,
+      "markdown_file": "story_037.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 38,
+      "title": "Con trâu đực đẻ con",
+      "start_page": 421,
+      "end_page": 422,
+      "markdown_file": "story_038.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 39,
+      "title": "Chú bé thông minh",
+      "start_page": 423,
+      "end_page": 425,
+      "markdown_file": "story_039.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 40,
+      "title": "Cậu gạo",
+      "start_page": 426,
+      "end_page": 430,
+      "markdown_file": "story_040.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 41,
+      "title": "Ai mạnh hơn hết",
+      "start_page": 431,
+      "end_page": 433,
+      "markdown_file": "story_041.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 42,
+      "title": "Đàn trâu hiệp sức đánh nhau với cọp",
+      "start_page": 434,
+      "end_page": 436,
+      "markdown_file": "story_042.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 43,
+      "title": "Cáo và con gà trống",
+      "start_page": 437,
+      "end_page": 438,
+      "markdown_file": "story_043.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 44,
+      "title": "Bò và chó sói",
+      "start_page": 439,
+      "end_page": 440,
+      "markdown_file": "story_044.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 45,
+      "title": "Chuột nhà và chuột đồng",
+      "start_page": 441,
+      "end_page": 442,
+      "markdown_file": "story_045.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 46,
+      "title": "Trí khôn của con người",
+      "start_page": 443,
+      "end_page": 445,
+      "markdown_file": "story_046.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 47,
+      "title": "Jôt đi học (Ja Jôt nao mugru)",
+      "start_page": 446,
+      "end_page": 451,
+      "markdown_file": "story_047.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 48,
+      "title": "Trái sung (Boh Gong)",
+      "start_page": 452,
+      "end_page": 453,
+      "markdown_file": "story_048.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 49,
+      "title": "Parăm Mưdit, Parăm Mưlak",
+      "start_page": 454,
+      "end_page": 463,
+      "markdown_file": "story_049.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 50,
+      "title": "Thằng Khổ (Jà ri Băh)",
+      "start_page": 464,
+      "end_page": 470,
+      "markdown_file": "story_050.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 51,
+      "title": "Ja pa-ok (Cậu Xoài)",
+      "start_page": 471,
+      "end_page": 482,
+      "markdown_file": "story_051.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 52,
+      "title": "Cọp và thỏ",
+      "start_page": 483,
+      "end_page": 487,
+      "markdown_file": "story_052.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 53,
+      "title": "Hà Niên lấy người",
+      "start_page": 488,
+      "end_page": 499,
+      "markdown_file": "story_053.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 54,
+      "title": "Jà Pa Nrang bỏ xứ",
+      "start_page": 500,
+      "end_page": 515,
+      "markdown_file": "story_054.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 55,
+      "title": "Trai kén vợ, gái kén chồng (Likay Ruah Kamay, Kamy Ruah Li kay)",
+      "start_page": 516,
+      "end_page": 524,
+      "markdown_file": "story_055.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 56,
+      "title": "Jari Băh (Chàng nghèo)",
+      "start_page": 525,
+      "end_page": 538,
+      "markdown_file": "story_056.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 57,
+      "title": "Cóc khiêu chiến với Ngọc hoàng",
+      "start_page": 539,
+      "end_page": 543,
+      "markdown_file": "story_057.md",
+      "footnote_count": 0
+    },
+    {
+      "story_number": 58,
+      "title": "Con Thỏ đi săn thịt cho Chằng Tinh ăn",
+      "start_page": 544,
+      "end_page": 551,
+      "markdown_file": "story_058.md",
+      "footnote_count": 0
+    }
+  ]
+}

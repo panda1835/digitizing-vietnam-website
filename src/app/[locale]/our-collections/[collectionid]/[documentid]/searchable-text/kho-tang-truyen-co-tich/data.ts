@@ -1,36 +1,38 @@
-// Server-only data accessors for "Kho tàng Truyện cổ tích Việt Nam".
+// Server-only data accessors for the Book Reader, one Book per BookConfig.
 //
-// The content is the extraction pipeline's output (plus the hand-written
-// Preface), published in public/data/kho-tang-truyen-co-tich-viet-nam/. The
-// Book's whole structure comes from the root table_of_contents.json there: the
-// Preface, then Parts, each with an optional Part Introduction and its
-// Sections of Stories or Essays, then the Bibliography (not a Part) with its
-// introduction and three Sections, each one markdown file. There is no
-// hand-written manifest to keep in sync.
+// A Book's whole structure comes from the root table_of_contents.json in its
+// public data folder. There is no hand-written manifest to keep in sync. Two
+// TOC shapes are read into the same divisions → sections → entries model:
 //
-// Parts and the Bibliography are both "divisions": one contents tab each.
+// - "parts" (Kho tàng Truyện cổ tích Việt Nam: the extraction pipeline's
+//   output plus the hand-written Preface): the Preface, then Parts, each with
+//   an optional Part Introduction and its Sections of Stories or Essays, then
+//   the Bibliography (not a Part) with its introduction and three Sections,
+//   each one markdown file. Parts and the Bibliography are both "divisions":
+//   one contents tab each.
+// - "flat" (Truyện cổ dân gian Chăm's Web Edition): the Preface, then numbered
+//   Stories. One division holds them all, with no Sections.
 
 import { readFileSync } from "fs";
 import { join } from "path";
 
+import type { BookConfig } from "./books";
 import { parseStoryMarkdown, type ParsedStory } from "./parseStoryMarkdown";
 
-/** The Collection Item this reader replaces Mirador on. */
-export const KHO_TANG_COLLECTION_ID = "vietnamese-folk-literature";
-export const KHO_TANG_DOCUMENT_ID = "truyen-co-tich-viet-nam";
-
-const DATA_DIR = join(
-  process.cwd(),
-  "public/data/kho-tang-truyen-co-tich-viet-nam"
-);
+const dataDir = (book: BookConfig) =>
+  join(process.cwd(), "public/data", book.dataFolder);
 
 /** Division id of the Bibliography; a Part's is "phan-<n>". */
 export const BIBLIOGRAPHY_DIVISION_ID = "thu-muc";
 
-const PREFACE_MUC = "loi-noi-dau";
+/** Division id of a flat Book's only division. */
+const FLAT_DIVISION_ID = "muc-luc";
 
 export type EntryKind =
-  /** The Book's Preface (Lời nói đầu), listed in Phần thứ nhất's tab. */
+  /**
+   * The Book's Preface (Kho Tàng's Lời nói đầu, listed in Phần thứ nhất's tab;
+   * the Chăm book's Lời giới thiệu).
+   */
   | "preface"
   | "story"
   | "essay"
@@ -43,7 +45,7 @@ export interface Entry {
   kind: EntryKind;
   /**
    * The `?muc=` slug, e.g. "loi-noi-dau", "truyen-62", "phan-1-muc-ii-bai-3",
-   * "phan-3-loi-dan", "thu-muc-loi-dan", "thu-muc-ii".
+   * "phan-3-loi-dan", "thu-muc-loi-dan", "thu-muc-ii", "loi-gioi-thieu".
    */
   muc: string;
   divisionId: string;
@@ -68,16 +70,16 @@ export interface BookSection {
   entries: Entry[];
 }
 
-/** A Part or the Bibliography: one contents tab. */
+/** A Part, the Bibliography, or a flat Book's whole list: one contents tab. */
 export interface BookDivision {
   id: string;
-  /** Absent for the Bibliography, which is not a Part. */
+  /** Absent for the Bibliography (not a Part) and a flat Book's division. */
   partNumber?: number;
   title: string;
   introduction?: Entry;
   /**
    * Entries listed outside any Section heading: the Preface (in Phần thứ
-   * nhất) and the Bibliography's Sections.
+   * nhất), the Bibliography's Sections, and a flat Book's every Entry.
    */
   entries: Entry[];
   sections: BookSection[];
@@ -94,7 +96,8 @@ interface TocStory {
   story_number: number;
   title: string;
   markdown_file: string;
-  has_khao_di: boolean;
+  /** Absent in a flat Book, which has no Khảo dị. */
+  has_khao_di?: boolean;
   footnote_count: number;
 }
 
@@ -116,7 +119,7 @@ interface TocSection {
 interface TocPart {
   part_number: number;
   part_title: string;
-  /** Path relative to DATA_DIR, or null. */
+  /** Path relative to the data folder, or null. */
   introduction: string | null;
   sections: TocSection[];
 }
@@ -124,7 +127,7 @@ interface TocPart {
 interface TocBibliographySection {
   section_id: string;
   section_title: string;
-  /** Path relative to DATA_DIR. */
+  /** Path relative to the data folder. */
   markdown_file: string;
 }
 
@@ -136,15 +139,22 @@ interface TocBibliography {
 
 interface TocPreface {
   title: string;
-  /** Path relative to DATA_DIR. */
+  /** Path relative to the data folder. */
   markdown_file: string;
   footnote_count: number;
 }
 
-interface Toc {
+interface PartsToc {
   preface?: TocPreface;
   parts: TocPart[];
   bibliography?: TocBibliography;
+}
+
+interface FlatToc {
+  book_title: string;
+  preface: TocPreface;
+  /** In book order; markdown_file is relative to the data folder. */
+  stories: TocStory[];
 }
 
 interface Book {
@@ -154,11 +164,12 @@ interface Book {
   bySlug: Map<string, { index: number; mdPath: string }>;
 }
 
-let cachedBook: Book | null = null;
+/** Loaded Books by BookConfig id. */
+const cachedBooks = new Map<string, Book>();
 
 const partDivisionId = (part: TocPart) => `phan-${part.part_number}`;
 
-const sectionEntries = (part: TocPart, section: TocSection) => {
+const sectionEntries = (dir: string, part: TocPart, section: TocSection) => {
   const base = {
     divisionId: partDivisionId(part),
     sectionId: section.section_id,
@@ -174,7 +185,7 @@ const sectionEntries = (part: TocPart, section: TocSection) => {
       hasKhaoDi: story.has_khao_di,
       footnoteCount: story.footnote_count,
     },
-    mdPath: join(DATA_DIR, section.folder, story.markdown_file),
+    mdPath: join(dir, section.folder, story.markdown_file),
   }));
   const essays = (section.essays ?? []).map((essay) => ({
     entry: {
@@ -185,32 +196,94 @@ const sectionEntries = (part: TocPart, section: TocSection) => {
       title: essay.title,
       footnoteCount: essay.footnote_count,
     },
-    mdPath: join(DATA_DIR, section.folder, essay.markdown_file),
+    mdPath: join(dir, section.folder, essay.markdown_file),
   }));
   return [...stories, ...essays].sort((a, b) => a.entry.number - b.entry.number);
 };
 
-const loadBook = (): Book => {
-  if (cachedBook) return cachedBook;
+const loadBook = (book: BookConfig): Book => {
+  const cached = cachedBooks.get(book.id);
+  if (cached) return cached;
 
-  const toc: Toc = JSON.parse(
-    readFileSync(join(DATA_DIR, "table_of_contents.json"), "utf-8")
+  const dir = dataDir(book);
+  const toc = JSON.parse(
+    readFileSync(join(dir, "table_of_contents.json"), "utf-8")
   );
 
-  const divisions: BookDivision[] = [];
   const entries: Entry[] = [];
   const bySlug: Book["bySlug"] = new Map();
   const add = (entry: Entry, mdPath: string) => {
     if (bySlug.has(entry.muc)) {
-      throw new Error(`[kho-tang-truyen] duplicate muc slug "${entry.muc}"`);
+      throw new Error(`[${book.id}] duplicate muc slug "${entry.muc}"`);
     }
     bySlug.set(entry.muc, { index: entries.length, mdPath });
     entries.push(entry);
   };
 
+  const divisions =
+    book.tocShape === "flat"
+      ? buildFlatDivisions(book, dir, toc as FlatToc, add)
+      : buildPartsDivisions(book, dir, toc as PartsToc, add);
+
+  const loaded = { divisions, entries, bySlug };
+  cachedBooks.set(book.id, loaded);
+  warnFootnoteMismatches(book, loaded);
+  return loaded;
+};
+
+type AddEntry = (entry: Entry, mdPath: string) => void;
+
+/** One division: the Preface, then the Stories in book order. */
+const buildFlatDivisions = (
+  book: BookConfig,
+  dir: string,
+  toc: FlatToc,
+  add: AddEntry
+): BookDivision[] => {
+  const divisionId = FLAT_DIVISION_ID;
+  const preface: Entry = {
+    kind: "preface",
+    muc: book.prefaceMuc,
+    divisionId,
+    title: toc.preface.title,
+    footnoteCount: toc.preface.footnote_count,
+  };
+  add(preface, join(dir, toc.preface.markdown_file));
+
+  const stories = toc.stories.map((story) => {
+    const entry: Entry = {
+      kind: "story",
+      muc: `truyen-${story.story_number}`,
+      divisionId,
+      number: story.story_number,
+      title: story.title,
+      footnoteCount: story.footnote_count,
+    };
+    add(entry, join(dir, story.markdown_file));
+    return entry;
+  });
+
+  return [
+    {
+      id: divisionId,
+      title: toc.book_title,
+      entries: [preface, ...stories],
+      sections: [],
+    },
+  ];
+};
+
+const buildPartsDivisions = (
+  book: BookConfig,
+  dir: string,
+  toc: PartsToc,
+  add: AddEntry
+): BookDivision[] => {
+  const divisions: BookDivision[] = [];
+
   // The TOC carries no footnote count for introductions or the Bibliography.
   const addUncounted = (entry: Omit<Entry, "footnoteCount">, path: string) => {
-    const mdPath = join(DATA_DIR, path);
+    const mdPath = join(dir, path);
     const full = { ...entry, footnoteCount: parseEntryFile(mdPath).footnotes.length };
     add(full, mdPath);
     return full;
@@ -221,12 +294,12 @@ const loadBook = (): Book => {
   if (toc.preface) {
     preface = {
       kind: "preface",
-      muc: PREFACE_MUC,
+      muc: book.prefaceMuc,
       divisionId: partDivisionId(toc.parts[0]),
       title: toc.preface.title,
       footnoteCount: toc.preface.footnote_count,
     };
-    add(preface, join(DATA_DIR, toc.preface.markdown_file));
+    add(preface, join(dir, toc.preface.markdown_file));
   }
 
   for (const part of toc.parts) {
@@ -244,7 +317,7 @@ const loadBook = (): Book => {
       : undefined;
 
     const sections = part.sections.map((section) => {
-      const items = sectionEntries(part, section);
+      const items = sectionEntries(dir, part, section);
       items.forEach(({ entry, mdPath }) => add(entry, mdPath));
       return {
         id: section.section_id,
@@ -299,29 +372,38 @@ const loadBook = (): Book => {
     });
   }
 
-  cachedBook = { divisions, entries, bySlug };
-  warnFootnoteMismatches(cachedBook);
-  return cachedBook;
+  return divisions;
 };
 
 const parseEntryFile = (mdPath: string) =>
   parseStoryMarkdown(readFileSync(mdPath, "utf-8"));
 
-/** The Book's Parts in order, then the Bibliography: one contents tab each. */
-export const getDivisions = (): BookDivision[] => loadBook().divisions;
+/**
+ * The Book's contents tabs: Kho Tàng's Parts in order, then the Bibliography;
+ * a flat Book's one division.
+ */
+export const getDivisions = (book: BookConfig): BookDivision[] =>
+  loadBook(book).divisions;
 
 /** The first Entry in book order: the Preface. */
-export const getDefaultEntry = (): Entry => loadBook().entries[0];
+export const getDefaultEntry = (book: BookConfig): Entry =>
+  loadBook(book).entries[0];
 
-export const getEntryBySlug = (muc: string): Entry | undefined => {
-  const { entries, bySlug } = loadBook();
+export const getEntryBySlug = (
+  book: BookConfig,
+  muc: string
+): Entry | undefined => {
+  const { entries, bySlug } = loadBook(book);
   const found = bySlug.get(muc);
   return found && entries[found.index];
 };
 
 /** An Entry with its neighbours and parsed body; undefined for an unknown slug. */
-export const lookupEntry = (muc: string): EntryLookup | undefined => {
-  const { entries, bySlug } = loadBook();
+export const lookupEntry = (
+  book: BookConfig,
+  muc: string
+): EntryLookup | undefined => {
+  const { entries, bySlug } = loadBook(book);
   const found = bySlug.get(muc);
   if (!found) return undefined;
   return {
@@ -334,9 +416,10 @@ export const lookupEntry = (muc: string): EntryLookup | undefined => {
 
 // --- Story Name Index ---------------------------------------------------------
 //
-// story_name_index.json is the printed Bảng tra cứu tên truyện, resolved
-// against the Story text by a one-off builder and hand-corrected since; see
-// IndexNameRecord. It is the source of truth: never regenerated by the build.
+// Kho Tàng's story_name_index.json is the printed Bảng tra cứu tên truyện,
+// resolved against the Story text by a one-off builder and hand-corrected
+// since; see IndexNameRecord. It is the source of truth: never regenerated by
+// the build. Only Books whose search is "story-name-index" have one.
 
 export type IndexNameLocation = "story" | "khao-di" | "chu-thich";
 
@@ -370,20 +453,22 @@ export interface IndexNameRow {
   storyTitle: string;
 }
 
-let cachedIndexRows: IndexNameRow[] | null = null;
+/** Index rows by BookConfig id. */
+const cachedIndexRows = new Map<string, IndexNameRow[]>();
 
 /** Every (Index Name, target Story) pair whose Story is in the Book, in index order. */
-export const getIndexNameRows = (): IndexNameRow[] => {
-  if (cachedIndexRows) return cachedIndexRows;
+export const getIndexNameRows = (book: BookConfig): IndexNameRow[] => {
+  const cached = cachedIndexRows.get(book.id);
+  if (cached) return cached;
   const records: IndexNameRecord[] = JSON.parse(
-    readFileSync(join(DATA_DIR, "story_name_index.json"), "utf-8")
+    readFileSync(join(dataDir(book), "story_name_index.json"), "utf-8")
   );
-  cachedIndexRows = records.flatMap((record) =>
+  const rows = records.flatMap((record) =>
     record.targets.flatMap((target) => {
-      const story = getEntryBySlug(`truyen-${target.story}`);
+      const story = getEntryBySlug(book, `truyen-${target.story}`);
       if (!story) {
         console.warn(
-          `[kho-tang-truyen] Index Name "${record.printed}" points to unknown Story ${target.story}`
+          `[${book.id}] Index Name "${record.printed}" points to unknown Story ${target.story}`
         );
         return [];
       }
@@ -401,7 +486,8 @@ export const getIndexNameRows = (): IndexNameRow[] => {
       ];
     })
   );
-  return cachedIndexRows;
+  cachedIndexRows.set(book.id, rows);
+  return rows;
 };
 
 /**
@@ -411,7 +497,7 @@ export const getIndexNameRows = (): IndexNameRow[] => {
  * missing marker or merged definition onward in those Entries; markers past
  * the last definition render as plain text.
  */
-const warnFootnoteMismatches = ({ entries, bySlug }: Book) => {
+const warnFootnoteMismatches = (book: BookConfig, { entries, bySlug }: Book) => {
   const mismatched = entries.flatMap((entry) => {
     const { markerCount, footnotes } = parseEntryFile(bySlug.get(entry.muc)!.mdPath);
     return markerCount === footnotes.length
@@ -420,7 +506,7 @@ const warnFootnoteMismatches = ({ entries, bySlug }: Book) => {
   });
   if (mismatched.length > 0) {
     console.warn(
-      `[kho-tang-truyen] ${mismatched.length} entries have mismatched footnote counts: ${mismatched.join(", ")}`
+      `[${book.id}] ${mismatched.length} entries have mismatched footnote counts: ${mismatched.join(", ")}`
     );
   }
 };

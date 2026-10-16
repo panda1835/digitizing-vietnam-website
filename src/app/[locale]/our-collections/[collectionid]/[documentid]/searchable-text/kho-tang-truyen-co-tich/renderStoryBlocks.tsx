@@ -1,5 +1,6 @@
-// Renders the narrow markdown subset the extraction pipeline emits for this
-// book (extractor/formatters.py in vsc-tri-thuc-ban-dia): #/##/### headings,
+// Renders the narrow markdown subset the extraction pipeline emits for Kho
+// Tàng (extractor/formatters.py in vsc-tri-thuc-ban-dia), which the Chăm
+// book's Web Edition is written in too: #/##/### headings,
 // plain-text paragraphs, "> " verse lines, the Bibliography's "- " bullet
 // lists (one nested level, "  - "), "-> " right-aligned lines (the hand-written
 // Preface's place/date and signature), and the `[k](#fn-i)` footnote links
