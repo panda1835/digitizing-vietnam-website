@@ -138,6 +138,13 @@ export default async function HanNomPage({
           href: "/research/han-nom/periodicals",
         },
         {
+          label:
+            locale === "vi"
+              ? "Mục lục Tạp chí Hán Nôm"
+              : "Tạp chí Hán Nôm — Contents",
+          href: "/research/han-nom/periodicals/tap-chi-han-nom",
+        },
+        {
           label: locale === "vi" ? "Sách Học thuật" : "Books",
           href: "/our-collections/nghien-cuu-han-nom",
         },

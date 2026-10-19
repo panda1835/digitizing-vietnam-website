@@ -630,6 +630,28 @@
       }
     }
   },
+  "TchnCatalog": {
+    "title": "Tạp chí Hán Nôm — Table of Contents",
+    "description": "A browsable table of contents for the complete run of Tạp chí Hán Nôm, the journal of the Institute of Hán-Nôm Studies in Hanoi: every issue from 1984 to 2025, with author, title and page for each article.",
+    "searchPlaceholder": "Search titles and authors…",
+    "totals": "{issues} issues · {articles} articles · {from}–{to}",
+    "allYears": "All years",
+    "articleCount": "{count, plural, =0 {contents not recorded} one {# article} other {# articles}}",
+    "issueMeta": "{articles, plural, =0 {contents not recorded} one {# article} other {# articles}}",
+    "pages": "pages",
+    "backToIssues": "All issues",
+    "showOther": "Show {count, plural, one {# other entry} other {# other entries}} in this issue",
+    "resultCount": "{count, plural, =0 {no matches} one {# match} other {# matches}}",
+    "resultCapped": "(showing the first 400)",
+    "noResults": "Nothing matched that search.",
+    "noAuthor": "no author given",
+    "uncertainPage": "The publisher gives this article and another the same page range.",
+    "appendixTitle": "Articles not assigned to an issue",
+    "appendixNote": "{count} articles appear in the publisher's own listings without an issue number — mostly from its separate republication site. They are kept here rather than dropped.",
+    "appendixMore": "…and {count, plural, one {# more} other {# more}}.",
+    "provenance": "Assembled from the publisher's own contents listings: its general index for 1984–2005, its article pages for 2006–2013, its issue contents pages for 2014–2025, and the journal's deposits on Vietnam Journals Online. Page order was checked to ascend within every issue.",
+    "caveats": "Two issues are mislabelled at source — số 3 (2007) and số 4 (2009) both print a cumulative number belonging to the neighbouring issue — and are placed here by year and issue number, which recovers số 82 and số 95. Roughly 4% of articles carry no author in any available source, and 13% no page number; both are marked rather than guessed at."
+  },
   "NomFonts": {
     "title": "Nôm Fonts",
     "description": "",

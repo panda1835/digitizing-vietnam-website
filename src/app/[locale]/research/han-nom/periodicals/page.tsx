@@ -32,6 +32,15 @@ export default async function PeriodicalsPage({
       name: t("Periodicals.list.tap-chi-han-nom.name"),
       description: t("Periodicals.list.tap-chi-han-nom.description"),
       url: t("Periodicals.list.tap-chi-han-nom.url"),
+      // The one periodical here whose contents we hold in full, so it gets a
+      // second link straight into them rather than only out to the publisher.
+      contents: {
+        href: "/research/han-nom/periodicals/tap-chi-han-nom",
+        label:
+          locale === "vi"
+            ? "Xem mục lục đầy đủ →"
+            : "Browse the full table of contents →",
+      },
     },
     {
       name: t("Periodicals.list.befeo.name"),
@@ -87,6 +96,14 @@ export default async function PeriodicalsPage({
               <p className="text-branding-black text-base font-light font-['Helvetica Neue'] leading-relaxed mt-2">
                 {resource.description}
               </p>
+              {"contents" in resource && resource.contents && (
+                <Link
+                  href={resource.contents.href}
+                  className="inline-block mt-2 text-branding-brown underline underline-offset-2 hover:opacity-80"
+                >
+                  {resource.contents.label}
+                </Link>
+              )}
             </div>
           ))}
         </div>

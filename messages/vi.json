@@ -631,6 +631,28 @@
       }
     }
   },
+  "TchnCatalog": {
+    "title": "Tạp chí Hán Nôm — Mục lục",
+    "description": "Mục lục tra cứu toàn bộ Tạp chí Hán Nôm của Viện Nghiên cứu Hán Nôm, Hà Nội: tất cả các số từ 1984 đến 2025, kèm tác giả, nhan đề và số trang của từng bài.",
+    "searchPlaceholder": "Tìm nhan đề và tác giả…",
+    "totals": "{issues} số · {articles} bài · {from}–{to}",
+    "allYears": "Tất cả các năm",
+    "articleCount": "{count, plural, =0 {chưa có mục lục} other {# bài}}",
+    "issueMeta": "{articles, plural, =0 {chưa có mục lục} other {# bài}}",
+    "pages": "trang",
+    "backToIssues": "Tất cả các số",
+    "showOther": "Hiện {count} mục khác trong số này",
+    "resultCount": "{count, plural, =0 {không có kết quả} other {# kết quả}}",
+    "resultCapped": "(hiển thị 400 kết quả đầu)",
+    "noResults": "Không tìm thấy kết quả nào.",
+    "noAuthor": "không ghi tác giả",
+    "uncertainPage": "Nhà xuất bản ghi bài này và một bài khác cùng khoảng trang.",
+    "appendixTitle": "Các bài chưa xác định số",
+    "appendixNote": "{count} bài xuất hiện trong mục lục của nhà xuất bản nhưng không ghi số tạp chí — phần lớn từ trang đăng lại riêng. Chúng được giữ lại ở đây thay vì loại bỏ.",
+    "appendixMore": "…và {count} bài nữa.",
+    "provenance": "Tổng hợp từ chính các mục lục của nhà xuất bản: tổng mục lục 1984–2005, các trang bài viết 2006–2013, các trang mục lục từng số 2014–2025, và bản lưu của tạp chí trên Vietnam Journals Online. Thứ tự trang đã được kiểm tra tăng dần trong từng số.",
+    "caveats": "Hai số bị ghi nhầm ở nguồn — số 3 (2007) và số 4 (2009) đều in số thứ tự cộng dồn của số liền kề — nên ở đây được xếp theo năm và số, nhờ vậy khôi phục được số 82 và số 95. Khoảng 4% số bài không có tác giả trong bất kỳ nguồn nào, và 13% không có số trang; cả hai đều được đánh dấu thay vì suy đoán."
+  },
   "NomFonts": {
     "title": "Phông chữ Nôm",
     "description": "",
