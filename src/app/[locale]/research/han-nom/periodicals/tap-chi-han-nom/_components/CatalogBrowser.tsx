@@ -2,7 +2,13 @@
 
 import * as React from "react";
 import { useTranslations } from "next-intl";
-import { Search, X, ChevronLeft, AlertTriangle } from "lucide-react";
+import {
+  Search,
+  X,
+  ChevronLeft,
+  AlertTriangle,
+  ExternalLink,
+} from "lucide-react";
 import { Merriweather } from "next/font/google";
 
 import { Input } from "@/components/ui/input";
@@ -14,8 +20,14 @@ import catalog from "../_data/catalog.json";
 const merriweather = Merriweather({ weight: ["300", "400"], subsets: ["vietnamese"] });
 
 type Issue = { c: number | null; y: string; n: string; p: string; a: number };
-/** [issueIndex, page, author, title, kind, pageUncertain] */
-type Row = [number, number | null, string, string, number, number];
+/**
+ * [issueIndex, page, author, title, kind, pageUncertain, url, linkKind]
+ * linkKind: 0 the article's own page, 1 the issue's contents page, 2 none.
+ */
+type Row = [number, number | null, string, string, number, number, string, number];
+
+const LINK_OWN = 0;
+const LINK_TOC = 1;
 
 const ISSUES = catalog.issues as Issue[];
 const ROWS = catalog.articles as Row[];
@@ -139,13 +151,31 @@ export default function CatalogBrowser({ locale }: { locale: string }) {
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <div className="text-branding-black leading-snug">{r[3]}</div>
+          <div className="text-branding-black leading-snug">
+            {r[6] ? (
+              <a
+                href={r[6]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-branding-brown hover:underline underline-offset-2"
+                title={r[7] === LINK_OWN ? t("linkOwn") : t("linkToc")}
+              >
+                {r[3]}
+                <ExternalLink className="ml-1 inline-block h-3 w-3 align-baseline text-neutral-400" />
+              </a>
+            ) : (
+              r[3]
+            )}
+          </div>
           <div className="mt-[2px] flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-neutral-600">
             {r[2] ? <span>{r[2]}</span> : <span className="italic">{t("noAuthor")}</span>}
             {kind !== "article" && (
               <Badge variant="secondary" className="font-normal">
                 {kindLabel(kind, vi)}
               </Badge>
+            )}
+            {r[7] === LINK_TOC && (
+              <span className="text-neutral-400">{t("linkTocShort")}</span>
             )}
             {withIssue && iss && (
               <span className="text-neutral-400">
@@ -226,7 +256,9 @@ export default function CatalogBrowser({ locale }: { locale: string }) {
   }
 
   // ---------- the run, by issue ----------
-  const appendix = byIssue.get(APPENDIX) ?? [];
+  const appendix = (byIssue.get(APPENDIX) ?? []).filter(
+    (r) => r[4] === ARTICLE
+  );
   return (
     <div>
       <SearchBar

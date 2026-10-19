@@ -651,7 +651,10 @@
     "appendixNote": "{count} bài xuất hiện trong mục lục của nhà xuất bản nhưng không ghi số tạp chí — phần lớn từ trang đăng lại riêng. Chúng được giữ lại ở đây thay vì loại bỏ.",
     "appendixMore": "…và {count} bài nữa.",
     "provenance": "Tổng hợp từ chính các mục lục của nhà xuất bản: tổng mục lục 1984–2005, các trang bài viết 2006–2013, các trang mục lục từng số 2014–2025, và bản lưu của tạp chí trên Vietnam Journals Online. Thứ tự trang đã được kiểm tra tăng dần trong từng số.",
-    "caveats": "Hai số bị ghi nhầm ở nguồn — số 3 (2007) và số 4 (2009) đều in số thứ tự cộng dồn của số liền kề — nên ở đây được xếp theo năm và số, nhờ vậy khôi phục được số 82 và số 95. Khoảng 4% số bài không có tác giả trong bất kỳ nguồn nào, và 13% không có số trang; cả hai đều được đánh dấu thay vì suy đoán."
+    "caveats": "Hai số bị ghi nhầm ở nguồn — số 3 (2007) và số 4 (2009) đều in số thứ tự cộng dồn của số liền kề — nên ở đây được xếp theo năm và số, nhờ vậy khôi phục được số 82 và số 95. Khoảng 4% số bài không có tác giả trong bất kỳ nguồn nào, và 13% không có số trang; cả hai đều được đánh dấu thay vì suy đoán.",
+    "linkOwn": "Mở bài viết trên trang của nhà xuất bản",
+    "linkToc": "Mở mục lục số này trên trang của nhà xuất bản",
+    "linkTocShort": "liên kết tới mục lục số"
   },
   "NomFonts": {
     "title": "Phông chữ Nôm",
