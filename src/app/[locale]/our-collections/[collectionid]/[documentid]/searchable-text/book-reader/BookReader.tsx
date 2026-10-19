@@ -1,4 +1,4 @@
-// Book Reader: the Item Viewer for a digitized Book (see books.ts). Resolves
+// Book Reader: the Item Viewer for a digitized Book (configured in page.tsx). Resolves
 // ?muc= to an Entry (a missing or unknown slug opens the first Entry of the
 // Book, with no redirect) and hands it to the client reader.
 //
@@ -7,19 +7,19 @@
 // Chú thích target, ?chu-thich= (the 1-based ordinal of the Footnote to open).
 // Both are ignored for an unknown slug, and for a Book searched by titles.
 
-import type { BookConfig } from "./books";
 import {
+  type BookConfig,
   BIBLIOGRAPHY_DIVISION_ID,
   getDefaultEntry,
   getDivisions,
   getIndexNameRows,
   lookupEntry,
 } from "./data";
-import KhoTangTruyenCoTichReader, {
+import BookReaderClient, {
   type BookSearch,
-} from "./KhoTangTruyenCoTichReader";
+} from "./BookReaderClient";
 
-export default function KhoTangTruyenCoTich({
+export default function BookReader({
   book,
   muc,
   highlightName,
@@ -45,7 +45,7 @@ export default function KhoTangTruyenCoTich({
     : { source: "story-titles" };
 
   return (
-    <KhoTangTruyenCoTichReader
+    <BookReaderClient
       messagesKey={book.messagesKey}
       divisions={getDivisions(book)}
       search={search}

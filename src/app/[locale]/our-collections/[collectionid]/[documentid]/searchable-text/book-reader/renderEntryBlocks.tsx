@@ -4,7 +4,7 @@
 // plain-text paragraphs, "> " verse lines, the Bibliography's "- " bullet
 // lists (one nested level, "  - "), "-> " right-aligned lines (the hand-written
 // Preface's place/date and signature), and the `[k](#fn-i)` footnote links
-// parseStoryMarkdown generates. Nothing else occurs in this corpus, so nothing
+// parseEntryMarkdown generates. Nothing else occurs in this corpus, so nothing
 // else is handled — and no markdown dependency is needed.
 //
 // An optional Index Name is wrapped in yellow <mark>s wherever findNameMatches
@@ -138,7 +138,7 @@ const HEADING_CLASSES: Record<number, string> = {
   3: `${merriweather.className} text-2xl text-branding-brown mt-10`,
 };
 
-export const renderStoryBlocks = (
+export const renderEntryBlocks = (
   markdown: string,
   renderFootnote: RenderFootnote,
   { variant = "body", bulletLists = false, highlight }: RenderOptions = {}

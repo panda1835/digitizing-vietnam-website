@@ -13,7 +13,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { HIGHLIGHT_CLASSES } from "./renderStoryBlocks";
+import { HIGHLIGHT_CLASSES } from "./renderEntryBlocks";
 
 export default function FootnotePopover({
   displayNumber,
@@ -28,7 +28,7 @@ export default function FootnotePopover({
   autoOpen?: boolean;
   children: ReactNode;
 }) {
-  const t = useTranslations("KhoTangTruyenCoTich");
+  const t = useTranslations("BookReader");
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 

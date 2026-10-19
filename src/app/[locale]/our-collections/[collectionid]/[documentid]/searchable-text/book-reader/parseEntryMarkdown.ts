@@ -7,7 +7,7 @@
 // section, which precedes the definitions) pairs with the k-th definition
 // under "### Chú thích".
 
-export interface ParsedStory {
+export interface ParsedEntry {
   /**
    * The story's markdown up to the footnote section, with every [^N] marker
    * rewritten to `[k](#fn-i)` — k is the 1-based display number, i the 0-based
@@ -41,7 +41,7 @@ const parseFootnoteSection = (section: string): string[] => {
   return entries.map((lines) => lines.join("\n").trim());
 };
 
-export const parseStoryMarkdown = (raw: string): ParsedStory => {
+export const parseEntryMarkdown = (raw: string): ParsedEntry => {
   const text = raw.replace(/\r\n/g, "\n");
   const delimiter = text.match(FOOTNOTE_SECTION_DELIMITER);
   const body = delimiter ? text.slice(0, delimiter.index) : text;

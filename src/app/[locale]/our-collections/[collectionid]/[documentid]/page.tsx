@@ -23,8 +23,7 @@ import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-m
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
 import NotFound from "@/app/not-found";
 import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
-import KhoTangTruyenCoTich from "./searchable-text/kho-tang-truyen-co-tich/KhoTangTruyenCoTich";
-import { findBook } from "./searchable-text/kho-tang-truyen-co-tich/books";
+import BookReader from "./searchable-text/book-reader/BookReader";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -99,7 +98,6 @@ const CollectionItemViewer = async ({
   const currentPage = searchParams?.page || "1";
   const currentTopic = searchParams?.topic || "";
   const highlightedLine = searchParams?.line || "";
-  const book = findBook(collectionId, documentId);
 
   const t = await getTranslations();
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -331,12 +329,33 @@ const CollectionItemViewer = async ({
             documentId={documentId}
             canvasId={originalCanvasId}
           />
-        ) : book ? (
-          <KhoTangTruyenCoTich
-            book={book}
+        ) : collectionId === "vietnamese-folk-literature" &&
+          documentId === "truyen-co-tich-viet-nam" ? (
+          <BookReader
+            book={{
+              id: "kho-tang-truyen-co-tich-viet-nam",
+              dataFolder: "kho-tang-truyen-co-tich-viet-nam",
+              tocShape: "parts",
+              prefaceMuc: "loi-noi-dau",
+              search: "story-name-index",
+              messagesKey: "khoTang",
+            }}
             muc={searchParams?.muc}
             highlightName={searchParams?.ten}
             targetFootnote={searchParams?.["chu-thich"]}
+          />
+        ) : collectionId === "vietnamese-folk-literature" &&
+          documentId === "truyen-co-dan-gian-cham" ? (
+          <BookReader
+            book={{
+              id: "truyen-co-dan-gian-cham",
+              dataFolder: "truyen-co-dan-gian-cham",
+              tocShape: "flat",
+              prefaceMuc: "loi-gioi-thieu",
+              search: "story-titles",
+              messagesKey: "cham",
+            }}
+            muc={searchParams?.muc}
           />
         ) : (
           <div className="flex flex-row mt-10">

@@ -16,8 +16,31 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 
-import type { BookConfig } from "./books";
-import { parseStoryMarkdown, type ParsedStory } from "./parseStoryMarkdown";
+import { parseEntryMarkdown, type ParsedEntry } from "./parseEntryMarkdown";
+
+// Reader configuration supplied by the Collection Item page.
+export interface BookConfig {
+  /** Prefix for the loader's console messages. */
+  id: string;
+  /** Folder under public/data/. */
+  dataFolder: string;
+  /**
+   * "parts": Kho Tàng's Preface, Parts → Sections → Stories/Essays and the
+   * Bibliography, one contents tab each. "flat": a Preface then numbered
+   * Stories, one division and no tab bar.
+   */
+  tocShape: "parts" | "flat";
+  /** The Preface's `?muc=` slug. */
+  prefaceMuc: string;
+  /**
+   * "story-name-index": the Book's story_name_index.json, with name
+   * highlighting and Footnote targeting (?ten=, ?chu-thich=). "story-titles":
+   * Entry titles only; ?ten= and ?chu-thich= are ignored.
+   */
+  search: "story-name-index" | "story-titles";
+  /** The Book's own labels: BookReader.<messagesKey> in messages/*.json. */
+  messagesKey: string;
+}
 
 const dataDir = (book: BookConfig) =>
   join(process.cwd(), "public/data", book.dataFolder);
@@ -89,7 +112,7 @@ export interface EntryLookup {
   entry: Entry;
   previous?: Entry;
   next?: Entry;
-  body: ParsedStory;
+  body: ParsedEntry;
 }
 
 interface TocStory {
@@ -376,7 +399,7 @@ const buildPartsDivisions = (
 };
 
 const parseEntryFile = (mdPath: string) =>
-  parseStoryMarkdown(readFileSync(mdPath, "utf-8"));
+  parseEntryMarkdown(readFileSync(mdPath, "utf-8"));
 
 /**
  * The Book's contents tabs: Kho Tàng's Parts in order, then the Bibliography;

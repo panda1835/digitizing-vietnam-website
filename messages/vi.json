@@ -801,7 +801,7 @@
       "openSourceFile": "Mở tệp nguồn"
     }
   },
-  "KhoTangTruyenCoTich": {
+  "BookReader": {
     "contentsTitle": "Mục lục",
     "partTab": "Phần {n}",
     "bibliographyTab": "Thư mục",

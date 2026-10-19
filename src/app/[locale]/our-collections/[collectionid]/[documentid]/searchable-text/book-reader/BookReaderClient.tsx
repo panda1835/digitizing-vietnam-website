@@ -28,9 +28,9 @@ import type {
   IndexNameLocation,
   IndexNameRow,
 } from "./data";
-import type { ParsedStory } from "./parseStoryMarkdown";
+import type { ParsedEntry } from "./parseEntryMarkdown";
 import { NAME_SEPARATOR } from "./findNameMatches";
-import StoryMarkdown from "./StoryMarkdown";
+import EntryMarkdown from "./EntryMarkdown";
 
 interface DivisionGroup {
   division: BookDivision;
@@ -60,7 +60,7 @@ export type BookSearch =
   | { source: "story-name-index"; indexNames: IndexNameRow[] }
   | { source: "story-titles" };
 
-export default function KhoTangTruyenCoTichReader({
+export default function BookReaderClient({
   messagesKey,
   divisions,
   search,
@@ -72,21 +72,21 @@ export default function KhoTangTruyenCoTichReader({
   highlightName,
   targetFootnoteIndex,
 }: {
-  /** The Book's own labels: KhoTangTruyenCoTich.<messagesKey>. */
+  /** The Book's own labels: BookReader.<messagesKey>. */
   messagesKey: string;
   divisions: BookDivision[];
   search: BookSearch;
   entry: Entry;
   previous?: Entry;
   next?: Entry;
-  body: ParsedStory;
+  body: ParsedEntry;
   bulletLists: boolean;
   /** Index Name to highlight in the open Entry. */
   highlightName?: string;
   /** 0-based index of the Footnote to scroll to and open. */
   targetFootnoteIndex?: number;
 }) {
-  const t = useTranslations("KhoTangTruyenCoTich");
+  const t = useTranslations("BookReader");
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -334,7 +334,7 @@ export default function KhoTangTruyenCoTichReader({
           isPending && "opacity-50"
         )}
       >
-        <StoryMarkdown
+        <EntryMarkdown
           key={`${entry.muc}|${highlightName ?? ""}|${
             targetFootnoteIndex ?? ""
           }`}
