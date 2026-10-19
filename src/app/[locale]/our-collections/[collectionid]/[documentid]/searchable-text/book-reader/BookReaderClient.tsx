@@ -1,13 +1,15 @@
 "use client";
 
-// Two-pane reader: a contents panel (Story Name Index search, one tab per Part
-// and one for the Bibliography) and the open Entry with previous/next links. The open
-// Entry lives in the ?muc= search param, so every Entry is linkable; the
-// server reads it and parses that Entry's markdown.
+// Two-pane reader: a contents panel (search, then one tab per division: Kho
+// Tàng's Parts and Bibliography; a Book with one division has no tab bar) and
+// the open Entry with previous/next links. The open Entry lives in the ?muc=
+// search param, so every Entry is linkable; the server reads it and parses
+// that Entry's markdown.
 //
-// The search box matches Index Names (the printed Story Name Index); while it
-// has a query, the results replace the tab's contents. Opening one adds ?ten=
-// (and ?chu-thich= for a Footnote target) so the Story highlights the name;
+// While the search box has a query, its results replace the tab's contents.
+// A Book's search matches either its Index Names (Kho Tàng's printed Story
+// Name Index) or its Entry titles. Opening an Index Name adds ?ten= (and
+// ?chu-thich= for a Footnote target) so the Story highlights the name;
 // opening any other Entry drops them.
 
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
@@ -26,9 +28,9 @@ import type {
   IndexNameLocation,
   IndexNameRow,
 } from "./data";
-import type { ParsedStory } from "./parseStoryMarkdown";
+import type { ParsedEntry } from "./parseEntryMarkdown";
 import { NAME_SEPARATOR } from "./findNameMatches";
-import StoryMarkdown from "./StoryMarkdown";
+import EntryMarkdown from "./EntryMarkdown";
 
 interface DivisionGroup {
   division: BookDivision;
@@ -53,9 +55,15 @@ const searchKey = (text: string) =>
 /** Search params an Index Name result adds; dropped when opening another Entry. */
 const HIGHLIGHT_PARAMS = ["ten", "chu-thich"];
 
-export default function KhoTangTruyenCoTichReader({
+/** What the search box matches (BookConfig.search). */
+export type BookSearch =
+  | { source: "story-name-index"; indexNames: IndexNameRow[] }
+  | { source: "story-titles" };
+
+export default function BookReaderClient({
+  messagesKey,
   divisions,
-  indexNames,
+  search,
   entry,
   previous,
   next,
@@ -64,19 +72,21 @@ export default function KhoTangTruyenCoTichReader({
   highlightName,
   targetFootnoteIndex,
 }: {
+  /** The Book's own labels: BookReader.<messagesKey>. */
+  messagesKey: string;
   divisions: BookDivision[];
-  indexNames: IndexNameRow[];
+  search: BookSearch;
   entry: Entry;
   previous?: Entry;
   next?: Entry;
-  body: ParsedStory;
+  body: ParsedEntry;
   bulletLists: boolean;
   /** Index Name to highlight in the open Entry. */
   highlightName?: string;
   /** 0-based index of the Footnote to scroll to and open. */
   targetFootnoteIndex?: number;
 }) {
-  const t = useTranslations("KhoTangTruyenCoTich");
+  const t = useTranslations("BookReader");
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -108,15 +118,18 @@ export default function KhoTangTruyenCoTichReader({
   const introductionLabel = t("partIntroduction");
   const activeDivision = divisions.find((d) => d.id === activeTab);
 
+  const singleDivision = divisions.length === 1;
   const searching = searchKey(query) !== "";
   const visibleGroups: DivisionGroup[] =
     !searching && activeDivision
       ? [{ division: activeDivision, ...activeDivision }]
       : [];
 
+  const indexNames =
+    search.source === "story-name-index" ? search.indexNames : undefined;
   const searchableIndexNames = useMemo(
     () =>
-      indexNames.map((row, position) => ({
+      (indexNames ?? []).map((row, position) => ({
         row,
         position,
         haystack: [row.name, row.textName ?? ""].map(searchKey),
@@ -132,6 +145,28 @@ export default function KhoTangTruyenCoTichReader({
       haystack.some((text) => text.includes(needle))
     );
   }, [searchableIndexNames, query]);
+
+  const searchableTitles = useMemo(
+    () =>
+      search.source === "story-titles"
+        ? divisions
+            .flatMap((division) => [
+              ...(division.introduction ? [division.introduction] : []),
+              ...division.entries,
+              ...division.sections.flatMap((section) => section.entries),
+            ])
+            .map((item) => ({ item, haystack: searchKey(item.title) }))
+        : [],
+    [search.source, divisions]
+  );
+
+  const visibleTitles = useMemo(() => {
+    const needle = searchKey(query);
+    if (!needle) return [];
+    return searchableTitles
+      .filter(({ haystack }) => haystack.includes(needle))
+      .map(({ item }) => item);
+  }, [searchableTitles, query]);
 
   const hrefFor = (muc: string, highlight: Record<string, string> = {}) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -196,41 +231,51 @@ export default function KhoTangTruyenCoTichReader({
             <Input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder={t("searchPlaceholder")}
-              aria-label={t("searchLabel")}
+              placeholder={t(`${messagesKey}.searchPlaceholder`)}
+              aria-label={t(`${messagesKey}.searchLabel`)}
             />
-            <Tabs value={activeTab} onValueChange={setActiveTab}>
-              <TabsList className="h-auto p-0 bg-transparent flex flex-wrap justify-start gap-1">
-                {divisions.map((division) => (
-                  <TabsTrigger
-                    key={division.id}
-                    value={division.id}
-                    title={division.title}
-                    className={TAB_CLASSES}
-                  >
-                    {division.partNumber === undefined
-                      ? t("bibliographyTab")
-                      : t("partTab", { n: division.partNumber })}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
-            <div className="text-base font-medium text-gray-800">
-              {activeDivision?.title}
-            </div>
+            {!singleDivision && (
+              <>
+                <Tabs value={activeTab} onValueChange={setActiveTab}>
+                  <TabsList className="h-auto p-0 bg-transparent flex flex-wrap justify-start gap-1">
+                    {divisions.map((division) => (
+                      <TabsTrigger
+                        key={division.id}
+                        value={division.id}
+                        title={division.title}
+                        className={TAB_CLASSES}
+                      >
+                        {division.partNumber === undefined
+                          ? t("bibliographyTab")
+                          : t("partTab", { n: division.partNumber })}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </Tabs>
+                <div className="text-base font-medium text-gray-800">
+                  {activeDivision?.title}
+                </div>
+              </>
+            )}
           </div>
 
           <ScrollArea className="h-[500px] md:h-[600px] w-full">
             <div className="flex flex-col">
-              {searching && visibleIndexNames.length === 0 && (
-                <div className="px-6 py-4 text-gray-500">{t("noResults")}</div>
-              )}
+              {searching &&
+                visibleIndexNames.length === 0 &&
+                visibleTitles.length === 0 && (
+                  <div className="px-6 py-4 text-gray-500">
+                    {t(`${messagesKey}.noResults`)}
+                  </div>
+                )}
               {visibleGroups.map(
                 ({ division, introduction, entries, sections }) => (
                   <div key={division.id}>
                     {introduction &&
                       renderEntryButton(introduction, introductionLabel)}
-                    {entries.map((item) => renderEntryButton(item, item.title))}
+                    {entries.map((item) =>
+                      renderEntryButton(item, item.title, item.number)
+                    )}
                     {sections.map((section) => (
                       <div key={section.id}>
                         <div className="block w-full text-left px-6 py-3 border-b border-gray-100 font-medium text-branding-brown">
@@ -243,6 +288,9 @@ export default function KhoTangTruyenCoTichReader({
                     ))}
                   </div>
                 )
+              )}
+              {visibleTitles.map((item) =>
+                renderEntryButton(item, item.title, item.number)
               )}
               {visibleIndexNames.length > 0 && (
                 <div>
@@ -286,7 +334,7 @@ export default function KhoTangTruyenCoTichReader({
           isPending && "opacity-50"
         )}
       >
-        <StoryMarkdown
+        <EntryMarkdown
           key={`${entry.muc}|${highlightName ?? ""}|${
             targetFootnoteIndex ?? ""
           }`}

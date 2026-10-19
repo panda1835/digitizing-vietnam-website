@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 
-import type { ParsedStory } from "./parseStoryMarkdown";
+import type { ParsedEntry } from "./parseEntryMarkdown";
 import { findNameMatches } from "./findNameMatches";
-import { renderStoryBlocks, type RenderFootnote } from "./renderStoryBlocks";
+import { renderEntryBlocks, type RenderFootnote } from "./renderEntryBlocks";
 import FootnotePopover from "./FootnotePopover";
 
 /** Footnote text never contains markers of its own. */
@@ -16,13 +16,13 @@ const noFootnotes: RenderFootnote = () => null;
 // With an Index Name to highlight, scrolls on mount to the target Footnote's
 // marker (opening its popover) when there is one, else to the first <mark>.
 // Remount it (key) to re-run that for a new Entry or name.
-export default function StoryMarkdown({
+export default function EntryMarkdown({
   body: { bodyMarkdown, footnotes },
   bulletLists = false,
   highlight,
   targetFootnoteIndex,
 }: {
-  body: ParsedStory;
+  body: ParsedEntry;
   /** Render "- " lines as bullet lists (Bibliography Entries only). */
   bulletLists?: boolean;
   /** Index Name to highlight, in the Story text's spelling. */
@@ -30,7 +30,7 @@ export default function StoryMarkdown({
   /** 0-based index of the Footnote to scroll to and open. */
   targetFootnoteIndex?: number;
 }) {
-  const t = useTranslations("KhoTangTruyenCoTich");
+  const t = useTranslations("BookReader");
   const articleRef = useRef<HTMLElement>(null);
   const opensFootnote =
     !!highlight &&
@@ -64,7 +64,7 @@ export default function StoryMarkdown({
         }
         autoOpen={opensFootnote && index === targetFootnoteIndex}
       >
-        {renderStoryBlocks(footnote, noFootnotes, {
+        {renderEntryBlocks(footnote, noFootnotes, {
           variant: "footnote",
           highlight,
         })}
@@ -74,18 +74,18 @@ export default function StoryMarkdown({
 
   return (
     <article ref={articleRef} className="space-y-5">
-      {renderStoryBlocks(bodyMarkdown, renderFootnote, {
+      {renderEntryBlocks(bodyMarkdown, renderFootnote, {
         bulletLists,
         highlight,
       })}
       {footnotes.length > 0 && (
         <section aria-label={t("footnotesHeading")} className="mt-10 space-y-4">
-          {renderStoryBlocks(`### ${t("footnotesHeading")}`, noFootnotes)}
+          {renderEntryBlocks(`### ${t("footnotesHeading")}`, noFootnotes)}
           <ol className="list-decimal space-y-4 pl-6">
             {footnotes.map((footnote, index) => (
               <li key={index} id={`fn-${index}`} className="scroll-mt-6 pl-2">
                 <div className="space-y-2">
-                  {renderStoryBlocks(footnote, noFootnotes, {
+                  {renderEntryBlocks(footnote, noFootnotes, {
                     variant: "footnote",
                     highlight,
                   })}
