@@ -28,6 +28,7 @@ type Row = [number, number | null, string, string, number, number, string, numbe
 
 const LINK_OWN = 0;
 const LINK_TOC = 1;
+const LINK_ISSUE_PDF = 3;
 
 const ISSUES = catalog.issues as Issue[];
 const ROWS = catalog.articles as Row[];
@@ -158,7 +159,13 @@ export default function CatalogBrowser({ locale }: { locale: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-branding-brown hover:underline underline-offset-2"
-                title={r[7] === LINK_OWN ? t("linkOwn") : t("linkToc")}
+                title={
+                  r[7] === LINK_OWN
+                    ? t("linkOwn")
+                    : r[7] === LINK_ISSUE_PDF
+                      ? t("linkPdf")
+                      : t("linkToc")
+                }
               >
                 {r[3]}
                 <ExternalLink className="ml-1 inline-block h-3 w-3 align-baseline text-neutral-400" />
@@ -176,6 +183,9 @@ export default function CatalogBrowser({ locale }: { locale: string }) {
             )}
             {r[7] === LINK_TOC && (
               <span className="text-neutral-400">{t("linkTocShort")}</span>
+            )}
+            {r[7] === LINK_ISSUE_PDF && (
+              <span className="text-neutral-400">{t("linkPdfShort")}</span>
             )}
             {withIssue && iss && (
               <span className="text-neutral-400">

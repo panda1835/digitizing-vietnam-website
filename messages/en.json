@@ -653,7 +653,9 @@
     "caveats": "Two issues are mislabelled at source — số 3 (2007) and số 4 (2009) both print a cumulative number belonging to the neighbouring issue — and are placed here by year and issue number, which recovers số 82 and số 95. Roughly 4% of articles carry no author in any available source, and 13% no page number; both are marked rather than guessed at.",
     "linkOwn": "Opens the article on the publisher's site",
     "linkToc": "Opens this issue's contents on the publisher's site",
-    "linkTocShort": "links to the issue contents"
+    "linkTocShort": "links to the issue contents",
+    "linkPdf": "Downloads the whole issue as a PDF — the article starts at the page shown",
+    "linkPdfShort": "whole-issue PDF"
   },
   "NomFonts": {
     "title": "Nôm Fonts",
