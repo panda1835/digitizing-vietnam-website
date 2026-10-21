@@ -344,8 +344,10 @@ const CollectionItemViewer = async ({
             highlightName={searchParams?.ten}
             targetFootnote={searchParams?.["chu-thich"]}
           />
-        ) : collectionId === "vietnamese-folk-literature" &&
-          documentId === "truyen-co-dan-gian-cham" ? (
+        ) : (collectionId === "vietnamese-folk-literature" &&
+            documentId === "truyen-co-dan-gian-cham") ||
+          (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&
+            documentId === "truyen-co-dan-gian-cham") ? (
           <BookReader
             book={{
               id: "truyen-co-dan-gian-cham",
