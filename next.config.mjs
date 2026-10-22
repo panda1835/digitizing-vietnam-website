@@ -10,6 +10,8 @@ const nextConfig = {
     // the Collection Item route's serverless bundle explicitly. Brackets are
     // escaped: keys are picomatch globs matched against the route.
     outputFileTracingIncludes: {
+      // The Nôm Component Explorer reads its index with fs at request time.
+      "tools/han-nom-tools/nom-component-explorer/**": ["./data/nom-explorer/index.json"],
       "our-collections/\\[collectionid\\]/\\[documentid\\]": [
         "./public/data/kho-tang-truyen-co-tich-viet-nam/**/*",
       ],

@@ -337,6 +337,10 @@
         "kim-han-nom": {
           "name": "Kim Hán Nôm",
           "description": "Kim Hán Nôm là một công cụ hỗ trợ việc dịch thuật tài liệu Hán Nôm, được thực hiện bởi các giảng viên Khoa Công nghệ Thông tin và Trung tâm Ngôn ngữ học Tính toán thuộc trường Đại học Khoa học Tự nhiên - ĐHQG - HCM."
+        },
+        "nom-component-explorer": {
+          "name": "Tra cứu thành tố chữ Nôm",
+          "description": "Tra một thành tố để xem mọi chữ Nôm cấu tạo từ thành tố đó, các âm tiết nó ghi khi làm thành phần biểu âm, các dị thể, tương ứng thanh điệu với tiếng Hán trung cổ và niên đại xuất hiện, dựa trên Tự điển chữ Nôm dẫn giải."
         }
       }
     },

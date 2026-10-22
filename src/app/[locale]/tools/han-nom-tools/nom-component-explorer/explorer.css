@@ -1,0 +1,72 @@
+/* Nôm Component Explorer: tokens and helpers, scoped to the tool so the rest
+   of the site is untouched. Light only, like the site. */
+.nom-explorer {
+  --surface: #fbfbfb;
+  --card: #ffffff;
+  --ink: #181818;
+  --ink-2: #4a4a48;
+  --ink-3: #74746f;
+  --rule: #e1e1de;
+  --track: #f1f1ef;
+  --brown: #a5701c;
+  --brown-ink: #8a5c14;
+  --cell-empty: #f6f6f4;
+  --tip-bg: #181818;
+  --tip-fg: #ffffff;
+  --close-0: #5c3d0c;
+  --close-0-fg: #ffffff;
+  --close-1: #8f6118;
+  --close-1-fg: #ffffff;
+  --close-2: #c79a52;
+  --close-2-fg: #181818;
+  --close-3: #ead3a8;
+  --close-3-fg: #181818;
+  color: var(--ink);
+  /* Nom Na Tong after the Latin face, so Hán and Nôm text anywhere gets a glyph. */
+  font-family: "Helvetica Neue", Helvetica, Arial, var(--font-nom), sans-serif;
+  font-weight: 300;
+}
+
+.nom-explorer input,
+.nom-explorer button {
+  font-family: inherit;
+}
+
+.nom-explorer .font-heading {
+  font-family: var(--font-merriweather), var(--font-nom), Georgia, serif;
+  font-weight: 300;
+}
+
+.nom-explorer .han {
+  font-family: var(--font-nom), serif;
+  font-weight: 400;
+}
+
+.nom-explorer .paper {
+  background: var(--track);
+}
+
+.nom-explorer a.link {
+  color: var(--brown-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nom-explorer .tip {
+  position: relative;
+}
+.nom-explorer .tip[data-tip]:hover::after {
+  content: attr(data-tip);
+  font-family: "Helvetica Neue", Helvetica, Arial, var(--font-nom), sans-serif;
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  z-index: 20;
+  white-space: nowrap;
+  background: var(--tip-bg);
+  color: var(--tip-fg);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+}

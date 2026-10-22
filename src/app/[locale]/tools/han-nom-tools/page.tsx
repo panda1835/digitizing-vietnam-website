@@ -19,6 +19,13 @@ export default async function HanNomTools({ params: { locale } }) {
   const t = await getTranslations();
   const tools = [
     {
+      href: "/tools/han-nom-tools/nom-component-explorer",
+      title: t("Tools.han-nom-tools.tools.nom-component-explorer.name"),
+      description: t("Tools.han-nom-tools.tools.nom-component-explorer.description"),
+      target: "",
+      rel: "",
+    },
+    {
       href: "/tools/han-nom-tools/nom-character-classification-and-analysis-tool",
       title: t(
         "Tools.han-nom-tools.tools.nom-character-classification-and-analysis-tool.name"
