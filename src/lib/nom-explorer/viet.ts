@@ -58,7 +58,7 @@ export interface Syllable {
 
 export function parseSyllable(raw: string): Syllable | null {
   const text = raw.trim().toLowerCase().normalize("NFC");
-  if (!text || !/^[a-zà-ỹđ]+$/u.test(text)) return null;
+  if (!text || !/^[a-zà-ỹđ]+$/.test(text)) return null;
 
   let tone: Tone = "ngang";
   const base = Array.from(text.normalize("NFD"))

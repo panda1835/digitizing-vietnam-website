@@ -309,7 +309,7 @@ function fixSwappedLabels(records: Record[]) {
     const m = seen.get(g);
     if (!m || !sv) return 0;
     let total = 0;
-    for (const n of m.values()) total += n;
+    for (const n of Array.from(m.values())) total += n;
     return (m.get(sv) ?? 0) / total;
   };
   const fixes: LabelFix[] = [];
@@ -504,13 +504,13 @@ export function analyzeComponent(input: string): ComponentReport {
   // Characters that contain the component at a deeper level, following the
   // dictionary's own analyses through intermediate Nôm characters.
   const direct = parents.get(key) ?? new Set<string>();
-  const seen = new Set<string>([key, ...direct]);
+  const seen = new Set<string>([key, ...Array.from(direct)]);
   const deep: DeepUse[] = [];
   let frontier = Array.from(direct).map((c) => ({ char: c, path: [key, c] }));
   for (let depth = 2; depth <= 4 && frontier.length; depth++) {
     const next: typeof frontier = [];
     for (const { char, path } of frontier) {
-      for (const parent of parents.get(normalize(char)) ?? []) {
+      for (const parent of Array.from(parents.get(normalize(char)) ?? [])) {
         if (seen.has(parent)) continue;
         seen.add(parent);
         const p = [...path, parent];
@@ -565,7 +565,7 @@ export function componentStats() {
   const { uses } = getDb();
   const phonetic: ComponentStat[] = [];
   const semantic: ComponentStat[] = [];
-  for (const [key, all] of uses) {
+  for (const [key, all] of Array.from(uses)) {
     // Rank each use under the component the dictionary names, so that a
     // substituted form (礼 written for 禮) does not double the count.
     const list = all.filter((u) => normalize(u.part.src ?? u.part.ch) === key);

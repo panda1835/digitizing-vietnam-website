@@ -25,7 +25,7 @@ export default async function SearchPage({ searchParams }: { searchParams: { q?:
       for (let d = 0; d < 4 && frontier.length; d++) {
         const next: string[] = [];
         for (const f of frontier)
-          for (const p of parents.get(normalize(f)) ?? []) if (!all.has(p)) all.add(p), next.push(p);
+          for (const p of Array.from(parents.get(normalize(f)) ?? [])) if (!all.has(p)) all.add(p), next.push(p);
         frontier = next;
       }
       return all;

@@ -76,7 +76,7 @@ export default function Insights() {
 
   // Structural types
   const codeCounts = new Map<string, number>();
-  for (const r of records) for (const c of new Set(r.a.flatMap((a) => a.codes))) codeCounts.set(c, (codeCounts.get(c) ?? 0) + 1);
+  for (const r of records) for (const c of Array.from(new Set(r.a.flatMap((a) => a.codes)))) codeCounts.set(c, (codeCounts.get(c) ?? 0) + 1);
   const codes = Object.keys(CODE_LABEL).map((c) => ({ label: c, value: codeCounts.get(c) ?? 0, tip: `${c}: ${CODE_LABEL[c]} (${codeCounts.get(c) ?? 0})` }));
 
   const productive = phonetic.filter((s) => s.records >= 6);
