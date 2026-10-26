@@ -1,3 +1,4 @@
+import { getCollectionCanonical } from "@/utils/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import qs from "qs";
 
@@ -31,9 +32,19 @@ const STATIC_COLLECTION_SLUGS = new Set([
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: { locale: string; collectionid: string };
+  searchParams?: { page?: string };
 }): Promise<Metadata> {
+  const alternates = {
+    canonical: getCollectionCanonical(
+      params.locale,
+      params.collectionid,
+      undefined,
+      searchParams?.page
+    ),
+  };
   const t = await getTranslations();
 
   try {
@@ -59,6 +70,7 @@ export async function generateMetadata({
       );
 
       return {
+        alternates,
         title: `${collection.title} | Digitizing Việt Nam`,
         description,
         openGraph: {
@@ -71,6 +83,7 @@ export async function generateMetadata({
   }
 
   return {
+    alternates,
     title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
   };
 }

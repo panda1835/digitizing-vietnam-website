@@ -11,6 +11,7 @@
 // the scans stay authoritative and the Vatican remains the host of record. The
 // metadata is snapshotted locally, so nothing is fetched server-side here.
 
+import { getCollectionCanonical } from "@/utils/seo";
 import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Merriweather } from "next/font/google";
@@ -34,11 +35,15 @@ export async function generateMetadata({
 }: {
   params: { locale: string; itemid: string };
 }): Promise<Metadata> {
+  const alternates = {
+    canonical: getCollectionCanonical(locale, BORGIA_COLLECTION_SLUG, itemid),
+  };
   const entry = getBorgiaByItemId(itemid);
-  if (!entry) return { title: "Manuscript | Digitizing Việt Nam" };
+  if (!entry) return { alternates, title: "Manuscript | Digitizing Việt Nam" };
 
   const { title, summary } = getBorgiaText(entry, locale);
   return {
+    alternates,
     title: `${title} | Digitizing Việt Nam`,
     description: summary?.slice(0, 200) || undefined,
   };

@@ -7,10 +7,17 @@ import { PageHeader } from "@/components/common/PageHeader";
 import CollectionView from "./CollectionView";
 import { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
+import { getCollectionCanonical } from "@/utils/seo";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
   const t = await getTranslations();
   return {
     title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
+    alternates: { canonical: getCollectionCanonical(locale) },
   };
 }
 

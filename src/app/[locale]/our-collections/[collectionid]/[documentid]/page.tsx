@@ -1,3 +1,4 @@
+import { getCollectionCanonical } from "@/utils/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import qs from "qs";
 
@@ -35,6 +36,13 @@ export async function generateMetadata({
 }: {
   params: { locale: string; collectionid: string; documentid: string };
 }): Promise<Metadata> {
+  const alternates = {
+    canonical: getCollectionCanonical(
+      params.locale,
+      params.collectionid,
+      params.documentid
+    ),
+  };
   const t = await getTranslations();
 
   try {
@@ -57,6 +65,7 @@ export async function generateMetadata({
       const ogImage = getStrapiImageUrl(item.thumbnail?.url);
 
       return {
+        alternates,
         title: `${item.title} | Digitizing Việt Nam`,
         description,
         openGraph: {
@@ -69,6 +78,7 @@ export async function generateMetadata({
   }
 
   return {
+    alternates,
     title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
   };
 }

@@ -10,7 +10,7 @@ import BackToTopButton from "@/components/layout/BackToTopButton";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-const BASE_URL = "https://digitizingvietnam.com";
+import { SITE_URL as BASE_URL } from "@/utils/seo";
 
 export async function generateMetadata({
   params: { locale },

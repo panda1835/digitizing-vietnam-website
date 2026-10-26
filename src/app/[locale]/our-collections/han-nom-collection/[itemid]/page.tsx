@@ -1,3 +1,4 @@
+import { getCollectionCanonical } from "@/utils/seo";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 
@@ -35,6 +36,13 @@ export async function generateMetadata({
 }: {
   params: { locale: string; itemid: string };
 }): Promise<Metadata> {
+  const alternates = {
+    canonical: getCollectionCanonical(
+      params.locale,
+      "han-nom-collection",
+      params.itemid
+    ),
+  };
   const t = await getTranslations();
 
   try {
@@ -47,15 +55,14 @@ export async function generateMetadata({
       const title =
         manifest.label?.en?.[0] || t("HanNomCollection.collection-title");
 
-      return {
-        title: `${title} | Digitizing Việt Nam`,
-      };
+      return { alternates, title: `${title} | Digitizing Việt Nam` };
     }
   } catch (error) {
     console.error("Error generating metadata:", error);
   }
 
   return {
+    alternates,
     title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
   };
 }

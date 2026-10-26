@@ -2,8 +2,7 @@ import { ReactNode } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Metadata } from "next";
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://digitizingvietnam.com";
+import { SITE_URL as BASE_URL } from "@/utils/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
