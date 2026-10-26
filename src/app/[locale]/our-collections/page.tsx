@@ -18,7 +18,7 @@ export async function generateStaticParams() {
   return [{ locale: "en" }, { locale: "vi" }];
 }
 
-// Revalidate every hour for ISR
+// Revalidate every 30 minutes for ISR
 export const revalidate = 60 * 30; // 30 minutes
 
 const OurCollections = async ({ params: { locale } }) => {
@@ -34,15 +34,27 @@ const OurCollections = async ({ params: { locale } }) => {
       fields: "*",
       populate: "*",
       locale: locale,
+      "pagination[pageSize]": "100",
     };
 
-    const queryString = new URLSearchParams(queryParams).toString();
-
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
-    const data = await fetcher(url, {
-      next: { revalidate: 60 * 30 }, // Cache for 30 minutes
-    });
-    const collectionData = data.data;
+    // Strapi defaults to 25 results. Fetch every page so categories are not
+    // omitted when their collections fall outside the first page.
+    const collectionData: Record<string, any>[] = [];
+    let page = 1;
+    let pageCount = 1;
+    do {
+      const queryString = new URLSearchParams({
+        ...queryParams,
+        "pagination[page]": String(page),
+      }).toString();
+      const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryString}`;
+      const data = await fetcher(url, {
+        next: { revalidate: 60 * 30 }, // Cache for 30 minutes
+      });
+      collectionData.push(...data.data);
+      pageCount = data.meta?.pagination?.pageCount ?? 1;
+      page += 1;
+    } while (page <= pageCount);
 
     // console.log("collectionData", collectionData);
     collections = collectionData.map((collection) => ({

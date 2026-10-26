@@ -799,5 +799,29 @@
       "pdfUnavailable": "PDF URL is not available for this item yet.",
       "openSourceFile": "Open source file"
     }
+  },
+  "BookReader": {
+    "contentsTitle": "Contents",
+    "partTab": "Part {n}",
+    "bibliographyTab": "Bibliography",
+    "partIntroduction": "Introduction",
+    "previous": "Previous",
+    "next": "Next",
+    "footnotesHeading": "Footnotes",
+    "footnote": "Footnote {n}",
+    "indexNamesHeading": "Story Name Index",
+    "indexLocationStory": "Story",
+    "indexLocationKhaoDi": "Variants (Khảo dị)",
+    "indexLocationChuThich": "Footnote (Chú thích)",
+    "khoTang": {
+      "searchPlaceholder": "Search the Story Name Index…",
+      "searchLabel": "Search tale names in the Story Name Index",
+      "noResults": "No matching tale names."
+    },
+    "cham": {
+      "searchPlaceholder": "Search story titles…",
+      "searchLabel": "Search story titles",
+      "noResults": "No matching stories."
+    }
   }
 }

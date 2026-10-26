@@ -23,6 +23,7 @@ import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-m
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
 import NotFound from "@/app/not-found";
 import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
+import BookReader from "./searchable-text/book-reader/BookReader";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -82,6 +83,9 @@ const CollectionItemViewer = async ({
     page?: string;
     topic?: string;
     line?: string;
+    muc?: string;
+    ten?: string;
+    "chu-thich"?: string;
   };
 }) => {
   const locale = params.locale;
@@ -187,7 +191,7 @@ const CollectionItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        <div className="mt-[32px]">
+        <div id="document-header-divider" className="mt-[32px]">
           <Separator />
         </div>
 
@@ -328,6 +332,36 @@ const CollectionItemViewer = async ({
             locale={locale}
             documentId={documentId}
             canvasId={originalCanvasId}
+          />
+        ) : collectionId === "vietnamese-folk-literature" &&
+          documentId === "truyen-co-tich-viet-nam" ? (
+          <BookReader
+            book={{
+              id: "kho-tang-truyen-co-tich-viet-nam",
+              dataFolder: "kho-tang-truyen-co-tich-viet-nam",
+              tocShape: "parts",
+              prefaceMuc: "loi-noi-dau",
+              search: "story-name-index",
+              messagesKey: "khoTang",
+            }}
+            muc={searchParams?.muc}
+            highlightName={searchParams?.ten}
+            targetFootnote={searchParams?.["chu-thich"]}
+          />
+        ) : (collectionId === "vietnamese-folk-literature" &&
+            documentId === "truyen-co-dan-gian-cham") ||
+          (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&
+            documentId === "truyen-co-dan-gian-cham") ? (
+          <BookReader
+            book={{
+              id: "truyen-co-dan-gian-cham",
+              dataFolder: "truyen-co-dan-gian-cham",
+              tocShape: "flat",
+              prefaceMuc: "loi-gioi-thieu",
+              search: "story-titles",
+              messagesKey: "cham",
+            }}
+            muc={searchParams?.muc}
           />
         ) : (
           <div className="flex flex-row mt-10">
