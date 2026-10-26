@@ -1,3 +1,7 @@
+import {
+  getLocalizedCollection,
+  getLocalizedItemLanguages,
+} from "@/lib/collection-seo";
 import { getCollectionCanonical } from "@/utils/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import qs from "qs";
@@ -22,7 +26,7 @@ import QuocAmThiTap from "./searchable-text/quoc-am-thi-tap/QuocAmThiTap";
 import DaiVietSuKyToanThu from "./searchable-text/dai-viet-su-ky-toan-thu/DaiVietSuKyToanThu";
 import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-muong/HundredVietMuongWordsTable";
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
-import NotFound from "@/app/not-found";
+import NotFound from "@/components/common/NotFoundContent";
 import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
 import BookReader from "./searchable-text/book-reader/BookReader";
 
@@ -47,9 +51,16 @@ export async function generateMetadata({
 
   try {
     const queryParams = {
-      fields: ["title", "abstract"],
+      fields: ["title", "abstract", "slug", "locale"],
       "filters[slug][$eq]": params.documentid,
-      populate: ["thumbnail"],
+      populate: {
+        thumbnail: true,
+        collections: { fields: ["slug", "locale"] },
+        localizations: {
+          fields: ["slug", "locale"],
+          populate: { collections: { fields: ["slug", "locale"] } },
+        },
+      },
       locale: params.locale,
     };
     const queryStringParam = qs.stringify(queryParams);
@@ -61,11 +72,20 @@ export async function generateMetadata({
 
     if (data.data && data.data.length > 0) {
       const item = data.data[0];
+      const collection = await getLocalizedCollection(
+        params.collectionid,
+        params.locale
+      );
       const description = stripHtmlTags(item.abstract);
       const ogImage = getStrapiImageUrl(item.thumbnail?.url);
 
       return {
-        alternates,
+        alternates: {
+          ...alternates,
+          languages: collection
+            ? getLocalizedItemLanguages(item, collection)
+            : {},
+        },
         title: `${item.title} | Digitizing Việt Nam`,
         description,
         openGraph: {

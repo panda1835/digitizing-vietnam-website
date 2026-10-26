@@ -1,7 +1,10 @@
 import "@/app/globals.css";
 
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import HtmlDocument from "@/components/layout/HtmlDocument";
 import { Metadata } from "next";
 
 import NavigationBar from "@/components/layout/NavigationBar";
@@ -32,10 +35,6 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
-      languages: {
-        en: `${BASE_URL}/en`,
-        vi: `${BASE_URL}/vi`,
-      },
     },
     openGraph: {
       title,
@@ -54,6 +53,9 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  if (!routing.locales.includes(locale as "en" | "vi")) notFound();
+  setRequestLocale(locale);
+
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
@@ -63,35 +65,37 @@ export default async function LocaleLayout({
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f7f7f7]">
-      <NextIntlClientProvider messages={messages}>
-        <NavigationBar locale={locale} />
-        <div
-          className="flex-grow bg-repeat bg-opacity-90 px-[20px] md:px-[50px] relative"
-          style={style}
-        >
+    <HtmlDocument locale={locale}>
+      <div className="min-h-screen flex flex-col bg-[#f7f7f7]">
+        <NextIntlClientProvider messages={messages}>
+          <NavigationBar locale={locale} />
           <div
-            className="absolute inset-0 bg-[url('/images/smudge-1.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
+            className="flex-grow bg-repeat bg-opacity-90 px-[20px] md:px-[50px] relative"
+            style={style}
+          >
+            <div
+              className="absolute inset-0 bg-[url('/images/smudge-1.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
               top-[161px] left-[242px] 
               md:top-[100px] md:left-[600px]
               "
-          />
-          <div
-            className="absolute inset-0 bg-[url('/images/smudge-2.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
+            />
+            <div
+              className="absolute inset-0 bg-[url('/images/smudge-2.png')] bg-contain md:bg-auto bg-no-repeat pointer-events-none mix-blend-multiply opacity-70
               top-[2000px] left-[400px]
               md:top-[1500px] md:left-[1100px]
               sm:top-[1500px] sm:left-[400px]
               
               "
-          />
-          <div className="max-w-7xl mx-auto w-full">
-            <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+            />
+            <div className="max-w-7xl mx-auto w-full">
+              <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+            </div>
           </div>
-        </div>
-        <Toaster />
-        <BackToTopButton />
-        <Footer locale={locale} />
-      </NextIntlClientProvider>
-    </div>
+          <Toaster />
+          <BackToTopButton />
+          <Footer locale={locale} />
+        </NextIntlClientProvider>
+      </div>
+    </HtmlDocument>
   );
 }

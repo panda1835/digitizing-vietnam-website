@@ -1,3 +1,4 @@
+import { getLocalizedCollectionLanguages } from "@/lib/collection-seo";
 import { getCollectionCanonical } from "@/utils/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import qs from "qs";
@@ -49,9 +50,12 @@ export async function generateMetadata({
 
   try {
     const queryParams = {
-      fields: ["title", "abstract"],
+      fields: ["title", "abstract", "slug", "locale"],
       "filters[slug][$eq]": params.collectionid,
-      populate: ["thumbnail"],
+      populate: {
+        thumbnail: true,
+        localizations: { fields: ["slug", "locale"] },
+      },
       locale: params.locale,
     };
     const queryString = qs.stringify(queryParams);
@@ -70,7 +74,13 @@ export async function generateMetadata({
       );
 
       return {
-        alternates,
+        alternates: {
+          ...alternates,
+          languages: getLocalizedCollectionLanguages(
+            collection,
+            searchParams?.page
+          ),
+        },
         title: `${collection.title} | Digitizing Việt Nam`,
         description,
         openGraph: {

@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/common/PageHeader";
 import CollectionView from "./CollectionView";
 import { Metadata } from "next";
 
-import { getCollectionCanonical } from "@/utils/seo";
+import { getCollectionCanonical, getCollectionLanguages } from "@/utils/seo";
 
 export async function generateMetadata({
   params: { locale },
@@ -17,7 +17,10 @@ export async function generateMetadata({
   const t = await getTranslations();
   return {
     title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
-    alternates: { canonical: getCollectionCanonical(locale) },
+    alternates: {
+      canonical: getCollectionCanonical(locale),
+      languages: getCollectionLanguages([{ locale: "en" }, { locale: "vi" }]),
+    },
   };
 }
 

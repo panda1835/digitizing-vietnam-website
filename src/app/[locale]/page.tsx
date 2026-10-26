@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+import { SITE_URL } from "@/utils/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
@@ -13,6 +15,20 @@ const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
 import { formatDate } from "@/utils/datetime";
 import { getImageByKey } from "@/utils/image";
+
+// Homepage alternates belong here, so nested routes cannot inherit them.
+export function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Metadata {
+  return {
+    alternates: {
+      canonical: `${SITE_URL}/${locale}`,
+      languages: { en: `${SITE_URL}/en`, vi: `${SITE_URL}/vi` },
+    },
+  };
+}
 
 // Generate static pages for all locales
 export function generateStaticParams() {

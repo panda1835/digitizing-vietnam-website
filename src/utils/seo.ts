@@ -25,6 +25,25 @@ export function getCollectionCanonical(
   return url.toString();
 }
 
+/** Only emit supported, explicitly available language versions. */
+export function getCollectionLanguages(
+  routes: {
+    locale: string;
+    collectionSlug?: string;
+    itemSlug?: string;
+  }[],
+  page?: string
+): Record<string, string> {
+  return Object.fromEntries(
+    routes
+      .filter(({ locale }) => locale === "en" || locale === "vi")
+      .map(({ locale, collectionSlug, itemSlug }) => [
+        locale,
+        getCollectionCanonical(locale, collectionSlug, itemSlug, page),
+      ])
+  );
+}
+
 /**
  * Strips HTML tags from a string and returns plain text.
  * Truncates to maxLength characters and appends "…" if needed.

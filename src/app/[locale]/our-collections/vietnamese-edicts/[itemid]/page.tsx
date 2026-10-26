@@ -12,7 +12,7 @@
 // request time. Mirador still loads PSU's manifest directly in the browser, so
 // the scans stay authoritative and PSU remains the host of record.
 
-import { getCollectionCanonical } from "@/utils/seo";
+import { getCollectionCanonical, getCollectionLanguages } from "@/utils/seo";
 import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Merriweather } from "next/font/google";
@@ -42,10 +42,24 @@ export async function generateMetadata({
 }: {
   params: { locale: string; itemid: string };
 }): Promise<Metadata> {
+  const entry = getEdictByRecord(itemid);
   const alternates = {
     canonical: getCollectionCanonical(locale, EDICTS_COLLECTION_SLUG, itemid),
+    languages: entry
+      ? getCollectionLanguages([
+          {
+            locale: "en",
+            collectionSlug: EDICTS_COLLECTION_SLUG,
+            itemSlug: itemid,
+          },
+          {
+            locale: "vi",
+            collectionSlug: EDICTS_COLLECTION_SLUG,
+            itemSlug: itemid,
+          },
+        ])
+      : {},
   };
-  const entry = getEdictByRecord(itemid);
   if (!entry) return { alternates, title: "Document | Digitizing Việt Nam" };
 
   // Search results and shared links should read in the page's own language.

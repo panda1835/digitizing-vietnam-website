@@ -1,4 +1,4 @@
-import { getCollectionCanonical } from "@/utils/seo";
+import { getCollectionCanonical, getCollectionLanguages } from "@/utils/seo";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 
@@ -36,18 +36,32 @@ export async function generateMetadata({
 }: {
   params: { locale: string; itemid: string };
 }): Promise<Metadata> {
+  const entry = getHanNomManifestEntryByItemId(params.itemid);
   const alternates = {
     canonical: getCollectionCanonical(
       params.locale,
       "han-nom-collection",
       params.itemid
     ),
+    languages: entry
+      ? getCollectionLanguages([
+          {
+            locale: "en",
+            collectionSlug: "han-nom-collection",
+            itemSlug: params.itemid,
+          },
+          {
+            locale: "vi",
+            collectionSlug: "han-nom-collection",
+            itemSlug: params.itemid,
+          },
+        ])
+      : {},
   };
   const t = await getTranslations();
 
   try {
-    const manifestEntry = getHanNomManifestEntryByItemId(params.itemid);
-    const manifestUrl = manifestEntry?.manifestUrl || "";
+    const manifestUrl = entry?.manifestUrl || "";
 
     if (manifestUrl) {
       const manifestResponse = await fetch(manifestUrl);

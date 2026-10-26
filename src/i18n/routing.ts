@@ -7,6 +7,10 @@ export const routing = defineRouting({
 
   // Used when no locale matches
   defaultLocale: "en",
+
+  // Page metadata validates CMS availability; middleware cannot assume every
+  // path has a translation or that its translated slug is identical.
+  alternateLinks: false,
 });
 
 export const { Link, redirect, usePathname, useRouter } =
