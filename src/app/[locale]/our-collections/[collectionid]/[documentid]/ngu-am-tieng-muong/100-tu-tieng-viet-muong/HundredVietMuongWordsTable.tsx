@@ -18,10 +18,8 @@ import { normalizeSearchText } from "@/lib/utils";
 
 export default function HundredVietMuongWordsTable({
   locale,
-  showHeading = true,
 }: {
   locale: string;
-  showHeading?: boolean;
 }) {
   const [keyword, setKeyword] = useState("");
 
@@ -44,17 +42,7 @@ export default function HundredVietMuongWordsTable({
 
   return (
     <div className="mx-auto w-full py-10">
-      {showHeading ? (
-        <>
-          <h1 className="text-3xl font-semibold">100 từ tiếng Việt - Mường</h1>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Phụ lục I (trang 163-166). Tìm theo từ tiếng Việt ở cột Nghệ Tĩnh
-            hoặc Hà Nội.
-          </p>
-        </>
-      ) : null}
-
-      <div className={showHeading ? "mt-6 max-w-md" : "max-w-md"}>
+      <div className={"max-w-md"}>
         <Input
           value={keyword}
           onChange={(event) => setKeyword(event.target.value)}

@@ -205,11 +205,11 @@ const CollectionItemViewer = async ({
         />
 
         {/* Headline */}
-        <div
+        <h1
           className={`${merriweather.className} text-branding-black text-[32px]`}
         >
           {collectionItemData.title}
-        </div>
+        </h1>
 
         {/* Subheadline */}
         <div
@@ -351,7 +351,7 @@ const CollectionItemViewer = async ({
             documentId === "giai-phap-ngu-am-viet-muong") ||
           (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&
             documentId === "giai-phap-ngu-am-viet-muong") ? (
-          <HundredVietMuongWordsTable locale={locale} showHeading={false} />
+          <HundredVietMuongWordsTable locale={locale} />
         ) : (collectionId === "du-lieu-ngu-am-tieng-muong" &&
             documentId === "tu-vung-tieng-muong") ||
           (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&

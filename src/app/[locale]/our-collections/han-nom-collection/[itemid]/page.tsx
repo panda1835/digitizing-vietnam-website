@@ -147,11 +147,11 @@ const HanNomItemViewer = async ({
         />
 
         {/* Headline */}
-        <div
+        <h1
           className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
         >
           {title}
-        </div>
+        </h1>
 
         {/* Share links */}
         <CollectionPermalink />
