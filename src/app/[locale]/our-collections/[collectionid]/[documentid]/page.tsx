@@ -313,11 +313,15 @@ const CollectionItemViewer = async ({
             version={"1902"}
             page={currentPage}
           />
-        ) : collectionId === "du-lieu-ngu-am-tieng-muong" &&
-          documentId === "giai-phap-ngu-am-viet-muong" ? (
+        ) : (collectionId === "du-lieu-ngu-am-tieng-muong" &&
+            documentId === "giai-phap-ngu-am-viet-muong") ||
+          (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&
+            documentId === "giai-phap-ngu-am-viet-muong") ? (
           <HundredVietMuongWordsTable locale={locale} showHeading={false} />
-        ) : collectionId === "du-lieu-ngu-am-tieng-muong" &&
-          documentId === "tu-vung-tieng-muong" ? (
+        ) : (collectionId === "du-lieu-ngu-am-tieng-muong" &&
+            documentId === "tu-vung-tieng-muong") ||
+          (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&
+            documentId === "tu-vung-tieng-muong") ? (
           <TuVungTiengMuongTable locale={locale} />
         ) : collectionId === "the-han-nom-catholic-prayer-philipphe-binh" ? (
           <PhilippheBinh
