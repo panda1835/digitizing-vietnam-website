@@ -1,7 +1,11 @@
 import type { MetadataRoute } from "next";
+import {
+  getLocalizedCollectionLanguages,
+  getLocalizedItemLanguages,
+  type LocalizedCollectionRecord,
+} from "@/lib/collection-seo";
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://digitizingvietnam.com";
+import { SITE_URL as BASE_URL } from "@/utils/seo";
 
 // Static pages that exist for all locales
 const staticPages = [
@@ -19,52 +23,54 @@ const staticPages = [
   "/tools/digital-humanities-tools",
 ];
 
-async function getCollections(): Promise<
-  { slug: string; updatedAt: string }[]
-> {
+type SitemapCollectionRecord = LocalizedCollectionRecord & {
+  updatedAt: string;
+};
+
+async function getCollections(): Promise<SitemapCollectionRecord[]> {
   try {
     const queryParams = new URLSearchParams({
-      fields: "slug,updatedAt",
+      "fields[0]": "slug",
+      "fields[1]": "updatedAt",
+      "fields[2]": "locale",
+      "populate[localizations][fields][0]": "slug",
+      "populate[localizations][fields][1]": "locale",
       "pagination[pageSize]": "1000",
     });
-
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryParams}`;
-    const response = await fetch(url, { next: { revalidate: 3600 } }); // Cache for 1 hour
-    const data = await response.json();
-
-    return (
-      data.data?.map((item: any) => ({
-        slug: item.slug,
-        updatedAt: item.updatedAt,
-      })) || []
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collections?${queryParams}`,
+      { next: { revalidate: 3600 } }
     );
+    if (!response.ok) return [];
+    return (await response.json()).data ?? [];
   } catch (error) {
     console.error("Error fetching collections for sitemap:", error);
     return [];
   }
 }
 
-async function getCollectionItems(): Promise<
-  { slug: string; collectionSlug: string; updatedAt: string }[]
-> {
+async function getCollectionItems(): Promise<SitemapCollectionRecord[]> {
   try {
     const queryParams = new URLSearchParams({
-      fields: "slug,updatedAt",
-      "populate[0]": "collections",
+      "fields[0]": "slug",
+      "fields[1]": "updatedAt",
+      "fields[2]": "locale",
+      "populate[collections][fields][0]": "slug",
+      "populate[collections][fields][1]": "locale",
+      "populate[collections][populate][localizations][fields][0]": "slug",
+      "populate[collections][populate][localizations][fields][1]": "locale",
+      "populate[localizations][fields][0]": "slug",
+      "populate[localizations][fields][1]": "locale",
+      "populate[localizations][populate][collections][fields][0]": "slug",
+      "populate[localizations][populate][collections][fields][1]": "locale",
       "pagination[pageSize]": "1000",
     });
-
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryParams}`;
-    const response = await fetch(url, { next: { revalidate: 3600 } });
-    const data = await response.json();
-
-    return (
-      data.data?.map((item: any) => ({
-        slug: item.slug,
-        collectionSlug: item.collections?.[0]?.slug || "",
-        updatedAt: item.updatedAt,
-      })) || []
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/collection-items?${queryParams}`,
+      { next: { revalidate: 3600 } }
     );
+    if (!response.ok) return [];
+    return (await response.json()).data ?? [];
   } catch (error) {
     console.error("Error fetching collection items for sitemap:", error);
     return [];
@@ -184,41 +190,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Add collection pages
-  for (const locale of locales) {
-    for (const collection of collections) {
+  // Use the same published localization relationships as the page metadata.
+  // Do not manufacture same-slug translations for CMS records.
+  for (const collection of collections) {
+    const languages = getLocalizedCollectionLanguages(collection);
+    for (const url of Object.values(languages)) {
       sitemapEntries.push({
-        url: `${BASE_URL}/${locale}/our-collections/${collection.slug}`,
+        url,
         lastModified: new Date(collection.updatedAt),
         changeFrequency: "weekly",
         priority: 0.7,
-        alternates: {
-          languages: {
-            en: `${BASE_URL}/en/our-collections/${collection.slug}`,
-            vi: `${BASE_URL}/vi/our-collections/${collection.slug}`,
-          },
-        },
+        alternates: { languages },
       });
     }
   }
 
-  // Add collection item pages
-  for (const locale of locales) {
-    for (const item of collectionItems) {
-      if (item.collectionSlug) {
-        sitemapEntries.push({
-          url: `${BASE_URL}/${locale}/our-collections/${item.collectionSlug}/${item.slug}`,
-          lastModified: new Date(item.updatedAt),
-          changeFrequency: "monthly",
-          priority: 0.6,
-          alternates: {
-            languages: {
-              en: `${BASE_URL}/en/our-collections/${item.collectionSlug}/${item.slug}`,
-              vi: `${BASE_URL}/vi/our-collections/${item.collectionSlug}/${item.slug}`,
-            },
-          },
-        });
-      }
+  for (const item of collectionItems) {
+    const collection = item.collections?.[0];
+    if (!collection) continue;
+    const languages = getLocalizedItemLanguages(item, collection);
+    for (const url of Object.values(languages)) {
+      sitemapEntries.push({
+        url,
+        lastModified: new Date(item.updatedAt),
+        changeFrequency: "monthly",
+        priority: 0.6,
+        alternates: { languages },
+      });
     }
   }
 

@@ -7,7 +7,7 @@ const Footer = ({ locale }) => {
     <footer className="bg-branding-white">
       <div className="bg-branding-white shadow-[0px_-4px_55px_0px_rgba(0,0,0,0.10)]">
         <div className="px-[20px] md:px-[50px]">
-          <div className="max-w-7xl mx-auto py-6 lg:py-10">
+          <div className="max-w-7xl mx-auto py-8">
             <div className="flex flex-col gap-4">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Email Section */}
@@ -56,7 +56,7 @@ const Footer = ({ locale }) => {
               </div>
 
               {/* Copyright */}
-              <div className="text-branding-black   font-light font-['Helvetica Neue'] mt-4">
+              <div className="text-branding-black font-light font-['Helvetica Neue']">
                 © {currentYear} Digitizing Việt Nam
               </div>
             </div>

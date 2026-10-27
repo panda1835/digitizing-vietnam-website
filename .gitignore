@@ -23,3 +23,6 @@ data/ocr
 .agents
 
 .DESIGN.md
+data/corpus
+data/uploads
+remaining.json

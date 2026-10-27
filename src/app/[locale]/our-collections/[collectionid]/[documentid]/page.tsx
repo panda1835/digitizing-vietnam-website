@@ -1,3 +1,8 @@
+import {
+  getLocalizedCollection,
+  getLocalizedItemLanguages,
+} from "@/lib/collection-seo";
+import { getCollectionCanonical } from "@/utils/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import qs from "qs";
 
@@ -21,8 +26,9 @@ import QuocAmThiTap from "./searchable-text/quoc-am-thi-tap/QuocAmThiTap";
 import DaiVietSuKyToanThu from "./searchable-text/dai-viet-su-ky-toan-thu/DaiVietSuKyToanThu";
 import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-muong/HundredVietMuongWordsTable";
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
-import NotFound from "@/app/not-found";
+import NotFound from "@/components/common/NotFoundContent";
 import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
+import BookReader from "./searchable-text/book-reader/BookReader";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -34,13 +40,27 @@ export async function generateMetadata({
 }: {
   params: { locale: string; collectionid: string; documentid: string };
 }): Promise<Metadata> {
+  const alternates = {
+    canonical: getCollectionCanonical(
+      params.locale,
+      params.collectionid,
+      params.documentid
+    ),
+  };
   const t = await getTranslations();
 
   try {
     const queryParams = {
-      fields: ["title", "abstract"],
+      fields: ["title", "abstract", "slug", "locale"],
       "filters[slug][$eq]": params.documentid,
-      populate: ["thumbnail"],
+      populate: {
+        thumbnail: true,
+        collections: { fields: ["slug", "locale"] },
+        localizations: {
+          fields: ["slug", "locale"],
+          populate: { collections: { fields: ["slug", "locale"] } },
+        },
+      },
       locale: params.locale,
     };
     const queryStringParam = qs.stringify(queryParams);
@@ -52,10 +72,20 @@ export async function generateMetadata({
 
     if (data.data && data.data.length > 0) {
       const item = data.data[0];
+      const collection = await getLocalizedCollection(
+        params.collectionid,
+        params.locale
+      );
       const description = stripHtmlTags(item.abstract);
       const ogImage = getStrapiImageUrl(item.thumbnail?.url);
 
       return {
+        alternates: {
+          ...alternates,
+          languages: collection
+            ? getLocalizedItemLanguages(item, collection)
+            : {},
+        },
         title: `${item.title} | Digitizing Việt Nam`,
         description,
         openGraph: {
@@ -68,6 +98,7 @@ export async function generateMetadata({
   }
 
   return {
+    alternates,
     title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
   };
 }
@@ -82,6 +113,9 @@ const CollectionItemViewer = async ({
     page?: string;
     topic?: string;
     line?: string;
+    muc?: string;
+    ten?: string;
+    "chu-thich"?: string;
   };
 }) => {
   const locale = params.locale;
@@ -171,11 +205,11 @@ const CollectionItemViewer = async ({
         />
 
         {/* Headline */}
-        <div
+        <h1
           className={`${merriweather.className} text-branding-black text-[32px]`}
         >
           {collectionItemData.title}
-        </div>
+        </h1>
 
         {/* Subheadline */}
         <div
@@ -187,7 +221,7 @@ const CollectionItemViewer = async ({
         {/* Share links */}
         <CollectionPermalink />
 
-        <div className="mt-[32px]">
+        <div id="document-header-divider" className="mt-[32px]">
           <Separator />
         </div>
 
@@ -313,17 +347,51 @@ const CollectionItemViewer = async ({
             version={"1902"}
             page={currentPage}
           />
-        ) : collectionId === "du-lieu-ngu-am-tieng-muong" &&
-          documentId === "giai-phap-ngu-am-viet-muong" ? (
-          <HundredVietMuongWordsTable locale={locale} showHeading={false} />
-        ) : collectionId === "du-lieu-ngu-am-tieng-muong" &&
-          documentId === "tu-vung-tieng-muong" ? (
+        ) : (collectionId === "du-lieu-ngu-am-tieng-muong" &&
+            documentId === "giai-phap-ngu-am-viet-muong") ||
+          (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&
+            documentId === "giai-phap-ngu-am-viet-muong") ? (
+          <HundredVietMuongWordsTable locale={locale} />
+        ) : (collectionId === "du-lieu-ngu-am-tieng-muong" &&
+            documentId === "tu-vung-tieng-muong") ||
+          (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&
+            documentId === "tu-vung-tieng-muong") ? (
           <TuVungTiengMuongTable locale={locale} />
         ) : collectionId === "the-han-nom-catholic-prayer-philipphe-binh" ? (
           <PhilippheBinh
             locale={locale}
             documentId={documentId}
             canvasId={originalCanvasId}
+          />
+        ) : collectionId === "vietnamese-folk-literature" &&
+          documentId === "truyen-co-tich-viet-nam" ? (
+          <BookReader
+            book={{
+              id: "kho-tang-truyen-co-tich-viet-nam",
+              dataFolder: "kho-tang-truyen-co-tich-viet-nam",
+              tocShape: "parts",
+              prefaceMuc: "loi-noi-dau",
+              search: "story-name-index",
+              messagesKey: "khoTang",
+            }}
+            muc={searchParams?.muc}
+            highlightName={searchParams?.ten}
+            targetFootnote={searchParams?.["chu-thich"]}
+          />
+        ) : (collectionId === "vietnamese-folk-literature" &&
+            documentId === "truyen-co-dan-gian-cham") ||
+          (collectionId === "dan-toc-viet-nam-ngon-ngu-van-hoa" &&
+            documentId === "truyen-co-dan-gian-cham") ? (
+          <BookReader
+            book={{
+              id: "truyen-co-dan-gian-cham",
+              dataFolder: "truyen-co-dan-gian-cham",
+              tocShape: "flat",
+              prefaceMuc: "loi-gioi-thieu",
+              search: "story-titles",
+              messagesKey: "cham",
+            }}
+            muc={searchParams?.muc}
           />
         ) : (
           <div className="flex flex-row mt-10">

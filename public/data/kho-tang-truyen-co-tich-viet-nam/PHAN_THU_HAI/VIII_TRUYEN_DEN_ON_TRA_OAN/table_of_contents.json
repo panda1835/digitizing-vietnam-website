@@ -1,0 +1,292 @@
+{
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
+  "extracted_range": "901 - 1122",
+  "total_stories": 31,
+  "sections": [
+    {
+      "section_id": "VIII",
+      "section_title": "VIII. Truyện đền ơn trả oán",
+      "stories": [
+        {
+          "story_number": 140,
+          "title": "Thử Thần và Miêu Thần hay là sự tích chuột và mèo",
+          "start_page": 901,
+          "end_page": 904,
+          "markdown_file": "story_140.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 141,
+          "title": "Con cóc liếm nước mưa",
+          "start_page": 905,
+          "end_page": 908,
+          "markdown_file": "story_141.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 142,
+          "title": "Thầy cứu trò",
+          "start_page": 909,
+          "end_page": 912,
+          "markdown_file": "story_142.md",
+          "has_khao_di": false,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 143,
+          "title": "Hai con cò và con rùa",
+          "start_page": 913,
+          "end_page": 915,
+          "markdown_file": "story_143.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 144,
+          "title": "Cô gái lấy chồng hoàng tử",
+          "start_page": 916,
+          "end_page": 920,
+          "markdown_file": "story_144.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 145,
+          "title": "Người dì ghẻ ác nghiệt hay là sự tích con dế",
+          "start_page": 921,
+          "end_page": 923,
+          "markdown_file": "story_145.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 146,
+          "title": "Làm ơn hóa hại",
+          "start_page": 924,
+          "end_page": 926,
+          "markdown_file": "story_146.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 147,
+          "title": "Huyền Quang",
+          "start_page": 927,
+          "end_page": 932,
+          "markdown_file": "story_147.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 148,
+          "title": "Tiêu diệt mãng xà",
+          "start_page": 933,
+          "end_page": 948,
+          "markdown_file": "story_148.md",
+          "has_khao_di": true,
+          "footnote_count": 20
+        },
+        {
+          "story_number": 149,
+          "title": "Giáp Hải",
+          "start_page": 949,
+          "end_page": 958,
+          "markdown_file": "story_149.md",
+          "has_khao_di": true,
+          "footnote_count": 10
+        },
+        {
+          "story_number": 150,
+          "title": "Tam và Tứ",
+          "start_page": 959,
+          "end_page": 967,
+          "markdown_file": "story_150.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 151,
+          "title": "Bính và Đinh",
+          "start_page": 968,
+          "end_page": 973,
+          "markdown_file": "story_151.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 152,
+          "title": "Hà rầm hà rạc",
+          "start_page": 974,
+          "end_page": 978,
+          "markdown_file": "story_152.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 153,
+          "title": "Ông già họ Lê",
+          "start_page": 979,
+          "end_page": 983,
+          "markdown_file": "story_153.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 154,
+          "title": "Tấm Cám",
+          "start_page": 984,
+          "end_page": 1019,
+          "markdown_file": "story_154.md",
+          "has_khao_di": true,
+          "footnote_count": 27
+        },
+        {
+          "story_number": 155,
+          "title": "Ao Phật",
+          "start_page": 1020,
+          "end_page": 1022,
+          "markdown_file": "story_155.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 156,
+          "title": "Phạm Nhĩ hay là sự tích Ông Ba Mươi",
+          "start_page": 1023,
+          "end_page": 1024,
+          "markdown_file": "story_156.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 157,
+          "title": "Con ma báo thù",
+          "start_page": 1025,
+          "end_page": 1027,
+          "markdown_file": "story_157.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 158,
+          "title": "Rắn báo oán",
+          "start_page": 1028,
+          "end_page": 1034,
+          "markdown_file": "story_158.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 159,
+          "title": "Rạch đùi giấu ngọc",
+          "start_page": 1035,
+          "end_page": 1038,
+          "markdown_file": "story_159.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 160,
+          "title": "Người học trò và con hổ",
+          "start_page": 1039,
+          "end_page": 1045,
+          "markdown_file": "story_160.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 161,
+          "title": "Sự tích đền Cờn",
+          "start_page": 1046,
+          "end_page": 1049,
+          "markdown_file": "story_161.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 162,
+          "title": "Hoằng Tín Hầu",
+          "start_page": 1050,
+          "end_page": 1055,
+          "markdown_file": "story_162.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 163,
+          "title": "Quân tử",
+          "start_page": 1056,
+          "end_page": 1060,
+          "markdown_file": "story_163.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 164,
+          "title": "Cường Bạo Đại Vương",
+          "start_page": 1061,
+          "end_page": 1072,
+          "markdown_file": "story_164.md",
+          "has_khao_di": true,
+          "footnote_count": 15
+        },
+        {
+          "story_number": 165,
+          "title": "Mũi dài",
+          "start_page": 1073,
+          "end_page": 1084,
+          "markdown_file": "story_165.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 166,
+          "title": "Bốn cô gái muốn lấy chồng hoàng tử",
+          "start_page": 1085,
+          "end_page": 1098,
+          "markdown_file": "story_166.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 167,
+          "title": "Ông Dài ông Cộc hay là sự tích thần sông Kỳ-Cùng",
+          "start_page": 1099,
+          "end_page": 1106,
+          "markdown_file": "story_167.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 168,
+          "title": "Sự tích tháp Báo Ân",
+          "start_page": 1107,
+          "end_page": 1110,
+          "markdown_file": "story_168.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 169,
+          "title": "Nàng Xuân Hương",
+          "start_page": 1111,
+          "end_page": 1116,
+          "markdown_file": "story_169.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 170,
+          "title": "Vụ kiện châu chấu",
+          "start_page": 1117,
+          "end_page": 1122,
+          "markdown_file": "story_170.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        }
+      ]
+    }
+  ]
+}

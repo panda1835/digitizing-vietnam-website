@@ -1,0 +1,45 @@
+{
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
+  "extracted_range": "1341 - 1392",
+  "total_essays": 4,
+  "sections": [
+    {
+      "section_id": "IV",
+      "section_title": "IV. Đặc điểm của truyện cổ tích Việt-Nam",
+      "essays": [
+        {
+          "essay_number": 1,
+          "title": "Yếu tố tượng trưng trong loại hình truyện cổ tích Việt Nam nói chung ít xa lạ với nhân tính; loại truyện sinh hoạt chiếm một tỷ lệ tương đối cao; loại truyện thần kỳ, truyện loài vật, truyện phiêu lưu mạo hiểm chiếm một tỷ lệ tương đối thấp",
+          "start_page": 1341,
+          "end_page": 1356,
+          "markdown_file": "essay_01.md",
+          "footnote_count": 18
+        },
+        {
+          "essay_number": 2,
+          "title": "Truyện cổ tích Việt-Nam thấm đậm chất liệu đời sống xã hội Việt cổ; là biểu trưng nghệ thuật của cái hiền hòa, nhân ái, hay tính chừng mực trong tâm lý dân tộc",
+          "start_page": 1356,
+          "end_page": 1371,
+          "markdown_file": "essay_02.md",
+          "footnote_count": 5
+        },
+        {
+          "essay_number": 3,
+          "title": "Tính cách phê phán hiện thực khá đậm trong truyện cổ tích Việt Nam; nhân vật tích cực thường tỏ ra không bằng lòng với trật tự tập tục có sẵn, phản ứng lại cái ti tiện tầm thường",
+          "start_page": 1371,
+          "end_page": 1383,
+          "markdown_file": "essay_03.md",
+          "footnote_count": 8
+        },
+        {
+          "essay_number": 4,
+          "title": "Truyện cổ tích Việt-Nam có một mảng đáng kể nêu bật vai trò tích cực của người nữ: đề cập đến ước mơ tình yêu và hôn nhân tự do",
+          "start_page": 1383,
+          "end_page": 1392,
+          "markdown_file": "essay_04.md",
+          "footnote_count": 7
+        }
+      ]
+    }
+  ]
+}

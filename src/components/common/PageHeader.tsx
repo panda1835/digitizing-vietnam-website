@@ -27,11 +27,11 @@ export function PageHeader({
       />
 
       {/* Headline */}
-      <div
+      <h1
         className={`${merriweather.className} text-branding-black text-[32px]`}
       >
         {title}
-      </div>
+      </h1>
 
       {/* Subheadline */}
       <div

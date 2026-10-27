@@ -1,0 +1,130 @@
+{
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
+  "extracted_range": "1256 - 1338",
+  "total_stories": 13,
+  "sections": [
+    {
+      "section_id": "X",
+      "section_title": "X. Truyện vui tươi dí dỏm",
+      "stories": [
+        {
+          "story_number": 189,
+          "title": "Chàng ngốc học khôn",
+          "start_page": 1256,
+          "end_page": 1261,
+          "markdown_file": "story_189.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 190,
+          "title": "Phiêu lưu của anh chàng ngốc hay là làm theo vợ dặn",
+          "start_page": 1262,
+          "end_page": 1269,
+          "markdown_file": "story_190.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 191,
+          "title": "Thịt gà thuốc chồng",
+          "start_page": 1270,
+          "end_page": 1278,
+          "markdown_file": "story_191.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 192,
+          "title": "Hòa thượng và người thợ giày",
+          "start_page": 1279,
+          "end_page": 1286,
+          "markdown_file": "story_192.md",
+          "has_khao_di": true,
+          "footnote_count": 7
+        },
+        {
+          "story_number": 193,
+          "title": "Hai anh em và con chó đá",
+          "start_page": 1287,
+          "end_page": 1291,
+          "markdown_file": "story_193.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 194,
+          "title": "Chàng rể thong manh",
+          "start_page": 1292,
+          "end_page": 1296,
+          "markdown_file": "story_194.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 195,
+          "title": "Làm cho công chúa nói được",
+          "start_page": 1297,
+          "end_page": 1300,
+          "markdown_file": "story_195.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 196,
+          "title": "Rủ nhau đi kiếm mật ong",
+          "start_page": 1301,
+          "end_page": 1306,
+          "markdown_file": "story_196.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 197,
+          "title": "Cô gái lừa thày sãi, xã trưởng và ông quan huyện",
+          "start_page": 1307,
+          "end_page": 1316,
+          "markdown_file": "story_197.md",
+          "has_khao_di": true,
+          "footnote_count": 10
+        },
+        {
+          "story_number": 198,
+          "title": "Thầy lang bất đắc dĩ",
+          "start_page": 1317,
+          "end_page": 1321,
+          "markdown_file": "story_198.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 199,
+          "title": "\"Giận mày tao ở với ai\" hay là truyện phượng hoàng đất",
+          "start_page": 1322,
+          "end_page": 1327,
+          "markdown_file": "story_199.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 200,
+          "title": "Cái chết của bốn ông sư",
+          "start_page": 1328,
+          "end_page": 1335,
+          "markdown_file": "story_200.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 201,
+          "title": "Hai bảy mười ba",
+          "start_page": 1336,
+          "end_page": 1338,
+          "markdown_file": "story_201.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        }
+      ]
+    }
+  ]
+}

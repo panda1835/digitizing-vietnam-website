@@ -189,7 +189,11 @@
         "description": "Select an input method to add Hán-Nôm characters from Quốc Ngữ, handwriting, or radicals.",
         "quoc-ngu-description": "Type a Vietnamese word in Quốc Ngữ to find matching Hán-Nôm characters.",
         "handwriting-description": "Draw a character on the canvas and use handwriting recognition to find it. Currently supports Hán characters and phonetic-loan Nôm characters.",
-        "radical-description": "Browse characters by selecting a radical component, then narrow by stroke count."
+        "radical-description": "Browse characters by selecting a radical component, then narrow by stroke count.",
+        "radical-tooltip": "Search by radical",
+        "radical-title": "Search by radical",
+        "handwriting-tooltip": "Search by handwriting",
+        "handwriting-title": "Search by handwriting"
       },
       "no-result": "No results found.",
       "dictionaries": {
@@ -197,7 +201,31 @@
           "name": "Unified Hán-Nôm Lookup",
           "description": "Search across multiple Hán-Nôm dictionaries at once by Hán-Nôm character, Quốc Ngữ reading, or component combination.",
           "search-placeholder": "Hán Nôm, Quốc Ngữ, or Components",
-          "author": ""
+          "author": "",
+          "instructions": {
+            "title": "How to search",
+            "intro": "Search several historical Hán-Nôm dictionaries simultaneously using one of the following methods:",
+            "example-label": "e.g.",
+            "char-title": "By Hán-Nôm character",
+            "char-desc": "Type a Hán or Nôm character to find words written using that character.",
+            "char-example": "字",
+            "quocngu-title": "By Quốc Ngữ reading",
+            "quocngu-desc": "Type a romanized (Quốc Ngữ) reading to find characters with that reading.",
+            "quocngu-example": "chữ",
+            "components-title": "By component combination",
+            "components-desc": "Type two or more components together with no spaces to find characters that contain them.",
+            "components-example": "宀子",
+            "radical-title": "By radical or handwriting",
+            "radical-desc": "Use the 部 button next to the search bar to look up a character by its radical, or the pencil button to draw it by hand — then insert it into the search bar."
+          },
+          "filter": {
+            "all": "All",
+            "by-character": "Filter by char",
+            "by-reading": "Filter by reading",
+            "no-source-results": "No matching results in this source",
+            "active": "Filtered by:",
+            "clear": "Clear filter"
+          }
         },
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải (The Dictionary of Nôm Characters with Quotations and Annotations)",
@@ -471,7 +499,9 @@
           "ocr": "State-of-the-art OCR for Hán-Nôm Texts",
           "lookup": "Unified Multi-Dictionary Lookup",
           "resources": "Scholarly Periodicals & Books"
-        }
+        },
+        "readMore": "Read more",
+        "readLess": "Show less"
       },
       "sidebar": {
         "digital-archives": "Digital Archives",
@@ -514,6 +544,30 @@
           "placeholder": "Search corpus texts...",
           "search": "Search",
           "description": "Full-text search across classical Vietnamese literature and historical documents."
+        },
+        "vietDien": {
+          "alt": "Việt Điển 越典 · Hán-Nôm Digital Library",
+          "description": "A searchable digital library of Hán-Nôm texts. Read source page images alongside their OCR.",
+          "searchPlaceholder": "Search the OCR (characters, phrases)…",
+          "search": "Search",
+          "cta": "Visit Việt Điển",
+          "nav": "Việt Điển",
+          "searchPlaceholderShort": "Search OCR…",
+          "mode": "Kind of search",
+          "modeExact": "Exact",
+          "modeAll": "All of",
+          "modeProximity": "Proximity",
+          "modeConcordance": "Concordance",
+          "nearFirst": "First characters",
+          "nearSecond": "Second characters",
+          "nearFirstShort": "First",
+          "nearSecondShort": "Second",
+          "nearWithin": "within",
+          "nearChars": "characters",
+          "hintExact": "The characters together, in that order.",
+          "hintAll": "Every term appears somewhere on the same page.",
+          "hintProximity": "Both appear within that many characters of one another.",
+          "hintConcordance": "Every occurrence, lined up with the text either side of it."
         }
       },
       "DateConverter": {
@@ -622,6 +676,29 @@
         "location": "Location",
         "script": "Script",
         "excerpt": "Excerpt"
+      },
+      "hub": {
+        "lede": "Digitized collections, OCR, searchable dictionaries and digital tools — one platform for exploring Việt Nam’s written heritage.",
+        "ctaPrimary": "Explore the Collections",
+        "ctaSecondary": "Learn more",
+        "examples": "Examples:",
+        "about": "About this hub",
+        "featured": {
+          "title": "Featured Content"
+        },
+        "projects": {
+          "title": "Projects and Tools",
+          "viewAll": "View all tools",
+          "archivesTags": "Manuscripts · Edicts · Printed texts",
+          "archivesBlurb": "Explore digitized archival collections from Việt Nam and international partner institutions.",
+          "archivesCta": "Explore collections",
+          "ocrTags": "Text recognition · Hán-Nôm model",
+          "ocrBlurb": "Advanced OCR for Hán-Nôm with variant-aware models, built for scholarly use.",
+          "ocrCta": "Learn more",
+          "dateTags": "Lunar · Solar · Reign years",
+          "dateBlurb": "Convert between lunar, solar and historical reign dates.",
+          "dateCta": "Open the converter"
+        }
       }
     }
   },
@@ -643,7 +720,7 @@
       "tap-chi-han-nom": {
         "name": "Tạp chí Hán Nôm",
         "description": "The primary scholarly journal of the Institute of Sino-Nôm Studies in Hanoi, featuring research on manuscripts, linguistics, and historical texts.",
-        "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
+        "url": "https://vjol.info.vn/hannom/index/"
       },
       "befeo": {
         "name": "BEFEO",
@@ -654,6 +731,16 @@
         "name": "Journal of Vietnamese Studies",
         "description": "A peer-reviewed academic journal published by the University of California Press, covering all aspects of Vietnamese history, culture, and society.",
         "url": "https://online.ucpress.edu/jvs"
+      },
+      "tap-chi-ngon-ngu": {
+        "name": "Tạp chí Ngôn ngữ",
+        "description": "The journal of the Institute of Linguistics at the Vietnam Academy of Social Sciences, publishing research on the Vietnamese language and linguistics. Issues are hosted on Vietnam Journals Online (VJOL).",
+        "url": "https://vjol.info.vn/ngonngu/en/index/"
+      },
+      "tap-chi-nghien-cuu-phat-hoc": {
+        "name": "Tạp chí Nghiên cứu Phật học",
+        "description": "The journal of the Vietnam Buddhist Sangha, covering Buddhist history, doctrine, and the temples and textual heritage that preserve much of Vietnam's Hán-Nôm corpus.",
+        "url": "https://tapchinghiencuuphathoc.vn/"
       }
     }
   },
@@ -713,6 +800,11 @@
         "name": "Dictionary of Chinese Character Variants (異體字字典)",
         "description": "An authoritative reference from Taiwan's Ministry of Education cataloguing variant forms of Chinese characters, with detailed annotations and historical sources.",
         "url": "https://dict.variants.moe.edu.tw/"
+      },
+      "ddb": {
+        "name": "Digital Dictionary of Buddhism (電子佛教辭典)",
+        "description": "A scholarly dictionary of Buddhist terms, texts, figures and temples as written in Chinese characters, edited by A. Charles Muller.",
+        "url": "http://www.buddhism-dict.net/ddb/"
       }
     }
   },
@@ -744,7 +836,10 @@
       "resource_types": "Resource types",
       "collection_locations": "Collection locations",
       "access_condition": "Access condition",
-      "online_resource_types": "Online resource types"
+      "online_resource_types": "Online resource types",
+      "dynasty": "Dynasty",
+      "era": "Reign era",
+      "document-type": "Document type"
     }
   },
   "PedagogyVlt": {
@@ -817,6 +912,30 @@
       "backToProfessionalDevelopment": "Back to Professional Development",
       "pdfUnavailable": "PDF URL is not available for this item yet.",
       "openSourceFile": "Open source file"
+    }
+  },
+  "BookReader": {
+    "contentsTitle": "Contents",
+    "partTab": "Part {n}",
+    "bibliographyTab": "Bibliography",
+    "partIntroduction": "Introduction",
+    "previous": "Previous",
+    "next": "Next",
+    "footnotesHeading": "Footnotes",
+    "footnote": "Footnote {n}",
+    "indexNamesHeading": "Story Name Index",
+    "indexLocationStory": "Story",
+    "indexLocationKhaoDi": "Variants (Khảo dị)",
+    "indexLocationChuThich": "Footnote (Chú thích)",
+    "khoTang": {
+      "searchPlaceholder": "Search the Story Name Index…",
+      "searchLabel": "Search tale names in the Story Name Index",
+      "noResults": "No matching tale names."
+    },
+    "cham": {
+      "searchPlaceholder": "Search story titles…",
+      "searchLabel": "Search story titles",
+      "noResults": "No matching stories."
     }
   }
 }

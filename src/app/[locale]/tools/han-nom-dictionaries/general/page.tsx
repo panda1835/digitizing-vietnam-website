@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Merriweather } from "next/font/google";
 import Entry from "./Entry";
 import DictionarySearchBar from "../DictionarySearchBar";
+import SearchInstructions from "./SearchInstructions";
 
 import { hdwd as giupdocHdwd } from "../giup-doc-nom-va-han-viet/hdwd";
 import { hdwd as qatdHdwd } from "../nguyen-trai-quoc-am-tu-dien/hdwd";
@@ -62,6 +63,18 @@ export default async function DictionaryPage({
     ])
   ).sort();
 
+  const searchBar = (
+    <div className="flex gap-4 mb-6 items-center">
+      <DictionarySearchBar
+        searchWord={searchWord}
+        placeholder={t(
+          "Tools.han-nom-dictionaries.dictionaries.general.search-placeholder"
+        )}
+        hdwd_list={combinedHeadwords}
+      />
+    </div>
+  );
+
   return (
     <div className="">
       <div className={`${merriweather.className} text-branding-black text-4xl`}>
@@ -73,23 +86,24 @@ export default async function DictionaryPage({
           {t("Tools.han-nom-dictionaries.dictionaries.general.author")}
         </span>
       </div>
-      <div className="mx-auto">
-        <div className="flex gap-4 mb-6 items-center">
-          <DictionarySearchBar
-            searchWord={searchWord}
-            placeholder={t(
-              "Tools.han-nom-dictionaries.dictionaries.general.search-placeholder"
-            )}
-            hdwd_list={combinedHeadwords}
-          />
+
+      {hasResults && data ? (
+        // Search bar rides in the results' main column (same width as the
+        // results) with the sidebar beside both.
+        <Entry entry={data} query={searchWord || ""} searchBar={searchBar} />
+      ) : (
+        <div className="mx-auto">
+          {searchBar}
+          {searchWord ? (
+            <div className="text-center text-lg font-['Helvetica_Neue'] font-light text-branding-black">
+              {t("Tools.han-nom-dictionaries.no-result")}
+            </div>
+          ) : null}
+          {/* "How to search" is getting-started guidance, so it only appears on
+              the initial / no-results page, never alongside results. */}
+          <SearchInstructions />
         </div>
-      </div>
-      {!hasResults && searchWord ? (
-        <div className="text-center text-lg font-['Helvetica_Neue'] font-light text-branding-black">
-          {t("Tools.han-nom-dictionaries.no-result")}
-        </div>
-      ) : null}
-      {hasResults && data && <Entry entry={data} query={searchWord || ""} />}
+      )}
     </div>
   );
 }

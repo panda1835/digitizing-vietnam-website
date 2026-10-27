@@ -1,7 +1,7 @@
 export interface Collection {
   slug: string;
   title: string;
-  subject: string[];
+  subjects: string[];
   datePublished: string;
   dateCreated: string;
   thumbnail: {
@@ -10,8 +10,8 @@ export interface Collection {
     formats: ImageFormat;
   };
   abstract: string;
-  language: string[];
-  format: string[];
+  languages: string[];
+  formats: string[];
   collectionLocation: string;
   accessCondition: string;
   collectionItems: CollectionItem[];

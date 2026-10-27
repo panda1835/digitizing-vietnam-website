@@ -1,16 +1,22 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
+  ArrowRight,
+  ArrowUpRight,
+  BookOpen,
+  Boxes,
+  CalendarDays,
   GraduationCap,
   Library,
+  Layers,
   Scan,
   Search,
-  ArrowRight,
-  BookOpen,
 } from "lucide-react";
 
 import { Link } from "@/i18n/routing";
-import { PageHeader } from "@/components/common/PageHeader";
+import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
+import VietDienSearch from "./_components/VietDienSearch";
 import DictionarySearchBar from "@/app/[locale]/tools/han-nom-dictionaries/DictionarySearchBar";
 import { hdwd as giupdocHdwd } from "@/app/[locale]/tools/han-nom-dictionaries/giup-doc-nom-va-han-viet/hdwd";
 import { hdwd as qatdHdwd } from "@/app/[locale]/tools/han-nom-dictionaries/nguyen-trai-quoc-am-tu-dien/hdwd";
@@ -28,10 +34,28 @@ const NomNaTong = localFont({
   src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
+const VIET_DIEN_URL = "https://viet-dien.com";
+
+// Queries the lookup is worth trying first, one per way of searching it:
+// a Hán-Nôm character, a Quốc Ngữ reading, and a pair of components. They go
+// straight to the dictionary rather than filling the box, so a tap is one
+// step, not two. The component pair is typed with no space between the two
+// parts — the label shows the "+" the box itself will not take.
+const LOOKUP_EXAMPLES: { q: string; label?: string }[] = [
+  { q: "學" },
+  { q: "國" },
+  { q: "văn" },
+  { q: "học" },
+  { q: "口南", label: "口+南" },
+];
+
+type NavItem = { label: string; href: string; external?: boolean };
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   return {
     title: `${t("ResearchHub.HanNomHub.hero.title")} | Digitizing Việt Nam`,
+    description: t("ResearchHub.HanNomHub.hub.lede"),
   };
 }
 
@@ -47,9 +71,16 @@ export default async function HanNomPage({
     new Set([...tdcndgHdwd, ...giupdocHdwd, ...qatdHdwd, ...taberdHdwd])
   ).sort();
 
-  const tocGroups = [
+  // The four groups that used to be the sidebar. They now carry the same links
+  // as cards across the full width of the page.
+  const navGroups: {
+    title: string;
+    icon: typeof Library;
+    items: NavItem[];
+  }[] = [
     {
       title: locale === "vi" ? "Kho lưu trữ số" : "Digital Archives",
+      icon: Layers,
       items: [
         {
           label: t("ResearchHub.HanNomHub.digital-archives.title"),
@@ -57,6 +88,11 @@ export default async function HanNomPage({
             locale === "vi"
               ? "/our-collections?category=Kho Cận đại"
               : "/our-collections?category=Pre-modern Archive",
+        },
+        {
+          label: t("ResearchHub.HanNomHub.cards.vietDien.nav"),
+          href: VIET_DIEN_URL,
+          external: true,
         },
         {
           label: t(
@@ -72,6 +108,7 @@ export default async function HanNomPage({
     },
     {
       title: locale === "vi" ? "Công cụ số" : "Digital Tools",
+      icon: Boxes,
       items: [
         {
           label: locale === "vi" ? "Từ điển Hán Nôm" : "Unified Hán-Nôm Lookup",
@@ -94,6 +131,7 @@ export default async function HanNomPage({
     },
     {
       title: t("ResearchHub.HanNomHub.sidebar.resources"),
+      icon: BookOpen,
       items: [
         {
           label: t("ResearchHub.HanNomHub.resources.periodicals"),
@@ -111,12 +149,9 @@ export default async function HanNomPage({
     },
     {
       title: locale === "vi" ? "Trung tâm học tập" : "Learning Center",
+      icon: GraduationCap,
       items: [
-        {
-          label: "NômFlow",
-          href: "https://nomflow.app",
-          external: true,
-        },
+        { label: "NômFlow", href: "https://nomflow.app", external: true },
         {
           label: locale === "vi" ? "Giáo trình Trực tuyến" : "Online Textbook",
           href: "/our-collections/nghien-cuu-han-nom/ly-thuyet-thuc-hanh-chu-nom",
@@ -125,245 +160,408 @@ export default async function HanNomPage({
     },
   ];
 
-  const tocList = (
-    <ul className="space-y-6 lg:space-y-11">
-      {tocGroups.map((group) => (
-        <li key={group.title}>
-          <p
-            className={`${merriweather.className} text-base lg:text-lg leading-none tracking-[0.1em]  text-branding-brown font-bold`}
-          >
-            {group.title}
-          </p>
-          <ul className="mt-3 lg:mt-5 pl-4 lg:pl-5 pr-0 lg:pr-4 py-1 space-y-2 border-l border-branding-brown/30">
-            {group.items.map((item) => (
-              <li key={item.label} className="list-none">
-                {item.href ? (
-                  item.external ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown"
-                    >
-                      {item.label}
-                    </Link>
-                  )
-                ) : (
-                  <span className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium">
-                    {item.label}
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
+  const featuredContent: {
+    key: string;
+    href: string;
+    // A picture shown across the head of the card, with the part of it the
+    // band should keep when the crop bites.
+    image?: string;
+    crop?: string;
+  }[] = [
+    {
+      key: "featuredCollection",
+      href: "/our-collections/han-nom-collection",
+      image: "/images/han-nom-collection-card.jpg",
+      crop: "object-top",
+    },
+    {
+      key: "featuredBooks",
+      href: "/our-collections/nghien-cuu-han-nom",
+      image: "/images/han-nom-books-card.jpg",
+      // The stack sits mid-frame; anchoring to the top would crop to the
+      // shelf behind it.
+      crop: "object-center",
+    },
+  ];
+
+  const projects: {
+    name: string;
+    blurb: string;
+    cta: string;
+    href: string;
+    external?: boolean;
+    icon: typeof Scan;
+  }[] = [
+    {
+      name: t("ResearchHub.HanNomHub.digital-archives.title"),
+      blurb: t("ResearchHub.HanNomHub.hub.projects.archivesBlurb"),
+      cta: t("ResearchHub.HanNomHub.hub.projects.archivesCta"),
+      href:
+        locale === "vi"
+          ? "/our-collections?category=Kho Cận đại"
+          : "/our-collections?category=Pre-modern Archive",
+      icon: Layers,
+    },
+    {
+      name: "Hán-Nôm OCR",
+      blurb: t("ResearchHub.HanNomHub.hub.projects.ocrBlurb"),
+      cta: t("ResearchHub.HanNomHub.hub.projects.ocrCta"),
+      href: "https://ocr.digitizingvietnam.com/en",
+      external: true,
+      icon: Scan,
+    },
+    {
+      name: t("ResearchHub.HanNomHub.DateConverter.title"),
+      blurb: t("ResearchHub.HanNomHub.hub.projects.dateBlurb"),
+      cta: t("ResearchHub.HanNomHub.hub.projects.dateCta"),
+      href: "/tools/date-converter",
+      icon: CalendarDays,
+    },
+  ];
+
+  // One surface per job, rather than one card class for everything.
+  const panelClass =
+    "bg-white rounded-2xl border border-branding-black/10 shadow-lg shadow-branding-brown/5";
+  const flatCardClass =
+    "bg-white/70 rounded-xl border border-branding-black/10 hover:border-branding-black/25 transition-colors";
+  const navLinkClass =
+    "inline-flex items-start gap-0.5 text-[15px] leading-[1.4] text-branding-black/75 font-medium hover:text-branding-brown hover:underline underline-offset-2";
+
+  const renderNavLink = (item: NavItem) => (
+    <li key={item.label}>
+      {item.external ? (
+        <a
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={navLinkClass}
+        >
+          {item.label}
+          <ArrowUpRight className="h-3 w-3 shrink-0 mt-[0.2em]" aria-hidden />
+        </a>
+      ) : (
+        <Link href={item.href} className={navLinkClass}>
+          {item.label}
+        </Link>
+      )}
+    </li>
   );
 
   return (
-    <div className="flex flex-col items-center max-width w-full">
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="w-full mb-20">
-        <PageHeader
-          title={t("ResearchHub.HanNomHub.hero.title")}
-          subtitle={""}
+        <BreadcrumbAndSearchBar
+          locale={locale}
           breadcrumbItems={[
-            { label: t("ResearchHub.title"), href: "/research" },
+            { label: t("ResearchHub.title"), href: "research" },
             { label: t("ResearchHub.HanNomHub.hero.title") },
           ]}
-          locale={locale}
         />
 
-        <div className="mt-12 flex flex-col lg:flex-row gap-12 justify-center w-full">
-          <aside className="hidden lg:block lg:w-64 lg:flex-shrink-0">
-            <nav className="lg:sticky lg:top-32">{tocList}</nav>
-          </aside>
+        {/* --- Hero ------------------------------------------------------- */}
+        <section className="relative isolate mt-2 overflow-hidden rounded-2xl px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12">
+          {/* Brushed 漢喃 on paper, cropped to the right so the strokes sit
+              beside the text rather than under it. */}
+          <Image
+            src="/images/han-nom-hero-banner.jpg"
+            alt=""
+            aria-hidden
+            fill
+            priority
+            sizes="100vw"
+            className="-z-20 pointer-events-none select-none object-cover object-right"
+          />
+          {/* A wash over the paper: heavy on the left, where the words are,
+              clearing by the right edge so the brushwork stays legible. */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/85 via-white/70 to-white/55 sm:bg-gradient-to-r sm:from-white/92 sm:via-white/75 sm:to-transparent"
+          />
 
-          <main className="flex flex-col gap-14 max-w-5xl w-full">
-            <section id="intro" className="scroll-mt-32">
-              <h2 className="font-['Helvetica Neue'] text-2xl md:text-5xl text-branding-black font-bold mb-8 leading-tight">
-                {t("ResearchHub.HanNomHub.intro.title")}
+          <div className="">
+            <h1
+              className={`${merriweather.className} flex max-w-3xl flex-col gap-2 sm:gap-3 text-4xl sm:text-5xl xl:text-[3.25rem] leading-[1.1] text-branding-black mb-4`}
+            >
+              <span>
+                {locale === "vi"
+                  ? "Cổng thông tin số cho"
+                  : "The Digital Gateway to"}
+              </span>
+              <span>
+                {locale === "vi" ? "Nghiên cứu Hán-Nôm" : "Hán-Nôm Studies"}
+              </span>
+            </h1>
+            <p className="text-lg text-branding-black/70 leading-relaxed max-w-7xl mb-7">
+              {t("ResearchHub.HanNomHub.hub.lede")}
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href={
+                  locale === "vi"
+                    ? "/our-collections?category=Kho Cận đại"
+                    : "/our-collections?category=Pre-modern Archive"
+                }
+                className="inline-flex items-center gap-2 rounded-lg bg-branding-brown px-6 py-3 text-sm font-bold text-white shadow-md shadow-branding-brown/20 hover:bg-branding-brown/90 hover:-translate-y-0.5 transition-all"
+              >
+                {t("ResearchHub.HanNomHub.hub.ctaPrimary")}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* --- About ------------------------------------------------------- */}
+        <section id="about" className="mt-8 lg:mt-10 scroll-mt-32">
+          <h2
+            className={`${merriweather.className} text-2xl text-branding-black mb-3`}
+          >
+            {t("ResearchHub.HanNomHub.hub.about")}
+          </h2>
+          <p className="text-base text-branding-black/70 leading-relaxed max-w-7xl">
+            {t("ResearchHub.HanNomHub.intro.description")}
+          </p>
+        </section>
+
+        {/* --- The four sections of the hub -------------------------------- */}
+        <section className="mt-8 lg:mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
+          {navGroups.map((group) => (
+            <div
+              key={group.title}
+              className="flex flex-col bg-white/70 rounded-xl border border-branding-black/10 shadow-sm shadow-branding-brown/5 p-5"
+            >
+              <h2
+                className={`${merriweather.className} flex items-center gap-2 text-[15px] text-branding-black font-bold pb-2.5 mb-3 border-b border-branding-black/10`}
+              >
+                <span className="p-1.5 rounded-md bg-branding-brown/10 text-branding-brown shrink-0">
+                  <group.icon className="h-4 w-4" />
+                </span>
+                {group.title}
               </h2>
+              {/* No blurb: the links below it say the same thing. The mockup
+                  needed one because its cards held nothing else.
+                  Not mt-auto either — the cards are equal height, and pushing
+                  the links down left the short lists floating. */}
+              <ul className="space-y-2.5">{group.items.map(renderNavLink)}</ul>
+            </div>
+          ))}
+        </section>
 
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                <div className="lg:col-span-3">
-                  <p className="text-xl text-muted-foreground font-light leading-relaxed mb-8">
-                    {t("ResearchHub.HanNomHub.intro.description")}
-                  </p>
-                </div>
+        {/* --- Featured content -------------------------------------------- */}
+        <section className="mt-10">
+          <h2
+            className={`${merriweather.className} flex items-center gap-3 text-2xl text-branding-black mb-4`}
+          >
+            {t("ResearchHub.HanNomHub.hub.featured.title")}
+          </h2>
 
-                <div className="lg:col-span-2 bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-branding-brown/10">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-branding-brown mb-6">
-                    {t("ResearchHub.HanNomHub.intro.goal")}
-                  </h3>
-                  <ul className="space-y-4">
-                    {[
-                      { icon: Library, key: "archives" },
-                      { icon: Scan, key: "ocr" },
-                      { icon: Search, key: "lookup" },
-                      { icon: GraduationCap, key: "resources" },
-                    ].map((feature) => (
-                      <li key={feature.key} className="flex gap-4 items-center">
-                        <div className="mt-1 p-1.5 bg-branding-brown/10 rounded-lg text-branding-brown">
-                          <feature.icon className="h-4 w-4" />
-                        </div>
-                        <span className="text-base text-branding-black/80 font-medium leading-snug">
-                          {t(
-                            `ResearchHub.HanNomHub.intro.features.${feature.key}`
-                          )}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="lg:hidden">
-              <nav className="rounded-2xl border border-branding-brown/15 bg-white/60 p-5">
-                {tocList}
-              </nav>
-            </section>
-
-            <section id="tools-and-featured" className="scroll-mt-32">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                <Link
-                  href="/our-collections/han-nom-collection"
-                  className="group relative overflow-hidden rounded-3xl bg-branding-black/5 border border-branding-black/10 p-8 hover:bg-branding-black/10 transition-colors cursor-pointer flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center gap-2 mb-4 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
-                      <Library className="h-3.5 w-3.5" />
-                      <span>
-                        {t(
-                          "ResearchHub.HanNomHub.cards.featuredCollection.label"
-                        )}
-                      </span>
-                    </div>
-                    <h3
-                      className={`${merriweather.className} text-2xl text-branding-black mb-2`}
-                    >
-                      {t(
-                        "ResearchHub.HanNomHub.cards.featuredCollection.title"
-                      )}
-                    </h3>
-                    <p className="text-muted-foreground font-light mb-6">
-                      {t(
-                        "ResearchHub.HanNomHub.cards.featuredCollection.description"
-                      )}
-                    </p>
-                  </div>
-                  <div className="flex items-center text-branding-black font-bold text-sm uppercase tracking-wider">
-                    {t("ResearchHub.HanNomHub.cards.featuredCollection.cta")}
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
-
-                <Link
-                  href="/our-collections/nghien-cuu-han-nom"
-                  className="group relative overflow-hidden rounded-3xl bg-branding-black/5 border border-branding-black/10 p-8 hover:bg-branding-black/10 transition-colors cursor-pointer flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center gap-2 mb-4 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
-                      <BookOpen className="h-3.5 w-3.5" />
-                      <span>
-                        {t("ResearchHub.HanNomHub.cards.featuredBooks.label")}
-                      </span>
-                    </div>
-                    <h3
-                      className={`${merriweather.className} text-2xl text-branding-black mb-2`}
-                    >
-                      {t("ResearchHub.HanNomHub.cards.featuredBooks.title")}
-                    </h3>
-                    <p className="text-muted-foreground font-light mb-6">
-                      {t(
-                        "ResearchHub.HanNomHub.cards.featuredBooks.description"
-                      )}
-                    </p>
-                  </div>
-                  <div className="flex items-center text-branding-black font-bold text-sm uppercase tracking-wider">
-                    {t("ResearchHub.HanNomHub.cards.featuredBooks.cta")}
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
-
-                <div className="bg-white p-8 rounded-3xl shadow-xl border border-branding-brown/10 flex flex-col">
-                  <div className="flex items-center gap-2 mb-6 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
-                    <Search className="h-3.5 w-3.5" />
-                    <span>
-                      {t("ResearchHub.HanNomHub.cards.quickLookup.label")}
-                    </span>
-                  </div>
-                  <h3
-                    className={`${merriweather.className} text-2xl text-branding-black mb-6`}
-                  >
-                    {t("ResearchHub.HanNomHub.cards.quickLookup.title")}
-                  </h3>
-                  <div className="flex-1 flex flex-col justify-center">
-                    <DictionarySearchBar
-                      searchWord={undefined}
-                      placeholder={t(
-                        "Tools.han-nom-dictionaries.dictionaries.general.search-placeholder"
-                      )}
-                      hdwd_list={combinedHeadwords}
-                      searchPath="/tools/han-nom-dictionaries/general"
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {featuredContent.map((card) => (
+              <Link
+                key={card.key}
+                href={card.href}
+                className={`${flatCardClass} group overflow-hidden bg-branding-brown/[0.04] flex flex-col`}
+              >
+                {/* A plate from the collection, shown as a picture: full
+                    strength, its own band across the head of the card. */}
+                {card.image && (
+                  <div className="relative h-40 sm:h-44 w-full border-b border-branding-black/10 bg-branding-brown/5">
+                    <Image
+                      src={card.image}
+                      alt={t(`ResearchHub.HanNomHub.cards.${card.key}.title`)}
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className={`object-cover ${
+                        card.crop ?? "object-center"
+                      } transition-transform duration-500 group-hover:scale-[1.03]`}
                     />
                   </div>
-                  <p className="text-[10px] text-muted-foreground mt-2 italic">
-                    {t("ResearchHub.HanNomHub.cards.quickLookup.description")}
+                )}
+                <div className="p-5 sm:p-6 flex flex-col justify-center">
+                  <h3
+                    className={`${merriweather.className} text-2xl sm:text-[28px] leading-snug text-branding-black mb-2`}
+                  >
+                    {t(`ResearchHub.HanNomHub.cards.${card.key}.title`)}
+                  </h3>
+                  <p className="text-[15px] text-branding-black/70 mb-5">
+                    {t(`ResearchHub.HanNomHub.cards.${card.key}.description`)}
                   </p>
+                  <span className="inline-flex items-center gap-1 text-sm font-medium text-branding-brown">
+                    {t(`ResearchHub.HanNomHub.cards.${card.key}.cta`)}
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-                <div className="bg-white p-8 rounded-3xl shadow-xl border border-branding-brown/10 flex flex-col">
-                  <div className="flex items-center gap-2 mb-6 uppercase tracking-widest text-branding-brown/60 text-[10px] font-bold">
-                    <Search className="h-3.5 w-3.5" />
-                    <span>
-                      {t("ResearchHub.HanNomHub.cards.corpusSearch.label")}
+        {/* --- Search band ------------------------------------------------ */}
+        <section id="search" className="mt-10">
+          <h2
+            className={`${merriweather.className} text-2xl text-branding-black mb-4`}
+          >
+            {t("ResearchHub.HanNomHub.cards.corpusSearch.title")}
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className={`${panelClass} p-5 sm:p-6 flex flex-col`}>
+              <div>
+                {/* The name and its icon are the way into the tool itself, the
+                    way Việt Điển's logo is the way to Việt Điển. */}
+                <Link
+                  href="/tools/han-nom-dictionaries/general"
+                  className="group flex items-start gap-3"
+                >
+                  <span className="p-2 rounded-lg bg-branding-brown/10 text-branding-brown shrink-0 transition-colors group-hover:bg-branding-brown/20">
+                    <Search className="h-5 w-5" />
+                  </span>
+                  <h2
+                    className={`${merriweather.className} flex items-center gap-2 text-2xl sm:text-[28px] leading-snug text-branding-black font-bold transition-colors group-hover:text-branding-brown`}
+                  >
+                    {t("ResearchHub.HanNomHub.cards.quickLookup.title")}
+                    <ArrowRight
+                      className="h-5 w-5 shrink-0 text-branding-brown transition-transform group-hover:translate-x-1"
+                      aria-hidden
+                    />
+                  </h2>
+                </Link>
+                {/* Indented to the title, not the icon. */}
+                <p className="mt-1 pl-12 text-sm text-branding-black/70">
+                  {t("ResearchHub.HanNomHub.cards.quickLookup.description")}
+                </p>
+              </div>
+              <div className="mt-5 flex-1">
+                <DictionarySearchBar
+                  searchWord={undefined}
+                  placeholder={t(
+                    "Tools.han-nom-dictionaries.dictionaries.general.search-placeholder"
+                  )}
+                  hdwd_list={combinedHeadwords}
+                  searchPath="/tools/han-nom-dictionaries/general"
+                  variant="flat"
+                />
+                <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+                  <span>{t("ResearchHub.HanNomHub.hub.examples")}</span>
+                  {LOOKUP_EXAMPLES.map((example, index) => (
+                    // A dot between the links: the component pair reads as one
+                    // query, not as two more characters to try.
+                    <span key={example.q} className="flex items-center gap-x-2">
+                      {index > 0 && (
+                        <span className="text-branding-black/25" aria-hidden>
+                          &middot;
+                        </span>
+                      )}
+                      <Link
+                        href={`/tools/han-nom-dictionaries/general?q=${encodeURIComponent(
+                          example.q
+                        )}`}
+                        className={`${NomNaTong.className} text-branding-brown hover:underline`}
+                      >
+                        {example.label ?? example.q}
+                      </Link>
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </div>
+
+            {/* Việt Điển keeps its own type and its navy, so the panel reads as
+                that site sitting inside ours. */}
+            <div
+              className={`${panelClass} p-5 sm:p-6 text-center flex flex-col`}
+            >
+              <div className="flex flex-col justify-center">
+                <a
+                  href={VIET_DIEN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Image
+                    src="/images/viet-dien-logo.png"
+                    alt={t("ResearchHub.HanNomHub.cards.vietDien.alt")}
+                    width={960}
+                    height={184}
+                    className="mx-auto w-full max-w-[17rem] sm:max-w-[22rem] h-auto"
+                  />
+                </a>
+                <p className="mt-2 text-sm text-slate-500">
+                  {t("ResearchHub.HanNomHub.cards.vietDien.description")}
+                </p>
+              </div>
+              <div className="mt-auto">
+                <VietDienSearch />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* --- Projects and tools ------------------------------------------- */}
+        <section className="mt-10">
+          <div className="flex items-end justify-between gap-4 mb-4">
+            <h2
+              className={`${merriweather.className} flex items-center gap-3 text-2xl text-branding-black`}
+            >
+              {t("ResearchHub.HanNomHub.hub.projects.title")}
+            </h2>
+            <Link
+              href="/tools"
+              className="inline-flex items-center gap-1 text-sm font-medium text-branding-brown hover:underline whitespace-nowrap"
+            >
+              {t("ResearchHub.HanNomHub.hub.projects.viewAll")}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {projects.map((project) => {
+              const body = (
+                <>
+                  <span className="p-2 m-4 mr-0 h-fit rounded-lg bg-branding-brown/10 text-branding-brown shrink-0">
+                    <project.icon className="h-4 w-4" aria-hidden />
+                  </span>
+                  <div className="p-4 min-w-0">
+                    <h3
+                      className={`${merriweather.className} flex items-center gap-1 text-lg text-branding-black`}
+                    >
+                      {project.name}
+                      {project.external && (
+                        <ArrowUpRight className="h-4 w-4" aria-hidden />
+                      )}
+                    </h3>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      {project.blurb}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-branding-brown">
+                      {project.cta}
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
-                  <h3
-                    className={`${merriweather.className} text-2xl text-branding-black mb-6`}
-                  >
-                    {t("ResearchHub.HanNomHub.cards.corpusSearch.title")}
-                  </h3>
-                  <form
-                    action="han-nom/search-database"
-                    method="GET"
-                    className="flex gap-2"
-                  >
-                    <div className="relative flex-grow">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                      <input
-                        type="text"
-                        name="q"
-                        placeholder={t(
-                          "ResearchHub.HanNomHub.cards.corpusSearch.placeholder"
-                        )}
-                        className={`${NomNaTong.className} w-full h-[54px] px-5 py-2 pl-11 bg-white shadow-lg rounded-[26px]`}
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="h-[54px] px-6 rounded-[16px] bg-branding-black text-white font-semibold text-base hover:bg-branding-black/90 transition-colors"
-                    >
-                      {t("ResearchHub.HanNomHub.cards.corpusSearch.search")}
-                    </button>
-                  </form>
-                  <p className="text-[10px] text-muted-foreground mt-2 italic">
-                    {t("ResearchHub.HanNomHub.cards.corpusSearch.description")}
-                  </p>
-                </div>
-              </div>
-            </section>
-          </main>
-        </div>
+                </>
+              );
+              const className = `${flatCardClass} group flex items-start`;
+
+              return project.external ? (
+                <a
+                  key={project.name}
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  {body}
+                </a>
+              ) : (
+                <Link
+                  key={project.name}
+                  href={project.href}
+                  className={className}
+                >
+                  {body}
+                </Link>
+              );
+            })}
+          </div>
+        </section>
       </div>
     </div>
   );

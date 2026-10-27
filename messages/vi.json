@@ -190,7 +190,11 @@
         "description": "Chọn phương thức để nhập ký tự Hán-Nôm từ chữ Quốc ngữ, chữ viết tay hoặc bộ thủ.",
         "quoc-ngu-description": "Nhập một từ tiếng Việt bằng Quốc ngữ để tìm các ký tự Hán-Nôm tương ứng.",
         "handwriting-description": "Vẽ ký tự trên bảng và dùng nhận diện chữ viết tay để tìm kiếm. Hiện hỗ trợ chữ Hán và chữ Nôm mượn âm.",
-        "radical-description": "Duyệt ký tự bằng cách chọn bộ thủ, sau đó lọc theo số nét."
+        "radical-description": "Duyệt ký tự bằng cách chọn bộ thủ, sau đó lọc theo số nét.",
+        "radical-tooltip": "Tra cứu theo bộ thủ",
+        "radical-title": "Tra cứu theo bộ thủ",
+        "handwriting-tooltip": "Tra cứu bằng chữ viết tay",
+        "handwriting-title": "Tra cứu bằng chữ viết tay"
       },
       "no-result": "Không tìm thấy kết quả nào.",
       "dictionaries": {
@@ -198,7 +202,31 @@
           "name": "Tra Cứu Hán-Nôm Đa Từ Điển",
           "description": "Tra cứu đồng thời trên nhiều từ điển Hán-Nôm theo chữ Hán-Nôm, âm Quốc Ngữ, hoặc tổ hợp thành phần.",
           "search-placeholder": "Hán Nôm, Quốc Ngữ, hoặc Thành Phần",
-          "author": ""
+          "author": "",
+          "instructions": {
+            "title": "Hướng dẫn tra cứu",
+            "intro": "Công cụ này tra cứu đồng thời trên nhiều từ điển Hán-Nôm. Bạn có thể tra cứu theo bốn cách:",
+            "example-label": "ví dụ",
+            "char-title": "Theo chữ Hán-Nôm",
+            "char-desc": "Nhập một chữ Hán hoặc Nôm để tra trên tất cả các từ điển.",
+            "char-example": "字",
+            "quocngu-title": "Theo âm Quốc Ngữ",
+            "quocngu-desc": "Nhập âm Quốc Ngữ để tìm các chữ có cách đọc đó.",
+            "quocngu-example": "chữ",
+            "components-title": "Theo tổ hợp thành phần",
+            "components-desc": "Nhập hai thành phần trở lên liền nhau, không có khoảng trắng, để tìm các chữ chứa tất cả các thành phần đó.",
+            "components-example": "宀子",
+            "radical-title": "Theo bộ thủ hoặc viết tay",
+            "radical-desc": "Dùng nút 部 bên cạnh ô tìm kiếm để tra chữ theo bộ thủ, hoặc nút bút chì để vẽ chữ bằng tay — rồi chèn chữ vào ô tìm kiếm."
+          },
+          "filter": {
+            "all": "Tất cả",
+            "by-character": "Lọc theo chữ",
+            "by-reading": "Lọc theo âm đọc",
+            "no-source-results": "Không có kết quả phù hợp trong nguồn này",
+            "active": "Đang lọc theo:",
+            "clear": "Xóa bộ lọc"
+          }
         },
         "tu-dien-chu-nom-dan-giai": {
           "name": "Tự Điển Chữ Nôm Dẫn Giải",
@@ -472,7 +500,9 @@
           "ocr": "Công nghệ OCR cho văn bản Hán-Nôm",
           "lookup": "Tra cứu Đa Từ điển",
           "resources": "Tạp chí Chuyên ngành & Sách Tham khảo"
-        }
+        },
+        "readMore": "Xem thêm",
+        "readLess": "Thu gọn"
       },
       "sidebar": {
         "digital-archives": "Kho lưu trữ số",
@@ -515,6 +545,30 @@
           "placeholder": "Tìm trong kho ngữ liệu...",
           "search": "Tìm kiếm",
           "description": "Tìm toàn văn trong văn học cổ điển Việt Nam và các tư liệu lịch sử."
+        },
+        "vietDien": {
+          "alt": "Việt Điển 越典 · Thư viện số Hán-Nôm",
+          "description": "Thư viện số có thể tìm kiếm các văn bản Hán-Nôm. Đọc ảnh trang gốc cùng với văn bản OCR.",
+          "searchPlaceholder": "Tìm trong OCR (chữ, cụm từ)…",
+          "search": "Tìm kiếm",
+          "cta": "Truy cập Việt Điển",
+          "nav": "Việt Điển",
+          "searchPlaceholderShort": "Tìm OCR…",
+          "mode": "Kiểu tìm",
+          "modeExact": "Chính xác",
+          "modeAll": "Có tất cả",
+          "modeProximity": "Gần nhau",
+          "modeConcordance": "Ngữ cảnh",
+          "nearFirst": "Chữ thứ nhất",
+          "nearSecond": "Chữ thứ hai",
+          "nearFirstShort": "Chữ 1",
+          "nearSecondShort": "Chữ 2",
+          "nearWithin": "cách nhau trong",
+          "nearChars": "chữ",
+          "hintExact": "Các chữ liền nhau, đúng thứ tự.",
+          "hintAll": "Mọi từ đều xuất hiện trên cùng một trang.",
+          "hintProximity": "Hai từ cách nhau không quá số chữ đã định.",
+          "hintConcordance": "Mọi lần xuất hiện, xếp thẳng hàng cùng ngữ cảnh."
         }
       },
       "DateConverter": {
@@ -623,6 +677,29 @@
         "location": "Vị trí",
         "script": "Văn tự",
         "excerpt": "Đoạn trích"
+      },
+      "hub": {
+        "lede": "Bộ sưu tập số hóa, OCR, từ điển tra cứu và công cụ số — một nền tảng để khám phá di sản thư tịch của Việt Nam.",
+        "ctaPrimary": "Khám phá bộ sưu tập",
+        "ctaSecondary": "Tìm hiểu thêm",
+        "examples": "Ví dụ:",
+        "about": "Giới thiệu",
+        "featured": {
+          "title": "Nội dung nổi bật"
+        },
+        "projects": {
+          "title": "Dự án và công cụ",
+          "viewAll": "Xem tất cả công cụ",
+          "archivesTags": "Bản thảo · Sắc phong · Văn bản in",
+          "archivesBlurb": "Khám phá các bộ sưu tập lưu trữ đã số hóa từ Việt Nam và các đối tác quốc tế.",
+          "archivesCta": "Xem bộ sưu tập",
+          "ocrTags": "Nhận dạng văn bản · Mô hình Hán-Nôm",
+          "ocrBlurb": "OCR Hán-Nôm với mô hình nhận biết dị thể, phục vụ nghiên cứu.",
+          "ocrCta": "Tìm hiểu thêm",
+          "dateTags": "Âm lịch · Dương lịch · Niên hiệu",
+          "dateBlurb": "Chuyển đổi giữa âm lịch, dương lịch và niên hiệu.",
+          "dateCta": "Mở công cụ"
+        }
       }
     }
   },
@@ -644,7 +721,7 @@
       "tap-chi-han-nom": {
         "name": "Tạp chí Hán Nôm",
         "description": "Tạp chí học thuật chính của Viện Nghiên cứu Hán Nôm, đăng tải các nghiên cứu về văn bản, ngôn ngữ và lịch sử.",
-        "url": "http://www.hannom.org.vn/web/tchn/data/8700f5f0"
+        "url": "https://vjol.info.vn/hannom/index/"
       },
       "befeo": {
         "name": "BEFEO",
@@ -655,6 +732,16 @@
         "name": "Journal of Vietnamese Studies",
         "description": "Tạp chí học thuật được bình duyệt bởi Đại học California, bao gồm tất cả các khía cạnh của lịch sử, văn hóa và xã hội Việt Nam.",
         "url": "https://online.ucpress.edu/jvs"
+      },
+      "tap-chi-ngon-ngu": {
+        "name": "Tạp chí Ngôn ngữ",
+        "description": "Tạp chí của Viện Ngôn ngữ học thuộc Viện Hàn lâm Khoa học xã hội Việt Nam, đăng tải các nghiên cứu về tiếng Việt và ngôn ngữ học. Các số được lưu trữ trên Vietnam Journals Online (VJOL).",
+        "url": "https://vjol.info.vn/ngonngu/en/index/"
+      },
+      "tap-chi-nghien-cuu-phat-hoc": {
+        "name": "Tạp chí Nghiên cứu Phật học",
+        "description": "Tạp chí của Giáo hội Phật giáo Việt Nam, đăng tải các nghiên cứu về lịch sử, giáo lý Phật giáo cùng di sản chùa chiền và thư tịch — nơi lưu giữ phần lớn kho tàng Hán-Nôm của Việt Nam.",
+        "url": "https://tapchinghiencuuphathoc.vn/"
       }
     }
   },
@@ -714,6 +801,11 @@
         "name": "Từ điển các biến thể chữ Hán (異體字字典)",
         "description": "Nguồn tham khảo có thẩm quyền của Bộ Giáo dục Đài Loan, thống kê các dạng chữ Hán dị thể, kèm chú giải chi tiết và nguồn tư liệu lịch sử.",
         "url": "https://dict.variants.moe.edu.tw/"
+      },
+      "ddb": {
+        "name": "Từ điển Phật học số (電子佛教辭典)",
+        "description": "Từ điển học thuật về thuật ngữ, kinh sách, nhân vật và tự viện Phật giáo viết bằng chữ Hán, do A. Charles Muller biên soạn.",
+        "url": "http://www.buddhism-dict.net/ddb/"
       }
     }
   },
@@ -745,7 +837,10 @@
       "resource_types": "Loại tài nguyên",
       "collection_locations": "Địa điểm bộ sưu tập",
       "access_condition": "Điều kiện truy cập",
-      "online_resource_types": "Loại tài nguyên trực tuyến"
+      "online_resource_types": "Loại tài nguyên trực tuyến",
+      "dynasty": "Triều đại",
+      "era": "Niên hiệu",
+      "document-type": "Loại văn bản"
     }
   },
   "PedagogyVlt": {
@@ -818,6 +913,30 @@
       "backToProfessionalDevelopment": "Quay lại Phát triển chuyên môn",
       "pdfUnavailable": "Hiện chưa có URL PDF cho tài liệu này.",
       "openSourceFile": "Mở tệp nguồn"
+    }
+  },
+  "BookReader": {
+    "contentsTitle": "Mục lục",
+    "partTab": "Phần {n}",
+    "bibliographyTab": "Thư mục",
+    "partIntroduction": "Lời dẫn",
+    "previous": "Trước",
+    "next": "Tiếp",
+    "footnotesHeading": "Chú thích",
+    "footnote": "Chú thích {n}",
+    "indexNamesHeading": "Bảng tra cứu tên truyện",
+    "indexLocationStory": "Truyện",
+    "indexLocationKhaoDi": "Khảo dị",
+    "indexLocationChuThich": "Chú thích",
+    "khoTang": {
+      "searchPlaceholder": "Tìm trong bảng tra cứu tên truyện…",
+      "searchLabel": "Tìm tên truyện trong Bảng tra cứu tên truyện",
+      "noResults": "Không tìm thấy tên truyện phù hợp."
+    },
+    "cham": {
+      "searchPlaceholder": "Tìm tên truyện…",
+      "searchLabel": "Tìm theo tên truyện",
+      "noResults": "Không tìm thấy truyện phù hợp."
     }
   }
 }

@@ -10,6 +10,31 @@ const NomNaTong = localFont({
   src: "../../../../fonts/NomNaTongLight/NomNaTong-Regular.ttf",
 });
 
+// How long to wait after the last stroke before asking for candidates. Keeps
+// us from firing a request on every intermediate stroke while the user is still
+// drawing a character.
+const RECOGNIZE_DEBOUNCE_MS = 400;
+
+// The Google handwriting API (language "zh") occasionally returns Latin letters,
+// digits, or punctuation among its candidates. This is a Hán-Nôm tool, so keep
+// only candidates made entirely of CJK characters (incl. extension planes).
+function isHanNomCandidate(candidate: string): boolean {
+  const chars = Array.from(candidate);
+  if (chars.length === 0) return false;
+  return chars.every((ch) => {
+    const cp = ch.codePointAt(0);
+    if (cp === undefined) return false;
+    return (
+      (cp >= 0x4e00 && cp <= 0x9fff) ||
+      (cp >= 0x3400 && cp <= 0x4dbf) ||
+      (cp >= 0x20000 && cp <= 0x2ebef) ||
+      (cp >= 0x30000 && cp <= 0x323af) ||
+      (cp >= 0xf900 && cp <= 0xfaff) ||
+      (cp >= 0x2e80 && cp <= 0x2fdf)
+    );
+  });
+}
+
 type Props = {
   onSelect: (char: string) => void;
   showNote?: boolean;
@@ -18,10 +43,16 @@ type Props = {
 export default function HandwritingPad({ onSelect, showNote = true }: Props) {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
   const candidatesRef = useRef<HTMLDivElement>(null);
-  const [ink, setInk] = useState<number[][][]>([]);
   const [candidates, setCandidates] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const t = useTranslations();
+
+  // Debounce timer for scheduling recognition after a stroke ends.
+  const debounceRef = useRef<number | null>(null);
+  // Monotonic id so that only the most recent in-flight request may apply its
+  // result — earlier (now-stale) responses are ignored, since strokes keep
+  // being added while requests are in flight.
+  const requestIdRef = useRef(0);
 
   useEffect(() => {
     if (candidates.length === 0 || typeof window === "undefined") return;
@@ -34,9 +65,21 @@ export default function HandwritingPad({ onSelect, showNote = true }: Props) {
       });
     });
   }, [candidates]);
-  const recognize = async () => {
-    if (ink.length === 0) return;
 
+  // Cancel any pending recognition when the component unmounts.
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) window.clearTimeout(debounceRef.current);
+    };
+  }, []);
+
+  const recognize = async (ink: number[][][]) => {
+    if (ink.length === 0) {
+      setCandidates([]);
+      return;
+    }
+
+    const requestId = ++requestIdRef.current;
     setLoading(true);
 
     const body = {
@@ -66,13 +109,16 @@ export default function HandwritingPad({ onSelect, showNote = true }: Props) {
       );
 
       const data = await res.json();
+      // A newer stroke has already kicked off a fresh request; drop this result.
+      if (requestId !== requestIdRef.current) return;
       if (data[0] === "SUCCESS") {
-        setCandidates(data[1][0][1]);
+        const results = (data[1][0][1] as string[]) ?? [];
+        setCandidates(results.filter(isHanNomCandidate));
       }
     } catch (err) {
       console.error("Recognition failed:", err);
     } finally {
-      setLoading(false);
+      if (requestId === requestIdRef.current) setLoading(false);
     }
   };
 
@@ -84,13 +130,22 @@ export default function HandwritingPad({ onSelect, showNote = true }: Props) {
         stroke.paths.map((p) => Math.round(p.y)),
         [],
       ]) || [];
-    setInk(strokes);
+
+    // Debounce: recognize shortly after the user stops drawing, so candidates
+    // update in real time without a request per intermediate stroke.
+    if (debounceRef.current) window.clearTimeout(debounceRef.current);
+    debounceRef.current = window.setTimeout(() => {
+      recognize(strokes);
+    }, RECOGNIZE_DEBOUNCE_MS);
   };
 
   const clear = () => {
+    if (debounceRef.current) window.clearTimeout(debounceRef.current);
+    // Invalidate any in-flight request so its late result can't repopulate.
+    requestIdRef.current++;
     canvasRef.current?.clearCanvas();
-    setInk([]);
     setCandidates([]);
+    setLoading(false);
   };
 
   return (
@@ -113,15 +168,15 @@ export default function HandwritingPad({ onSelect, showNote = true }: Props) {
         className="border"
       />
 
-      <div className="flex gap-4">
+      <div className="flex items-center gap-4 min-h-[1.5rem]">
         <Button onClick={clear} variant="outline">
           {t("Tools.han-nom-dictionaries.writing-pad.clear")}
         </Button>
-        <Button onClick={recognize} disabled={loading}>
-          {loading
-            ? t("Tools.han-nom-dictionaries.writing-pad.recognizing")
-            : t("Tools.han-nom-dictionaries.writing-pad.recognize")}
-        </Button>
+        {loading && (
+          <span className="text-sm text-muted-foreground">
+            {t("Tools.han-nom-dictionaries.writing-pad.recognizing")}
+          </span>
+        )}
       </div>
 
       {candidates.length > 0 && (

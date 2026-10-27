@@ -1,0 +1,301 @@
+{
+  "book_title": "Kho tàng truyện cổ tích Việt-Nam",
+  "extracted_range": "415 - 578",
+  "total_stories": 32,
+  "sections": [
+    {
+      "section_id": "IV",
+      "section_title": "IV. Thông minh tài trí và sức khỏe",
+      "stories": [
+        {
+          "story_number": 62,
+          "title": "Hai ông tướng Đá Rãi",
+          "start_page": 415,
+          "end_page": 416,
+          "markdown_file": "story_062.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 63,
+          "title": "Lê Như Hổ",
+          "start_page": 417,
+          "end_page": 422,
+          "markdown_file": "story_063.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 64,
+          "title": "Chàng Lía",
+          "start_page": 423,
+          "end_page": 428,
+          "markdown_file": "story_064.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 65,
+          "title": "Anh em sinh năm",
+          "start_page": 429,
+          "end_page": 433,
+          "markdown_file": "story_065.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 66,
+          "title": "Bốn anh tài",
+          "start_page": 434,
+          "end_page": 442,
+          "markdown_file": "story_066.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 67,
+          "title": "Khổng lồ đúc chuông hay là sự tích trâu vàng Hồ Tây",
+          "start_page": 443,
+          "end_page": 447,
+          "markdown_file": "story_067.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 68,
+          "title": "Thạch Sanh",
+          "start_page": 448,
+          "end_page": 461,
+          "markdown_file": "story_068.md",
+          "has_khao_di": true,
+          "footnote_count": 9
+        },
+        {
+          "story_number": 69,
+          "title": "Đại vương Hai hay là truyện giết thuồng luồng",
+          "start_page": 462,
+          "end_page": 465,
+          "markdown_file": "story_069.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 70,
+          "title": "Ông Ồ",
+          "start_page": 466,
+          "end_page": 468,
+          "markdown_file": "story_070.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 71,
+          "title": "Âm dương giao chiến",
+          "start_page": 469,
+          "end_page": 471,
+          "markdown_file": "story_071.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 72,
+          "title": "Yết Kiêu",
+          "start_page": 472,
+          "end_page": 473,
+          "markdown_file": "story_072.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 73,
+          "title": "Lý Ông Trọng hay là sự tích Thánh Chèm",
+          "start_page": 474,
+          "end_page": 476,
+          "markdown_file": "story_073.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 74,
+          "title": "Bảy Giao, Chín Quỳ",
+          "start_page": 477,
+          "end_page": 478,
+          "markdown_file": "story_074.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 75,
+          "title": "Người ả đào với giặc Minh",
+          "start_page": 479,
+          "end_page": 480,
+          "markdown_file": "story_075.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 76,
+          "title": "Bợm lại gặp bợm hay bợm già mắc bẫy cò ke",
+          "start_page": 481,
+          "end_page": 482,
+          "markdown_file": "story_076.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 77,
+          "title": "Quận Gió",
+          "start_page": 483,
+          "end_page": 484,
+          "markdown_file": "story_077.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 78,
+          "title": "Con mối làm chứng",
+          "start_page": 485,
+          "end_page": 489,
+          "markdown_file": "story_078.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 79,
+          "title": "Bùi Cầm Hổ",
+          "start_page": 490,
+          "end_page": 492,
+          "markdown_file": "story_079.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 80,
+          "title": "Em bé thông minh",
+          "start_page": 493,
+          "end_page": 506,
+          "markdown_file": "story_080.md",
+          "has_khao_di": true,
+          "footnote_count": 20
+        },
+        {
+          "story_number": 81,
+          "title": "Trạng Hiền",
+          "start_page": 507,
+          "end_page": 508,
+          "markdown_file": "story_081.md",
+          "has_khao_di": false,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 82,
+          "title": "Thần giữ của",
+          "start_page": 509,
+          "end_page": 511,
+          "markdown_file": "story_082.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 83,
+          "title": "Kẻ trộm dạy học trò",
+          "start_page": 512,
+          "end_page": 516,
+          "markdown_file": "story_083.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 84,
+          "title": "Con mụ Lường",
+          "start_page": 517,
+          "end_page": 528,
+          "markdown_file": "story_084.md",
+          "has_khao_di": true,
+          "footnote_count": 4
+        },
+        {
+          "story_number": 85,
+          "title": "Con sáo và phú trưởng giả",
+          "start_page": 529,
+          "end_page": 533,
+          "markdown_file": "story_085.md",
+          "has_khao_di": true,
+          "footnote_count": 8
+        },
+        {
+          "story_number": 86,
+          "title": "Con thỏ, con gà và con hổ",
+          "start_page": 534,
+          "end_page": 536,
+          "markdown_file": "story_086.md",
+          "has_khao_di": true,
+          "footnote_count": 5
+        },
+        {
+          "story_number": 87,
+          "title": "Con thỏ và con hổ",
+          "start_page": 537,
+          "end_page": 541,
+          "markdown_file": "story_087.md",
+          "has_khao_di": true,
+          "footnote_count": 3
+        },
+        {
+          "story_number": 88,
+          "title": "Mưu con thỏ",
+          "start_page": 542,
+          "end_page": 546,
+          "markdown_file": "story_088.md",
+          "has_khao_di": true,
+          "footnote_count": 6
+        },
+        {
+          "story_number": 89,
+          "title": "Bợm già mắc bẫy hay là mưu trí đàn bà",
+          "start_page": 547,
+          "end_page": 549,
+          "markdown_file": "story_089.md",
+          "has_khao_di": true,
+          "footnote_count": 2
+        },
+        {
+          "story_number": 90,
+          "title": "Gái ngoan dạy chồng",
+          "start_page": 550,
+          "end_page": 558,
+          "markdown_file": "story_090.md",
+          "has_khao_di": true,
+          "footnote_count": 7
+        },
+        {
+          "story_number": 91,
+          "title": "Bà lớn đười ươi",
+          "start_page": 559,
+          "end_page": 560,
+          "markdown_file": "story_091.md",
+          "has_khao_di": true,
+          "footnote_count": 1
+        },
+        {
+          "story_number": 92,
+          "title": "Con chó, con mèo và anh chàng nghèo khổ",
+          "start_page": 561,
+          "end_page": 576,
+          "markdown_file": "story_092.md",
+          "has_khao_di": true,
+          "footnote_count": 17
+        },
+        {
+          "story_number": 93,
+          "title": "Người họ Liêu và Diêm Vương",
+          "start_page": 577,
+          "end_page": 578,
+          "markdown_file": "story_093.md",
+          "has_khao_di": false,
+          "footnote_count": 1
+        }
+      ]
+    }
+  ]
+}

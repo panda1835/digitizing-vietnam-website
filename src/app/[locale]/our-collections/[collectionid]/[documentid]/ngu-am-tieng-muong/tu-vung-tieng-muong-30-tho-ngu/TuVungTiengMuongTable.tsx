@@ -14,13 +14,7 @@ import {
 } from "@/components/ui/table";
 
 import { MUONG_COMBINED_ROWS, MUONG_WORD_COLUMNS } from "./data";
-
-const normalizeSearchText = (value: string) =>
-  value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
+import { normalizeSearchText } from "@/lib/utils";
 
 const columnsPerPageByWidth = (width: number) => {
   if (width < 640) return 3;
@@ -29,13 +23,7 @@ const columnsPerPageByWidth = (width: number) => {
   return 9;
 };
 
-export default function TuVungTiengMuongTable({
-  locale,
-  showHeading = false,
-}: {
-  locale: string;
-  showHeading?: boolean;
-}) {
+export default function TuVungTiengMuongTable({ locale }: { locale: string }) {
   const [keyword, setKeyword] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [columnsPerPage, setColumnsPerPage] = useState(7);
@@ -111,20 +99,7 @@ export default function TuVungTiengMuongTable({
 
   return (
     <div className="mx-auto w-full py-10">
-      {showHeading ? (
-        <>
-          <h1 className="text-3xl font-semibold">
-            Từ vựng tiếng Mường (30 thổ ngữ)
-          </h1>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Dữ liệu Phụ lục II đã được gộp thành một bảng. Cột &quot;Các thổ ngữ
-            tiếng Mường&quot; luôn hiển thị, còn phân trang áp dụng cho các cột
-            từ tiếng Việt.
-          </p>
-        </>
-      ) : null}
-
-      <div className={showHeading ? "mt-6 max-w-md" : "max-w-md"}>
+      <div className={"max-w-md"}>
         <Input
           value={keyword}
           onChange={(event) => setKeyword(event.target.value)}

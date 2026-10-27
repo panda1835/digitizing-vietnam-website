@@ -1,3 +1,4 @@
+import { getCollectionCanonical, getCollectionLanguages } from "@/utils/seo";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 
@@ -6,8 +7,8 @@ import CollectionPermalink from "@/components/CollectionPermalink";
 import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Separator } from "@/components/ui/separator";
 import { Merriweather } from "next/font/google";
-import HanNomMetadata from "./Metadata";
-import { getHanNomManifestEntryByItemId } from "@/lib/han-nom-collection";
+import HanNomMetadata from "../_components/HanNomMetadata";
+import { getHanNomManifestEntryByItemId } from "../_data";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
@@ -35,26 +36,47 @@ export async function generateMetadata({
 }: {
   params: { locale: string; itemid: string };
 }): Promise<Metadata> {
+  const entry = getHanNomManifestEntryByItemId(params.itemid);
+  const alternates = {
+    canonical: getCollectionCanonical(
+      params.locale,
+      "han-nom-collection",
+      params.itemid
+    ),
+    languages: entry
+      ? getCollectionLanguages([
+          {
+            locale: "en",
+            collectionSlug: "han-nom-collection",
+            itemSlug: params.itemid,
+          },
+          {
+            locale: "vi",
+            collectionSlug: "han-nom-collection",
+            itemSlug: params.itemid,
+          },
+        ])
+      : {},
+  };
   const t = await getTranslations();
 
   try {
-    const manifestEntry = getHanNomManifestEntryByItemId(params.itemid);
-    const manifestUrl = manifestEntry?.manifestUrl || "";
+    const manifestUrl = entry?.manifestUrl || "";
 
     if (manifestUrl) {
       const manifestResponse = await fetch(manifestUrl);
       const manifest: IIIFManifest = await manifestResponse.json();
-      const title = manifest.label?.en?.[0] || t("HanNomCollection.collection-title");
+      const title =
+        manifest.label?.en?.[0] || t("HanNomCollection.collection-title");
 
-      return {
-        title: `${title} | Digitizing Việt Nam`,
-      };
+      return { alternates, title: `${title} | Digitizing Việt Nam` };
     }
   } catch (error) {
     console.error("Error generating metadata:", error);
   }
 
   return {
+    alternates,
     title: `${t("NavigationBar.our-collections")} | Digitizing Việt Nam`,
   };
 }
@@ -125,16 +147,16 @@ const HanNomItemViewer = async ({
         />
 
         {/* Headline */}
-        <div
+        <h1
           className={`${merriweather.className} text-branding-black text-4xl max-w-5xl`}
         >
           {title}
-        </div>
+        </h1>
 
         {/* Share links */}
         <CollectionPermalink />
 
-        <div className="mt-16">
+        <div className="mt-8">
           <Separator />
         </div>
 
@@ -148,7 +170,7 @@ const HanNomItemViewer = async ({
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-8">
           <Separator />
         </div>
 

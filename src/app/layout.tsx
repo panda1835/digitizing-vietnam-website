@@ -1,12 +1,17 @@
 import { ReactNode } from "react";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Metadata } from "next";
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://digitizingvietnam.com";
+import { SITE_URL as BASE_URL } from "@/utils/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: "/favicon.png",
+  },
   title: {
     default: "Digitizing Việt Nam",
     template: "%s",
@@ -74,10 +79,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: BASE_URL,
-    languages: {
-      en: `${BASE_URL}/en`,
-      vi: `${BASE_URL}/vi`,
-    },
   },
   category: "education",
 };
@@ -86,18 +87,9 @@ type Props = {
   children: ReactNode;
 };
 
-// Since we have a `not-found.tsx` page on the root, a layout file
-// is required, even if it's just passing children through.
+// The locale layout owns the document so its route param can set <html lang>
+// without reading request headers and forcing every route to render dynamically.
+// The global not-found page supplies its own document for unmatched requests.
 export default function RootLayout({ children }: Props) {
-  return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
-      </head>
-      <body>{children}</body>
-      <GoogleAnalytics gaId="G-05TY9EP7K7" />
-    </html>
-  );
+  return children;
 }
