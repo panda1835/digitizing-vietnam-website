@@ -695,6 +695,7 @@
     }
   },
   "SearchResult": {
+    "see-more-search-results": "See more search results",
     "title": "Search Results",
     "showing": "Showing",
     "search-result-for": "search results for",

@@ -60,7 +60,11 @@ const SearchResultsPage = async ({
 
   return (
     <div className="flex flex-col items-center max-width">
-      <SearchResultView hits={processedHits} locale={locale} />
+      <SearchResultView
+        key={`${locale}:${searchQuery}`}
+        hits={processedHits}
+        locale={locale}
+      />
     </div>
   );
 };
