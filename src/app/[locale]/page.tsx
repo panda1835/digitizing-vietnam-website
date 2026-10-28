@@ -117,8 +117,8 @@ const Home = async ({ params: { locale } }) => {
     <div className="flex flex-col items-center max-width w-full">
       <div className="flex-col mb-20 w-full">
         {/* Header + News Carousel */}
-        <section className="grid lg:grid-cols-5 gap-10 items-center mb-20 mt-10">
-          <div className="lg:col-span-2 max-w-2xl">
+        <section className="grid lg:grid-cols-[2.2fr_2.8fr] gap-10 items-center mb-20 mt-10">
+          <div className="max-w-2xl">
             <div>
               {locale === "en" ? (
                 <h1
@@ -174,7 +174,7 @@ const Home = async ({ params: { locale } }) => {
               )}
             </p>
           </div>
-          <div className="lg:col-span-3">
+          <div className="min-w-0">
             <ImageSlideshow slides={heroSlides} />
           </div>
         </section>
