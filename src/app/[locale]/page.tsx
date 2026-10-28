@@ -239,16 +239,16 @@ const Home = async ({ params: { locale } }) => {
         <div className="mt-10" />
         {/* About Us */}
         <section className="mb-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
-            <div className="lg:col-span-6 flex items-center gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6 items-start">
+            <div className="lg:col-span-1 flex items-center gap-6">
               <div
                 className={`text-3xl font-medium text-branding-black whitespace-nowrap ${merriweather.className}`}
               >
                 {t("NavigationBar.about-us")}
               </div>
-              <div className="h-px w-full bg-[#cfcfcf]" />
+              <div className="hidden lg:block h-px w-full bg-[#cfcfcf]" />
             </div>
-            <div className="lg:col-span-6 font-['Helvetica Neue'] font-light">
+            <div className="lg:col-span-3 font-['Helvetica Neue'] font-light">
               <p>
                 {locale === "en"
                   ? "Digitizing Vietnam originated with the dissolution of the Vietnamese Nôm Preservation Foundation and the donation of all its archival materials to the Vietnamese Studies Program and the Department of East Asian Languages & Cultures at Columbia University in 2018. Subsequently, the Vietnamese Studies Program and the Weatherhead East Asian Institute at Columbia partnered with Fulbright University of Vietnam to begin designing an inter-institutional hub dedicated to advancing digital humanities research in all fields of Vietnamese Studies. In 2023, we were awarded a Henry Luce Foundation seed grant. We staged a soft launch of materials in the spring of 2025 at Fulbright University (Hồ Chí Minh City) and a full release at Columbia University in April 2026. Our vision is to develop digital and AI technologies for the advancement of all aspects of research on Vietnam."
