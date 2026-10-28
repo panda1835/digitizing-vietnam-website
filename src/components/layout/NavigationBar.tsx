@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LocaleSwitcher from "@/components/layout/LocaleSwitcher";
@@ -37,7 +37,13 @@ const NavigationBar = ({ locale }: { locale: string }) => {
           <Logo />
           <div className="flex-1 min-w-0 mx-2 lg:mx-0 lg:ml-6">
             <div className="w-full lg:max-w-[460px] xl:max-w-[620px]">
-              <SearchBar locale={locale} variant="nav" />
+              <Suspense
+                fallback={
+                  <div className="h-11 w-full rounded-full border bg-branding-white" />
+                }
+              >
+                <SearchBar locale={locale} variant="nav" />
+              </Suspense>
             </div>
           </div>
 
