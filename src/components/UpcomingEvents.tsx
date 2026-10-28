@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import {
@@ -5,6 +8,7 @@ import {
   EVENT_TIME_ZONE,
   eventDay,
   formatEventTime,
+  detectBrowserTimeZone,
 } from "@/lib/events";
 
 export default function UpcomingEvents({
@@ -20,6 +24,8 @@ export default function UpcomingEvents({
 }) {
   const vi = locale === "vi";
   const language = vi ? "vi-VN" : "en-US";
+  const [timeZone, setTimeZone] = useState(EVENT_TIME_ZONE);
+  useEffect(() => setTimeZone(detectBrowserTimeZone()), []);
 
   return (
     <section
@@ -57,13 +63,13 @@ export default function UpcomingEvents({
                   <span className="text-xs uppercase">
                     {new Intl.DateTimeFormat(language, {
                       month: "short",
-                      timeZone: EVENT_TIME_ZONE,
+                      timeZone,
                     }).format(date)}
                   </span>
                   <span className="text-2xl">
                     {new Intl.DateTimeFormat(language, {
                       day: "numeric",
-                      timeZone: EVENT_TIME_ZONE,
+                      timeZone,
                     }).format(date)}
                   </span>
                 </div>
@@ -71,7 +77,8 @@ export default function UpcomingEvents({
                   <h3 className="text-lg font-medium leading-snug">
                     <Link
                       href={`/events?month=${eventDay(
-                        event.start_date_time
+                        event.start_date_time,
+                        timeZone
                       ).slice(0, 7)}`}
                       className="hover:text-branding-brown hover:underline"
                     >
@@ -80,7 +87,11 @@ export default function UpcomingEvents({
                   </h3>
                   <p className="mt-2 text-sm">
                     <time dateTime={event.start_date_time}>
-                      {formatEventTime(event.start_date_time, language)}
+                      {formatEventTime(
+                        event.start_date_time,
+                        language,
+                        timeZone
+                      )}
                     </time>
                   </p>
                   {event.location && (

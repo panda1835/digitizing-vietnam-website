@@ -1,5 +1,21 @@
 export const EVENT_TIME_ZONE = "Asia/Ho_Chi_Minh";
 
+export function normalizeTimeZone(timeZone: string): string {
+  return timeZone === "Asia/Saigon" ? EVENT_TIME_ZONE : timeZone;
+}
+
+/** Call after mounting so browser detection cannot cause an SSR hydration mismatch. */
+export function detectBrowserTimeZone(): string {
+  try {
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (!timeZone) return EVENT_TIME_ZONE;
+    new Intl.DateTimeFormat("en-US", { timeZone });
+    return normalizeTimeZone(timeZone);
+  } catch {
+    return EVENT_TIME_ZONE;
+  }
+}
+
 export interface CalendarEvent {
   documentId: string;
   title: string;
@@ -36,7 +52,7 @@ export function getEventTimeZone(event: Pick<CalendarEvent, "timezone">) {
   if (!zone?.identifier) return null;
   try {
     new Intl.DateTimeFormat("en-US", { timeZone: zone.identifier });
-    return zone;
+    return { ...zone, identifier: normalizeTimeZone(zone.identifier) };
   } catch {
     return null;
   }

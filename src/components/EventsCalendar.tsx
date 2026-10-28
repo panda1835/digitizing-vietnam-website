@@ -23,6 +23,8 @@ import {
   safeEventUrl,
   isPastEvent,
   sortCalendarEvents,
+  detectBrowserTimeZone,
+  normalizeTimeZone,
 } from "@/lib/events";
 
 export default function EventsCalendar({
@@ -50,6 +52,12 @@ export default function EventsCalendar({
   const [timeZone, setTimeZone] = useState(EVENT_TIME_ZONE);
   const initialDisplayMonth = initialMonth ?? eventDay(now).slice(0, 7);
   const [month, setMonth] = useState(initialDisplayMonth);
+  useEffect(() => {
+    const browserTimeZone = detectBrowserTimeZone();
+    setTimeZone(browserTimeZone);
+    if (!initialMonth)
+      setMonth(eventDay(new Date(), browserTimeZone).slice(0, 7));
+  }, [initialMonth]);
   const requestKey = `${locale}/${month}/${timeZone}`;
   const [result, setResult] = useState({
     key: `${locale}/${initialDisplayMonth}/${EVENT_TIME_ZONE}`,
@@ -109,7 +117,14 @@ export default function EventsCalendar({
     [events]
   );
   const availableTimeZones = Array.from(
-    new Set([EVENT_TIME_ZONE, ...Array.from(cmsTimeZones.keys()), ...timeZones])
+    new Set(
+      [
+        timeZone,
+        EVENT_TIME_ZONE,
+        ...Array.from(cmsTimeZones.keys()),
+        ...timeZones,
+      ].map(normalizeTimeZone)
+    )
   );
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
   useEffect(() => {

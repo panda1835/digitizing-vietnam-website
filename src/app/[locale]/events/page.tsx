@@ -41,8 +41,10 @@ export default async function EventsPage({
     typeof searchParams.month === "string" &&
     /^[1-9]\d{3}-(0[1-9]|1[0-2])$/.test(searchParams.month)
       ? searchParams.month
-      : eventDay(now).slice(0, 7);
-  const events = await fetchEvents(locale, { month: initialMonth });
+      : undefined;
+  const events = await fetchEvents(locale, {
+    month: initialMonth ?? eventDay(now).slice(0, 7),
+  });
   return (
     <div className="max-width w-full pb-20">
       <PageHeader
