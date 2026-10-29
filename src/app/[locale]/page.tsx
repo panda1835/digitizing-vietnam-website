@@ -7,6 +7,9 @@ import { Merriweather } from "next/font/google";
 
 import LearnMoreButton from "@/components/LearnMoreButton";
 import ImageSlideshow from "@/components/ImageSlideshow";
+import UpcomingEvents from "@/components/UpcomingEvents";
+import { fetchEvents } from "@/lib/fetch-events";
+import { getUpcomingEvents } from "@/lib/events";
 
 import { fetcher } from "@/lib/api";
 import { Link, routing } from "@/i18n/routing";
@@ -56,9 +59,10 @@ const Home = async ({ params: { locale } }) => {
 
   const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?${queryString}`;
 
-  const data = await fetcher(url, {
-    next: { revalidate: 3600 }, // Cache for 1 hour
-  });
+  const [data, events] = await Promise.all([
+    fetcher(url, { next: { revalidate: 3600 } }),
+    fetchEvents(locale),
+  ]);
   const highlights = data.data.slice(0, 5);
   const heroSlides = highlights
     .map((item) => {
@@ -315,6 +319,12 @@ const Home = async ({ params: { locale } }) => {
             </div>
           </div>
         </section>
+        <UpcomingEvents
+          events={getUpcomingEvents(events ?? [], new Date())}
+          unavailable={events === null}
+          locale={locale}
+          headingClassName={merriweather.className}
+        />
       </div>
     </div>
   );
