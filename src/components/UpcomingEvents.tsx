@@ -30,12 +30,12 @@ export default function UpcomingEvents({
   return (
     <section
       aria-labelledby="upcoming-events-heading"
-      className="mt-16 border-t border-[#cfcfcf] pt-10 text-branding-black"
+      className="mt-16 pt-10 text-branding-black"
     >
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <h2
           id="upcoming-events-heading"
-          className={`text-2xl ${headingClassName ?? ""}`}
+          className={`text-3xl font-medium ${headingClassName ?? ""}`}
         >
           {vi ? "Sự kiện sắp tới" : "Upcoming events"}
         </h2>

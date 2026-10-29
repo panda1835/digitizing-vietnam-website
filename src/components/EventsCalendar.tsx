@@ -477,7 +477,7 @@ export default function EventsCalendar({
                         } ${event.title}`}
                       >
                         <Download size={16} />
-                        {vi ? "Tải tệp .ics" : "Download .ics"}
+                        {vi ? "Tải về lịch sự kiện" : "Download calendar file"}
                       </button>
                       {safeEventUrl(event.meeting_link) && (
                         <a
@@ -490,6 +490,11 @@ export default function EventsCalendar({
                         </a>
                       )}
                     </div>
+                    <p className="mt-2 text-sm text-branding-black/70">
+                      {vi
+                        ? "Nhập tệp đã tải về vào Google Calendar, Outlook hoặc Apple Calendar để thêm sự kiện."
+                        : "Import the downloaded file into Google Calendar, Outlook, or Apple Calendar to add this event."}
+                    </p>
                   </article>
                 </Fragment>
               );
