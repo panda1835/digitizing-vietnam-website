@@ -60,7 +60,7 @@ export default function UpcomingEvents({
                   aria-hidden="true"
                   className="flex w-14 shrink-0 flex-col items-center rounded border border-branding-brown/30 bg-branding-brown/5 py-2 text-branding-brown"
                 >
-                  <span className="text-xs uppercase">
+                  <span className="w-full text-center text-xs uppercase">
                     {new Intl.DateTimeFormat(language, {
                       month: "short",
                       timeZone,
