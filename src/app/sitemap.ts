@@ -15,6 +15,7 @@ const staticPages = [
   "/pedagogy",
   "/outreach",
   "/highlights",
+  "/events",
   "/online-resources",
   "/tools",
   "/tools/han-nom-dictionaries",

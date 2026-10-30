@@ -810,6 +810,7 @@
     }
   },
   "SearchResult": {
+    "see-more-search-results": "Xem thêm kết quả tìm kiếm",
     "title": "Kết quả tìm kiếm",
     "showing": "Hiển thị",
     "search-result-for": "kết quả tìm kiếm cho",

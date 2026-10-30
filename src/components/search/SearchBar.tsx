@@ -4,7 +4,8 @@ import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 // eslint-disable-next-line import/no-unresolved
-import { useRouter } from "@/i18n/routing";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
 
 import {
   InstantSearch,
@@ -39,37 +40,24 @@ const searchClient = {
     return originalSearchClient.search(requests);
   },
 };
-// const CustomSearchBox = ({ currentRefinement, refine }: any) => {
-//   const t = useTranslations("Button");
-
-//   return (
-//     <div className="relative w-full">
-//       <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-700" />
-//       <input
-//         type="text"
-//         name="search-query"
-//         placeholder={t("search")}
-//         value={currentRefinement}
-//         onChange={(e) => refine(e.target.value)}
-//         className="h-[54px] w-full px-5 py-2 pl-12 bg-[#ededed] rounded-[26px] justify-start items-center gap-4 inline-flex overflow-hidden"
-//       />
-//     </div>
-//   );
-// };
-
 const CustomSearchBox = ({
   currentRefinement,
   refine,
   variant = "default",
+  onSearch,
+  onQueryChange,
+  onOpen,
+  onClose,
 }: any) => {
   const t = useTranslations();
-  const router = useRouter();
   const isNavVariant = variant === "nav";
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && currentRefinement.trim()) {
       e.preventDefault();
-      router.push(`/search?q=${encodeURIComponent(currentRefinement.trim())}`);
+      onSearch(currentRefinement.trim());
+    } else if (e.key === "Escape") {
+      onClose();
     }
   };
 
@@ -81,7 +69,11 @@ const CustomSearchBox = ({
         name="search-query"
         placeholder={t("SearchResult.search-across-website")}
         value={currentRefinement}
-        onChange={(e) => refine(e.target.value)}
+        onChange={(e) => {
+          refine(e.target.value);
+          onQueryChange(e.target.value);
+        }}
+        onFocus={onOpen}
         onKeyDown={handleKeyDown}
         className={cn(
           "font-light font-['Helvetica Neue'] w-full px-5 py-2 bg-branding-white border justify-start items-center gap-4 inline-flex overflow-hidden",
@@ -94,6 +86,54 @@ const CustomSearchBox = ({
 
 const SearchInput = connectSearchBox(CustomSearchBox);
 
+const CustomHits = connectHits(
+  ({ hits, locale, isNavVariant, navDropdownTop, query, onClose }: any) => {
+    const t = useTranslations("SearchResult");
+    const seenSlugs = new Set();
+    const filteredHits = hits
+      .filter((hit) => {
+        if (hit.locale !== locale) return false;
+        const slug = hit?.slug;
+        if (!slug) return true;
+        if (seenSlugs.has(slug)) return false;
+        seenSlugs.add(slug);
+        return true;
+      })
+      .slice(0, 10);
+
+    if (filteredHits.length === 0) return null;
+
+    return (
+      <div
+        className={cn(
+          "z-10 mt-2 rounded-lg shadow-lg shadow-black/[0.15]",
+          isNavVariant
+            ? "fixed left-1/2 -translate-x-1/2 w-[min(80rem,calc(100vw-40px))] md:w-[min(80rem,calc(100vw-100px))]"
+            : "sm:px-10 md:px-24 flex flex-col justify-center items-center"
+        )}
+        style={isNavVariant ? { top: navDropdownTop ?? undefined } : undefined}
+      >
+        <ScrollArea
+          className={`h-[0px] w-full rounded-t-lg py-2 [&>[data-radix-scroll-area-viewport]]:overscroll-contain ${
+            filteredHits.length > 0 ? "bg-white h-[300px]" : ""
+          }`}
+        >
+          {filteredHits.map((hit) => (
+            <SearchBarResultItem key={hit.objectID} hit={hit} />
+          ))}
+          <Link
+            href={`/search?q=${encodeURIComponent(query.trim())}`}
+            onClick={onClose}
+            className="block w-full border-t bg-white px-6 py-3 text-center text-sm text-branding-black hover:underline"
+          >
+            {t("see-more-search-results")}
+          </Link>
+        </ScrollArea>
+      </div>
+    );
+  }
+);
+
 const SearchBar = ({
   locale,
   variant = "default",
@@ -101,9 +141,33 @@ const SearchBar = ({
   locale: string;
   variant?: "default" | "nav";
 }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const isNavVariant = variant === "nav";
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [navDropdownTop, setNavDropdownTop] = useState<number | null>(null);
+
+  useEffect(() => {
+    setIsDropdownOpen(false);
+  }, [pathname, searchParams]);
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!wrapperRef.current?.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, []);
+
+  const handleSearch = (searchQuery: string) => {
+    setIsDropdownOpen(false);
+    router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+  };
 
   useEffect(() => {
     if (!isNavVariant) return;
@@ -123,61 +187,7 @@ const SearchBar = ({
     };
   }, [isNavVariant]);
 
-  const CustomHits = connectHits(({ hits }) => {
-    const seenSlugs = new Set();
-    const filteredHits = hits.filter((hit) => {
-      const slug = hit?.slug;
-      if (!slug) return true;
-      if (seenSlugs.has(slug)) return false;
-      seenSlugs.add(slug);
-      return true;
-    });
-
-    return (
-      <div
-        className={cn(
-          "z-10 mt-2 rounded-lg",
-          isNavVariant
-            ? "fixed left-1/2 -translate-x-1/2 w-[min(80rem,calc(100vw-40px))] md:w-[min(80rem,calc(100vw-100px))]"
-            : "sm:px-10 md:px-24 flex justify-center items-center"
-        )}
-        style={isNavVariant ? { top: navDropdownTop ?? undefined } : undefined}
-      >
-        <ScrollArea
-          className={`h-[0px] w-full rounded-lg py-2 ${
-            filteredHits.length > 0 ? "bg-white h-[300px]" : ""
-          }`}
-        >
-          {filteredHits.map((hit) => (
-            <>
-              {hit.locale === locale && ( // Filter by locale
-                <SearchBarResultItem key={hit.objectID} hit={hit} />
-              )}
-            </>
-          ))}
-        </ScrollArea>
-      </div>
-    );
-  });
-
   return (
-    // <form className="flex" onSubmit={handleSubmit}>
-    //   <div className="relative flex-grow md:flex-grow-0">
-    //     <MagnifyingGlassIcon className="absolute left-2 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500" />
-    //     <input
-    //       type="text"
-    //       name="search-query"
-    //       placeholder={t("search")}
-    //       onChange={(e) => setQuery(e.target.value)}
-    //       className="rounded border-2 border-black pl-8 w-full md:w-80 h-10 "
-    //     />
-    //   </div>
-    //   <input
-    //     type="submit"
-    //     value={t("search")}
-    //     className="border-2 border-black rounded-lg px-5 mx-2 bg-primary-blue text-white cursor-pointer"
-    //   />
-    // </form>
     <div
       ref={wrapperRef}
       className={cn("w-full relative", isNavVariant ? "p-0" : "px-4 py-8")}
@@ -187,9 +197,26 @@ const SearchBar = ({
         indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
       >
         <div className={cn(isNavVariant ? "p-0" : "px-4 pt-4")}>
-          <SearchInput variant={variant} />
+          <SearchInput
+            variant={variant}
+            onSearch={handleSearch}
+            onQueryChange={(value: string) => {
+              setQuery(value);
+              setIsDropdownOpen(Boolean(value.trim()));
+            }}
+            onOpen={() => setIsDropdownOpen(Boolean(query.trim()))}
+            onClose={() => setIsDropdownOpen(false)}
+          />
         </div>
-        <CustomHits />
+        {isDropdownOpen && query.trim() && (
+          <CustomHits
+            locale={locale}
+            isNavVariant={isNavVariant}
+            navDropdownTop={navDropdownTop}
+            query={query}
+            onClose={() => setIsDropdownOpen(false)}
+          />
+        )}
         <Configure
           // filters={`locale:${locale}`}
           attributesToRetrieve={[
