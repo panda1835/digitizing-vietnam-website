@@ -348,6 +348,116 @@
     "date-converter": {
       "name": "Công cụ Chuyển đổi Ngày tháng",
       "description": "Chuyển đổi giữa niên hiệu, can chi và năm Tây lịch qua các triều đại Việt Nam và Trung Quốc."
+    },
+    "ca-dao-tuc-ngu": {
+      "name": "Ca Dao Tục Ngữ",
+      "hero": {
+        "title": "Khám phá kho tàng tri thức Dân gian Việt Nam",
+        "subtitle": "Từ Ca dao, Thành ngữ, Tục ngữ, Truyện cổ tích",
+        "intro": "Hãy chọn một trong những tính năng dưới đây để bắt đầu trải nghiệm."
+      },
+      "sidebar": {
+        "archive-title": "KHO LƯU TRỮ SỐ",
+        "archive-item1": "Bộ sưu tập Tục ngữ-thành ngữ-ca dao",
+        "archive-item2": "Bộ sưu tập Truyện cổ tích",
+        "archive-item3": "Bộ sưu tập ngoài",
+        "tools-title": "CÔNG CỤ SỐ",
+        "tools-item1": "Từ điển Thành ngữ-Tục ngữ-Ca dao Việt Chương",
+        "tools-item2": "Ca dao vấn đáp",
+        "learning-title": "TRUNG TÂM HỌC TẬP",
+        "learning-item1": "Học Ca Dao"
+      },
+      "cards": {
+        "dictionary": {
+          "title": "Từ Điển Thành Ngữ, Tục Ngữ, Ca Dao Việt Nam",
+          "bullet1": "Tra cứu từ điển Việt Chương kèm hình ảnh scan gốc",
+          "bullet2": "Phân biệt Tục ngữ & Thành ngữ",
+          "bullet3": "Khám phá mối liên hệ giữa Ca dao & Dân ca",
+          "cta": "Khám phá từ điển"
+        },
+        "fairy-tales": {
+          "title": "Tổng Hợp Truyện Cổ Tích Việt Nam",
+          "description": "Sử dụng công nghệ tìm kiếm ngữ nghĩa để tra cứu truyện cổ tích một cách trực quan và sâu sắc.",
+          "cta": "Khám phá Truyện Cổ Tích"
+        },
+        "qa": {
+          "title": "Ca Dao Vấn Đáp",
+          "description": "Giải đáp mọi thắc mắc và tâm sự của bạn bằng những câu ca dao thích hợp.",
+          "cta": "Bắt đầu vấn đáp"
+        },
+        "learning": {
+          "title": "Học Thành Ngữ, Tục Ngữ, Ca Dao",
+          "description": "Học ca dao qua trò chơi điền từ vào chỗ trống sinh động, kèm lời giải nghĩa và bình chú chi tiết.",
+          "cta": "Tham gia học"
+        }
+      },
+      "tu-dien": {
+        "title": "Từ Điển Thành Ngữ, Tục Ngữ, Ca Dao Việt Nam",
+        "intro": "Công cụ này giúp bạn tìm kiếm và tra cứu văn bản của các câu thành ngữ, tục ngữ và ca dao Việt Nam từ tuyển tập sách cổ truyền. Toàn bộ dữ liệu được trích xuất từ bộ sách \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" của tác giả Việt Chương (bao gồm cả quyển Thượng và quyển Hạ), kết hợp hệ thống đối khớp câu chữ với hình ảnh trang sách gốc được cắt và số hóa tương ứng để bạn tiện tra cứu đối chiếu.",
+        "instruction_guide_title": "Hướng dẫn tra cứu",
+        "instruction_intro": "Bạn có thể dễ dàng tìm kiếm và xem giải nghĩa các câu thành ngữ, tục ngữ, ca dao theo hướng dẫn dưới đây:",
+        "instruction_step1": "Chọn phân loại (như Ca dao, Tục ngữ, Thành ngữ...) hoặc nhập trực tiếp câu thơ cần tìm vào ô tìm kiếm.",
+        "instruction_step2": "Nhấp vào các ký tự trên thanh chữ cái để xem nhanh các câu bắt đầu bằng chữ cái đó.",
+        "instruction_step3": "Xem phần giải nghĩa chi tiết của từng câu, đồng thời đối chiếu trực tiếp với ảnh chụp trang sách gốc ở bên phải.",
+        "embedding_search_prefix": "Ngoài ra, bạn cũng có thể tra cứu theo ý nghĩa của câu ",
+        "embedding_search_link_text": "tại đây",
+        "explorer_title": "Hành Trình Tri Thức Dân Gian",
+        "explorer_subtitle": "Khám phá sự khác biệt tinh tế giữa Tục ngữ - Thành ngữ, sự kỳ diệu của việc phổ nhạc Ca dao thành Dân ca, và các đặc tính truyền thống của Văn học dân gian.",
+        "tab_proverbs_idioms": "Tục ngữ & Thành ngữ",
+        "tab_poetry_songs": "Ca dao & Dân ca",
+        "tab_dictionary_search": "Từ Điển",
+        "proverbs_intro_title": "Phân biệt Tục ngữ & Thành ngữ",
+        "proverbs_intro_desc": "Cho đến nay, nhiều tài liệu vẫn xếp lẫn lộn tục ngữ với thành ngữ. Tuy nhiên, căn cứ vào nội dung và cấu trúc, chúng ta có thể phân biệt rõ ràng hai khái niệm này.",
+        "proverb_def_title": "Tục ngữ là gì?",
+        "proverb_def_body": "Là một câu tự nó diễn trọn vẹn một ý, một nhận xét, một kinh nghiệm, một luân lý, một công lý, hoặc một sự phê phán. Tục ngữ có ý nghĩa trọn vẹn, đúc kết kinh nghiệm sinh hoạt, sản xuất nhằm hướng dẫn con người.",
+        "idiom_def_title": "Thành ngữ là gì?",
+        "idiom_def_body": "Là một phần câu sẵn có, một bộ phận quen thuộc của câu mà nhiều người quen dùng, nhưng tự riêng nó không diễn đạt được một ý trọn vẹn. Thành ngữ thiên về tả trạng thái, hình tượng cho có màu mè.",
+        "interactive_flip_title": "Di chuột hoặc chạm vào các thẻ để xem phân tích",
+        "example_proverb_1_title": "Tục ngữ: Chó cắn áo rách",
+        "example_proverb_1_desc": "Diễn tả trọn vẹn thực tế: con chó thấy người rách rưới thì thường sủa hay cắn. Nghĩa bóng: người đã nghèo khổ lại càng gặp nhiều tai họa, rủi ro.",
+        "example_proverb_2_title": "Tục ngữ: Bệnh quỷ, thuốc tiên",
+        "example_proverb_2_desc": "Diễn tả trọn vẹn ý nghĩa về giải pháp: bệnh hiểm nghèo, kỳ quái thì phải có phương thuốc cực kỳ thần kỳ, tương xứng để chữa trị.",
+        "example_idiom_1_title": "Thành ngữ: Áo rách, quần manh",
+        "example_idiom_1_desc": "Chỉ là hai hình tượng biểu hiện cái nghèo nói chung, nhưng nghèo như thế nào, nghèo làm sao thì không kết thúc trọn vẹn thành một ý.",
+        "example_idiom_2_title": "Thành ngữ: Dốt đặc cán mai",
+        "example_idiom_2_desc": "Bộ phận bổ nghĩa tả trạng thái dốt nát cực kỳ, hoàn toàn không biết gì, tự riêng nó chưa cấu thành một câu trọn vẹn.",
+        "example_idiom_3_title": "Thành ngữ: Ăn trắng, mặc trơn",
+        "example_idiom_3_desc": "Tả lối sống sung sướng, nhàn hạ, hưởng thụ, nhưng tự nó chỉ là một cụm từ, không có kết luận hay nhận xét đầy đủ.",
+        "example_idiom_4_title": "Thành ngữ: Ăn trên, ngồi trốc",
+        "example_idiom_4_desc": "Tả vị thế, thói hợm hĩnh của kẻ thích làm đầu thiên hạ, cư xử trịch thượng, nhưng tự riêng nó chưa diễn tả hết một ý trọn vẹn.",
+        "poetry_intro_title": "Sự chuyển hóa từ Ca dao sang Dân ca",
+        "poetry_intro_desc": "Giữa ca dao và dân ca ranh giới rất mỏng manh. Ca dao là thơ dân gian (chưa hoặc đã thành khúc điệu), còn Dân ca là bài hát có nhạc điệu nhất định, ngả về nhạc tính ở mặt hình thức. Dân ca được hát lên trong hoàn cảnh, nghề nghiệp hoặc địa phương cụ thể.",
+        "poetry_transition_title": "Nghệ thuật Thêm Tiếng Đệm & Láy",
+        "poetry_transition_desc": "Khi biến ca dao thành dân ca, người dân sáng tạo thêm các tiếng đệm (đệm lót, đệm nghĩa), tiếng đưa hơi, tiếng láy và điệp khúc để tương thích với nhạc điệu. Dưới đây là các ví dụ cho thấy sự chuyển đổi này:",
+        "properties_title": "Đặc tính Cốt lõi của Văn học Dân gian",
+        "prop_collective_title": "Tính tập thể (Cơ bản nhất)",
+        "prop_collective_desc": "Là đặc tính quan trọng nhất phân biệt với văn học bác học. Tác phẩm do nhân dân sáng tác tập thể, được sửa chữa, bồi đắp qua nhiều vùng miền và thế hệ cho đến khi hoàn chỉnh.",
+        "prop_oral_title": "Tính truyền miệng",
+        "prop_oral_desc": "Trước đây, truyền miệng là con đường phổ biến duy nhất. Ngày nay, dù dân trí cao hơn và có văn bản ghi chép, tính chất truyền miệng vẫn song hành tự nhiên, thể hiện sức sống bền bỉ.",
+        "quote_bogatyrev_title": "Nhận định của Bô-ga-tư-ri-ép (nhà nghiên cứu văn học Liên - xô):",
+        "quote_bogatyrev_body": "“Các tác phẩm văn học dân gian thường tồn tại rất lâu, được truyền tụng từ miệng người này sang miệng người khác, thường xuyên được nhiều thế hệ xây dựng, bồi đắp... Trong khi tác phẩm văn học thành văn về căn bản không có gì biến đổi sau khi tách khỏi ngòi bút của nhà văn, thì các tác phẩm thơ ca dân gian được truyền miệng từ thế hệ này sang thế hệ khác, thường xuyên được sửa chữa để phản ánh những sự đổi thay đang diễn ra trong tư tưởng của quần chúng nhân dân và theo những quy tắc thẩm mỹ của họ...”",
+        "quote_chicherov_title": "Nhận định của V. Chi-chê-rốp (Vladimir Ivanovich CHICHEROV, nhà lý luận văn học Liên - xô):",
+        "quote_chicherov_body": "“Trong thời đại chúng ta, thơ ca dân gian tồn tại dưới hình thức truyền miệng và cả dưới hình thức thành văn. Điều đó hoàn toàn phù hợp với quy luật; nó phản ánh quá trình hoàn mỹ của nền văn học nghệ thuật của quần chúng nhân dân.”",
+        "coming_soon": "Đang cập nhật...",
+        "coming_soon_desc": "Tính năng Từ Điển & Tìm kiếm (kết nối với bộ sách Việt Chương) đang được phát triển và sẽ sớm ra mắt."
+      },
+      "hoc-ca-dao": {
+        "title": "Học Thành ngữ, Tục ngữ, Ca dao",
+        "subtitle": "Trang học tập được thiết kế nhằm giúp bạn hiểu sâu hơn về ca dao tục ngữ Việt Nam thông qua ngữ cảnh lịch sử và văn hóa chi tiết. Phần thơ được trích dẫn chính xác từ nguyên bản sách gốc, trong khi các phần dẫn giải và bình luận được tác giả biên soạn lại với sự trợ giúp của trí tuệ nhân tạo. Toàn bộ kho liệu này được tổng hợp từ bộ sách \"Thi Ca Bình Dân Việt Nam\" (Nguyễn Tấn Long, Phan Canh sưu tầm & biên soạn, 1975; bản số hóa của cộng đồng Tve-4u) và \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" (Việt Chương).",
+        "instruction_guide_title": "Hướng dẫn học ca dao",
+        "intro": "Bạn có thể khám phá ý nghĩa của từng bài ca dao thông qua các bước đơn giản sau:<br/><br/>1. Đọc phần <strong>Lời dẫn</strong> để hiểu rõ hơn về bối cảnh và câu chuyện dẫn dắt vào bài thơ.<br/>2. Nhấn vào các ô trống nét đứt trong bài thơ và chọn từ phù hợp nhất để hoàn thành câu thơ.<br/>3. Khi hoàn thiện chính xác toàn bộ bài thơ, phần <strong>Lời bình</strong> sẽ hiển thị để cung cấp lời bình giải chi tiết, giúp bạn hiểu rõ và biết thêm nhiều điều thú vị về bài ca dao.",
+        "topic_label": "Chọn chủ đề",
+        "instruction_heading": "Lời dẫn",
+        "poem_interpretation_heading": "Lời bình",
+        "error_message": "Có từ chưa chính xác. Bạn hãy nhấn vào từ đó để chọn lại nhé!",
+        "success_message": "Chúc mừng! Bạn đã hoàn thành chính xác bài ca dao này.",
+        "check_button": "KIỂM TRA",
+        "next_button": "BÀI TIẾP THEO",
+        "empty_placeholder": "Chọn từ",
+        "progress_label": "Bài ca dao {current} / {total} (Còn lại {left})",
+        "progress_percent": "Tiến độ: {percent}%",
+        "summary_heading": "Tóm tắt chủ đề"
+      }
     }
   },
   "ResearchHub": {
@@ -358,6 +468,10 @@
       "han-nom": {
         "title": "Nghiên cứu Hán-Nôm",
         "description": "Một sáng kiến thí điểm của chúng tôi, Không gian nghiên cứu Hán–Nôm, tích hợp đầy đủ bản sao của Kho dữ liệu Văn bản Hán–Nôm từ Bộ sưu tập Thư viện số (DLC)  thuộc  Đại học Columbia, đồng thời cung cấp một bộ công cụ số phục vụ phân tích văn bản, bao gồm: hệ thống OCR tự động, nền tảng từ điển tra cứu, công cụ chú giải và ghi chú bản thảo, cùng giao diện kết nối với các công cụ MARKUS và IMMARKUS dành cho nghiên cứu Hán học."
+      },
+      "ca-dao": {
+        "title": "Ca Dao Tục Ngữ",
+        "description": "Không gian số khám phá và nghiên cứu kho tàng ca dao, tục ngữ, thành ngữ và truyện cổ tích Việt Nam, kết hợp các công cụ tra cứu từ điển và tìm kiếm ngữ nghĩa."
       },
       "vietnam-war": {
         "title": "Nghiên cứu Chiến tranh Việt Nam",

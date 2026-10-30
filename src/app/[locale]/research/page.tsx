@@ -28,6 +28,11 @@ const ResearchPage = async ({ params: { locale } }) => {
       href: "/research/han-nom",
     },
     {
+      name: t("ResearchHub.hubs.ca-dao.title"),
+      description: t("ResearchHub.hubs.ca-dao.description"),
+      href: "/research/ca-dao-tuc-ngu",
+    },
+    {
       name: t("ResearchHub.hubs.vietnam-war.title"),
       description: t("ResearchHub.hubs.vietnam-war.description"),
       href: "/research/vietnam-war",

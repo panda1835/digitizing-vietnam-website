@@ -16,6 +16,10 @@ const nextConfig = {
     },
   },
   images: {
+    domains: ["res.cloudinary.com", "developers.elementor.com", "iiif.digitizingvietnam.com"],
+  },
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
     domains: ["res.cloudinary.com", "developers.elementor.com"],
     // digi.vatlib.it sends no Cache-Control, ETag or Last-Modified at all, so
     // the optimiser would fall back to its 60-second minimum and re-fetch from
