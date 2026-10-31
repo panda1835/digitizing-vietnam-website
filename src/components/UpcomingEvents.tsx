@@ -30,7 +30,7 @@ export default function UpcomingEvents({
   return (
     <section
       aria-labelledby="upcoming-events-heading"
-      className="mt-16 pt-10 text-branding-black"
+      className=" text-branding-black"
     >
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <h2
