@@ -4,11 +4,23 @@ import * as React from "react";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { Search, ChevronRight, ChevronUp, ChevronDown, X } from "lucide-react";
+import {
+  Search,
+  ChevronRight,
+  ChevronUp,
+  ChevronDown,
+  X,
+  Info,
+} from "lucide-react";
 import localFont from "next/font/local";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
   Select,
   SelectContent,
@@ -509,9 +521,6 @@ export default function CorpusBrowser() {
                 total: works.length,
               })}
           </span>
-          <p className="mt-2 mb-4 text-xs text-muted-foreground">
-            {t("characterCountHelp")}
-          </p>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
@@ -554,13 +563,29 @@ export default function CorpusBrowser() {
                     </button>
                   </th>
                   <th className="px-3 py-2 font-semibold text-center w-[130px]">
-                    <button
-                      className="flex items-center gap-1 mx-auto hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
-                      onClick={() => handleSort("hanNomCharacters")}
-                    >
-                      {t("hanNomCharacters")}{" "}
-                      <SortIcon col="hanNomCharacters" />
-                    </button>
+                    <div className="flex items-center justify-center gap-1">
+                      <button
+                        className="flex items-center gap-1 hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
+                        onClick={() => handleSort("hanNomCharacters")}
+                      >
+                        {t("hanNomCharacters")}{" "}
+                        <SortIcon col="hanNomCharacters" />
+                      </button>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <button
+                            type="button"
+                            aria-label={t("characterCountHelp")}
+                            className="text-muted-foreground hover:text-branding-black dark:hover:text-zinc-100"
+                          >
+                            <Info className="h-3.5 w-3.5" />
+                          </button>
+                        </TooltipTrigger>
+                        <TooltipContent className="max-w-xs font-normal">
+                          {t("characterCountHelp")}
+                        </TooltipContent>
+                      </Tooltip>
+                    </div>
                   </th>
                   <th className="px-3 py-2 font-semibold text-left w-[80px]">
                     {t("status")}
