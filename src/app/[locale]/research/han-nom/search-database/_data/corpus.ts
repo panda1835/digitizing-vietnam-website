@@ -838,16 +838,16 @@ export async function searchCorpus(query: string) {
   return results;
 }
 
-// Snapshot supplied from the library counts. Update explicitly when transcriptions change.
-export const HAN_NOM_CHARACTER_COUNTS: Readonly<Record<string, number>> = {
+// Verified against source transcriptions; see docs/audits/han-nom-character-counts-2026-11-03.md.
+// Update explicitly when transcriptions change. Unverified totals are omitted.
+export const HAN_NOM_CHARACTER_COUNTS: Readonly<Partial<Record<string, number>>> = {
   "truyen-kieu-1866": 16715,
   "truyen-kieu-1870": 22820,
   "truyen-kieu-1871": 22770,
   "truyen-kieu-1872": 22802,
   "truyen-kieu-1902": 22786,
   "quyen-thu": 12052,
-  "ngoai-ky": 65019,
-  "ban-ky-toan-thu": 116714,
+  "ngoai-ky": 28575,
   "ban-ky-thuc-luc": 120934,
   "ban-ky-tuc-bien": 69910,
   "chinh-phu-ngam-khuc": 6005,

@@ -13,6 +13,7 @@ import {
   Info,
 } from "lucide-react";
 import localFont from "next/font/local";
+import { Portal as TooltipPortal } from "@radix-ui/react-tooltip";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -528,7 +529,7 @@ export default function CorpusBrowser() {
                   <th className="text-left px-3 py-2 font-semibold w-[44px]">
                     #
                   </th>
-                  <th className="px-3 py-2 font-semibold text-left">
+                  <th className="w-[26%] px-3 py-2 font-semibold text-left">
                     <button
                       className="flex items-center gap-1 hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
                       onClick={() => handleSort("title")}
@@ -587,7 +588,7 @@ export default function CorpusBrowser() {
                       </Tooltip>
                     </div>
                   </th>
-                  <th className="px-3 py-2 font-semibold text-left w-[80px]">
+                  <th className="w-[120px] min-w-[120px] whitespace-nowrap px-3 py-2 font-semibold text-left">
                     {t("status")}
                   </th>
                   <th className="w-8"></th>
@@ -657,7 +658,7 @@ export default function CorpusBrowser() {
                       <td className="px-3 py-2.5 text-center text-muted-foreground dark:text-zinc-500 tabular-nums">
                         {idx + 1}
                       </td>
-                      <td className="px-3 py-2.5">
+                      <td className="max-w-[320px] whitespace-normal break-words px-3 py-2.5">
                         <span className="font-medium text-branding-black dark:text-zinc-100 group-hover:text-branding-orange transition-colors">
                           {work.title}
                         </span>
@@ -729,17 +730,38 @@ export default function CorpusBrowser() {
                         }
                       >
                         {work.hanNomCharacters == null ? (
-                          <span className="text-muted-foreground">
-                            {t("characterCountUnavailable")}
+                          <span aria-label={t("characterCountUnavailable")}>
+                            —
                           </span>
                         ) : (
-                          work.hanNomCharacters.toLocaleString(locale)
+                          <span className="inline-flex items-center justify-center gap-1">
+                            {work.hanNomCharacters.toLocaleString(locale)}
+                            {work.slug === "truyen-kieu-1866" && (
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <button
+                                    type="button"
+                                    aria-label={t("kieu1866IncompleteTranscription")}
+                                    onClick={(event) => event.stopPropagation()}
+                                    className="inline-flex rounded-sm p-1 hover:text-branding-brown focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-branding-brown"
+                                  >
+                                    <Info className="h-3.5 w-3.5" aria-hidden="true" />
+                                  </button>
+                                </TooltipTrigger>
+                                <TooltipPortal>
+                                  <TooltipContent className="max-w-xs font-normal">
+                                    {t("kieu1866IncompleteTranscription")}
+                                  </TooltipContent>
+                                </TooltipPortal>
+                              </Tooltip>
+                            )}
+                          </span>
                         )}
                       </td>
                       <td className="px-3 py-2.5">
                         {work.curationStatus && (
                           <span
-                            className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                            className={`inline-flex whitespace-nowrap text-[10px] font-semibold px-2 py-0.5 rounded-full ${
                               work.curationStatus === "curated"
                                 ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400"
                                 : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400"
@@ -760,6 +782,7 @@ export default function CorpusBrowser() {
               </tbody>
             </table>
           </div>
+
         </div>
       )}
 

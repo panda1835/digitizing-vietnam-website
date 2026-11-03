@@ -553,6 +553,7 @@
         "searchResults": "Kết quả tìm kiếm",
         "hanNomCharacters": "Số chữ Hán Nôm",
         "characterCountHelp": "Tổng số lượt chữ trong nguyên văn đã phiên chép, gồm chữ lặp và chữ Nôm mã riêng; không tính dấu câu, phiên âm và chú thích.",
+        "kieu1866IncompleteTranscription": "Truyện Kiều (1866): bản phiên chép chưa đầy đủ. Số chữ chỉ tính phần văn bản hiện đã được phiên chép.",
         "characterCountUnavailable": "Chưa có dữ liệu",
         "worksCount": "{shown} trên {total} tác phẩm",
         "title": "Tiêu đề",

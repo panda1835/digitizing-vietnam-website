@@ -552,6 +552,7 @@
         "searchResults": "Search Results",
         "hanNomCharacters": "Hán Nôm characters",
         "characterCountHelp": "Characters in the transcribed original, including repeated characters and legacy private-use Nôm glyphs; excludes punctuation, transliteration and notes.",
+        "kieu1866IncompleteTranscription": "Truyện Kiều (1866): the transcription is incomplete. The character count covers only the available transcribed text.",
         "characterCountUnavailable": "Unavailable",
         "worksCount": "{shown} of {total} works",
         "title": "Title",
