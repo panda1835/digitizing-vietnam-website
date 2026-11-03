@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { usePathname, useRouter } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Search, ChevronRight, ChevronUp, ChevronDown, X } from "lucide-react";
 import localFont from "next/font/local";
@@ -23,6 +23,7 @@ interface CorpusWork {
   date?: string;
   year?: number;
   pages: number;
+  hanNomCharacters?: number | null;
   genre?: string;
   language?: string;
   attributions?: { name: string; role: string; note?: string }[];
@@ -31,6 +32,7 @@ interface CorpusWork {
 }
 
 interface SearchResult {
+  occurrences: number;
   work: string;
   location: string;
   slug: string;
@@ -43,7 +45,7 @@ interface SearchResult {
   externalPath?: string;
 }
 
-type SortKey = "index" | "title" | "year" | "pages";
+type SortKey = "index" | "title" | "year" | "pages" | "hanNomCharacters";
 type SortDir = "asc" | "desc";
 
 const NomNaTong = localFont({
@@ -51,6 +53,7 @@ const NomNaTong = localFont({
 });
 
 export default function CorpusBrowser() {
+  const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -233,6 +236,12 @@ export default function CorpusBrowser() {
         } else if (sortKey === "year") {
           av = a.year ?? Infinity;
           bv = b.year ?? Infinity;
+        } else if (sortKey === "hanNomCharacters") {
+          if (a.hanNomCharacters == null)
+            return b.hanNomCharacters == null ? 0 : 1;
+          if (b.hanNomCharacters == null) return -1;
+          av = a.hanNomCharacters;
+          bv = b.hanNomCharacters;
         } else if (sortKey === "pages") {
           av = a.pages;
           bv = b.pages;
@@ -288,6 +297,7 @@ export default function CorpusBrowser() {
         slug: string;
         externalPath?: string;
         results: SearchResult[];
+        occurrences: number;
       }
     > = {};
     searchResults.forEach((res) => {
@@ -297,14 +307,19 @@ export default function CorpusBrowser() {
           slug: res.slug,
           externalPath: res.externalPath,
           results: [],
+          occurrences: 0,
         };
       }
       groups[res.slug].results.push(res);
+      groups[res.slug].occurrences += res.occurrences;
     });
-    return Object.values(groups).sort(
-      (a, b) => b.results.length - a.results.length
-    );
+    return Object.values(groups).sort((a, b) => b.occurrences - a.occurrences);
   }, [searchResults]);
+
+  const totalOccurrences = searchResults.reduce(
+    (sum, result) => sum + result.occurrences,
+    0
+  );
 
   const toggleWorkExpansion = (slug: string) => {
     setExpandedWorks((prev) => {
@@ -478,7 +493,7 @@ export default function CorpusBrowser() {
           {t("searchResults")}
           {searchResults.length > 0 && (
             <span className="ml-1.5 text-xs bg-branding-brown/10 text-branding-brown dark:bg-white/10 dark:text-zinc-300 rounded px-1.5 py-0.5">
-              {searchResults.length}
+              {totalOccurrences}
             </span>
           )}
         </button>
@@ -494,199 +509,232 @@ export default function CorpusBrowser() {
                 total: works.length,
               })}
           </span>
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="text-xs  tracking-wide text-muted-foreground dark:text-zinc-400 bg-branding-gray/5 dark:bg-zinc-800/50 border border-branding-brown/10 dark:border-white/10">
-                <th className="text-left px-3 py-2 font-semibold w-[44px]">
-                  #
-                </th>
-                <th className="px-3 py-2 font-semibold text-left">
-                  <button
-                    className="flex items-center gap-1 hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
-                    onClick={() => handleSort("title")}
-                  >
-                    {t("title")} <SortIcon col="title" />
-                  </button>
-                </th>
-                <th className="px-3 py-2 font-semibold text-left w-[90px]">
-                  {t("genre")}
-                </th>
-                <th className="px-3 py-2 font-semibold text-left w-[100px]">
-                  {t("language")}
-                </th>
-                <th className="px-3 py-2 font-semibold text-left">
-                  {t("contributors")}
-                </th>
-                <th className="px-3 py-2 font-semibold text-left w-[110px]">
-                  <button
-                    className="flex items-center gap-1 hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
-                    onClick={() => handleSort("year")}
-                  >
-                    {t("year")} <SortIcon col="year" />
-                  </button>
-                </th>
+          <p className="mt-2 mb-4 text-xs text-muted-foreground">
+            {t("characterCountHelp")}
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="text-xs  tracking-wide text-muted-foreground dark:text-zinc-400 bg-branding-gray/5 dark:bg-zinc-800/50 border border-branding-brown/10 dark:border-white/10">
+                  <th className="text-left px-3 py-2 font-semibold w-[44px]">
+                    #
+                  </th>
+                  <th className="px-3 py-2 font-semibold text-left">
+                    <button
+                      className="flex items-center gap-1 hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
+                      onClick={() => handleSort("title")}
+                    >
+                      {t("title")} <SortIcon col="title" />
+                    </button>
+                  </th>
+                  <th className="px-3 py-2 font-semibold text-left w-[90px]">
+                    {t("genre")}
+                  </th>
+                  <th className="px-3 py-2 font-semibold text-left w-[100px]">
+                    {t("language")}
+                  </th>
+                  <th className="px-3 py-2 font-semibold text-left">
+                    {t("contributors")}
+                  </th>
+                  <th className="px-3 py-2 font-semibold text-center w-[110px]">
+                    <button
+                      className="flex items-center gap-1 mx-auto hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
+                      onClick={() => handleSort("year")}
+                    >
+                      {t("year")} <SortIcon col="year" />
+                    </button>
+                  </th>
 
-                <th className="px-3 py-2 font-semibold text-right w-[80px]">
-                  <button
-                    className="flex items-center gap-1 ml-auto hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
-                    onClick={() => handleSort("pages")}
-                  >
-                    {t("pages")} <SortIcon col="pages" />
-                  </button>
-                </th>
-                <th className="px-3 py-2 font-semibold text-left w-[80px]">
-                  {t("status")}
-                </th>
-                <th className="w-8"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {isLoading ? (
-                [1, 2, 3, 4, 5].map((i) => (
-                  <tr
-                    key={i}
-                    className="border-b border-branding-brown/8 dark:border-white/5 animate-pulse"
-                  >
-                    <td className="px-3 py-2.5">
-                      <div className="h-3 w-4 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
-                    </td>
-                    <td className="px-3 py-2.5">
-                      <div className="h-3 w-48 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
-                    </td>
-                    <td className="px-3 py-2.5">
-                      <div className="h-3 w-14 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
-                    </td>
-                    <td className="px-3 py-2.5">
-                      <div className="h-3 w-12 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
-                    </td>
-                    <td className="px-3 py-2.5">
-                      <div className="h-3 w-24 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
-                    </td>
-                    <td className="px-3 py-2.5">
-                      <div className="h-3 w-10 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
-                    </td>
-                    <td className="px-3 py-2.5 text-right">
-                      <div className="h-3 w-8 bg-branding-gray/20 dark:bg-zinc-700 rounded ml-auto" />
-                    </td>
-                    <td className="px-3 py-2.5">
-                      <div className="h-3 w-16 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
-                    </td>
-                    <td></td>
-                  </tr>
-                ))
-              ) : displayedWorks.length === 0 ? (
-                <tr>
-                  <td
-                    colSpan={8}
-                    className="text-center py-12 text-muted-foreground dark:text-zinc-500"
-                  >
-                    {t("noWorksMatchFilters")}
-                  </td>
+                  <th className="px-3 py-2 font-semibold text-center w-[80px]">
+                    <button
+                      className="flex items-center gap-1 mx-auto hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
+                      onClick={() => handleSort("pages")}
+                    >
+                      {t("pages")} <SortIcon col="pages" />
+                    </button>
+                  </th>
+                  <th className="px-3 py-2 font-semibold text-center w-[130px]">
+                    <button
+                      className="flex items-center gap-1 mx-auto hover:text-branding-black dark:hover:text-zinc-100 transition-colors"
+                      onClick={() => handleSort("hanNomCharacters")}
+                    >
+                      {t("hanNomCharacters")}{" "}
+                      <SortIcon col="hanNomCharacters" />
+                    </button>
+                  </th>
+                  <th className="px-3 py-2 font-semibold text-left w-[80px]">
+                    {t("status")}
+                  </th>
+                  <th className="w-8"></th>
                 </tr>
-              ) : (
-                displayedWorks.map((work, idx) => (
-                  <tr
-                    key={work.slug}
-                    className="border-b border-branding-brown/10 dark:border-white/5 hover:bg-branding-brown/[0.03] dark:hover:bg-white/[0.03] cursor-pointer group transition-colors"
-                    onClick={() => {
-                      if (work.externalPath) {
-                        router.push(work.externalPath);
-                      } else {
-                        router.push(
-                          `/research/han-nom/search-database/${work.slug}`
-                        );
-                      }
-                    }}
-                  >
-                    <td className="px-3 py-2.5 text-muted-foreground dark:text-zinc-500 tabular-nums">
-                      {idx + 1}
-                    </td>
-                    <td className="px-3 py-2.5">
-                      <span className="font-medium text-branding-black dark:text-zinc-100 group-hover:text-branding-orange transition-colors">
-                        {work.title}
-                      </span>
-                    </td>
-                    <td className="px-3 py-2.5">
-                      {work.genre ? (
-                        <Badge
-                          variant="secondary"
-                          className="text-xs bg-branding-brown/8 text-branding-brown dark:bg-white/10 dark:text-zinc-300 border-none font-normal"
-                        >
-                          {work.genre}
-                        </Badge>
-                      ) : (
-                        <span className="text-muted-foreground text-xs italic">
-                          —
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-3 py-2.5">
-                      {work.language ? (
-                        <Badge
-                          variant="secondary"
-                          className="text-xs bg-branding-orange/8 text-branding-orange dark:bg-branding-orange/20 dark:text-orange-300 border-none font-normal"
-                        >
-                          {work.language}
-                        </Badge>
-                      ) : (
-                        <span className="text-muted-foreground text-xs italic">
-                          —
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-3 py-2.5">
-                      {work.attributions && work.attributions.length > 0 ? (
-                        <div className="flex flex-col gap-0.5">
-                          {work.attributions.map((a, ai) => (
-                            <span key={ai} className="text-xs">
-                              <span className="text-branding-black dark:text-zinc-200">
-                                {a.name}
-                              </span>
-                              <span className="text-muted-foreground dark:text-zinc-500 ml-1">
-                                ({a.role})
-                              </span>
-                            </span>
-                          ))}
-                        </div>
-                      ) : (
-                        <span className="text-muted-foreground text-xs italic">
-                          —
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-3 py-2.5 text-muted-foreground dark:text-zinc-500 tabular-nums">
-                      {work.year ?? (
-                        <span className="italic opacity-50 text-xs">
-                          {t("unknown")}
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-3 py-2.5 text-muted-foreground dark:text-zinc-500 tabular-nums">
-                      {work.pages.toLocaleString()}
-                    </td>
-                    <td className="px-3 py-2.5">
-                      {work.curationStatus && (
-                        <span
-                          className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                            work.curationStatus === "curated"
-                              ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400"
-                              : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400"
-                          }`}
-                        >
-                          {work.curationStatus === "curated"
-                            ? t("curated")
-                            : t("wiki")}
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-2 py-2.5 text-muted-foreground dark:text-zinc-500">
-                      <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-60 transition-opacity" />
+              </thead>
+              <tbody>
+                {isLoading ? (
+                  [1, 2, 3, 4, 5].map((i) => (
+                    <tr
+                      key={i}
+                      className="border-b border-branding-brown/8 dark:border-white/5 animate-pulse"
+                    >
+                      <td className="px-3 py-2.5">
+                        <div className="h-3 w-4 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <div className="h-3 w-48 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <div className="h-3 w-14 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <div className="h-3 w-12 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <div className="h-3 w-24 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <div className="h-3 w-10 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
+                      </td>
+                      <td className="px-3 py-2.5 text-right">
+                        <div className="h-3 w-8 bg-branding-gray/20 dark:bg-zinc-700 rounded ml-auto" />
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <div className="h-3 w-12 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <div className="h-3 w-16 bg-branding-gray/20 dark:bg-zinc-700 rounded" />
+                      </td>
+                      <td></td>
+                    </tr>
+                  ))
+                ) : displayedWorks.length === 0 ? (
+                  <tr>
+                    <td
+                      colSpan={10}
+                      className="text-center py-12 text-muted-foreground dark:text-zinc-500"
+                    >
+                      {t("noWorksMatchFilters")}
                     </td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                ) : (
+                  displayedWorks.map((work, idx) => (
+                    <tr
+                      key={work.slug}
+                      className="border-b border-branding-brown/10 dark:border-white/5 hover:bg-branding-brown/[0.03] dark:hover:bg-white/[0.03] cursor-pointer group transition-colors"
+                      onClick={() => {
+                        if (work.externalPath) {
+                          router.push(work.externalPath);
+                        } else {
+                          router.push(
+                            `/research/han-nom/search-database/${work.slug}`
+                          );
+                        }
+                      }}
+                    >
+                      <td className="px-3 py-2.5 text-center text-muted-foreground dark:text-zinc-500 tabular-nums">
+                        {idx + 1}
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <span className="font-medium text-branding-black dark:text-zinc-100 group-hover:text-branding-orange transition-colors">
+                          {work.title}
+                        </span>
+                      </td>
+                      <td className="px-3 py-2.5">
+                        {work.genre ? (
+                          <Badge
+                            variant="secondary"
+                            className="text-xs bg-branding-brown/8 text-branding-brown dark:bg-white/10 dark:text-zinc-300 border-none font-normal"
+                          >
+                            {work.genre}
+                          </Badge>
+                        ) : (
+                          <span className="text-muted-foreground text-xs italic">
+                            —
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-3 py-2.5">
+                        {work.language ? (
+                          <Badge
+                            variant="secondary"
+                            className="text-xs bg-branding-orange/8 text-branding-orange dark:bg-branding-orange/20 dark:text-orange-300 border-none font-normal"
+                          >
+                            {work.language}
+                          </Badge>
+                        ) : (
+                          <span className="text-muted-foreground text-xs italic">
+                            —
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-3 py-2.5">
+                        {work.attributions && work.attributions.length > 0 ? (
+                          <div className="flex flex-col gap-0.5">
+                            {work.attributions.map((a, ai) => (
+                              <span key={ai} className="text-xs">
+                                <span className="text-branding-black dark:text-zinc-200">
+                                  {a.name}
+                                </span>
+                                <span className="text-muted-foreground dark:text-zinc-500 ml-1">
+                                  ({a.role})
+                                </span>
+                              </span>
+                            ))}
+                          </div>
+                        ) : (
+                          <span className="text-muted-foreground text-xs italic">
+                            —
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-3 py-2.5 text-center text-muted-foreground dark:text-zinc-500 tabular-nums">
+                        {work.year ?? (
+                          <span className="italic opacity-50 text-xs">
+                            {t("unknown")}
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-3 py-2.5 text-center text-muted-foreground dark:text-zinc-500 tabular-nums">
+                        {work.pages.toLocaleString(locale)}
+                      </td>
+                      <td
+                        className="px-3 py-2.5 text-center text-muted-foreground dark:text-zinc-500  tabular-nums"
+                        title={
+                          work.hanNomCharacters == null
+                            ? t("characterCountUnavailable")
+                            : undefined
+                        }
+                      >
+                        {work.hanNomCharacters == null ? (
+                          <span className="text-muted-foreground">
+                            {t("characterCountUnavailable")}
+                          </span>
+                        ) : (
+                          work.hanNomCharacters.toLocaleString(locale)
+                        )}
+                      </td>
+                      <td className="px-3 py-2.5">
+                        {work.curationStatus && (
+                          <span
+                            className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                              work.curationStatus === "curated"
+                                ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400"
+                                : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400"
+                            }`}
+                          >
+                            {work.curationStatus === "curated"
+                              ? t("curated")
+                              : t("wiki")}
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-2 py-2.5 text-muted-foreground dark:text-zinc-500">
+                        <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-60 transition-opacity" />
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
@@ -701,7 +749,7 @@ export default function CorpusBrowser() {
               })}
             </p>
             <p className="text-xs text-muted-foreground dark:text-zinc-500 font-medium bg-branding-gray/10 dark:bg-white/5 py-1 px-3 rounded-full">
-              {t("totalMatches", { count: searchResults.length })}
+              {t("totalMatches", { count: totalOccurrences })}
             </p>
           </div>
           {groupedSearchResults.map((group) => {
@@ -731,7 +779,7 @@ export default function CorpusBrowser() {
                     </div>
                   </div>
                   <Badge className="bg-branding-brown/10 text-branding-brown dark:bg-white/10 dark:text-zinc-300 border-none tabular-nums font-semibold">
-                    {t("hitsCount", { count: group.results.length })}
+                    {t("hitsCount", { count: group.occurrences })}
                   </Badge>
                 </button>
 

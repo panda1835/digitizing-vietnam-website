@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { parseStringPromise } from "xml2js";
 import pool from "@/lib/db";
+import { countHanNom, searchText } from "./text-statistics";
 import {
   titles,
   flattenItems,
@@ -75,6 +76,7 @@ export interface CorpusWork {
   collectionId?: string;
   documentId?: string;
   pages: number;
+  hanNomCharacters?: number | null;
   type: "xml" | "db";
   genre?: CorpusGenre;
   language?: CorpusLanguage;
@@ -510,152 +512,26 @@ function getSmartSnippet(
   query: string,
   type: "han" | "nom" | "qn" = "qn"
 ): string {
-  if (!text) return "";
-
-  const queryLower = query.toLowerCase();
-  const isQn = type === "qn";
-  const hasHanChars = (s: string): boolean => {
-    for (const ch of s) {
-      const cp = ch.codePointAt(0) || 0;
-      if (
-        (cp >= 0x3400 && cp <= 0x4dbf) || // CJK Ext A
-        (cp >= 0x4e00 && cp <= 0x9fff) || // CJK Unified
-        (cp >= 0xf900 && cp <= 0xfaff) || // CJK Compatibility Ideographs
-        (cp >= 0x20000 && cp <= 0x2a6df) || // CJK Ext B
-        (cp >= 0x2a700 && cp <= 0x2b73f) || // CJK Ext C
-        (cp >= 0x2b740 && cp <= 0x2b81f) || // CJK Ext D
-        (cp >= 0x2b820 && cp <= 0x2ceaf) || // CJK Ext E
-        (cp >= 0x2ceb0 && cp <= 0x2ebef) || // CJK Ext F
-        (cp >= 0x30000 && cp <= 0x3134f) // CJK Ext G
-      ) {
-        return true;
-      }
+  const escapedQuery = escapeRegExp(query);
+  const pattern = type === "qn"
+    ? `(^|[^\\p{L}\\p{M}\\p{N}_])(${escapedQuery})(?=$|[^\\p{L}\\p{M}\\p{N}_])`
+    : `()(${escapedQuery})`;
+  const matcher = new RegExp(pattern, "giu");
+  const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (ch) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  }[ch]!));
+  // Render every matching line and occurrence; do not truncate counted matches.
+  return text.split(" @ ").map((line) => {
+    let cursor = 0;
+    let html = "";
+    for (const match of Array.from(line.matchAll(matcher))) {
+      const start = match.index! + match[1].length;
+      html += escapeHtml(line.slice(cursor, start));
+      html += `<mark class='bg-yellow-200 dark:bg-yellow-800/50 text-branding-black dark:text-zinc-100 rounded px-0.5'>${escapeHtml(match[2])}</mark>`;
+      cursor = start + match[2].length;
     }
-    return false;
-  };
-  const isMatch = (s: string): boolean =>
-    isQn ? containsWholeWord(s, query) : s.toLowerCase().includes(queryLower);
-
-  const highlight = (s: string): string => {
-    const escaped = s.replace(/[&<>"']/g, (m) => {
-      const map: Record<string, string> = {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;",
-      };
-      return map[m];
-    });
-    const escapedQuery = escapeRegExp(query);
-    try {
-      if (isQn) {
-        return escaped.replace(
-          new RegExp(
-            `(^|[^\\p{L}\\p{N}_])(${escapedQuery})(?=$|[^\\p{L}\\p{N}_])`,
-            "giu"
-          ),
-          "$1<mark class='bg-yellow-200 dark:bg-yellow-800/50 text-branding-black dark:text-zinc-100 rounded px-0.5'>$2</mark>"
-        );
-      }
-      return escaped.replace(
-        new RegExp(`(${escapedQuery})`, "gi"),
-        "<mark class='bg-yellow-200 dark:bg-yellow-800/50 text-branding-black dark:text-zinc-100 rounded px-0.5'>$1</mark>"
-      );
-    } catch {
-      return escaped;
-    }
-  };
-
-  // 1. @-separated segments (DVSKTT nom/QuocNgu style)
-  if (text.includes("@")) {
-    const segments = text
-      .split("@")
-      .map((s) =>
-        s
-          .replace(/<[^>]*>/g, "")
-          .replace(/\|/g, " ")
-          .replace(/\s+/g, " ")
-          .trim()
-      )
-      .filter(Boolean);
-    const match = segments.find(isMatch);
-    const fallback = isQn ? segments.find((s) => !hasHanChars(s)) : undefined;
-    return highlight(match || fallback || segments[0] || "");
-  }
-
-  // 2. XML <l> line elements (Truyen Kieu XML, Chinh Phu Ngam, Luc Van Tien, Quoc Am Thi Tap)
-  const lTagRegex = /<l[^>]*>([\s\S]*?)<\/l>/g;
-  const lLines: string[] = [];
-  let lMatch: RegExpExecArray | null;
-  while ((lMatch = lTagRegex.exec(text)) !== null) {
-    const inner = lMatch[1]
-      .replace(/<[^>]*>/g, "")
-      .replace(/\|/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-    if (inner) lLines.push(inner);
-  }
-  if (lLines.length > 0) {
-    const matchLine = lLines.find(isMatch);
-    const fallback = isQn ? lLines.find((l) => !hasHanChars(l)) : undefined;
-    return highlight(matchLine || fallback || lLines[0]);
-  }
-
-  // 3. Clean text — if already short, return as-is (single-line data like HXH, Kieu rows)
-  const cleanText = text
-    .replace(/<[^>]*>/g, "")
-    .replace(/\|/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  if (cleanText.length <= 150) return highlight(cleanText);
-
-  // 4. Try splitting on newlines
-  const newlineLines = text
-    .replace(/<[^>]*>/g, "")
-    .split(/[\n\r]+/)
-    .map((l) => l.replace(/\s+/g, " ").trim())
-    .filter(Boolean);
-  if (newlineLines.length > 1) {
-    const matchLine = newlineLines.find(isMatch);
-    if (matchLine)
-      return highlight(
-        matchLine.length > 200 ? matchLine.substring(0, 200) + "…" : matchLine
-      );
-    if (isQn) {
-      const fallback = newlineLines.find((l) => !hasHanChars(l));
-      if (fallback)
-        return highlight(
-          fallback.length > 200 ? fallback.substring(0, 200) + "…" : fallback
-        );
-    }
-  }
-
-  // 5. Character-window fallback
-  let idx = -1;
-  if (isQn) {
-    const exactWord = new RegExp(
-      `(^|[^\\p{L}\\p{N}_])(${escapeRegExp(query)})(?=$|[^\\p{L}\\p{N}_])`,
-      "iu"
-    ).exec(cleanText);
-    if (exactWord) idx = (exactWord.index || 0) + (exactWord[1]?.length || 0);
-  } else {
-    idx = cleanText.toLowerCase().indexOf(queryLower);
-  }
-  if (idx === -1) {
-    if (isQn && hasHanChars(cleanText)) return "";
-    return highlight(
-      cleanText.substring(0, 100) + (cleanText.length > 100 ? "…" : "")
-    );
-  }
-  const radius = 60;
-  const start = Math.max(0, idx - radius);
-  const end = Math.min(cleanText.length, idx + query.length + radius);
-  return highlight(
-    (start > 0 ? "…" : "") +
-      cleanText.substring(start, end) +
-      (end < cleanText.length ? "…" : "")
-  );
+    return html + escapeHtml(line.slice(cursor));
+  }).join("<br />");
 }
 
 function escapeRegExp(text: string): string {
@@ -663,36 +539,25 @@ function escapeRegExp(text: string): string {
 }
 
 function containsWholeWord(text: string, query: string): boolean {
-  const normalizedText = (text || "")
-    .replace(/<[^>]*>/g, " ")
-    .replace(/\|/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  const normalizedQuery = (query || "").replace(/\s+/g, " ").trim();
-  if (!normalizedText || !normalizedQuery) return false;
-
-  // Treat letters/digits/underscore as "word" characters (Unicode-aware).
-  const pattern = `(?:^|[^\\p{L}\\p{N}_])${escapeRegExp(
-    normalizedQuery
-  )}(?=$|[^\\p{L}\\p{N}_])`;
-  try {
-    return new RegExp(pattern, "iu").test(normalizedText);
-  } catch {
-    return normalizedText
-      .toLowerCase()
-      .split(/\s+/)
-      .includes(normalizedQuery.toLowerCase());
-  }
+  return searchText(text, query, "qn").occurrences > 0;
 }
 
 export async function searchCorpus(query: string) {
+  query = query.normalize("NFC").replace(/\s+/g, " ").trim();
   const results: any[] = [];
-  const normalizedQuery = query.trim().toLowerCase();
+  const addResult = (result: any, source: string) => {
+    const match = searchText(source, query, result.type);
+    if (!match.occurrences) return;
+    results.push({
+      ...result,
+      occurrences: match.occurrences,
+      text: getSmartSnippet(match.text, query.normalize("NFC"), result.type),
+    });
+  };
+  const normalizedQuery = query.normalize("NFC").trim().toLowerCase();
   if (!normalizedQuery) return results;
 
   try {
-    const allWorks = await getCorpusRegistry();
-    const workMap = new Map(allWorks.map((w) => [w.slug, w]));
     const wildcard = `%${normalizedQuery}%`;
 
     // 1. Search Truyện Kiều Editions
@@ -726,13 +591,11 @@ export async function searchCorpus(query: string) {
 
     for (const ed of kieuEditions) {
       try {
-        // Increased limit for Kiều editions
         const kieuRows = await queryRows<any>(
           `SELECT id, qn, unicode, special, page FROM ${ed.table}
            WHERE CONVERT(qn USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
               OR CONVERT(unicode USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-              OR CONVERT(special USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-           LIMIT 200`,
+              OR CONVERT(special USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci`,
           [wildcard, wildcard, wildcard]
         );
         kieuRows.forEach((row) => {
@@ -741,20 +604,22 @@ export async function searchCorpus(query: string) {
             (row.special || "").toLowerCase().includes(normalizedQuery);
           const isQnMatch = containsWholeWord(row.qn || "", query);
           if (!isNomMatch && !isQnMatch) return;
-          results.push({
-            work: ed.title,
-            location: `Page ${row.page || ""}, ID ${row.id}`,
-            slug: ed.slug,
-            type: isNomMatch ? "nom" : "qn",
-            text: getSmartSnippet(
-              isNomMatch ? row.unicode || row.special : row.qn,
-              query,
-              isNomMatch ? "nom" : "qn"
-            ),
-            externalPath: `/our-collections/truyen-kieu/${ed.slug}${
-              row.page ? `?page=${row.page}` : ""
-            }`,
-          });
+          addResult(
+            {
+              work: ed.title,
+              location: `Page ${row.page || ""}, ID ${row.id}`,
+              slug: ed.slug,
+              type: isNomMatch ? "nom" : "qn",
+              externalPath: `/our-collections/truyen-kieu/${ed.slug}${
+                row.page ? `?page=${row.page}` : ""
+              }`,
+            },
+            isNomMatch
+              ? searchText(row.unicode || "", query, "nom").occurrences
+                ? row.unicode
+                : row.special
+              : row.qn
+          );
         });
       } catch (e) {
         console.error(`Search ${ed.table} failed`, e);
@@ -785,8 +650,7 @@ export async function searchCorpus(query: string) {
                          ELSE NULL END AS total_th
                  FROM tbl_dvsk_data t
                  WHERE CONVERT(t.nom USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-                    OR CONVERT(COALESCE(t.phien_am, '') USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-                 LIMIT 1000`,
+                    OR CONVERT(COALESCE(t.phien_am, '') USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci`,
         [wildcard, wildcard]
       );
       dvskRows.forEach((row) => {
@@ -817,30 +681,27 @@ export async function searchCorpus(query: string) {
         const isQnMatch = containsWholeWord(row.phien_am || "", query);
         if (!isNomMatch && !isQnMatch) return;
         const { topic } = topicIdToBookAndTopic(topicId);
-        results.push({
-          work: "Đại Việt sử ký toàn thư",
-          location: `${topicTitle || "Unknown Section"}, Page ${localPage}`,
-          slug: "dai-viet-su-ky-toan-thu",
-          topic: topicId,
-          page: localPage,
-          type: isNomMatch ? "nom" : "qn",
-          text: getSmartSnippet(
-            isNomMatch ? row.nom : row.phien_am || row.QuocNgu || "",
-            query,
-            isNomMatch ? "nom" : "qn"
-          ),
-          externalPath: `/our-collections/dai-viet-su-ky-toan-thu/${topicIdToSlug(
-            topicId
-          )}?page=${localPage}&topic=${topic}`,
-        });
+        addResult(
+          {
+            work: "Đại Việt sử ký toàn thư",
+            location: `${topicTitle || "Unknown Section"}, Page ${localPage}`,
+            slug: "dai-viet-su-ky-toan-thu",
+            topic: topicId,
+            page: localPage,
+            type: isNomMatch ? "nom" : "qn",
+            externalPath: `/our-collections/dai-viet-su-ky-toan-thu/${topicIdToSlug(
+              topicId
+            )}?page=${localPage}&topic=${topic}`,
+          },
+          isNomMatch ? row.nom : row.phien_am
+        );
       });
 
       const qtRows = await queryRows<any>(
         `SELECT qt.*,
                     (SELECT COUNT(*) FROM tbl_quyenthu s WHERE s.Quyen = qt.Quyen AND s.MaQN < qt.MaQN) + 1 AS local_page
                  FROM tbl_quyenthu qt
-                 WHERE CONVERT(COALESCE(qt.phien_am, '') USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-                 LIMIT 200`,
+                 WHERE CONVERT(COALESCE(qt.phien_am, '') USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci`,
         [wildcard]
       );
       qtRows.forEach((row) => {
@@ -850,14 +711,16 @@ export async function searchCorpus(query: string) {
         const localTopic =
           quyenTopicId >= 100 ? quyenTopicId - 99 : quyenTopicId;
         const localPage = Number(row.local_page || 1);
-        results.push({
-          work: "Đại Việt sử ký toàn thư: Quyển Thủ",
-          location: `Quyển Thủ, Page ${localPage}`,
-          slug: "quyen-thu",
-          type: "qn",
-          text: getSmartSnippet(row.phien_am || row.QuocNgu || "", query, "qn"),
-          externalPath: `/our-collections/dai-viet-su-ky-toan-thu/quyen-thu?page=${localPage}&topic=${localTopic}`,
-        });
+        addResult(
+          {
+            work: "Đại Việt sử ký toàn thư: Quyển Thủ",
+            location: `Quyển Thủ, Page ${localPage}`,
+            slug: "quyen-thu",
+            type: "qn",
+            externalPath: `/our-collections/dai-viet-su-ky-toan-thu/quyen-thu?page=${localPage}&topic=${localTopic}`,
+          },
+          row.phien_am
+        );
       });
     } catch (e) {
       console.error("Search DVSKTT failed", e);
@@ -866,6 +729,7 @@ export async function searchCorpus(query: string) {
     // 3. Search Other Major Works
     const otherWorks = [
       {
+        slug: "chinh-phu-ngam-khuc",
         table: "chinh_phu_ngam",
         title: "Chinh phụ ngâm khúc",
         col: "text",
@@ -873,6 +737,7 @@ export async function searchCorpus(query: string) {
         path: "/our-collections/chinh-phu-ngam-khuc/chinh-phu-ngam-khuc",
       },
       {
+        slug: "van-tien-co-tich-tan-truyen",
         table: "luc_van_tien",
         title: "Lục Vân Tiên",
         col: "text",
@@ -885,22 +750,22 @@ export async function searchCorpus(query: string) {
       try {
         const rows = await queryRows<any>(
           `SELECT * FROM ${w.table}
-           WHERE CONVERT(${w.col} USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-           LIMIT 100`,
+           WHERE CONVERT(${w.col} USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci`,
           [wildcard]
         );
         rows.forEach((row) => {
-          if (!containsWholeWord(row[w.col] || "", query)) return;
-          const snippet = getSmartSnippet(row[w.col], query, w.type);
-          if (!snippet) return;
+          const type = countHanNom(query) > 0 ? "nom" : w.type;
           const pageNum = row.textNo || row.id || 1;
-          results.push({
-            work: w.title,
-            location: `Page ${pageNum}`,
-            type: w.type,
-            text: snippet,
-            externalPath: `${w.path}?page=${pageNum}`,
-          });
+          addResult(
+            {
+              slug: w.slug,
+              work: w.title,
+              location: `Page ${pageNum}`,
+              type,
+              externalPath: `${w.path}?page=${pageNum}`,
+            },
+            row[w.col]
+          );
         });
       } catch (e) {
         console.error(`Search ${w.table} failed`, e);
@@ -912,8 +777,7 @@ export async function searchCorpus(query: string) {
       const hxhRows = await queryRows<any>(
         `SELECT * FROM tho_hxh
          WHERE CONVERT(qn USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-            OR CONVERT(nom USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-         LIMIT 100`,
+            OR CONVERT(nom USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci`,
         [wildcard, wildcard]
       );
       hxhRows.forEach((row) => {
@@ -922,20 +786,18 @@ export async function searchCorpus(query: string) {
           .includes(normalizedQuery);
         const isQnMatch = containsWholeWord(row.qn || "", query);
         if (!isNomMatch && !isQnMatch) return;
-        results.push({
-          work: "Thơ Hồ Xuân Hương",
-          location: row.qn_topic || "Poem",
-          slug: "tho-ho-xuan-huong",
-          type: isNomMatch ? "nom" : "qn",
-          text: getSmartSnippet(
-            isNomMatch ? row.nom : row.qn,
-            query,
-            isNomMatch ? "nom" : "qn"
-          ),
-          externalPath: `/our-collections/tho-ho-xuan-huong/tinh-hoa-mua-xuan?topic=${encodeURIComponent(
-            row.qn_topic || ""
-          )}`,
-        });
+        addResult(
+          {
+            work: "Thơ Hồ Xuân Hương",
+            location: row.qn_topic || "Poem",
+            slug: "tinh-hoa-mua-xuan",
+            type: isNomMatch ? "nom" : "qn",
+            externalPath: `/our-collections/tho-ho-xuan-huong/tinh-hoa-mua-xuan?topic=${encodeURIComponent(
+              row.qn_topic || ""
+            )}`,
+          },
+          isNomMatch ? row.nom : row.qn
+        );
       });
     } catch (e) {
       console.error("Search tho_hxh failed", e);
@@ -946,8 +808,7 @@ export async function searchCorpus(query: string) {
       const qattRows = await queryRows<any>(
         `SELECT * FROM qatt
          WHERE CONVERT(qn_body USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-            OR CONVERT(hn_body USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci
-         LIMIT 100`,
+            OR CONVERT(hn_body USING utf8mb4) COLLATE utf8mb4_unicode_ci LIKE CONVERT(? USING utf8mb4) COLLATE utf8mb4_unicode_ci`,
         [wildcard, wildcard]
       );
       qattRows.forEach((row) => {
@@ -956,18 +817,16 @@ export async function searchCorpus(query: string) {
           .includes(normalizedQuery);
         const isQnMatch = containsWholeWord(row.qn_body || "", query);
         if (!isNomMatch && !isQnMatch) return;
-        results.push({
-          work: "Quốc âm Thi tập",
-          location: row.qn_title || "Poem",
-          slug: "quoc-am-thi-tap",
-          type: isNomMatch ? "nom" : "qn",
-          text: getSmartSnippet(
-            isNomMatch ? row.hn_body : row.qn_body,
-            query,
-            isNomMatch ? "nom" : "qn"
-          ),
-          externalPath: `/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap?topic=${row.id}`,
-        });
+        addResult(
+          {
+            work: "Quốc âm Thi tập",
+            location: row.qn_title || "Poem",
+            slug: "quoc-am-thi-tap",
+            type: isNomMatch ? "nom" : "qn",
+            externalPath: `/our-collections/quoc-am-thi-tap/nguyen-trai-quoc-am-thi-tap?topic=${row.id}`,
+          },
+          isNomMatch ? row.hn_body : row.qn_body
+        );
       });
     } catch (e) {
       console.error("Search qatt failed", e);
@@ -977,4 +836,29 @@ export async function searchCorpus(query: string) {
   }
 
   return results;
+}
+
+// Snapshot supplied from the library counts. Update explicitly when transcriptions change.
+export const HAN_NOM_CHARACTER_COUNTS: Readonly<Record<string, number>> = {
+  "truyen-kieu-1866": 16715,
+  "truyen-kieu-1870": 22820,
+  "truyen-kieu-1871": 22770,
+  "truyen-kieu-1872": 22802,
+  "truyen-kieu-1902": 22786,
+  "quyen-thu": 12052,
+  "ngoai-ky": 65019,
+  "ban-ky-toan-thu": 116714,
+  "ban-ky-thuc-luc": 120934,
+  "ban-ky-tuc-bien": 69910,
+  "chinh-phu-ngam-khuc": 6005,
+  "quoc-am-thi-tap": 12467,
+  "tinh-hoa-mua-xuan": 2293,
+  "van-tien-co-tich-tan-truyen": 14409,
+};
+
+export async function getCorpusRegistryWithStatistics() {
+  return CORPUS_REGISTRY.map((work) => ({
+    ...work,
+    hanNomCharacters: HAN_NOM_CHARACTER_COUNTS[work.slug] ?? null,
+  }));
 }
