@@ -121,8 +121,9 @@ test("search returns complete occurrence totals, omits note-only pages and separ
   const registry = await corpus.getCorpusRegistryWithStatistics();
   assert.equal(queries.length, queriesBeforeStatistics);
   assert.equal(registry.length, 14);
-  assert.equal(registry.filter((work) => work.hanNomCharacters > 0).length, 13);
+  assert.equal(registry.filter((work) => work.hanNomCharacters > 0).length, 12);
   assert.equal(registry.find((work) => work.slug === "ban-ky-toan-thu").hanNomCharacters, null);
+  assert.equal(registry.find((work) => work.slug === "ban-ky-thuc-luc").hanNomCharacters, null);
   assert.equal(registry.find((work) => work.slug === "ngoai-ky").hanNomCharacters, 28575);
   assert.equal(registry.find((work) => work.slug === "truyen-kieu-1866").hanNomCharacters, 16715);
   assert.equal(
