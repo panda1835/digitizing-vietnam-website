@@ -40,11 +40,13 @@ export function generateMetadata({
       siteName: "Digitizing Việt Nam",
       locale: isVietnamese ? "vi_VN" : "en_US",
       alternateLocale: isVietnamese ? "en_US" : "vi_VN",
+      images: [{ url: `${SITE_URL}/images/opengraph-image.png` }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
+      images: [`${SITE_URL}/images/opengraph-image.png`],
     },
   };
 }
