@@ -56,6 +56,20 @@ const Footer = ({ locale }) => {
               </div>
 
               {/* Copyright */}
+
+              <p className="max-w-4xl text-sm text-branding-black font-light font-['Helvetica Neue']">
+                {locale === "vi"
+                  ? "Tư liệu trên Digitizing Việt Nam được cung cấp cho mục đích giáo dục và nghiên cứu, không sử dụng vì mục đích thương mại. Quyền tác giả thuộc về tác giả và chủ sở hữu quyền. Xem "
+                  : "Materials on Digitizing Việt Nam are provided for educational and research purposes, not for commercial use. Copyright belongs to the authors and rights holders. See "}
+                <a
+                  href={`/${locale}/terms-of-use`}
+                  className="underline hover:text-gray-600 transition-colors"
+                >
+                  {locale === "vi" ? "Điều kiện sử dụng" : "Terms of Use"}
+                </a>
+                .
+              </p>
+
               <div className="text-branding-black font-light font-['Helvetica Neue']">
                 © {currentYear} Digitizing Việt Nam
               </div>

@@ -1,8 +1,35 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { getCollectionCanonical } from "@/utils/seo";
+import Citation from "@/components/collection/Citation";
 
-export default function DocumentMetadata({ locale, collectionItemData }) {
+export default function DocumentMetadata({
+  locale,
+  collectionId,
+  documentId,
+  collectionItemData,
+}) {
   const t = useTranslations();
+  const contributors = (collectionItemData.contributor || [])
+    .map((item: any) => ({
+      name: item.author?.name || "",
+      role: item.author_role_term?.name || "",
+    }))
+    .filter((item: { name: string }) => item.name);
+  const yearValue =
+    collectionItemData.date_created?.year_only ||
+    collectionItemData.date_created?.full_date ||
+    collectionItemData.date_created_new ||
+    "";
+  const year = String(yearValue).match(/\d{4}/)?.[0] || "";
+  const pageStart =
+    collectionItemData.page_start || collectionItemData.start_page;
+  const pageEnd = collectionItemData.page_end || collectionItemData.end_page;
+  const pages =
+    pageStart && pageEnd
+      ? `${pageStart}–${pageEnd}`
+      : collectionItemData.pages || collectionItemData.page_range || "";
+  const itemUrl = getCollectionCanonical(locale, collectionId, documentId);
 
   let createdDateNew;
   if (collectionItemData.date_created_new) {
@@ -212,7 +239,31 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
             {t("CollectionMetadata.access-condition")}:
           </div>
           <div className="text-branding-black text-base font-light font-['Helvetica Neue']">
-            {collectionItemData.access_condition?.description || "N/A"}
+            {locale === "vi" ? (
+              <>
+                Truy cập mở cho mục đích giáo dục và nghiên cứu; không sử dụng
+                vì mục đích thương mại. Xem{" "}
+                <a
+                  className="underline hover:text-branding-brown"
+                  href="/vi/terms-of-use"
+                >
+                  Điều kiện sử dụng
+                </a>
+                .
+              </>
+            ) : (
+              <>
+                Open access for educational and research purposes; not for
+                commercial use. See{" "}
+                <a
+                  className="underline hover:text-branding-brown"
+                  href="/en/terms-of-use"
+                >
+                  Terms of Use
+                </a>
+                .
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -227,6 +278,19 @@ export default function DocumentMetadata({ locale, collectionItemData }) {
           </div>
         </div>
       )}
+      <Citation
+        locale={locale}
+        entryTitle={
+          collectionItemData.entry_title ||
+          (locale === "vi" ? "[Tên mục từ]" : "[Entry title]")
+        }
+        bookTitle={collectionItemData.title}
+        year={year}
+        publisher={collectionItemData.publisher?.name || ""}
+        contributors={contributors}
+        pages={pages}
+        url={itemUrl}
+      />
     </div>
   );
 }

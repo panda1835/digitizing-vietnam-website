@@ -426,6 +426,8 @@ const CollectionItemViewer = async ({
         {/* Metadata */}
         <DocumentMetadata
           locale={locale}
+          collectionId={collectionId}
+          documentId={documentId}
           collectionItemData={collectionItemData}
         />
       </div>
