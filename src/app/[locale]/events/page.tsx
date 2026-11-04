@@ -18,11 +18,35 @@ export function generateMetadata({
 }: {
   params: { locale: string };
 }): Metadata {
+  const isVietnamese = locale === "vi";
+  const title = `${isVietnamese ? "Sự kiện" : "Events"} | Digitizing Việt Nam`;
+  const description = isVietnamese
+    ? "Khám phá các buổi tọa đàm, hội thảo và sự kiện liên quan đến lĩnh vực Việt Nam học và Nhân văn số trong bối cảnh khu vực và quốc tế."
+    : "Explore talks, conferences, and events related to Vietnamese Studies and Digital Humanities in regional and international contexts.";
+  const url = `${SITE_URL}/${locale}/events`;
+
   return {
-    title: `${locale === "vi" ? "Sự kiện" : "Events"} | Digitizing Việt Nam`,
+    title,
+    description,
     alternates: {
-      canonical: `${SITE_URL}/${locale}/events`,
+      canonical: url,
       languages: { en: `${SITE_URL}/en/events`, vi: `${SITE_URL}/vi/events` },
+    },
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      url,
+      siteName: "Digitizing Việt Nam",
+      locale: isVietnamese ? "vi_VN" : "en_US",
+      alternateLocale: isVietnamese ? "en_US" : "vi_VN",
+      images: [{ url: `${SITE_URL}/images/opengraph-image.png` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`${SITE_URL}/images/opengraph-image.png`],
     },
   };
 }
@@ -51,8 +75,8 @@ export default async function EventsPage({
         title={title}
         subtitle={
           locale === "vi"
-            ? "Khám phá các buổi tọa đàm, hội thảo và sự kiện của cộng đồng Digitizing Việt Nam."
-            : "Discover talks, seminars, and events from the Digitizing Vietnam community."
+            ? "Khám phá các buổi tọa đàm, hội thảo và sự kiện liên quan đến lĩnh vực Việt Nam học và Nhân văn số trong bối cảnh khu vực và quốc tế."
+            : "Explore talks, conferences, and events related to Vietnamese Studies and Digital Humanities in regional and international contexts."
         }
         breadcrumbItems={[{ label: title }]}
         locale={locale}
