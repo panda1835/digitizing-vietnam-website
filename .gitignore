@@ -21,5 +21,6 @@ og.tsx
 data/ocr
 data/corpus
 data/uploads
-docs
+docs/audit-han-nom-count
+tests/
 remaining.json
