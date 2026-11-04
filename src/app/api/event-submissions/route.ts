@@ -25,9 +25,9 @@ export async function POST(request: Request) {
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
   const now = Date.now();
-  for (const [key, times] of recentHits) {
+  recentHits.forEach((times, key) => {
     if (times.every((t) => now - t >= WINDOW_MS)) recentHits.delete(key);
-  }
+  });
   const hits = (recentHits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
   if (hits.length >= MAX_PER_WINDOW) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
