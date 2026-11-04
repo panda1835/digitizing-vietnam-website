@@ -89,8 +89,8 @@ export async function POST(request: Request) {
     to: process.env.INFO_EMAIL,
     replyTo: email,
     subject: `New event submission: ${eventName.replace(/[\r\n]+/g, " ")}`,
-    html: `<div style="background:#f5f5f5;padding:24px 0;font-family:Arial,Helvetica,sans-serif;color:#111;">
-  <table role="presentation" width="100%" style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #e5e5e5;border-radius:8px;">
+    html: `<div style="background:#fff;padding:24px 0;font-family:Arial,Helvetica,sans-serif;color:#111;">
+  <table role="presentation" width="100%" style="max-width:560px;margin:0 auto;background:#fff;border-radius:8px;">
     <tr><td style="padding:28px 28px 0;text-align:center;">
       <img src="https://www.digitizingvietnam.com/logo-final.svg" alt="Digitizing Vietnam" width="180" style="max-width:100%;height:auto;">
     </td></tr>
