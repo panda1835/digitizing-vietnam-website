@@ -18,11 +18,33 @@ export function generateMetadata({
 }: {
   params: { locale: string };
 }): Metadata {
+  const isVietnamese = locale === "vi";
+  const title = `${isVietnamese ? "Sự kiện" : "Events"} | Digitizing Việt Nam`;
+  const description = isVietnamese
+    ? "Khám phá các buổi tọa đàm, hội thảo và sự kiện liên quan đến ngành Việt Nam học và Nhân văn số."
+    : "Discover talks, seminars, workshops, and community events related to Vietnamese Studies and Digital Humanities.";
+  const url = `${SITE_URL}/${locale}/events`;
+
   return {
-    title: `${locale === "vi" ? "Sự kiện" : "Events"} | Digitizing Việt Nam`,
+    title,
+    description,
     alternates: {
-      canonical: `${SITE_URL}/${locale}/events`,
+      canonical: url,
       languages: { en: `${SITE_URL}/en/events`, vi: `${SITE_URL}/vi/events` },
+    },
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      url,
+      siteName: "Digitizing Việt Nam",
+      locale: isVietnamese ? "vi_VN" : "en_US",
+      alternateLocale: isVietnamese ? "en_US" : "vi_VN",
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
     },
   };
 }
