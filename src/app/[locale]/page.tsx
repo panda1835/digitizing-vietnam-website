@@ -183,6 +183,13 @@ const Home = async ({ params: { locale } }) => {
           </div>
         </section>
 
+        <UpcomingEvents
+          events={getUpcomingEvents(events ?? [], new Date())}
+          unavailable={events === null}
+          locale={locale}
+          headingClassName={merriweather.className}
+        />
+
         {/* Study Vietnam Section */}
         <section className="mb-24 mt-24">
           <div className=" gap-8 lg:gap-6 items-start">
@@ -319,12 +326,6 @@ const Home = async ({ params: { locale } }) => {
             </div>
           </div>
         </section>
-        <UpcomingEvents
-          events={getUpcomingEvents(events ?? [], new Date())}
-          unavailable={events === null}
-          locale={locale}
-          headingClassName={merriweather.className}
-        />
       </div>
     </div>
   );
