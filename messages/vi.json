@@ -348,6 +348,10 @@
     "date-converter": {
       "name": "Công cụ Chuyển đổi Ngày tháng",
       "description": "Chuyển đổi giữa niên hiệu, can chi và năm Tây lịch qua các triều đại Việt Nam và Trung Quốc."
+    },
+    "ai-playground": {
+      "name": "Không gian thử nghiệm AI",
+      "description": "Biến ý tưởng thành một trang web nhỏ, kết nối với bộ sưu tập Truyện Kiều."
     }
   },
   "ResearchHub": {
@@ -828,5 +832,110 @@
       "searchLabel": "Tìm theo tên truyện",
       "noResults": "Không tìm thấy truyện phù hợp."
     }
+  },
+  "AIPlayground": {
+    "howItWorks": "Không gian thử nghiệm AI giúp bạn biến ý tưởng thành một trang web nhỏ sử dụng bộ sưu tập Truyện Kiều. Chọn nhà cung cấp và mô hình, rồi nhập khóa API của bạn. Mô tả ý tưởng và trao đổi với AI để lên kế hoạch. Khi đã sẵn sàng, chọn “Tạo theo kế hoạch này”, sau đó xem trước hoặc tải trang web dưới dạng HTML. Nhà cung cấp có thể tính phí sử dụng API.",
+    "apiKeyLink": "Mở trang quản lý khóa API",
+    "apiKeyInstructions": {
+      "openai": "OpenAI: Chọn dự án và chọn “Create new secret key”. Sao chép khóa rồi dán vào ô phía trên.",
+      "anthropic": "Anthropic: Chọn không gian làm việc trong Claude Console và chọn “Create key”. Sao chép khóa rồi dán vào ô phía trên.",
+      "google": "Google: Mở mục API Keys trong Google AI Studio. Sao chép khóa Gemini hoặc tạo khóa cho một dự án, rồi dán vào ô phía trên.",
+      "xai": "xAI: Chọn nhóm của bạn trong xAI Console và chọn “Create API Key”. Sao chép khóa rồi dán vào ô phía trên.",
+      "deepseek": "DeepSeek: Đăng nhập vào DeepSeek Platform và tạo khóa API mới. Sao chép khóa rồi dán vào ô phía trên."
+    },
+    "provider": "Nhà cung cấp AI",
+    "apiKeyPlaceholder": "Nhập khóa API",
+    "title": "Không gian thử nghiệm AI",
+    "subtitle": "Biến ý tưởng thành một trang web nhỏ, kết nối với bộ sưu tập Truyện Kiều.",
+    "setup": "Tạo trang web của bạn",
+    "apiKey": "Khóa API",
+    "showKey": "Hiện khóa API",
+    "hideKey": "Ẩn khóa API",
+    "model": "Mô hình",
+    "dataTitle": "Kết nối với Truyện Kiều",
+    "dataDescription": "Đọc trang và tìm kiếm văn bản Nôm, quốc ngữ trong năm bản Kiều.",
+    "promptLabel": "Bạn muốn tạo trang web như thế nào?",
+    "refineLabel": "Bạn muốn thay đổi điều gì?",
+    "promptPlaceholder": "Tạo trang đọc Truyện Kiều có chuyển trang và điều chỉnh cỡ chữ…",
+    "refinePlaceholder": "Tăng cỡ chữ và thêm bộ chọn bản Kiều…",
+    "tryExample": "Bắt đầu với một ý tưởng",
+    "generate": "Tạo trang web",
+    "update": "Cập nhật trang web",
+    "stop": "Dừng tạo trang",
+    "costHelp": "Mỗi tin nhắn và lần tạo trang sử dụng hạn mức của nhà cung cấp bạn chọn.",
+    "preview": "Xem trước",
+    "code": "Mã nguồn",
+    "output": "Trang web được tạo",
+    "desktop": "Xem trên máy tính",
+    "mobile": "Xem trên điện thoại",
+    "reload": "Tải lại bản xem trước",
+    "copy": "Sao chép mã nguồn",
+    "copied": "Đã sao chép mã nguồn",
+    "reset": "Tạo trang web mới",
+    "download": "Tải HTML",
+    "exporting": "Đang chuẩn bị tệp…",
+    "emptyTitle": "Một cách mới để khám phá Truyện Kiều",
+    "emptyDescription": "Mô tả một trang đọc, công cụ so sánh hoặc trang web đơn giản. Kết quả sẽ xuất hiện tại đây.",
+    "emptyCaption": "Chọn một ví dụ hoặc viết yêu cầu của bạn.",
+    "frameTitle": "Trang web được tạo trong môi trường cách ly",
+    "generating": "Đang lên ý tưởng cho trang web…",
+    "readingData": "Đang đọc dữ liệu Truyện Kiều…",
+    "writing": "Đang viết trang web…",
+    "ready": "Trang web đã sẵn sàng",
+    "stopped": "Đã dừng tạo trang. Trang web trước đó được giữ lại.",
+    "waitingCode": "Mã nguồn sẽ xuất hiện trong quá trình tạo trang.",
+    "previewError": "Không tải được dữ liệu. Hãy tải lại bản xem trước hoặc yêu cầu AI sửa chức năng chuyển trang.",
+    "history": "Các phiên bản gần đây",
+    "current": "Hiện tại",
+    "restore": "Khôi phục",
+    "examples": {
+      "reader": {
+        "label": "Trang đọc dễ sử dụng",
+        "prompt": "Tạo trang đọc Truyện Kiều bản 1866 bằng tiếng Việt, trình bày đẹp và dễ đọc. Hiển thị văn bản quốc ngữ, nút bật tắt chữ Nôm, nút chuyển trang trước và sau, điều chỉnh cỡ chữ. Dùng dữ liệu thật qua kieu.getPage và hiển thị số trang hiện tại cùng tổng số trang."
+      },
+      "compare": {
+        "label": "So sánh hai bản Kiều",
+        "prompt": "Tạo trang đọc song song bằng tiếng Việt để so sánh Truyện Kiều bản 1866 và 1902. Mỗi bên có nút chuyển trang riêng, hiển thị cả chữ Nôm và quốc ngữ. Giải thích rằng cùng số trang có thể chứa các đoạn thơ khác nhau giữa các bản. Dùng dữ liệu thật qua kieu."
+      },
+      "search": {
+        "label": "Tìm một câu thơ",
+        "prompt": "Tạo công cụ tìm câu thơ Truyện Kiều bằng tiếng Việt với bộ chọn bản Kiều, ô tìm kiếm và danh sách câu thơ khớp có số trang và số câu. Dùng kieu.search để lấy kết quả thật và cho phép mở trang tương ứng bằng kieu.getPage. Xử lý trạng thái đang tải, lỗi và không có kết quả."
+      }
+    },
+    "errors": {
+      "authentication": "Nhà cung cấp không xác thực được khóa. Hãy kiểm tra khóa và quyền truy cập rồi thử lại.",
+      "rate-limit": "Nhà cung cấp báo vượt giới hạn hoặc hết hạn mức. Hãy kiểm tra mức sử dụng và thanh toán rồi thử lại.",
+      "model": "Nhà cung cấp từ chối yêu cầu. Hãy kiểm tra tên mô hình và quyền sử dụng mô hình có hỗ trợ gọi công cụ.",
+      "incomplete": "Mô hình chưa trả về trang web hoàn chỉnh. Hãy thử yêu cầu đơn giản hơn hoặc mô hình khác. Trang web trước đó được giữ lại.",
+      "timeout": "Quá trình tạo trang mất quá lâu. Hãy rút ngắn yêu cầu hoặc chọn mô hình khác.",
+      "invalid-request": "Yêu cầu không hợp lệ hoặc quá lớn. Hãy rút ngắn yêu cầu hoặc tạo trang web mới.",
+      "generation": "Không tạo được trang web. Hãy kiểm tra kết nối rồi thử lại.",
+      "download": "Không tải được dữ liệu ngoại tuyến. Hãy kiểm tra kết nối rồi tải lại.",
+      "copy": "Trình duyệt không sao chép được mã nguồn. Hãy mở thẻ Mã nguồn để chọn và sao chép.",
+      "discussion": "Chưa hoàn thành được câu trả lời. Trang web của bạn vẫn được giữ lại. Hãy thử gửi lại tin nhắn."
+    },
+    "ideaSetup": "Bắt đầu từ một ý tưởng",
+    "ideaTab": "Thảo luận",
+    "discussionPrompt": "Bạn có ý tưởng gì?",
+    "discussionFollowup": "Tiếp tục trao đổi",
+    "discussionPlaceholder": "Tôi muốn giúp học sinh khám phá Truyện Kiều. Chúng ta có thể làm gì?",
+    "discussionFollowupPlaceholder": "Đặt câu hỏi, chọn phương án hoặc đề xuất thay đổi…",
+    "discussionTitle": "Cùng phát triển ý tưởng của bạn",
+    "discussionIntro": "Hãy chia sẻ điều bạn muốn làm. Chúng ta sẽ xem những văn bản Truyện Kiều hiện có giúp được gì, trao đổi về các giới hạn và thống nhất một kế hoạch phù hợp. Trang web chỉ được tạo khi bạn chọn thực hiện.",
+    "discussIdea": "Trao đổi ý tưởng",
+    "sendMessage": "Gửi tin nhắn",
+    "thinking": "Đang xem xét ý tưởng của bạn…",
+    "you": "Bạn",
+    "ideaPartner": "Người cùng lên kế hoạch",
+    "proposedPlan": "Kế hoạch đề xuất",
+    "planLimits": "Những điều cần lưu ý",
+    "buildAgreement": "Nếu kế hoạch đã phù hợp, hãy chọn “Tạo theo kế hoạch này”. Bạn cũng có thể tiếp tục trao đổi.",
+    "buildPlan": "Tạo theo kế hoạch này",
+    "buildChanges": "Thực hiện các thay đổi",
+    "planBuilt": "Kế hoạch này đã được thực hiện. Bạn có thể tiếp tục trao đổi để lên kế hoạch chỉnh sửa.",
+    "planBuiltButton": "Đã thực hiện",
+    "sendChangesFirst": "Hãy gửi tin nhắn mới trước để cập nhật kế hoạch rồi mới thực hiện.",
+    "agreeMessage": "Tôi đồng ý thực hiện kế hoạch này:",
+    "builtMessage": "Trang web đã sẵn sàng trong thẻ Xem trước. Chúng ta có thể tiếp tục trao đổi về các thay đổi tại đây."
   }
 }

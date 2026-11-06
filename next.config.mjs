@@ -10,6 +10,7 @@ const nextConfig = {
     // the Collection Item route's serverless bundle explicitly. Brackets are
     // escaped: keys are picomatch globs matched against the route.
     outputFileTracingIncludes: {
+      "/api/ai-playground/*": ["./data/truyen-kieu/*.xml"],
       "our-collections/\\[collectionid\\]/\\[documentid\\]": [
         "./public/data/kho-tang-truyen-co-tich-viet-nam/**/*",
       ],

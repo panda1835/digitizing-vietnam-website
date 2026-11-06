@@ -347,6 +347,10 @@
     "date-converter": {
       "name": "Date Converter",
       "description": "Convert between reign names (niên hiệu), sexagenary years (can chi), and Common Era dates across Vietnamese and Chinese dynasties."
+    },
+    "ai-playground": {
+      "name": "AI Playground",
+      "description": "Turn an idea into a small website, connected to the Truyện Kiều collection."
     }
   },
   "ResearchHub": {
@@ -827,5 +831,110 @@
       "searchLabel": "Search story titles",
       "noResults": "No matching stories."
     }
+  },
+  "AIPlayground": {
+    "howItWorks": "The AI Playground helps you turn an idea into a small website using the Truyện Kiều collection. Choose a provider and model, then paste your own API key. Describe your idea and discuss a plan with the AI. When you’re ready, choose “Build this plan” to create the site, then preview it or download it as HTML. Your provider may charge for API usage.",
+    "apiKeyLink": "Open API keys",
+    "apiKeyInstructions": {
+      "openai": "OpenAI: Select your project and choose “Create new secret key”. Copy the key and paste it above.",
+      "anthropic": "Anthropic: Select your workspace in the Claude Console and choose “Create key”. Copy the key and paste it above.",
+      "google": "Google: Open API Keys in Google AI Studio. Copy your Gemini API key, or create one for a project and paste it above.",
+      "xai": "xAI: Select your team in the xAI Console and choose “Create API Key”. Copy the key and paste it above.",
+      "deepseek": "DeepSeek: Sign in to the DeepSeek Platform and create a new API key. Copy the key and paste it above."
+    },
+    "provider": "AI provider",
+    "apiKeyPlaceholder": "Enter API key",
+    "title": "AI Playground",
+    "subtitle": "Turn an idea into a small website, connected to the Truyện Kiều collection.",
+    "setup": "Create your website",
+    "apiKey": "API key",
+    "showKey": "Show API key",
+    "hideKey": "Hide API key",
+    "model": "Model",
+    "dataTitle": "Connected to Truyện Kiều",
+    "dataDescription": "Read pages and search Nôm and quốc ngữ text in five editions.",
+    "promptLabel": "What would you like to build?",
+    "refineLabel": "What would you like to change?",
+    "promptPlaceholder": "Build a Truyện Kiều reader with page navigation and adjustable text size…",
+    "refinePlaceholder": "Make the text larger and add an edition selector…",
+    "tryExample": "Start with an idea",
+    "generate": "Generate website",
+    "update": "Update website",
+    "stop": "Stop generation",
+    "costHelp": "Each message and build uses credits from your selected provider.",
+    "preview": "Preview",
+    "code": "Code",
+    "output": "Generated website",
+    "desktop": "Desktop preview",
+    "mobile": "Mobile preview",
+    "reload": "Reload preview",
+    "copy": "Copy source code",
+    "copied": "Source code copied",
+    "reset": "Start a new website",
+    "download": "Download HTML",
+    "exporting": "Preparing download…",
+    "emptyTitle": "A new way to explore Truyện Kiều",
+    "emptyDescription": "Describe a reader, a comparison tool, or a simple website. Your result will appear here.",
+    "emptyCaption": "Choose an example or write your own prompt.",
+    "frameTitle": "Sandboxed generated website",
+    "generating": "Planning your website…",
+    "readingData": "Reading Truyện Kiều data…",
+    "writing": "Writing your website…",
+    "ready": "Website ready",
+    "stopped": "Generation stopped. Your previous website is preserved.",
+    "waitingCode": "Code will appear as the website is generated.",
+    "previewError": "A data request failed. Try reloading the preview or ask the AI to fix the page navigation.",
+    "history": "Recent versions",
+    "current": "Current",
+    "restore": "Restore",
+    "examples": {
+      "reader": {
+        "label": "A comfortable reading view",
+        "prompt": "Build an elegant Truyện Kiều reader for the 1866 edition. Show quốc ngữ text, a toggle for Nôm, previous and next page controls, and adjustable text size. Load real data using kieu.getPage and show the current page and total pages."
+      },
+      "compare": {
+        "label": "Compare two editions",
+        "prompt": "Build a side-by-side reader comparing the 1866 and 1902 editions of Truyện Kiều. Give each side its own page controls and show both Nôm and quốc ngữ. Explain that the same page number may contain different passages across editions. Use real data through kieu."
+      },
+      "search": {
+        "label": "Find a verse",
+        "prompt": "Build a Truyện Kiều verse finder with an edition selector, a search box, and readable matching lines showing page and line numbers. Use kieu.search for real results and allow opening the matching page with kieu.getPage. Handle loading, errors, and no results."
+      }
+    },
+    "errors": {
+      "authentication": "The provider could not authenticate your key. Check the key and its permissions, then try again.",
+      "rate-limit": "The provider reports a rate limit or exhausted credits. Check your usage and billing, then try again.",
+      "model": "The provider rejected this request. Check the model name and that your account supports it with tool calls.",
+      "incomplete": "The model did not return a complete website. Try a simpler prompt or another model. Your previous website is preserved.",
+      "timeout": "Generation took too long. Try a shorter prompt or another model.",
+      "invalid-request": "The request is invalid or too large. Shorten your prompt or start a new website.",
+      "generation": "The website could not be generated. Check your connection and try again.",
+      "download": "The offline data could not be loaded. Check your connection and download again.",
+      "copy": "The browser could not copy the source. Open the Code tab to select and copy it.",
+      "discussion": "The reply could not be completed. Your website is unchanged. Please try sending your message again."
+    },
+    "ideaSetup": "Start with an idea",
+    "ideaTab": "Discuss",
+    "discussionPrompt": "What is your idea?",
+    "discussionFollowup": "Continue the conversation",
+    "discussionPlaceholder": "I’d like to help students explore Truyện Kiều. What could we make?",
+    "discussionFollowupPlaceholder": "Ask a question, choose an option, or suggest a change…",
+    "discussionTitle": "Let’s shape your idea together",
+    "discussionIntro": "Describe what you have in mind. We’ll explore what is possible with the available Truyện Kiều texts, work through any limits, and agree on a useful plan. Nothing is built until you choose to build it.",
+    "discussIdea": "Discuss my idea",
+    "sendMessage": "Send message",
+    "thinking": "Thinking about your idea…",
+    "you": "You",
+    "ideaPartner": "Planning partner",
+    "proposedPlan": "Proposed plan",
+    "planLimits": "What to keep in mind",
+    "buildAgreement": "If this is what you want, choose “Build this plan”. You can also keep discussing it.",
+    "buildPlan": "Build this plan",
+    "buildChanges": "Build these changes",
+    "planBuilt": "This plan has been built. Keep discussing to plan your next changes.",
+    "planBuiltButton": "Plan built",
+    "sendChangesFirst": "Send your new message first so we can update the plan before building.",
+    "agreeMessage": "I agree to build this plan:",
+    "builtMessage": "Your website is ready in Preview. We can keep discussing changes here."
   }
 }

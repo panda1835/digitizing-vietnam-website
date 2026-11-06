@@ -18,6 +18,13 @@ const KieuTools = async ({ params: { locale } }) => {
   const t = await getTranslations();
   const tools = [
     {
+      href: "/tools/ai-playground",
+      title: t("Tools.ai-playground.name"),
+      description: t("Tools.ai-playground.description"),
+      target: "",
+      rel: "",
+    },
+    {
       href: "/tools/kieu-tools/character-frequency",
       title: t("Tools.kieu-tools.tools.glossary.name"),
       description: t("Tools.kieu-tools.tools.glossary.description"),

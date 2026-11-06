@@ -14,6 +14,11 @@ export async function MainToolsGrid() {
 
   const tools: MainTool[] = [
     {
+      href: "/tools/ai-playground",
+      name: t("Tools.ai-playground.name"),
+      description: t("Tools.ai-playground.description"),
+    },
+    {
       href: "https://ocr.digitizingvietnam.com",
       target: "_blank",
       name: t("Tools.image-ocr-platform.name"),
