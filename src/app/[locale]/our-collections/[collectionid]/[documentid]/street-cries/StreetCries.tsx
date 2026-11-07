@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { Merriweather } from "next/font/google";
 import { ArrowLeft, ArrowRight, Headphones, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
@@ -10,6 +11,7 @@ import { cn, normalizeSearchText } from "@/lib/utils";
 import recordings from "./recordings.json";
 
 type Recording = typeof recordings[number];
+const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 const groups: Record<string, string> = {
   "Đồ ăn": "Food",
   "Hàng hóa": "Goods",
@@ -22,6 +24,26 @@ const regions: Record<string, string> = {
   Nam: "Southern Vietnam",
   "Tây Nguyên": "Central Highlands",
 };
+const recordingFamilies = [
+  ["ve-chai", ["ve chai", "phe lieu", "thu mua"]],
+  ["kem", ["kem", "ca rem"]],
+  ["xoi", ["xoi"]],
+  ["bo-bia", ["bo bia"]],
+  ["banh-bao", ["banh bao"]],
+  ["banh-mi", ["banh mi"]],
+  ["bap", ["bap"]],
+  ["dong-gia", ["dong gia"]],
+  ["banh-gio", ["banh gio", "banh chung"]],
+] as const;
+
+function recordingFamily(item: Recording) {
+  const name = normalizeSearchText(item.vi);
+  return (
+    recordingFamilies.find(([, keywords]) =>
+      keywords.some((keyword) => name.includes(keyword))
+    )?.[0] ?? ""
+  );
+}
 
 export default function StreetCries({ locale }: { locale: string }) {
   const vi = locale === "vi";
@@ -35,6 +57,9 @@ export default function StreetCries({ locale }: { locale: string }) {
   const [audioError, setAudioError] = useState(false);
   const detailRef = useRef<HTMLElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const menuListRef = useRef<HTMLDivElement>(null);
+  const menuItemRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const scrollMenuOnChangeRef = useRef(false);
   const title = (item: Recording) => (vi ? item.vi : item.en);
   const groupLabel = (value: string) =>
     value
@@ -67,20 +92,57 @@ export default function StreetCries({ locale }: { locale: string }) {
     [query, region, group]
   );
   const index = recordings.findIndex((item) => item.id === recording.id);
+  const family = recordingFamily(recording);
+  const relatedRecordings = family
+    ? recordings.filter(
+        (item) => item.id !== recording.id && recordingFamily(item) === family
+      )
+    : [];
 
   useEffect(() => {
     setAudioError(false);
     // Switching recordings never autoplays; the previous audio is unmounted.
+    if (scrollMenuOnChangeRef.current) {
+      scrollMenuOnChangeRef.current = false;
+      window.requestAnimationFrame(() => {
+        const menu = menuListRef.current;
+        const item = menuItemRefs.current[recording.id];
+        if (!menu || !item) return;
+
+        const menuBounds = menu.getBoundingClientRect();
+        const itemBounds = item.getBoundingClientRect();
+        const distance =
+          itemBounds.top + itemBounds.height / 2 -
+          (menuBounds.top + menuBounds.height / 2);
+        if (distance) {
+          menu.scrollBy({ top: distance, behavior: "smooth" });
+        }
+      });
+    }
   }, [recording.id]);
 
-  function select(item: Recording) {
+  function select(item: Recording, scrollToRecording = false) {
     audioRef.current?.pause();
+    scrollMenuOnChangeRef.current = true;
+    if (!results.some((result) => result.id === item.id)) {
+      setQuery("");
+      setRegion("");
+      setGroup("");
+    }
     const url = new URL(window.location.href);
     url.searchParams.set("sound", item.id);
     window.history.pushState(null, "", url.toString());
-    if (window.matchMedia("(max-width: 1023px)").matches) {
-      detailRef.current?.scrollIntoView({ block: "start" });
-      detailRef.current?.focus({ preventScroll: true });
+    if (
+      scrollToRecording ||
+      window.matchMedia("(max-width: 1023px)").matches
+    ) {
+      window.requestAnimationFrame(() => {
+        detailRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        detailRef.current?.focus({ preventScroll: true });
+      });
     }
   }
 
@@ -90,7 +152,7 @@ export default function StreetCries({ locale }: { locale: string }) {
     <div className="mt-10 font-['Helvetica_Neue',sans-serif] text-branding-black">
       <div className="flex flex-col gap-8 lg:flex-row">
         <aside
-          className="w-full min-w-0 shrink-0 lg:w-96"
+          className="w-full min-w-0 shrink-0 lg:w-1/3"
           aria-label={vi ? "Danh sách bản ghi" : "Recordings"}
         >
           <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
@@ -174,6 +236,7 @@ export default function StreetCries({ locale }: { locale: string }) {
               </div>
             </div>
             <div
+              ref={menuListRef}
               className="max-h-72 overflow-y-auto lg:max-h-[600px]"
               tabIndex={0}
               aria-label={vi ? "Kết quả bản ghi" : "Recording results"}
@@ -181,6 +244,9 @@ export default function StreetCries({ locale }: { locale: string }) {
               {results.map((item) => (
                 <button
                   key={item.id}
+                  ref={(element) => {
+                    menuItemRefs.current[item.id] = element;
+                  }}
                   onClick={() => select(item)}
                   aria-current={item.id === recording.id ? "true" : undefined}
                   className={cn(
@@ -229,7 +295,7 @@ export default function StreetCries({ locale }: { locale: string }) {
           )}
           <h2
             id="street-cry-title"
-            className="font-garamond text-3xl leading-tight"
+            className={`${merriweather.className} text-3xl font-normal leading-tight`}
           >
             {title(recording)}
           </h2>
@@ -364,13 +430,68 @@ export default function StreetCries({ locale }: { locale: string }) {
               </div>
             ))}
           </dl>
+          {relatedRecordings.length > 0 && (
+            <section
+              aria-labelledby="related-recordings-title"
+              className="mt-10 pt-2"
+            >
+              <h3
+                id="related-recordings-title"
+                className={`${merriweather.className} text-2xl font-normal leading-tight`}
+              >
+                {vi ? "Bản ghi cùng loại" : "Related recordings"}
+              </h3>
+              <p className="mt-2 text-sm text-gray-600">
+                {vi
+                  ? "Cùng mặt hàng hoặc dịch vụ, thu tại địa điểm hoặc năm khác."
+                  : "The same goods or service, recorded in another place or year."}
+              </p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {relatedRecordings.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => select(item, true)}
+                    className="group overflow-hidden rounded-lg border border-gray-200 bg-white text-left transition-colors hover:border-branding-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-branding-brown"
+                  >
+                    <span className="flex aspect-[16/7] items-center justify-center overflow-hidden bg-branding-brown/10">
+                      {item.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={item.image}
+                          alt=""
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <Headphones
+                          size={30}
+                          aria-hidden="true"
+                          className="text-branding-brown"
+                        />
+                      )}
+                    </span>
+                    <span className="block p-4">
+                      <span className="block text-xl font-normal leading-tight group-hover:text-branding-brown">
+                        {title(item)}
+                      </span>
+                      <span className="mt-2 block text-sm text-gray-600">
+                        {[item.place || item.province, item.year]
+                          .filter(Boolean)
+                          .join(" · ")}
+                      </span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </section>
+          )}
           <nav
             aria-label={vi ? "Chuyển bản ghi" : "Recording navigation"}
             className="mt-8 flex justify-between gap-5 pt-5"
           >
             <button
               disabled={index === 0}
-              onClick={() => select(recordings[index - 1])}
+              onClick={() => select(recordings[index - 1], true)}
               className="flex items-center gap-2 text-sm hover:text-branding-brown disabled:opacity-40"
             >
               <ArrowLeft size={16} aria-hidden="true" />
@@ -378,7 +499,7 @@ export default function StreetCries({ locale }: { locale: string }) {
             </button>
             <button
               disabled={index === recordings.length - 1}
-              onClick={() => select(recordings[index + 1])}
+              onClick={() => select(recordings[index + 1], true)}
               className="flex items-center gap-2 text-sm hover:text-branding-brown disabled:opacity-40"
             >
               {vi ? "Bản ghi tiếp" : "Next recording"}
