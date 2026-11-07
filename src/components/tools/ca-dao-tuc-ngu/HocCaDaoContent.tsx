@@ -3,7 +3,8 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Merriweather } from "next/font/google";
-import { ChevronDown, ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { ChevronDown, ArrowRight, CheckCircle2, AlertCircle, Gamepad2, BookOpen, Music } from "lucide-react";
+import { ProverbsIdiomsPanel, PoetrySongsPanel } from "./HocCaDaoReadingPanels";
 
 const merriweather = Merriweather({
   weight: ["300", "400", "700"],
@@ -42,6 +43,52 @@ interface HocCaDaoContentProps {
 }
 
 export function HocCaDaoContent({ locale, initialData }: HocCaDaoContentProps) {
+  const t = useTranslations("Tools.ca-dao-tuc-ngu.hoc-ca-dao");
+  const [activeTab, setActiveTab] = useState<"game" | "proverbs" | "poetry">("game");
+
+  const tabs = [
+    { id: "game", label: t("tab_game"), Icon: Gamepad2 },
+    { id: "proverbs", label: t("tab_proverbs_idioms"), Icon: BookOpen },
+    { id: "poetry", label: t("tab_poetry_songs"), Icon: Music },
+  ] as const;
+
+  return (
+    <div className="flex flex-col gap-6 max-w-5xl w-full mx-auto">
+      {/* Tabs navigation */}
+      <div className="flex border-b border-branding-gray/60 overflow-x-auto whitespace-nowrap scrollbar-none w-full mx-auto">
+        {tabs.map(({ id, label, Icon }) => (
+          <button
+            key={id}
+            onClick={() => setActiveTab(id)}
+            className={`flex items-center gap-2 px-6 py-3 border-b-2 font-medium text-sm transition-all duration-300 ${
+              activeTab === id
+                ? "border-branding-brown text-branding-brown font-bold"
+                : "border-transparent text-gray-500 hover:text-branding-brown/80"
+            }`}
+          >
+            <Icon className="h-4 w-4" />
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab Panels: all stay mounted so switching tabs keeps game progress and expanded examples */}
+      <div className="w-full mt-2">
+        <div className={activeTab === "game" ? "" : "hidden"}>
+          <GamePanel locale={locale} initialData={initialData} />
+        </div>
+        <div className={activeTab === "proverbs" ? "" : "hidden"}>
+          <ProverbsIdiomsPanel />
+        </div>
+        <div className={activeTab === "poetry" ? "" : "hidden"}>
+          <PoetrySongsPanel locale={locale} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.hoc-ca-dao");
 
   // Game data state

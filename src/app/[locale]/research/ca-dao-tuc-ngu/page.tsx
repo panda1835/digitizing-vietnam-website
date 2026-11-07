@@ -52,7 +52,7 @@ export default async function CaDaoTucNguPage({
         },
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item2"),
-          href: "https://ca-dao.richardhoa.io.vn/qa-page",
+          href: "https://cadao.richardhoa.io.vn/qa-page",
         },
       ],
     },
@@ -171,17 +171,9 @@ export default async function CaDaoTucNguPage({
                     >
                       {t("Tools.ca-dao-tuc-ngu.cards.dictionary.title")}
                     </h3>
-                    <ul className="list-disc pl-5 space-y-2 text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
-                      <li>
-                        {t("Tools.ca-dao-tuc-ngu.cards.dictionary.bullet1")}
-                      </li>
-                      <li>
-                        {t("Tools.ca-dao-tuc-ngu.cards.dictionary.bullet2")}
-                      </li>
-                      <li>
-                        {t("Tools.ca-dao-tuc-ngu.cards.dictionary.bullet3")}
-                      </li>
-                    </ul>
+                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
+                      {t("Tools.ca-dao-tuc-ngu.cards.dictionary.description")}
+                    </p>
                   </div>
                   <Link
                     href="/research/ca-dao-tuc-ngu/tu-dien"
@@ -203,9 +195,11 @@ export default async function CaDaoTucNguPage({
                     >
                       {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.title")}
                     </h3>
-                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
-                      {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.description")}
-                    </p>
+                    {locale === "vi" && (
+                      <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
+                        {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.description")}
+                      </p>
+                    )}
                   </div>
                   <button
                     disabled
@@ -232,7 +226,7 @@ export default async function CaDaoTucNguPage({
                     </p>
                   </div>
                   <a
-                    href="https://ca-dao.richardhoa.io.vn/qa-page"
+                    href="https://cadao.richardhoa.io.vn/qa-page"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"

@@ -352,9 +352,9 @@
     "ca-dao-tuc-ngu": {
       "name": "Ca Dao Tục Ngữ",
       "hero": {
-        "title": "Khám phá kho tàng tri thức Dân gian Việt Nam",
-        "subtitle": "Từ Ca dao, Thành ngữ, Tục ngữ, Truyện cổ tích",
-        "intro": "Hãy chọn một trong những tính năng dưới đây để bắt đầu trải nghiệm."
+        "title": "Khám phá tri thức dân gian Việt Nam",
+        "subtitle": "Ca dao, Thành ngữ, Tục ngữ và Truyện cổ tích Việt Nam",
+        "intro": "Chọn một tính năng để bắt đầu."
       },
       "sidebar": {
         "archive-title": "KHO LƯU TRỮ SỐ",
@@ -362,50 +362,68 @@
         "archive-item2": "Bộ sưu tập Truyện cổ tích",
         "archive-item3": "Bộ sưu tập ngoài",
         "tools-title": "CÔNG CỤ SỐ",
-        "tools-item1": "Từ điển Thành ngữ-Tục ngữ-Ca dao Việt Chương",
+        "tools-item1": "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam",
         "tools-item2": "Ca dao vấn đáp",
         "learning-title": "TRUNG TÂM HỌC TẬP",
-        "learning-item1": "Học Ca Dao"
+        "learning-item1": "Ca dao Vui học"
       },
       "cards": {
         "dictionary": {
-          "title": "Từ Điển Thành Ngữ, Tục Ngữ, Ca Dao Việt Nam",
-          "bullet1": "Tra cứu từ điển Việt Chương kèm hình ảnh scan gốc",
-          "bullet2": "Phân biệt Tục ngữ & Thành ngữ",
-          "bullet3": "Khám phá mối liên hệ giữa Ca dao & Dân ca",
-          "cta": "Khám phá từ điển"
+          "title": "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam",
+          "description": "Truy xuất và tìm hiểu ý nghĩa của các thành ngữ, tục ngữ, ca dao Việt Nam qua bản số hóa công trình sưu tầm và biên tập của học giả Việt Chương (2004), kèm ảnh scan gốc để đối chiếu.",
+          "cta": "Tra cứu Từ điển"
         },
         "fairy-tales": {
-          "title": "Tổng Hợp Truyện Cổ Tích Việt Nam",
-          "description": "Sử dụng công nghệ tìm kiếm ngữ nghĩa để tra cứu truyện cổ tích một cách trực quan và sâu sắc.",
-          "cta": "Khám phá Truyện Cổ Tích"
+          "title": "Kho tàng Truyện cổ tích Việt Nam",
+          "description": "Tra cứu truyện cổ tích Việt Nam theo tên truyện hoặc tên dị bản. Tư liệu sử dụng bản số hóa công trình của nhà nghiên cứu Nguyễn Đổng Chi (2000).",
+          "cta": "Tra cứu Truyện cổ tích"
         },
         "qa": {
-          "title": "Ca Dao Vấn Đáp",
-          "description": "Giải đáp mọi thắc mắc và tâm sự của bạn bằng những câu ca dao thích hợp.",
-          "cta": "Bắt đầu vấn đáp"
+          "title": "Ca dao Vấn đáp",
+          "description": "Giải đáp mọi thắc mắc của bạn bằng những câu ca dao tuyển chọn.",
+          "cta": "Trải nghiệm Vấn đáp"
         },
         "learning": {
-          "title": "Học Thành Ngữ, Tục Ngữ, Ca Dao",
-          "description": "Học ca dao qua trò chơi điền từ vào chỗ trống sinh động, kèm lời giải nghĩa và bình chú chi tiết.",
-          "cta": "Tham gia học"
+          "title": "Ca dao Vui học",
+          "description": "Học ca dao qua trò chơi điền từ vào chỗ trống, kèm lời giải nghĩa và bình chú chi tiết.",
+          "cta": "Bắt đầu học"
         }
       },
       "tu-dien": {
-        "title": "Từ Điển Thành Ngữ, Tục Ngữ, Ca Dao Việt Nam",
-        "intro": "Công cụ này giúp bạn tìm kiếm và tra cứu văn bản của các câu thành ngữ, tục ngữ và ca dao Việt Nam từ tuyển tập sách cổ truyền. Toàn bộ dữ liệu được trích xuất từ bộ sách \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" của tác giả Việt Chương (bao gồm cả quyển Thượng và quyển Hạ), kết hợp hệ thống đối khớp câu chữ với hình ảnh trang sách gốc được cắt và số hóa tương ứng để bạn tiện tra cứu đối chiếu.",
+        "title": "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam",
+        "intro": "Công cụ này giúp bạn tìm kiếm và tra cứu văn bản của các câu thành ngữ, tục ngữ và ca dao Việt Nam. Toàn bộ dữ liệu được trích xuất từ bộ sách \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" của học giả Việt Chương (2004, trọn bộ hai quyển), kết hợp hệ thống đối khớp câu chữ với hình ảnh trang sách gốc được cắt và số hóa tương ứng để bạn tiện tra cứu đối chiếu.",
         "instruction_guide_title": "Hướng dẫn tra cứu",
         "instruction_intro": "Bạn có thể dễ dàng tìm kiếm và xem giải nghĩa các câu thành ngữ, tục ngữ, ca dao theo hướng dẫn dưới đây:",
-        "instruction_step1": "Chọn phân loại (như Ca dao, Tục ngữ, Thành ngữ...) hoặc nhập trực tiếp câu thơ cần tìm vào ô tìm kiếm.",
+        "instruction_step1": "Chọn phân loại (như Ca dao, Tục ngữ, Thành ngữ...) hoặc nhập trực tiếp câu cần tìm vào ô tìm kiếm.",
         "instruction_step2": "Nhấp vào các ký tự trên thanh chữ cái để xem nhanh các câu bắt đầu bằng chữ cái đó.",
         "instruction_step3": "Xem phần giải nghĩa chi tiết của từng câu, đồng thời đối chiếu trực tiếp với ảnh chụp trang sách gốc ở bên phải.",
         "embedding_search_prefix": "Ngoài ra, bạn cũng có thể tra cứu theo ý nghĩa của câu ",
         "embedding_search_link_text": "tại đây",
         "explorer_title": "Hành Trình Tri Thức Dân Gian",
         "explorer_subtitle": "Khám phá sự khác biệt tinh tế giữa Tục ngữ - Thành ngữ, sự kỳ diệu của việc phổ nhạc Ca dao thành Dân ca, và các đặc tính truyền thống của Văn học dân gian.",
+        "coming_soon": "Đang cập nhật...",
+        "coming_soon_desc": "Tính năng Từ Điển & Tìm kiếm (kết nối với bộ sách Việt Chương) đang được phát triển và sẽ sớm ra mắt."
+      },
+      "hoc-ca-dao": {
+        "title": "Ca dao Vui học",
+        "subtitle": "Ca dao Vui học được thiết kế nhằm giúp bạn hiểu sâu hơn về ca dao tục ngữ Việt Nam thông qua trò chơi điền từ. Phần thơ được trích dẫn chính xác từ kho tư liệu, trong khi các phần dẫn giải và bình luận được cộng tác viên dự án biên soạn lại với sự trợ giúp của trí tuệ nhân tạo. Toàn bộ kho tư liệu sử dụng được tổng hợp từ bộ sách \"Thi Ca Bình Dân Việt Nam\" (Nguyễn Tấn Long, Phan Canh sưu tầm & biên soạn, 1975; bản số hóa của cộng đồng Tve-4u) và \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" (Việt Chương, 2004; bản số hóa của Digitizing Việt Nam).",
+        "instruction_guide_title": "Hướng dẫn vui học ca dao",
+        "intro": "Bạn có thể khám phá ý nghĩa của từng bài ca dao thông qua các bước đơn giản sau:<br/><br/>1. Đọc phần <strong>Lời dẫn</strong> để hiểu rõ hơn về bối cảnh và câu chuyện dẫn dắt vào bài ca dao.<br/>2. Nhấn vào các ô trống trong bài ca dao và chọn từ phù hợp nhất để hoàn thành bài.<br/>3. Khi bạn đã điền chính xác, phần <strong>Lời bình</strong> sẽ được hiển thị để cung cấp lời bình giải chi tiết, giúp bạn hiểu rõ hơn về bài ca dao.",
+        "topic_label": "Chọn chủ đề",
+        "instruction_heading": "Lời dẫn",
+        "poem_interpretation_heading": "Lời bình",
+        "error_message": "Có từ chưa chính xác. Bạn hãy nhấn vào từ đó để chọn lại nhé!",
+        "success_message": "Chúc mừng! Bạn đã hoàn thành chính xác bài ca dao này.",
+        "check_button": "KIỂM TRA",
+        "next_button": "BÀI TIẾP THEO",
+        "empty_placeholder": "Chọn từ",
+        "progress_label": "Bài ca dao {current} / {total} (Còn lại {left})",
+        "progress_percent": "Tiến độ: {percent}%",
+        "summary_heading": "Tóm tắt chủ đề",
+        "tab_game": "Trò chơi điền từ",
+        "source_line": "Nguồn: Vũ Ngọc Phan, <em>Tục ngữ ca dao dân ca</em>, in lần thứ 10, Nhà xuất bản Khoa học Xã hội, Hà Nội, 1996.",
         "tab_proverbs_idioms": "Tục ngữ & Thành ngữ",
         "tab_poetry_songs": "Ca dao & Dân ca",
-        "tab_dictionary_search": "Từ Điển",
         "proverbs_intro_title": "Phân biệt Tục ngữ & Thành ngữ",
         "proverbs_intro_desc": "Cho đến nay, nhiều tài liệu vẫn xếp lẫn lộn tục ngữ với thành ngữ. Tuy nhiên, căn cứ vào nội dung và cấu trúc, chúng ta có thể phân biệt rõ ràng hai khái niệm này.",
         "proverb_def_title": "Tục ngữ là gì?",
@@ -433,30 +451,7 @@
         "prop_collective_title": "Tính tập thể (Cơ bản nhất)",
         "prop_collective_desc": "Là đặc tính quan trọng nhất phân biệt với văn học bác học. Tác phẩm do nhân dân sáng tác tập thể, được sửa chữa, bồi đắp qua nhiều vùng miền và thế hệ cho đến khi hoàn chỉnh.",
         "prop_oral_title": "Tính truyền miệng",
-        "prop_oral_desc": "Trước đây, truyền miệng là con đường phổ biến duy nhất. Ngày nay, dù dân trí cao hơn và có văn bản ghi chép, tính chất truyền miệng vẫn song hành tự nhiên, thể hiện sức sống bền bỉ.",
-        "quote_bogatyrev_title": "Nhận định của Bô-ga-tư-ri-ép (nhà nghiên cứu văn học Liên - xô):",
-        "quote_bogatyrev_body": "“Các tác phẩm văn học dân gian thường tồn tại rất lâu, được truyền tụng từ miệng người này sang miệng người khác, thường xuyên được nhiều thế hệ xây dựng, bồi đắp... Trong khi tác phẩm văn học thành văn về căn bản không có gì biến đổi sau khi tách khỏi ngòi bút của nhà văn, thì các tác phẩm thơ ca dân gian được truyền miệng từ thế hệ này sang thế hệ khác, thường xuyên được sửa chữa để phản ánh những sự đổi thay đang diễn ra trong tư tưởng của quần chúng nhân dân và theo những quy tắc thẩm mỹ của họ...”",
-        "quote_chicherov_title": "Nhận định của V. Chi-chê-rốp (Vladimir Ivanovich CHICHEROV, nhà lý luận văn học Liên - xô):",
-        "quote_chicherov_body": "“Trong thời đại chúng ta, thơ ca dân gian tồn tại dưới hình thức truyền miệng và cả dưới hình thức thành văn. Điều đó hoàn toàn phù hợp với quy luật; nó phản ánh quá trình hoàn mỹ của nền văn học nghệ thuật của quần chúng nhân dân.”",
-        "coming_soon": "Đang cập nhật...",
-        "coming_soon_desc": "Tính năng Từ Điển & Tìm kiếm (kết nối với bộ sách Việt Chương) đang được phát triển và sẽ sớm ra mắt."
-      },
-      "hoc-ca-dao": {
-        "title": "Học Thành ngữ, Tục ngữ, Ca dao",
-        "subtitle": "Trang học tập được thiết kế nhằm giúp bạn hiểu sâu hơn về ca dao tục ngữ Việt Nam thông qua ngữ cảnh lịch sử và văn hóa chi tiết. Phần thơ được trích dẫn chính xác từ nguyên bản sách gốc, trong khi các phần dẫn giải và bình luận được tác giả biên soạn lại với sự trợ giúp của trí tuệ nhân tạo. Toàn bộ kho liệu này được tổng hợp từ bộ sách \"Thi Ca Bình Dân Việt Nam\" (Nguyễn Tấn Long, Phan Canh sưu tầm & biên soạn, 1975; bản số hóa của cộng đồng Tve-4u) và \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" (Việt Chương).",
-        "instruction_guide_title": "Hướng dẫn học ca dao",
-        "intro": "Bạn có thể khám phá ý nghĩa của từng bài ca dao thông qua các bước đơn giản sau:<br/><br/>1. Đọc phần <strong>Lời dẫn</strong> để hiểu rõ hơn về bối cảnh và câu chuyện dẫn dắt vào bài thơ.<br/>2. Nhấn vào các ô trống nét đứt trong bài thơ và chọn từ phù hợp nhất để hoàn thành câu thơ.<br/>3. Khi hoàn thiện chính xác toàn bộ bài thơ, phần <strong>Lời bình</strong> sẽ hiển thị để cung cấp lời bình giải chi tiết, giúp bạn hiểu rõ và biết thêm nhiều điều thú vị về bài ca dao.",
-        "topic_label": "Chọn chủ đề",
-        "instruction_heading": "Lời dẫn",
-        "poem_interpretation_heading": "Lời bình",
-        "error_message": "Có từ chưa chính xác. Bạn hãy nhấn vào từ đó để chọn lại nhé!",
-        "success_message": "Chúc mừng! Bạn đã hoàn thành chính xác bài ca dao này.",
-        "check_button": "KIỂM TRA",
-        "next_button": "BÀI TIẾP THEO",
-        "empty_placeholder": "Chọn từ",
-        "progress_label": "Bài ca dao {current} / {total} (Còn lại {left})",
-        "progress_percent": "Tiến độ: {percent}%",
-        "summary_heading": "Tóm tắt chủ đề"
+        "prop_oral_desc": "Trước đây, truyền miệng là con đường phổ biến duy nhất. Ngày nay, dù dân trí cao hơn và có văn bản ghi chép, tính chất truyền miệng vẫn song hành tự nhiên, thể hiện sức sống bền bỉ."
       }
     }
   },

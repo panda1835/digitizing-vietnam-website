@@ -369,14 +369,11 @@
       "cards": {
         "dictionary": {
           "title": "Dictionary of Vietnamese Idioms, Proverbs, and Folk Verses",
-          "bullet1": "Look up Viet Chuong dictionary with original scanned page images",
-          "bullet2": "Distinguishing Proverbs & Idioms",
-          "bullet3": "Explore the connection between Folk Poetry & Songs",
+          "description": "Look up Viet Chuong dictionary with original scanned page images",
           "cta": "Explore Dictionary"
         },
         "fairy-tales": {
           "title": "Compilation of Vietnamese Fairy Tales",
-          "description": "Use semantic search technology to search fairy tales visually and deeply.",
           "cta": "Explore Fairy Tales"
         },
         "qa": {
@@ -402,9 +399,29 @@
         "embedding_search_link_text": "here",
         "explorer_title": "Folk Lore Knowledge Explorer",
         "explorer_subtitle": "Explore the subtle differences between Proverbs and Idioms, the magic of transforming Folk Poetry into Folk Songs, and the traditional characteristics of Folk Literature.",
+        "coming_soon": "Coming Soon...",
+        "coming_soon_desc": "The Dictionary & Search feature (connected to Viet Chuong's books) is currently under development and will be released soon."
+      },
+      "hoc-ca-dao": {
+        "title": "Learn Idioms, Proverbs, and Folk Poetry",
+        "subtitle": "This interactive tool is designed to help you explore and appreciate Vietnamese folk verses (ca dao) with richer context and deeper narrative depth. While the verses themselves are sourced directly from the original books, the introductory contexts and explanations were written by the author with AI assistance. All materials are compiled from the classic volumes \"Thi Ca Bình Dân Việt Nam\" (collected and compiled by Nguyễn Tấn Long & Phan Canh, published in 1975, digitized by the Tve-4u community) and \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" (Việt Chương).",
+        "instruction_guide_title": "Guide to learning ca dao",
+        "intro": "You can explore the meaning of each folk verse through these simple steps:<br/><br/>1. Read the <strong>Introduction</strong> to understand the narrative and background story leading into the poem.<br/>2. Click on the dashed blank spaces within the poem and select the best-fitting word to complete the verse.<br/>3. Once all blanks are correctly filled, the detailed <strong>Interpretation</strong> will appear to provide a deeper explanation, allowing you to know more about the poem's meaning.",
+        "topic_label": "Select Topic",
+        "instruction_heading": "Introduction",
+        "poem_interpretation_heading": "Interpretation",
+        "error_message": "Some words are incorrect. Please tap on them to select again!",
+        "success_message": "Congratulations! You have correctly completed this folk verse.",
+        "check_button": "CHECK ANSWER",
+        "next_button": "NEXT POEM",
+        "empty_placeholder": "Select word",
+        "progress_label": "Poem {current} / {total} ({left} left)",
+        "progress_percent": "Progress: {percent}%",
+        "summary_heading": "Topic Summary",
+        "tab_game": "Fill-in-the-blank game",
+        "source_line": "Source: Vũ Ngọc Phan, <em>Tục ngữ ca dao dân ca</em>, 10th edition, Social Sciences Publishing House, Hanoi, 1996.",
         "tab_proverbs_idioms": "Proverbs & Idioms",
         "tab_poetry_songs": "Folk Poetry & Songs",
-        "tab_dictionary_search": "Dictionary & Search",
         "proverbs_intro_title": "Distinguishing Proverbs & Idioms",
         "proverbs_intro_desc": "To this day, many collections mix proverbs with idioms. However, based on their content and structure, we can clearly distinguish these two concepts.",
         "proverb_def_title": "What is a Proverb?",
@@ -432,30 +449,7 @@
         "prop_collective_title": "Collectiveness (Most Fundamental)",
         "prop_collective_desc": "The primary characteristic distinguishing folk literature from authored works. Works are created collectively by the people, and continually refined and enriched across regions and generations.",
         "prop_oral_title": "Oral Transmission",
-        "prop_oral_desc": "Historically, oral transmission was the sole channel. Today, despite rising literacy and written records, oral transmission continues naturally, showing its enduring vitality.",
-        "quote_bogatyrev_title": "Observation by an unknown Soviet literary scholar:",
-        "quote_bogatyrev_body": "“Works of folk literature often exist for a very long time, passed down from one mouth to another, and are continuously built upon and enriched by many generations... While written literary works basically remain unchanged once they leave the author's pen, oral folk poetry is passed from generation to generation and is constantly revised to reflect the changes occurring in the thoughts of the masses and according to their aesthetic rules...”",
-        "quote_chicherov_title": "Observation by Vladimir Ivanovich CHICHEROV (Soviet literary theorist):",
-        "quote_chicherov_body": "“In our era, folk poetry exists both orally and in written form. This is entirely natural and consistent with development laws; it reflects the perfecting process of the people's artistic literature.”",
-        "coming_soon": "Coming Soon...",
-        "coming_soon_desc": "The Dictionary & Search feature (connected to Viet Chuong's books) is currently under development and will be released soon."
-      },
-      "hoc-ca-dao": {
-        "title": "Learn Idioms, Proverbs, and Folk Poetry",
-        "subtitle": "This interactive tool is designed to help you explore and appreciate Vietnamese folk verses (ca dao) with richer context and deeper narrative depth. While the verses themselves are sourced directly from the original books, the introductory contexts and explanations were written by the author with AI assistance. All materials are compiled from the classic volumes \"Thi Ca Bình Dân Việt Nam\" (collected and compiled by Nguyễn Tấn Long & Phan Canh, published in 1975, digitized by the Tve-4u community) and \"Từ Điển Thành Ngữ Tục Ngữ Ca Dao Việt Nam\" (Việt Chương).",
-        "instruction_guide_title": "Guide to learning ca dao",
-        "intro": "You can explore the meaning of each folk verse through these simple steps:<br/><br/>1. Read the <strong>Introduction</strong> to understand the narrative and background story leading into the poem.<br/>2. Click on the dashed blank spaces within the poem and select the best-fitting word to complete the verse.<br/>3. Once all blanks are correctly filled, the detailed <strong>Interpretation</strong> will appear to provide a deeper explanation, allowing you to know more about the poem's meaning.",
-        "topic_label": "Select Topic",
-        "instruction_heading": "Introduction",
-        "poem_interpretation_heading": "Interpretation",
-        "error_message": "Some words are incorrect. Please tap on them to select again!",
-        "success_message": "Congratulations! You have correctly completed this folk verse.",
-        "check_button": "CHECK ANSWER",
-        "next_button": "NEXT POEM",
-        "empty_placeholder": "Select word",
-        "progress_label": "Poem {current} / {total} ({left} left)",
-        "progress_percent": "Progress: {percent}%",
-        "summary_heading": "Topic Summary"
+        "prop_oral_desc": "Historically, oral transmission was the sole channel. Today, despite rising literacy and written records, oral transmission continues naturally, showing its enduring vitality."
       }
     }
   },
