@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
+    optimizePackageImports: ["lucide-react"],
     // The Kho Tàng Truyện reader reads its Book's markdown with fs at request
     // time via computed paths the tracer can't follow, so ship the files with
     // the Collection Item route's serverless bundle explicitly. Brackets are
@@ -17,10 +18,6 @@ const nextConfig = {
   },
   images: {
     domains: ["res.cloudinary.com", "developers.elementor.com", "iiif.digitizingvietnam.com"],
-  },
-  experimental: {
-    optimizePackageImports: ["lucide-react"],
-    domains: ["res.cloudinary.com", "developers.elementor.com"],
     // digi.vatlib.it sends no Cache-Control, ETag or Last-Modified at all, so
     // the optimiser would fall back to its 60-second minimum and re-fetch from
     // Rome all day. These are scans of 17th-century manuscripts: they do not
