@@ -350,14 +350,14 @@
       "description": "Chuyển đổi giữa niên hiệu, can chi và năm Tây lịch qua các triều đại Việt Nam và Trung Quốc."
     },
     "ca-dao-tuc-ngu": {
-      "name": "Ca Dao Tục Ngữ",
+      "name": "Nghiên cứu Văn hóa Dân gian",
       "seo": {
-        "title": "Ca Dao Tục Ngữ",
+        "title": "Nghiên cứu Văn hóa Dân gian",
         "description": "Khám phá ca dao, tục ngữ, thành ngữ và truyện cổ tích Việt Nam qua các bộ sưu tập số hóa, công cụ tra cứu từ điển và trò chơi vui học ca dao.",
         "image-alt": "Người nông dân làm việc trên ruộng lúa Việt Nam dưới ánh nắng."
       },
       "hero": {
-        "title": "Khám phá tri thức dân gian Việt Nam",
+        "title": "Nghiên cứu Văn hóa Dân gian",
         "subtitle": "Ca dao, Thành ngữ, Tục ngữ và Truyện cổ tích Việt Nam",
         "intro": "Không gian tri thức dân gian Việt Nam bao gồm bộ sưu tập các công trình sưu tầm, nghiên cứu, cũng như các công cụ truy xuất dữ liệu và học tập ca dao, tục ngữ, thành ngữ và truyện cổ tích Việt Nam."
       },
@@ -534,7 +534,7 @@
         "description": "Một sáng kiến thí điểm của chúng tôi, Không gian nghiên cứu Hán–Nôm, tích hợp đầy đủ bản sao của Kho dữ liệu Văn bản Hán–Nôm từ Bộ sưu tập Thư viện số (DLC)  thuộc  Đại học Columbia, đồng thời cung cấp một bộ công cụ số phục vụ phân tích văn bản, bao gồm: hệ thống OCR tự động, nền tảng từ điển tra cứu, công cụ chú giải và ghi chú bản thảo, cùng giao diện kết nối với các công cụ MARKUS và IMMARKUS dành cho nghiên cứu Hán học."
       },
       "ca-dao": {
-        "title": "Ca Dao Tục Ngữ",
+        "title": "Nghiên cứu Văn hóa Dân gian",
         "description": "Không gian số khám phá và nghiên cứu kho tàng ca dao, tục ngữ, thành ngữ và truyện cổ tích Việt Nam, kết hợp các công cụ tra cứu từ điển và tìm kiếm ngữ nghĩa."
       },
       "vietnam-war": {

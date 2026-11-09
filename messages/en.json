@@ -349,14 +349,14 @@
       "description": "Convert between reign names (niên hiệu), sexagenary years (can chi), and Common Era dates across Vietnamese and Chinese dynasties."
     },
     "ca-dao-tuc-ngu": {
-      "name": "Folk Verses & Proverbs",
+      "name": "Vietnamese Folklore Studies",
       "seo": {
-        "title": "Folk Verses & Proverbs",
+        "title": "Vietnamese Folklore Studies",
         "description": "Explore Vietnamese folk verses, proverbs, idioms and folktales through digitized collections, dictionary lookup tools and interactive learning games.",
         "image-alt": "Farmers working in sunlit rice fields in Vietnam."
       },
       "hero": {
-        "title": "Explore Vietnamese Folk Knowledge",
+        "title": "Vietnamese Folklore Studies",
         "subtitle": "Vietnamese Folk Verses, Idioms, Proverbs and Folktales",
         "intro": "The Vietnamese Folk Knowledge Hub brings together collections of works documenting and researching Vietnamese folk verses, proverbs, idioms and folktales, alongside tools for exploring the material and learning."
       },
@@ -533,7 +533,7 @@
         "description": "Our pilot initiative, the Hán-Nôm Research Hub, features a fully integrated mirror of Columbia University’s Hán-Nôm Sino-Vietnamese Textual Library, as well as a suite of digital tools for textual analysis, including automated OCR, a searchable dictionary platform, manuscript notation, and an interface with the MARKUS and IMMARKUS tools for sinological research."
       },
       "ca-dao": {
-        "title": "Folk Verses & Proverbs",
+        "title": "Vietnamese Folklore Studies",
         "description": "A digital space for exploring and studying Vietnam's treasury of folk verses, proverbs, idioms and folktales, combining dictionary lookup and semantic search tools."
       },
       "vietnam-war": {
