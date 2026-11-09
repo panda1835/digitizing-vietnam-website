@@ -1,10 +1,10 @@
 import { Metadata } from "next";
+import { SITE_URL } from "@/utils/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import {
   ArrowRight,
   ArrowUpRight,
-  BookOpen,
   Boxes,
   GraduationCap,
   Layers,
@@ -21,10 +21,51 @@ const merriweather = Merriweather({
   subsets: ["vietnamese"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations();
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({
+    locale,
+    namespace: "Tools.ca-dao-tuc-ngu",
+  });
+  const title = `${t("seo.title")} | Digitizing Việt Nam`;
+  const description = t("seo.description");
+  const url = `${SITE_URL}/${locale}/research/ca-dao-tuc-ngu`;
+  const image = {
+    url: `${SITE_URL}/images/research-hub/opengraph-image.png`,
+    width: 1200,
+    height: 630,
+    alt: t("seo.image-alt"),
+  };
+
   return {
-    title: `${t("Tools.ca-dao-tuc-ngu.name")} | Digitizing Việt Nam`,
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        en: `${SITE_URL}/en/research/ca-dao-tuc-ngu`,
+        vi: `${SITE_URL}/vi/research/ca-dao-tuc-ngu`,
+      },
+    },
+    openGraph: {
+      type: "website",
+      siteName: "Digitizing Việt Nam",
+      title,
+      description,
+      url,
+      locale: locale === "vi" ? "vi_VN" : "en_US",
+      alternateLocale: locale === "vi" ? "en_US" : "vi_VN",
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 
@@ -95,12 +136,12 @@ export default async function CaDaoTucNguPage({
     {
       key: "fairy-tales",
       href: "/our-collections/vietnamese-folk-literature/truyen-co-tich-viet-nam",
-      icon: BookOpen,
+      icon: Search,
     },
     {
       key: "cham-folktales",
       href: "/our-collections/vietnamese-folk-literature/truyen-co-dan-gian-cham",
-      icon: BookOpen,
+      icon: Search,
     },
     {
       key: "kho-tang",
@@ -127,8 +168,62 @@ export default async function CaDaoTucNguPage({
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown";
   const navLinkClass = `inline-flex items-start gap-0.5 text-[15px] leading-[1.4] text-branding-black/75 font-medium hover:text-[#956319] hover:underline underline-offset-2 ${focusClass}`;
 
+  const pageUrl = `${SITE_URL}/${locale}/research/ca-dao-tuc-ngu`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: t("Tools.ca-dao-tuc-ngu.seo.title"),
+        description: t("Tools.ca-dao-tuc-ngu.hero.intro"),
+        inLanguage: locale,
+        image: `${SITE_URL}/images/research-hub/opengraph-image.png`,
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: [...featuredContent, ...tools].map(
+            (item, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: t(`Tools.ca-dao-tuc-ngu.cards.${item.key}.title`),
+              url: item.href.startsWith("https://")
+                ? item.href
+                : `${SITE_URL}/${locale}${item.href}`,
+            })
+          ),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: t("ResearchHub.title"),
+            item: `${SITE_URL}/${locale}/research`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: t("Tools.ca-dao-tuc-ngu.name"),
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\u003c"),
+        }}
+      />
       <div className="w-full mb-20">
         <BreadcrumbAndSearchBar
           locale={locale}

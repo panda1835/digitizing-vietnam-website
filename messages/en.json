@@ -350,6 +350,11 @@
     },
     "ca-dao-tuc-ngu": {
       "name": "Folk Verses & Proverbs",
+      "seo": {
+        "title": "Vietnamese Folk Verses, Proverbs & Folktales",
+        "description": "Explore Vietnamese folk verses, proverbs, idioms and folktales through digitized collections, dictionary lookup tools and interactive learning games.",
+        "image-alt": "Farmers working in sunlit rice fields in Vietnam."
+      },
       "hero": {
         "title": "Explore Vietnamese Folk Knowledge",
         "subtitle": "Vietnamese Folk Verses, Idioms, Proverbs and Folktales",

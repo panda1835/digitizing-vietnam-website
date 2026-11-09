@@ -351,6 +351,11 @@
     },
     "ca-dao-tuc-ngu": {
       "name": "Ca Dao Tục Ngữ",
+      "seo": {
+        "title": "Ca dao, tục ngữ và truyện cổ Việt Nam",
+        "description": "Khám phá ca dao, tục ngữ, thành ngữ và truyện cổ Việt Nam qua các bộ sưu tập số hóa, công cụ tra cứu từ điển và trò chơi vui học ca dao.",
+        "image-alt": "Người nông dân làm việc trên ruộng lúa Việt Nam dưới ánh nắng."
+      },
       "hero": {
         "title": "Khám phá tri thức dân gian Việt Nam",
         "subtitle": "Ca dao, Thành ngữ, Tục ngữ và Truyện cổ tích Việt Nam",
@@ -368,14 +373,14 @@
         "archive-item3": "Bộ sưu tập ngoài",
         "tools-title": "CÔNG CỤ SỐ",
         "tools-item1": "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam",
-        "tools-item2": "Ca dao vấn đáp",
+        "tools-item2": "Ca dao Vấn đáp",
         "learning-title": "TRUNG TÂM HỌC TẬP",
         "learning-item1": "Ca dao Vui học",
-        "tools-item3": "Kho tàng tục ngữ người Việt"
+        "tools-item3": "Kho tàng Tục ngữ Người Việt"
       },
       "cards": {
         "folktales-collection": {
-          "title": "Bộ sưu tập truyện cổ Việt Nam",
+          "title": "Bộ sưu tập Truyện cổ Việt Nam",
           "description": "Bộ sưu tập Truyện cổ Việt Nam giới thiệu kho tàng truyện kể dân gian của nhiều dân tộc như Kinh, Chăm, Cơ Ho, Mạ, Mơ Nông và Ba Na.",
           "cta": "Khám phá bộ sưu tập"
         },
@@ -385,9 +390,9 @@
           "cta": "Khám phá bộ sưu tập"
         },
         "cham-folktales": {
-          "title": "Tuyển tập truyện cổ dân gian Chăm",
+          "title": "Tuyển tập Truyện cổ Dân gian Chăm",
           "description": "Tra cứu bản số hóa của tuyển tập 58 truyện cổ dân gian Chăm, do Trung tâm Nghiên cứu Văn hóa Chăm Ninh Thuận sưu tầm.",
-          "cta": "Tra cứu truyện cổ Chăm"
+          "cta": "Tra cứu Truyện cổ Chăm"
         },
         "dictionary": {
           "title": "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam",
@@ -410,7 +415,7 @@
           "cta": "Bắt đầu học"
         },
         "kho-tang": {
-          "title": "Kho tàng tục ngữ người Việt",
+          "title": "Kho tàng Tục ngữ Người Việt",
           "description": "Tra cứu tục ngữ (đang cập nhật) từ công trình của Viện Nghiên cứu Văn hoá dân gian do Nguyễn Xuân Kính chủ biên (2002), kèm nguồn, dị bản và ảnh bản in để đối chiếu.",
           "cta": "Khám phá Kho tàng"
         }
@@ -480,7 +485,7 @@
         "prop_oral_desc": "Trước đây, truyền miệng là con đường phổ biến duy nhất. Ngày nay, dù dân trí cao hơn và có văn bản ghi chép, tính chất truyền miệng vẫn song hành tự nhiên, thể hiện sức sống bền bỉ."
       },
       "kho-tang": {
-        "title": "Kho tàng tục ngữ người Việt",
+        "title": "Kho tàng Tục ngữ Người Việt",
         "intro-subtitle": "Lời giới thiệu, bảng chữ tắt và phàm lệ biên soạn của bộ sách, trước khi bạn tra cứu các câu tục ngữ.",
         "list-title": "Tra cứu tục ngữ",
         "list-subtitle": "Tra cứu các câu tục ngữ theo chữ cái và nguồn, kèm ảnh bản in để đối chiếu.",

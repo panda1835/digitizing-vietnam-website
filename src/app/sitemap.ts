@@ -17,6 +17,7 @@ const staticPages = [
   "/highlights",
   "/events",
   "/online-resources",
+  "/research/ca-dao-tuc-ngu",
   "/tools",
   "/tools/han-nom-dictionaries",
   "/tools/kieu-tools",
