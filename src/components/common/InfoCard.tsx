@@ -20,6 +20,7 @@ interface InfoCardProps {
   newTab?: boolean;
   ctaText?: string;
   ctaIsLink?: boolean;
+  variant?: "default" | "resource";
 }
 
 export async function InfoCard({
@@ -29,8 +30,36 @@ export async function InfoCard({
   newTab = false,
   ctaText,
   ctaIsLink = true,
+  variant = "default",
 }: InfoCardProps) {
   const t = await getTranslations();
+  if (variant === "resource") {
+    return (
+      <div className="flex flex-col border bg-branding-gray rounded-lg p-5 h-full justify-between">
+        <h3 className={`${merriweather.className} text-branding-brown text-3xl`}>
+          {name}
+        </h3>
+        <div>
+          <p className="mt-5 text-base font-light font-['Helvetica Neue'] leading-relaxed text-branding-black text-left">
+            {description}
+          </p>
+          <div className="mt-5">
+            {ctaIsLink ? (
+              <LearnMoreButton
+                url={url}
+                newTab={newTab}
+                text={ctaText ?? t("Button.learn-more")}
+              />
+            ) : (
+              <span className="h-[22px] inline-flex items-center text-branding-brown text-base font-light font-['Helvetica Neue']">
+                {ctaText ?? t("Button.learn-more")}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="h-full">
       <Card className="bg-branding-gray flex flex-col h-full">
