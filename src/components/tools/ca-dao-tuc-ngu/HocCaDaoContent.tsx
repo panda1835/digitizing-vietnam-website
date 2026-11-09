@@ -1,9 +1,17 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Merriweather } from "next/font/google";
-import { ChevronDown, ArrowRight, CheckCircle2, AlertCircle, Gamepad2, BookOpen, Music } from "lucide-react";
+import {
+  ChevronDown,
+  ArrowRight,
+  CheckCircle2,
+  AlertCircle,
+  Gamepad2,
+  BookOpen,
+  Music,
+} from "lucide-react";
 import { ProverbsIdiomsPanel, PoetrySongsPanel } from "./HocCaDaoReadingPanels";
 
 const merriweather = Merriweather({
@@ -44,7 +52,9 @@ interface HocCaDaoContentProps {
 
 export function HocCaDaoContent({ locale, initialData }: HocCaDaoContentProps) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.hoc-ca-dao");
-  const [activeTab, setActiveTab] = useState<"game" | "proverbs" | "poetry">("game");
+  const [activeTab, setActiveTab] = useState<"game" | "proverbs" | "poetry">(
+    "game"
+  );
 
   const tabs = [
     { id: "game", label: t("tab_game"), Icon: Gamepad2 },
@@ -53,34 +63,39 @@ export function HocCaDaoContent({ locale, initialData }: HocCaDaoContentProps) {
   ] as const;
 
   return (
-    <div className="flex flex-col gap-6 max-w-5xl w-full mx-auto">
+    <div className="flex flex-col gap-8 w-full selection:bg-branding-brown/20 [&_button:focus-visible]:outline [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-offset-4 [&_button:focus-visible]:outline-branding-brown">
       {/* Tabs navigation */}
-      <div className="flex border-b border-branding-gray/60 overflow-x-auto whitespace-nowrap scrollbar-none w-full mx-auto">
+      <nav
+        aria-label={t("title")}
+        className="flex flex-wrap gap-x-2 border-b border-branding-black/10 w-full"
+      >
         {tabs.map(({ id, label, Icon }) => (
           <button
             key={id}
+            aria-pressed={activeTab === id}
+            aria-controls={`learning-panel-${id}`}
             onClick={() => setActiveTab(id)}
-            className={`flex items-center gap-2 px-6 py-3 border-b-2 font-medium text-sm transition-all duration-300 ${
+            className={`flex items-center gap-2 px-4 py-3.5 border-b-2 font-medium text-sm sm:text-base transition-colors ${
               activeTab === id
-                ? "border-branding-brown text-branding-brown font-bold"
-                : "border-transparent text-gray-500 hover:text-branding-brown/80"
+                ? "border-branding-brown text-[#956319] font-semibold"
+                : "border-transparent text-branding-black/65 hover:text-[#956319] hover:bg-branding-brown/5"
             }`}
           >
             <Icon className="h-4 w-4" />
             {label}
           </button>
         ))}
-      </div>
+      </nav>
 
       {/* Tab Panels: all stay mounted so switching tabs keeps game progress and expanded examples */}
-      <div className="w-full mt-2">
-        <div className={activeTab === "game" ? "" : "hidden"}>
+      <div className="w-full">
+        <div id="learning-panel-game" hidden={activeTab !== "game"}>
           <GamePanel locale={locale} initialData={initialData} />
         </div>
-        <div className={activeTab === "proverbs" ? "" : "hidden"}>
+        <div id="learning-panel-proverbs" hidden={activeTab !== "proverbs"}>
           <ProverbsIdiomsPanel />
         </div>
-        <div className={activeTab === "poetry" ? "" : "hidden"}>
+        <div id="learning-panel-poetry" hidden={activeTab !== "poetry"}>
           <PoetrySongsPanel locale={locale} />
         </div>
       </div>
@@ -93,12 +108,13 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
 
   // Game data state
   const [data, setData] = useState<TopicData[]>(initialData || []);
-  const [loading, setLoading] = useState(!initialData || initialData.length === 0);
+  const [loading, setLoading] = useState(
+    !initialData || initialData.length === 0
+  );
 
   // Selector states
   const [activeTopicIndex, setActiveTopicIndex] = useState(0);
   const [activePoemIndex, setActivePoemIndex] = useState(0);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isUrlRead, setIsUrlRead] = useState(false);
 
   // Game play states
@@ -128,7 +144,11 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
           initTopicIdx = tIdx;
           if (poemParam !== null) {
             const pIdx = parseInt(poemParam, 10);
-            if (!isNaN(pIdx) && pIdx >= 0 && pIdx < initialData[tIdx].poems.length) {
+            if (
+              !isNaN(pIdx) &&
+              pIdx >= 0 &&
+              pIdx < initialData[tIdx].poems.length
+            ) {
               initPoemIdx = pIdx;
             }
           }
@@ -215,7 +235,7 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
       const newUrl = `${window.location.pathname}?${params.toString()}`;
       window.history.pushState(null, "", newUrl);
     }
-  }, [activeTopicIndex, activePoemIndex, loading, data]);
+  }, [activeTopicIndex, activePoemIndex, loading, data, isUrlRead]);
 
   // Listen to browser navigation (back/forward)
   useEffect(() => {
@@ -251,7 +271,11 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
   const totalPoems = currentTopic?.poems.length || 0;
   const currentPoemNum = activePoemIndex + 1;
   const poemsLeft = totalPoems - currentPoemNum;
-  const progressPercent = topicCompleted ? 100 : (totalPoems > 0 ? (currentPoemNum / totalPoems) * 100 : 0);
+  const progressPercent = topicCompleted
+    ? 100
+    : totalPoems > 0
+    ? (currentPoemNum / totalPoems) * 100
+    : 0;
 
   // Reset answers when changing topic or poem
   useEffect(() => {
@@ -356,18 +380,25 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
   };
 
   // Checks if there are any errors in the current filled answers (only if checked)
-  const hasErrors = hasChecked && Object.keys(userAnswers).some((key) => {
-    const idx = parseInt(key, 10);
-    return !isCorrect(idx);
-  });
+  const hasErrors =
+    hasChecked &&
+    Object.keys(userAnswers).some((key) => {
+      const idx = parseInt(key, 10);
+      return !isCorrect(idx);
+    });
 
   // Checks if the poem is fully completed and all answers are correct (only if checked)
-  const isSolved = !!(currentPoem && hasChecked && 
-    currentPoem.blanks.every((_, idx) => isFilled(idx)) && !hasErrors);
+  const isSolved = !!(
+    currentPoem &&
+    hasChecked &&
+    currentPoem.blanks.every((_, idx) => isFilled(idx)) &&
+    !hasErrors
+  );
 
   // Checks if all blanks are filled, enabling the check button
-  const allBlanksFilled = !!(currentPoem && 
-    currentPoem.blanks.every((_, idx) => isFilled(idx)));
+  const allBlanksFilled = !!(
+    currentPoem && currentPoem.blanks.every((_, idx) => isFilled(idx))
+  );
 
   const handleSelectOption = (option: string) => {
     if (activeBlankIndex === null || !currentPoem) return;
@@ -398,7 +429,10 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
       setTopicCompleted(true);
     }
     setTimeout(() => {
-      progressBarRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      progressBarRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }, 50);
   };
 
@@ -406,7 +440,10 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
     setActivePoemIndex(0);
     setTopicCompleted(false);
     setTimeout(() => {
-      progressBarRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      progressBarRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }, 50);
   };
 
@@ -427,28 +464,35 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
   }
 
   return (
-    <div className="flex flex-col gap-10 max-w-5xl w-full mx-auto">
+    <div className="flex flex-col gap-8 w-full">
       {/* Instructions section (Collapsible Accordion) */}
-      <section className="scroll-mt-32 w-full animate-fadeIn">
-        <div className="bg-white border border-branding-brown/15 rounded-2xl shadow-sm overflow-hidden">
+      <section className="scroll-mt-32 w-full">
+        <div className="bg-branding-gray/60 border border-branding-black/10 rounded-xl overflow-hidden">
           <button
+            aria-expanded={isGuideOpen}
+            aria-controls="learning-guide"
             onClick={() => setIsGuideOpen(!isGuideOpen)}
             className="w-full flex items-center justify-between p-5 md:p-6 text-left cursor-pointer hover:bg-branding-gray/20 transition-all duration-200"
           >
-            <span className="text-base md:text-lg font-bold text-branding-brown uppercase tracking-wider">
+            <span
+              className={`${merriweather.className} text-lg text-branding-black`}
+            >
               {t("instruction_guide_title")}
             </span>
-            <ChevronDown 
+            <ChevronDown
               className={`h-5 w-5 text-branding-brown transition-transform duration-200 ${
                 isGuideOpen ? "transform rotate-180" : ""
-              }`} 
+              }`}
             />
           </button>
-          
+
           {isGuideOpen && (
-            <div className="border-t border-branding-brown/10 p-5 md:p-6 bg-white animate-fadeIn">
-              <p 
-                className="text-[15px] md:text-base text-branding-black font-normal leading-relaxed max-w-3xl"
+            <div
+              id="learning-guide"
+              className="border-t border-branding-black/10 p-5 md:p-6"
+            >
+              <p
+                className="text-[15px] md:text-base text-branding-black font-normal leading-relaxed max-w-[75ch]"
                 dangerouslySetInnerHTML={{ __html: t.raw("intro") }}
               />
             </div>
@@ -456,86 +500,86 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
         </div>
       </section>
 
-      {/* Topic selector */}
-      <div className="relative w-full md:w-80">
-        <label className="block text-xs font-bold uppercase tracking-wider text-branding-brown mb-2">
-          {t("topic_label")}
-        </label>
-        <button
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="w-full border border-branding-brown/20 bg-white hover:border-branding-brown/50 text-branding-black px-4 py-3 rounded-2xl flex items-center justify-between shadow-sm cursor-pointer transition-all duration-200"
-        >
-          <span className="font-semibold text-sm">
-            {getTopicLabel(currentTopic.topic)}
-          </span>
-          <ChevronDown className={`h-4 w-4 text-branding-brown transition-transform duration-200 ${isDropdownOpen ? "transform rotate-180" : ""}`} />
-        </button>
-
-        {isDropdownOpen && (
-          <div className="absolute z-10 mt-2 w-full bg-white border border-branding-brown/15 rounded-2xl shadow-lg py-2 animate-fadeIn">
-            {data.map((topicData, idx) => (
-              <button
-                key={topicData.topic}
-                onClick={() => {
-                  setActiveTopicIndex(idx);
-                  setActivePoemIndex(0);
-                  setIsDropdownOpen(false);
-                }}
-                className={`w-full text-left px-4 py-2.5 text-sm hover:bg-branding-gray transition-colors cursor-pointer ${
-                  idx === activeTopicIndex ? "text-branding-brown font-bold" : "text-branding-black"
-                }`}
-              >
-                {getTopicLabel(topicData.topic)}
-              </button>
+      <div
+        ref={progressBarRef}
+        className="grid gap-6 md:grid-cols-[minmax(0,20rem)_1fr] md:items-end scroll-mt-10"
+      >
+        <div>
+          <label
+            htmlFor="learning-topic"
+            className="block text-sm font-medium text-branding-black mb-2"
+          >
+            {t("topic_label")}
+          </label>
+          <select
+            id="learning-topic"
+            value={activeTopicIndex}
+            onChange={(event) => {
+              setActiveTopicIndex(Number(event.target.value));
+              setActivePoemIndex(0);
+            }}
+            className="w-full min-h-12 border border-branding-black/20 bg-white text-branding-black px-4 py-3 rounded-lg text-base focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown"
+          >
+            {data.map((topic, index) => (
+              <option key={topic.topic} value={index}>
+                {getTopicLabel(topic.topic)}
+              </option>
             ))}
-          </div>
-        )}
-      </div>
-
-      {/* Progress Bar */}
-      <div ref={progressBarRef} className="w-full flex flex-col gap-2 scroll-mt-10">
-        <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-branding-brown">
-          <span>
-            {topicCompleted
-              ? (locale === "en" ? "Topic Completed" : "Đã hoàn thành chủ đề")
-              : t("progress_label", { current: currentPoemNum, total: totalPoems, left: poemsLeft })}
-          </span>
-          <span>
-            {Math.round(progressPercent)}%
-          </span>
+          </select>
         </div>
-        <div className="w-full bg-branding-gray border border-branding-brown/15 rounded-full h-3.5 overflow-hidden shadow-inner p-[2px]">
-          <div 
-            style={{ width: `${progressPercent}%` }}
-            className="h-full bg-branding-brown rounded-full transition-all duration-500 ease-out shadow-sm"
-          />
+        <div className="flex flex-col gap-3 md:pb-2">
+          <div className="flex justify-between gap-4 text-sm text-branding-black/70">
+            <span>
+              {topicCompleted
+                ? locale === "en"
+                  ? "Topic Completed"
+                  : "Đã hoàn thành chủ đề"
+                : t("progress_label", {
+                    current: currentPoemNum,
+                    total: totalPoems,
+                    left: poemsLeft,
+                  })}
+            </span>
+            <span className="font-medium tabular-nums text-[#956319]">
+              {Math.round(progressPercent)}%
+            </span>
+          </div>
+          <div
+            role="progressbar"
+            aria-label={t("topic_label")}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(progressPercent)}
+            className="w-full bg-branding-black/10 rounded-full h-2 overflow-hidden"
+          >
+            <div
+              style={{ width: `${progressPercent}%` }}
+              className="h-full bg-branding-brown rounded-full transition-[width] duration-300 motion-reduce:transition-none"
+            />
+          </div>
         </div>
       </div>
 
       {/* Main Game Card or Completion Card */}
       {topicCompleted ? (
-        <div className="bg-white p-8 md:p-12 rounded-3xl border border-branding-brown/10 shadow-md flex flex-col items-center text-center min-h-[450px] justify-center animate-fadeIn">
+        <div className="bg-white p-8 md:p-12 rounded-2xl border border-branding-black/10 flex flex-col items-center text-center min-h-[450px] justify-center animate-fadeIn">
           {/* Celebration Icon */}
           <div className="w-16 h-16 bg-branding-brown/10 text-branding-brown rounded-full flex items-center justify-center mb-6">
             <CheckCircle2 className="h-8 w-8" />
           </div>
 
-          <div>
-            <span className="inline-block text-[11px] font-bold uppercase tracking-widest bg-branding-black text-white px-3 py-1.5 rounded-full mb-4">
-              {getTopicLabel(currentTopic.topic)}
-            </span>
-          </div>
-
-          <h3 className={`${merriweather.className} text-2xl md:text-3xl text-branding-black font-bold mb-6`}>
+          <h3
+            className={`${merriweather.className} text-2xl md:text-3xl text-branding-black font-bold mb-6`}
+          >
             {locale === "en" ? "Topic Completed!" : "Hoàn thành chủ đề!"}
           </h3>
 
           {currentTopic.summary && (
-            <div className="max-w-2xl bg-branding-gray/30 border border-branding-brown/10 border-l-4 border-l-branding-brown p-6 rounded-r-2xl rounded-l-md text-left mb-8">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-branding-brown mb-2">
+            <div className="max-w-2xl bg-branding-gray/30 border border-branding-black/10 p-6 rounded-xl text-left mb-8">
+              <h4 className="text-sm font-semibold text-branding-black mb-2">
                 {t("summary_heading")}
               </h4>
-              <p className="text-[15px] md:text-base text-branding-black/85 font-light leading-relaxed">
+              <p className="text-[15px] md:text-base text-branding-black/85 font-normal leading-relaxed">
                 {currentTopic.summary}
               </p>
             </div>
@@ -543,35 +587,35 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
 
           <button
             onClick={handleRestartTopic}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-branding-brown text-white hover:bg-branding-brown/90 font-bold rounded-lg transition-colors cursor-pointer text-sm uppercase tracking-wider shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#956319] text-white hover:bg-[#805516] font-semibold rounded-lg transition-colors cursor-pointer text-sm"
           >
             {locale === "en" ? "Start Over" : "Học lại từ đầu"}
           </button>
         </div>
       ) : (
-        <div className="bg-white p-6 md:p-10 rounded-3xl border border-branding-brown/10 shadow-md flex flex-col min-h-[450px] relative overflow-hidden transition-all duration-300">
-          {/* Topic Badge */}
-          <div>
-            <span className="inline-block text-[11px] font-bold uppercase tracking-widest bg-branding-black text-white px-3 py-1.5 rounded-full mb-6">
-              {getTopicLabel(currentTopic.topic)}
-            </span>
-          </div>
-
+        <div className="bg-white p-6 md:p-10 rounded-2xl border border-branding-black/10 flex flex-col min-h-[450px] relative overflow-hidden transition-all duration-300">
           {/* Lời dẫn / Introduction */}
           <div className="mb-8">
-            <h3 className={`${merriweather.className} text-xl md:text-2xl text-branding-black font-bold mb-3 leading-snug`}>
+            <h3
+              className={`${merriweather.className} text-xl md:text-2xl text-branding-black font-normal mb-3 leading-snug`}
+            >
               {t("instruction_heading")}
             </h3>
-            <p className="text-[15px] md:text-base text-branding-black/80 font-light leading-relaxed">
+            <p className="max-w-[75ch] text-[15px] md:text-base text-branding-black/80 font-normal leading-relaxed">
               {currentPoem.introduction}
             </p>
           </div>
 
           {/* Poem Area */}
-          <div className="flex flex-col items-center justify-center py-6 md:py-8 px-4 bg-branding-gray/30 rounded-2xl border border-branding-brown/5 mb-8 w-full">
-            <div className={`${merriweather.className} text-base md:text-lg text-branding-black text-center space-y-4 md:space-y-6 w-full`}>
+          <div className="flex flex-col items-center justify-center py-6 md:py-8 px-4 bg-branding-gray/50 rounded-xl mb-8 w-full">
+            <div
+              className={`${merriweather.className} text-base md:text-lg text-branding-black text-center space-y-4 md:space-y-6 w-full`}
+            >
               {poemLines.map((line, lineIdx) => (
-                <div key={lineIdx} className="flex flex-wrap items-center justify-center gap-x-2 gap-y-3 leading-relaxed">
+                <div
+                  key={lineIdx}
+                  className="flex flex-wrap items-center justify-center gap-x-2 gap-y-3 leading-relaxed"
+                >
                   {line.map((seg, segIdx) => {
                     if (seg.type === "text") {
                       return <span key={segIdx}>{seg.content}</span>;
@@ -583,10 +627,12 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
                     const filled = selectedWord !== undefined;
                     const correct = isCorrect(idx);
 
-                    let blankStyle = "border-2 border-dashed border-branding-black/25 bg-branding-gray/50 text-branding-black/40 text-xs md:text-sm font-medium hover:bg-branding-gray/80 hover:border-branding-black/40";
-                    
+                    let blankStyle =
+                      "border-2 border-dashed border-branding-black/25 bg-branding-gray/50 text-branding-black/40 text-xs md:text-sm font-medium hover:bg-branding-gray/80 hover:border-branding-black/40";
+
                     if (active) {
-                      blankStyle = "border-2 border-dashed border-branding-brown bg-branding-brown/5 text-branding-brown font-semibold shadow-sm ring-2 ring-branding-brown/10";
+                      blankStyle =
+                        "border-2 border-dashed border-branding-brown bg-branding-brown/5 text-branding-brown font-semibold shadow-sm ring-2 ring-branding-brown/10";
                     } else if (filled) {
                       if (hasChecked) {
                         blankStyle = correct
@@ -594,13 +640,18 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
                           : "border-2 border-red-600 bg-red-50 text-red-700 font-bold shadow-sm";
                       } else {
                         // Neutral filled style before checking
-                        blankStyle = "border-2 border-solid border-branding-brown/40 bg-branding-gray/80 text-branding-black font-semibold shadow-sm";
+                        blankStyle =
+                          "border-2 border-solid border-branding-brown/40 bg-branding-gray/80 text-branding-black font-semibold shadow-sm";
                       }
                     }
 
                     return (
                       <button
                         key={segIdx}
+                        aria-label={`${locale === "en" ? "Blank" : "Ô trống"} ${
+                          idx + 1
+                        }${filled ? `: ${selectedWord}` : ""}`}
+                        aria-pressed={active}
                         ref={(el) => {
                           blankRefs.current[idx] = el;
                         }}
@@ -608,7 +659,7 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
                           setActiveBlankIndex(idx);
                           setHasChecked(false); // Reset check state when editing a blank
                         }}
-                        className={`inline-flex items-center justify-center px-3 py-1 min-w-[110px] h-[32px] rounded-lg transition-all duration-200 cursor-pointer align-middle text-xs md:text-sm ${blankStyle}`}
+                        className={`inline-flex items-center justify-center px-3 py-1 min-w-[88px] min-h-11 rounded-lg transition-all duration-200 cursor-pointer align-middle text-xs md:text-sm ${blankStyle}`}
                       >
                         {filled ? selectedWord : "\u00a0"}
                       </button>
@@ -623,7 +674,10 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
           <div className="flex flex-col gap-6 mt-auto">
             {/* Error Banner */}
             {hasErrors && (
-              <div className="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-center gap-3 text-red-700 text-sm md:text-[15px] font-medium leading-normal animate-fadeIn">
+              <div
+                role="alert"
+                className="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-center gap-3 text-red-700 text-sm md:text-[15px] font-medium leading-normal animate-fadeIn"
+              >
                 <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
                 <span>{t("error_message")}</span>
               </div>
@@ -631,7 +685,10 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
 
             {/* Success Banner */}
             {isSolved && (
-              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 flex items-center gap-3 text-emerald-800 text-sm md:text-[15px] font-medium leading-normal animate-fadeIn">
+              <div
+                role="status"
+                className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 flex items-center gap-3 text-emerald-800 text-sm md:text-[15px] font-medium leading-normal animate-fadeIn"
+              >
                 <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
                 <span>{t("success_message")}</span>
               </div>
@@ -639,20 +696,24 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
 
             {/* Option Selector Cards (Shown only when a blank is active/focused) */}
             {activeBlankIndex !== null && currentPoem.blanks[activeBlankIndex] && (
-              <div className="bg-branding-gray/50 border border-branding-brown/10 rounded-2xl p-5">
-                <p className="text-xs font-bold uppercase tracking-wider text-branding-brown/80 mb-3 text-center">
-                  {locale === "en" ? "CHOOSE THE RIGHT WORD" : "CHỌN TỪ THÍCH HỢP"}
+              <div className="border-t border-branding-black/10 pt-6">
+                <p className="text-sm font-medium text-branding-black/70 mb-3 text-center">
+                  {locale === "en"
+                    ? "Choose the right word"
+                    : "Chọn từ thích hợp"}
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
-                  {currentPoem.blanks[activeBlankIndex].options.map((option) => (
-                    <button
-                      key={option}
-                      onClick={() => handleSelectOption(option)}
-                      className="border border-branding-brown/20 bg-white hover:bg-branding-brown/5 hover:border-branding-brown text-branding-black px-6 py-3 rounded-xl shadow-sm text-sm font-semibold transition-all hover:scale-105 active:scale-95 duration-150 cursor-pointer text-center min-w-[120px]"
-                    >
-                      {option}
-                    </button>
-                  ))}
+                  {currentPoem.blanks[activeBlankIndex].options.map(
+                    (option) => (
+                      <button
+                        key={option}
+                        onClick={() => handleSelectOption(option)}
+                        className="border border-branding-brown/20 bg-white hover:bg-branding-brown/5 hover:border-branding-brown text-branding-black px-6 py-3 rounded-lg text-base font-medium transition-colors   duration-150 cursor-pointer text-center min-w-[120px]"
+                      >
+                        {option}
+                      </button>
+                    )
+                  )}
                 </div>
               </div>
             )}
@@ -660,10 +721,12 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
             {/* Lời bình / Interpretation section (Revealed on solve) */}
             {isSolved && (
               <div className="border-t border-branding-brown/10 pt-6 animate-fadeIn">
-                <h4 className={`${merriweather.className} text-lg md:text-xl text-branding-black font-bold mb-3`}>
+                <h4
+                  className={`${merriweather.className} text-lg md:text-xl text-branding-black font-bold mb-3`}
+                >
                   {t("poem_interpretation_heading")}
                 </h4>
-                <p className="text-[15px] md:text-base text-branding-black/80 font-light leading-relaxed italic">
+                <p className="max-w-[75ch] text-[15px] md:text-base text-branding-black/80 font-normal leading-relaxed italic">
                   {currentPoem.interpretation}
                 </p>
               </div>
@@ -675,14 +738,14 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
                 <button
                   onClick={() => setHasChecked(true)}
                   disabled={!allBlanksFilled}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-branding-brown text-white hover:bg-branding-brown/90 font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed text-sm uppercase tracking-wider shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#956319] text-white hover:bg-[#805516] font-semibold rounded-lg transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                 >
                   {t("check_button")}
                 </button>
               ) : (
                 <button
                   onClick={handleNextPoem}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white hover:bg-branding-black/90 font-bold rounded-lg transition-colors cursor-pointer text-sm uppercase tracking-wider shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#956319] text-white hover:bg-[#805516] font-semibold rounded-lg transition-colors cursor-pointer text-sm"
                 >
                   {t("next_button")}
                   <ArrowRight className="h-4 w-4" />
