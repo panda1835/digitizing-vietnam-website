@@ -12,7 +12,6 @@ import { ProverbCard } from "./ProverbCard";
 import { EntryModal } from "./EntryModal";
 import {
   ALPHABET,
-  ATTESTATION_YEARS,
   AVAILABLE_LETTERS,
   EXPORTED_PARTS,
   INTRO_PATH,
@@ -29,8 +28,6 @@ import {
 
 const PAGE_SIZE = 10;
 const SEARCH_DEBOUNCE_MS = 250;
-const MIN_YEAR = ATTESTATION_YEARS[0];
-const MAX_YEAR = ATTESTATION_YEARS[ATTESTATION_YEARS.length - 1];
 const FLAGS = ["notes", "variants", "correction"] as const;
 type Flag = (typeof FLAGS)[number];
 const ANCHOR_HASH = /^#(.+-\d+)$/;
@@ -38,24 +35,17 @@ const ANCHOR_HASH = /^#(.+-\d+)$/;
 /** Everything the reader has chosen, as kept in the URL query. */
 interface Filters {
   letter: string;
-  syllable: string;
   query: string;
   sources: string[];
-  years: [number, number];
   flags: Flag[];
 }
 
 function parseFilters(params: URLSearchParams): Filters {
   const letter = params.get("l") ?? "";
-  const years = (params.get("y") ?? "").split("-").map(Number);
-  const validYears =
-    years.length === 2 && years.every((y) => ATTESTATION_YEARS.includes(y)) && years[0] <= years[1];
   return {
     letter: AVAILABLE_LETTERS.includes(letter) ? letter : AVAILABLE_LETTERS[0],
-    syllable: params.get("s") ?? "",
     query: params.get("q") ?? "",
     sources: (params.get("src") ?? "").split(",").filter(Boolean),
-    years: validYears ? [years[0], years[1]] : [MIN_YEAR, MAX_YEAR],
     flags: (params.get("f") ?? "").split(",").filter((f): f is Flag => FLAGS.includes(f as Flag)),
   };
 }
@@ -63,20 +53,14 @@ function parseFilters(params: URLSearchParams): Filters {
 function serializeFilters(f: Filters): string {
   const params = new URLSearchParams();
   params.set("l", f.letter);
-  if (f.syllable) params.set("s", f.syllable);
   if (f.query) params.set("q", f.query);
   if (f.sources.length) params.set("src", f.sources.join(","));
-  if (f.years[0] !== MIN_YEAR || f.years[1] !== MAX_YEAR) params.set("y", f.years.join("-"));
   if (f.flags.length) params.set("f", f.flags.join(","));
   return params.toString();
 }
 
-const yearsNarrowed = (f: Filters) => f.years[0] !== MIN_YEAR || f.years[1] !== MAX_YEAR;
-
 function matchesFacets(e: ProverbEntry, f: Filters): boolean {
   if (f.sources.length && !f.sources.some((s) => e.sources.includes(s))) return false;
-  if (yearsNarrowed(f) && (e.earliest_year === null || e.earliest_year < f.years[0] || e.earliest_year > f.years[1]))
-    return false;
   if (f.flags.includes("notes") && !e.has_notes) return false;
   if (f.flags.includes("variants") && !e.has_variants) return false;
   if (f.flags.includes("correction") && !e.has_correction) return false;
@@ -195,23 +179,16 @@ export function TraCuuContent() {
     setVisibleCount(PAGE_SIZE);
   }, [filters]);
 
-  // Searching spans every letter; browsing is one letter, then one syllable.
+  // Searching spans every letter; browsing is one letter.
   const baseEntries = useMemo(() => {
     if (filters.query) {
       if (!search) return null;
       return search.ms.search(filters.query).map((r) => search.entries[r.id as number]);
     }
-    if (!letterEntries) return null;
-    return filters.syllable ? letterEntries.filter((e) => e.first_syllable === filters.syllable) : letterEntries;
-  }, [filters.query, filters.syllable, search, letterEntries]);
+    return letterEntries ?? null;
+  }, [filters.query, search, letterEntries]);
 
   const results = useMemo(() => baseEntries?.filter((e) => matchesFacets(e, filters)) ?? null, [baseEntries, filters]);
-
-  const syllableCounts = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const e of letterEntries ?? []) counts.set(e.first_syllable, (counts.get(e.first_syllable) ?? 0) + 1);
-    return Array.from(counts).sort((a, b) => a[0].localeCompare(b[0], "vi"));
-  }, [letterEntries]);
 
   const sourceCounts = useMemo(() => {
     const counts = new Map<string, number>();
@@ -226,19 +203,11 @@ export function TraCuuContent() {
 
   const chips: { key: string; label: string; remove: () => void }[] = [];
   if (filters.query) chips.push({ key: "q", label: `“${filters.query}”`, remove: () => setFilters({ query: "" }) });
-  if (filters.syllable && !filters.query)
-    chips.push({ key: "s", label: `${t("syllable")}: ${filters.syllable}`, remove: () => setFilters({ syllable: "" }) });
   for (const s of filters.sources)
     chips.push({
       key: `src-${s}`,
       label: `${t("source")}: ${s}`,
       remove: () => setFilters({ sources: filters.sources.filter((x) => x !== s) }),
-    });
-  if (yearsNarrowed(filters))
-    chips.push({
-      key: "y",
-      label: `${t("year")}: ${filters.years[0]}–${filters.years[1]}`,
-      remove: () => setFilters({ years: [MIN_YEAR, MAX_YEAR] }),
     });
   for (const f of filters.flags)
     chips.push({
@@ -251,7 +220,6 @@ export function TraCuuContent() {
     <FilterPanel
       filters={filters}
       setFilters={setFilters}
-      syllableCounts={syllableCounts}
       sourceCounts={sourceCounts}
       sources={sources}
     />
@@ -349,7 +317,7 @@ export function TraCuuContent() {
               <button
                 onClick={() => {
                   setQueryInput("");
-                  setFilters({ syllable: "", query: "", sources: [], years: [MIN_YEAR, MAX_YEAR], flags: [] });
+                  setFilters({ query: "", sources: [], flags: [] });
                 }}
                 className="text-branding-black/60 underline underline-offset-2 hover:text-branding-brown"
               >
@@ -418,23 +386,17 @@ function FacetHeading({ children }: { children: React.ReactNode }) {
 function FilterPanel({
   filters,
   setFilters,
-  syllableCounts,
   sourceCounts,
   sources,
 }: {
   filters: Filters;
   setFilters: (patch: Partial<Filters>, options?: { replace?: boolean }) => void;
-  syllableCounts: [string, number][];
   sourceCounts: [string, number][];
   sources: Sources;
 }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
-  const [syllableFilter, setSyllableFilter] = useState("");
   const [sourceFilter, setSourceFilter] = useState("");
 
-  const shownSyllables = syllableCounts.filter(([s]) =>
-    foldDiacritics(s).startsWith(foldDiacritics(syllableFilter.trim())),
-  );
   const shownSources = sourceCounts.filter(([abbr]) => {
     const needle = foldDiacritics(sourceFilter.trim());
     return (
@@ -443,7 +405,6 @@ function FilterPanel({
       foldDiacritics(sources[abbr]?.title ?? "").includes(needle)
     );
   });
-  const yearIndex = filters.years.map((y) => ATTESTATION_YEARS.indexOf(y));
 
   const inputClass =
     "w-full mb-2 px-3 py-2 text-sm bg-white border border-branding-brown/20 rounded-lg focus:outline-none focus:border-branding-brown";
@@ -461,7 +422,7 @@ function FilterPanel({
                 key={letter}
                 disabled={!available}
                 title={available ? undefined : t("not-digitized")}
-                onClick={() => setFilters({ letter, syllable: "", query: "" })}
+                onClick={() => setFilters({ letter, query: "" })}
                 className={`h-9 flex items-center justify-center text-sm font-bold rounded-full border transition-all duration-200 ${
                   active
                     ? "bg-branding-brown text-white border-branding-brown shadow-md"
@@ -476,43 +437,6 @@ function FilterPanel({
           })}
         </div>
       </section>
-
-      {!filters.query && (
-        <section>
-          <FacetHeading>{t("syllable")}</FacetHeading>
-          <input
-            value={syllableFilter}
-            onChange={(e) => setSyllableFilter(e.target.value)}
-            placeholder={t("syllable-search")}
-            className={inputClass}
-          />
-          <div className="max-h-56 overflow-y-auto flex flex-wrap gap-1.5 p-0.5">
-            <button
-              onClick={() => setFilters({ syllable: "" })}
-              className={`px-2.5 py-1 rounded-full text-sm border ${
-                !filters.syllable
-                  ? "bg-branding-brown text-white border-branding-brown"
-                  : "bg-white border-gray-200 hover:border-branding-brown"
-              }`}
-            >
-              {t("all-syllables")}
-            </button>
-            {shownSyllables.map(([syllable, count]) => (
-              <button
-                key={syllable}
-                onClick={() => setFilters({ syllable })}
-                className={`px-2.5 py-1 rounded-full text-sm border ${
-                  filters.syllable === syllable
-                    ? "bg-branding-brown text-white border-branding-brown"
-                    : "bg-white border-gray-200 hover:border-branding-brown"
-                }`}
-              >
-                {syllable} <span className="opacity-60 text-xs">{count}</span>
-              </button>
-            ))}
-          </div>
-        </section>
-      )}
 
       <section>
         <FacetHeading>{t("source")}</FacetHeading>
@@ -551,32 +475,6 @@ function FilterPanel({
             );
           })}
         </div>
-      </section>
-
-      <section>
-        <FacetHeading>{t("year")}</FacetHeading>
-        {(["year-from", "year-to"] as const).map((label, end) => (
-          <label key={label} className="flex items-center gap-3 text-sm mb-1.5">
-            <span className="w-8 text-branding-black/60">{t(label)}</span>
-            <input
-              type="range"
-              min={0}
-              max={ATTESTATION_YEARS.length - 1}
-              step={1}
-              value={yearIndex[end]}
-              onChange={(e) => {
-                const i = Number(e.target.value);
-                const [from, to] = yearIndex;
-                const next = end === 0 ? [i, Math.max(i, to)] : [Math.min(i, from), i];
-                // Dragging steps through many years; keep them out of the history.
-                setFilters({ years: [ATTESTATION_YEARS[next[0]], ATTESTATION_YEARS[next[1]]] }, { replace: true });
-              }}
-              className="flex-1 accent-branding-brown"
-            />
-            <span className="w-10 text-right font-semibold tabular-nums">{filters.years[end]}</span>
-          </label>
-        ))}
-        <p className="text-xs text-branding-black/55 leading-snug mt-1">{t("year-note")}</p>
       </section>
 
       <section>

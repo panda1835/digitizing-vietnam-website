@@ -30,12 +30,6 @@ export const EXPORTED_PARTS = 1;
 export const TOTAL_PARTS = 4;
 
 /**
- * The Sources with a year in Phàm lệ II.2, the only years an entry's
- * earliest attestation can take.
- */
-export const ATTESTATION_YEARS = [1896, 1908, 1914, 1918, 1925, 1928, 1931, 1932, 1933, 1936];
-
-/**
  * A stretch of text with its markup. `general` marks an Expansion (the
  * General Abbreviation it replaced), `source` a Source Abbreviation.
  */

@@ -18544,8 +18544,10 @@
   ],
   "corrections": [
    {
-    "wrong": "... mà *moi* ... TNCL 523",
-    "sources": [],
+    "wrong": "... mà *moi* ...",
+    "sources": [
+     "TNCL"
+    ],
     "right": [
      {
       "text": "... mà "
@@ -18563,7 +18565,11 @@
       "text": "Sách "
      },
      {
-      "text": " in sai thành \"... mà moi ... TNCL 523\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"... mà moi ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "... mà "
@@ -30420,8 +30426,10 @@
   "notes": [],
   "corrections": [
    {
-    "wrong": "... thua thớt... NL 31",
-    "sources": [],
+    "wrong": "... thua thớt...",
+    "sources": [
+     "NL"
+    ],
     "right": [
      {
       "text": "... thưa thốt ..."
@@ -30432,7 +30440,11 @@
       "text": "Sách "
      },
      {
-      "text": " in sai thành \"... thua thớt... NL 31\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": "NL",
+      "source": "NL"
+     },
+     {
+      "text": " in sai thành \"... thua thớt...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "... thưa thốt ..."

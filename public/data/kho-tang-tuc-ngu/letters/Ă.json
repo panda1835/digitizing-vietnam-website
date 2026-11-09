@@ -393,8 +393,10 @@
   ],
   "corrections": [
    {
-    "wrong": "Ăn cơm bát dẻo... TNCL 23",
-    "sources": [],
+    "wrong": "Ăn cơm bát dẻo...",
+    "sources": [
+     "TNCL"
+    ],
     "right": [
      {
       "text": "Ăn bát cơm dẻo..."
@@ -405,7 +407,11 @@
       "text": "Sách "
      },
      {
-      "text": " in sai thành \"Ăn cơm bát dẻo... TNCL 23\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"Ăn cơm bát dẻo...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "Ăn bát cơm dẻo..."
@@ -5603,8 +5609,10 @@
   "notes": [],
   "corrections": [
    {
-    "wrong": "Ăn có no... TNCL 520",
-    "sources": [],
+    "wrong": "Ăn có no...",
+    "sources": [
+     "TNCL"
+    ],
     "right": [
      {
       "text": "Ăn có nơi..."
@@ -5615,7 +5623,11 @@
       "text": "Sách "
      },
      {
-      "text": " in sai thành \"Ăn có no... TNCL 520\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"Ăn có no...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "Ăn có nơi..."

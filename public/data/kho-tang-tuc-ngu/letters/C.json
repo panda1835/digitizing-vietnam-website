@@ -49377,8 +49377,10 @@
   ],
   "corrections": [
    {
-    "wrong": "Chẻ tre nghe *ngóng*. TNCL 259",
-    "sources": [],
+    "wrong": "Chẻ tre nghe *ngóng*.",
+    "sources": [
+     "TNCL"
+    ],
     "right": [
      {
       "text": "Chẻ tre nghe "
@@ -49396,7 +49398,11 @@
       "text": "Sách "
      },
      {
-      "text": " in sai thành \"Chẻ tre nghe ngóng. TNCL 259\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"Chẻ tre nghe ngóng.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "Chẻ tre nghe "
@@ -108760,8 +108766,10 @@
   ],
   "corrections": [
    {
-    "wrong": "... như vít. TNCL 235",
-    "sources": [],
+    "wrong": "... như vít.",
+    "sources": [
+     "TNCL"
+    ],
     "right": [
      {
       "text": "... như vích."
@@ -108772,7 +108780,11 @@
       "text": "Sách "
      },
      {
-      "text": " in sai thành \"... như vít. TNCL 235\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"... như vít.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "... như vích."
@@ -115781,8 +115793,10 @@
   ],
   "corrections": [
    {
-    "wrong": "... đỡ đầu. TNCL 532",
-    "sources": [],
+    "wrong": "... đỡ đầu.",
+    "sources": [
+     "TNCL"
+    ],
     "right": [
      {
       "text": "... đỡ dầu."
@@ -115793,7 +115807,11 @@
       "text": "Sách "
      },
      {
-      "text": " in sai thành \"... đỡ đầu. TNCL 532\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"... đỡ đầu.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "... đỡ dầu."
@@ -173687,8 +173705,11 @@
   ],
   "corrections": [
    {
-    "wrong": "Cửa vào quan ... TMT 92 TNCL 137",
-    "sources": [],
+    "wrong": "Cửa vào quan ...",
+    "sources": [
+     "TMT",
+     "TNCL"
+    ],
     "right": [
      {
       "text": "Cửa vào quan..."
@@ -173699,7 +173720,18 @@
       "text": "Sách "
      },
      {
-      "text": " in sai thành \"Cửa vào quan ... TMT 92 TNCL 137\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": "TMT",
+      "source": "TMT"
+     },
+     {
+      "text": ", "
+     },
+     {
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"Cửa vào quan ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "Cửa vào quan..."
