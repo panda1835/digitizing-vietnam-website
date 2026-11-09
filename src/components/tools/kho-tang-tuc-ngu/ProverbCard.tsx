@@ -2,11 +2,13 @@
 
 import { Fragment, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
-import { Check, ImageOff, Link2, Maximize2 } from "lucide-react";
+import { Check, Link2, Scan } from "lucide-react";
 import { Merriweather } from "next/font/google";
-import { Citation, LIST_PATH, ProverbEntry, Run, Sources, entryImageUrl } from "./data";
+import { Citation, LIST_PATH, ProverbEntry, Run, Sources } from "./data";
 import { SourcePopover } from "./SourcePopover";
+
+const focusClass =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown";
 
 const merriweather = Merriweather({
   weight: ["300", "400", "700"],
@@ -14,11 +16,27 @@ const merriweather = Merriweather({
 });
 
 function Runs({ runs, sources }: { runs: Run[]; sources: Sources }) {
+  const displayRuns = runs.map((run, i) => {
+    if (run.general === "Nb") {
+      return { ...run, text: "Nghĩa bóng:", general: undefined, strong: true };
+    }
+    if (runs[i - 1]?.general === "Nb") {
+      return { ...run, text: run.text.replace(/^\s*:\s*/, " ") };
+    }
+    return run;
+  });
+
   return (
     <>
-      {runs.map((run, i) => {
+      {displayRuns.map((run, i) => {
         if (run.source) {
-          return <SourcePopover key={i} abbreviation={run.text} source={sources[run.source]} />;
+          return (
+            <SourcePopover
+              key={i}
+              abbreviation={run.text}
+              source={sources[run.source]}
+            />
+          );
         }
         if (run.general) {
           return (
@@ -30,7 +48,10 @@ function Runs({ runs, sources }: { runs: Run[]; sources: Sources }) {
         if (run.em) {
           // The words a Variant or Correction differs by, italic in the book.
           return (
-            <mark key={i} className="bg-[#f3e2b8] text-inherit italic rounded-sm px-0.5">
+            <mark
+              key={i}
+              className="bg-[#f3e2b8] text-inherit italic rounded-sm px-0.5"
+            >
               {run.text}
             </mark>
           );
@@ -42,14 +63,24 @@ function Runs({ runs, sources }: { runs: Run[]; sources: Sources }) {
   );
 }
 
-function Citations({ citations, sources }: { citations: Citation[]; sources: Sources }) {
+function Citations({
+  citations,
+  sources,
+}: {
+  citations: Citation[];
+  sources: Sources;
+}) {
   if (citations.length === 0) return null;
   return (
-    <p className="text-sm text-branding-black/80 leading-relaxed">
+    <p className="text-xs text-branding-black/65 leading-relaxed">
       {citations.map((c, i) => (
         <Fragment key={i}>
           {i > 0 && "; "}
-          <SourcePopover abbreviation={c.abbreviation} source={sources[c.abbreviation]} />
+          <SourcePopover
+            abbreviation={c.abbreviation}
+            source={sources[c.abbreviation]}
+            subtle
+          />
           {c.pages && ` ${c.pages}`}
         </Fragment>
       ))}
@@ -58,8 +89,8 @@ function Citations({ citations, sources }: { citations: Citation[]; sources: Sou
 }
 
 /**
- * One Proverb Entry, laid out like the tu-dien cards: the text on the left in
- * the book's order, its Entry Image on the right.
+ * A reading-first entry: proverb, notes, paired variants and citations,
+ * then reference metadata and access to the original scan.
  */
 export function ProverbCard({
   entry,
@@ -74,7 +105,6 @@ export function ProverbCard({
 }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
   const locale = useLocale();
-  const [imageFailed, setImageFailed] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const copyLink = async () => {
@@ -89,121 +119,133 @@ export function ProverbCard({
   };
 
   return (
-    <article className="bg-white p-6 md:p-8 rounded-3xl border border-branding-brown/10 shadow-sm flex flex-col md:flex-row gap-6 justify-between items-stretch transition-all duration-300 hover:shadow-md">
-      {/* Left Side: Content */}
-      <div className="flex-1 min-w-0 flex flex-col gap-4">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-branding-brown">
-          <span className="px-3 py-1 rounded-md bg-branding-brown/10">{entry.name}</span>
-          {entry.book_pages.length > 0 && (
-            <span className="font-medium normal-case tracking-normal text-branding-black/60">
-              {t("page", { pages: entry.book_pages.join("–") })}
-            </span>
-          )}
-          <button
-            onClick={copyLink}
-            title={t("copy-link")}
-            aria-label={t("copy-link")}
-            className="ml-auto p-1.5 rounded-md text-branding-black/50 hover:text-branding-brown hover:bg-branding-brown/5"
-          >
-            {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
-          </button>
-        </div>
+    <article className="bg-white/90 px-5 pt-5 pb-3 sm:px-6 sm:pt-6 sm:pb-4 rounded-xl border border-branding-black/10">
+      <h2
+        className={`${merriweather.className} text-xl text-branding-black whitespace-pre-line break-words leading-relaxed`}
+      >
+        {entry.proverb}
+      </h2>
 
-        <div className="flex flex-col gap-1.5">
-          <h4
-            className={`${merriweather.className} text-lg md:text-xl text-branding-black font-bold whitespace-pre-line leading-relaxed`}
-          >
-            {entry.proverb}
-          </h4>
-          <Citations citations={entry.citations} sources={sources} />
-        </div>
-
-        {entry.variants.map((variant, i) => (
-          <div key={i} className="flex flex-col gap-1.5 pl-4 border-l-2 border-branding-brown/20">
-            <span className="self-start text-[11px] font-extrabold uppercase tracking-widest text-branding-brown/80">
-              {variant.label}
-            </span>
-            <p className={`${merriweather.className} text-base md:text-lg text-branding-black leading-relaxed`}>
-              <Runs runs={variant.text} sources={sources} />
+      {entry.notes.length > 0 && (
+        <div className="mt-3 flex flex-col gap-2 text-base text-branding-black/75 leading-relaxed break-words max-w-prose">
+          {entry.notes.map((note, i) => (
+            <p key={i}>
+              <Runs runs={note} sources={sources} />
             </p>
-            <Citations citations={variant.citations} sources={sources} />
-          </div>
-        ))}
-
-        {entry.notes.length > 0 && (
-          <div className="border-t border-gray-100 pt-4 flex flex-col gap-2">
-            {entry.notes.map((note, i) => (
-              <p key={i} className="text-sm md:text-[15px] text-branding-black/85 font-light leading-relaxed">
-                <Runs runs={note} sources={sources} />
-              </p>
-            ))}
-          </div>
-        )}
-
-        {entry.corrections.map((correction, i) => (
-          <div key={i} className="rounded-xl bg-[#fbf5e8] border border-[#e9d6a8] px-4 py-3 text-sm leading-relaxed text-branding-black/85">
-            <span className="mr-1.5 font-bold text-[#8a5a12]">{t("correction")}:</span>
-            <Runs runs={correction.sentence} sources={sources} />
-          </div>
-        ))}
-
-        {entry.see_also.length > 0 && (
-          <div className="flex flex-wrap items-center gap-2 text-sm">
-            <span className="text-branding-black/60">{t("see-also")}:</span>
-            {entry.see_also.map((see, i) =>
-              see.anchor ? (
-                <button
-                  key={i}
-                  onClick={() => onSeeAlso(see.anchor!)}
-                  className="px-3 py-1 rounded-full border border-branding-brown/30 text-branding-black hover:border-branding-brown hover:text-branding-brown transition-colors text-left"
-                >
-                  <span className="font-semibold">{see.name}</span>
-                  {see.preview && <span className="font-light"> · {see.preview}</span>}
-                </button>
-              ) : (
-                <span
-                  key={i}
-                  title={t("unresolved")}
-                  className="px-3 py-1 rounded-full border border-dashed border-gray-300 text-branding-black/50 cursor-help"
-                >
-                  {see.name}
-                </span>
-              ),
-            )}
-          </div>
-        )}
-      </div>
-
-      {/* Right Side: Entry Image (Whole element clickable) */}
-      {imageFailed ? (
-        <div className="w-full md:w-[32%] min-h-[160px] flex-shrink-0 border border-dashed border-gray-200 rounded-2xl bg-slate-50 flex flex-col items-center justify-center gap-2 p-4 text-center text-xs text-gray-500">
-          <ImageOff className="h-6 w-6 text-gray-400" />
-          {t("image-error")}
+          ))}
         </div>
-      ) : (
-        <button
-          onClick={() => onOpenImage(entry)}
-          className="w-full md:w-[32%] min-h-[160px] flex-shrink-0 border border-gray-150 rounded-2xl overflow-hidden bg-slate-50 flex items-center justify-center relative group cursor-zoom-in"
-        >
-          <Image
-            src={entryImageUrl(entry)}
-            alt={entry.name}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-contain p-2"
-            onError={() => setImageFailed(true)}
-            unoptimized
-          />
-
-          {/* Maximize zoom overlay */}
-          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-            <span className="px-4 py-2 bg-white/95 text-branding-black text-xs font-bold rounded-lg shadow-md flex items-center gap-1.5">
-              <Maximize2 className="h-3.5 w-3.5" />
-              {t("zoom")}
-            </span>
-          </div>
-        </button>
       )}
+
+      {entry.corrections.length > 0 && (
+        <section className="mt-4 text-sm leading-relaxed text-branding-black/75">
+          <h3 className="font-medium text-branding-black mb-1.5">
+            {t("correction")}
+          </h3>
+          {entry.corrections.map((correction, i) => (
+            <p key={i}>
+              <Runs runs={correction.sentence} sources={sources} />
+            </p>
+          ))}
+        </section>
+      )}
+
+      {entry.variants.length > 0 && (
+        <section className="mt-5 border-t border-branding-black/10 pt-4">
+          <h3 className="text-sm font-medium text-branding-black mb-2">
+            {t("has-variants")}
+          </h3>
+          <ul className="space-y-2.5">
+            {entry.variants.map((variant, i) => (
+              <li
+                key={i}
+                className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 sm:gap-6"
+              >
+                <p className="min-w-0 text-base leading-relaxed text-branding-black/85 break-words">
+                  <Runs runs={variant.text} sources={sources} />
+                </p>
+                <div className="sm:max-w-[45%] shrink-0 sm:text-right">
+                  <Citations citations={variant.citations} sources={sources} />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {entry.see_also.length > 0 && (
+        <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm">
+          <span className="text-branding-black/65">{t("see-also")}:</span>
+          {entry.see_also.map((see, i) =>
+            see.anchor ? (
+              <button
+                key={i}
+                type="button"
+                onClick={() => onSeeAlso(see.anchor!)}
+                className={`text-left text-[#956319] underline underline-offset-2 hover:text-branding-black ${focusClass}`}
+              >
+                {see.name}
+                {see.preview && (
+                  <span className="text-branding-black/65">
+                    {" "}
+                    · {see.preview}
+                  </span>
+                )}
+              </button>
+            ) : (
+              <span
+                key={i}
+                title={t("unresolved")}
+                className="text-branding-black/65 cursor-help"
+              >
+                {see.name}
+              </span>
+            )
+          )}
+        </div>
+      )}
+
+      <footer className="mt-5 pt-3 border-t border-branding-black/10 flex flex-col gap-0">
+        {entry.citations.length > 0 && (
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <span className="text-xs text-branding-black/65">
+              {t("source")}:
+            </span>
+            <Citations citations={entry.citations} sources={sources} />
+          </div>
+        )}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-branding-black/65">
+          <span>
+            {entry.letter}.{entry.number}
+          </span>
+          {entry.book_pages.length > 0 && (
+            <span>{t("page", { pages: entry.book_pages.join("–") })}</span>
+          )}
+          <div className="ml-auto flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => onOpenImage(entry)}
+              className={`inline-flex min-h-10 items-center gap-1.5 rounded-md px-2 text-branding-black/75 hover:text-[#956319] hover:bg-branding-brown/5 ${focusClass}`}
+              aria-label={`${t("original-scan")}: ${entry.name}`}
+            >
+              <Scan className="h-4 w-4" aria-hidden />
+              {t("original-scan")}
+            </button>
+            <button
+              type="button"
+              onClick={copyLink}
+              title={copied ? t("copied") : t("copy-link")}
+              aria-label={copied ? t("copied") : t("copy-link")}
+              className={`flex h-10 w-10 items-center justify-center rounded-md text-branding-black/65 hover:text-[#956319] hover:bg-branding-brown/5 ${focusClass}`}
+            >
+              {copied ? (
+                <Check className="h-4 w-4" aria-hidden />
+              ) : (
+                <Link2 className="h-4 w-4" aria-hidden />
+              )}
+            </button>
+          </div>
+        </div>
+      </footer>
     </article>
   );
 }

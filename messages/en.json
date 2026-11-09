@@ -483,6 +483,8 @@
         "has-variants": "Variants",
         "has-correction": "Correction",
         "page": "p. {pages}",
+        "original-scan": "View original",
+        "copied": "Link copied",
         "copy-link": "Copy link",
         "see-also": "See also",
         "unresolved": "This proverb is in a part not yet digitized",

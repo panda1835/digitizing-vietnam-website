@@ -2,7 +2,14 @@
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { Search, Loader2, X, Maximize2, ExternalLink, ChevronDown } from "lucide-react";
+import {
+  Search,
+  Loader2,
+  X,
+  Maximize2,
+  ExternalLink,
+  ChevronDown,
+} from "lucide-react";
 import { Merriweather } from "next/font/google";
 import MiniSearch from "minisearch";
 import Image from "next/image";
@@ -41,7 +48,31 @@ export function TuDienContent({ locale }: { locale: string }) {
   const [activeScanId, setActiveScanId] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setActiveScanId(null), []);
 
-  const ALPHABET = ["A", "B", "C", "D", "Đ", "E", "G", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y"];
+  const ALPHABET = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "Đ",
+    "E",
+    "G",
+    "H",
+    "I",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "X",
+    "Y",
+  ];
 
   // Helper to normalize the first character of the poem
   const getCleanFirstChar = (poemText: string): string => {
@@ -57,16 +88,10 @@ export function TuDienContent({ locale }: { locale: string }) {
     return cat.replace(/[()]/g, "").trim().toUpperCase();
   };
 
-  // Helper to assign colors to badges
-  const getCategoryStyle = (cat?: string) => {
-    const clean = cleanCategory(cat);
-    if (clean.includes("THÀNH NGỮ")) return "bg-[#4a5d36] text-white";
-    if (clean.includes("TỤC NGỮ")) return "bg-[#a5701c] text-white";
-    return "bg-[#2b4c60] text-white"; // CA DAO or others
-  };
-
   // In-flight fetch cache to prevent concurrent duplicate network calls
-  const letterPromisesRef = useRef<Record<string, Promise<any[]> | undefined>>({});
+  const letterPromisesRef = useRef<Record<string, Promise<any[]> | undefined>>(
+    {}
+  );
 
   // Fetch partitioned letters JSON data
   const fetchLetter = async (letter: string) => {
@@ -74,11 +99,13 @@ export function TuDienContent({ locale }: { locale: string }) {
     if (letterEntries[baseFile]) return letterEntries[baseFile];
     const cachedPromise = letterPromisesRef.current[baseFile];
     if (cachedPromise) return cachedPromise;
-    
+
     setLetterLoading(true);
     const promise = (async () => {
       try {
-        const res = await fetch(`/data/ca-dao-tuc-ngu/letters/${baseFile}.json`);
+        const res = await fetch(
+          `/data/ca-dao-tuc-ngu/letters/${baseFile}.json`
+        );
         if (res.ok) {
           const data = await res.json();
           setLetterEntries((prev) => ({ ...prev, [baseFile]: data }));
@@ -131,7 +158,7 @@ export function TuDienContent({ locale }: { locale: string }) {
   const handleSearch = async (query: string) => {
     setSearchQuery(query);
     setVisibleCount(10); // Reset page count
-    
+
     if (!query.trim()) {
       setSearchResults([]);
       return;
@@ -167,18 +194,18 @@ export function TuDienContent({ locale }: { locale: string }) {
   // Filter & Resolve entries to display based on active letter/search and categories
   const currentEntries = useMemo(() => {
     let list: any[] = [];
-    
+
     if (searchQuery.trim()) {
       list = searchResults;
     } else {
       const baseFile = selectedLetter === "Đ" ? "D" : selectedLetter;
       const rawEntries = letterEntries[baseFile] || [];
-      
+
       // Separate D and Đ filter
       if (selectedLetter === "D") {
-        list = rawEntries.filter(e => getCleanFirstChar(e.poem) === "D");
+        list = rawEntries.filter((e) => getCleanFirstChar(e.poem) === "D");
       } else if (selectedLetter === "Đ") {
-        list = rawEntries.filter(e => getCleanFirstChar(e.poem) === "Đ");
+        list = rawEntries.filter((e) => getCleanFirstChar(e.poem) === "Đ");
       } else {
         list = rawEntries;
       }
@@ -186,31 +213,42 @@ export function TuDienContent({ locale }: { locale: string }) {
 
     // Filter by Category
     if (selectedCategory !== "ALL") {
-      list = list.filter(e => {
+      list = list.filter((e) => {
         const cat = e.category || detailsMap[e.id]?.category;
         return cleanCategory(cat).includes(selectedCategory);
       });
     }
 
     return list;
-  }, [searchQuery, searchResults, selectedLetter, letterEntries, selectedCategory, detailsMap]);
-  
+  }, [
+    searchQuery,
+    searchResults,
+    selectedLetter,
+    letterEntries,
+    selectedCategory,
+    detailsMap,
+  ]);
+
   useEffect(() => {
     const loadDetails = async () => {
       const neededEntries = currentEntries.slice(0, visibleCount);
 
       // Determine unique letters we need to fetch
-      const missingLetters = Array.from(new Set(
-        neededEntries
-          .filter((entry) => !entry.explanation && !detailsMap[entry.id])
-          .map((entry) => entry.letter)
-          .filter(Boolean)
-      ));
+      const missingLetters = Array.from(
+        new Set(
+          neededEntries
+            .filter((entry) => !entry.explanation && !detailsMap[entry.id])
+            .map((entry) => entry.letter)
+            .filter(Boolean)
+        )
+      );
 
       if (missingLetters.length === 0) return;
 
       // Fetch all missing letters in parallel (deduplicated by letterPromisesRef)
-      const dataArrays = await Promise.all(missingLetters.map((l) => fetchLetter(l)));
+      const dataArrays = await Promise.all(
+        missingLetters.map((l) => fetchLetter(l))
+      );
 
       // Map letter files by their key for fast lookup
       const loadedMap: Record<string, any[]> = {};
@@ -226,7 +264,8 @@ export function TuDienContent({ locale }: { locale: string }) {
         if (!entry.explanation && !updatedDetails[entry.id]) {
           const baseFile = entry.letter;
           if (baseFile) {
-            const letterData = letterEntries[baseFile] || loadedMap[baseFile] || [];
+            const letterData =
+              letterEntries[baseFile] || loadedMap[baseFile] || [];
             const found = letterData.find((d: any) => d.id === entry.id);
             if (found) {
               updatedDetails[entry.id] = found;
@@ -245,35 +284,56 @@ export function TuDienContent({ locale }: { locale: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentEntries, visibleCount]);
 
+  const focusClass =
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown";
+
   return (
-    <div className="w-full flex flex-col gap-6 animate-fadeIn">
+    <div className="w-full flex flex-col gap-8">
       {/* Instructions section (Collapsible Accordion) */}
-      <section className="scroll-mt-32 w-full animate-fadeIn mb-4">
-        <div className="bg-white border border-branding-brown/15 rounded-2xl shadow-sm overflow-hidden">
+      <section className="scroll-mt-32 w-full">
+        <div className="bg-white/70 border border-branding-black/10 rounded-xl overflow-hidden">
           <button
+            type="button"
+            aria-expanded={isGuideOpen}
+            aria-controls="dictionary-guide"
             onClick={() => setIsGuideOpen(!isGuideOpen)}
-            className="w-full flex items-center justify-between p-5 md:p-6 text-left cursor-pointer hover:bg-branding-gray/20 transition-all duration-200"
+            className="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-branding-brown/5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-branding-brown"
           >
-            <span className="text-base md:text-lg font-bold text-branding-brown uppercase tracking-wider">
+            <span
+              className={`${merriweather.className} text-lg text-branding-black`}
+            >
               {t("instruction_guide_title")}
             </span>
-            <ChevronDown 
+            <ChevronDown
               className={`h-5 w-5 text-branding-brown transition-transform duration-200 ${
                 isGuideOpen ? "transform rotate-180" : ""
-              }`} 
+              }`}
             />
           </button>
-          
+
           {isGuideOpen && (
-            <div className="border-t border-branding-brown/10 p-5 md:p-6 bg-white animate-fadeIn">
+            <div
+              id="dictionary-guide"
+              className="border-t border-branding-black/10 p-5"
+            >
               <div className="text-[15px] md:text-base text-branding-black font-normal leading-relaxed max-w-3xl space-y-3">
-                <p>
-                  {t("instruction_intro")}
-                </p>
+                <p>{t("instruction_intro")}</p>
                 <ul className="list-disc pl-5 space-y-1.5">
-                  <li dangerouslySetInnerHTML={{ __html: t.raw("instruction_step1") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t.raw("instruction_step2") }} />
-                  <li dangerouslySetInnerHTML={{ __html: t.raw("instruction_step3") }} />
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: t.raw("instruction_step1"),
+                    }}
+                  />
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: t.raw("instruction_step2"),
+                    }}
+                  />
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: t.raw("instruction_step3"),
+                    }}
+                  />
                 </ul>
                 <div className="pt-3 border-t border-branding-brown/10 mt-3 text-branding-black font-medium">
                   {t("embedding_search_prefix")}
@@ -281,11 +341,12 @@ export function TuDienContent({ locale }: { locale: string }) {
                     href="https://ca-dao.richardhoa.io.vn/search-page"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-branding-brown underline hover:text-branding-brown/85 inline-flex items-center gap-0.5"
+                    className="text-[#956319] underline underline-offset-2 hover:text-branding-black inline-flex items-center gap-0.5"
                   >
                     {t("embedding_search_link_text")}
                     <ExternalLink className="h-3.5 w-3.5" />
-                  </a>.
+                  </a>
+                  .
                 </div>
               </div>
             </div>
@@ -293,182 +354,248 @@ export function TuDienContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      <div className="flex flex-col gap-6 animate-fadeIn w-full">
+      <div className="flex flex-col gap-5 w-full">
         {/* Main header title for Search section */}
-        <h3 className={`${merriweather.className} text-2xl text-branding-black font-normal mt-2`}>
-          {locale === "vi" ? "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam" : "Dictionary of Vietnamese Idioms, Proverbs and Folk Verses"}
-        </h3>
+        <h2
+          className={`${merriweather.className} text-2xl text-branding-black`}
+        >
+          {locale === "vi" ? "Tra cứu từ điển" : "Search the dictionary"}
+        </h2>
 
-      {/* Search Input and Category Dropdown */}
-      <div className="flex flex-col md:flex-row gap-4 w-full items-stretch">
-        {/* Category Dropdown */}
-        <div className="relative min-w-[200px] flex-shrink-0">
-          <select
-            value={selectedCategory}
-            onChange={(e) => {
-              setSelectedCategory(e.target.value);
-              setVisibleCount(10);
-            }}
-            className="w-full bg-white border border-branding-brown/20 text-sm text-branding-black pl-4 pr-10 py-3 rounded-2xl focus:outline-none focus:border-branding-brown focus:ring-1 focus:ring-branding-brown shadow-sm cursor-pointer appearance-none"
-          >
-            <option value="ALL">{locale === "vi" ? "Tất cả phân loại" : "All categories"}</option>
-            <option value="CA DAO">{locale === "vi" ? "Ca dao" : "Folk verse"}</option>
-            <option value="TỤC NGỮ">{locale === "vi" ? "Tục ngữ" : "Proverb"}</option>
-            <option value="TỤC NGỮ HÁN VIỆT">{locale === "vi" ? "Tục ngữ Hán Việt" : "Sino-Vietnamese proverb"}</option>
-            <option value="THÀNH NGỮ">{locale === "vi" ? "Thành ngữ" : "Idiom"}</option>
-            <option value="THÀNH NGỮ HÁN VIỆT">{locale === "vi" ? "Thành ngữ Hán Việt" : "Sino-Vietnamese idiom"}</option>
-          </select>
-          <div className="absolute inset-y-0 right-3.5 flex items-center pointer-events-none text-branding-brown/70">
-            <ChevronDown className="h-4 w-4" />
-          </div>
-        </div>
-
-        {/* Search text input */}
-        <div className="relative flex-1 flex items-center shadow-sm rounded-2xl overflow-hidden border border-branding-brown/20 bg-white">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => handleSearch(e.target.value)}
-            placeholder={locale === "vi" ? "Tìm kiếm theo văn bản câu..." : "Search by the text of an entry..."}
-            className="w-full pl-5 pr-12 py-3.5 bg-white text-sm text-branding-black focus:outline-none"
-          />
-          <div className="absolute right-4 flex items-center gap-2">
-            {searchLoading && <Loader2 className="animate-spin h-5 w-5 text-branding-brown" />}
-            {searchQuery && (
-              <button
-                onClick={() => handleSearch("")}
-                className="text-gray-400 hover:text-branding-brown"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            )}
-            {!searchQuery && <Search className="text-gray-450 h-5 w-5" />}
-          </div>
-        </div>
-      </div>
-
-
-
-      {/* Circular Alphabet Browsing list */}
-      <div className="w-full flex flex-wrap justify-center gap-2.5 py-4 border-y border-gray-100 my-2">
-        {ALPHABET.map((letter) => {
-          const isActive = selectedLetter === letter && !searchQuery;
-          return (
-            <button
-              key={letter}
-              onClick={() => handleLetterClick(letter)}
-              className={`h-9 w-9 flex items-center justify-center text-sm font-bold rounded-full border transition-all duration-300 ${
-                isActive
-                  ? "bg-branding-brown text-white border-branding-brown shadow-md"
-                  : "bg-white border-gray-200 text-branding-black hover:border-branding-brown hover:text-branding-brown"
-              }`}
+        {/* Search Input and Category Dropdown */}
+        <div className="flex flex-col md:flex-row gap-4 w-full items-stretch">
+          {/* Category Dropdown */}
+          <div className="relative w-full md:w-64 flex-shrink-0">
+            <select
+              aria-label={locale === "vi" ? "Phân loại" : "Category"}
+              value={selectedCategory}
+              onChange={(e) => {
+                setSelectedCategory(e.target.value);
+                setVisibleCount(10);
+              }}
+              className="w-full h-12 bg-white border border-branding-black/20 text-sm text-branding-black pl-4 pr-10 rounded-lg focus:outline-none focus:border-branding-brown focus:ring-2 focus:ring-branding-brown/30 cursor-pointer appearance-none"
             >
-              {letter}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Dynamic Results Stack */}
-      <div className="w-full flex flex-col gap-6 mt-4">
-        {letterLoading && !searchQuery && (
-          <div className="flex flex-col items-center justify-center py-20 w-full">
-            <Loader2 className="animate-spin h-10 w-10 text-branding-brown mb-2" />
-            <span className="text-sm text-gray-500">{locale === "vi" ? "Đang tải dữ liệu..." : "Loading data..."}</span>
-          </div>
-        )}
-
-        {/* Entries Loop */}
-        {!letterLoading && currentEntries.slice(0, visibleCount).map((entry) => {
-          // Resolve full details object (since index list doesn't have explanations)
-          const detail = entry.explanation ? entry : detailsMap[entry.id];
-          const hasDetails = !!detail;
-
-          return (
-            <div
-              key={entry.id}
-              className="bg-white p-6 md:p-8 rounded-3xl border border-branding-brown/10 shadow-sm flex flex-col md:flex-row gap-6 justify-between items-stretch transition-all duration-300 hover:shadow-md"
-            >
-              {/* Left Side: Content */}
-              <div className="flex-1 flex flex-col gap-4">
-                <div>
-                  <span className={`inline-block px-3 py-1 text-[11px] font-extrabold uppercase tracking-widest rounded-md ${getCategoryStyle(detail?.category || entry.category)}`}>
-                    {cleanCategory(detail?.category || entry.category)}
-                  </span>
-                </div>
-
-                {/* Poem text */}
-                <h4 className={`${merriweather.className} text-lg md:text-xl text-branding-black font-bold whitespace-pre-line leading-relaxed italic`}>
-                  {entry.poem}
-                </h4>
-
-                {/* Meaning & Explanation text */}
-                <div className="border-t border-gray-100 pt-4 flex flex-col gap-2">
-                  {hasDetails ? (
-                    <p className="text-sm md:text-[15px] text-branding-black/85 font-light leading-relaxed whitespace-pre-line">
-                      {detail.explanation}
-                    </p>
-                  ) : (
-                    <div className="flex items-center gap-2 py-4">
-                      <Loader2 className="animate-spin h-4 w-4 text-branding-brown" />
-                      <span className="text-xs text-gray-500">{locale === "vi" ? "Đang tải nghĩa giải thích..." : "Loading the explanation..."}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Right Side: Cropped Page Scan (Whole element clickable) */}
-              <div 
-                onClick={() => setActiveScanId(entry.id)}
-                className="w-full md:w-[32%] min-h-[160px] md:min-h-none flex-shrink-0 border border-gray-150 rounded-2xl overflow-hidden bg-slate-50 flex items-center justify-center relative group cursor-zoom-in"
-              >
-                <Image
-                  src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${entry.id}.png/full/full/0/default.jpg`}
-                  alt="Scanned page snippet"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-contain transition-transform duration-300 group-hover:scale-102"
-                  loading="lazy"
-                />
-                
-                {/* Maximize zoom overlay */}
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                  <span className="px-4 py-2 bg-white/95 text-branding-black text-xs font-bold rounded-lg shadow-md flex items-center gap-1.5">
-                    <Maximize2 className="h-3.5 w-3.5" />
-                    {locale === "vi" ? "Xem phóng to" : "View larger"}
-                  </span>
-                </div>
-              </div>
+              <option value="ALL">
+                {locale === "vi" ? "Tất cả phân loại" : "All categories"}
+              </option>
+              <option value="CA DAO">
+                {locale === "vi" ? "Ca dao" : "Folk verse"}
+              </option>
+              <option value="TỤC NGỮ">
+                {locale === "vi" ? "Tục ngữ" : "Proverb"}
+              </option>
+              <option value="TỤC NGỮ HÁN VIỆT">
+                {locale === "vi"
+                  ? "Tục ngữ Hán Việt"
+                  : "Sino-Vietnamese proverb"}
+              </option>
+              <option value="THÀNH NGỮ">
+                {locale === "vi" ? "Thành ngữ" : "Idiom"}
+              </option>
+              <option value="THÀNH NGỮ HÁN VIỆT">
+                {locale === "vi"
+                  ? "Thành ngữ Hán Việt"
+                  : "Sino-Vietnamese idiom"}
+              </option>
+            </select>
+            <div className="absolute inset-y-0 right-3.5 flex items-center pointer-events-none text-branding-brown/70">
+              <ChevronDown className="h-4 w-4" />
             </div>
-          );
-        })}
-
-        {/* Load More Trigger */}
-        {!letterLoading && currentEntries.length > visibleCount && (
-          <div className="flex justify-center mt-6">
-            <button
-              onClick={() => setVisibleCount(prev => prev + 15)}
-              className="px-8 py-3 bg-branding-black text-white text-sm font-bold rounded-xl hover:bg-branding-brown hover:shadow-md transition-all duration-300"
-            >
-              {locale === "vi" ? "Xem thêm" : "Load More"}
-            </button>
           </div>
-        )}
 
-        {/* Empty Search State */}
-        {!letterLoading && currentEntries.length === 0 && (
-          <div className="text-center py-20 text-gray-500 bg-white border border-branding-brown/5 rounded-3xl p-8">
-            {locale === "vi" ? "Không tìm thấy dữ liệu phù hợp với bộ lọc và tìm kiếm." : "No entries match your filters and search."}
+          {/* Search text input */}
+          <div className="relative min-w-0 flex-1 flex items-center rounded-lg border border-branding-black/20 bg-white focus-within:border-branding-brown focus-within:ring-2 focus-within:ring-branding-brown/30">
+            <input
+              type="search"
+              aria-label={
+                locale === "vi"
+                  ? "Tìm kiếm trong từ điển"
+                  : "Search the dictionary"
+              }
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
+              placeholder={
+                locale === "vi"
+                  ? "Tìm kiếm theo văn bản câu..."
+                  : "Search by the text of an entry..."
+              }
+              className="w-full h-12 pl-4 pr-20 rounded-lg bg-transparent text-base text-branding-black placeholder:text-branding-black/60 focus:outline-none [&::-webkit-search-cancel-button]:appearance-none"
+            />
+            <div className="absolute right-4 flex items-center gap-2">
+              {searchLoading && (
+                <Loader2 className="animate-spin h-5 w-5 text-branding-brown" />
+              )}
+              {searchQuery && (
+                <button
+                  type="button"
+                  aria-label={locale === "vi" ? "Xóa tìm kiếm" : "Clear search"}
+                  onClick={() => handleSearch("")}
+                  className={`flex h-10 w-10 items-center justify-center rounded-md text-branding-black/60 hover:text-[#956319] ${focusClass}`}
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              )}
+              {!searchQuery && (
+                <Search className="text-branding-black/60 h-5 w-5" />
+              )}
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+
+        {/* Alphabet browsing */}
+        <div
+          role="group"
+          aria-label={
+            locale === "vi" ? "Duyệt theo chữ cái" : "Browse by letter"
+          }
+          className="w-full flex flex-wrap gap-2 py-4 border-y border-branding-black/10"
+        >
+          {ALPHABET.map((letter) => {
+            const isActive = selectedLetter === letter && !searchQuery;
+            return (
+              <button
+                key={letter}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() => handleLetterClick(letter)}
+                className={`h-11 w-11 flex items-center justify-center text-sm font-medium rounded-lg border transition-colors ${focusClass} ${
+                  isActive
+                    ? "bg-[#956319] text-white border-[#956319]"
+                    : "bg-white/70 border-branding-black/15 text-branding-black hover:border-branding-brown hover:bg-branding-brown/5 hover:text-[#956319]"
+                }`}
+              >
+                {letter}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Dynamic Results Stack */}
+        <div
+          aria-busy={letterLoading || searchLoading}
+          className="w-full flex flex-col gap-5"
+        >
+          {((letterLoading && !searchQuery) || searchLoading) && (
+            <div className="flex flex-col items-center justify-center py-20 w-full">
+              <Loader2 className="animate-spin h-10 w-10 text-branding-brown mb-2" />
+              <span className="text-sm text-branding-black/65">
+                {locale === "vi" ? "Đang tải dữ liệu..." : "Loading data..."}
+              </span>
+            </div>
+          )}
+
+          {/* Entries Loop */}
+          {!letterLoading &&
+            !searchLoading &&
+            currentEntries.slice(0, visibleCount).map((entry) => {
+              // Resolve full details object (since index list doesn't have explanations)
+              const detail = entry.explanation ? entry : detailsMap[entry.id];
+              const hasDetails = !!detail;
+
+              return (
+                <article
+                  key={entry.id}
+                  className="bg-white/90 p-5 sm:p-6 rounded-xl border border-branding-black/10 flex flex-col md:flex-row gap-6 lg:gap-8 items-stretch"
+                >
+                  {/* Left Side: Content */}
+                  <div className="min-w-0 flex-1 flex flex-col gap-4">
+                    <div>
+                      <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-md bg-branding-brown/10 text-[#805516]">
+                        {cleanCategory(detail?.category || entry.category)}
+                      </span>
+                    </div>
+
+                    {/* Poem text */}
+                    <h3
+                      className={`${merriweather.className} text-lg md:text-xl text-branding-black whitespace-pre-line break-words leading-[1.7] md:leading-[1.7]`}
+                    >
+                      {entry.poem}
+                    </h3>
+
+                    {/* Meaning & Explanation text */}
+                    <div className="border-t border-branding-black/10 pt-4 flex flex-col gap-2">
+                      {hasDetails ? (
+                        <p className="text-base text-branding-black/75 leading-relaxed whitespace-pre-line break-words max-w-prose">
+                          {detail.explanation}
+                        </p>
+                      ) : (
+                        <div className="flex items-center gap-2 py-4">
+                          <Loader2 className="animate-spin h-4 w-4 text-branding-brown" />
+                          <span className="text-xs text-branding-black/65">
+                            {locale === "vi"
+                              ? "Đang tải nghĩa giải thích..."
+                              : "Loading the explanation..."}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right Side: Cropped Page Scan (Whole element clickable) */}
+                  <button
+                    type="button"
+                    aria-label={`${
+                      locale === "vi" ? "Xem bản quét" : "View scan"
+                    }: ${entry.poem}`}
+                    onClick={() => setActiveScanId(entry.id)}
+                    className={`w-full md:w-[32%] min-h-[240px] flex-shrink-0 border border-branding-black/10 rounded-lg overflow-hidden bg-branding-gray/50 flex items-center justify-center relative group cursor-zoom-in ${focusClass}`}
+                  >
+                    <Image
+                      src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${entry.id}.png/full/full/0/default.jpg`}
+                      alt={
+                        locale === "vi"
+                          ? "Bản quét trang sách gốc"
+                          : "Scan of the original book page"
+                      }
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-contain"
+                      loading="lazy"
+                    />
+
+                    {/* Maximize zoom overlay */}
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span className="px-4 py-2 bg-white/95 text-branding-black text-xs font-bold rounded-lg shadow-md flex items-center gap-1.5">
+                        <Maximize2 className="h-3.5 w-3.5" />
+                        {locale === "vi" ? "Xem phóng to" : "View larger"}
+                      </span>
+                    </div>
+                  </button>
+                </article>
+              );
+            })}
+
+          {/* Load More Trigger */}
+          {!letterLoading &&
+            !searchLoading &&
+            currentEntries.length > visibleCount && (
+              <div className="flex justify-center mt-6">
+                <button
+                  onClick={() => setVisibleCount((prev) => prev + 15)}
+                  type="button"
+                  className={`px-6 py-3 bg-[#956319] text-white text-sm font-bold rounded-lg hover:bg-[#805516] transition-colors ${focusClass}`}
+                >
+                  {locale === "vi" ? "Xem thêm" : "Load More"}
+                </button>
+              </div>
+            )}
+
+          {/* Empty Search State */}
+          {!letterLoading && !searchLoading && currentEntries.length === 0 && (
+            <div className="text-center py-20 text-branding-black/65 bg-white/70 border border-branding-black/10 rounded-xl p-8">
+              {locale === "vi"
+                ? "Không tìm thấy dữ liệu phù hợp với bộ lọc và tìm kiếm."
+                : "No entries match your filters and search."}
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Lightbox Modal for enlarged scans matching templates/wiki.html */}
+      {/* Enlarged original scan */}
       {activeScanId && (
         <ScanLightbox
           src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${activeScanId}.png/full/full/0/default.jpg`}
-          alt="Enlarged scan"
+          alt={locale === "vi" ? "Bản quét phóng to" : "Enlarged scan"}
           onClose={closeLightbox}
         />
       )}

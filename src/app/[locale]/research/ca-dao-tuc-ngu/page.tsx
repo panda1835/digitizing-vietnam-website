@@ -1,8 +1,18 @@
 import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Boxes,
+  GraduationCap,
+  Layers,
+  MessageCircle,
+  Search,
+} from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { PageHeader } from "@/components/common/PageHeader";
+import { InfoCard } from "@/components/common/InfoCard";
+import BreadcrumbAndSearchBar from "@/components/layout/BreadcrumbAndSearchBar";
 import { Merriweather } from "next/font/google";
 
 const merriweather = Merriweather({
@@ -27,41 +37,40 @@ export default async function CaDaoTucNguPage({
 
   const tocGroups = [
     {
-      title: t("Tools.ca-dao-tuc-ngu.sidebar.archive-title"),
+      title: locale === "vi" ? "Kho lưu trữ số" : "Digital Archives",
+      icon: Layers,
       items: [
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.archive-item1"),
-          href: "/our-collections/tuc-ngu-phong-dao-viet-nam",
+          href: "/our-collections/vietnamese-folk-literature#folk-verses-proverbs",
         },
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.archive-item2"),
-          href: "/our-collections/vietnamese-folk-literature/truyen-co-tich-viet-nam",
-        },
-        {
-          label: t("Tools.ca-dao-tuc-ngu.sidebar.archive-item3"),
-          href: "#",
+          href: "/our-collections/vietnamese-folk-literature#folktales",
         },
       ],
     },
     {
-      title: t("Tools.ca-dao-tuc-ngu.sidebar.tools-title"),
+      title: locale === "vi" ? "Công cụ số" : "Digital Tools",
+      icon: Boxes,
       items: [
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item1"),
           href: "/research/ca-dao-tuc-ngu/tu-dien",
         },
         {
-          label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item2"),
-          href: "https://cadao.richardhoa.io.vn/qa-page",
-        },
-        {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item3"),
           href: "/research/ca-dao-tuc-ngu/kho-tang-tuc-ngu/tra-cuu",
+        },
+        {
+          label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item2"),
+          href: "https://cadao.richardhoa.io.vn/qa-page",
         },
       ],
     },
     {
-      title: t("Tools.ca-dao-tuc-ngu.sidebar.learning-title"),
+      title: locale === "vi" ? "Trung tâm học tập" : "Learning Center",
+      icon: GraduationCap,
       items: [
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.learning-item1"),
@@ -71,224 +80,188 @@ export default async function CaDaoTucNguPage({
     },
   ];
 
-  const tocList = (
-    <ul className="space-y-6 lg:space-y-11">
-      {tocGroups.map((group) => (
-        <li key={group.title}>
-          <p
-            className={`${merriweather.className} text-base lg:text-lg leading-none tracking-[0.1em] text-branding-brown font-bold`}
-          >
-            {group.title}
-          </p>
-          <ul className="mt-3 lg:mt-5 pl-4 lg:pl-5 pr-0 lg:pr-4 py-1 space-y-2 border-l border-branding-brown/30">
-            {group.items.map((item) => {
-              const isExternal = item.href.startsWith("http");
-              const isPlaceholder = item.href === "#";
-              return (
-                <li key={item.label} className="list-none">
-                  {isPlaceholder ? (
-                    <span className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#b4b4b4] font-medium cursor-not-allowed">
-                      {item.label}
-                    </span>
-                  ) : isExternal ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="font-['Helvetica Neue'] text-[15px] lg:text-[16px] leading-[1.35] text-[#747474] font-medium hover:text-branding-brown transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </li>
-      ))}
-    </ul>
-  );
+  const featuredContent = [
+    {
+      key: "fairy-tales",
+      href: "/our-collections/vietnamese-folk-literature/truyen-co-tich-viet-nam",
+    },
+    {
+      key: "kho-tang",
+      href: "/research/ca-dao-tuc-ngu/kho-tang-tuc-ngu",
+    },
+  ];
+  const tools = [
+    {
+      key: "dictionary",
+      href: "/research/ca-dao-tuc-ngu/tu-dien",
+      icon: Search,
+    },
+    {
+      key: "qa",
+      href: "https://cadao.richardhoa.io.vn/qa-page",
+      icon: MessageCircle,
+    },
+    {
+      key: "learning",
+      href: "/research/ca-dao-tuc-ngu/hoc-ca-dao",
+      icon: GraduationCap,
+    },
+  ];
+  const focusClass =
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown";
+  const navLinkClass = `inline-flex items-start gap-0.5 text-[15px] leading-[1.4] text-branding-black/75 font-medium hover:text-[#956319] hover:underline underline-offset-2 ${focusClass}`;
 
   return (
-    <div className="flex flex-col items-center max-width w-full">
-      <div className="w-full mb-20 px-4 md:px-0">
-        <PageHeader
-          title={t("Tools.ca-dao-tuc-ngu.name")}
-          subtitle=""
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mb-20">
+        <BreadcrumbAndSearchBar
+          locale={locale}
           breadcrumbItems={[
-            { label: t("ResearchHub.title"), href: "/research" },
+            { label: t("ResearchHub.title"), href: "research" },
             { label: t("Tools.ca-dao-tuc-ngu.name") },
           ]}
-          locale={locale}
         />
 
-        <div className="mt-12 flex flex-col lg:flex-row gap-12 justify-center w-full">
-          {/* Desktop Sidebar */}
-          <aside className="hidden lg:block lg:w-64 lg:flex-shrink-0">
-            <nav className="lg:sticky lg:top-32">{tocList}</nav>
-          </aside>
+        <section className="relative isolate mt-2 overflow-hidden rounded-2xl px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12">
+          <Image
+            src="/images/research-hub/ca-dao-tuc-ngu.png"
+            alt=""
+            aria-hidden
+            fill
+            priority
+            sizes="(min-width: 1280px) 1216px, 100vw"
+            className="-z-20 pointer-events-none select-none object-cover"
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10 bg-white/35"
+          />
+          <h1
+            className={`${merriweather.className} max-w-4xl text-4xl sm:text-5xl xl:text-[3.5rem] leading-[1.25] sm:leading-[1.25] xl:leading-[1.25] text-branding-black mb-4`}
+          >
+            {t("Tools.ca-dao-tuc-ngu.hero.title")}
+          </h1>
+          <p className="text-lg text-branding-black/70 leading-relaxed max-w-3xl mb-7">
+            {t("Tools.ca-dao-tuc-ngu.hero.subtitle")}
+          </p>
+          <Link
+            href="/our-collections/vietnamese-folk-literature#folk-verses-proverbs"
+            className={`inline-flex items-center gap-2 rounded-lg bg-[#956319] px-6 py-3 text-sm font-bold text-white shadow-md shadow-branding-brown/20 hover:bg-[#805516] transition-colors ${focusClass}`}
+          >
+            {t("Tools.ca-dao-tuc-ngu.sidebar.archive-item1")}
+            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+          </Link>
+        </section>
 
-          {/* Main Content */}
-          <main className="flex flex-col gap-10 max-w-5xl w-full">
-            {/* Hero Section */}
-            <section id="intro" className="scroll-mt-32">
-              <h2
-                className={`${merriweather.className} text-3xl md:text-5xl text-branding-black font-normal mb-3 leading-tight`}
+        <section aria-labelledby="explore-heading" className="mt-8 lg:mt-10">
+          <h2
+            id="explore-heading"
+            className={`${merriweather.className} text-[28px] sm:text-[32px] leading-relaxed text-branding-black mb-4`}
+          >
+            {t("Tools.ca-dao-tuc-ngu.name")}
+          </h2>
+          <nav
+            aria-labelledby="explore-heading"
+            className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5"
+          >
+            {tocGroups.map((group) => (
+              <div
+                key={group.title}
+                className="flex flex-col bg-white/70 rounded-xl border border-branding-black/10 shadow-sm shadow-branding-brown/5 p-5"
               >
-                {t("Tools.ca-dao-tuc-ngu.hero.title")}
-              </h2>
-              <p
-                className={`${merriweather.className} text-xl md:text-2xl text-branding-brown italic font-normal mb-8 leading-relaxed`}
-              >
-                {t("Tools.ca-dao-tuc-ngu.hero.subtitle")}
-              </p>
-              <p className="text-base text-branding-black/80 font-light leading-relaxed">
-                {t("Tools.ca-dao-tuc-ngu.hero.intro")}
-              </p>
-            </section>
-
-            {/* Mobile Sidebar */}
-            <section className="lg:hidden">
-              <nav className="rounded-2xl border border-branding-brown/15 bg-white/60 p-5">
-                {tocList}
-              </nav>
-            </section>
-
-            {/* 2x2 Grid of Cards */}
-            <section id="grid-content" className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                {/* Card 01 */}
-                <div className="bg-white p-8 rounded-3xl border border-branding-brown/10 shadow-sm flex flex-col justify-between min-h-[320px]">
-                  <div>
-                    <span className="block text-4xl md:text-5xl font-normal text-branding-brown mb-4">
-                      01
-                    </span>
-                    <h3
-                      className={`${merriweather.className} text-xl md:text-2xl text-branding-black font-bold mb-4 leading-snug`}
-                    >
-                      {t("Tools.ca-dao-tuc-ngu.cards.dictionary.title")}
-                    </h3>
-                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
-                      {t("Tools.ca-dao-tuc-ngu.cards.dictionary.description")}
-                    </p>
-                  </div>
-                  <Link
-                    href="/research/ca-dao-tuc-ngu/tu-dien"
-                    className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
-                  >
-                    {t("Tools.ca-dao-tuc-ngu.cards.dictionary.cta")}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-
-                {/* Card 02 */}
-                <div className="bg-white p-8 rounded-3xl border border-branding-brown/10 shadow-sm flex flex-col justify-between min-h-[320px]">
-                  <div>
-                    <span className="block text-4xl md:text-5xl font-normal text-branding-brown mb-4">
-                      02
-                    </span>
-                    <h3
-                      className={`${merriweather.className} text-xl md:text-2xl text-branding-black font-bold mb-4 leading-snug`}
-                    >
-                      {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.title")}
-                    </h3>
-                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
-                      {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.description")}
-                    </p>
-                  </div>
-                  <Link
-                    href="/our-collections/vietnamese-folk-literature/truyen-co-tich-viet-nam"
-                    className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
-                  >
-                    {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.cta")}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-
-                {/* Card 03 */}
-                <div className="bg-white p-8 rounded-3xl border border-branding-brown/10 shadow-sm flex flex-col justify-between min-h-[320px]">
-                  <div>
-                    <span className="block text-4xl md:text-5xl font-normal text-branding-brown mb-4">
-                      03
-                    </span>
-                    <h3
-                      className={`${merriweather.className} text-xl md:text-2xl text-branding-black font-bold mb-4 leading-snug`}
-                    >
-                      {t("Tools.ca-dao-tuc-ngu.cards.qa.title")}
-                    </h3>
-                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
-                      {t("Tools.ca-dao-tuc-ngu.cards.qa.description")}
-                    </p>
-                  </div>
-                  <a
-                    href="https://cadao.richardhoa.io.vn/qa-page"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
-                  >
-                    {t("Tools.ca-dao-tuc-ngu.cards.qa.cta")}
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
-
-                {/* Card 04 */}
-                <div className="bg-white p-8 rounded-3xl border border-branding-brown/10 shadow-sm flex flex-col justify-between min-h-[320px]">
-                  <div>
-                    <span className="block text-4xl md:text-5xl font-normal text-branding-brown mb-4">
-                      04
-                    </span>
-                    <h3
-                      className={`${merriweather.className} text-xl md:text-2xl text-branding-black font-bold mb-4 leading-snug`}
-                    >
-                      {t("Tools.ca-dao-tuc-ngu.cards.learning.title")}
-                    </h3>
-                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
-                      {t("Tools.ca-dao-tuc-ngu.cards.learning.description")}
-                    </p>
-                  </div>
-                  <Link
-                    href="/research/ca-dao-tuc-ngu/hoc-ca-dao"
-                    className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
-                  >
-                    {t("Tools.ca-dao-tuc-ngu.cards.learning.cta")}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-
-                {/* Card 05 */}
-                <div className="bg-white p-8 rounded-3xl border border-branding-brown/10 shadow-sm flex flex-col justify-between min-h-[320px]">
-                  <div>
-                    <span className="block text-4xl md:text-5xl font-normal text-branding-brown mb-4">
-                      05
-                    </span>
-                    <h3
-                      className={`${merriweather.className} text-xl md:text-2xl text-branding-black font-bold mb-4 leading-snug`}
-                    >
-                      {t("Tools.ca-dao-tuc-ngu.cards.kho-tang.title")}
-                    </h3>
-                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
-                      {t("Tools.ca-dao-tuc-ngu.cards.kho-tang.description")}
-                    </p>
-                  </div>
-                  <Link
-                    href="/research/ca-dao-tuc-ngu/kho-tang-tuc-ngu"
-                    className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
-                  >
-                    {t("Tools.ca-dao-tuc-ngu.cards.kho-tang.cta")}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
+                <h3
+                  className={`${merriweather.className} flex items-center gap-2 text-[15px] text-branding-black font-bold pb-2.5 mb-3 border-b border-branding-black/10`}
+                >
+                  <span className="p-1.5 rounded-md bg-branding-brown/10 text-branding-brown shrink-0">
+                    <group.icon className="h-4 w-4" aria-hidden />
+                  </span>
+                  {group.title}
+                </h3>
+                <ul className="space-y-2.5">
+                  {group.items.map((item) => (
+                    <li key={item.label}>
+                      {item.href === "#" ? (
+                        <span
+                          className="text-[15px] leading-[1.4] text-branding-black/60"
+                          aria-disabled="true"
+                        >
+                          {item.label}
+                        </span>
+                      ) : item.href.startsWith("http") ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={navLinkClass}
+                        >
+                          {item.label}
+                          <ArrowUpRight
+                            className="h-3 w-3 shrink-0 mt-[0.2em]"
+                            aria-hidden
+                          />
+                        </a>
+                      ) : (
+                        <Link href={item.href} className={navLinkClass}>
+                          {item.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </section>
-          </main>
-        </div>
+            ))}
+          </nav>
+        </section>
+
+        <section aria-labelledby="featured-heading" className="mt-10">
+          <h2
+            id="featured-heading"
+            className={`${merriweather.className} text-[28px] sm:text-[32px] leading-relaxed text-branding-black mb-4`}
+          >
+            {t("ResearchHub.HanNomHub.hub.featured.title")}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            {featuredContent.map((card) => (
+              <InfoCard
+                variant="resource"
+                alignRows
+                key={card.key}
+                url={card.href}
+                name={t(`Tools.ca-dao-tuc-ngu.cards.${card.key}.title`)}
+                description={t(
+                  `Tools.ca-dao-tuc-ngu.cards.${card.key}.description`
+                )}
+                ctaText={t(`Tools.ca-dao-tuc-ngu.cards.${card.key}.cta`)}
+              />
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="tools-heading" className="mt-10">
+          <h2
+            id="tools-heading"
+            className={`${merriweather.className} text-[28px] sm:text-[32px] leading-relaxed text-branding-black mb-4`}
+          >
+            {locale === "vi" ? "Công cụ và học tập" : "Tools & Learning"}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4">
+            {tools.map((tool) => (
+              <InfoCard
+                variant="resource"
+                alignRows
+                key={tool.key}
+                url={tool.href}
+                newTab={tool.href.startsWith("https://")}
+                name={t(`Tools.ca-dao-tuc-ngu.cards.${tool.key}.title`)}
+                description={t(
+                  `Tools.ca-dao-tuc-ngu.cards.${tool.key}.description`
+                )}
+                ctaText={t(`Tools.ca-dao-tuc-ngu.cards.${tool.key}.cta`)}
+                icon={tool.icon}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );

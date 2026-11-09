@@ -1,14 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { useTranslations } from "next-intl";
-import { X } from "lucide-react";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { useId, useRef, useState } from "react";
+import { Merriweather } from "next/font/google";
 import {
   Popover,
   PopoverContent,
@@ -16,23 +9,28 @@ import {
 } from "@/components/ui/popover";
 import { Source } from "./data";
 
+const merriweather = Merriweather({
+  weight: ["300", "400", "700"],
+  subsets: ["vietnamese"],
+});
 const CLOSE_DELAY_MS = 150;
 
 /**
  * A Source Abbreviation that shows its Source on hover (mouse), and on tap
- * or Enter (touch, keyboard). Esc and a click outside close it. Its "read
- * more" opens the Source's full note in a modal, over the page.
+ * or Enter (touch, keyboard). Esc and a click outside close it.
+ * The full source note is readable here, without a second dialog.
  */
 export function SourcePopover({
   abbreviation,
   source,
+  subtle = false,
 }: {
   abbreviation: string;
   source: Source | undefined;
+  subtle?: boolean;
 }) {
-  const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
   const [open, setOpen] = useState(false);
-  const [noteOpen, setNoteOpen] = useState(false);
+  const titleId = useId();
   const closeTimer = useRef<ReturnType<typeof setTimeout>>();
 
   if (!source) return <span>{abbreviation}</span>;
@@ -49,19 +47,17 @@ export function SourcePopover({
     closeTimer.current = setTimeout(() => setOpen(false), CLOSE_DELAY_MS);
   };
 
-  const openNote = () => {
-    clearTimeout(closeTimer.current);
-    setOpen(false);
-    setNoteOpen(true);
-  };
-
   return (
     <>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger
           onPointerEnter={hoverOpen}
           onPointerLeave={hoverClose}
-          className="font-semibold text-branding-brown underline decoration-dotted decoration-branding-brown/50 underline-offset-[3px] hover:decoration-solid focus:outline-none focus-visible:ring-2 focus-visible:ring-branding-brown/40 rounded-sm"
+          className={`${
+            subtle
+              ? "font-normal text-branding-black/65 decoration-branding-black/30"
+              : "font-medium text-[#956319] decoration-branding-brown/50"
+          } underline decoration-dotted underline-offset-[3px] hover:decoration-solid hover:text-[#956319] focus:outline-none focus-visible:ring-2 focus-visible:ring-branding-brown/40 rounded-sm`}
         >
           {abbreviation}
         </PopoverTrigger>
@@ -69,64 +65,32 @@ export function SourcePopover({
           onPointerEnter={hoverOpen}
           onPointerLeave={hoverClose}
           onOpenAutoFocus={(e) => e.preventDefault()}
-          className="w-80 max-w-[calc(100vw-32px)] bg-white border-branding-brown/15 rounded-xl text-branding-black"
+          aria-labelledby={titleId}
+          sideOffset={8}
+          collisionPadding={16}
+          className="w-96 max-w-[calc(100vw-32px)] max-h-[min(80dvh,var(--radix-popover-content-available-height))] overflow-y-auto overscroll-contain p-5 bg-white border-branding-black/10 rounded-xl shadow-lg text-branding-black"
         >
-          <p className="text-[11px] font-bold uppercase tracking-widest text-branding-brown/80">
-            {source.abbreviation} · {source.kind}
-          </p>
-          <p className="mt-1 font-bold italic leading-snug">{source.title}</p>
+          <h3
+            id={titleId}
+            className={`${merriweather.className} text-base leading-relaxed break-words`}
+          >
+            {source.title}
+          </h3>
           {(source.author || source.year) && (
-            <p className="text-sm text-branding-black/75">
+            <p className="mt-2 text-sm leading-relaxed text-branding-black/65">
               {[source.author, source.year].filter(Boolean).join(", ")}
             </p>
           )}
-          <p className="mt-2 text-sm font-light leading-relaxed line-clamp-4">
-            {source.note}
+          <div className="mt-4 border-t border-branding-black/10 pt-3">
+            <p className="text-sm leading-relaxed text-branding-black/75 whitespace-pre-line break-words">
+              {source.note}
+            </p>
+          </div>
+          <p className="mt-4 text-xs leading-relaxed text-branding-black/65">
+            {source.abbreviation} · {source.kind}
           </p>
-          <button
-            type="button"
-            onClick={openNote}
-            className="mt-2 inline-block text-sm font-semibold text-branding-brown underline underline-offset-2 hover:text-branding-brown/80"
-          >
-            {t("read-more")}
-          </button>
         </PopoverContent>
       </Popover>
-
-      <Dialog open={noteOpen} onOpenChange={setNoteOpen}>
-        <DialogContent
-          // The default × would sit under the sticky header; the header has its own.
-          className="max-w-none w-full h-[100dvh] md:h-auto md:max-h-[90vh] md:w-[min(720px,calc(100vw-48px))] p-0 gap-0 bg-branding-gray border-0 md:rounded-3xl overflow-y-auto flex flex-col [&>button:last-child]:hidden"
-        >
-          <div className="sticky top-0 z-10 flex items-center gap-3 px-4 md:px-6 py-3 bg-branding-gray/95 backdrop-blur border-b border-branding-brown/10">
-            <DialogTitle className="text-sm font-bold uppercase tracking-widest text-branding-black/70">
-              {source.abbreviation} · {source.kind}
-            </DialogTitle>
-            <DialogClose
-              aria-label={t("close")}
-              className="ml-auto p-2 rounded-full text-branding-black/60 hover:text-branding-black hover:bg-branding-black/5"
-            >
-              <X className="h-5 w-5" />
-            </DialogClose>
-          </div>
-
-          <div className="p-4 md:p-6">
-            <article className="bg-white p-6 md:p-8 rounded-3xl border border-branding-brown/10 shadow-sm text-branding-black">
-              <p className="text-xl font-bold italic leading-snug">
-                {source.title}
-              </p>
-              {(source.author || source.year) && (
-                <p className="mt-1 text-branding-black/75">
-                  {[source.author, source.year].filter(Boolean).join(", ")}
-                </p>
-              )}
-              <p className="mt-4 font-light leading-relaxed whitespace-pre-line">
-                {source.note}
-              </p>
-            </article>
-          </div>
-        </DialogContent>
-      </Dialog>
     </>
   );
 }

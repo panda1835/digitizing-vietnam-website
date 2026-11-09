@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Loader2, Search, SlidersHorizontal, X } from "lucide-react";
 import MiniSearch from "minisearch";
+import { Merriweather } from "next/font/google";
 import { Link } from "@/i18n/routing";
 import { ScanLightbox } from "@/components/common/ScanLightbox";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
@@ -26,10 +27,16 @@ import {
   letterOfAnchor,
 } from "./data";
 
+const merriweather = Merriweather({
+  weight: ["300", "400", "700"],
+  subsets: ["vietnamese"],
+});
+const focusClass =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown";
 const PAGE_SIZE = 10;
 const SEARCH_DEBOUNCE_MS = 250;
 const FLAGS = ["notes", "variants", "correction"] as const;
-type Flag = (typeof FLAGS)[number];
+type Flag = typeof FLAGS[number];
 const ANCHOR_HASH = /^#(.+-\d+)$/;
 
 /** Everything the reader has chosen, as kept in the URL query. */
@@ -46,7 +53,9 @@ function parseFilters(params: URLSearchParams): Filters {
     letter: AVAILABLE_LETTERS.includes(letter) ? letter : AVAILABLE_LETTERS[0],
     query: params.get("q") ?? "",
     sources: (params.get("src") ?? "").split(",").filter(Boolean),
-    flags: (params.get("f") ?? "").split(",").filter((f): f is Flag => FLAGS.includes(f as Flag)),
+    flags: (params.get("f") ?? "")
+      .split(",")
+      .filter((f): f is Flag => FLAGS.includes(f as Flag)),
   };
 }
 
@@ -60,7 +69,8 @@ function serializeFilters(f: Filters): string {
 }
 
 function matchesFacets(e: ProverbEntry, f: Filters): boolean {
-  if (f.sources.length && !f.sources.some((s) => e.sources.includes(s))) return false;
+  if (f.sources.length && !f.sources.some((s) => e.sources.includes(s)))
+    return false;
   if (f.flags.includes("notes") && !e.has_notes) return false;
   if (f.flags.includes("variants") && !e.has_variants) return false;
   if (f.flags.includes("correction") && !e.has_correction) return false;
@@ -77,9 +87,11 @@ function buildSearch(entries: ProverbEntry[]): MiniSearch {
     entries.map((e, id) => ({
       id,
       proverb: e.proverb,
-      variants: e.variants.map((v) => v.text.map((r) => r.text).join("")).join(" "),
+      variants: e.variants
+        .map((v) => v.text.map((r) => r.text).join(""))
+        .join(" "),
       notes: e.notes.map((n) => n.map((r) => r.text).join("")).join(" "),
-    })),
+    }))
   );
   return ms;
 }
@@ -88,7 +100,10 @@ export function TraCuuContent() {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
   const locale = useLocale();
   const searchParams = useSearchParams();
-  const filters = useMemo(() => parseFilters(new URLSearchParams(searchParams.toString())), [searchParams]);
+  const filters = useMemo(
+    () => parseFilters(new URLSearchParams(searchParams.toString())),
+    [searchParams]
+  );
 
   const setFilters = useCallback(
     (patch: Partial<Filters>, { replace = false } = {}) => {
@@ -97,17 +112,22 @@ export function TraCuuContent() {
       if (replace) window.history.replaceState(null, "", url);
       else window.history.pushState(null, "", url);
     },
-    [filters],
+    [filters]
   );
 
   const [sources, setSources] = useState<Sources>({});
-  const [letterEntries, setLetterEntries] = useState<ProverbEntry[] | null>(null);
+  const [letterEntries, setLetterEntries] = useState<ProverbEntry[] | null>(
+    null
+  );
   const [loadError, setLoadError] = useState(false);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   // Search: the box is typed into locally and written to the URL debounced.
   const [queryInput, setQueryInput] = useState(filters.query);
-  const [search, setSearch] = useState<{ entries: ProverbEntry[]; ms: MiniSearch } | null>(null);
+  const [search, setSearch] = useState<{
+    entries: ProverbEntry[];
+    ms: MiniSearch;
+  } | null>(null);
   const [searchLoading, setSearchLoading] = useState(false);
 
   const [modalStack, setModalStack] = useState<string[]>([]);
@@ -115,7 +135,9 @@ export function TraCuuContent() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
-    fetchSources().then(setSources).catch(() => setLoadError(true));
+    fetchSources()
+      .then(setSources)
+      .catch(() => setLoadError(true));
   }, []);
 
   useEffect(() => {
@@ -136,7 +158,10 @@ export function TraCuuContent() {
 
   useEffect(() => {
     if (queryInput === filters.query) return;
-    const timer = setTimeout(() => setFilters({ query: queryInput.trim() }, { replace: true }), SEARCH_DEBOUNCE_MS);
+    const timer = setTimeout(
+      () => setFilters({ query: queryInput.trim() }, { replace: true }),
+      SEARCH_DEBOUNCE_MS
+    );
     return () => clearTimeout(timer);
   }, [queryInput, filters.query, setFilters]);
 
@@ -158,9 +183,16 @@ export function TraCuuContent() {
       setModalStack([anchor]);
       // A shared link names no letter; show the list at the entry's own.
       const params = new URLSearchParams(window.location.search);
-      if (!params.has("l") && AVAILABLE_LETTERS.includes(letterOfAnchor(anchor))) {
+      if (
+        !params.has("l") &&
+        AVAILABLE_LETTERS.includes(letterOfAnchor(anchor))
+      ) {
         params.set("l", letterOfAnchor(anchor));
-        window.history.replaceState(null, "", `${window.location.pathname}?${params}${window.location.hash}`);
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}?${params}${window.location.hash}`
+        );
       }
     };
     openFromHash();
@@ -171,7 +203,9 @@ export function TraCuuContent() {
   // The hash follows the entry shown in the modal, so its URL can be shared.
   useEffect(() => {
     const top = modalStack[modalStack.length - 1];
-    const url = `${window.location.pathname}${window.location.search}${top ? `#${top}` : ""}`;
+    const url = `${window.location.pathname}${window.location.search}${
+      top ? `#${top}` : ""
+    }`;
     window.history.replaceState(window.history.state, "", url);
   }, [modalStack]);
 
@@ -183,31 +217,49 @@ export function TraCuuContent() {
   const baseEntries = useMemo(() => {
     if (filters.query) {
       if (!search) return null;
-      return search.ms.search(filters.query).map((r) => search.entries[r.id as number]);
+      return search.ms
+        .search(filters.query)
+        .map((r) => search.entries[r.id as number]);
     }
     return letterEntries ?? null;
   }, [filters.query, search, letterEntries]);
 
-  const results = useMemo(() => baseEntries?.filter((e) => matchesFacets(e, filters)) ?? null, [baseEntries, filters]);
+  const results = useMemo(
+    () => baseEntries?.filter((e) => matchesFacets(e, filters)) ?? null,
+    [baseEntries, filters]
+  );
 
   const sourceCounts = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const e of baseEntries ?? []) for (const s of e.sources) counts.set(s, (counts.get(s) ?? 0) + 1);
+    for (const e of baseEntries ?? [])
+      for (const s of e.sources) counts.set(s, (counts.get(s) ?? 0) + 1);
     for (const s of filters.sources) if (!counts.has(s)) counts.set(s, 0);
     return Array.from(counts).sort((a, b) => a[0].localeCompare(b[0], "vi"));
   }, [baseEntries, filters.sources]);
 
-  const pushModal = useCallback((anchor: string) => setModalStack((s) => [...s, anchor]), []);
-  const openModal = useCallback((anchor: string) => setModalStack([anchor]), []);
+  const pushModal = useCallback(
+    (anchor: string) => setModalStack((s) => [...s, anchor]),
+    []
+  );
+  const openModal = useCallback(
+    (anchor: string) => setModalStack([anchor]),
+    []
+  );
   const closeLightbox = useCallback(() => setLightboxEntry(null), []);
 
   const chips: { key: string; label: string; remove: () => void }[] = [];
-  if (filters.query) chips.push({ key: "q", label: `“${filters.query}”`, remove: () => setFilters({ query: "" }) });
+  if (filters.query)
+    chips.push({
+      key: "q",
+      label: `“${filters.query}”`,
+      remove: () => setFilters({ query: "" }),
+    });
   for (const s of filters.sources)
     chips.push({
       key: `src-${s}`,
       label: `${t("source")}: ${s}`,
-      remove: () => setFilters({ sources: filters.sources.filter((x) => x !== s) }),
+      remove: () =>
+        setFilters({ sources: filters.sources.filter((x) => x !== s) }),
     });
   for (const f of filters.flags)
     chips.push({
@@ -234,45 +286,53 @@ export function TraCuuContent() {
           {t("progress", {
             parts: EXPORTED_PARTS,
             total: TOTAL_PARTS,
-            letters: `${AVAILABLE_LETTERS[0]}–${AVAILABLE_LETTERS[AVAILABLE_LETTERS.length - 1]}`,
+            letters: `${AVAILABLE_LETTERS[0]}–${
+              AVAILABLE_LETTERS[AVAILABLE_LETTERS.length - 1]
+            }`,
           })}
         </span>
-        <Link href={INTRO_PATH} className="font-semibold text-branding-brown underline underline-offset-2">
+        <Link
+          href={INTRO_PATH}
+          className="font-medium text-[#956319] underline underline-offset-2 hover:text-branding-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown"
+        >
           {t("back-to-intro")}
         </Link>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-8 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 xl:gap-8 items-start">
         {/* Sidebar on desktop */}
-        <aside className="hidden lg:block w-[300px] flex-shrink-0 sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2">
+        <aside className="hidden lg:block w-64 flex-shrink-0 sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2">
           {filterPanel}
         </aside>
 
         <div className="flex-1 min-w-0 w-full flex flex-col gap-4">
           {/* Search text input */}
-          <div className="relative flex items-center shadow-sm rounded-2xl overflow-hidden border border-branding-brown/20 bg-white">
+          <div className="relative flex items-center rounded-lg border border-branding-black/20 bg-white focus-within:border-branding-brown focus-within:ring-2 focus-within:ring-branding-brown/30">
             <input
               type="search"
+              aria-label={t("search-placeholder")}
               value={queryInput}
               onChange={(e) => setQueryInput(e.target.value)}
               placeholder={t("search-placeholder")}
-              className="w-full pl-5 pr-12 py-3.5 bg-white text-sm text-branding-black focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+              className="w-full h-12 pl-4 pr-20 rounded-lg bg-transparent text-base text-branding-black placeholder:text-branding-black/60 focus:outline-none [&::-webkit-search-cancel-button]:appearance-none"
             />
             <div className="absolute right-4 flex items-center gap-2">
-              {searchLoading && <Loader2 className="animate-spin h-5 w-5 text-branding-brown" />}
+              {searchLoading && (
+                <Loader2 className="animate-spin h-5 w-5 text-branding-brown" />
+              )}
               {queryInput ? (
                 <button
                   onClick={() => {
                     setQueryInput("");
                     setFilters({ query: "" });
                   }}
-                  className="text-gray-400 hover:text-branding-brown"
+                  className={`flex h-10 w-10 items-center justify-center rounded-md text-branding-black/60 hover:text-[#956319] ${focusClass}`}
                   aria-label={t("clear-all")}
                 >
                   <X className="h-5 w-5" />
                 </button>
               ) : (
-                <Search className="text-gray-400 h-5 w-5" />
+                <Search className="text-branding-black/60 h-5 w-5" />
               )}
             </div>
           </div>
@@ -280,15 +340,20 @@ export function TraCuuContent() {
           {/* Filter drawer on phones */}
           <button
             onClick={() => setDrawerOpen(true)}
-            className="lg:hidden self-start inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-branding-brown/20 rounded-xl text-sm font-semibold text-branding-black shadow-sm"
+            className={`lg:hidden self-start inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-branding-black/20 rounded-lg text-sm font-medium text-branding-black hover:bg-branding-brown/5 ${focusClass}`}
           >
             <SlidersHorizontal className="h-4 w-4 text-branding-brown" />
             {t("filters")}
             {chips.length > 0 && ` (${chips.length})`}
           </button>
           <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
-            <SheetContent side="bottom" className="max-h-[85dvh] overflow-y-auto rounded-t-3xl bg-white">
-              <SheetTitle className="mb-4 text-base font-bold text-branding-brown uppercase tracking-wider">
+            <SheetContent
+              side="bottom"
+              className="max-h-[85dvh] overflow-y-auto rounded-t-2xl bg-white"
+            >
+              <SheetTitle
+                className={`${merriweather.className} mb-5 text-xl text-branding-black`}
+              >
                 {t("filters")}
               </SheetTitle>
               {filterPanel}
@@ -296,7 +361,10 @@ export function TraCuuContent() {
           </Sheet>
 
           {/* Count and active filters */}
-          <div className="flex flex-wrap items-center gap-2 text-sm">
+          <div
+            aria-live="polite"
+            className="flex flex-wrap items-center gap-2 text-sm"
+          >
             {results && (
               <span className="font-semibold text-branding-black mr-1">
                 {filters.query ? "" : `${filters.letter} · `}
@@ -307,7 +375,7 @@ export function TraCuuContent() {
               <button
                 key={chip.key}
                 onClick={chip.remove}
-                className="inline-flex items-center gap-1 pl-3 pr-2 py-1 rounded-full bg-branding-brown/10 text-branding-brown hover:bg-branding-brown/20"
+                className={`inline-flex items-center gap-1 pl-3 pr-2 py-1.5 rounded-md bg-branding-brown/10 text-[#805516] hover:bg-branding-brown/20 ${focusClass}`}
               >
                 {chip.label}
                 <X className="h-3.5 w-3.5" />
@@ -319,7 +387,7 @@ export function TraCuuContent() {
                   setQueryInput("");
                   setFilters({ query: "", sources: [], flags: [] });
                 }}
-                className="text-branding-black/60 underline underline-offset-2 hover:text-branding-brown"
+                className={`text-branding-black/65 underline underline-offset-2 hover:text-[#956319] ${focusClass}`}
               >
                 {t("clear-all")}
               </button>
@@ -329,7 +397,9 @@ export function TraCuuContent() {
           {loading && (
             <div className="flex flex-col items-center justify-center py-20 w-full">
               <Loader2 className="animate-spin h-10 w-10 text-branding-brown mb-2" />
-              <span className="text-sm text-gray-500">{t("loading")}</span>
+              <span className="text-sm text-branding-black/65">
+                {t("loading")}
+              </span>
             </div>
           )}
 
@@ -347,7 +417,7 @@ export function TraCuuContent() {
             <div className="flex justify-center mt-2">
               <button
                 onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
-                className="px-8 py-3 bg-branding-black text-white text-sm font-bold rounded-xl hover:bg-branding-brown hover:shadow-md transition-all duration-300"
+                className={`px-6 py-3 bg-[#956319] text-white text-sm font-bold rounded-lg hover:bg-[#805516] transition-colors ${focusClass}`}
               >
                 {t("load-more")}
               </button>
@@ -355,7 +425,7 @@ export function TraCuuContent() {
           )}
 
           {(loadError || results?.length === 0) && (
-            <div className="text-center py-20 text-gray-500 bg-white border border-branding-brown/5 rounded-3xl p-8">
+            <div className="text-center py-20 text-branding-black/65 bg-white/70 border border-branding-black/10 rounded-xl p-8">
               {t("empty")}
             </div>
           )}
@@ -373,14 +443,24 @@ export function TraCuuContent() {
       />
 
       {lightboxEntry && (
-        <ScanLightbox src={entryImageUrl(lightboxEntry)} alt={lightboxEntry.name} onClose={closeLightbox} />
+        <ScanLightbox
+          src={entryImageUrl(lightboxEntry)}
+          alt={lightboxEntry.name}
+          onClose={closeLightbox}
+        />
       )}
     </div>
   );
 }
 
 function FacetHeading({ children }: { children: React.ReactNode }) {
-  return <p className="text-xs font-bold uppercase tracking-widest text-branding-brown mb-2.5">{children}</p>;
+  return (
+    <h2
+      className={`${merriweather.className} text-base text-branding-black mb-3`}
+    >
+      {children}
+    </h2>
+  );
 }
 
 function FilterPanel({
@@ -390,7 +470,10 @@ function FilterPanel({
   sources,
 }: {
   filters: Filters;
-  setFilters: (patch: Partial<Filters>, options?: { replace?: boolean }) => void;
+  setFilters: (
+    patch: Partial<Filters>,
+    options?: { replace?: boolean }
+  ) => void;
   sourceCounts: [string, number][];
   sources: Sources;
 }) {
@@ -407,13 +490,17 @@ function FilterPanel({
   });
 
   const inputClass =
-    "w-full mb-2 px-3 py-2 text-sm bg-white border border-branding-brown/20 rounded-lg focus:outline-none focus:border-branding-brown";
+    "w-full h-11 mb-3 px-3 text-sm text-branding-black placeholder:text-branding-black/60 bg-white border border-branding-black/20 rounded-lg focus:outline-none focus:border-branding-brown focus:ring-2 focus:ring-branding-brown/30";
 
   return (
     <div className="flex flex-col gap-7">
       <section>
         <FacetHeading>{t("letter")}</FacetHeading>
-        <div className="grid grid-cols-6 gap-1.5">
+        <div
+          role="group"
+          aria-label={t("letter")}
+          className="grid grid-cols-5 gap-1.5"
+        >
           {ALPHABET.map((letter) => {
             const available = AVAILABLE_LETTERS.includes(letter);
             const active = filters.letter === letter && !filters.query;
@@ -421,14 +508,15 @@ function FilterPanel({
               <button
                 key={letter}
                 disabled={!available}
+                aria-pressed={active}
                 title={available ? undefined : t("not-digitized")}
                 onClick={() => setFilters({ letter, query: "" })}
-                className={`h-9 flex items-center justify-center text-sm font-bold rounded-full border transition-all duration-200 ${
+                className={`h-11 flex items-center justify-center text-sm font-medium rounded-lg border transition-colors ${focusClass} ${
                   active
-                    ? "bg-branding-brown text-white border-branding-brown shadow-md"
+                    ? "bg-[#956319] text-white border-[#956319]"
                     : available
-                      ? "bg-white border-gray-200 text-branding-black hover:border-branding-brown hover:text-branding-brown"
-                      : "bg-transparent border-dashed border-gray-200 text-gray-300 cursor-not-allowed"
+                    ? "bg-white/70 border-branding-black/15 text-branding-black hover:border-branding-brown hover:bg-branding-brown/5 hover:text-[#956319]"
+                    : "bg-branding-black/[0.02] border-dashed border-branding-black/10 text-branding-black/30 cursor-not-allowed"
                 }`}
               >
                 {letter}
@@ -441,6 +529,7 @@ function FilterPanel({
       <section>
         <FacetHeading>{t("source")}</FacetHeading>
         <input
+          aria-label={t("source-search")}
           value={sourceFilter}
           onChange={(e) => setSourceFilter(e.target.value)}
           placeholder={t("source-search")}
@@ -452,25 +541,31 @@ function FilterPanel({
             return (
               <label
                 key={abbr}
-                className="flex items-start gap-2 px-1.5 py-1 rounded-md text-sm cursor-pointer hover:bg-branding-brown/5"
+                className="flex items-start gap-2 px-1.5 py-2 rounded-md text-sm cursor-pointer hover:bg-branding-brown/5"
               >
                 <input
                   type="checkbox"
                   checked={checked}
                   onChange={() =>
                     setFilters({
-                      sources: checked ? filters.sources.filter((s) => s !== abbr) : [...filters.sources, abbr],
+                      sources: checked
+                        ? filters.sources.filter((s) => s !== abbr)
+                        : [...filters.sources, abbr],
                     })
                   }
-                  className="mt-1 accent-branding-brown"
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-[#956319] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown"
                 />
                 <span className="flex-1 min-w-0">
                   <span className="font-semibold">{abbr}</span>
                   {sources[abbr] && (
-                    <span className="block text-xs text-branding-black/60 truncate">{sources[abbr].title}</span>
+                    <span className="block text-xs text-branding-black/65 leading-relaxed line-clamp-2">
+                      {sources[abbr].title}
+                    </span>
                   )}
                 </span>
-                <span className="text-xs text-branding-black/50 mt-0.5">{count}</span>
+                <span className="text-xs text-branding-black/65 mt-0.5 tabular-nums">
+                  {count}
+                </span>
               </label>
             );
           })}
@@ -483,14 +578,21 @@ function FilterPanel({
           {FLAGS.map((flag) => {
             const checked = filters.flags.includes(flag);
             return (
-              <label key={flag} className="flex items-center gap-2 text-sm cursor-pointer">
+              <label
+                key={flag}
+                className="flex min-h-10 items-center gap-2 text-sm cursor-pointer"
+              >
                 <input
                   type="checkbox"
                   checked={checked}
                   onChange={() =>
-                    setFilters({ flags: checked ? filters.flags.filter((f) => f !== flag) : [...filters.flags, flag] })
+                    setFilters({
+                      flags: checked
+                        ? filters.flags.filter((f) => f !== flag)
+                        : [...filters.flags, flag],
+                    })
                   }
-                  className="accent-branding-brown"
+                  className="h-4 w-4 accent-[#956319] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown"
                 />
                 {t(`has-${flag}`)}
               </label>

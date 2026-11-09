@@ -484,6 +484,8 @@
         "has-variants": "Bản khác",
         "has-correction": "Sửa lại",
         "page": "tr. {pages}",
+        "original-scan": "Xem bản gốc",
+        "copied": "Đã sao chép liên kết",
         "copy-link": "Sao chép liên kết",
         "see-also": "Xem thêm câu",
         "unresolved": "Câu này nằm trong phần chưa số hoá",
