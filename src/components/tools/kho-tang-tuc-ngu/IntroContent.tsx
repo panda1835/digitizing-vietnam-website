@@ -16,7 +16,7 @@ const INTRO_FILE = path.join(
   "public/data/kho-tang-tuc-ngu/intro.md"
 );
 
-// Omit the printed title page and contents; navigation uses section anchors.
+// Render book information separately; replace printed contents with section links.
 const TITLE_PAGE = "Trang tên sách";
 const BOOK_CONTENTS = "Mục lục";
 // The empty heading where the book's Proverb Entries begin.
@@ -36,6 +36,7 @@ interface Heading {
 }
 
 interface Intro {
+  titlePage: { text: string; title: boolean }[];
   body: string;
   /** Headings of `body`, keyed by their 1-based line in it. */
   headings: Map<number, Heading>;
@@ -51,12 +52,17 @@ function slug(text: string): string {
 
 function readIntro(): Intro {
   const lines = fs.readFileSync(INTRO_FILE, "utf8").split("\n");
+  const titlePage: Intro["titlePage"] = [];
   const body: string[] = [];
   let section = "";
   for (const line of lines) {
     if (line.startsWith("# ")) continue;
     if (line.startsWith("## ")) section = plain(line.slice(3));
-    if (section !== TITLE_PAGE && section !== BOOK_CONTENTS) {
+    if (section === TITLE_PAGE) {
+      if (!line.startsWith("## ") && line.trim()) {
+        titlePage.push({ text: plain(line), title: line.startsWith("**") });
+      }
+    } else if (section !== BOOK_CONTENTS) {
       body.push(line);
     }
   }
@@ -80,7 +86,7 @@ function readIntro(): Intro {
     headings.set(i + 1, { depth, text, id });
   });
 
-  return { body: body.join("\n"), headings };
+  return { titlePage, body: body.join("\n"), headings };
 }
 
 export function IntroContent({
@@ -207,6 +213,20 @@ export function IntroContent({
 
         <article className="w-full flex-1 min-w-0 bg-white/90 rounded-xl border border-branding-black/10 p-5 sm:p-8">
           <div className="max-w-prose mx-auto [&>h2:first-child]:mt-0">
+            <header className="border-b border-branding-black/10 pb-6 text-center space-y-2">
+              {intro.titlePage.map((line, i) => (
+                <p
+                  key={i}
+                  className={
+                    line.title
+                      ? `${merriweather.className} text-xl leading-relaxed text-branding-black py-3`
+                      : "text-sm leading-relaxed text-branding-black/65"
+                  }
+                >
+                  {line.text}
+                </p>
+              ))}
+            </header>
             <Markdown components={components}>{intro.body}</Markdown>
             <div className="mt-8 border-t border-branding-black/10 pt-6">
               <EnterButton label={enterLabel} />
