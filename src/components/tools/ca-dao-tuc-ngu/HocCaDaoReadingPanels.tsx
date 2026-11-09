@@ -197,7 +197,7 @@ export function PoetrySongsPanel({ locale }: { locale: string }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-gray-100 pb-8">
             <div className="bg-[#f9fafb] p-6 rounded-2xl border border-slate-200 text-center flex flex-col items-center justify-center">
               <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-                {locale === "vi" ? "Bản gốc Ca dao (Văn học)" : "Original Folk Verse"}
+                {locale === "vi" ? "Bản gốc Ca dao (Văn học)" : "Original folk verse (literary)"}
               </span>
               <pre className={`${merriweather.className} text-sm md:text-base text-branding-black font-normal whitespace-pre-line leading-relaxed text-center`}>
                 {`Làm trai quyết chí tu thân,
@@ -208,7 +208,7 @@ Làm trai năm liệu bảy lo mới hào.`}
             </div>
             <div className="bg-[#fffbeb] p-6 rounded-2xl border border-amber-200/85 text-center flex flex-col items-center justify-center">
               <span className="block text-xs font-semibold uppercase tracking-wider text-branding-brown/95 mb-3 font-bold">
-                {locale === "vi" ? "Bản hát Dân ca (Nhạc điệu)" : "Sung Folk Song Melody"}
+                {locale === "vi" ? "Bản hát Dân ca (Nhạc điệu)" : "Sung folk song (melodic)"}
               </span>
               <p className="text-sm md:text-base text-branding-black/95 font-medium leading-relaxed text-center">
                 Quyết chí <strong className="text-branding-brown font-bold">mà</strong> tu thân <strong className="text-branding-brown font-bold">ơ</strong>,
@@ -224,7 +224,7 @@ Làm trai năm liệu bảy lo mới hào.`}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-[#f9fafb] p-6 rounded-2xl border border-slate-200 text-center flex flex-col items-center justify-center">
               <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-                {locale === "vi" ? "Bản gốc Ca dao (Văn học)" : "Original Folk Verse"}
+                {locale === "vi" ? "Bản gốc Ca dao (Văn học)" : "Original folk verse (literary)"}
               </span>
               <pre className={`${merriweather.className} text-sm md:text-base text-branding-black font-normal whitespace-pre-line leading-relaxed text-center`}>
                 {`Trống cơm khéo vỗ nên vông,
@@ -236,7 +236,7 @@ Thương ai duyên nợ tang bồng...`}
             </div>
             <div className="bg-[#fffbeb] p-6 rounded-2xl border border-amber-200/85 text-center flex flex-col items-center justify-center">
               <span className="block text-xs font-semibold uppercase tracking-wider text-branding-brown/95 mb-3 font-bold">
-                {locale === "vi" ? "Bản hát Dân ca (Nhạc điệu)" : "Sung Folk Song Melody"}
+                {locale === "vi" ? "Bản hát Dân ca (Nhạc điệu)" : "Sung folk song (melodic)"}
               </span>
               <p className="text-sm md:text-base text-branding-black/95 font-medium leading-relaxed text-center">
                 <strong className="text-branding-brown font-bold">(Tình bằng)</strong> có cái trống cơm, khen ai khéo vỗ <strong className="text-branding-brown font-bold">(ấy mấy)</strong> vông nên vông <strong className="text-branding-brown font-bold">(ấy mấy)</strong> vông nên vông,

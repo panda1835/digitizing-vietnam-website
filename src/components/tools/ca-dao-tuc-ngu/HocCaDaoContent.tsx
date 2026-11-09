@@ -277,15 +277,15 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
     if (locale !== "en") return topic;
     switch (topic) {
       case "Chủ đề tình cảm":
-        return "Sentiments & Family";
+        return "Affection";
       case "Chủ đề về hôn nhân":
-        return "Marriage & Custom";
+        return "Marriage";
       case "Chủ đề về cái đẹp":
-        return "Beauty & Integrity";
+        return "Beauty";
       case "Chủ đề về nông nghiệp":
-        return "Agriculture & Labor";
+        return "Agriculture";
       case "Chủ đề đối nhân xử thế":
-        return "Conduct & Social Ethics";
+        return "Treating Others";
       default:
         return topic;
     }
@@ -545,7 +545,7 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
             onClick={handleRestartTopic}
             className="inline-flex items-center gap-2 px-6 py-3 bg-branding-brown text-white hover:bg-branding-brown/90 font-bold rounded-lg transition-colors cursor-pointer text-sm uppercase tracking-wider shadow-sm"
           >
-            {locale === "en" ? "Review Topic" : "Học lại từ đầu"}
+            {locale === "en" ? "Start Over" : "Học lại từ đầu"}
           </button>
         </div>
       ) : (
@@ -641,7 +641,7 @@ function GamePanel({ locale, initialData }: HocCaDaoContentProps) {
             {activeBlankIndex !== null && currentPoem.blanks[activeBlankIndex] && (
               <div className="bg-branding-gray/50 border border-branding-brown/10 rounded-2xl p-5">
                 <p className="text-xs font-bold uppercase tracking-wider text-branding-brown/80 mb-3 text-center">
-                  {locale === "en" ? "CHOOSE A WORD FOR THIS BLANK" : "CHỌN TỪ THÍCH HỢP"}
+                  {locale === "en" ? "CHOOSE THE RIGHT WORD" : "CHỌN TỪ THÍCH HỢP"}
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
                   {currentPoem.blanks[activeBlankIndex].options.map((option) => (

@@ -296,7 +296,7 @@ export function TuDienContent({ locale }: { locale: string }) {
       <div className="flex flex-col gap-6 animate-fadeIn w-full">
         {/* Main header title for Search section */}
         <h3 className={`${merriweather.className} text-2xl text-branding-black font-normal mt-2`}>
-          {locale === "vi" ? "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam" : "Dictionary of Proverbs and Folk Verses"}
+          {locale === "vi" ? "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam" : "Dictionary of Vietnamese Idioms, Proverbs and Folk Verses"}
         </h3>
 
       {/* Search Input and Category Dropdown */}
@@ -311,12 +311,12 @@ export function TuDienContent({ locale }: { locale: string }) {
             }}
             className="w-full bg-white border border-branding-brown/20 text-sm text-branding-black pl-4 pr-10 py-3 rounded-2xl focus:outline-none focus:border-branding-brown focus:ring-1 focus:ring-branding-brown shadow-sm cursor-pointer appearance-none"
           >
-            <option value="ALL">{locale === "vi" ? "Tất cả phân loại" : "All Categories"}</option>
-            <option value="CA DAO">{locale === "vi" ? "Ca dao" : "Ca Dao"}</option>
-            <option value="TỤC NGỮ">{locale === "vi" ? "Tục ngữ" : "Tục Ngữ"}</option>
-            <option value="TỤC NGỮ HÁN VIỆT">{locale === "vi" ? "Tục ngữ Hán Việt" : "Tục Ngữ Hán Việt"}</option>
-            <option value="THÀNH NGỮ">{locale === "vi" ? "Thành ngữ" : "Thành Ngữ"}</option>
-            <option value="THÀNH NGỮ HÁN VIỆT">{locale === "vi" ? "Thành ngữ Hán Việt" : "Thành Ngữ Hán Việt"}</option>
+            <option value="ALL">{locale === "vi" ? "Tất cả phân loại" : "All categories"}</option>
+            <option value="CA DAO">{locale === "vi" ? "Ca dao" : "Folk verse"}</option>
+            <option value="TỤC NGỮ">{locale === "vi" ? "Tục ngữ" : "Proverb"}</option>
+            <option value="TỤC NGỮ HÁN VIỆT">{locale === "vi" ? "Tục ngữ Hán Việt" : "Sino-Vietnamese proverb"}</option>
+            <option value="THÀNH NGỮ">{locale === "vi" ? "Thành ngữ" : "Idiom"}</option>
+            <option value="THÀNH NGỮ HÁN VIỆT">{locale === "vi" ? "Thành ngữ Hán Việt" : "Sino-Vietnamese idiom"}</option>
           </select>
           <div className="absolute inset-y-0 right-3.5 flex items-center pointer-events-none text-branding-brown/70">
             <ChevronDown className="h-4 w-4" />
@@ -329,7 +329,7 @@ export function TuDienContent({ locale }: { locale: string }) {
             type="text"
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
-            placeholder={locale === "vi" ? "Tìm kiếm theo văn bản câu..." : "Search by the text of the poem..."}
+            placeholder={locale === "vi" ? "Tìm kiếm theo văn bản câu..." : "Search by the text of an entry..."}
             className="w-full pl-5 pr-12 py-3.5 bg-white text-sm text-branding-black focus:outline-none"
           />
           <div className="absolute right-4 flex items-center gap-2">
@@ -374,7 +374,7 @@ export function TuDienContent({ locale }: { locale: string }) {
         {letterLoading && !searchQuery && (
           <div className="flex flex-col items-center justify-center py-20 w-full">
             <Loader2 className="animate-spin h-10 w-10 text-branding-brown mb-2" />
-            <span className="text-sm text-gray-500">{locale === "vi" ? "Đang tải dữ liệu..." : "Loading letter data..."}</span>
+            <span className="text-sm text-gray-500">{locale === "vi" ? "Đang tải dữ liệu..." : "Loading data..."}</span>
           </div>
         )}
 
@@ -411,7 +411,7 @@ export function TuDienContent({ locale }: { locale: string }) {
                   ) : (
                     <div className="flex items-center gap-2 py-4">
                       <Loader2 className="animate-spin h-4 w-4 text-branding-brown" />
-                      <span className="text-xs text-gray-500">{locale === "vi" ? "Đang tải nghĩa giải thích..." : "Loading explanation..."}</span>
+                      <span className="text-xs text-gray-500">{locale === "vi" ? "Đang tải nghĩa giải thích..." : "Loading the explanation..."}</span>
                     </div>
                   )}
                 </div>
@@ -435,7 +435,7 @@ export function TuDienContent({ locale }: { locale: string }) {
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                   <span className="px-4 py-2 bg-white/95 text-branding-black text-xs font-bold rounded-lg shadow-md flex items-center gap-1.5">
                     <Maximize2 className="h-3.5 w-3.5" />
-                    {locale === "vi" ? "Xem phóng to" : "Maximize view"}
+                    {locale === "vi" ? "Xem phóng to" : "View larger"}
                   </span>
                 </div>
               </div>
@@ -458,7 +458,7 @@ export function TuDienContent({ locale }: { locale: string }) {
         {/* Empty Search State */}
         {!letterLoading && currentEntries.length === 0 && (
           <div className="text-center py-20 text-gray-500 bg-white border border-branding-brown/5 rounded-3xl p-8">
-            {locale === "vi" ? "Không tìm thấy dữ liệu phù hợp với bộ lọc và tìm kiếm." : "No data matching your filters and search."}
+            {locale === "vi" ? "Không tìm thấy dữ liệu phù hợp với bộ lọc và tìm kiếm." : "No entries match your filters and search."}
           </div>
         )}
       </div>

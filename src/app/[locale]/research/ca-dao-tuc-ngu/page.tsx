@@ -35,7 +35,7 @@ export default async function CaDaoTucNguPage({
         },
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.archive-item2"),
-          href: "#",
+          href: "/our-collections/vietnamese-folk-literature/truyen-co-tich-viet-nam",
         },
         {
           label: t("Tools.ca-dao-tuc-ngu.sidebar.archive-item3"),
@@ -199,19 +199,17 @@ export default async function CaDaoTucNguPage({
                     >
                       {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.title")}
                     </h3>
-                    {locale === "vi" && (
-                      <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
-                        {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.description")}
-                      </p>
-                    )}
+                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
+                      {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.description")}
+                    </p>
                   </div>
-                  <button
-                    disabled
-                    className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-gray text-branding-black/35 text-sm font-bold rounded-lg cursor-not-allowed"
+                  <Link
+                    href="/our-collections/vietnamese-folk-literature/truyen-co-tich-viet-nam"
+                    className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
                   >
                     {t("Tools.ca-dao-tuc-ngu.cards.fairy-tales.cta")}
                     <ArrowRight className="h-4 w-4" />
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Card 03 */}
