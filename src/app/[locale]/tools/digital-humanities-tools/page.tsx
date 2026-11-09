@@ -72,6 +72,8 @@ const DigitalHumanitiesTools = async ({ params: { locale } }) => {
     console.error("Error fetching digital humanities tools:", error);
   }
 
+
+
   return (
     <div className="flex flex-col items-center max-width">
       <div className="flex-col mb-20 w-full">

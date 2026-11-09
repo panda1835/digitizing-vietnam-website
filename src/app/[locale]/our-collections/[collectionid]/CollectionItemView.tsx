@@ -8,6 +8,13 @@ import { Merriweather } from "next/font/google";
 import { Separator } from "@/components/ui/separator";
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
 
+const FOLK_LITERATURE_SECTIONS: Record<string, string> = {
+  "Tục ngữ, Ca dao, Dân ca, Tiếng lóng": "folk-verses-proverbs",
+  "Proverbs, Folk Verses, Folk Songs, and Slang": "folk-verses-proverbs",
+  "Truyện cổ": "folktales",
+  Folktales: "folktales",
+};
+
 const CollectionItemView = ({ collectionItems, collectionMetadata }) => {
   const [filteredResults, setFilteredResults] = useState(collectionItems);
   const noCategory = "NO_CATEGORY";
@@ -76,7 +83,15 @@ const CollectionItemView = ({ collectionItems, collectionMetadata }) => {
           </div> */}
           <div className="mt-10 flex w-full flex-col gap-8">
             {sortedCategories.map(([category, items]) => (
-              <div key={category} className="w-full">
+              <div
+                key={category}
+                id={
+                  collectionMetadata.slug === "vietnamese-folk-literature"
+                    ? FOLK_LITERATURE_SECTIONS[category]
+                    : undefined
+                }
+                className="w-full scroll-mt-28"
+              >
                 {category !== noCategory && (
                   <div
                     className={`${merriweather.className} text-branding-black text-3xl mb-6`}

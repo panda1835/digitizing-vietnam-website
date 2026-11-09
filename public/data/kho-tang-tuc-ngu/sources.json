@@ -1,0 +1,569 @@
+{
+ "ANTN": {
+  "abbreviation": "ANTN",
+  "title": "An Nam tục ngữ",
+  "author": "Vũ Như Lâm,...",
+  "kind": "Sách quốc ngữ",
+  "year": 1933,
+  "note_id": "qn-6",
+  "note": "Sách do Vũ Như Lâm và Nguyễn Đa Gia biên soạn, xuất bản tại Nam Định, 1933, gồm 68 trang, lưu tại Thư viện Quốc gia."
+ },
+ "CCM": {
+  "abbreviation": "CCM",
+  "title": "Câu cửa miệng",
+  "author": "Nhàn Vân Đình",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-45",
+  "note": "Nhàn Vân Đình biên soạn, Nxb Văn học và Trung tâm Nghiên cứu quốc học xuất bản năm 1999."
+ },
+ "CNGN": {
+  "abbreviation": "CNGN",
+  "title": "Tục ngữ cổ ngữ gia ngôn",
+  "author": "Huỳnh Tịnh Của",
+  "kind": "Sách quốc ngữ",
+  "year": 1896,
+  "note_id": "qn-1",
+  "note": "Sách do Huỳnh Tịnh Của biên soạn, xuất bản năm 1896 tại Sài Gòn, bản in này hiện lưu tại Pari. Nhóm biên soạn sử dụng bản chụp do cụ Nguyễn Khắc Xuyên (chụp từ Pari) cung cấp."
+ },
+ "ĐNQT": {
+  "abbreviation": "ĐNQT",
+  "title": "Đại Nam quốc tuý",
+  "author": "Ngô Giáp Đậu",
+  "kind": "Sách Hán nôm",
+  "year": 1908,
+  "note_id": "hn-1",
+  "note": "Sách do Ngô Giáp Đậu biên soạn năm 1908. Sách viết bằng chữ nôm, chia làm hai phần. Phần đầu sưu tập tục ngữ, thành ngữ. Phần sau sưu tập ca dao. Phần tục ngữ, thành ngữ có phân loại. Phần ca dao không phân loại rõ ràng.\n\nBản chữ nôm mang kí hiệu AB 178 của Thư viện Viện Nghiên cứu Hán nôm (TVHN). Người phiên âm: Phan Ngọc.\n\nTài liệu đánh máy phiên âm mang kí hiệu D 27 của TVHN."
+ },
+ "HT": {
+  "abbreviation": "HT",
+  "title": "Hợp tuyển thơ văn Việt Nam. Văn học dân gian",
+  "author": "Vũ Ngọc Phan,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-11",
+  "note": "Vũ Ngọc Phan, Tạ Phong Châu, Phạm Ngọc Hi biên soạn, xuất bản tại Hà Nội, năm 1972. Sách gồm nhiều phần. Phần \"Tục ngữ\" từ tr50 đến hết tr79."
+ },
+ "HTTH": {
+  "abbreviation": "HTTH",
+  "title": "Hợp tuyển văn học dân gian các dân tộc ở Thanh Hoá",
+  "author": null,
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-26",
+  "note": "Sách do nhiều người biên soạn. Nxb Văn học, H, năm 1990. Sách gồm nhiều phần, trong đó phần tục ngữ các dân tộc Dao, Thái, Mường, Việt từ tr17 đến tr47."
+ },
+ "KCTN": {
+  "abbreviation": "KCTN",
+  "title": "Kể chuyện thành ngữ, tục ngữ",
+  "author": "Hoàng Văn Hành,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-32",
+  "note": "Sách do nhiều người biên soạn, Nxb Khoa học xã hội, H, năm 1994. Sách gồm hai phần, phần thứ nhất nghiên cứu về thành ngữ, tục ngữ tiếng Việt. Phần thứ hai giải thích thành ngữ, tục ngữ."
+ },
+ "KSK": {
+  "abbreviation": "KSK",
+  "title": "Khẩu sử kí",
+  "author": null,
+  "kind": "Sách Hán nôm",
+  "year": null,
+  "note_id": "hn-4",
+  "note": "KSK là tập sách mỏng bằng chữ nôm, có lẫn một số rất ít chữ Hán. Có tài liệu nói chưa rõ tác giả và năm biên soạn; có tài liệu cho biết Nguyễn Hữu Quý biên soạn, học trò là Trịnh Tuấn Thắng sao chép ở nhà học Vĩnh Tường. Nguyễn Hữu Quý đỗ cử nhân khoa Bính Tuất (1886), lĩnh chức giáo thụ phủ Vĩnh Tường. Bản chữ nôm mang kí hiệu AB 417 của Thư viện Viện Nghiên cứu Hán nôm. Người phiên âm; Nguyễn Đức Vân. Tài liệu đánh máy bản phiên âm mang kí hiệu DH 408 của Thư viện Viện Văn học. Sách chép tay trên giấy bản thường, khổ sách là 16,5 cm x 19 cm. Tập sách dày 24 tờ (48 trang), mỗi tờ 2 trang, mỗi trang có 7 dòng, mỗi dòng có 16 chữ.\n\nNội dung của cuốn sách ngoài ca dao, tục ngữ, sấm ngữ còn có những bài thơ, văn xuôi của người đương thời (có tên tác giả). Người biên soạn sắp xếp nội dung theo 13 đề mục bằng chữ Hán."
+ },
+ "MGL": {
+  "abbreviation": "MGL",
+  "title": "Tục ngữ ca dao Việt Nam",
+  "author": "Mã Giang Lân",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-29",
+  "note": "Mã Giang Lân tuyển chọn và giới thiệu, Nxb Giáo dục, H, năm 1993. Phần tục ngữ từ tr12 đến tr50."
+ },
+ "NASL I": {
+  "abbreviation": "NASL I",
+  "title": "Nam âm sự loại, quyển I",
+  "author": "Vũ Công Thành",
+  "kind": "Sách Hán nôm",
+  "year": 1925,
+  "note_id": "hn-3",
+  "note": "Vũ Công Thành soạn năm 1925. Sách này sưu tập cả tục ngữ và ca dao. Bản chữ nôm mang các kí hiệu HN 249, HN 250, HN 251 và HN 252 của Thư viện Viện Văn học. Người phiên âm: Phan Ngọc và Trần Văn Thụy. Tài liệu phiên âm đánh máy mang kí hiệu: D 246, D 247 và D 248 của Thư viện Viện Nghiên cứu Hán nôm. Sách chép tay trên giấy bản thường, khổ sách là 13 cm x 21 cm. Quyển một dày 55 tờ (109 trang), mỗi tờ 2 trang. Quyển hai dày 59 tờ (118 trang). Quyển ba dày 55 tờ (110 trang). Quyển bốn dày 60 tờ (119 trang). Mỗi trang có chín dòng, mỗi dòng có số chữ nhiều hay ít. Dòng dài nhất có 26 chữ, dòng ít nhất có 16 chữ. Tình trạng sách còn tốt và nguyên vẹn, không bị rách nát và mất tờ nào. Chữ viết rõ ràng dễ đọc, tuy nhiên có một số chỗ viết thảo, viết sai rất khó đọc. Đầu sách có Mục lục, Lời tựa của NASL do Vũ Công Thành viết. Lời tựa thứ hai do Tú tài hàn lâm Vũ Trinh Chu viết. Quyển I chia thành 15 mục bằng chữ Hán, quyển II chia thành 5 mục, quyển III chia thành 11 mục, và quyển IV chia thành 7 mục."
+ },
+ "NASL II": {
+  "abbreviation": "NASL II",
+  "title": "Nam âm sự loại, quyển II",
+  "author": "Vũ Công Thành",
+  "kind": "Sách Hán nôm",
+  "year": 1925,
+  "note_id": "hn-3",
+  "note": "Vũ Công Thành soạn năm 1925. Sách này sưu tập cả tục ngữ và ca dao. Bản chữ nôm mang các kí hiệu HN 249, HN 250, HN 251 và HN 252 của Thư viện Viện Văn học. Người phiên âm: Phan Ngọc và Trần Văn Thụy. Tài liệu phiên âm đánh máy mang kí hiệu: D 246, D 247 và D 248 của Thư viện Viện Nghiên cứu Hán nôm. Sách chép tay trên giấy bản thường, khổ sách là 13 cm x 21 cm. Quyển một dày 55 tờ (109 trang), mỗi tờ 2 trang. Quyển hai dày 59 tờ (118 trang). Quyển ba dày 55 tờ (110 trang). Quyển bốn dày 60 tờ (119 trang). Mỗi trang có chín dòng, mỗi dòng có số chữ nhiều hay ít. Dòng dài nhất có 26 chữ, dòng ít nhất có 16 chữ. Tình trạng sách còn tốt và nguyên vẹn, không bị rách nát và mất tờ nào. Chữ viết rõ ràng dễ đọc, tuy nhiên có một số chỗ viết thảo, viết sai rất khó đọc. Đầu sách có Mục lục, Lời tựa của NASL do Vũ Công Thành viết. Lời tựa thứ hai do Tú tài hàn lâm Vũ Trinh Chu viết. Quyển I chia thành 15 mục bằng chữ Hán, quyển II chia thành 5 mục, quyển III chia thành 11 mục, và quyển IV chia thành 7 mục."
+ },
+ "NASL III": {
+  "abbreviation": "NASL III",
+  "title": "Nam âm sự loại, quyển III",
+  "author": "Vũ Công Thành",
+  "kind": "Sách Hán nôm",
+  "year": 1925,
+  "note_id": "hn-3",
+  "note": "Vũ Công Thành soạn năm 1925. Sách này sưu tập cả tục ngữ và ca dao. Bản chữ nôm mang các kí hiệu HN 249, HN 250, HN 251 và HN 252 của Thư viện Viện Văn học. Người phiên âm: Phan Ngọc và Trần Văn Thụy. Tài liệu phiên âm đánh máy mang kí hiệu: D 246, D 247 và D 248 của Thư viện Viện Nghiên cứu Hán nôm. Sách chép tay trên giấy bản thường, khổ sách là 13 cm x 21 cm. Quyển một dày 55 tờ (109 trang), mỗi tờ 2 trang. Quyển hai dày 59 tờ (118 trang). Quyển ba dày 55 tờ (110 trang). Quyển bốn dày 60 tờ (119 trang). Mỗi trang có chín dòng, mỗi dòng có số chữ nhiều hay ít. Dòng dài nhất có 26 chữ, dòng ít nhất có 16 chữ. Tình trạng sách còn tốt và nguyên vẹn, không bị rách nát và mất tờ nào. Chữ viết rõ ràng dễ đọc, tuy nhiên có một số chỗ viết thảo, viết sai rất khó đọc. Đầu sách có Mục lục, Lời tựa của NASL do Vũ Công Thành viết. Lời tựa thứ hai do Tú tài hàn lâm Vũ Trinh Chu viết. Quyển I chia thành 15 mục bằng chữ Hán, quyển II chia thành 5 mục, quyển III chia thành 11 mục, và quyển IV chia thành 7 mục."
+ },
+ "NASL IV": {
+  "abbreviation": "NASL IV",
+  "title": "Nam âm sự loại, quyển IV",
+  "author": "Vũ Công Thành",
+  "kind": "Sách Hán nôm",
+  "year": 1925,
+  "note_id": "hn-3",
+  "note": "Vũ Công Thành soạn năm 1925. Sách này sưu tập cả tục ngữ và ca dao. Bản chữ nôm mang các kí hiệu HN 249, HN 250, HN 251 và HN 252 của Thư viện Viện Văn học. Người phiên âm: Phan Ngọc và Trần Văn Thụy. Tài liệu phiên âm đánh máy mang kí hiệu: D 246, D 247 và D 248 của Thư viện Viện Nghiên cứu Hán nôm. Sách chép tay trên giấy bản thường, khổ sách là 13 cm x 21 cm. Quyển một dày 55 tờ (109 trang), mỗi tờ 2 trang. Quyển hai dày 59 tờ (118 trang). Quyển ba dày 55 tờ (110 trang). Quyển bốn dày 60 tờ (119 trang). Mỗi trang có chín dòng, mỗi dòng có số chữ nhiều hay ít. Dòng dài nhất có 26 chữ, dòng ít nhất có 16 chữ. Tình trạng sách còn tốt và nguyên vẹn, không bị rách nát và mất tờ nào. Chữ viết rõ ràng dễ đọc, tuy nhiên có một số chỗ viết thảo, viết sai rất khó đọc. Đầu sách có Mục lục, Lời tựa của NASL do Vũ Công Thành viết. Lời tựa thứ hai do Tú tài hàn lâm Vũ Trinh Chu viết. Quyển I chia thành 15 mục bằng chữ Hán, quyển II chia thành 5 mục, quyển III chia thành 11 mục, và quyển IV chia thành 7 mục."
+ },
+ "NL": {
+  "abbreviation": "NL",
+  "title": "Từ điển thành ngữ và tục ngữ Việt Nam",
+  "author": "Nguyễn Lân",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-25",
+  "note": "Sách do Nguyễn Lân soạn, xuất bản lần đầu năm 1989 tại Nxb Văn hoá, H. Soạn giả sắp xếp tư liệu trật tự theo vần chữ cái, trong đó tục ngữ và thành ngữ được xếp lẫn lộn."
+ },
+ "NNCC": {
+  "abbreviation": "NNCC",
+  "title": "Nam ngạn chích cẩm",
+  "author": "Phạm Quang Sán",
+  "kind": "Sách quốc ngữ",
+  "year": 1918,
+  "note_id": "qn-2",
+  "note": "Sách do Phạm Quang Sán biên soạn, xuất bản năm 1918 tại Hà Nội. Sách lưu tại Thư viện Quốc gia, Hà Nội."
+ },
+ "NNGQ": {
+  "abbreviation": "NNGQ",
+  "title": "Hà Nội trong ca dao, ngạn ngữ",
+  "author": "Giang Quân",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-33",
+  "note": "Giang Quân sưu tầm, biên soạn, Nxb Hà Nội, năm 1994. Phần tục ngữ từ tr98 đến tr104."
+ },
+ "NNHN I": {
+  "abbreviation": "NNHN I",
+  "title": "Ca dao ngạn ngữ Hà Nội, tập I",
+  "author": "Chu Hà, Tảo Trang,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-10",
+  "note": "Sách gồm hai tập. Tập I do Chu Hà, Tả Trang, Triêu Dương, Phạm Hoà biên soạn, xuất bản lần đầu năm 1971, lần thứ hai năm 1972. Nhóm biên soạn chép tư liệu từ bản in năm 1972. Tập II do Chu Hà, Trần Lê Văn, Nguyễn Vinh Phúc biên soạn xuất bản năm 1981."
+ },
+ "NNHN II": {
+  "abbreviation": "NNHN II",
+  "title": "Ca dao ngạn ngữ Hà Nội, tập II",
+  "author": "Chu Hà, Trần Lê Văn,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-10",
+  "note": "Sách gồm hai tập. Tập I do Chu Hà, Tả Trang, Triêu Dương, Phạm Hoà biên soạn, xuất bản lần đầu năm 1971, lần thứ hai năm 1972. Nhóm biên soạn chép tư liệu từ bản in năm 1972. Tập II do Chu Hà, Trần Lê Văn, Nguyễn Vinh Phúc biên soạn xuất bản năm 1981."
+ },
+ "NNPD": {
+  "abbreviation": "NNPD",
+  "title": "Ngạn ngữ phong dao",
+  "author": "Nguyễn Can Mộng",
+  "kind": "Sách quốc ngữ",
+  "year": 1936,
+  "note_id": "qn-7",
+  "note": "Nguyên bản tên sách là \"Ngạn ngữ phong *rao*\", do Nguyễn Can Mộng biên soạn. Tài liệu này được in hai lần năm 1936 và năm 1941 đều tại Hà Nội. Chúng tôi sử dụng bản chụp của bản in năm 1936 do cụ Nguyễn Khắc Xuyên cung cấp."
+ },
+ "NQPN": {
+  "abbreviation": "NQPN",
+  "title": "Nam quốc phương ngôn tục ngữ bị lục",
+  "author": null,
+  "kind": "Sách Hán nôm",
+  "year": 1914,
+  "note_id": "hn-2",
+  "note": "Bản chữ nôm mang kí hiệu AB 619 và R 276 của Thư viện Quốc gia (TVQG). Sách in ván gỗ trên giấy bản thường, khổ sách là 15 cm x 27 cm. Tập sách dày 45 tờ (90 trang), mỗi tờ 2 trang có 10 dòng, 11 chữ một dòng. Cả chữ nôm và chữ quốc ngữ đều in rõ ràng, ngay ngắn vạ dễ đọc. Tình trạng sách không được tốt lắm. Một số trang đầu bị mối xông và rách ở tầng chữ quốc ngữ, phần sau còn khá nguyên vẹn. Tờ bìa lót mang tên sách, bên cạnh có ghi năm khắc in; năm Giáp Dần niên hiệu Duy Tân, tháng trọng xuân (Duy Tân Giáp Dần niên trọng xuân) (1914); và nơi khắc in: Quan Văn Đường tàng bản.\n\nNQPN tập hợp nhiều tục ngữ và thành ngữ, trong đó có lẫn một số câu ca dao (tr. 1b - 39b); 5 tờ cuối là phần câu đố nôm (40a - 45b). Người biên soạn sắp xếp tục ngữ, thành ngữ và ca dao theo 27 đề mục bằng chữ Hán."
+ },
+ "NTB": {
+  "abbreviation": "NTB",
+  "title": "Ca dao Nam Trung Bộ",
+  "author": "Thạch Phương,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-31",
+  "note": "Thạch Phương, Ngô Quang Hiển sưu tầm, tuyển chọn và giới thiệu, Nxb Khoa học xã hội, H, năm 1994. Phần tục ngữ từ tr321 đến tr340."
+ },
+ "NTP": {
+  "abbreviation": "NTP",
+  "title": "Những tác phẩm ca dao, tục ngữ được xuất bản trước đây một thế kỉ",
+  "author": "Nguyễn Khắc Xuyên",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-43",
+  "note": "Nguyễn Khắc Xuyên sao chụp và giới thiệu, Nxb Khoa học xã hội, H, 1997. Phần về tục ngữ từ tr119 đến tr176 và từ tr193 đến tr195."
+ },
+ "NXK": {
+  "abbreviation": "NXK",
+  "title": "Tục ngữ Việt Nam",
+  "author": "Nguyễn Xuân Kính,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-37",
+  "note": "Nguyễn Xuân Kính, Phan Hồng Sơn biên soạn, Nxb Văn hoá Thông tin, Hà Nội, 1995."
+ },
+ "PNHNN": {
+  "abbreviation": "PNHNN",
+  "title": "Phương ngôn tục ngữ ca dao (Hà Nam Ninh)",
+  "author": "Bùi Văn Cường",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-22",
+  "note": "Bùi Văn Cường sưu tầm và biên soạn phương ngôn, tục ngữ, ca dao tại địa bàn các tỉnh Hà Nam, Nam Định, Ninh Bình, Nxb Khoa học xã hội, H, 1987."
+ },
+ "PNTN": {
+  "abbreviation": "PNTN",
+  "title": "Phương ngôn tục ngữ",
+  "author": null,
+  "kind": "Sách Hán nôm",
+  "year": null,
+  "note_id": "hn-5",
+  "note": "Sách không ghi tên người biên soạn hoặc tên người sao chép, cũng không thấy ghi năm tháng sao chép hoặc biên soạn. Bản chữ nôm mang kí hiệu AB 4 của Thư viện Viện Nghiên cứu Hán nôm. Sách viết tay trên giấy bản thường, khổ sách là 15,5 x 29 cm. Tập sách dày 46 tờ (92 trang), mỗi tờ 2 trang. Mỗi trang chữ nôm có 8 dòng, mỗi dòng có 26 - 28 chữ, chữ viết chân phương dễ đọc, nhưng chép sai; xoá, viết chèn bên cạnh nhiều; tình trạng sách tương đối tốt, không bị rách nát hay mối xông. Sách không có lời bạt cũng như lời tựa. Sách đã được người sau chấm bằng son đỏ. Có nhiều câu người đánh dấu chấm không hiểu thì không chấm. Người chấm câu có tham gia sửa những chỗ viết sai về chữ cũng như về ý theo chủ quan của mình, đồng thời cũng tham gia bổ sung một số câu trong sách như ở tr. 38b, 39b. Những người chấm câu cũng không làm cẩn thận, vì thế gây nên hiện tượng nhoè nhoẹt khó đọc ở một số câu, thậm chí có những câu không đọc ra như ở trang 31b, 39a,... Cuốn sách sưu tập nhiều tục ngữ và thành ngữ (từ trang 1a - 42b); câu đố chữ nôm (từ trang 43a - 45b); câu đố chữ Hán (trang 46a). Người biên soạn sắp xếp tục ngữ, thành ngữ theo 28 đề mục bằng chữ Hán."
+ },
+ "PNXB": {
+  "abbreviation": "PNXB",
+  "title": "Phương ngôn xứ Bắc",
+  "author": "Khổng Đức Thiêm,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-34",
+  "note": "Khổng Đức Thiêm, Nguyễn Đình Bưu biên soạn, Sở Văn hoá Thông tin và thể thao Hà Bắc xuất bản năm 1994. Sách gồm cả tục ngữ và ca dao xếp lẫn với nhau theo chủ đề."
+ },
+ "TCPK": {
+  "abbreviation": "TCPK",
+  "title": "Thơ ca dân gian Phú Khánh",
+  "author": "Hà Nam Tiến,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-18",
+  "note": "Hà Nam Tiến, Trần Việt Kỉnh, Nguyễn Chí Trang sưu tầm, biên soạn, Ti Văn hoá và thông tin Phú Khánh xuất bản, tập I, năm 1982. Sách này chủ yếu sưu tập ca dao, có một số câu tục ngữ được sắp xếp cùng ca dao theo nội dung chủ đề."
+ },
+ "TMT": {
+  "abbreviation": "TMT",
+  "title": "Tục ngữ ca dao Việt Nam (chọn lọc)",
+  "author": "Trần Mạnh Thường",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-41",
+  "note": "Trần Mạnh Thường tuyển chọn, Nxb Văn hoá dân tộc, H, năm 1997. Sách gồm hai phần: tục ngữ và ca dao. Phần \"Tục ngữ\" từ tr8 đến tr104."
+ },
+ "TNCD": {
+  "abbreviation": "TNCD",
+  "title": "Tục ngữ ca dao",
+  "author": "Phạm Quỳnh",
+  "kind": "Sách quốc ngữ",
+  "year": 1932,
+  "note_id": "qn-5",
+  "note": "Phạm Quỳnh biên soạn, xuất bản tại Hà Nội, năm 1932. Sau phần tiểu luận (từ tr. 7 đến tr. 61) là phần biên soạn. Ở phần này soạn giả sắp xếp tư liệu theo số tiếng: những câu 4 tiếng, những câu 5 tiếng, những câu 6 tiếng,... những câu 11 tiếng cho đến 16 tiếng. Tại các thư viện lớn ở Hà Nội, chúng tôi không tìm thấy. Sách do nhà giáo, nhà nghiên cứu văn học Nguyễn Văn Tâm cung cấp."
+ },
+ "TNCDCL": {
+  "abbreviation": "TNCDCL",
+  "title": "Tục ngữ ca dao dân ca chọn lọc",
+  "author": "Nguyễn Quốc Tuý,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-28",
+  "note": "Sách do Nguyễn Quốc Tuý, Trần Gia Linh giới thiệu tuyển chọn và chú thích, Nxb Giáo dục, H, năm 1993. Nhóm biên soạn sử dụng phần tục ngữ từ tr7 đến tr13."
+ },
+ "TNCĐ": {
+  "abbreviation": "TNCĐ",
+  "title": "Tục ngữ câu đố ca dao dân ca Việt Nam",
+  "author": "Mã Giang Lân,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-15",
+  "note": "Mã Giang Lân, Lê Chí Quế biên soạn. Trường Đại học Tổng hợp Hà Nội xuất bản năm 1977."
+ },
+ "TNCL": {
+  "abbreviation": "TNCL",
+  "title": "Tục ngữ Việt Nam chọn lọc",
+  "author": "Vương Trung Hiếu",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-39",
+  "note": "Vương Trung Hiếu tuyển chọn và biên soạn, Nxb Văn nghệ Thành phố Hồ Chí Minh năm 1996."
+ },
+ "TNHT": {
+  "abbreviation": "TNHT",
+  "title": "Tục ngữ ca dao dân ca Hà Tây",
+  "author": null,
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-14",
+  "note": "Sách do nhiều người biên soạn. Bản in năm 1975 do Vũ Ngọc Phan viết lời giới thiệu. Bản in năm 1993 (tái bản có bổ sung) do Phượng Vũ viết lời giới thiệu. Nbs sử dụng tư liệu của bản in năm 1975."
+ },
+ "TNLG I": {
+  "abbreviation": "TNLG I",
+  "title": "Tục ngữ lược giải, tập I",
+  "author": "Lê Văn Hoè",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-8",
+  "note": "Sách do Lê Văn Hoè biên soạn gồm ba tập. Tài liệu chúng tôi sử dụng gồm tập I in lần thứ ba tại Hà Nội 1953, tập II in lần thứ nhất năm 1952 tại Hà Nội, tập III in lần thứ nhất tại Hà Nội (vì bản phô thô khó đọc) có lẽ năm 1953 (?) Sách này lưu tại Thư viện Viện Văn học."
+ },
+ "TNLG II": {
+  "abbreviation": "TNLG II",
+  "title": "Tục ngữ lược giải, tập II",
+  "author": "Lê Văn Hoè",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-8",
+  "note": "Sách do Lê Văn Hoè biên soạn gồm ba tập. Tài liệu chúng tôi sử dụng gồm tập I in lần thứ ba tại Hà Nội 1953, tập II in lần thứ nhất năm 1952 tại Hà Nội, tập III in lần thứ nhất tại Hà Nội (vì bản phô thô khó đọc) có lẽ năm 1953 (?) Sách này lưu tại Thư viện Viện Văn học."
+ },
+ "TNLG III": {
+  "abbreviation": "TNLG III",
+  "title": "Tục ngữ lược giải, tập III",
+  "author": "Lê Văn Hoè",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-8",
+  "note": "Sách do Lê Văn Hoè biên soạn gồm ba tập. Tài liệu chúng tôi sử dụng gồm tập I in lần thứ ba tại Hà Nội 1953, tập II in lần thứ nhất năm 1952 tại Hà Nội, tập III in lần thứ nhất tại Hà Nội (vì bản phô thô khó đọc) có lẽ năm 1953 (?) Sách này lưu tại Thư viện Viện Văn học."
+ },
+ "TNNH": {
+  "abbreviation": "TNNH",
+  "title": "Ca dao tục ngữ Nam Hà (trước Cách mạng 1945)",
+  "author": "Bùi Văn Cường, Vũ Quốc Ái,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-13",
+  "note": "Sách do Bùi Văn Cường, Vũ Quốc Ái, Đỗ Nguyên Hạnh, Đoàn Tùng biên soạn. Ti Văn hoá Nam Hà xuất bản 1975. Sách gồm hai phần: ca dao và phương ngôn. Phần \"phương ngôn\" từ tr. 221 đến tr. 239. Sách có ở Thư viện Viện Thông tin khoa học xã hội."
+ },
+ "TNPD I": {
+  "abbreviation": "TNPD I",
+  "title": "Tục ngữ phong dao, tập I",
+  "author": "Nguyễn Văn Ngọc",
+  "kind": "Sách quốc ngữ",
+  "year": 1928,
+  "note_id": "qn-3",
+  "note": "Bộ TNPD gồm hai tập, do Nguyễn Văn Ngọc biên soạn, được xuất bản lần đầu năm 1928 tại Hà Nội. Trong tập I, soạn giả sắp xếp cả thành ngữ, ca dao bên cạnh tục ngữ. Hiện nay, tại các thư viện lớn ở Hà Nội chúng tôi không tìm được bản in lần đầu. Nhóm biên soạn sử dụng bản in năm 1957 do Nxb Minh Đức công bố tại Hà Nội."
+ },
+ "TNTB": {
+  "abbreviation": "TNTB",
+  "title": "Tục ngạn tập biên",
+  "author": null,
+  "kind": "Sách Hán nôm",
+  "year": null,
+  "note_id": "hn-6",
+  "note": "Sách còn có tên là *Tân san tục ngạn tập biên*. Sách không ghi tên người biên soạn hoặc tên người sao chép, cũng không thấy ghi năm tháng biên soạn. Bản chữ nôm mang kí hiệu AB 604 của Thư viện Thông tin khoa học xã hội. Hiện nay bản gốc đã thất lạc, chỉ còn bản chụp ở Thư viện Viện Nghiên cứu Hán nôm. Người phiên âm: Nguyễn Năng Nhân. Tài liệu đánh máy phiên âm mang kí hiệu D 57 Thư viện Viện Nghiên cứu Hán nôm. Sách viết tay trên giấy bản thường, khổ sách là 14 cm x 24 cm. Tập sách dày 14 tờ (28 trang), mỗi tờ 2 trang, mỗi trang có 9 dòng. Mỗi dòng có số chữ nhiều hay ít là phụ thuộc vào câu tục ngữ hay thành ngữ dài hay ngắn. Dòng ít nhất có 16 chữ, dòng nhiều nhất có 18 chữ, chữ viết chân phương dễ đọc nhưng trong sách còn nhiều câu chữa, xoá lem nhem, nhiều chữ viết sai hoặc mất nét.\n\nNgười soạn sách không sắp xếp các câu \"tục ngạn\" theo môn loại mà sắp xếp theo số lượng tiếng trong câu. Khi sắp xếp người soạn đã có ý bố trí từng cặp câu, trong đó câu nọ đối câu kia. Ví dụ:\n\n- \"Mổ mèo treo chó\" - \"Xuống ngựa lên voi\".\n\nTuy nhiên nguyên tắc ấy không được thực hiện trong cả tập sách, vì càng về sau ít thấy những cặp câu tục ngữ đối hoàn chỉnh về ý và lời."
+ },
+ "TNTH": {
+  "abbreviation": "TNTH",
+  "title": "Tục ngữ dân ca ca dao vè Thanh Hoá",
+  "author": "Lê Huy Trâm,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-19",
+  "note": "Lê Huy Trâm, Hoàng Khôi, Lưu Đức Hạnh, Nxb Thanh Hoá, 1983, phần tục ngữ do Hoàng Khôi biên soạn."
+ },
+ "TNVN": {
+  "abbreviation": "TNVN",
+  "title": "Tục ngữ Việt Nam",
+  "author": "Chu Xuân Diên,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-12",
+  "note": "Sách gồm hai phần. Phần nghiên cứu do Chu Xuân Diên chấp bút, phần biên soạn do Chu Xuân Diên, Lương Văn Đang, Phương Tri thực hiện. Sách được xuất bản hai lần: 1975, 1993. Nbs chép tư liệu từ bản in năm 1975."
+ },
+ "TNVP": {
+  "abbreviation": "TNVP",
+  "title": "Tục ngữ ca dao dân ca Vĩnh Phú",
+  "author": "Nguyễn Khắc Xương",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-35",
+  "note": "Sách do Nguyễn Khắc Xương biên soạn, Sở Văn hoá thông tin và thể thao Vĩnh Phú xuất bản năm 1994. Sách gồm nhiều chương, chương một gồm tục ngữ và ca dao xếp chung theo chủ đề."
+ },
+ "TTVH": {
+  "abbreviation": "TTVH",
+  "title": "Tuyển tập văn học dân gian Việt Nam. Tập IV. Quyển 1. Tục ngữ ca dao",
+  "author": "Trần Thị An, Nguyễn Thị Huế",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-46",
+  "note": "Trần Thị An, Nguyễn Thị Huế biên soạn, Nxb Giáo dục, H, 1999. Phần tục ngữ từ tr19 đến tr171."
+ },
+ "VC I": {
+  "abbreviation": "VC I",
+  "title": "Từ điển thành ngữ tục ngữ ca dao Việt Nam, quyển thượng",
+  "author": "Việt Chương",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-38",
+  "note": "Sách do Việt Chương biên soạn, Nxb Đồng Nai năm 1995. Các câu được xếp theo vần chữ cái, cả thành ngữ, tục ngữ và ca dao được xếp chung với nhau."
+ },
+ "VC II": {
+  "abbreviation": "VC II",
+  "title": "Từ điển thành ngữ tục ngữ ca dao Việt Nam, quyển hạ",
+  "author": "Việt Chương",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-38",
+  "note": "Sách do Việt Chương biên soạn, Nxb Đồng Nai năm 1995. Các câu được xếp theo vần chữ cái, cả thành ngữ, tục ngữ và ca dao được xếp chung với nhau."
+ },
+ "VCVN I": {
+  "abbreviation": "VCVN I",
+  "title": "Về cội về nguồn (Thi ca dân gian dẫn giải), quyển I",
+  "author": "Lê Gia",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-36",
+  "note": "Sách do Lê Gia sưu tầm và biên khảo gồm bốn quyển. Quyển một in lần thứ nhất tại Nxb Văn nghệ Thành phố Hồ Chí Minh năm 1994, quyển hai, ba và bốn in lần thứ nhất cũng do Nxb trên công bố năm 1995."
+ },
+ "VCVN II": {
+  "abbreviation": "VCVN II",
+  "title": "Về cội về nguồn (Thi ca dân gian dẫn giải), quyển II",
+  "author": "Lê Gia",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-36",
+  "note": "Sách do Lê Gia sưu tầm và biên khảo gồm bốn quyển. Quyển một in lần thứ nhất tại Nxb Văn nghệ Thành phố Hồ Chí Minh năm 1994, quyển hai, ba và bốn in lần thứ nhất cũng do Nxb trên công bố năm 1995."
+ },
+ "VCVN III": {
+  "abbreviation": "VCVN III",
+  "title": "Về cội về nguồn (Thi ca dân gian dẫn giải), quyển III",
+  "author": "Lê Gia",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-36",
+  "note": "Sách do Lê Gia sưu tầm và biên khảo gồm bốn quyển. Quyển một in lần thứ nhất tại Nxb Văn nghệ Thành phố Hồ Chí Minh năm 1994, quyển hai, ba và bốn in lần thứ nhất cũng do Nxb trên công bố năm 1995."
+ },
+ "VCVN IV": {
+  "abbreviation": "VCVN IV",
+  "title": "Về cội về nguồn (Thi ca dân gian dẫn giải), quyển IV",
+  "author": "Lê Gia",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-36",
+  "note": "Sách do Lê Gia sưu tầm và biên khảo gồm bốn quyển. Quyển một in lần thứ nhất tại Nxb Văn nghệ Thành phố Hồ Chí Minh năm 1994, quyển hai, ba và bốn in lần thứ nhất cũng do Nxb trên công bố năm 1995."
+ },
+ "VD": {
+  "abbreviation": "VD",
+  "title": "Từ điển thành ngữ tục ngữ Việt Nam",
+  "author": "Vũ Dung,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-30",
+  "note": "Sách do Vũ Dung, Vũ Thuý Anh, Vũ Quang Hào biên soạn, Nxb Giáo dục, H, năm 1993. Sách gồm tục ngữ và thành ngữ nhưng không phân ra rõ ràng mà được sắp xếp lẫn vào nhau theo thứ tự chữ cái."
+ },
+ "VHHP": {
+  "abbreviation": "VHHP",
+  "title": "Văn học dân gian Hương Phú",
+  "author": "Triều Nguyên",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-23",
+  "note": "Triều Nguyên sưu tầm biên soạn, trong đó phần \"Tục ngữ\" từ tr119 đến tr131, Sở Văn hoá thông tin Bình Trị Thiên xuất bản, năm 1988."
+ },
+ "VHLĐ": {
+  "abbreviation": "VHLĐ",
+  "title": "Khảo sát văn hoá truyền thống Liễu Đôi",
+  "author": "Bùi Văn Cường,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-16",
+  "note": "Bùi Văn Cường, Nguyễn Tế Nhị biên soạn. Sách xuất bản lần đầu năm 1981. Nbs sử dụng tư liệu từ bản in lần thứ hai, Nxb Khoa học xã hội, H, năm 1982."
+ },
+ "VHNB": {
+  "abbreviation": "VHNB",
+  "title": "Văn học dân gian Nghĩa Bình",
+  "author": "Đào Văn A,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-21",
+  "note": "Đào Văn A, Cao Văn Chư biên soạn, Sở Văn hoá và thông tin Nghĩa Bình xuất bản, năm 1986."
+ },
+ "VHQB": {
+  "abbreviation": "VHQB",
+  "title": "Văn học dân gian Quảng Bình",
+  "author": "Trần Hùng,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-40",
+  "note": "Trần Hùng, Nguyễn Văn Nhĩ, Trần Hoàng, Đinh Thanh Dự, Lê Đình Lừng biên soạn, Sở Văn hoá thông tin, Sở Khoa học, Công nghệ và Môi trường Quảng Bình xuất bản năm 1996. Sách gồm nhiều phần trong đó nhóm biên soạn sử dụng phần tục ngữ từ tr279 đến tr322."
+ },
+ "VHQT": {
+  "abbreviation": "VHQT",
+  "title": "Văn học dân gian Quảng Trị",
+  "author": "Phan Hứa Thuy, Tôn Thất Bình,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-27",
+  "note": "Phan Hứa Thuy, Tôn Thất Bình đồng chủ biên, Sở Văn hoá thông tin thể thao và Thư viện Quảng Trị xuất bản, tập I năm 1992. Phần tục ngữ từ tr143 đến 150, trong đó có cả những câu tục ngữ của các dân tộc thiểu số."
+ },
+ "VHSCL": {
+  "abbreviation": "VHSCL",
+  "title": "Văn học dân gian đồng bằng sông Cửu Long",
+  "author": "Hà Thắng,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-42",
+  "note": "Sách do Khoa Ngữ văn Trường Đại học Cần Thơ biên soạn, Nxb Giáo dục, năm 1997. Sách gồm nhiều phần. Phần \"Tục ngữ\" từ tr158 đến tr209."
+ },
+ "VHTB": {
+  "abbreviation": "VHTB",
+  "title": "Văn học dân gian Thái Bình",
+  "author": "Phạm Đức Duật,...",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-17",
+  "note": "Phạm Đức Duật, Trương Sĩ Hùng, Nguyễn Huy Hồng sưu tập và biên soạn, Nxb Khoa học xã hội, H, tập I, 1981. Phần \"Phương ngôn tục ngữ\" do Phạm Đức Duật biên soạn, chú thích."
+ },
+ "VHTH": {
+  "abbreviation": "VHTH",
+  "title": "Văn học dân gian Triệu Hải",
+  "author": "Hồ Quốc Hùng",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-24",
+  "note": "Hồ Quốc Hùng biên soạn. Sách gồm nhiều phần, trong đó phần \"Tục ngữ\" từ tr97 đến tr103. Sở Văn hoá thông tin Bình Trị Thiên xuất bản, năm 1988."
+ },
+ "VNQNĐN I": {
+  "abbreviation": "VNQNĐN I",
+  "title": "Văn nghệ dân gian Quảng Nam - Đà Nẵng, tập I",
+  "author": "Nguyễn Văn Bổn",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-20",
+  "note": "Nguyễn Văn Bổn biên soạn, Sở Văn hoá thông tin Quảng Nam - Đà Nẵng xuất bản, tập I năm 1983. Sách gồm nhiều phần, phần \"Tục ngữ\" từ tr90 đến tr103."
+ },
+ "VNNN": {
+  "abbreviation": "VNNN",
+  "title": "Việt Nam ngạn ngữ phương ngôn thư",
+  "author": "Nguyễn Văn Lễ",
+  "kind": "Sách quốc ngữ",
+  "year": 1931,
+  "note_id": "qn-4",
+  "note": "Sách do Nguyễn Văn Lễ biên soạn, xuất bản năm 1931, sách lưu tại Thư viện Quốc gia. Chúng tôi đọc bản chụp không thấy nơi xuất bản."
+ },
+ "VNP₂ I": {
+  "abbreviation": "VNP₂ I",
+  "title": "Tục ngữ và dân ca Việt Nam, in lần thứ hai, tập I",
+  "author": "Vũ Ngọc Phan",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-9",
+  "note": "Vũ Ngọc Phan biên soạn xuất bản lần đầu tại Hà Nội năm 1956. Nhóm biên soạn sử dụng bản in lần thứ hai gồm hai tập, xuất bản tại Hà Nội, năm 1957."
+ },
+ "VNP₂ II": {
+  "abbreviation": "VNP₂ II",
+  "title": "Tục ngữ và dân ca Việt Nam, in lần thứ hai, tập II",
+  "author": "Vũ Ngọc Phan",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-9",
+  "note": "Vũ Ngọc Phan biên soạn xuất bản lần đầu tại Hà Nội năm 1956. Nhóm biên soạn sử dụng bản in lần thứ hai gồm hai tập, xuất bản tại Hà Nội, năm 1957."
+ },
+ "VNP₁₁": {
+  "abbreviation": "VNP₁₁",
+  "title": "Tục ngữ ca dao dân ca Việt Nam, in lần thứ 11",
+  "author": "Vũ Ngọc Phan",
+  "kind": "Sách quốc ngữ",
+  "year": null,
+  "note_id": "qn-44",
+  "note": "Vũ Ngọc Phan biên soạn xuất bản lần đầu tại Hà Nội năm 1956 với tên gọi Tục ngữ và dân ca Việt Nam. Sách đến năm 2000 được xuất bản 12 lần. Do có sự khác nhau lớn giữa các lần in, Nbs sử dụng cả bản in lần thứ hai và lần thứ mười một, Nxb Khoa học xã hội, 1998."
+ }
+}

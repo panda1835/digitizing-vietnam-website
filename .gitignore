@@ -19,8 +19,13 @@ og.tsx
 .claude/
 
 data/ocr
+
+.agents
+
+.DESIGN.md
 data/corpus
 data/uploads
 docs/audit-han-nom-count
 tests/
 remaining.json
+/export/
