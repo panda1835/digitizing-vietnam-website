@@ -1,0 +1,96 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+import { ArrowLeft, Loader2, X } from "lucide-react";
+import { Dialog, DialogClose, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { ProverbCard } from "./ProverbCard";
+import { ProverbEntry, Sources, findEntry } from "./data";
+
+/**
+ * One Proverb Entry shown over the list, for a See-also or a #anchor deep
+ * link. `stack` holds the anchors followed so far; the last is shown, and a
+ * See-also inside the modal pushes onto it rather than touching the list.
+ */
+export function EntryModal({
+  stack,
+  sources,
+  onPush,
+  onBack,
+  onClose,
+  onOpenImage,
+  lightboxOpen,
+}: {
+  stack: string[];
+  sources: Sources;
+  onPush: (anchor: string) => void;
+  onBack: () => void;
+  onClose: () => void;
+  onOpenImage: (entry: ProverbEntry) => void;
+  lightboxOpen: boolean;
+}) {
+  const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
+  const anchor = stack[stack.length - 1];
+  const [entry, setEntry] = useState<ProverbEntry | null | undefined>(undefined);
+
+  useEffect(() => {
+    if (!anchor) return;
+    let cancelled = false;
+    setEntry(undefined);
+    findEntry(anchor)
+      .then((found) => !cancelled && setEntry(found))
+      .catch(() => !cancelled && setEntry(null));
+    return () => {
+      cancelled = true;
+    };
+  }, [anchor]);
+
+  return (
+    <Dialog open={stack.length > 0} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent
+        // The lightbox sits outside the dialog; using it must not close the dialog.
+        onInteractOutside={(e) => lightboxOpen && e.preventDefault()}
+        onEscapeKeyDown={(e) => lightboxOpen && e.preventDefault()}
+        // The default × would sit under the sticky header; the header has its own.
+        className="max-w-none w-full h-[100dvh] md:h-auto md:max-h-[90vh] md:w-[min(1100px,calc(100vw-48px))] p-0 gap-0 bg-branding-gray border-0 md:rounded-3xl overflow-y-auto flex flex-col [&>button:last-child]:hidden"
+      >
+        <div className="sticky top-0 z-10 flex items-center gap-3 px-4 md:px-6 py-3 bg-branding-gray/95 backdrop-blur border-b border-branding-brown/10">
+          {stack.length > 1 && (
+            <button
+              onClick={onBack}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-branding-brown hover:text-branding-brown/80"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              {t("back")}
+            </button>
+          )}
+          <DialogTitle className="text-sm font-bold uppercase tracking-widest text-branding-black/70">
+            {anchor?.replace("-", " ")}
+          </DialogTitle>
+          <DialogClose
+            aria-label={t("close")}
+            className="ml-auto p-2 rounded-full text-branding-black/60 hover:text-branding-black hover:bg-branding-black/5"
+          >
+            <X className="h-5 w-5" />
+          </DialogClose>
+        </div>
+
+        <div className="p-4 md:p-6">
+          {entry === undefined && (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="animate-spin h-8 w-8 text-branding-brown" />
+            </div>
+          )}
+          {entry === null && (
+            <p className="text-center py-20 text-gray-500">
+              {t("not-found", { name: anchor?.replace("-", " ") })}
+            </p>
+          )}
+          {entry && (
+            <ProverbCard key={entry.anchor} entry={entry} sources={sources} onSeeAlso={onPush} onOpenImage={onOpenImage} />
+          )}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}

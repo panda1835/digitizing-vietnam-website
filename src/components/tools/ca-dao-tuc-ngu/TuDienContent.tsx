@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Search, Loader2, X, Maximize2, ExternalLink, ChevronDown } from "lucide-react";
 import { Merriweather } from "next/font/google";
 import MiniSearch from "minisearch";
 import Image from "next/image";
+import { ScanLightbox } from "@/components/common/ScanLightbox";
 
 const merriweather = Merriweather({
   weight: ["300", "400", "700"],
@@ -36,21 +37,9 @@ export function TuDienContent({ locale }: { locale: string }) {
   // Pagination state
   const [visibleCount, setVisibleCount] = useState<number>(10);
 
-  // Modal zoom and pan states
+  // Lightbox state
   const [activeScanId, setActiveScanId] = useState<string | null>(null);
-  const [scale, setScale] = useState(1);
-  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
-
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const closeLightbox = () => {
-    setActiveScanId(null);
-    setScale(1);
-    setPanOffset({ x: 0, y: 0 });
-    setIsDragging(false);
-  };
+  const closeLightbox = useCallback(() => setActiveScanId(null), []);
 
   const ALPHABET = ["A", "B", "C", "D", "Đ", "E", "G", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y"];
 
@@ -256,71 +245,8 @@ export function TuDienContent({ locale }: { locale: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentEntries, visibleCount]);
 
-  // Listen for Escape key to close lightbox and manage page scrolling lock
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        closeLightbox();
-      }
-    };
-    if (activeScanId) {
-      window.addEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "hidden"; // Disable background scrolling
-    }
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = ""; // Restore background scrolling
-    };
-  }, [activeScanId]);
-
-  // Handle wheel events for scale-to-zoom (trackpad pinch/spread gesture)
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container || !activeScanId) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      // Prevent default page scroll and trackpad browser zoom
-      e.preventDefault();
-      
-      const delta = e.deltaY;
-      const factor = e.ctrlKey ? 0.02 : 0.01;
-
-      setScale((prevScale) => {
-        const nextScale = prevScale - delta * factor;
-        const clamped = Math.min(Math.max(nextScale, 1), 6);
-        if (clamped === 1) {
-          setPanOffset({ x: 0, y: 0 });
-        }
-        return clamped;
-      });
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    return () => {
-      container.removeEventListener("wheel", handleWheel);
-    };
-  }, [activeScanId]);
-
   return (
     <div className="w-full flex flex-col gap-6 animate-fadeIn">
-      {/* Lightbox specific animations matching templates/wiki.html */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes lightboxZoomIn {
-          from {
-            transform: scale(0.92);
-            opacity: 0;
-          }
-          to {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
-        @keyframes lightboxFadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-      `}} />
-      
       {/* Instructions section (Collapsible Accordion) */}
       <section className="scroll-mt-32 w-full animate-fadeIn mb-4">
         <div className="bg-white border border-branding-brown/15 rounded-2xl shadow-sm overflow-hidden">
@@ -540,53 +466,11 @@ export function TuDienContent({ locale }: { locale: string }) {
 
       {/* Lightbox Modal for enlarged scans matching templates/wiki.html */}
       {activeScanId && (
-        <div 
-          className="fixed inset-0 z-50 bg-[#2d1810]/90 backdrop-blur-md flex items-center justify-center p-[10px] select-none"
-          style={{ animation: 'lightboxFadeIn 0.25s ease-out forwards' }}
-          role="dialog"
-          aria-modal="true"
-        >
-          {/* Close Button - Clean '×' positioned in top-right */}
-          <button 
-            onClick={closeLightbox}
-            className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center text-white text-3xl font-light hover:scale-105 transition-all cursor-pointer shadow-md border border-white/10"
-            aria-label="Close image"
-          >
-            &times;
-          </button>
-          
-          {/* Zoomable Image Wrapper to crop overflow when zoomed */}
-          <div 
-            ref={containerRef}
-            className="w-[calc(100vw-20px)] h-[calc(100vh-20px)] overflow-hidden rounded-lg bg-white p-2 shadow-2xl flex items-center justify-center relative"
-          >
-            <img 
-              src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${activeScanId}.png/full/full/0/default.jpg`}
-              alt="Enlarged scan"
-              className="w-full h-full object-contain transition-transform duration-100 ease-out select-none"
-              style={{ 
-                transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
-                transformOrigin: 'center center',
-                boxShadow: '0 1rem 3rem rgba(0, 0, 0, 0.4)',
-                cursor: scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default'
-              }}
-              onMouseDown={(e) => {
-                if (scale <= 1) return;
-                e.preventDefault();
-                setIsDragging(true);
-                setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
-              }}
-              onMouseMove={(e) => {
-                if (!isDragging || scale <= 1) return;
-                const newX = e.clientX - dragStart.x;
-                const newY = e.clientY - dragStart.y;
-                setPanOffset({ x: newX, y: newY });
-              }}
-              onMouseUp={() => setIsDragging(false)}
-              onMouseLeave={() => setIsDragging(false)}
-            />
-          </div>
-        </div>
+        <ScanLightbox
+          src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${activeScanId}.png/full/full/0/default.jpg`}
+          alt="Enlarged scan"
+          onClose={closeLightbox}
+        />
       )}
     </div>
   );

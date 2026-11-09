@@ -54,6 +54,10 @@ export default async function CaDaoTucNguPage({
           label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item2"),
           href: "https://cadao.richardhoa.io.vn/qa-page",
         },
+        {
+          label: t("Tools.ca-dao-tuc-ngu.sidebar.tools-item3"),
+          href: "/research/ca-dao-tuc-ngu/kho-tang-tuc-ngu/tra-cuu",
+        },
       ],
     },
     {
@@ -256,6 +260,30 @@ export default async function CaDaoTucNguPage({
                     className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
                   >
                     {t("Tools.ca-dao-tuc-ngu.cards.learning.cta")}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+
+                {/* Card 05 */}
+                <div className="bg-white p-8 rounded-3xl border border-branding-brown/10 shadow-sm flex flex-col justify-between min-h-[320px]">
+                  <div>
+                    <span className="block text-4xl md:text-5xl font-normal text-branding-brown mb-4">
+                      05
+                    </span>
+                    <h3
+                      className={`${merriweather.className} text-xl md:text-2xl text-branding-black font-bold mb-4 leading-snug`}
+                    >
+                      {t("Tools.ca-dao-tuc-ngu.cards.kho-tang.title")}
+                    </h3>
+                    <p className="text-branding-black/80 font-light text-[15px] leading-relaxed mb-6">
+                      {t("Tools.ca-dao-tuc-ngu.cards.kho-tang.description")}
+                    </p>
+                  </div>
+                  <Link
+                    href="/research/ca-dao-tuc-ngu/kho-tang-tuc-ngu"
+                    className="self-start inline-flex items-center gap-2 px-6 py-3 bg-branding-black text-white text-sm font-bold rounded-lg hover:bg-branding-black/90 transition-colors"
+                  >
+                    {t("Tools.ca-dao-tuc-ngu.cards.kho-tang.cta")}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>

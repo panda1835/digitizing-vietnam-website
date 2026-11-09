@@ -365,7 +365,8 @@
         "tools-item1": "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam",
         "tools-item2": "Ca dao vấn đáp",
         "learning-title": "TRUNG TÂM HỌC TẬP",
-        "learning-item1": "Ca dao Vui học"
+        "learning-item1": "Ca dao Vui học",
+        "tools-item3": "Kho tàng tục ngữ người Việt"
       },
       "cards": {
         "dictionary": {
@@ -387,6 +388,11 @@
           "title": "Ca dao Vui học",
           "description": "Học ca dao qua trò chơi điền từ vào chỗ trống, kèm lời giải nghĩa và bình chú chi tiết.",
           "cta": "Bắt đầu học"
+        },
+        "kho-tang": {
+          "title": "Kho tàng tục ngữ người Việt",
+          "description": "Tra cứu tục ngữ (đang cập nhật) từ công trình của Viện Nghiên cứu Văn hoá dân gian do Nguyễn Xuân Kính chủ biên (2002), kèm nguồn, dị bản và ảnh bản in để đối chiếu.",
+          "cta": "Khám phá Kho tàng"
         }
       },
       "tu-dien": {
@@ -452,6 +458,49 @@
         "prop_collective_desc": "Là đặc tính quan trọng nhất phân biệt với văn học bác học. Tác phẩm do nhân dân sáng tác tập thể, được sửa chữa, bồi đắp qua nhiều vùng miền và thế hệ cho đến khi hoàn chỉnh.",
         "prop_oral_title": "Tính truyền miệng",
         "prop_oral_desc": "Trước đây, truyền miệng là con đường phổ biến duy nhất. Ngày nay, dù dân trí cao hơn và có văn bản ghi chép, tính chất truyền miệng vẫn song hành tự nhiên, thể hiện sức sống bền bỉ."
+      },
+      "kho-tang": {
+        "title": "Kho tàng tục ngữ người Việt",
+        "intro-subtitle": "Lời giới thiệu, bảng chữ tắt và phàm lệ biên soạn của bộ sách, trước khi bạn tra cứu các câu tục ngữ.",
+        "list-title": "Tra cứu tục ngữ",
+        "list-subtitle": "Tra cứu các câu tục ngữ theo chữ cái, tiếng đầu, nguồn và niên đại, kèm ảnh bản in để đối chiếu.",
+        "enter-list": "Vào tra cứu",
+        "back-to-intro": "Đọc lời giới thiệu",
+        "toc": "Mục lục",
+        "progress": "Đã số hoá Phần {parts}/{total} (chữ {letters})",
+        "count": "{count} câu",
+        "not-digitized": "Chưa số hoá",
+        "loading": "Đang tải dữ liệu...",
+        "load-more": "Xem thêm",
+        "empty": "Không tìm thấy câu tục ngữ phù hợp với bộ lọc và tìm kiếm.",
+        "search-placeholder": "Tìm trong câu tục ngữ, bản khác và chú thích...",
+        "filters": "Bộ lọc",
+        "clear-all": "Xoá tất cả",
+        "letter": "Chữ cái",
+        "syllable": "Tiếng đầu",
+        "syllable-search": "Tìm tiếng đầu...",
+        "all-syllables": "Tất cả",
+        "source": "Nguồn",
+        "source-search": "Tìm nguồn...",
+        "year": "Xuất hiện sớm nhất",
+        "year-from": "Từ",
+        "year-to": "Đến",
+        "year-note": "Chỉ tính các nguồn có niên đại (Phàm lệ II.2).",
+        "has": "Có",
+        "has-notes": "Chú thích",
+        "has-variants": "Bản khác",
+        "has-correction": "Sửa lại",
+        "page": "tr. {pages}",
+        "copy-link": "Sao chép liên kết",
+        "see-also": "Xem thêm câu",
+        "unresolved": "Câu này nằm trong phần chưa số hoá",
+        "image-error": "Không tải được ảnh bản in",
+        "zoom": "Xem phóng to",
+        "back": "Quay lại",
+        "close": "Đóng",
+        "not-found": "Không tìm thấy câu {name}.",
+        "read-more": "Xem thêm",
+        "correction": "Sửa lại"
       }
     }
   },

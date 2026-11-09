@@ -364,7 +364,8 @@
         "tools-item1": "Viet Chuong Idioms, Proverbs & Folk Verses Dictionary",
         "tools-item2": "Folk Verse Q&A",
         "learning-title": "LEARNING CENTER",
-        "learning-item1": "Learn Folk Verses"
+        "learning-item1": "Learn Folk Verses",
+        "tools-item3": "Treasury of Vietnamese Proverbs"
       },
       "cards": {
         "dictionary": {
@@ -385,6 +386,11 @@
           "title": "Learn Idioms, Proverbs, and Folk Verses",
           "description": "Learn folk poetry through an interactive word-fill game, complete with detailed explanations and interpretations.",
           "cta": "Start Learning"
+        },
+        "kho-tang": {
+          "title": "Treasury of Vietnamese Proverbs",
+          "description": "Look up proverbs (still being added) from the work of the Institute of Folk Culture Studies, edited by Nguyễn Xuân Kính (2002), with their sources, variants and print images for checking.",
+          "cta": "Explore the Treasury"
         }
       },
       "tu-dien": {
@@ -450,6 +456,49 @@
         "prop_collective_desc": "The primary characteristic distinguishing folk literature from authored works. Works are created collectively by the people, and continually refined and enriched across regions and generations.",
         "prop_oral_title": "Oral Transmission",
         "prop_oral_desc": "Historically, oral transmission was the sole channel. Today, despite rising literacy and written records, oral transmission continues naturally, showing its enduring vitality."
+      },
+      "kho-tang": {
+        "title": "Treasury of Vietnamese Proverbs",
+        "intro-subtitle": "The book's preface, table of abbreviations and editorial principles, before you look up its proverbs. The book's text is in Vietnamese.",
+        "list-title": "Look up proverbs",
+        "list-subtitle": "Look up proverbs by letter, first syllable, source and date, with print images for checking. The book's text is in Vietnamese.",
+        "enter-list": "Start looking up",
+        "back-to-intro": "Read the introduction",
+        "toc": "Contents",
+        "progress": "Part {parts} of {total} digitized (letters {letters})",
+        "count": "{count} proverbs",
+        "not-digitized": "Not digitized yet",
+        "loading": "Loading data...",
+        "load-more": "Load more",
+        "empty": "No proverbs match your filters and search.",
+        "search-placeholder": "Search proverbs, variants and notes...",
+        "filters": "Filters",
+        "clear-all": "Clear all",
+        "letter": "Letter",
+        "syllable": "First syllable",
+        "syllable-search": "Find a first syllable...",
+        "all-syllables": "All",
+        "source": "Source",
+        "source-search": "Find a source...",
+        "year": "Earliest attestation",
+        "year-from": "From",
+        "year-to": "To",
+        "year-note": "Counts only dated sources (Phàm lệ II.2).",
+        "has": "Has",
+        "has-notes": "Notes",
+        "has-variants": "Variants",
+        "has-correction": "Correction",
+        "page": "p. {pages}",
+        "copy-link": "Copy link",
+        "see-also": "See also",
+        "unresolved": "This proverb is in a part not yet digitized",
+        "image-error": "Could not load the print image",
+        "zoom": "Maximize view",
+        "back": "Back",
+        "close": "Close",
+        "not-found": "Proverb {name} not found.",
+        "read-more": "Read more",
+        "correction": "Correction"
       }
     }
   },
