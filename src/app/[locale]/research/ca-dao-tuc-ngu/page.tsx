@@ -4,6 +4,7 @@ import Image from "next/image";
 import {
   ArrowRight,
   ArrowUpRight,
+  BookOpen,
   Boxes,
   GraduationCap,
   Layers,
@@ -82,15 +83,30 @@ export default async function CaDaoTucNguPage({
 
   const featuredContent = [
     {
+      key: "folktales-collection",
+      href: "/our-collections/vietnamese-folk-literature#folktales",
+    },
+    {
+      key: "folk-verses-collection",
+      href: "/our-collections/vietnamese-folk-literature#folk-verses-proverbs",
+    },
+  ];
+  const tools = [
+    {
       key: "fairy-tales",
       href: "/our-collections/vietnamese-folk-literature/truyen-co-tich-viet-nam",
+      icon: BookOpen,
+    },
+    {
+      key: "cham-folktales",
+      href: "/our-collections/vietnamese-folk-literature/truyen-co-dan-gian-cham",
+      icon: BookOpen,
     },
     {
       key: "kho-tang",
       href: "/research/ca-dao-tuc-ngu/kho-tang-tuc-ngu",
+      icon: Search,
     },
-  ];
-  const tools = [
     {
       key: "dictionary",
       href: "/research/ca-dao-tuc-ngu/tu-dien",
@@ -158,8 +174,11 @@ export default async function CaDaoTucNguPage({
             id="explore-heading"
             className={`${merriweather.className} text-[28px] sm:text-[32px] leading-relaxed text-branding-black mb-4`}
           >
-            {t("Tools.ca-dao-tuc-ngu.name")}
+            {t("Tools.ca-dao-tuc-ngu.sections.introduction")}
           </h2>
+          <p className="w-full text-base leading-relaxed text-branding-black/75">
+            {t("Tools.ca-dao-tuc-ngu.hero.intro")}
+          </p>
           <nav
             aria-labelledby="explore-heading"
             className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5"
@@ -218,7 +237,7 @@ export default async function CaDaoTucNguPage({
             id="featured-heading"
             className={`${merriweather.className} text-[28px] sm:text-[32px] leading-relaxed text-branding-black mb-4`}
           >
-            {t("ResearchHub.HanNomHub.hub.featured.title")}
+            {t("Tools.ca-dao-tuc-ngu.sections.featured")}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
             {featuredContent.map((card) => (
@@ -242,9 +261,9 @@ export default async function CaDaoTucNguPage({
             id="tools-heading"
             className={`${merriweather.className} text-[28px] sm:text-[32px] leading-relaxed text-branding-black mb-4`}
           >
-            {locale === "vi" ? "Công cụ và học tập" : "Tools & Learning"}
+            {t("Tools.ca-dao-tuc-ngu.sections.tools")}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4">
             {tools.map((tool) => (
               <InfoCard
                 variant="resource"

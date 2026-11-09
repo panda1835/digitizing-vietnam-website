@@ -354,7 +354,12 @@
       "hero": {
         "title": "Khám phá tri thức dân gian Việt Nam",
         "subtitle": "Ca dao, Thành ngữ, Tục ngữ và Truyện cổ tích Việt Nam",
-        "intro": "Chọn một tính năng để bắt đầu."
+        "intro": "Không gian tri thức dân gian Việt Nam bao gồm bộ sưu tập các công trình sưu tầm, nghiên cứu, cũng như các công cụ truy xuất dữ liệu và học tập ca dao, tục ngữ, thành ngữ và truyện cổ tích Việt Nam."
+      },
+      "sections": {
+        "introduction": "Giới thiệu",
+        "featured": "Các bộ sưu tập nổi bật",
+        "tools": "Công cụ tra cứu & học tập"
       },
       "sidebar": {
         "archive-title": "KHO LƯU TRỮ SỐ",
@@ -369,6 +374,21 @@
         "tools-item3": "Kho tàng tục ngữ người Việt"
       },
       "cards": {
+        "folktales-collection": {
+          "title": "Bộ sưu tập truyện cổ Việt Nam",
+          "description": "Bộ sưu tập Truyện cổ Việt Nam giới thiệu kho tàng truyện kể dân gian của nhiều dân tộc như Kinh, Chăm, Cơ Ho, Mạ, Mơ Nông và Ba Na.",
+          "cta": "Khám phá bộ sưu tập"
+        },
+        "folk-verses-collection": {
+          "title": "Bộ sưu tập Tục ngữ, Ca dao, Dân ca, Tiếng lóng Việt Nam",
+          "description": "Bộ sưu tập Tục ngữ, Ca dao, Dân ca Việt Nam lưu giữ kho tàng tri thức, kinh nghiệm và tâm hồn dân gian Việt. Nổi bật là các công trình của các nhà nghiên cứu Nguyễn Xuân Kính, Vũ Ngọc Phan, Nguyễn Văn Ngọc (Ôn Như), Việt Chương cùng những tư liệu quý về câu đối, hát ả đào.",
+          "cta": "Khám phá bộ sưu tập"
+        },
+        "cham-folktales": {
+          "title": "Tuyển tập truyện cổ dân gian Chăm",
+          "description": "Tra cứu bản số hóa của tuyển tập 58 truyện cổ dân gian Chăm, do Trung tâm Nghiên cứu Văn hóa Chăm Ninh Thuận sưu tầm.",
+          "cta": "Tra cứu truyện cổ Chăm"
+        },
         "dictionary": {
           "title": "Từ điển Thành ngữ, Tục ngữ, Ca dao Việt Nam",
           "description": "Truy xuất và tìm hiểu ý nghĩa của các thành ngữ, tục ngữ, ca dao Việt Nam qua bản số hóa công trình sưu tầm và biên tập của học giả Việt Chương (2004), kèm ảnh scan gốc để đối chiếu.",

@@ -353,7 +353,12 @@
       "hero": {
         "title": "Explore Vietnamese Folk Knowledge",
         "subtitle": "Vietnamese Folk Verses, Idioms, Proverbs and Folktales",
-        "intro": "Choose a feature to get started."
+        "intro": "The Vietnamese Folk Knowledge Hub brings together collections of works documenting and researching Vietnamese folk verses, proverbs, idioms and folktales, alongside tools for exploring the material and learning."
+      },
+      "sections": {
+        "introduction": "Introduction",
+        "featured": "Featured Collections",
+        "tools": "Lookup & Learning Tools"
       },
       "sidebar": {
         "archive-title": "DIGITAL ARCHIVE",
@@ -368,6 +373,21 @@
         "tools-item3": "Treasury of Vietnamese Proverbs"
       },
       "cards": {
+        "folktales-collection": {
+          "title": "Vietnamese Folktales Collection",
+          "description": "Explore folk narratives from many ethnic groups, including the Kinh, Chăm, Cơ Ho, Mạ, Mơ Nông and Ba Na.",
+          "cta": "Explore the Collection"
+        },
+        "folk-verses-collection": {
+          "title": "Vietnamese Proverbs, Folk Verses, Folk Songs and Slang Collection",
+          "description": "This collection preserves Vietnamese folk knowledge, experience and expression through proverbs, folk verses and folk songs. Highlights include works by Nguyễn Xuân Kính, Vũ Ngọc Phan, Nguyễn Văn Ngọc (Ôn Như) and Việt Chương, alongside valuable materials on parallel sentences and ả đào singing.",
+          "cta": "Explore the Collection"
+        },
+        "cham-folktales": {
+          "title": "Chăm Folktales Anthology",
+          "description": "Explore a digitized anthology of 58 Chăm folktales collected by the Ninh Thuận Center for Chăm Cultural Studies.",
+          "cta": "Search Chăm Folktales"
+        },
         "dictionary": {
           "title": "Dictionary of Vietnamese Idioms, Proverbs and Folk Verses",
           "description": "Look up Vietnamese idioms, proverbs and folk verses and learn their meanings through a digitized edition of the work collected and edited by the scholar Việt Chương (2004), with the original scanned pages for comparison.",
