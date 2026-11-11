@@ -5,28 +5,51 @@
 
 const DATA_BASE = "/data/kho-tang-tuc-ngu";
 
-/** The intro (Front Matter) and list routes, without the locale. */
+/** The intro (Front and Back Matter) and list routes, without the locale. */
 export const INTRO_PATH = "/research/ca-dao-tuc-ngu/kho-tang-tuc-ngu";
 export const LIST_PATH = `${INTRO_PATH}/tra-cuu`;
 
-// Entry Images live beside the data for the demo (the first 10 entries of
-// each letter only). Moving them to IIIF changes this one constant.
-const ENTRY_IMAGE_BASE = `${DATA_BASE}/entry_images`;
-
 /** The 29 letters of the book, in its order. */
 export const ALPHABET = [
-  "A", "Ă", "Â", "B", "C", "D", "Đ", "E", "Ê", "G", "H", "I", "K", "L", "M",
-  "N", "O", "Ô", "Ơ", "P", "Q", "R", "S", "T", "U", "Ư", "V", "X", "Y",
+  "A",
+  "Ă",
+  "Â",
+  "B",
+  "C",
+  "D",
+  "Đ",
+  "E",
+  "Ê",
+  "G",
+  "H",
+  "I",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "Ô",
+  "Ơ",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "Ư",
+  "V",
+  "X",
+  "Y",
 ];
 
 /**
  * The letters whose Proverb Entries are exported, one file each under
  * letters/. Update it by hand when a new PDF Part's export is copied in.
  */
-export const AVAILABLE_LETTERS = ["A", "Ă", "Â", "B", "C"];
+export const AVAILABLE_LETTERS = ALPHABET;
 
 /** PDF Parts exported so far, of the 4 the work is uploaded as. */
-export const EXPORTED_PARTS = 1;
+export const EXPORTED_PARTS = 4;
 export const TOTAL_PARTS = 4;
 
 /**
@@ -86,6 +109,7 @@ export interface ProverbEntry {
   book_pages: string[];
   pdf_pages: number[];
   fixed: boolean;
+  /** The Entry Image's file name; the images await their move to IIIF. */
   image: string;
 }
 
@@ -102,8 +126,23 @@ export interface Source {
 
 export type Sources = Record<string, Source>;
 
-export function entryImageUrl(entry: ProverbEntry): string {
-  return `${ENTRY_IMAGE_BASE}/${encodeURIComponent(entry.image)}`;
+/** A Tiểu chủ đề of the Topic Index, with its Proverb Entries' anchors in book order. */
+export interface TieuChuDe {
+  id: string;
+  number: number;
+  title: string;
+  entries: string[];
+  /** Anchors the Topic Index names that no exported entry has. */
+  unresolved: string[];
+  /** Why the list is known to be incomplete, e.g. a misprinted page. */
+  note?: string;
+}
+
+/** One of the Topic Index's four Chủ đề, I–IV. */
+export interface ChuDe {
+  id: string;
+  title: string;
+  subtopics: TieuChuDe[];
 }
 
 /** The id of a Source Note's heading on the intro page. */
@@ -130,11 +169,14 @@ export function foldDiacritics(text: string): string {
 // fetch, and a letter is downloaded once per visit.
 const letterCache: Record<string, Promise<ProverbEntry[]>> = {};
 let sourcesCache: Promise<Sources> | null = null;
+let topicsCache: Promise<ChuDe[]> | null = null;
 
 export function fetchLetter(letter: string): Promise<ProverbEntry[]> {
   if (!AVAILABLE_LETTERS.includes(letter)) return Promise.resolve([]);
   if (!letterCache[letter]) {
-    letterCache[letter] = fetch(`${DATA_BASE}/letters/${encodeURIComponent(letter)}.json`)
+    letterCache[letter] = fetch(
+      `${DATA_BASE}/letters/${encodeURIComponent(letter)}.json`
+    )
       .then((res) => {
         if (!res.ok) throw new Error(`Letter ${letter}: HTTP ${res.status}`);
         return res.json();
@@ -148,7 +190,9 @@ export function fetchLetter(letter: string): Promise<ProverbEntry[]> {
 }
 
 export function fetchAllLetters(): Promise<ProverbEntry[]> {
-  return Promise.all(AVAILABLE_LETTERS.map(fetchLetter)).then((lists) => lists.flat());
+  return Promise.all(AVAILABLE_LETTERS.map(fetchLetter)).then((lists) =>
+    lists.flat()
+  );
 }
 
 export function fetchSources(): Promise<Sources> {
@@ -164,6 +208,22 @@ export function fetchSources(): Promise<Sources> {
       });
   }
   return sourcesCache;
+}
+
+export function fetchTopics(): Promise<ChuDe[]> {
+  if (!topicsCache) {
+    topicsCache = fetch(`${DATA_BASE}/topics.json`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`topics.json: HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((data: { topics: ChuDe[] }) => data.topics)
+      .catch((e) => {
+        topicsCache = null;
+        throw e;
+      });
+  }
+  return topicsCache;
 }
 
 /** The entry an anchor names, or null when it isn't exported. */

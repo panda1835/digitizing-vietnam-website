@@ -1,0 +1,8309 @@
+[
+ {
+  "name": "P 1",
+  "anchor": "P-1",
+  "letter": "P",
+  "number": 1,
+  "proverb": "Phá lá cây thì dễ, phá chồi chẳng dễ đâu.",
+  "citations": [
+   {
+    "abbreviation": "TMT",
+    "pages": "9"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "567"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "243"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "93"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phá lá cây thì dễ, phá chồi cây lặc lè chẳng xong."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "349"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "130"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phá lá cây thì dễ, phá chồi cây lặc lè cũng xong."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "566"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phá lá thì dễ, phá cành chẳng dễ đâu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "94"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Hại một vài người thì được, triệt hạ cả một gia tộc thì không thể được."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "... phá chổi ...",
+    "sources": [
+     "VNP"
+    ],
+    "right": [
+     {
+      "text": "... phá chồi ..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "VNP"
+     },
+     {
+      "text": " in sai thành \"... phá chổi ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... phá chồi ..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "phá",
+  "sources": [
+   "TMT",
+   "TNCL",
+   "TNPD I",
+   "VNP₁₁",
+   "TNVN",
+   "TTVH",
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2223"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "P-1.png"
+ },
+ {
+  "name": "P 2",
+  "anchor": "P-2",
+  "letter": "P",
+  "number": 2,
+  "proverb": "Phá sơn lâm, đâm hà bá.",
+  "citations": [
+   {
+    "abbreviation": "VCVN III",
+    "pages": "526"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo VCVN, Phá sơn lâm là phá núi rừng, đâm hà bá: đánh bắt tôm cá (hà bá: vua dưới nước)."
+    }
+   ],
+   [
+    {
+     "text": "Đây là hai nghề dễ làm giàu nhưng thất đức."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phá",
+  "sources": [
+   "VCVN III"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2223"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "P-2.png"
+ },
+ {
+  "name": "P 3",
+  "anchor": "P-3",
+  "letter": "P",
+  "number": 3,
+  "proverb": "Phải ai tai người ấy.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "62a"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "26"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phải ai tai nấy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "232"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "382"
+     },
+     {
+      "abbreviation": "TNLG I",
+      "pages": "15, 69"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "242"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "385"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "518"
+     },
+     {
+      "abbreviation": "VNP₂ II",
+      "pages": "38"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Người nào gặp chuyện không may thì phải chịu thiệt thòi.."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "R 185",
+    "anchor": "R-185",
+    "preview": "Rủi ai tai nấy."
+   }
+  ],
+  "first_syllable": "phải",
+  "sources": [
+   "ĐNQT",
+   "NNCC",
+   "NL",
+   "TNCL",
+   "TNLG I",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "VNP₂ II"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2223",
+   "2224"
+  ],
+  "pdf_pages": [
+   533,
+   534
+  ],
+  "fixed": false,
+  "image": "P-3.png"
+ },
+ {
+  "name": "P 4",
+  "anchor": "P-4",
+  "letter": "P",
+  "number": 4,
+  "proverb": "Phải bẻ mọi răng nanh nó mới làm lành quy thuận.",
+  "citations": [
+   {
+    "abbreviation": "VHLĐ",
+    "pages": "369"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Lưu truyền ở vùng Liễu Đôi, tỉnh Hà Nam. Muốn hàng phục đối phương phải trừ bỏ vây cánh."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "VHLĐ"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2224"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "P-4.png"
+ },
+ {
+  "name": "P 5",
+  "anchor": "P-5",
+  "letter": "P",
+  "number": 5,
+  "proverb": "Phải cái ách, cạch đến già.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "73"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2224"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "P-5.png"
+ },
+ {
+  "name": "P 6",
+  "anchor": "P-6",
+  "letter": "P",
+  "number": 6,
+  "proverb": "Phải cái dại, rái đến già.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "243"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "519"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Rái: sợ, nể (tiếng cổ)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "TNCL",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2224"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "P-6.png"
+ },
+ {
+  "name": "P 7",
+  "anchor": "P-7",
+  "letter": "P",
+  "number": 7,
+  "proverb": "Phải chẳng qua lẽ, khoẻ chẳng qua phép.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "141, 278"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "14a"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "363, 372"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "519"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ", có lẽ phải nhưng cần có lí lẽ; có sức khoẻ nhưng cần có phương pháp."
+    }
+   ],
+   [
+    {
+     "text": "Có ý kiến cho rằng, câu trên không lôgic, lời chú của "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": " cũng không thuyết phục. Cũng ý này nên dùng câu \"Khôn chẳng qua lẽ, khoẻ chẳng qua lời\"."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "K 325",
+    "anchor": "K-325",
+    "preview": "Khôn chẳng qua nhẽ, khoẻ chẳng…"
+   }
+  ],
+  "first_syllable": "phải",
+  "sources": [
+   "TNCL",
+   "TNTB",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2224"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "P-7.png"
+ },
+ {
+  "name": "P 8",
+  "anchor": "P-8",
+  "letter": "P",
+  "number": 8,
+  "proverb": "Phải cung sợ làn cây cong.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "232"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chim bị tên nên thấy cây cong tưởng là cung, cũng sợ. (Lấy từ câu Kinh cung chi điều kiến khúc mộc như cao phi)."
+    }
+   ],
+   [
+    {
+     "text": "Mắc nạn một lần, sau thấy cái tương tự có thể gây nạn cũng sợ mà tránh."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2224",
+   "2225"
+  ],
+  "pdf_pages": [
+   534,
+   535
+  ],
+  "fixed": false,
+  "image": "P-8.png"
+ },
+ {
+  "name": "P 9",
+  "anchor": "P-9",
+  "letter": "P",
+  "number": 9,
+  "proverb": "Phải dạm với trời, chắc vì với trời.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "4a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2225"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "P-9.png"
+ },
+ {
+  "name": "P 10",
+  "anchor": "P-10",
+  "letter": "P",
+  "number": 10,
+  "proverb": "Phải duyên thì dính như keo, trái duyên chống chểnh như kèo đực vênh.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "226"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "241"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phải duyên "
+     },
+     {
+      "text": "như bám",
+      "em": true
+     },
+     {
+      "text": " như keo, trái duyên "
+     },
+     {
+      "text": "trái kiếp",
+      "em": true
+     },
+     {
+      "text": " như kèo đực vênh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "243"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2225"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "P-10.png"
+ },
+ {
+  "name": "P 11",
+  "anchor": "P-11",
+  "letter": "P",
+  "number": 11,
+  "proverb": "Phải đi vãi đái, phải lại vãi cứt.",
+  "citations": [
+   {
+    "abbreviation": "VCVN III",
+    "pages": "527"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo VCVN, ốm lần đầu đã sợ, ớm lần hai còn sợ hơn. Mắc tai hoạ lần hai còn kinh hoàng hơn."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "VCVN III"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2225"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "P-11.png"
+ },
+ {
+  "name": "P 12",
+  "anchor": "P-12",
+  "letter": "P",
+  "number": 12,
+  "proverb": "Phải một cái rái đến già.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "232"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "250"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "301"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Mắc phải một lần (mắc lừa, tai hoạ, ...) thì kinh sợ mãi mãi."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2225"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "P-12.png"
+ },
+ {
+  "name": "P 13",
+  "anchor": "P-13",
+  "letter": "P",
+  "number": 13,
+  "proverb": "Phải người phải ta.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "60"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "158"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "CNGN",
+     "source": "CNGN"
+    },
+    {
+     "text": ": Phải lễ phải phép, xứng cả hai bên; thường nói về lễ cưới hỏi hoặc về sự chia chác phân minh."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2225"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "P-13.png"
+ },
+ {
+  "name": "P 14",
+  "anchor": "P-14",
+  "letter": "P",
+  "number": 14,
+  "proverb": "Phải qua đò mới dò nhà lái.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "204"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Phải qua thực tế mới rõ lòng dạ con người."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2225"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": true,
+  "image": "P-14.png"
+ },
+ {
+  "name": "P 15",
+  "anchor": "P-15",
+  "letter": "P",
+  "number": 15,
+  "proverb": "Phải răng chịu rứa cho rồi, gạo đổ trong nồi, ai nỡ trút ra.",
+  "citations": [
+   {
+    "abbreviation": "VHHP",
+    "pages": "129"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Sự việc đã rồi đành cam chịu, không thể thay đổi."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "VHHP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2226"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "P-15.png"
+ },
+ {
+  "name": "P 16",
+  "anchor": "P-16",
+  "letter": "P",
+  "number": 16,
+  "proverb": "Phải tội cửa sau, luồn vào cửa trước.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "232"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "41"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "487"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "243"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "519"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Phê phán kẻ có mánh khóe luôn lọt để tránh tội vạ."
+    }
+   ],
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Một kinh nghiệm con cái né tránh cơn bực giận của cha mẹ: Cha mẹ đánh vào chỗ này thì tránh vào chỗ khác, chờ khi nguôi giận lại thôi, không cha mẹ nào ghét bỏ con cái lâu."
+    }
+   ],
+   [
+    {
+     "text": "nhóm biên soạn",
+     "general": "Nbs"
+    },
+    {
+     "text": " tán thành "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": "."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2226"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "P-16.png"
+ },
+ {
+  "name": "P 17",
+  "anchor": "P-17",
+  "letter": "P",
+  "number": 17,
+  "proverb": "Phải tội lội xuống sông.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "26"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "NNCC"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2226"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "P-17.png"
+ },
+ {
+  "name": "P 18",
+  "anchor": "P-18",
+  "letter": "P",
+  "number": 18,
+  "proverb": "Phải tội mua mạ, phải vạ mua than.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "89"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "29a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "232"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "21"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "63, 348"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "243"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "204"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "519"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phải tội mua mạ, phải vạ mua "
+     },
+     {
+      "text": "thơm",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN III",
+      "pages": "528"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phải tội mua "
+     },
+     {
+      "text": "nạ",
+      "em": true
+     },
+     {
+      "text": ", phải vạ mua than."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "487"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ", mạ chóng héo, than rây bẩn. Mua những thứ đó dễ bị chê trách, dễ phiền hà vào thân."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NL",
+   "NNPD",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VCVN III"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2226"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "P-18.png"
+ },
+ {
+  "name": "P 19",
+  "anchor": "P-19",
+  "letter": "P",
+  "number": 19,
+  "proverb": "Phải trái hai mang.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "16"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phải",
+  "sources": [
+   "NNCC",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2226"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "P-19.png"
+ },
+ {
+  "name": "P 20",
+  "anchor": "P-20",
+  "letter": "P",
+  "number": 20,
+  "proverb": "Phản cầu chư thân.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "60"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "158"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Hễ có việc gì lầm lỗi hoặc có gì trái ý thì phải trách mình, hỏi mình."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phản",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2227"
+  ],
+  "pdf_pages": [
+   537
+  ],
+  "fixed": false,
+  "image": "P-20.png"
+ },
+ {
+  "name": "P 21",
+  "anchor": "P-21",
+  "letter": "P",
+  "number": 21,
+  "proverb": "Phản Trụ đầu Châu, ăn cơm nhà Phật đốt râu thầy chùa.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "243"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phản Trụ đầu Châu, ăn cơm nhà Phật đốt râu nhà chùa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "388"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phản Trụ đầu Châu, ăn cơm nhà Phật vuốt râu nhà chùa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN III",
+      "pages": "530"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Phản Trụ đầu Châu thì có nghĩa phản lại vua Trụ (vua tàn bạo của nhà Thương) đầu hàng nhà Chu (Chu cũng đọc là Châu - Chu viết hoa)."
+    }
+   ],
+   [
+    {
+     "text": "Nói kẻ phản chủ."
+    }
+   ],
+   [
+    {
+     "text": "Tuy nhiên, phản Trụ đầu Châu, thì không đáng chê còn Ăn cơm nhà Phật đốt râu thầy chùa thì lại đáng phê phán."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "- ... đầu châu...",
+    "sources": [
+     "VCVN III"
+    ],
+    "right": [
+     {
+      "text": "đầu Châu..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "VCVN III",
+      "source": "VCVN III"
+     },
+     {
+      "text": " in sai thành \"- ... đầu châu...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "đầu Châu..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   },
+   {
+    "wrong": "- ... đốt trâu...",
+    "sources": [
+     "VC II"
+    ],
+    "right": [
+     {
+      "text": "đốt râu..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "VC II",
+      "source": "VC II"
+     },
+     {
+      "text": " in sai thành \"- ... đốt trâu...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "đốt râu..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   },
+   {
+    "wrong": "- Phản chủ đầu trâu...",
+    "sources": [
+     "TNPD I",
+     "VC II"
+    ],
+    "right": [
+     {
+      "text": "Phản Trụ đầu Châu..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNPD I",
+      "source": "TNPD I"
+     },
+     {
+      "text": ", "
+     },
+     {
+      "text": "VC II",
+      "source": "VC II"
+     },
+     {
+      "text": " in sai thành \"- Phản chủ đầu trâu...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Phản Trụ đầu Châu..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [
+   {
+    "name": "Ă 120",
+    "anchor": "Ă-120",
+    "preview": "Ăn cơm nhà Phật, đốt râu…"
+   }
+  ],
+  "first_syllable": "phản",
+  "sources": [
+   "TNPD I",
+   "VC II",
+   "VCVN III"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2227"
+  ],
+  "pdf_pages": [
+   537
+  ],
+  "fixed": false,
+  "image": "P-21.png"
+ },
+ {
+  "name": "P 22",
+  "anchor": "P-22",
+  "letter": "P",
+  "number": 22,
+  "proverb": "Phao Võng cỗng lợn.",
+  "citations": [
+   {
+    "abbreviation": "TNVP",
+    "pages": "21"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Phú Thọ. Theo "
+    },
+    {
+     "text": "TNVP",
+     "source": "TNVP"
+    },
+    {
+     "text": ", xưa Phao Võng là đất \"nghịch\", trộm cướp nhiều."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phao",
+  "sources": [
+   "TNVP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2227"
+  ],
+  "pdf_pages": [
+   537
+  ],
+  "fixed": false,
+  "image": "P-22.png"
+ },
+ {
+  "name": "P 23",
+  "anchor": "P-23",
+  "letter": "P",
+  "number": 23,
+  "proverb": "Pháo Bình Đà, lĩnh Bưởi, lụa La, thêu hoa Ngũ Xã.",
+  "citations": [
+   {
+    "abbreviation": "NNHN II",
+    "pages": "9"
+   },
+   {
+    "abbreviation": "TNHT",
+    "pages": "39"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Bình Đà (Hà Tây) làm pháo, làng Bưởi (cũ) nay thuộc nội thành Hà Nội dệt lĩnh nổi tiếng, các làng La (Hà Tây) giỏi nghề dệt, làng Ngũ Xã (ở bên hồ Trúc Bạch, Hà Nội) giỏi thêu hoa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "pháo",
+  "sources": [
+   "NNHN II",
+   "TNHT"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2227",
+   "2228"
+  ],
+  "pdf_pages": [
+   537,
+   538
+  ],
+  "fixed": false,
+  "image": "P-23.png"
+ },
+ {
+  "name": "P 24",
+  "anchor": "P-24",
+  "letter": "P",
+  "number": 24,
+  "proverb": "Pháo Ngò, trò Bôn.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "108"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Làng Ngò và tứ xã Bôn ở Thanh Hoá có pháo nổi tiếng, trò diễn hay."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "pháo",
+  "sources": [
+   "NXK"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2228"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "P-24.png"
+ },
+ {
+  "name": "P 25",
+  "anchor": "P-25",
+  "letter": "P",
+  "number": 25,
+  "proverb": "Pháp bất gia ư quan tử, lễ bất chấp ư tiểu nhơn.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "60"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Luật pháp không gia tăng với người tài đức, lễ nghi không kể đến kẻ tầm thường."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "pháp",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2228"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "P-25.png"
+ },
+ {
+  "name": "P 26",
+  "anchor": "P-26",
+  "letter": "P",
+  "number": 26,
+  "proverb": "Phạt rừng không khỏi sót bụi.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "519"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giải quyết nhiều công việc khó tránh được sai sót."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phạt",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2228"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "P-26.png"
+ },
+ {
+  "name": "P 27",
+  "anchor": "P-27",
+  "letter": "P",
+  "number": 27,
+  "proverb": "Phân đem đổ ruộng người.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "567"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Làm việc uống công."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phân",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2228"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "P-27.png"
+ },
+ {
+  "name": "P 28",
+  "anchor": "P-28",
+  "letter": "P",
+  "number": 28,
+  "proverb": "Phân đổ tran không bằng bèo dán cánh.",
+  "citations": [
+   {
+    "abbreviation": "VHTB",
+    "pages": "106"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phân đổ "
+     },
+     {
+      "text": "tràn",
+      "em": true
+     },
+     {
+      "text": " không bằng bèo dán cánh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "348"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Nói kĩ thuật làm ruộng. "
+    },
+    {
+     "text": "VHTB",
+     "source": "VHTB"
+    },
+    {
+     "text": ": Khi bèo phát triển dày, cánh bèo nọ sát cánh bèo kia gọi là bèo dán cánh."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phân",
+  "sources": [
+   "VHTB",
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2228"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "P-28.png"
+ },
+ {
+  "name": "P 29",
+  "anchor": "P-29",
+  "letter": "P",
+  "number": 29,
+  "proverb": "Phân gio không bằng cấy mò tháng sáu.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "348"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "205"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "519"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phân tro không bằng cấy mò tháng sáu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "67"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Lúa mùa cấy chủ yếu trong tháng sáu âm lịch; tháng này được coi là tháng cấy mùa tốt nhất (theo Bùi Huy Đáp (1999): Ca dao tục ngữ với khoa học nông nghiệp)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phân",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "NXK"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2229"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "P-29.png"
+ },
+ {
+  "name": "P 30",
+  "anchor": "P-30",
+  "letter": "P",
+  "number": 30,
+  "proverb": "Phân không đủ, ủ bèo.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "67"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "348"
+   },
+   {
+    "abbreviation": "VHTB",
+    "pages": "106"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phân",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "VHTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2229"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "P-30.png"
+ },
+ {
+  "name": "P 31",
+  "anchor": "P-31",
+  "letter": "P",
+  "number": 31,
+  "proverb": "Phân tro không bằng no nước.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "232"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "68"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "348"
+   },
+   {
+    "abbreviation": "VHQB",
+    "pages": "291"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "235"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phân "
+     },
+     {
+      "text": "gio",
+      "em": true
+     },
+     {
+      "text": " không bằng no nước."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "520"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phân",
+  "sources": [
+   "NL",
+   "NXK",
+   "TMT",
+   "TNCL",
+   "VHQB",
+   "VNP₁₁",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2229"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "P-31.png"
+ },
+ {
+  "name": "P 32",
+  "anchor": "P-32",
+  "letter": "P",
+  "number": 32,
+  "proverb": "Phấn giồi mặt chẳng ai giồi ống chân.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "51a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phấn giồi mặt, ai lấy phấn mà giồi chơn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "60"
+     },
+     {
+      "abbreviation": "NTP",
+      "pages": "159"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phấn giồi mặt ai nỡ giồi chân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "232"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phấn giồi mặt ai nỡ giồi gót chân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "44"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phấn giồi mặt, ai nỡ phấn giồi chân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "507"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "368"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phấn giồi mặt chẳng ai giồi chân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "32"
+     },
+     {
+      "abbreviation": "TNCD",
+      "pages": "84"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phấn giồi mặt, chẳng ai giồi gót chân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "243"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phấn giồi mặt đâu để giồi chân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "70"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phấn nhồi mặt, ai phấn nhồi gót chân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "41"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Đó dùng phải sử dụng cho thích hợp. Làm việc gì cũng phải cho thích hợp."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phấn",
+  "sources": [
+   "ĐNQT",
+   "CNGN",
+   "NTP",
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNVN",
+   "ANTN",
+   "TNCD",
+   "TNPD I",
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2229"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "P-32.png"
+ },
+ {
+  "name": "P 33",
+  "anchor": "P-33",
+  "letter": "P",
+  "number": 33,
+  "proverb": "Phấn hương còn mặt mũi nào.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "46b"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Không còn lòng dạ nào không thể nào nghĩ đến trang điểm, nghĩ đến tình duyên."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phấn",
+  "sources": [
+   "NASL II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2230"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "P-33.png"
+ },
+ {
+  "name": "P 34",
+  "anchor": "P-34",
+  "letter": "P",
+  "number": 34,
+  "proverb": "Phấn Sơn, Phấn Sở, Phấn Trì, cả ba làng Phấn gái thì thật xinh.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "73"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Cả ba làng Phấn nay thuộc huyện Yên Dũng, tỉnh Bắc Giang."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phấn",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2230"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "P-34.png"
+ },
+ {
+  "name": "P 35",
+  "anchor": "P-35",
+  "letter": "P",
+  "number": 35,
+  "proverb": "Phận cha cha lo, phận con con liệu.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "520"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Người nào lo phận người ấy."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phận",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2230"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "P-35.png"
+ },
+ {
+  "name": "P 36",
+  "anchor": "P-36",
+  "letter": "P",
+  "number": 36,
+  "proverb": "Phận gái bến nước mười hai, gặp nơi trong đục may ai nấy nhờ.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "312"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "237"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Thân phận người con gái hoàn toàn tuỳ thuộc vào khách quan, không tự chủ được."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phận",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2230"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "P-36.png"
+ },
+ {
+  "name": "P 37",
+  "anchor": "P-37",
+  "letter": "P",
+  "number": 37,
+  "proverb": "Phận gái chữ tòng.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "520"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Bổn phận người con gái là phải biết tuân theo. (Ở nhà theo cha, lấy chồng theo chồng, chồng chết theo con)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phận",
+  "sources": [
+   "NL",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2230"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "P-37.png"
+ },
+ {
+  "name": "P 38",
+  "anchor": "P-38",
+  "letter": "P",
+  "number": 38,
+  "proverb": "Phận gái theo chồng.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "13"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "226"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phận",
+  "sources": [
+   "NNCC",
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2230"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "P-38.png"
+ },
+ {
+  "name": "P 39",
+  "anchor": "P-39",
+  "letter": "P",
+  "number": 39,
+  "proverb": "Phận gái mười hai bến nước, trọng nhờ, đục chịu.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "391"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phận",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2231"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "P-39.png"
+ },
+ {
+  "name": "P 40",
+  "anchor": "P-40",
+  "letter": "P",
+  "number": 40,
+  "proverb": "Phận gái như cái bầu, sa đâu ấm đấy.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "5a"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "237"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "521"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phận gái như cái bầu, sa đâu "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " ấm đấy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "226"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ", thân phận người phụ nữ dưới chế độ cũ mong manh phiêu dạt, hoàn toàn phụ thuộc vào người chồng, may gặp được người tốt thì sung sướng, chẳng may lấy phải người chồng xấu đành âm thầm chịu khổ một đời."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phận",
+  "sources": [
+   "NASL II",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2231"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "P-40.png"
+ },
+ {
+  "name": "P 41",
+  "anchor": "P-41",
+  "letter": "P",
+  "number": 41,
+  "proverb": "Phận đàn em ăn thèm vác nặng.",
+  "citations": [
+   {
+    "abbreviation": "HT",
+    "pages": "63"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "128"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "141"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "269, 275"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "520"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Làm em ăn thèm vác nặng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHQB",
+      "pages": "307"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phần đàn em ăn thèm vác nặng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "390"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phận làm em ăn thèm vác nặng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "233"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Kẻ dưới ăn ít làm nhiều."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phận",
+  "sources": [
+   "HT",
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VHQB",
+   "VC II",
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2231"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "P-41.png"
+ },
+ {
+  "name": "P 42",
+  "anchor": "P-42",
+  "letter": "P",
+  "number": 42,
+  "proverb": "Phật bất cầu ai.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "25"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2231"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "P-42.png"
+ },
+ {
+  "name": "P 43",
+  "anchor": "P-43",
+  "letter": "P",
+  "number": 43,
+  "proverb": "Phật chửa ra, ma đã vào.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "56"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chủ chưa xong việc, kẻ xấu, kẻ quấy rối đã đến."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2231"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "P-43.png"
+ },
+ {
+  "name": "P 44",
+  "anchor": "P-44",
+  "letter": "P",
+  "number": 44,
+  "proverb": "Phật cũng là người, ta cũng là người.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "123"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2231"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "P-44.png"
+ },
+ {
+  "name": "P 45",
+  "anchor": "P-45",
+  "letter": "P",
+  "number": 45,
+  "proverb": "Phật đá Cầu Đông, tượng đồng Trấn Võ.",
+  "citations": [
+   {
+    "abbreviation": "NNHN I",
+    "pages": "171"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "17"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "72"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "292"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phật đá Cầu Đông, tượng đồng Trấn Vũ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNGQ",
+      "pages": "102"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Ở Hà Nội. Theo NNHN, đây là hai công trình nghệ thuật nổi tiếng dưới thời Lê Trung Hưng. Cầu Đông là chiếc cầu bắc qua dòng sông Tô Lịch, ở khu vực ngã tư phố Ngõ Gạch và phố Hàng Đường ngày nay. Tượng Phật được đặt trên chiếc bệ ở đầu cầu và làm bằng đá trắng, cao hai thước, ngồi xếp bằng tròn, bụng để hở rốn, miệng tủm tỉm cười, nên cũng gọi là Tiếu Phật. Đoạn sông này đã bị lấp, cầu cũ không còn, tượng Phật bị mất vào đầu thời kì Pháp thuộc. Tượng đồng Trấn Vũ, cũng gọi là Trấn Vũ, hiện còn ở đền Quán Thánh, nặng bốn tấn, được đúc vào cuối thế kỉ 17."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "NNHN I",
+   "NXK",
+   "TMT",
+   "TNVN",
+   "NNGQ"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2232"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "P-45.png"
+ },
+ {
+  "name": "P 46",
+  "anchor": "P-46",
+  "letter": "P",
+  "number": 46,
+  "proverb": "Phật tại tâm.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "5"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "402"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "241"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "392"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Phật ở trong lòng. Mình thành tâm thì tự khắc sẽ thấu đến đức Phật, không nhất thiết phải đi lễ bái."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2232"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "P-46.png"
+ },
+ {
+  "name": "P 47",
+  "anchor": "P-47",
+  "letter": "P",
+  "number": 47,
+  "proverb": "Phật thì ở trên mây, nhiều tiền đong đầy, ít tiền đong vơi.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "63"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2232"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "P-47.png"
+ },
+ {
+  "name": "P 48",
+  "anchor": "P-48",
+  "letter": "P",
+  "number": 48,
+  "proverb": "Phật thường độ hữu duyên.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Người được may mắn tức là được Phật phù hộ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2232"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "P-48.png"
+ },
+ {
+  "name": "P 49",
+  "anchor": "P-49",
+  "letter": "P",
+  "number": 49,
+  "proverb": "Phật trên toà, gà mổ đít.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "30"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Không động chạm đến ai cũng bị tai hoạ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2232"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "P-49.png"
+ },
+ {
+  "name": "P 50",
+  "anchor": "P-50",
+  "letter": "P",
+  "number": 50,
+  "proverb": "Phật tượng trên toà, gà mô mổ mắt.",
+  "citations": [
+   {
+    "abbreviation": "TNTB",
+    "pages": "14a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phật",
+  "sources": [
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2233"
+  ],
+  "pdf_pages": [
+   543
+  ],
+  "fixed": false,
+  "image": "P-50.png"
+ },
+ {
+  "name": "P 51",
+  "anchor": "P-51",
+  "letter": "P",
+  "number": 51,
+  "proverb": "Phe phẩy như bà cốt gọi hồn.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "90"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "21b"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "136"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "294"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Bà cốt: người đàn bà làm nghề đóng bóng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phe",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NXK",
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2233"
+  ],
+  "pdf_pages": [
+   543
+  ],
+  "fixed": false,
+  "image": "P-51.png"
+ },
+ {
+  "name": "P 52",
+  "anchor": "P-52",
+  "letter": "P",
+  "number": 52,
+  "proverb": "Phép vua thua lệ làng.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "21"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "24b"
+   },
+   {
+    "abbreviation": "HT",
+    "pages": "60"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "31"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "24"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "6"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "132"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "42, 91"
+   },
+   {
+    "abbreviation": "TNCDCL",
+    "pages": "12"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "25"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "254, 285"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "279"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "392"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "521"
+   },
+   {
+    "abbreviation": "VNP₂ II",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "471"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Luật lệ của làng xã xưa nghiêm ngặt và có hiệu lực ghê gớm, nhiều khi còn mạnh hơn phép vua."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "L 622",
+    "anchor": "L-622",
+    "preview": "Lệnh vua thua phép làng."
+   }
+  ],
+  "first_syllable": "phép",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "HT",
+   "MGL",
+   "NL",
+   "NNCC",
+   "NNPD",
+   "NXK",
+   "TMT",
+   "TNCDCL",
+   "TNCĐ",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VNP₂ II",
+   "VNP₁₁"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2233"
+  ],
+  "pdf_pages": [
+   543
+  ],
+  "fixed": false,
+  "image": "P-52.png"
+ },
+ {
+  "name": "P 53",
+  "anchor": "P-53",
+  "letter": "P",
+  "number": 53,
+  "proverb": "Phi châm bất dẫn tuyến, vô thuỷ bất độ thuyền.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "567"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "243"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "nghĩa đen",
+     "general": "Nđ"
+    },
+    {
+     "text": ": Không có cây kim, không thể luồn chỉ (khâu), không có sông, không thể có bến đò."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Làm công việc gì cũng phải có phương tiện, hoàn cảnh."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phi",
+  "sources": [
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2233"
+  ],
+  "pdf_pages": [
+   543
+  ],
+  "fixed": false,
+  "image": "P-53.png"
+ },
+ {
+  "name": "P 54",
+  "anchor": "P-54",
+  "letter": "P",
+  "number": 54,
+  "proverb": "Phi cổ bất thành kim.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "373"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "392"
+   },
+   {
+    "abbreviation": "VCVN III",
+    "pages": "533"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "521"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Không có cũ làm sao có mới. Cái mới phải trên cơ sở cái cũ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phi",
+  "sources": [
+   "NL",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VCVN III",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2233"
+  ],
+  "pdf_pages": [
+   543
+  ],
+  "fixed": false,
+  "image": "P-54.png"
+ },
+ {
+  "name": "P 55",
+  "anchor": "P-55",
+  "letter": "P",
+  "number": 55,
+  "proverb": "Phi đàng nọ, tắc đàng kia.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "36"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "6a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phi",
+  "sources": [
+   "CCM",
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2233"
+  ],
+  "pdf_pages": [
+   543
+  ],
+  "fixed": false,
+  "image": "P-55.png"
+ },
+ {
+  "name": "P 56",
+  "anchor": "P-56",
+  "letter": "P",
+  "number": 56,
+  "proverb": "Phi thương bất phú.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "392"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "521"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Không buôn bán thì không giàu có được."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phi",
+  "sources": [
+   "NL",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2234"
+  ],
+  "pdf_pages": [
+   544
+  ],
+  "fixed": false,
+  "image": "P-56.png"
+ },
+ {
+  "name": "P 57",
+  "anchor": "P-57",
+  "letter": "P",
+  "number": 57,
+  "proverb": "Phi vận bất đạt.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "382"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "344"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Không gặp thời vận không thể phát đạt."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "Phi vật bất đạt, không có vận thì không thành.",
+    "sources": [
+     "TNCL"
+    ],
+    "right": [
+     {
+      "text": "Phi vận bất đạt."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"Phi vật bất đạt, không có vận thì không thành.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Phi vận bất đạt."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "phi",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": null,
+  "book_pages": [
+   "2234"
+  ],
+  "pdf_pages": [
+   544
+  ],
+  "fixed": false,
+  "image": "P-57.png"
+ },
+ {
+  "name": "P 58",
+  "anchor": "P-58",
+  "letter": "P",
+  "number": 58,
+  "proverb": "Phì phò như bễ lò rèn.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phì",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2234"
+  ],
+  "pdf_pages": [
+   544
+  ],
+  "fixed": false,
+  "image": "P-58.png"
+ },
+ {
+  "name": "P 59",
+  "anchor": "P-59",
+  "letter": "P",
+  "number": 59,
+  "proverb": "Phỉ hổ lấy rổ mà che, lấy nong mà đè, lấy đấu mà đong.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phỉ hổ lấy rổ mà che, lấy nong mà đè, lấy đấu mà đưa, lấy ngọn rau dừa chấm cứt mà ăn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "244"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Chế trẻ em làm điều gì đáng xấu hổ? Thường dùng trong lúc nói đùa để chế giễu."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phỉ",
+  "sources": [
+   "NL",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2234"
+  ],
+  "pdf_pages": [
+   544
+  ],
+  "fixed": false,
+  "image": "P-59.png"
+ },
+ {
+  "name": "P 60",
+  "anchor": "P-60",
+  "letter": "P",
+  "number": 60,
+  "proverb": "Phí của trời, mười đời chẳng có.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "53b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "339"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "393"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phí của giời mười đời chẳng có."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNPD",
+      "pages": "16"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Khuyên phải tiết kiệm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phí",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "NNPD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2234"
+  ],
+  "pdf_pages": [
+   544
+  ],
+  "fixed": false,
+  "image": "P-60.png"
+ },
+ {
+  "name": "P 61",
+  "anchor": "P-61",
+  "letter": "P",
+  "number": 61,
+  "proverb": "Phong, lao, cổ, lại, tứ chứng nan y.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "234"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phong, lao, cổ, lại tứ chứng nan."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "54"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Phong (bệnh hủi), lao (bệnh lao), cổ (báng), lại (sùi da) là bốn bệnh nguy hiểm, ngày xưa thầy thuốc bó tay. Ngày nay, đối với các bệnh đó y học đã chữa trị được."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phong",
+  "sources": [
+   "CNGN",
+   "NL",
+   "NTP",
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2234",
+   "2235"
+  ],
+  "pdf_pages": [
+   544,
+   545
+  ],
+  "fixed": false,
+  "image": "P-61.png"
+ },
+ {
+  "name": "P 62",
+  "anchor": "P-62",
+  "letter": "P",
+  "number": 62,
+  "proverb": "Phong lưu là cạm ở đời.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "234"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "187"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Phong lưu ở đây có nghĩa là ăn chơi. Lời khuyên nên tránh những cuộc ăn chơi đài điếm vì đó là cái bẫy để hại mình."
+    }
+   ],
+   [
+    {
+     "text": "Theo Hoàng Phê (1992), Phong lưu có hai nghĩa: 1. Có dáng vẻ, cử chỉ lịch sự, trang nhã; 2. Có đời sống vật chất khá giả, dễ chịu. Như vậy "
+    },
+    {
+     "text": "nhóm biên soạn",
+     "general": "Nbs"
+    },
+    {
+     "text": " chưa tán thành "
+    },
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ". Câu này có nghĩa: Những người không có tài đức lại chỉ muốn phong lưu sẽ có lúc rơi vào vòng tù tội hoặc bị bất hạnh."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phong",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2235"
+  ],
+  "pdf_pages": [
+   545
+  ],
+  "fixed": false,
+  "image": "P-62.png"
+ },
+ {
+  "name": "P 63",
+  "anchor": "P-63",
+  "letter": "P",
+  "number": 63,
+  "proverb": "Phong lưu là cạm ở đời, hồng nhan là bả những người tài hoa.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "244"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "394"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Con người vì ham lợi lộc nên sinh ra dối trá. Nhiều kẻ ra đường ăn mặc sang trọng nhưng thực chất đó là những tên đàng điếm dùng cái mẽ bề ngoài để dễ lừa gạt những người nhẹ dạ. Có những cô gái dùng nhan sắc trời cho của mình để đi làm tiền hoặc làm đảo điên những anh chàng dại gái (theo VC)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phong",
+  "sources": [
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2235"
+  ],
+  "pdf_pages": [
+   545
+  ],
+  "fixed": false,
+  "image": "P-63.png"
+ },
+ {
+  "name": "P 64",
+  "anchor": "P-64",
+  "letter": "P",
+  "number": 64,
+  "proverb": "Phong lưu mỗi người mỗi cách, lịch sự mỗi người mỗi kiểu.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "187"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "243"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phong lưu mỗi người "
+     },
+     {
+      "text": "một",
+      "em": true
+     },
+     {
+      "text": " cách, lịch sự mỗi người "
+     },
+     {
+      "text": "một",
+      "em": true
+     },
+     {
+      "text": " kiểu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "234"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "394"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phong lưu mỗi người "
+     },
+     {
+      "text": "một",
+      "em": true
+     },
+     {
+      "text": " cách, lịch sự mỗi người "
+     },
+     {
+      "text": "một",
+      "em": true
+     },
+     {
+      "text": " lối."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "365"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "130"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phong",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "VD",
+   "NL",
+   "VC II",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2235"
+  ],
+  "pdf_pages": [
+   545
+  ],
+  "fixed": false,
+  "image": "P-64.png"
+ },
+ {
+  "name": "P 65",
+  "anchor": "P-65",
+  "letter": "P",
+  "number": 65,
+  "proverb": "Phong lưu mượn, đài các giả.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "30"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chỉ có vỏ bề ngoài."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phong",
+  "sources": [
+   "NNCC"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2236"
+  ],
+  "pdf_pages": [
+   546
+  ],
+  "fixed": false,
+  "image": "P-65.png"
+ },
+ {
+  "name": "P 66",
+  "anchor": "P-66",
+  "letter": "P",
+  "number": 66,
+  "proverb": "Phong lưu xa cũng nên gần.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "234"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "33a"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "187"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Khi đã có cuộc sống đầy đủ, sung túc thì có điều kiện cư xử tốt với mọi người, khiến cho mọi người có quan hệ xa xôi cũng trở nên gần gũi, thân thiện với mình."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phong",
+  "sources": [
+   "NL",
+   "PNTN",
+   "TNCL",
+   "TNPD I",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2236"
+  ],
+  "pdf_pages": [
+   546
+  ],
+  "fixed": false,
+  "image": "P-66.png"
+ },
+ {
+  "name": "P 67",
+  "anchor": "P-67",
+  "letter": "P",
+  "number": 67,
+  "proverb": "Phong tục ở mỗi nơi mỗi khác.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "44"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phong",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2236"
+  ],
+  "pdf_pages": [
+   546
+  ],
+  "fixed": false,
+  "image": "P-67.png"
+ },
+ {
+  "name": "P 68",
+  "anchor": "P-68",
+  "letter": "P",
+  "number": 68,
+  "proverb": "Phòng bệnh hơn chữa bệnh.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "396"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phòng",
+  "sources": [
+   "CCM",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2236"
+  ],
+  "pdf_pages": [
+   546
+  ],
+  "fixed": false,
+  "image": "P-68.png"
+ },
+ {
+  "name": "P 69",
+  "anchor": "P-69",
+  "letter": "P",
+  "number": 69,
+  "proverb": "Phóng lưu xa cũng như gần.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "395"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Phóng lưu: Đưa tội nhân đi đày."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phóng",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2236"
+  ],
+  "pdf_pages": [
+   546
+  ],
+  "fixed": false,
+  "image": "P-69.png"
+ },
+ {
+  "name": "P 70",
+  "anchor": "P-70",
+  "letter": "P",
+  "number": 70,
+  "proverb": "Phóng tài hoá thu nhân tâm.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "24"
+   },
+   {
+    "abbreviation": "NASL IV",
+    "pages": "9a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "234"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "31"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "467"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "264"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "395"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phóng "
+     },
+     {
+      "text": "tiền",
+      "em": true
+     },
+     {
+      "text": " tài thu nhân tâm."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCD",
+      "pages": "80"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Dùng tiền của thu phục lòng người."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phóng",
+  "sources": [
+   "ANTN",
+   "NASL IV",
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "TNCD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2236"
+  ],
+  "pdf_pages": [
+   546
+  ],
+  "fixed": false,
+  "image": "P-70.png"
+ },
+ {
+  "name": "P 71",
+  "anchor": "P-71",
+  "letter": "P",
+  "number": 71,
+  "proverb": "Phổi xốp như phổi bò.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "27"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "D 15",
+    "anchor": "D-15",
+    "preview": "Dạ như phổi bò."
+   }
+  ],
+  "first_syllable": "phổi",
+  "sources": [
+   "NNCC"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2236",
+   "2237"
+  ],
+  "pdf_pages": [
+   546,
+   547
+  ],
+  "fixed": false,
+  "image": "P-71.png"
+ },
+ {
+  "name": "P 72",
+  "anchor": "P-72",
+  "letter": "P",
+  "number": 72,
+  "proverb": "Phổng mũi như mũi kì nhông.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "6b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phổng",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2237"
+  ],
+  "pdf_pages": [
+   547
+  ],
+  "fixed": false,
+  "image": "P-72.png"
+ },
+ {
+  "name": "P 73",
+  "anchor": "P-73",
+  "letter": "P",
+  "number": 73,
+  "proverb": "Phu một hoàn thê.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chồng mất về vợ (theo "
+    },
+    {
+     "text": "CNGN",
+     "source": "CNGN"
+    },
+    {
+     "text": ", sau khi chồng mất, gia tài thuộc về người vợ)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phu",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2237"
+  ],
+  "pdf_pages": [
+   547
+  ],
+  "fixed": false,
+  "image": "P-73.png"
+ },
+ {
+  "name": "P 74",
+  "anchor": "P-74",
+  "letter": "P",
+  "number": 74,
+  "proverb": "Phu một cũng như phu mười.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "65b"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "600"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "7a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phu",
+  "sources": [
+   "ĐNQT",
+   "TNCL",
+   "TNPD I",
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2237"
+  ],
+  "pdf_pages": [
+   547
+  ],
+  "fixed": false,
+  "image": "P-74.png"
+ },
+ {
+  "name": "P 75",
+  "anchor": "P-75",
+  "letter": "P",
+  "number": 75,
+  "proverb": "Phu mười không bằng phu một.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "40a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phu",
+  "sources": [
+   "NASL II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2237"
+  ],
+  "pdf_pages": [
+   547
+  ],
+  "fixed": false,
+  "image": "P-75.png"
+ },
+ {
+  "name": "P 76",
+  "anchor": "P-76",
+  "letter": "P",
+  "number": 76,
+  "proverb": "Phu phụ hoà, gia đạo thành.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Vợ chồng hoà thuận thì gia đạo nên."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phu",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2237"
+  ],
+  "pdf_pages": [
+   547
+  ],
+  "fixed": false,
+  "image": "P-76.png"
+ },
+ {
+  "name": "P 77",
+  "anchor": "P-77",
+  "letter": "P",
+  "number": 77,
+  "proverb": "Phu quý, phụ vinh.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "396"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phu quý, vợ vinh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "600"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Chồng sang, vợ được vinh hiển."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phu",
+  "sources": [
+   "VC II",
+   "VD",
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2237"
+  ],
+  "pdf_pages": [
+   547
+  ],
+  "fixed": false,
+  "image": "P-77.png"
+ },
+ {
+  "name": "P 78",
+  "anchor": "P-78",
+  "letter": "P",
+  "number": 78,
+  "proverb": "Phu tử tùng tử.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Tùng: tòng (theo)."
+    }
+   ],
+   [
+    {
+     "text": "Chồng chết người vợ theo con."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phu",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2237",
+   "2238"
+  ],
+  "pdf_pages": [
+   547,
+   548
+  ],
+  "fixed": false,
+  "image": "P-78.png"
+ },
+ {
+  "name": "P 79",
+  "anchor": "P-79",
+  "letter": "P",
+  "number": 79,
+  "proverb": "Phu xướng, phụ tuỳ.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "234"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "396"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phu xướng, phụ tòng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "234"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "600"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "522"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Chồng nói vợ theo."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phu",
+  "sources": [
+   "CNGN",
+   "NL",
+   "NTP",
+   "VC II",
+   "VD",
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2238"
+  ],
+  "pdf_pages": [
+   548
+  ],
+  "fixed": false,
+  "image": "P-79.png"
+ },
+ {
+  "name": "P 80",
+  "anchor": "P-80",
+  "letter": "P",
+  "number": 80,
+  "proverb": "Phù dung sớm nở tối tàn.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "133"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Nhan sắc chóng tàn phai."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phù",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2238"
+  ],
+  "pdf_pages": [
+   548
+  ],
+  "fixed": false,
+  "image": "P-80.png"
+ },
+ {
+  "name": "P 81",
+  "anchor": "P-81",
+  "letter": "P",
+  "number": 81,
+  "proverb": "Phù Lưu tống khách.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "195"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Bắc Ninh. "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ": Phù Lưu - Chợ Giầu quen giao thiệp buôn bán nên thường hững hờ với khách khứa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phù",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2238"
+  ],
+  "pdf_pages": [
+   548
+  ],
+  "fixed": false,
+  "image": "P-81.png"
+ },
+ {
+  "name": "P 82",
+  "anchor": "P-82",
+  "letter": "P",
+  "number": 82,
+  "proverb": "Phú bất nhân, bần bất nghĩa.",
+  "citations": [
+   {
+    "abbreviation": "VCVN III",
+    "pages": "538"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "234"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "30b"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "187"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "277"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "396"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giàu có thường bạc ác; nghèo khó giữ tròn chữ nghĩa (nói bần bất nghĩa thì chưa hẳn đúng vì nghèo thường nặng tình nghĩa)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "VCVN III",
+   "NL",
+   "PNTN",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2238"
+  ],
+  "pdf_pages": [
+   548
+  ],
+  "fixed": false,
+  "image": "P-82.png"
+ },
+ {
+  "name": "P 83",
+  "anchor": "P-83",
+  "letter": "P",
+  "number": 83,
+  "proverb": "Phú bất nhân, bần hoá bạc.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Người giàu thường trọng của, không có lòng thương người, kẻ nghèo khó không có điều kiện làm tròn bổn phận với mọi người mà hoá bất nghĩa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2238"
+  ],
+  "pdf_pages": [
+   548
+  ],
+  "fixed": false,
+  "image": "P-83.png"
+ },
+ {
+  "name": "P 84",
+  "anchor": "P-84",
+  "letter": "P",
+  "number": 84,
+  "proverb": "Phú dịch giao, quý dịch thê.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Diệc: chỉ có một nghĩa là cũng. Do vậy \"Phú diệc giao, quý diệc thê\" vô nghĩa."
+    }
+   ],
+   [
+    {
+     "text": "Phải là Phú dịch giao, quý dịch thê (Giàu đổi bạn, sang đổi vợ) mới đúng."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "Phú diệc giao, quý diệc thê.",
+    "sources": [],
+    "right": [
+     {
+      "text": "Phú dịch giao, quý dịch thê."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": " in sai thành \"Phú diệc giao, quý diệc thê.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Phú dịch giao, quý dịch thê."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2238",
+   "2239"
+  ],
+  "pdf_pages": [
+   548,
+   549
+  ],
+  "fixed": false,
+  "image": "P-84.png"
+ },
+ {
+  "name": "P 85",
+  "anchor": "P-85",
+  "letter": "P",
+  "number": 85,
+  "proverb": "Phú dữ quới thị nhơn chi sở dục, bần dữ tiện thị nhơn chi sở ố.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Quới: quý, nhơn: nhân."
+    }
+   ],
+   [
+    {
+     "text": "Giàu sang là ham muốn của con người, nghèo hèn là cái đáng ghét của người đời."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2239"
+  ],
+  "pdf_pages": [
+   549
+  ],
+  "fixed": false,
+  "image": "P-85.png"
+ },
+ {
+  "name": "P 86",
+  "anchor": "P-86",
+  "letter": "P",
+  "number": 86,
+  "proverb": "Phú Lễ nhiều mướp nhiều dưa, Trung Trinh nhiều muối, nhiều dừa nước ngon.",
+  "citations": [
+   {
+    "abbreviation": "TCPK",
+    "pages": "26"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Phú Yên. Theo Nguyễn Đình Chúc, Phú Lễ thuộc xã Hoà Thành, huyện Tuy Hoà, trồng nhiều rau; Trung Trinh thuộc xã Xuân Phương, huyện Sông Cầu, chuyên làm muối."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "TCPK"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2239"
+  ],
+  "pdf_pages": [
+   549
+  ],
+  "fixed": false,
+  "image": "P-86.png"
+ },
+ {
+  "name": "P 87",
+  "anchor": "P-87",
+  "letter": "P",
+  "number": 87,
+  "proverb": "Phú ông Tỏi hơn gì nữa.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "222"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ông Nguyễn Đăng ở làng Tỏi (nay thuộc xã Chi Lăng, huyện Quế Võ, tỉnh Bắc Ninh) học giỏi, làm thơ phú hay."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2239"
+  ],
+  "pdf_pages": [
+   549
+  ],
+  "fixed": false,
+  "image": "P-87.png"
+ },
+ {
+  "name": "P 88",
+  "anchor": "P-88",
+  "letter": "P",
+  "number": 88,
+  "proverb": "Phú quý bất quy cố hương, như y cẩm dạ hành.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giàu sang không về quê thì như người mặc áo gấm đi đêm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2239",
+   "2240"
+  ],
+  "pdf_pages": [
+   549,
+   550
+  ],
+  "fixed": false,
+  "image": "P-88.png"
+ },
+ {
+  "name": "P 89",
+  "anchor": "P-89",
+  "letter": "P",
+  "number": 89,
+  "proverb": "Phú quý các hữu định phận.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giàu sang (mỗi người) do số phận."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2240"
+  ],
+  "pdf_pages": [
+   550
+  ],
+  "fixed": false,
+  "image": "P-89.png"
+ },
+ {
+  "name": "P 90",
+  "anchor": "P-90",
+  "letter": "P",
+  "number": 90,
+  "proverb": "Phú quý đa nhân hội, bần cùng bà nội cũng xa.",
+  "citations": [
+   {
+    "abbreviation": "VHHP",
+    "pages": "130"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Phú quý đa nhân hội: giàu sang nhiều người đến."
+    }
+   ],
+   [
+    {
+     "text": "Lời mỉa mai: quan hệ chỉ vì lợi ích vật chất."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "VHHP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2240"
+  ],
+  "pdf_pages": [
+   550
+  ],
+  "fixed": false,
+  "image": "P-90.png"
+ },
+ {
+  "name": "P 91",
+  "anchor": "P-91",
+  "letter": "P",
+  "number": 91,
+  "proverb": "Phú quý đa nhân hội, bần cùng thân thích li.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "234"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "187"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "243"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "397"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phú quý đa nhơn hội, bần cùng thân thích li."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "61"
+     },
+     {
+      "abbreviation": "NTP",
+      "pages": "159"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2240"
+  ],
+  "pdf_pages": [
+   550
+  ],
+  "fixed": false,
+  "image": "P-91.png"
+ },
+ {
+  "name": "P 92",
+  "anchor": "P-92",
+  "letter": "P",
+  "number": 92,
+  "proverb": "Phú quý giật lùi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "234"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "7"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "187"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Làm ăn kém dần (lời than có chút mỉa mai)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2240"
+  ],
+  "pdf_pages": [
+   550
+  ],
+  "fixed": false,
+  "image": "P-92.png"
+ },
+ {
+  "name": "P 93",
+  "anchor": "P-93",
+  "letter": "P",
+  "number": 93,
+  "proverb": "Phú quý như phù vân.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "187"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phú quý tựa phù vân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "523"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Nd: Giàu sang như mây nổi."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Công danh không bao giờ bền, dễ tiêu tán."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "NL",
+   "TNCL",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2240"
+  ],
+  "pdf_pages": [
+   550
+  ],
+  "fixed": false,
+  "image": "P-93.png"
+ },
+ {
+  "name": "P 94",
+  "anchor": "P-94",
+  "letter": "P",
+  "number": 94,
+  "proverb": "Phú quý Quan Đình, thi thư Cổ Đảng.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "116"
+   },
+   {
+    "abbreviation": "VHTB",
+    "pages": "88"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Thái Bình. Theo "
+    },
+    {
+     "text": "VHTB",
+     "source": "VHTB"
+    },
+    {
+     "text": ", đây là hai làng thuộc xã Đồng Tiến, huyện Quỳnh Phụ, xưa nổi tiếng có nhiều nhà giàu và nhiều người thi đỗ làm quan."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "NXK",
+   "VHTB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2240",
+   "2241"
+  ],
+  "pdf_pages": [
+   550,
+   551
+  ],
+  "fixed": false,
+  "image": "P-94.png"
+ },
+ {
+  "name": "P 95",
+  "anchor": "P-95",
+  "letter": "P",
+  "number": 95,
+  "proverb": "Phú quý sinh dâm dục, bần cùng khởi đạo tâm.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "522"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giàu sang sinh dâm dục, nghèo khó sinh trộm cắp."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2241"
+  ],
+  "pdf_pages": [
+   551
+  ],
+  "fixed": false,
+  "image": "P-95.png"
+ },
+ {
+  "name": "P 96",
+  "anchor": "P-96",
+  "letter": "P",
+  "number": 96,
+  "proverb": "Phú quý sinh lễ nghĩa.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "105"
+   },
+   {
+    "abbreviation": "KCTN",
+    "pages": "13, 275"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "40"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "24"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "188"
+   },
+   {
+    "abbreviation": "TNLG III",
+    "pages": "13, 86"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "275"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "397"
+   },
+   {
+    "abbreviation": "VCVN III",
+    "pages": "541"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phú "
+     },
+     {
+      "text": "quới sanh",
+      "em": true
+     },
+     {
+      "text": " lễ nghĩa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "61"
+     },
+     {
+      "abbreviation": "NTP",
+      "pages": "159"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Giàu sang bày đặt ra lễ nghĩa."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phú",
+  "sources": [
+   "CCM",
+   "KCTN",
+   "MGL",
+   "NL",
+   "NNCC",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNLG III",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VCVN III",
+   "VD",
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2241"
+  ],
+  "pdf_pages": [
+   551
+  ],
+  "fixed": false,
+  "image": "P-96.png"
+ },
+ {
+  "name": "P 97",
+  "anchor": "P-97",
+  "letter": "P",
+  "number": 97,
+  "proverb": "Phụ bần tham phú.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Tham giàu phụ nghèo."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2241"
+  ],
+  "pdf_pages": [
+   551
+  ],
+  "fixed": false,
+  "image": "P-97.png"
+ },
+ {
+  "name": "P 98",
+  "anchor": "P-98",
+  "letter": "P",
+  "number": 98,
+  "proverb": "Phụ khó tham giàu.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "NL",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2241"
+  ],
+  "pdf_pages": [
+   551
+  ],
+  "fixed": false,
+  "image": "P-98.png"
+ },
+ {
+  "name": "P 99",
+  "anchor": "P-99",
+  "letter": "P",
+  "number": 99,
+  "proverb": "Phụ mại tử tranh.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Cha bán con giành."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2241"
+  ],
+  "pdf_pages": [
+   551
+  ],
+  "fixed": false,
+  "image": "P-99.png"
+ },
+ {
+  "name": "P 100",
+  "anchor": "P-100",
+  "letter": "P",
+  "number": 100,
+  "proverb": "Phụ mẫu tồn bất khả viễn du.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phụ mẫu tại đường bất khả viễn du."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN III",
+      "pages": "538"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Cha mẹ còn thì người con không thể đi xa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "VCVN III"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2241",
+   "2242"
+  ],
+  "pdf_pages": [
+   551,
+   552
+  ],
+  "fixed": false,
+  "image": "P-100.png"
+ },
+ {
+  "name": "P 101",
+  "anchor": "P-101",
+  "letter": "P",
+  "number": 101,
+  "proverb": "Phụ người chẳng bỏ khi người phụ ta.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2242"
+  ],
+  "pdf_pages": [
+   552
+  ],
+  "fixed": false,
+  "image": "P-101.png"
+ },
+ {
+  "name": "P 102",
+  "anchor": "P-102",
+  "letter": "P",
+  "number": 102,
+  "proverb": "Phụ người trời phụ, thương người trời thương.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2242"
+  ],
+  "pdf_pages": [
+   552
+  ],
+  "fixed": false,
+  "image": "P-102.png"
+ },
+ {
+  "name": "P 103",
+  "anchor": "P-103",
+  "letter": "P",
+  "number": 103,
+  "proverb": "Phụ nhân nan hoá.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "22"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phụ "
+     },
+     {
+      "text": "nhơn",
+      "em": true
+     },
+     {
+      "text": " nan hoá."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "62"
+     },
+     {
+      "abbreviation": "NTP",
+      "pages": "159"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Đàn bà khó giáo hoá."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2242"
+  ],
+  "pdf_pages": [
+   552
+  ],
+  "fixed": false,
+  "image": "P-103.png"
+ },
+ {
+  "name": "P 104",
+  "anchor": "P-104",
+  "letter": "P",
+  "number": 104,
+  "proverb": "Phụ nhân trường thiệt, phụ nhân nan hoá.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "7b"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Đàn bà lưỡi dài (lắm điều) khó giáo hóa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2242"
+  ],
+  "pdf_pages": [
+   552
+  ],
+  "fixed": false,
+  "image": "P-104.png"
+ },
+ {
+  "name": "P 105",
+  "anchor": "P-105",
+  "letter": "P",
+  "number": 105,
+  "proverb": "Phụ tại quan kì chí, phụ một quan kì hạnh, tam niên vô cải ư phụ chi đạo, khả vị hiếu hĩ.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "159"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Cha còn, phải giữ lấy chí (của cha); cha mất, phải giữ phẩm hạnh (của cha); ba năm không đổi cái đạo (tính tình) của cha, (như vậy) có thể nói là có hiếu vậy."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2242"
+  ],
+  "pdf_pages": [
+   552
+  ],
+  "fixed": false,
+  "image": "P-105.png"
+ },
+ {
+  "name": "P 106",
+  "anchor": "P-106",
+  "letter": "P",
+  "number": 106,
+  "proverb": "Phụ trái tử hoàn.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "160"
+   },
+   {
+    "abbreviation": "VCVN III",
+    "pages": "538"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Trái: nợ tiền."
+    }
+   ],
+   [
+    {
+     "text": "Cha nợ, con trả."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "VCVN III"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2242",
+   "2243"
+  ],
+  "pdf_pages": [
+   552,
+   553
+  ],
+  "fixed": false,
+  "image": "P-106.png"
+ },
+ {
+  "name": "P 107",
+  "anchor": "P-107",
+  "letter": "P",
+  "number": 107,
+  "proverb": "Phụ trái tử hoàn, tử trái phụ bất can.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "13b"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "83"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "243"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phụ trái tử hoàn, tử trái phụ bất "
+     },
+     {
+      "text": "hoàn",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL I",
+      "pages": "33b"
+     },
+     {
+      "abbreviation": "PNTN",
+      "pages": "13b"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Cha nợ (tiền) con trả; con nợ, cha không can hệ (không phải trả)."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "... tử *trá* ...",
+    "sources": [
+     "TNCL"
+    ],
+    "right": [
+     {
+      "text": "tử "
+     },
+     {
+      "text": "trái",
+      "em": true
+     },
+     {
+      "text": " ..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"... tử trá ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "tử "
+     },
+     {
+      "text": "trái",
+      "strong": true
+     },
+     {
+      "text": " ..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "NL",
+   "PNTN",
+   "TNCL",
+   "TNPD I",
+   "NASL I"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2243"
+  ],
+  "pdf_pages": [
+   553
+  ],
+  "fixed": false,
+  "image": "P-107.png"
+ },
+ {
+  "name": "P 108",
+  "anchor": "P-108",
+  "letter": "P",
+  "number": 108,
+  "proverb": "Phụ từ tử hiếu.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "61"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "398"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Cha hiền, con hiếu."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "CNGN",
+   "NL",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2243"
+  ],
+  "pdf_pages": [
+   553
+  ],
+  "fixed": false,
+  "image": "P-108.png"
+ },
+ {
+  "name": "P 109",
+  "anchor": "P-109",
+  "letter": "P",
+  "number": 109,
+  "proverb": "Phụ tử tình thâm.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "83"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "250"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "398"
+   },
+   {
+    "abbreviation": "VCVN III",
+    "pages": "538"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Cha con tình nghĩa sâu nặng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VCVN III"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2243"
+  ],
+  "pdf_pages": [
+   553
+  ],
+  "fixed": false,
+  "image": "P-109.png"
+ },
+ {
+  "name": "P 110",
+  "anchor": "P-110",
+  "letter": "P",
+  "number": 110,
+  "proverb": "Phụ vợ, không gặp vợ.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "36"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "23"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "164"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "53"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "402, 600"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "242, 311"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "398"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ruồng bỏ vợ khó lấy được vợ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụ",
+  "sources": [
+   "MGL",
+   "NL",
+   "NNCC",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2243"
+  ],
+  "pdf_pages": [
+   553
+  ],
+  "fixed": false,
+  "image": "P-110.png"
+ },
+ {
+  "name": "P 111",
+  "anchor": "P-111",
+  "letter": "P",
+  "number": 111,
+  "proverb": "Phúc bất cẩu cầu, họa bất cẩu miễn.",
+  "citations": [
+   {
+    "abbreviation": "VCVN III",
+    "pages": "543"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phước bất cẩu cầu, hoạ vô cẩu miễn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "62"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Theo VCVN, phúc không phải do cầu xin tuỳ tiện mà được; hoạ không do xa lánh một cách cầu thả mà khỏi."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "VCVN III",
+   "CNGN"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2243",
+   "2244"
+  ],
+  "pdf_pages": [
+   553,
+   554
+  ],
+  "fixed": false,
+  "image": "P-111.png"
+ },
+ {
+  "name": "P 112",
+  "anchor": "P-112",
+  "letter": "P",
+  "number": 112,
+  "proverb": "Phúc chẳng hai, tai chẳng một.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "212"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "343"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "399"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Phúc không đến hai lần (một lúc), hoạ chẳng đến một lần."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2244"
+  ],
+  "pdf_pages": [
+   554
+  ],
+  "fixed": false,
+  "image": "P-112.png"
+ },
+ {
+  "name": "P 113",
+  "anchor": "P-113",
+  "letter": "P",
+  "number": 113,
+  "proverb": "Phúc chí tâm linh.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "22"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "27b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phúc đến từ cõi lòng."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "NNCC",
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2244"
+  ],
+  "pdf_pages": [
+   554
+  ],
+  "fixed": false,
+  "image": "P-113.png"
+ },
+ {
+  "name": "P 114",
+  "anchor": "P-114",
+  "letter": "P",
+  "number": 114,
+  "proverb": "Phúc chủ, lộc thầy.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "41a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "19"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "212"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "399"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phúc chủ "
+     },
+     {
+      "text": "may",
+      "em": true
+     },
+     {
+      "text": " thầy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "400"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phước",
+      "em": true
+     },
+     {
+      "text": " chủ "
+     },
+     {
+      "text": "may",
+      "em": true
+     },
+     {
+      "text": " thầy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "62"
+     },
+     {
+      "abbreviation": "NTP",
+      "pages": "160"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Phúc với người chủ (bệnh nhân), lộc với thầy (thuốc)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2244"
+  ],
+  "pdf_pages": [
+   554
+  ],
+  "fixed": false,
+  "image": "P-114.png"
+ },
+ {
+  "name": "P 115",
+  "anchor": "P-115",
+  "letter": "P",
+  "number": 115,
+  "proverb": "Phúc, Đức, Hùng, Thường, Danh: ngũ Tháng; Sơn, Ải, Dục, Tăng: tứ làng Quang.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "120"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Bắc Giang Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ", năm làng Thắng (Phúc Thắng, Đức Thắng, Hùng Thắng, Thường Thắng, Danh Thắng) nay thuộc huyện Hiệp Hoà; bốn làng Quang (Sơn Quang, Ải Quang, Dục Quang, Tăng Quang) nay thuộc huyện Việt Yên."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2244"
+  ],
+  "pdf_pages": [
+   554
+  ],
+  "fixed": false,
+  "image": "P-115.png"
+ },
+ {
+  "name": "P 116",
+  "anchor": "P-116",
+  "letter": "P",
+  "number": 116,
+  "proverb": "Phúc đức tại mẫu.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "22"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "94"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "83, 212"
+   },
+   {
+    "abbreviation": "TNLG II",
+    "pages": "18, 131"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "251"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "418"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Mẹ nhân đức để phúc cho con cái."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "Đ 1084",
+    "anchor": "Đ-1084",
+    "preview": "Đức hiền tại mẹ."
+   }
+  ],
+  "first_syllable": "phúc",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TMT",
+   "TNCL",
+   "TNLG II",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VNP₁₁"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2244",
+   "2245"
+  ],
+  "pdf_pages": [
+   554,
+   555
+  ],
+  "fixed": false,
+  "image": "P-116.png"
+ },
+ {
+  "name": "P 117",
+  "anchor": "P-117",
+  "letter": "P",
+  "number": 117,
+  "proverb": "Phúc đức Thái Lai, chông gai Bảo Triện.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "52"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Bắc Ninh. Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ", Thái Lai còn gọi là Đại Lai, hoặc Kẻ Sở. Tương truyền, vào thời Lê, Thái Lai là địa phương rất chăm lo đến việc đắp đường, dựng cầu tiện cho việc đi lại. Bảo Triện ý thế (là làng có lắm người thi đỗ, làm quan) gây khó dễ cho Thái Lai."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2245"
+  ],
+  "pdf_pages": [
+   555
+  ],
+  "fixed": false,
+  "image": "P-117.png"
+ },
+ {
+  "name": "P 118",
+  "anchor": "P-118",
+  "letter": "P",
+  "number": 118,
+  "proverb": "Phúc hậu là làng Suối Trong, đa đinh làng Giữa, văn phong làng Ngoài.",
+  "citations": [
+   {
+    "abbreviation": "TNVP",
+    "pages": "19"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Phú Thọ. Theo "
+    },
+    {
+     "text": "TNVP",
+     "source": "TNVP"
+    },
+    {
+     "text": ", thôn Suối Trong còn có tên là Ngọc Tỉnh, Giữa còn gọi là Phương Lai, Ngoài là phố Phủ. Dân Suối Trong chất phác, Giữa sinh đẻ nhiều, dân thôn Ngoài có cách ăn ở có phần lịch sự, mang phong cách thị dân."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "Phúc hậu...",
+    "sources": [],
+    "right": [
+     {
+      "text": "Phúc Hậu...; Đa Đinh... = đa đinh..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": " in sai thành \"Phúc hậu...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Phúc Hậu...; Đa Đinh... = đa đinh..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "TNVP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": null,
+  "book_pages": [
+   "2245"
+  ],
+  "pdf_pages": [
+   555
+  ],
+  "fixed": false,
+  "image": "P-118.png"
+ },
+ {
+  "name": "P 119",
+  "anchor": "P-119",
+  "letter": "P",
+  "number": 119,
+  "proverb": "Phúc nhà vợ chẳng bằng nợ nhà chồng.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "600"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "247"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Phía nhà chồng là quan trọng, là quyết định."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "T 1513"
+   }
+  ],
+  "first_syllable": "phúc",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2245"
+  ],
+  "pdf_pages": [
+   555
+  ],
+  "fixed": false,
+  "image": "P-119.png"
+ },
+ {
+  "name": "P 120",
+  "anchor": "P-120",
+  "letter": "P",
+  "number": 120,
+  "proverb": "Phúc thiên đãi phúc địa.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "77"
+   },
+   {
+    "abbreviation": "NASL I",
+    "pages": "4a"
+   },
+   {
+    "abbreviation": "NASL III",
+    "pages": "48a"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "27"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "... *đại* phúc địa.",
+    "sources": [
+     "NNCC"
+    ],
+    "right": [
+     {
+      "text": "... "
+     },
+     {
+      "text": "đãi",
+      "em": true
+     },
+     {
+      "text": " phúc địa."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "NNCC",
+      "source": "NNCC"
+     },
+     {
+      "text": " in sai thành \"... đại phúc địa.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... "
+     },
+     {
+      "text": "đãi",
+      "strong": true
+     },
+     {
+      "text": " phúc địa."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "CCM",
+   "NASL I",
+   "NASL III",
+   "NNCC",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2245"
+  ],
+  "pdf_pages": [
+   555
+  ],
+  "fixed": false,
+  "image": "P-120.png"
+ },
+ {
+  "name": "P 121",
+  "anchor": "P-121",
+  "letter": "P",
+  "number": 121,
+  "proverb": "Phúc thuỷ nan thâu.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "160"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "nghĩa đen",
+     "general": "Nđ"
+    },
+    {
+     "text": ": Nước đổ khó hót lại."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Đã làm điều sai trái khó sửa lại như cũ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phúc",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2246"
+  ],
+  "pdf_pages": [
+   556
+  ],
+  "fixed": false,
+  "image": "P-121.png"
+ },
+ {
+  "name": "P 122",
+  "anchor": "P-122",
+  "letter": "P",
+  "number": 122,
+  "proverb": "Phục dược bách loã, bất như độc ngoạ.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "160"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Uống thuốc trăm viên không bằng nằm một mình."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phục",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2246"
+  ],
+  "pdf_pages": [
+   556
+  ],
+  "fixed": false,
+  "image": "P-122.png"
+ },
+ {
+  "name": "P 123",
+  "anchor": "P-123",
+  "letter": "P",
+  "number": 123,
+  "proverb": "Phục dược bất như giảm khẩu.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "160"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "54"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "242"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "130"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "401"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "523"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Dùng thuốc không bằng bớt ăn uống (quá độ)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phục",
+  "sources": [
+   "CNGN",
+   "NL",
+   "NTP",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2246"
+  ],
+  "pdf_pages": [
+   556
+  ],
+  "fixed": false,
+  "image": "P-123.png"
+ },
+ {
+  "name": "P 124",
+  "anchor": "P-124",
+  "letter": "P",
+  "number": 124,
+  "proverb": "Phùng Cầu tri lễ nghĩa, Đàm Xá thậm u mê, Tuấn Kiệt nhân bất kiệt, Phù Lê bản trọng Lê.",
+  "citations": [
+   {
+    "abbreviation": "TNTH",
+    "pages": "18"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Thanh Hoá. "
+    },
+    {
+     "text": "TNTH",
+     "source": "TNTH"
+    },
+    {
+     "text": ": Câu này gắn với hành trạng của Lê Lợi. Khi nghĩa quân Lam Sơn đi qua làng Phùng Cầu, dân làng đón tiếp rất đúng nghi lễ, nên Lê Lợi đọc tặng câu này. Ngược lại, khi ông đi qua làng Đàm Xá, bọn kì hào cấm dân chúng đón chào nên Lê Lợi bực tức thốt ra như vậy. Làng Tuấn Kiệt góp nhiều người cho khởi nghĩa Lam Sơn, không bao giờ hết người (bất kiệt). Làng Phù Lê được tiếng là vốn trọng nhà Lê."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phùng",
+  "sources": [
+   "TNTH"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2246"
+  ],
+  "pdf_pages": [
+   556
+  ],
+  "fixed": false,
+  "image": "P-124.png"
+ },
+ {
+  "name": "P 125",
+  "anchor": "P-125",
+  "letter": "P",
+  "number": 125,
+  "proverb": "Phụng Pháp nói ngang, Nội Hoàng nói tức.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "154"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở huyện Yên Dũng, tỉnh Bắc Giang. Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ", Phụng Pháp còn được đặt tên là làng Cua, ngoài cái ý có loại cua ngon, còn có cái ý là làng nói ngang như cua. \"Nội Hoàng nói tức\""
+    }
+   ],
+   [
+    {
+     "text": "vào dịp hội chùa (từ 28 tháng giêng đến mồng hai tháng hai âm lịch hằng năm)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phụng",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2246",
+   "2247"
+  ],
+  "pdf_pages": [
+   556,
+   557
+  ],
+  "fixed": false,
+  "image": "P-125.png"
+ },
+ {
+  "name": "P 126",
+  "anchor": "P-126",
+  "letter": "P",
+  "number": 126,
+  "proverb": "Phước bất trùng lai, hoạ vô đơn chí.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "35b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Hoạ vô "
+     },
+     {
+      "text": "dan",
+      "em": true
+     },
+     {
+      "text": " chí, phúc bất trùng lai."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "44"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "143"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Hoạ vô đơn chí, phúc bất trùng lai."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "132"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "210"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "343"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "85"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "378"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phúc bất trùng lai hoạ vô "
+     },
+     {
+      "text": "dan",
+      "em": true
+     },
+     {
+      "text": " chí."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "243"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phúc bất trùng lai hoạ vô đơn chí."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "235"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "399"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "523"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Phúc không đến hai lần (một lúc), hoạ không đến một lần mà thường đến dồn dập nhiều lần (một lúc)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phước",
+  "sources": [
+   "CNGN",
+   "PNTN",
+   "NNCC",
+   "TNPD I",
+   "NL",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2247"
+  ],
+  "pdf_pages": [
+   557
+  ],
+  "fixed": false,
+  "image": "P-126.png"
+ },
+ {
+  "name": "P 127",
+  "anchor": "P-127",
+  "letter": "P",
+  "number": 127,
+  "proverb": "Phước chí tâm linh, hoạ lai thần ám.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "160"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phúc chí tâm linh, hoạ lai thần ám."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "212"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "243"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "399"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Phúc đến từ cõi lòng, hoạ đến do thần theo dõi trách phạt."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phước",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "TNCL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2247"
+  ],
+  "pdf_pages": [
+   557
+  ],
+  "fixed": false,
+  "image": "P-127.png"
+ },
+ {
+  "name": "P 128",
+  "anchor": "P-128",
+  "letter": "P",
+  "number": 128,
+  "proverb": "Phước đức khán tử tôn.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "160"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phúc đức khán tử tôn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "242"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "400"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "(Muốn biết người đó) phúc đức (thế nào) thì cứ xem con cháu (con cháu khá tức cha mẹ ông bà nhân hậu; con cháu lụn bại tức cha mẹ ông bà bạc ác)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phước",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2247"
+  ],
+  "pdf_pages": [
+   557
+  ],
+  "fixed": false,
+  "image": "P-128.png"
+ },
+ {
+  "name": "P 129",
+  "anchor": "P-129",
+  "letter": "P",
+  "number": 129,
+  "proverb": "Phương Triện vặn quang, Đông Khang nói phét.",
+  "citations": [],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Bắc Ninh. Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ", Phương Triện tức làng Bảo Triện, nay thuộc huyện Gia Bình; Đông Khang còn gọi là Đông An, nay thuộc huyện Yên Phong. Ngày xưa Đông Khang mở hội đình từ mồng mười tháng chín đến hết 18 tháng chín (âm lịch), trong đó có lệ thi nói khoác. Thông thường, tri huyện sở tại có mặt và đóng vai trò chủ khảo cuộc thi. Dòng họ, các giáp và phường đều cử người tham dự để giành chức Phó phét với giải thưởng là vuông nhiễu điều, cặp bánh dầy và quyền lợi là cả họ (hoặc cả giáp, hoặc cả phường) được miễn phu phen, tạp dịch một năm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phương",
+  "sources": [],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2247",
+   "2248"
+  ],
+  "pdf_pages": [
+   557,
+   558
+  ],
+  "fixed": false,
+  "image": "P-129.png"
+ },
+ {
+  "name": "P 130",
+  "anchor": "P-130",
+  "letter": "P",
+  "number": 130,
+  "proverb": "Phương trời kể ra có chín.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "1b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phương",
+  "sources": [
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2248"
+  ],
+  "pdf_pages": [
+   558
+  ],
+  "fixed": false,
+  "image": "P-130.png"
+ },
+ {
+  "name": "P 131",
+  "anchor": "P-131",
+  "letter": "P",
+  "number": 131,
+  "proverb": "Phường bán thịt, quân buôn người.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Kẻ bất lương."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phường",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2248"
+  ],
+  "pdf_pages": [
+   558
+  ],
+  "fixed": false,
+  "image": "P-131.png"
+ },
+ {
+  "name": "P 132",
+  "anchor": "P-132",
+  "letter": "P",
+  "number": 132,
+  "proverb": "Phường chèo dạ nhịp.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "524"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Hùa theo một cách hình thức, chiếu lệ nhưng thực chất không nhúc nhích hành động."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phường",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2248"
+  ],
+  "pdf_pages": [
+   558
+  ],
+  "fixed": false,
+  "image": "P-132.png"
+ },
+ {
+  "name": "P 133",
+  "anchor": "P-133",
+  "letter": "P",
+  "number": 133,
+  "proverb": "Phường Đông không ngắn không dài, Tân Mĩ cũn ngủn, Đá Mài cù queo.",
+  "citations": [
+   {
+    "abbreviation": "VNQNĐN I",
+    "pages": "98"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo Hoàng Hưng Việt, đây là đặc điểm của ba vùng đất thuộc thị xã Tam Kì, tỉnh Quảng Nam."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "Phường *đông*...",
+    "sources": [],
+    "right": [
+     {
+      "text": "Phường "
+     },
+     {
+      "text": "Đông",
+      "em": true
+     },
+     {
+      "text": "...; "
+     },
+     {
+      "text": "đá mài",
+      "em": true
+     },
+     {
+      "text": "... = "
+     },
+     {
+      "text": "Đá Mài",
+      "em": true
+     },
+     {
+      "text": "..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": " in sai thành \"Phường đông...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Phường "
+     },
+     {
+      "text": "Đông",
+      "strong": true
+     },
+     {
+      "text": "...; "
+     },
+     {
+      "text": "đá mài",
+      "strong": true
+     },
+     {
+      "text": "... = "
+     },
+     {
+      "text": "Đá Mài",
+      "strong": true
+     },
+     {
+      "text": "..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "phường",
+  "sources": [
+   "VNQNĐN I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": null,
+  "book_pages": [
+   "2248"
+  ],
+  "pdf_pages": [
+   558
+  ],
+  "fixed": false,
+  "image": "P-133.png"
+ },
+ {
+  "name": "P 134",
+  "anchor": "P-134",
+  "letter": "P",
+  "number": 134,
+  "proverb": "Phường trẻ con, nói quạ làm chi.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "1b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phường",
+  "sources": [
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2249"
+  ],
+  "pdf_pages": [
+   559
+  ],
+  "fixed": false,
+  "image": "P-134.png"
+ },
+ {
+  "name": "P 135",
+  "anchor": "P-135",
+  "letter": "P",
+  "number": 135,
+  "proverb": "Phượng đậu cành ngô.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "524"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Phượng: tức phượng hoàng, chim tưởng tượng, trông có hình thù giống chim trĩ, được coi là chúa của loài chim; loan: thường dùng đi đôi với phượng, là chim phượng mái; ngô đồng: thứ cây chim phượng thích đậu."
+    }
+   ],
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Vợ chồng xứng đôi vừa ý."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phượng",
+  "sources": [
+   "NL",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2249"
+  ],
+  "pdf_pages": [
+   559
+  ],
+  "fixed": false,
+  "image": "P-135.png"
+ },
+ {
+  "name": "P 136",
+  "anchor": "P-136",
+  "letter": "P",
+  "number": 136,
+  "proverb": "Phượng hoàng ăn lẫn với gà.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "524"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Kẻ sang ở lẫn người hèn kém."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phượng",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2249"
+  ],
+  "pdf_pages": [
+   559
+  ],
+  "fixed": false,
+  "image": "P-136.png"
+ },
+ {
+  "name": "P 137",
+  "anchor": "P-137",
+  "letter": "P",
+  "number": 137,
+  "proverb": "Phượng hoàng chặt cánh đuổi đi, bắt con bìm bịp đem về mà nuôi.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "444"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "244"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Phượng hoàng chặt cánh bỏ đi, bắt con bìm bịp đem về mà nuôi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "402"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Bìm bịp: chim rừng, nhỏ hơn gà, đuôi dài lông màu nâu, trừ ở cổ và đầu màu đen, thường kiếm ăn trên đất trong các lùm cây, bụi cỏ,... (Hoàng Phê chủ biên (1992) Từ điển tiếng Việt)."
+    }
+   ],
+   [
+    {
+     "text": "Bỏ cái tốt đẹp chuốc lấy cái xấu xí (nói người bỏ vợ khôn ngoan tốt đẹp, lấy người vợ khác ngu đần, xấu xí)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phượng",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2249"
+  ],
+  "pdf_pages": [
+   559
+  ],
+  "fixed": false,
+  "image": "P-137.png"
+ },
+ {
+  "name": "P 138",
+  "anchor": "P-138",
+  "letter": "P",
+  "number": 138,
+  "proverb": "Phượng hoàng đậu chốn cheo leo, sa cơ thất thế phải theo đàn gà.",
+  "citations": [
+   {
+    "abbreviation": "VNNN",
+    "pages": "6"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Người tài ba sa cơ lỡ vận phải ở chung với kẻ tầm thường."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phượng",
+  "sources": [
+   "VNNN"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1931,
+  "book_pages": [
+   "2249",
+   "2250"
+  ],
+  "pdf_pages": [
+   559,
+   560
+  ],
+  "fixed": false,
+  "image": "P-138.png"
+ },
+ {
+  "name": "P 139",
+  "anchor": "P-139",
+  "letter": "P",
+  "number": 139,
+  "proverb": "Phượng hoàng đẻ trong tổ quạ.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "524"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Bậc quý nhân xuất thân từ gia đình tầm thường."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phượng",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2250"
+  ],
+  "pdf_pages": [
+   560
+  ],
+  "fixed": false,
+  "image": "P-139.png"
+ },
+ {
+  "name": "P 140",
+  "anchor": "P-140",
+  "letter": "P",
+  "number": 140,
+  "proverb": "Phượng hoàng đua, chim sẻ cũng đua.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "524"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Kẻ hèn kém đua đòi với người tài ba."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phượng",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2250"
+  ],
+  "pdf_pages": [
+   560
+  ],
+  "fixed": false,
+  "image": "P-140.png"
+ },
+ {
+  "name": "P 141",
+  "anchor": "P-141",
+  "letter": "P",
+  "number": 141,
+  "proverb": "Phượng hoàng vẫn đỗ ngô đồng, đến khi thất thế đứng chung với gà.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "35a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Kẻ tài ba sang trọng ở nơi cao đẹp, sa cơ phải sống nơi tầm thường."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "phượng",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2250"
+  ],
+  "pdf_pages": [
+   560
+  ],
+  "fixed": false,
+  "image": "P-141.png"
+ }
+]

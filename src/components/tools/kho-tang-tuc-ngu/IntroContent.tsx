@@ -15,12 +15,20 @@ const INTRO_FILE = path.join(
   process.cwd(),
   "public/data/kho-tang-tuc-ngu/intro.md"
 );
+const BACK_MATTER_FILE = path.join(
+  process.cwd(),
+  "public/data/kho-tang-tuc-ngu/back-matter.md"
+);
 
 // Render book information separately; replace printed contents with section links.
 const TITLE_PAGE = "Trang tên sách";
 const BOOK_CONTENTS = "Mục lục";
 // The empty heading where the book's Proverb Entries begin.
 const PROVERBS_START = "Hệ thống tục ngữ người Việt";
+// The Back Matter heading over the Topic Index's title page.
+const TOPIC_INDEX_START = "Hệ thống tra cứu theo chủ đề";
+// The transcriber's notes in back-matter.md, each on one line.
+const COMMENT = /<!--.*?-->/g;
 
 // The Phàm lệ numbers its Source Notes within two groups; sources.json names
 // each note by group and number (hn-1, qn-6).
@@ -67,11 +75,18 @@ function readIntro(): Intro {
     }
   }
 
+  // The Back Matter follows, under its own # heading, so a reader can tell
+  // where the book ends. Lines are kept one for one, to match `headings`.
+  body.push("");
+  for (const line of fs.readFileSync(BACK_MATTER_FILE, "utf8").split("\n")) {
+    body.push(line.replace(COMMENT, "").trimEnd());
+  }
+
   const headings = new Map<number, Heading>();
   const used = new Set<string>();
   let noteGroup = "";
   body.forEach((line, i) => {
-    const match = line.match(/^(#{2,6}) (.*)$/);
+    const match = line.match(/^(#{1,6}) (.*)$/);
     if (!match) return;
     const depth = match[1].length;
     const text = plain(match[2]);
@@ -91,10 +106,12 @@ function readIntro(): Intro {
 
 export function IntroContent({
   enterLabel,
+  enterTopicsLabel,
   tocLabel,
   progressLabel,
 }: {
   enterLabel: string;
+  enterTopicsLabel: string;
   tocLabel: string;
   progressLabel: string;
 }) {
@@ -113,11 +130,32 @@ export function IntroContent({
           {h?.depth === 2 && h.text.startsWith(PROVERBS_START) && (
             <EnterButton label={enterLabel} />
           )}
+          {h?.depth === 2 && h.text === TOPIC_INDEX_START && (
+            <EnterButton label={enterTopicsLabel} />
+          )}
         </>
       );
     };
 
   const components: Components = {
+    // Only the Back Matter has one: the list's entrance closes the Front
+    // Matter, then a rule marks where the end of the book begins.
+    h1: function BackMatterHeading({ line, children }: MarkdownProps) {
+      const h = intro.headings.get(line);
+      return (
+        <>
+          <div className="mt-10">
+            <EnterButton label={enterLabel} />
+          </div>
+          <h1
+            id={h?.id}
+            className={`${merriweather.className} scroll-mt-28 mt-10 border-t-2 border-branding-brown/30 pt-10 text-center text-2xl sm:text-3xl text-branding-black leading-relaxed mb-4`}
+          >
+            {children}
+          </h1>
+        </>
+      );
+    },
     h2: heading(
       2,
       `${merriweather.className} text-2xl text-branding-black leading-relaxed mt-10 mb-4`
@@ -198,10 +236,21 @@ export function IntroContent({
             </h2>
             <ul className="mt-4 space-y-1 text-sm">
               {toc.map((h) => (
-                <li key={h.id} className={h.depth === 3 ? "pl-3" : ""}>
+                <li
+                  key={h.id}
+                  className={
+                    h.depth === 1
+                      ? "mt-3 border-t border-branding-black/10 pt-3"
+                      : h.depth === 3
+                      ? "pl-3"
+                      : ""
+                  }
+                >
                   <a
                     href={`#${h.id}`}
-                    className="rounded-md px-2 py-2 text-branding-black/75 hover:bg-branding-brown/5 hover:text-[#956319] leading-relaxed block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown"
+                    className={`${
+                      h.depth === 1 ? "font-medium" : ""
+                    } rounded-md px-2 py-2 text-branding-black/75 hover:bg-branding-brown/5 hover:text-[#956319] leading-relaxed block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown`}
                   >
                     {h.text}
                   </a>
@@ -228,9 +277,6 @@ export function IntroContent({
               ))}
             </header>
             <Markdown components={components}>{intro.body}</Markdown>
-            <div className="mt-8 border-t border-branding-black/10 pt-6">
-              <EnterButton label={enterLabel} />
-            </div>
           </div>
         </article>
       </div>

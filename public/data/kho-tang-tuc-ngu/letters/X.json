@@ -1,0 +1,10956 @@
+[
+ {
+  "name": "X 1",
+  "anchor": "X-1",
+  "letter": "X",
+  "number": 1,
+  "proverb": "Xa chùa vắng trống.",
+  "citations": [
+   {
+    "abbreviation": "NASL IV",
+    "pages": "4a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xa",
+  "sources": [
+   "NASL IV"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2919"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "X-1.png"
+ },
+ {
+  "name": "X 2",
+  "anchor": "X-2",
+  "letter": "X",
+  "number": 2,
+  "proverb": "Xa chùa vắng trống, gần chùa inh tai.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "176"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "347"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xa chùa vắng "
+     },
+     {
+      "text": "tiếng",
+      "em": true
+     },
+     {
+      "text": ", gần chùa "
+     },
+     {
+      "text": "điếc",
+      "em": true
+     },
+     {
+      "text": " tai."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "645"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xa chùa vắng "
+     },
+     {
+      "text": "tiếng",
+      "em": true
+     },
+     {
+      "text": ", gần chùa inh tai."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "317"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "369"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "798"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xa",
+  "sources": [
+   "NXK",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "NL",
+   "TNCL",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2919"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "X-2.png"
+ },
+ {
+  "name": "X 3",
+  "anchor": "X-3",
+  "letter": "X",
+  "number": 3,
+  "proverb": "Xa mỏi chân, gần mỏi miệng.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "86"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "317"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "14"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "104"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "165"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "223"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "798"
+   },
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "363"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "645"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xa",
+  "sources": [
+   "CNGN",
+   "NL",
+   "NNPD",
+   "NTP",
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VCVN IV",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2919"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "X-3.png"
+ },
+ {
+  "name": "X 4",
+  "anchor": "X-4",
+  "letter": "X",
+  "number": 4,
+  "proverb": "Xa người, xa tiếng nhưng lòng không xa.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "317"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "478, 483"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xa",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2919"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "X-4.png"
+ },
+ {
+  "name": "X 5",
+  "anchor": "X-5",
+  "letter": "X",
+  "number": 5,
+  "proverb": "Xa quãng Hối, tối quãng Điềm.",
+  "citations": [
+   {
+    "abbreviation": "PNHNN",
+    "pages": "26"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "PNHNN",
+     "source": "PNHNN"
+    },
+    {
+     "text": ", làng Hối và làng Điềm thuộc huyện Hoàng Long, tỉnh Ninh Bình. Ngày xưa, đi từ các làng khác đến làng Hối mất nhiều thời gian; còn đường đến làng Điềm lắm trộm cướp, người ta rất ngại đi đêm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xa",
+  "sources": [
+   "PNHNN"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2920"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "X-5.png"
+ },
+ {
+  "name": "X 6",
+  "anchor": "X-6",
+  "letter": "X",
+  "number": 6,
+  "proverb": "Xa sân hơn gần ngõ.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "645"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "S 123",
+    "anchor": "S-123",
+    "preview": "Sân còn gần hơn ngõ."
+   }
+  ],
+  "first_syllable": "xa",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2920"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "X-6.png"
+ },
+ {
+  "name": "X 7",
+  "anchor": "X-7",
+  "letter": "X",
+  "number": 7,
+  "proverb": "Xa thơm gần thối.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "645"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Lúc ở xa tỏ ra quý hóa, khi ở gần lại khinh rẻ, không coi nhau ra gì."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xa",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2920"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "X-7.png"
+ },
+ {
+  "name": "X 8",
+  "anchor": "X-8",
+  "letter": "X",
+  "number": 8,
+  "proverb": "Xả cốt nhục, dụng bì phu.",
+  "citations": [
+   {
+    "abbreviation": "TNCD",
+    "pages": "80"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "800"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xả cốt nhục dục bì phu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "24"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Theo VC, cốt nhục: xương và thịt, chỉ bà con ruột thịt; bì phu: lớp da bên ngoài, chỉ người không có quan hệ họ hàng; xả: bỏ; dụng: dùng. Đối xử nhạt nhẽo, xa lánh họ hàng ruột thịt, đi yêu quý người dưng là cách ứng xử dại dột."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xả",
+  "sources": [
+   "TNCD",
+   "VC II",
+   "ANTN"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1932,
+  "book_pages": [
+   "2920"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "X-8.png"
+ },
+ {
+  "name": "X 9",
+  "anchor": "X-9",
+  "letter": "X",
+  "number": 9,
+  "proverb": "Xã tắc thành tro, hiền tài lo thành lửa.",
+  "citations": [
+   {
+    "abbreviation": "VHLĐ",
+    "pages": "356"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VHLĐ",
+     "source": "VHLĐ"
+    },
+    {
+     "text": ": Tổ quốc, giang sơn bị giặc giã tàn phá thì hiền tài cũng bị tiêu diệt. Bởi vậy các bậc hiền tài phải mưu lo công cuộc giữ nước."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xã",
+  "sources": [
+   "VHLĐ"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2920"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "X-9.png"
+ },
+ {
+  "name": "X 10",
+  "anchor": "X-10",
+  "letter": "X",
+  "number": 10,
+  "proverb": "Xã Thượng anh hùng, xã Hạ lắm thóc.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "110"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Hai xã ở huyện Hải Hậu, tỉnh Nam Định."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xã",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2921"
+  ],
+  "pdf_pages": [
+   499
+  ],
+  "fixed": false,
+  "image": "X-10.png"
+ },
+ {
+  "name": "X 11",
+  "anchor": "X-11",
+  "letter": "X",
+  "number": 11,
+  "proverb": "Xác chết quay ra, người ta quay vào.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "365"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VCVN: Xác chết thì đặt nằm quay đầu trở ra, tức là thây ma nằm nhìn vào phía trong nhà (do nằm quay đầu trở ra). Như vậy thì khi khiêng đi chôn, xác chết hay thây ma vừa đi vừa nhìn lại nhà cũ, đường cũ được để rồi có thể nhớ đường mà về thăm con cháu sau này."
+    }
+   ],
+   [
+    {
+     "text": "Người ta nằm quay đầu trở vào, tức là người sống nhìn ra phía ngoài (do nằm quay đầu vào trong), để dễ nhìn ra ngoài, có ai vào nhà cũng biết được."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xác",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2921"
+  ],
+  "pdf_pages": [
+   499
+  ],
+  "fixed": false,
+  "image": "X-11.png"
+ },
+ {
+  "name": "X 12",
+  "anchor": "X-12",
+  "letter": "X",
+  "number": 12,
+  "proverb": "Xác như ve, trơ như nhộng.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "68a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xác",
+  "sources": [
+   "ĐNQT"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2921"
+  ],
+  "pdf_pages": [
+   499
+  ],
+  "fixed": false,
+  "image": "X-12.png"
+ },
+ {
+  "name": "X 13",
+  "anchor": "X-13",
+  "letter": "X",
+  "number": 13,
+  "proverb": "Xác như vờ, xơ như nhộng.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "68a"
+   },
+   {
+    "abbreviation": "NASL IV",
+    "pages": "55a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "317"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "29"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "10b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "800"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "645"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xơ như vờ, xác như nhộng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "649"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xác",
+  "sources": [
+   "ĐNQT",
+   "NASL IV",
+   "NL",
+   "NNCC",
+   "PNTN",
+   "TNPD I",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2921"
+  ],
+  "pdf_pages": [
+   499
+  ],
+  "fixed": false,
+  "image": "X-13.png"
+ },
+ {
+  "name": "X 14",
+  "anchor": "X-14",
+  "letter": "X",
+  "number": 14,
+  "proverb": "Xác như xác ve.",
+  "citations": [
+   {
+    "abbreviation": "TNTB",
+    "pages": "2a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xác như ve."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "10b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xác",
+  "sources": [
+   "TNTB",
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2921"
+  ],
+  "pdf_pages": [
+   499
+  ],
+  "fixed": false,
+  "image": "X-14.png"
+ },
+ {
+  "name": "X 15",
+  "anchor": "X-15",
+  "letter": "X",
+  "number": 15,
+  "proverb": "Xách bầu phải xem quai, địu con phải xem vải buộc, làm cỏ phải xem cán nắm.",
+  "citations": [
+   {
+    "abbreviation": "VHQT",
+    "pages": "150"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xách",
+  "sources": [
+   "VHQT"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2921"
+  ],
+  "pdf_pages": [
+   499
+  ],
+  "fixed": false,
+  "image": "X-15.png"
+ },
+ {
+  "name": "X 16",
+  "anchor": "X-16",
+  "letter": "X",
+  "number": 16,
+  "proverb": "Xanh chẳng có lỗ, cá đi đằng nào.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "111"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "43"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "72a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "21a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xanh "
+     },
+     {
+      "text": "chả thủng",
+      "em": true
+     },
+     {
+      "text": " cá đi "
+     },
+     {
+      "text": "đường",
+      "em": true
+     },
+     {
+      "text": " nào."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "5a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xanh "
+     },
+     {
+      "text": "không",
+      "em": true
+     },
+     {
+      "text": " lỗ, cá đi "
+     },
+     {
+      "text": "đường",
+      "em": true
+     },
+     {
+      "text": " nào."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNTB",
+      "pages": "11b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xanh "
+     },
+     {
+      "text": "không thủng",
+      "em": true
+     },
+     {
+      "text": " cá đi "
+     },
+     {
+      "text": "đàng",
+      "em": true
+     },
+     {
+      "text": " nào."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "317"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "250"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xanh "
+     },
+     {
+      "text": "không thủng",
+      "em": true
+     },
+     {
+      "text": " cá đi "
+     },
+     {
+      "text": "đằng",
+      "em": true
+     },
+     {
+      "text": " nào."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "MGL",
+      "pages": "50"
+     },
+     {
+      "abbreviation": "NXK",
+      "pages": "187"
+     },
+     {
+      "abbreviation": "TMT",
+      "pages": "67"
+     },
+     {
+      "abbreviation": "TNCĐ",
+      "pages": "39"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "330"
+     },
+     {
+      "abbreviation": "TNLG II",
+      "pages": "22, 165"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "258"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "378"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "135"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "800"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "646"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "CCM",
+   "NNCC",
+   "ĐNQT",
+   "PNTN",
+   "NASL IV",
+   "TNTB",
+   "NL",
+   "TNPD I",
+   "MGL",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNLG II",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2922"
+  ],
+  "pdf_pages": [
+   500
+  ],
+  "fixed": false,
+  "image": "X-16.png"
+ },
+ {
+  "name": "X 17",
+  "anchor": "X-17",
+  "letter": "X",
+  "number": 17,
+  "proverb": "Xanh đầu con nhà bác, bạc đầu con nhà chú.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "317"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "85, 129"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "645"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "B 384",
+    "anchor": "B-384",
+    "preview": "Bé con nhà bác, lớn xác…"
+   }
+  ],
+  "first_syllable": "xanh",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2922"
+  ],
+  "pdf_pages": [
+   500
+  ],
+  "fixed": false,
+  "image": "X-17.png"
+ },
+ {
+  "name": "X 18",
+  "anchor": "X-18",
+  "letter": "X",
+  "number": 18,
+  "proverb": "Xanh nhà hơn già đồng.",
+  "citations": [
+   {
+    "abbreviation": "HT",
+    "pages": "56"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "15"
+   },
+   {
+    "abbreviation": "NASL III",
+    "pages": "30b"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "68"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "12"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "11"
+   },
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "366"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xanh nhà "
+     },
+     {
+      "text": "còn",
+      "em": true
+     },
+     {
+      "text": " hơn già đồng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "15"
+     },
+     {
+      "abbreviation": "CCM",
+      "pages": "58"
+     },
+     {
+      "abbreviation": "TNCD",
+      "pages": "76"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "353"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "327"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "206"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "168"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "646"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "HT",
+   "MGL",
+   "NASL III",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "VCVN IV",
+   "ANTN",
+   "CCM",
+   "TNCD",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2922"
+  ],
+  "pdf_pages": [
+   500
+  ],
+  "fixed": false,
+  "image": "X-18.png"
+ },
+ {
+  "name": "X 19",
+  "anchor": "X-19",
+  "letter": "X",
+  "number": 19,
+  "proverb": "Xanh nhà, lợn gà người.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "646"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Xanh: dụng cụ nấu nướng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2922"
+  ],
+  "pdf_pages": [
+   500
+  ],
+  "fixed": false,
+  "image": "X-19.png"
+ },
+ {
+  "name": "X 20",
+  "anchor": "X-20",
+  "letter": "X",
+  "number": 20,
+  "proverb": "Xanh như da trời.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "1b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xanh như cái trời."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "54b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "PNTN",
+   "TNPD I",
+   "NASL IV"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2922"
+  ],
+  "pdf_pages": [
+   500
+  ],
+  "fixed": false,
+  "image": "X-20.png"
+ },
+ {
+  "name": "X 21",
+  "anchor": "X-21",
+  "letter": "X",
+  "number": 21,
+  "proverb": "Xanh như lá, bạc như vôi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "317"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "15a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "12a"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "116"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "NL",
+   "NQPN",
+   "PNTN",
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1914,
+  "book_pages": [
+   "2923"
+  ],
+  "pdf_pages": [
+   501
+  ],
+  "fixed": false,
+  "image": "X-21.png"
+ },
+ {
+  "name": "X 22",
+  "anchor": "X-22",
+  "letter": "X",
+  "number": 22,
+  "proverb": "Xanh như lá, vàng như nghệ.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2923"
+  ],
+  "pdf_pages": [
+   501
+  ],
+  "fixed": false,
+  "image": "X-22.png"
+ },
+ {
+  "name": "X 23",
+  "anchor": "X-23",
+  "letter": "X",
+  "number": 23,
+  "proverb": "Xanh như tàu lá.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "646"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2923"
+  ],
+  "pdf_pages": [
+   501
+  ],
+  "fixed": false,
+  "image": "X-23.png"
+ },
+ {
+  "name": "X 24",
+  "anchor": "X-24",
+  "letter": "X",
+  "number": 24,
+  "proverb": "Xanh râu là chúa, bạc đầu là tôi.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "86"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "451"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xanh đầu là chúa, bạc đầu là tôi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "85"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Quyền chức, tuổi tác, đức hạnh là ba bậc trọng, trong đó quyền chức vẫn là hơn cả (theo "
+    },
+    {
+     "text": "CNGN",
+     "source": "CNGN"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2923"
+  ],
+  "pdf_pages": [
+   501
+  ],
+  "fixed": false,
+  "image": "X-24.png"
+ },
+ {
+  "name": "X 25",
+  "anchor": "X-25",
+  "letter": "X",
+  "number": 25,
+  "proverb": "Xanh vỏ đỏ lòng.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "3"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "73a"
+   },
+   {
+    "abbreviation": "KCTN",
+    "pages": "17, 376"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "317"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "11"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "36a"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "42"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "800-801"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "646"
+   },
+   {
+    "abbreviation": "VNP₂ II",
+    "pages": "86"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "97"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xanh vỏ "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " đỏ lòng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "70"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "Xanh đỏ vỏ lòng.",
+    "sources": [
+     "VD"
+    ],
+    "right": [
+     {
+      "text": "Xanh vỏ "
+     },
+     {
+      "text": "đỏ",
+      "em": true
+     },
+     {
+      "text": " lòng."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "VD",
+      "source": "VD"
+     },
+     {
+      "text": " in sai thành \"Xanh đỏ vỏ lòng.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Xanh vỏ "
+     },
+     {
+      "text": "đỏ",
+      "strong": true
+     },
+     {
+      "text": " lòng."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xanh",
+  "sources": [
+   "ANTN",
+   "ĐNQT",
+   "KCTN",
+   "NL",
+   "NNCC",
+   "PNTN",
+   "TMT",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "VNP₂ II",
+   "VNP₁₁",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2923"
+  ],
+  "pdf_pages": [
+   501
+  ],
+  "fixed": false,
+  "image": "X-25.png"
+ },
+ {
+  "name": "X 26",
+  "anchor": "X-26",
+  "letter": "X",
+  "number": 26,
+  "proverb": "Xào xáo Xuân Lai, thuốc sài Định Mỗ.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "193"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ", Định Mỗ còn gọi là làng Mỏ, nay thuộc xã Xuân Lai huyện Gia Bình, Bắc Ninh, có nghề làm thuốc nam từ thế kỉ XVIII, nổi tiếng nhất là thuốc sài trẻ em."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xào",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2923"
+  ],
+  "pdf_pages": [
+   501
+  ],
+  "fixed": false,
+  "image": "X-26.png"
+ },
+ {
+  "name": "X 27",
+  "anchor": "X-27",
+  "letter": "X",
+  "number": 27,
+  "proverb": "Xảo giả đa lao chuyết nhàn.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "86"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Khéo làm tôi vụng, vụng không làm tôi ai (theo "
+    },
+    {
+     "text": "CNGN",
+     "source": "CNGN"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xảo",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2923",
+   "2924"
+  ],
+  "pdf_pages": [
+   501,
+   502
+  ],
+  "fixed": false,
+  "image": "X-27.png"
+ },
+ {
+  "name": "X 28",
+  "anchor": "X-28",
+  "letter": "X",
+  "number": 28,
+  "proverb": "Xay lúa Đồng Nai, cơm gạo về ngài, tấm cám về tôi.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "145"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "273"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Đồng Nai: chỉ Nam Bộ nói chung."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xay",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2924"
+  ],
+  "pdf_pages": [
+   502
+  ],
+  "fixed": false,
+  "image": "X-28.png"
+ },
+ {
+  "name": "X 29",
+  "anchor": "X-29",
+  "letter": "X",
+  "number": 29,
+  "proverb": "Xay lúa thì đừng ăm em.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "20b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "580"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "351"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xay lúa thì đừng "
+     },
+     {
+      "text": "ôm",
+      "em": true
+     },
+     {
+      "text": " em."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "106"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xay lúa thì "
+     },
+     {
+      "text": "khỏi",
+      "em": true
+     },
+     {
+      "text": " ăm em."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "646"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xay lúa thì "
+     },
+     {
+      "text": "khỏi bồng",
+      "em": true
+     },
+     {
+      "text": " em."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "",
+      "variant": true
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "801"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xay lúa thì "
+     },
+     {
+      "text": "thôi",
+      "em": true
+     },
+     {
+      "text": " ăm em."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "MGL",
+      "pages": "44"
+     },
+     {
+      "abbreviation": "TMT",
+      "pages": "61"
+     },
+     {
+      "abbreviation": "TNCĐ",
+      "pages": "35"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xay "
+     },
+     {
+      "text": "thóc",
+      "em": true
+     },
+     {
+      "text": " thì đừng ăm em."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "646"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "Đ 1063",
+    "anchor": "Đ-1063",
+    "preview": "Đun bếp thì đừng ăm em."
+   }
+  ],
+  "first_syllable": "xay",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "CCM",
+   "VD",
+   "VC II",
+   "MGL",
+   "TMT",
+   "TNCĐ"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2924"
+  ],
+  "pdf_pages": [
+   502
+  ],
+  "fixed": false,
+  "image": "X-29.png"
+ },
+ {
+  "name": "X 30",
+  "anchor": "X-30",
+  "letter": "X",
+  "number": 30,
+  "proverb": "Xay thóc có dàng, việc làng có mõ.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "280"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "801"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xay thóc có chàng, việc làng có mõ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "255"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "",
+      "variant": true
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xay thóc có sàng việc làng có mõ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "39"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xay",
+  "sources": [
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "TNCL",
+   "NNCC"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2924"
+  ],
+  "pdf_pages": [
+   502
+  ],
+  "fixed": false,
+  "image": "X-30.png"
+ },
+ {
+  "name": "X 31",
+  "anchor": "X-31",
+  "letter": "X",
+  "number": 31,
+  "proverb": "Xay thóc, tôi có máu thượng công, cày đồng tôi có máu thấp.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "143"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "373"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xay lúa tôi có máu thượng công, cày đồng tôi có máu thấp."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "28b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xay",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2924"
+  ],
+  "pdf_pages": [
+   502
+  ],
+  "fixed": false,
+  "image": "X-31.png"
+ },
+ {
+  "name": "X 32",
+  "anchor": "X-32",
+  "letter": "X",
+  "number": 32,
+  "proverb": "Xắn quần chạy quanh bờ ruộng.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "103"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xắn",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2924"
+  ],
+  "pdf_pages": [
+   502
+  ],
+  "fixed": false,
+  "image": "X-32.png"
+ },
+ {
+  "name": "X 33",
+  "anchor": "X-33",
+  "letter": "X",
+  "number": 33,
+  "proverb": "Xâm xê bất tề, thợ nề đôi ba li.",
+  "citations": [
+   {
+    "abbreviation": "VHHP",
+    "pages": "120"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Đối với nghề thợ nề, có thể xê dịch vài ba li (milimét), không cần chính xác tuyệt đối"
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xâm",
+  "sources": [
+   "VHHP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2925"
+  ],
+  "pdf_pages": [
+   503
+  ],
+  "fixed": false,
+  "image": "X-33.png"
+ },
+ {
+  "name": "X 34",
+  "anchor": "X-34",
+  "letter": "X",
+  "number": 34,
+  "proverb": "Xẩm ra trước, cuội vào sau.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "47"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xẩm",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2925"
+  ],
+  "pdf_pages": [
+   503
+  ],
+  "fixed": false,
+  "image": "X-34.png"
+ },
+ {
+  "name": "X 35",
+  "anchor": "X-35",
+  "letter": "X",
+  "number": 35,
+  "proverb": "Xẩm vào cuội ra.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "11"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xẩm",
+  "sources": [
+   "NNCC",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2925"
+  ],
+  "pdf_pages": [
+   503
+  ],
+  "fixed": false,
+  "image": "X-35.png"
+ },
+ {
+  "name": "X 36",
+  "anchor": "X-36",
+  "letter": "X",
+  "number": 36,
+  "proverb": "Xẩm vớ được gậy.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "38b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "13"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "8b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Mù vớ được gậy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "118"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Như xẩm vớ được gậy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "232"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xẩm",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "NNCC",
+   "PNTN",
+   "TNPD I",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2925"
+  ],
+  "pdf_pages": [
+   503
+  ],
+  "fixed": false,
+  "image": "X-36.png"
+ },
+ {
+  "name": "X 37",
+  "anchor": "X-37",
+  "letter": "X",
+  "number": 37,
+  "proverb": "Xấu bao thì xấu bì.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "133"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Trong một gia đình hay một tập thể, một người xấu làm người khác mang tiếng lây (theo "
+    },
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2925"
+  ],
+  "pdf_pages": [
+   503
+  ],
+  "fixed": false,
+  "image": "X-37.png"
+ },
+ {
+  "name": "X 38",
+  "anchor": "X-38",
+  "letter": "X",
+  "number": 38,
+  "proverb": "Xấu bao thì xấu bì, xấu tao cũng xấu mi.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "177"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "369"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "646"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu bao thì xấu bì, xấu tao "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " xấu mi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "802"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2925"
+  ],
+  "pdf_pages": [
+   503
+  ],
+  "fixed": false,
+  "image": "X-38.png"
+ },
+ {
+  "name": "X 39",
+  "anchor": "X-39",
+  "letter": "X",
+  "number": 39,
+  "proverb": "Xấu bảo là xấu, tốt bảo là tốt.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "54"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2925"
+  ],
+  "pdf_pages": [
+   503
+  ],
+  "fixed": false,
+  "image": "X-39.png"
+ },
+ {
+  "name": "X 40",
+  "anchor": "X-40",
+  "letter": "X",
+  "number": 40,
+  "proverb": "Xấu bát đĩa đồ ăn cũng vậy.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2926"
+  ],
+  "pdf_pages": [
+   504
+  ],
+  "fixed": false,
+  "image": "X-40.png"
+ },
+ {
+  "name": "X 41",
+  "anchor": "X-41",
+  "letter": "X",
+  "number": 41,
+  "proverb": "Xấu cấu lấy tiền.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "15b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2926"
+  ],
+  "pdf_pages": [
+   504
+  ],
+  "fixed": false,
+  "image": "X-41.png"
+ },
+ {
+  "name": "X 42",
+  "anchor": "X-42",
+  "letter": "X",
+  "number": 42,
+  "proverb": "Xấu chàng hổ ai.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "4b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "8"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "102"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "TNLG I",
+    "pages": "17, 83"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "370"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "802-803"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "646"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "387"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu chàng hổ "
+     },
+     {
+      "text": "thiếp",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "802"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NASL II",
+   "NL",
+   "NNCC",
+   "TMT",
+   "TNCL",
+   "TNLG I",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VNP₁₁"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2926"
+  ],
+  "pdf_pages": [
+   504
+  ],
+  "fixed": false,
+  "image": "X-42.png"
+ },
+ {
+  "name": "X 43",
+  "anchor": "X-43",
+  "letter": "X",
+  "number": 43,
+  "proverb": "Xấu chữ mà lành nghĩa.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "86"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "206"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "803"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu chữ "
+     },
+     {
+      "text": "nhưng",
+      "em": true
+     },
+     {
+      "text": " lành nghĩa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "646"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Chữ là bề ngoài, nghĩa là bề trong, ví người không có vẻ lịch sự, mà bên trong thì lại có đức hạnh, tài năng (theo "
+    },
+    {
+     "text": "CNGN",
+     "source": "CNGN"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CNGN",
+   "NL",
+   "NTP",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2926"
+  ],
+  "pdf_pages": [
+   504
+  ],
+  "fixed": false,
+  "image": "X-43.png"
+ },
+ {
+  "name": "X 44",
+  "anchor": "X-44",
+  "letter": "X",
+  "number": 44,
+  "proverb": "Xấu, có cấu mà ăn.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "134"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Cấu: tiếng địa phương Thanh Hóa, có nghĩa là gạo (theo "
+    },
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2926"
+  ],
+  "pdf_pages": [
+   504
+  ],
+  "fixed": false,
+  "image": "X-44.png"
+ },
+ {
+  "name": "X 45",
+  "anchor": "X-45",
+  "letter": "X",
+  "number": 45,
+  "proverb": "Xấu, đánh trấu ra vàng.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "58a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "7"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "134"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "803"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Bề ngoài tuy xấu nhưng bên trong thực tế là rất tốt."
+    }
+   ],
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Người ta hay dùng trấu để đánh các đồ đồng cho sáng bóng."
+    }
+   ],
+   [
+    {
+     "text": "Của tốt, có giá trị, trông mẽ ngoài xấu xí mà bên trong tốt đẹp."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NASL II",
+   "NL",
+   "NNPD",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2926",
+   "2927"
+  ],
+  "pdf_pages": [
+   504,
+   505
+  ],
+  "fixed": false,
+  "image": "X-45.png"
+ },
+ {
+  "name": "X 46",
+  "anchor": "X-46",
+  "letter": "X",
+  "number": 46,
+  "proverb": "Xấu đều hơn tốt lỏi.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "50"
+   },
+   {
+    "abbreviation": "NASL III",
+    "pages": "30b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "25"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "44, 67"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "133, 379"
+   },
+   {
+    "abbreviation": "TNLG I",
+    "pages": "17, 82"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "377"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "803"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu đều "
+     },
+     {
+      "text": "còn",
+      "em": true
+     },
+     {
+      "text": " hơn tốt lỏi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL III",
+      "pages": "31a"
+     },
+     {
+      "abbreviation": "NNCC",
+      "pages": "32"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "... tốt *lỗi*.",
+    "sources": [
+     "TMT",
+     "VC II"
+    ],
+    "right": [
+     {
+      "text": "... tốt "
+     },
+     {
+      "text": "lỏi",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TMT",
+      "source": "TMT"
+     },
+     {
+      "text": ", "
+     },
+     {
+      "text": "VC II",
+      "source": "VC II"
+     },
+     {
+      "text": " in sai thành \"... tốt lỗi.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... tốt "
+     },
+     {
+      "text": "lỏi",
+      "strong": true
+     },
+     {
+      "text": "."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "MGL",
+   "NASL III",
+   "NL",
+   "NNCC",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNLG I",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2927"
+  ],
+  "pdf_pages": [
+   505
+  ],
+  "fixed": false,
+  "image": "X-46.png"
+ },
+ {
+  "name": "X 47",
+  "anchor": "X-47",
+  "letter": "X",
+  "number": 47,
+  "proverb": "Xấu đổi, thiếu bù.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "11"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "64"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "803"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu đổi thiếu "
+     },
+     {
+      "text": "đòi",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "13a"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "NASL IV"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2927"
+  ],
+  "pdf_pages": [
+   505
+  ],
+  "fixed": false,
+  "image": "X-47.png"
+ },
+ {
+  "name": "X 48",
+  "anchor": "X-48",
+  "letter": "X",
+  "number": 48,
+  "proverb": "Xấu gỗ, tốt nước sơn.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "79"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "23"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "44"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "133"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "803"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "99"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CCM",
+   "NL",
+   "NNCC",
+   "TMT",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "VNP₁₁"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2927"
+  ],
+  "pdf_pages": [
+   505
+  ],
+  "fixed": false,
+  "image": "X-48.png"
+ },
+ {
+  "name": "X 49",
+  "anchor": "X-49",
+  "letter": "X",
+  "number": 49,
+  "proverb": "Xấu hay làm tốt.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "59b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NASL II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2927"
+  ],
+  "pdf_pages": [
+   505
+  ],
+  "fixed": false,
+  "image": "X-49.png"
+ },
+ {
+  "name": "X 50",
+  "anchor": "X-50",
+  "letter": "X",
+  "number": 50,
+  "proverb": "Xấu hay làm tốt, dốt hay nói chữ.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "86"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "55b"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "36"
+   },
+   {
+    "abbreviation": "NASL II",
+    "pages": "59b"
+   },
+   {
+    "abbreviation": "NASL III",
+    "pages": "4b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "21"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "30a"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "53"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "29"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "206"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "13a"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "312"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "803"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "209"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu hay "
+     },
+     {
+      "text": "nói",
+      "em": true
+     },
+     {
+      "text": " tốt, dốt hay nói chữ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "104"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CNGN",
+   "ĐNQT",
+   "MGL",
+   "NASL II",
+   "NASL III",
+   "NL",
+   "NNCC",
+   "NNPD",
+   "NQPN",
+   "NTP",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNPD I",
+   "TNTB",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VHSCL",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2927"
+  ],
+  "pdf_pages": [
+   505
+  ],
+  "fixed": false,
+  "image": "X-50.png"
+ },
+ {
+  "name": "X 51",
+  "anchor": "X-51",
+  "letter": "X",
+  "number": 51,
+  "proverb": "Xấu hổ nhưng mà tốt long, đến khi no lòng tốt cả long lẫn hổ.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "330"
+   },
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "375"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu hổ tốt long, đến cơn no lòng tốt cả long lẫn hổ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "124"
+     },
+     {
+      "abbreviation": "TNCD",
+      "pages": "95"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Hổ là con hổ, dùng theo lối chơi chữ, long là con rồng. Ý nói: Cái chủ yếu là cốt được no lòng đã, còn những cái tô điểm hoa mĩ thì không quan trọng."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "... đến cơm... tất cả...",
+    "sources": [
+     "CCM"
+    ],
+    "right": [
+     {
+      "text": "đến cơn... tốt cả..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "CCM",
+      "source": "CCM"
+     },
+     {
+      "text": " in sai thành \"... đến cơm... tất cả...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "đến cơn... tốt cả..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VCVN IV",
+   "CCM",
+   "TNCD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2928"
+  ],
+  "pdf_pages": [
+   506
+  ],
+  "fixed": false,
+  "image": "X-51.png"
+ },
+ {
+  "name": "X 52",
+  "anchor": "X-52",
+  "letter": "X",
+  "number": 52,
+  "proverb": "Xấu lá xấu nem, xấu em xấu chị.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2928"
+  ],
+  "pdf_pages": [
+   506
+  ],
+  "fixed": false,
+  "image": "X-52.png"
+ },
+ {
+  "name": "X 53",
+  "anchor": "X-53",
+  "letter": "X",
+  "number": 53,
+  "proverb": "Xấu mã có duyên thầm.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "26"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu mã tốt duyên."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL II",
+      "pages": "5b"
+     },
+     {
+      "abbreviation": "NNCC",
+      "pages": "18"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNPD I",
+   "NASL II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2928"
+  ],
+  "pdf_pages": [
+   506
+  ],
+  "fixed": false,
+  "image": "X-53.png"
+ },
+ {
+  "name": "X 54",
+  "anchor": "X-54",
+  "letter": "X",
+  "number": 54,
+  "proverb": "Xấu mã tốt lòng ... đến khi no lòng, tốt cả lòng liền mã.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "53"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "ANTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1933,
+  "book_pages": [
+   "2928"
+  ],
+  "pdf_pages": [
+   506
+  ],
+  "fixed": false,
+  "image": "X-54.png"
+ },
+ {
+  "name": "X 55",
+  "anchor": "X-55",
+  "letter": "X",
+  "number": 55,
+  "proverb": "Xấu máu đòi ăn của độc.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "44"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "33b"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "32"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "47"
+   },
+   {
+    "abbreviation": "TNLG II",
+    "pages": "22, 166"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu "
+     },
+     {
+      "text": "mã",
+      "em": true
+     },
+     {
+      "text": " đòi ăn của độc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "318"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NNCC",
+   "TNCL",
+   "TNLG II",
+   "TNPD I",
+   "VD",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2928"
+  ],
+  "pdf_pages": [
+   506
+  ],
+  "fixed": false,
+  "image": "X-55.png"
+ },
+ {
+  "name": "X 56",
+  "anchor": "X-56",
+  "letter": "X",
+  "number": 56,
+  "proverb": "Xấu mặt, chặt nồi.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "133"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu mặt chắc nồi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHQB",
+      "pages": "322"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu mặt chặt dạ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "318"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "647"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu mặt mà chặt dạ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNPD",
+      "pages": "7"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "326"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu mặt, no lòng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "325"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Chịu xấu, chịu mất thể diện, cốt được no bụng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "VD",
+   "VHQB",
+   "NL",
+   "NNPD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2928",
+   "2929"
+  ],
+  "pdf_pages": [
+   506,
+   507
+  ],
+  "fixed": false,
+  "image": "X-56.png"
+ },
+ {
+  "name": "X 57",
+  "anchor": "X-57",
+  "letter": "X",
+  "number": 57,
+  "proverb": "Xấu mặt dễ sai, đẹp trai khó khiến.",
+  "citations": [
+   {
+    "abbreviation": "TNVN",
+    "pages": "248"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "804"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu mặt dễ sai, lành tai khó khiến."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHQB",
+      "pages": "322"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VHQB"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2929"
+  ],
+  "pdf_pages": [
+   507
+  ],
+  "fixed": false,
+  "image": "X-57.png"
+ },
+ {
+  "name": "X 58",
+  "anchor": "X-58",
+  "letter": "X",
+  "number": 58,
+  "proverb": "Xấu mặt dễ sai, lành trai khó kiếm.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "21"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "317"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "248"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu mặt dễ sai, lành "
+     },
+     {
+      "text": "giai",
+      "em": true
+     },
+     {
+      "text": " khó kiếm."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNPD",
+      "pages": "21"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "... *làm* trai khó kiếm.",
+    "sources": [
+     "TNCL"
+    ],
+    "right": [
+     {
+      "text": "... lành trai khó kiếm."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"... làm trai khó kiếm.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... lành trai khó kiếm."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "NNPD",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2929"
+  ],
+  "pdf_pages": [
+   507
+  ],
+  "fixed": false,
+  "image": "X-58.png"
+ },
+ {
+  "name": "X 59",
+  "anchor": "X-59",
+  "letter": "X",
+  "number": 59,
+  "proverb": "Xấu mặt ghét người giòn.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "804"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2929"
+  ],
+  "pdf_pages": [
+   507
+  ],
+  "fixed": false,
+  "image": "X-59.png"
+ },
+ {
+  "name": "X 60",
+  "anchor": "X-60",
+  "letter": "X",
+  "number": 60,
+  "proverb": "Xấu mặt hơn béo bụng.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "12"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "297"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "ANTN",
+   "TNCD",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1932,
+  "book_pages": [
+   "2929"
+  ],
+  "pdf_pages": [
+   507
+  ],
+  "fixed": false,
+  "image": "X-60.png"
+ },
+ {
+  "name": "X 61",
+  "anchor": "X-61",
+  "letter": "X",
+  "number": 61,
+  "proverb": "Xấu mặt thì lâu, xấu đầu mấy tí.",
+  "citations": [
+   {
+    "abbreviation": "VHHP",
+    "pages": "131"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "VHHP"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2929"
+  ],
+  "pdf_pages": [
+   507
+  ],
+  "fixed": false,
+  "image": "X-61.png"
+ },
+ {
+  "name": "X 62",
+  "anchor": "X-62",
+  "letter": "X",
+  "number": 62,
+  "proverb": "Xấu mặt xin tương cả phường cùng húp.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "110"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "35b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "379, 581"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "259, 351"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2929"
+  ],
+  "pdf_pages": [
+   507
+  ],
+  "fixed": false,
+  "image": "X-62.png"
+ },
+ {
+  "name": "X 63",
+  "anchor": "X-63",
+  "letter": "X",
+  "number": 63,
+  "proverb": "Xấu người đẹp nết còn hơn đẹp người.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "133"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2929"
+  ],
+  "pdf_pages": [
+   507
+  ],
+  "fixed": false,
+  "image": "X-63.png"
+ },
+ {
+  "name": "X 64",
+  "anchor": "X-64",
+  "letter": "X",
+  "number": 64,
+  "proverb": "Xấu người tốt nết.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2930"
+  ],
+  "pdf_pages": [
+   508
+  ],
+  "fixed": false,
+  "image": "X-64.png"
+ },
+ {
+  "name": "X 65",
+  "anchor": "X-65",
+  "letter": "X",
+  "number": 65,
+  "proverb": "Xấu như Chung Vô Diệm.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "805"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chung Vô Diệm là người phụ nữ Trung Quốc, thời Xuân Thu."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2930"
+  ],
+  "pdf_pages": [
+   508
+  ],
+  "fixed": false,
+  "image": "X-65.png"
+ },
+ {
+  "name": "X 66",
+  "anchor": "X-66",
+  "letter": "X",
+  "number": 66,
+  "proverb": "Xấu như con tiều.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "39a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2930"
+  ],
+  "pdf_pages": [
+   508
+  ],
+  "fixed": false,
+  "image": "X-66.png"
+ },
+ {
+  "name": "X 67",
+  "anchor": "X-67",
+  "letter": "X",
+  "number": 67,
+  "proverb": "Xấu như ma cũng thể trà con gái.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "318"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma cũng "
+     },
+     {
+      "text": "là",
+      "em": true
+     },
+     {
+      "text": " trà con gái."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "39a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma cũng "
+     },
+     {
+      "text": "một",
+      "em": true
+     },
+     {
+      "text": " trà con gái."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "14a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma cũng "
+     },
+     {
+      "text": "một tà",
+      "em": true
+     },
+     {
+      "text": " con gái."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "116"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma cũng thể "
+     },
+     {
+      "text": "da",
+      "em": true
+     },
+     {
+      "text": " con gái."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL II",
+      "pages": "6a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma cũng thể "
+     },
+     {
+      "text": "là",
+      "em": true
+     },
+     {
+      "text": " con gái."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "805"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma cũng thể "
+     },
+     {
+      "text": "trạc",
+      "em": true
+     },
+     {
+      "text": " con gái."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VD",
+   "PNTN",
+   "ĐNQT",
+   "CCM",
+   "NASL II",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2930"
+  ],
+  "pdf_pages": [
+   508
+  ],
+  "fixed": false,
+  "image": "X-67.png"
+ },
+ {
+  "name": "X 68",
+  "anchor": "X-68",
+  "letter": "X",
+  "number": 68,
+  "proverb": "Xấu như ma mút.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "16"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "1a"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như cái ma nát."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL II",
+      "pages": "59a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "5"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "647"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma lem."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "325",
+      "variant": true
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "806"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "647"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như ma mút dở."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNTB",
+      "pages": "4a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu như mẹ ma."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "",
+      "variant": true
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "805"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NNCC",
+   "TNPD I",
+   "TNTB",
+   "VD",
+   "NASL II",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2930"
+  ],
+  "pdf_pages": [
+   508
+  ],
+  "fixed": false,
+  "image": "X-68.png"
+ },
+ {
+  "name": "X 69",
+  "anchor": "X-69",
+  "letter": "X",
+  "number": 69,
+  "proverb": "Xấu như ma, vinh hoa cũng đẹp.",
+  "citations": [
+   {
+    "abbreviation": "HT",
+    "pages": "76"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "134"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "209"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "HT",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2930"
+  ],
+  "pdf_pages": [
+   508
+  ],
+  "fixed": false,
+  "image": "X-69.png"
+ },
+ {
+  "name": "X 70",
+  "anchor": "X-70",
+  "letter": "X",
+  "number": 70,
+  "proverb": "Xấu như quỷ",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2931"
+  ],
+  "pdf_pages": [
+   509
+  ],
+  "fixed": false,
+  "image": "X-70.png"
+ },
+ {
+  "name": "X 71",
+  "anchor": "X-71",
+  "letter": "X",
+  "number": 71,
+  "proverb": "Xấu Phù Li xấu Tuy Viễn.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "CNGN",
+     "source": "CNGN"
+    },
+    {
+     "text": ": Phù Li, Tuy Viễn là hai huyện ở tại Quy Nhơn giáp giới với nhau, xấu huyện này, xấu tới huyện khác, nghĩa là xấu lây."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2931"
+  ],
+  "pdf_pages": [
+   509
+  ],
+  "fixed": false,
+  "image": "X-71.png"
+ },
+ {
+  "name": "X 72",
+  "anchor": "X-72",
+  "letter": "X",
+  "number": 72,
+  "proverb": "Xấu thì bác mẹ sinh ra, xấu an phận xấu, xấu hoà đổi ai.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "319"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "806"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2931"
+  ],
+  "pdf_pages": [
+   509
+  ],
+  "fixed": false,
+  "image": "X-72.png"
+ },
+ {
+  "name": "X 73",
+  "anchor": "X-73",
+  "letter": "X",
+  "number": 73,
+  "proverb": "Xấu thiếp hổ chàng.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "177"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "TNLG I",
+    "pages": "17, 83"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "369"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "647"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNLG I",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2931"
+  ],
+  "pdf_pages": [
+   509
+  ],
+  "fixed": false,
+  "image": "X-73.png"
+ },
+ {
+  "name": "X 74",
+  "anchor": "X-74",
+  "letter": "X",
+  "number": 74,
+  "proverb": "Xấu tốt bác mẹ sinh ra, có phải cây cối đâu mà bón phân.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "134"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "311"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2931"
+  ],
+  "pdf_pages": [
+   509
+  ],
+  "fixed": false,
+  "image": "X-74.png"
+ },
+ {
+  "name": "X 75",
+  "anchor": "X-75",
+  "letter": "X",
+  "number": 75,
+  "proverb": "Xấu tốt đổ cả vào kho.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "69"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2931"
+  ],
+  "pdf_pages": [
+   509
+  ],
+  "fixed": false,
+  "image": "X-75.png"
+ },
+ {
+  "name": "X 76",
+  "anchor": "X-76",
+  "letter": "X",
+  "number": 76,
+  "proverb": "Xấu xa cũng thể chồng ta, dẫu rằng tốt đẹp cũng ra chồng người.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "58a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu xa cũng thể chồng ta, dù cho tốt đẹp cũng ra chồng người."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "329"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "806-807"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xấu xí cũng thể chồng ta, dầu rằng tốt đẹp cũng ra chồng người."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "247"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "168"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xấu",
+  "sources": [
+   "NASL II",
+   "TNPD I",
+   "VC II",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2931"
+  ],
+  "pdf_pages": [
+   509
+  ],
+  "fixed": false,
+  "image": "X-76.png"
+ },
+ {
+  "name": "X 77",
+  "anchor": "X-77",
+  "letter": "X",
+  "number": 77,
+  "proverb": "Xây cống xây cầu không bằng cho nhau bát gạo.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "807"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo VC, việc xây cống, xây cầu tuy tốn nhiều công của nhưng được xem là việc làm phúc đức, được nhiều người ca ngợi biết ơn. Còn việc âm thầm cứu cho người đang đói bát gạo, tuy của không đáng là bao nhưng cứu sống được một mạng người."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xây",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2932"
+  ],
+  "pdf_pages": [
+   510
+  ],
+  "fixed": false,
+  "image": "X-77.png"
+ },
+ {
+  "name": "X 78",
+  "anchor": "X-78",
+  "letter": "X",
+  "number": 78,
+  "proverb": "Xây mặt hướng đông cái lòng không còn.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "297"
+   },
+   {
+    "abbreviation": "VNQNĐN I",
+    "pages": "100"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chuồng gà không được quay cửa về hướng đông."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xây",
+  "sources": [
+   "TNCL",
+   "VNQNĐN I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2932"
+  ],
+  "pdf_pages": [
+   510
+  ],
+  "fixed": false,
+  "image": "X-78.png"
+ },
+ {
+  "name": "X 79",
+  "anchor": "X-79",
+  "letter": "X",
+  "number": 79,
+  "proverb": "Xe chỉ buộc chân voi, chân ngựa.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "71b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "319"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "580"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xe chỉ buộc chân voi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCD",
+      "pages": "74"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "L 487",
+    "anchor": "L-487",
+    "preview": "Lấy chỉ buộc chân voi."
+   },
+   {
+    "name": "S 347",
+    "anchor": "S-347",
+    "preview": "Sợi chỉ buộc chân con voi."
+   },
+   {
+    "name": "T 1353",
+    "anchor": "T-1353",
+    "preview": "Tơ chỉ buộc chân voi chân…"
+   }
+  ],
+  "first_syllable": "xe",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "TNCD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2932"
+  ],
+  "pdf_pages": [
+   510
+  ],
+  "fixed": false,
+  "image": "X-79.png"
+ },
+ {
+  "name": "X 80",
+  "anchor": "X-80",
+  "letter": "X",
+  "number": 80,
+  "proverb": "Xe chỉ đã có bài ca, xe vào thì ít, xe ra thì nhiều.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "376"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "nghĩa đen",
+     "general": "Nđ"
+    },
+    {
+     "text": ": Khi muốn xe kết hai sợi chỉ nhỏ vào với nhau để được một sợi chỉ lớn hơn và săn hơn thì người ta đặt hai sợi chỉ lên đùi, sợi nọ cách sợi kia khoảng một đốt lóng ngón tay rồi dùng bàn tay vừa đặt nặng lên hai sợi chỉ vừa đẩy ra vừa miết chúng xuống nhiều lần cho mỗi sợi được xe săn lại trên mình chúng. Khi thấy mỗi sợi nhỏ ấy đã đủ săn rồi thì đè bàn tay lên chúng và kéo miết trở vào năm ba lần thôi là hai sợi nhỏ sẽ xe săn lại với nhau thành một sợi chỉ lớn."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Khi làm một việc cần có sự kết hợp nào đó thì thường là những hành động, những lời nói ngãng ra nhiều hơn những"
+    }
+   ],
+   [
+    {
+     "text": "hành động xây dựng, lời nói vun vào, tức là sự xây dựng thì ít, sự phá hoại thì nhiều (theo VCVN)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xe",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2932",
+   "2933"
+  ],
+  "pdf_pages": [
+   510,
+   511
+  ],
+  "fixed": false,
+  "image": "X-80.png"
+ },
+ {
+  "name": "X 81",
+  "anchor": "X-81",
+  "letter": "X",
+  "number": 81,
+  "proverb": "Xe dây buộc mình.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "319"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "580"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "325"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xe",
+  "sources": [
+   "CNGN",
+   "NL",
+   "NTP",
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2933"
+  ],
+  "pdf_pages": [
+   511
+  ],
+  "fixed": false,
+  "image": "X-81.png"
+ },
+ {
+  "name": "X 82",
+  "anchor": "X-82",
+  "letter": "X",
+  "number": 82,
+  "proverb": "Xe không bánh như cánh không lông.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "319"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "17"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "518"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "223"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xe",
+  "sources": [
+   "NL",
+   "NNPD",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2933"
+  ],
+  "pdf_pages": [
+   511
+  ],
+  "fixed": false,
+  "image": "X-82.png"
+ },
+ {
+  "name": "X 83",
+  "anchor": "X-83",
+  "letter": "X",
+  "number": 83,
+  "proverb": "Xé mắm còn hòng mút tay.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "181"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "580"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "358"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "807"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xé mắm "
+     },
+     {
+      "text": "chẳng được",
+      "em": true
+     },
+     {
+      "text": " mút tay."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NQPN",
+      "pages": "21a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xé mắm hòng mút tay."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL II",
+      "pages": "46a"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "648"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xé mắm "
+     },
+     {
+      "text": "không được",
+      "em": true
+     },
+     {
+      "text": " mút tay."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "32"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "581"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xé mắm mút tay."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "319"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "648"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Ở vào địa vị nắm giữ vật chất, quyền lực thì tìm cách chấm mút, bớt xén, mưu lợi cho bản thân."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xé",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "NQPN",
+   "NASL II",
+   "VD",
+   "NNCC",
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1914,
+  "book_pages": [
+   "2933"
+  ],
+  "pdf_pages": [
+   511
+  ],
+  "fixed": false,
+  "image": "X-83.png"
+ },
+ {
+  "name": "X 84",
+  "anchor": "X-84",
+  "letter": "X",
+  "number": 84,
+  "proverb": "Xem bằng mặt, bắt bằng tay.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "29"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Coi bằng mắt bắt bằng tay."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "69"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "203"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xem bằng mắt, bắt bằng tay."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL II",
+      "pages": "48b"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Phải nhìn thấy, phải có bằng chứng (thì mới tin)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "NNCC",
+   "NL",
+   "VD",
+   "NASL II"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2933"
+  ],
+  "pdf_pages": [
+   511
+  ],
+  "fixed": false,
+  "image": "X-84.png"
+ },
+ {
+  "name": "X 85",
+  "anchor": "X-85",
+  "letter": "X",
+  "number": 85,
+  "proverb": "Xem bếp biết nết đàn bà, vào nhà thì biết trong nhà đói no.",
+  "citations": [
+   {
+    "abbreviation": "VHSCL",
+    "pages": "209"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2933"
+  ],
+  "pdf_pages": [
+   511
+  ],
+  "fixed": false,
+  "image": "X-85.png"
+ },
+ {
+  "name": "X 86",
+  "anchor": "X-86",
+  "letter": "X",
+  "number": 86,
+  "proverb": "Xem bói ngẫm tương lai.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "36b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "NASL III"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2934"
+  ],
+  "pdf_pages": [
+   512
+  ],
+  "fixed": false,
+  "image": "X-86.png"
+ },
+ {
+  "name": "X 87",
+  "anchor": "X-87",
+  "letter": "X",
+  "number": 87,
+  "proverb": "Xem hội đi cho đến chùa.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "319"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "176"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "9a"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "581"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "347"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "648"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Muốn xem hội phải đi đến chùa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "561"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "335"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "113"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xem hội đến chùa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNLG II",
+      "pages": "22, 166"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "648"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xem hội đi đến chùa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "22a"
+     },
+     {
+      "abbreviation": "PNTN",
+      "pages": "9a"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Đã làm việc gì thì phải làm đến cùng, không nên bỏ cuộc giữa chừng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "NL",
+   "NXK",
+   "PNTN",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "TNLG II",
+   "NASL IV"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2934"
+  ],
+  "pdf_pages": [
+   512
+  ],
+  "fixed": false,
+  "image": "X-87.png"
+ },
+ {
+  "name": "X 88",
+  "anchor": "X-88",
+  "letter": "X",
+  "number": 88,
+  "proverb": "Xem hội phải đến chùa, trăm nghìn vạn ức phật.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "13"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2934"
+  ],
+  "pdf_pages": [
+   512
+  ],
+  "fixed": false,
+  "image": "X-88.png"
+ },
+ {
+  "name": "X 89",
+  "anchor": "X-89",
+  "letter": "X",
+  "number": 89,
+  "proverb": "Xem mặt biết lòng.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "808"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2934"
+  ],
+  "pdf_pages": [
+   512
+  ],
+  "fixed": false,
+  "image": "X-89.png"
+ },
+ {
+  "name": "X 90",
+  "anchor": "X-90",
+  "letter": "X",
+  "number": 90,
+  "proverb": "Xem nay thì phải nhớ xưa.",
+  "citations": [
+   {
+    "abbreviation": "VHSCL",
+    "pages": "209"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2934"
+  ],
+  "pdf_pages": [
+   512
+  ],
+  "fixed": false,
+  "image": "X-90.png"
+ },
+ {
+  "name": "X 91",
+  "anchor": "X-91",
+  "letter": "X",
+  "number": 91,
+  "proverb": "Xem ngày không tày đốt mụn.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "297"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "281"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "169"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2934"
+  ],
+  "pdf_pages": [
+   512
+  ],
+  "fixed": false,
+  "image": "X-91.png"
+ },
+ {
+  "name": "X 92",
+  "anchor": "X-92",
+  "letter": "X",
+  "number": 92,
+  "proverb": "Xem người lại ngẫm đến ta.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "37a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Trông người lại ngẫm đến ta."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "296"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "NASL III",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2934"
+  ],
+  "pdf_pages": [
+   512
+  ],
+  "fixed": false,
+  "image": "X-92.png"
+ },
+ {
+  "name": "X 93",
+  "anchor": "X-93",
+  "letter": "X",
+  "number": 93,
+  "proverb": "Xem trong bếp biết nết đàn bà.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "22"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "319"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "160"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "32"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "17"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "317"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "236"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "169"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "648"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Thấy bếp núc gọn gàng ngăn nắp biết là bà chủ nhà đảm dang công việc nội trợ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "MGL",
+   "NL",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2935"
+  ],
+  "pdf_pages": [
+   513
+  ],
+  "fixed": false,
+  "image": "X-93.png"
+ },
+ {
+  "name": "X 94",
+  "anchor": "X-94",
+  "letter": "X",
+  "number": 94,
+  "proverb": "Xem tướng ngó dạng anh hào, suy ra nết ở khác nào tiểu nhi.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "329"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "808"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xem tướng ngó dạng anh hào, suy ra nết ở khác nào tiểu "
+     },
+     {
+      "text": "nhân",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "319"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "suy ra *nét* ở...",
+    "sources": [
+     "VC II"
+    ],
+    "right": [
+     {
+      "text": "suy ra "
+     },
+     {
+      "text": "nết",
+      "em": true
+     },
+     {
+      "text": " ở..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "VC II",
+      "source": "VC II"
+     },
+     {
+      "text": " in sai thành \"suy ra nét ở...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "suy ra "
+     },
+     {
+      "text": "nết",
+      "strong": true
+     },
+     {
+      "text": " ở..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xem",
+  "sources": [
+   "TNPD I",
+   "VC II",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2935"
+  ],
+  "pdf_pages": [
+   513
+  ],
+  "fixed": false,
+  "image": "X-94.png"
+ },
+ {
+  "name": "X 95",
+  "anchor": "X-95",
+  "letter": "X",
+  "number": 95,
+  "proverb": "Xét trước, chước sau.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "486"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VCVN: Xét xem những sự vật thời trước để nhân đó mà làm mưu chước cho sau này."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xét",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2935"
+  ],
+  "pdf_pages": [
+   513
+  ],
+  "fixed": false,
+  "image": "X-95.png"
+ },
+ {
+  "name": "X 96",
+  "anchor": "X-96",
+  "letter": "X",
+  "number": 96,
+  "proverb": "Xệu xọ như chó bị cúm.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "83"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xệu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2935"
+  ],
+  "pdf_pages": [
+   513
+  ],
+  "fixed": false,
+  "image": "X-96.png"
+ },
+ {
+  "name": "X 97",
+  "anchor": "X-97",
+  "letter": "X",
+  "number": 97,
+  "proverb": "Xệu xọ như chó đẻ nhà nghèo.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "73"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xệu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2935"
+  ],
+  "pdf_pages": [
+   513
+  ],
+  "fixed": false,
+  "image": "X-97.png"
+ },
+ {
+  "name": "X 98",
+  "anchor": "X-98",
+  "letter": "X",
+  "number": 98,
+  "proverb": "Xệu xọ như chó phải dùi đục.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "120"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "L 278",
+    "anchor": "L-278",
+    "preview": "Lẩn tảng như chó phải dùi."
+   },
+   {
+    "name": "L 281",
+    "anchor": "L-281",
+    "preview": "Lang lảng như chó phải dùi…"
+   }
+  ],
+  "first_syllable": "xệu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2935"
+  ],
+  "pdf_pages": [
+   513
+  ],
+  "fixed": false,
+  "image": "X-98.png"
+ },
+ {
+  "name": "X 99",
+  "anchor": "X-99",
+  "letter": "X",
+  "number": 99,
+  "proverb": "Xi xao ba bữa ngày mùa.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "809"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VC: Ngày mùa là thời gian gặt hái nên nhà nào cũng no đủ."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Chê kẻ nghèo mà lại hay phô trương, ra bộ ta đây khá giả lắm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xi",
+  "sources": [
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2935",
+   "2936"
+  ],
+  "pdf_pages": [
+   513,
+   514
+  ],
+  "fixed": false,
+  "image": "X-99.png"
+ },
+ {
+  "name": "X 100",
+  "anchor": "X-100",
+  "letter": "X",
+  "number": 100,
+  "proverb": "Xi xô như quạ mổ gấc.",
+  "citations": [
+   {
+    "abbreviation": "TNTB",
+    "pages": "6b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xi",
+  "sources": [
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2936"
+  ],
+  "pdf_pages": [
+   514
+  ],
+  "fixed": false,
+  "image": "X-100.png"
+ },
+ {
+  "name": "X 101",
+  "anchor": "X-101",
+  "letter": "X",
+  "number": 101,
+  "proverb": "Xi xô như thằng Ngô vỡ tầu.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "48a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "24a"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "809"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xì xồ như khách Ngô vỡ đầu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "94"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xì xồ như thằng Ngô vỡ tàu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "319"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Chế người nói ồn ào một thứ tiếng mà mình không hiểu."
+    }
+   ],
+   [
+    {
+     "text": "VC: "
+    },
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Chỉ kẻ nói năng lắp bắp không ại nghe rõ gì cả."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "L 724",
+    "anchor": "L-724",
+    "preview": "Lồ xồ như Ngô vỡ tầu."
+   }
+  ],
+  "first_syllable": "xi",
+  "sources": [
+   "ĐNQT",
+   "PNTN",
+   "TNPD I",
+   "VC II",
+   "CCM",
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2936"
+  ],
+  "pdf_pages": [
+   514
+  ],
+  "fixed": false,
+  "image": "X-101.png"
+ },
+ {
+  "name": "X 102",
+  "anchor": "X-102",
+  "letter": "X",
+  "number": 102,
+  "proverb": "Xì xì như chì đổ lỗ.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "48a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "319"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "22b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Lì xì như chì đổ lỗ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC I",
+      "pages": "822"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Chê người không nói năng gì, mặt cứ nặng rạ."
+    }
+   ],
+   [
+    {
+     "text": "VC: Chì nấu sôi đổ vào lỗ để đúc một vật gì thường sôi lì xì."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Chỉ người đang bất mãn một điều gì với ai, nên miệng cứ lúng búng cằn nhằn mãi không thôi."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "L 429",
+    "anchor": "L-429",
+    "preview": "Lầm lì như chì đổ lỗ."
+   },
+   {
+    "name": "R 181",
+    "anchor": "R-181",
+    "preview": "Rù rì như chì đổ lỗ."
+   }
+  ],
+  "first_syllable": "xì",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "PNTN",
+   "TNPD I",
+   "VC I"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2936"
+  ],
+  "pdf_pages": [
+   514
+  ],
+  "fixed": false,
+  "image": "X-102.png"
+ },
+ {
+  "name": "X 103",
+  "anchor": "X-103",
+  "letter": "X",
+  "number": 103,
+  "proverb": "Xin đừng phụ nghĩa tao khang, bạc vàng dễ kiếm, bạn lang khó tìm.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "379"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Tao khang: tám mẩn và bã rượu, là món ăn của người nghèo vì giá rẻ. Nghĩa tao khang: nghĩa vợ chồng khi còn nghèo khổ với nhau. Bạn lạng: hiểu theo nghĩa rộng là chỉ bạn đời, tức chồng vợ (theo VCVN)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xin",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2936",
+   "2937"
+  ],
+  "pdf_pages": [
+   514,
+   515
+  ],
+  "fixed": false,
+  "image": "X-103.png"
+ },
+ {
+  "name": "X 104",
+  "anchor": "X-104",
+  "letter": "X",
+  "number": 104,
+  "proverb": "Xin đừng ra dạ bắc, nam, đừng chê lươn ngắn, chớ tham chạch dài.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "329"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xin đừng ra dạ bắc nam, chớ chê lươn ngắn mà tham chạch dài."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "319"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xin đừng ra dạ bắc nam, đừng chê lươn ngắn, chớ ham chạch dài."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "810"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "Đ 1098",
+    "anchor": "Đ-1098",
+    "preview": "Đừng chê lươn ngắn mà tham…"
+   }
+  ],
+  "first_syllable": "xin",
+  "sources": [
+   "TNPD I",
+   "NL",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2937"
+  ],
+  "pdf_pages": [
+   515
+  ],
+  "fixed": false,
+  "image": "X-104.png"
+ },
+ {
+  "name": "X 105",
+  "anchor": "X-105",
+  "letter": "X",
+  "number": 105,
+  "proverb": "Xin xôi chùa Sái, cho thì lắm cái lắm con, không cho thì chết non chết yếu.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "199"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ", chùa Sái vốn thuộc tổng Hương La huyện Yên Phong, Bắc Ninh, nay thuộc xã Thuy Lâm huyện Đông Anh, Hà Nội. Hằng năm đến hội chùa Sái, sau khi tế lễ xong, đến tối dân làng lại đem xôi lợn đặt tại mé hồ cạnh đình để lễ rồi chia xong phần xôi thịt ngay rồi mới về. Có lẽ đời xưa có người nuôi cọp ngay ở mé hồ, sau cọp chết nên có lễ hội này."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xin",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2937"
+  ],
+  "pdf_pages": [
+   515
+  ],
+  "fixed": false,
+  "image": "X-105.png"
+ },
+ {
+  "name": "X 106",
+  "anchor": "X-106",
+  "letter": "X",
+  "number": 106,
+  "proverb": "Xìn xịt như pháo tịt ngòi.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "15b - 16a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xìn",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2937"
+  ],
+  "pdf_pages": [
+   515
+  ],
+  "fixed": false,
+  "image": "X-106.png"
+ },
+ {
+  "name": "X 107",
+  "anchor": "X-107",
+  "letter": "X",
+  "number": 107,
+  "proverb": "Xo ro như chó tiền rưỡi.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "648"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Co rúm lại, vẻ sợ sệt khúm núm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xo",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2937"
+  ],
+  "pdf_pages": [
+   515
+  ],
+  "fixed": false,
+  "image": "X-107.png"
+ },
+ {
+  "name": "X 108",
+  "anchor": "X-108",
+  "letter": "X",
+  "number": 108,
+  "proverb": "Xo xúi như thầy bói dọn cưới.",
+  "citations": [
+   {
+    "abbreviation": "TNCD",
+    "pages": "86"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "L 899",
+    "anchor": "L-899",
+    "preview": "Lục đục như thầy bói dọn…"
+   },
+   {
+    "name": "R 161",
+    "anchor": "R-161",
+    "preview": "Rộn rịp như thầy bói dọn…"
+   },
+   {
+    "name": "T 473",
+    "anchor": "T-473",
+    "preview": "Thầy bói dọn cưới."
+   }
+  ],
+  "first_syllable": "xo",
+  "sources": [
+   "TNCD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1932,
+  "book_pages": [
+   "2938"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "X-108.png"
+ },
+ {
+  "name": "X 109",
+  "anchor": "X-109",
+  "letter": "X",
+  "number": 109,
+  "proverb": "Xó ró như chó đầu hè.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "379"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xó",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2938"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "X-109.png"
+ },
+ {
+  "name": "X 110",
+  "anchor": "X-110",
+  "letter": "X",
+  "number": 110,
+  "proverb": "Xoài Đá Trắng, sắn Phường Lụa.",
+  "citations": [
+   {
+    "abbreviation": "TCPK",
+    "pages": "29"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở huyện Tuy An, tỉnh Phú Yên. Theo Nguyễn Đình Chúc, chùa Đá Trắng ở xã An Dân, tên chữ là Từ Quang Tự. Núi Đá Trắng ở bên chùa, ngày trước có loại xoài ngọt và thơm, thường được dâng lên vua. Phường Lụa: thôn Ngân Sơn, nay thuộc thị trấn Chí Thạnh, xưa đây là nơi dệt lụa nổi tiếng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xoài",
+  "sources": [
+   "TCPK"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2938"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "X-110.png"
+ },
+ {
+  "name": "X 111",
+  "anchor": "X-111",
+  "letter": "X",
+  "number": 111,
+  "proverb": "Xoài giòn, mít dẻo, thị dai.",
+  "citations": [
+   {
+    "abbreviation": "NTB",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "VHNB",
+    "pages": "14"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xoài",
+  "sources": [
+   "NTB",
+   "VHNB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2938"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "X-111.png"
+ },
+ {
+  "name": "X 112",
+  "anchor": "X-112",
+  "letter": "X",
+  "number": 112,
+  "proverb": "Xoan chân chó bà già bó chăn.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "648"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Vào cuối tháng giêng, đầu tháng hai âm lịch, búp xoan nhú chồi như hình chân chó. Khi cây xoan nhú chồi thì trời vẫn còn rét (các cụ già vẫn phải đắp chăn bông)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xoan",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2938"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "X-112.png"
+ },
+ {
+  "name": "X 113",
+  "anchor": "X-113",
+  "letter": "X",
+  "number": 113,
+  "proverb": "Xoan chân chó mó hạt bông.",
+  "citations": [
+   {
+    "abbreviation": "HTTH",
+    "pages": "43"
+   },
+   {
+    "abbreviation": "TNTH",
+    "pages": "27"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "649"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Khi xoan đâm chồi thì bắt đầu gieo hạt bông."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xoan",
+  "sources": [
+   "HTTH",
+   "TNTH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2938"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "X-113.png"
+ },
+ {
+  "name": "X 114",
+  "anchor": "X-114",
+  "letter": "X",
+  "number": 114,
+  "proverb": "Xoen xoét như chó liếm chảo.",
+  "citations": [],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xoen xoét như chó vét chảo."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN IV",
+      "pages": "381"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xoen",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2938"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "X-114.png"
+ },
+ {
+  "name": "X 115",
+  "anchor": "X-115",
+  "letter": "X",
+  "number": 115,
+  "proverb": "Xoen xoét như mép thợ ngôi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "32"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "381"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xoen xoét như mép thợ "
+     },
+     {
+      "text": "cạo",
+      "em": true
+     },
+     {
+      "text": " ngôi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL III",
+      "pages": "6b"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Thợ ngôi: thợ cắt tóc. Những người này vì rỗi miệng và lại thường tiếp xúc với nhiều hạng người biết đủ thứ chuyện nên thường nói chuyện liên miên với khách hàng. Ở một số nơi, người ta cũng gọi các vị quân sư quạt mo, các vị thầy kiện là \"thợ ngôi\" (theo VCVN)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xoen",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNPD I",
+   "VCVN IV",
+   "NASL III"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2939"
+  ],
+  "pdf_pages": [
+   517
+  ],
+  "fixed": false,
+  "image": "X-115.png"
+ },
+ {
+  "name": "X 116",
+  "anchor": "X-116",
+  "letter": "X",
+  "number": 116,
+  "proverb": "Xoi xói như thầy bói đâm cua.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "37"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Nhoi nhói như thầy bói đâm cua."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "233"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xoi xói như thầy bói múc canh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "649"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ", có hai nghĩa."
+    }
+   ],
+   [
+    {
+     "text": "+ Người ăn uống không từ tốn, thích gì thì ăn lấy được."
+    }
+   ],
+   [
+    {
+     "text": "+ Hành động sấn sổ, thiếu từ tốn, thiếu ý tứ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "L 737",
+    "anchor": "L-737",
+    "preview": "Lôi thôi như thầy bói đâm…"
+   }
+  ],
+  "first_syllable": "xoi",
+  "sources": [
+   "NNCC",
+   "TNPD I",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2939"
+  ],
+  "pdf_pages": [
+   517
+  ],
+  "fixed": false,
+  "image": "X-116.png"
+ },
+ {
+  "name": "X 117",
+  "anchor": "X-117",
+  "letter": "X",
+  "number": 117,
+  "proverb": "Xóm giêng nghiêng đọi.",
+  "citations": [
+   {
+    "abbreviation": "VHQB",
+    "pages": "322"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xóm",
+  "sources": [
+   "VHQB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2939"
+  ],
+  "pdf_pages": [
+   517
+  ],
+  "fixed": false,
+  "image": "X-117.png"
+ },
+ {
+  "name": "X 118",
+  "anchor": "X-118",
+  "letter": "X",
+  "number": 118,
+  "proverb": "Xóm nào rào xóm đấy.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "52a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xóm",
+  "sources": [
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2939"
+  ],
+  "pdf_pages": [
+   517
+  ],
+  "fixed": false,
+  "image": "X-118.png"
+ },
+ {
+  "name": "X 119",
+  "anchor": "X-119",
+  "letter": "X",
+  "number": 119,
+  "proverb": "Xong chay, quăng thầy xuống ao.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "21b"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "136"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "10a"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "169"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "811"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Rồi chay quăng "
+     },
+     {
+      "text": "thày",
+      "em": true
+     },
+     {
+      "text": " xuống ao."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNTB",
+      "pages": "10a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xong chay quẳng thầy xuống ao."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "320"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "364"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "649"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "T 722",
+    "anchor": "T-722",
+    "preview": "Thôi chay thì thầy đi đất."
+   }
+  ],
+  "first_syllable": "xong",
+  "sources": [
+   "ĐNQT",
+   "NXK",
+   "TNPD I",
+   "TNTB",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "NL",
+   "TNCL",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2939",
+   "2940"
+  ],
+  "pdf_pages": [
+   517,
+   518
+  ],
+  "fixed": false,
+  "image": "X-119.png"
+ },
+ {
+  "name": "X 120",
+  "anchor": "X-120",
+  "letter": "X",
+  "number": 120,
+  "proverb": "Xong ngày nay tính việc ngày mai.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "18"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xong",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2940"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "X-120.png"
+ },
+ {
+  "name": "X 121",
+  "anchor": "X-121",
+  "letter": "X",
+  "number": 121,
+  "proverb": "Xót như muối, rầu như dưa.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "811-812"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xót",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2940"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "X-121.png"
+ },
+ {
+  "name": "X 122",
+  "anchor": "X-122",
+  "letter": "X",
+  "number": 122,
+  "proverb": "Xót xa đứt đa lòng ruột.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xót",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2940"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "X-122.png"
+ },
+ {
+  "name": "X 123",
+  "anchor": "X-123",
+  "letter": "X",
+  "number": 123,
+  "proverb": "Xôi chuối ai ăn, quả bồng tôi mang.",
+  "citations": [
+   {
+    "abbreviation": "VHHP",
+    "pages": "123"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xôi",
+  "sources": [
+   "VHHP"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2940"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "X-123.png"
+ },
+ {
+  "name": "X 124",
+  "anchor": "X-124",
+  "letter": "X",
+  "number": 124,
+  "proverb": "Xôi giả, vạ thật.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "62a"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "214"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "VNNN",
+    "pages": "6"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "649"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xôi giả, vạ "
+     },
+     {
+      "text": "thực",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "32a"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Lợi lộc chẳng có mà tai họa vào thân."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xôi",
+  "sources": [
+   "ĐNQT",
+   "TNCL",
+   "TNPD I",
+   "VNNN",
+   "VD",
+   "PNTN"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2940"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "X-124.png"
+ },
+ {
+  "name": "X 125",
+  "anchor": "X-125",
+  "letter": "X",
+  "number": 125,
+  "proverb": "Xôi thịt nó bịt lấy miệng.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "649"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giống nghĩa câu \"Há miệng mắc quai\"."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xôi",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2940"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "X-125.png"
+ },
+ {
+  "name": "X 126",
+  "anchor": "X-126",
+  "letter": "X",
+  "number": 126,
+  "proverb": "Xôi thịt thì ít, con nít thì nhiều.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "649"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xôi",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2940"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "X-126.png"
+ },
+ {
+  "name": "X 127",
+  "anchor": "X-127",
+  "letter": "X",
+  "number": 127,
+  "proverb": "Xôi trắng làng Kép, khuôn phép làng Chàng, huênh hoang làng Núi.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "199"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ", các làng trên nay thuộc xã Hương Mai và Việt Tiến huyện Việt Yên tỉnh Bắc Giang."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "... làm Kép ...",
+    "sources": [],
+    "right": [
+     {
+      "text": "... làng Kép..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": " in sai thành \"... làm Kép ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... làng Kép..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xôi",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": null,
+  "book_pages": [
+   "2940",
+   "2941"
+  ],
+  "pdf_pages": [
+   518,
+   519
+  ],
+  "fixed": false,
+  "image": "X-127.png"
+ },
+ {
+  "name": "X 128",
+  "anchor": "X-128",
+  "letter": "X",
+  "number": 128,
+  "proverb": "Xông giật căng, lẳng đệm chân.",
+  "citations": [
+   {
+    "abbreviation": "VHLĐ",
+    "pages": "344"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Nói về vật võ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xông",
+  "sources": [
+   "VHLĐ"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2941"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "X-128.png"
+ },
+ {
+  "name": "X 129",
+  "anchor": "X-129",
+  "letter": "X",
+  "number": 129,
+  "proverb": "Xông xáo như cáo vào chuồng gà.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "812-813"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xông",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2941"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "X-129.png"
+ },
+ {
+  "name": "X 130",
+  "anchor": "X-130",
+  "letter": "X",
+  "number": 130,
+  "proverb": "Xơ như mướp, xác như rông.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "62"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xơ",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2941"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "X-130.png"
+ },
+ {
+  "name": "X 131",
+  "anchor": "X-131",
+  "letter": "X",
+  "number": 131,
+  "proverb": "Xơ như nhộng.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "10b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xơ",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2941"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "X-131.png"
+ },
+ {
+  "name": "X 132",
+  "anchor": "X-132",
+  "letter": "X",
+  "number": 132,
+  "proverb": "Xơ như xơ mướp.",
+  "citations": [
+   {
+    "abbreviation": "TNTB",
+    "pages": "20"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xơ",
+  "sources": [
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2941"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "X-132.png"
+ },
+ {
+  "name": "X 133",
+  "anchor": "X-133",
+  "letter": "X",
+  "number": 133,
+  "proverb": "Xớ rớ như thầy bói cháy nhà.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "136"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "297"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "813"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "649"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xờ rờ như thầy bói cháy nhà."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "320"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xớ",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2941"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "X-133.png"
+ },
+ {
+  "name": "X 134",
+  "anchor": "X-134",
+  "letter": "X",
+  "number": 134,
+  "proverb": "Xởi lởi ông vải sống lại.",
+  "citations": [
+   {
+    "abbreviation": "TNTB",
+    "pages": "6a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xởi",
+  "sources": [
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2941"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "X-134.png"
+ },
+ {
+  "name": "X 135",
+  "anchor": "X-135",
+  "letter": "X",
+  "number": 135,
+  "proverb": "Xởi lời Trời cởi cho, lo xo Trời co lại.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "28b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "813"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở xởi lởi "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " Trời "
+     },
+     {
+      "text": "gởi",
+      "em": true
+     },
+     {
+      "text": " cho, ở so lo "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " Trời gò lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCD",
+      "pages": "86"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở xởi lởi Trời gởi cho, ở so đo Trời buộc lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHNB",
+      "pages": "23"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở xởi lởi Trời gởi cho, ở so đo Trời gò lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHHP",
+      "pages": "129"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xởi lởi "
+     },
+     {
+      "text": "giời",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "gửi",
+      "em": true
+     },
+     {
+      "text": " cho, so lo "
+     },
+     {
+      "text": "giời",
+      "em": true
+     },
+     {
+      "text": " co lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VNNN",
+      "pages": "4-5"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xởi lởi "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " Trời cởi cho, so đo "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " Trời co lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL I",
+      "pages": "2a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xởi lởi "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " Trời cởi cho, xo ro "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " Trời co lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "649"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xởi lởi Trời cho, lo xo Trời co lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "333"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "169"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xởi lởi Trời cởi cho, bo bo Trời co lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "94"
+     },
+     {
+      "abbreviation": "VHQB",
+      "pages": "322"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xởi lởi Trời cởi cho, so đo Trời co lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "53a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xởi lởi Trời "
+     },
+     {
+      "text": "gởi",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "của",
+      "em": true
+     },
+     {
+      "text": " cho, co ro Trời co "
+     },
+     {
+      "text": "của",
+      "em": true
+     },
+     {
+      "text": " lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "649"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xởi lởi Trời "
+     },
+     {
+      "text": "gửi",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "của",
+      "em": true
+     },
+     {
+      "text": " cho, xo ro Trời co "
+     },
+     {
+      "text": "của",
+      "em": true
+     },
+     {
+      "text": " lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "320"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "581"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "À 362"
+   }
+  ],
+  "first_syllable": "xởi",
+  "sources": [
+   "PNTN",
+   "TNPD I",
+   "VC II",
+   "TNCD",
+   "VHNB",
+   "VHHP",
+   "VNNN",
+   "NASL I",
+   "VD",
+   "TNVN",
+   "TTVH",
+   "CCM",
+   "VHQB",
+   "ĐNQT",
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2941",
+   "2942"
+  ],
+  "pdf_pages": [
+   519,
+   520
+  ],
+  "fixed": false,
+  "image": "X-135.png"
+ },
+ {
+  "name": "X 136",
+  "anchor": "X-136",
+  "letter": "X",
+  "number": 136,
+  "proverb": "Xới cơm thì xới lòng ta, so đũa thì phải so ra lòng người.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "89"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xới",
+  "sources": [
+   "NXK"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2942"
+  ],
+  "pdf_pages": [
+   520
+  ],
+  "fixed": false,
+  "image": "X-136.png"
+ },
+ {
+  "name": "X 137",
+  "anchor": "X-137",
+  "letter": "X",
+  "number": 137,
+  "proverb": "Xờm xỡm như l... vỡ đóng đai.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xờm",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2942"
+  ],
+  "pdf_pages": [
+   520
+  ],
+  "fixed": false,
+  "image": "X-137.png"
+ },
+ {
+  "name": "X 138",
+  "anchor": "X-138",
+  "letter": "X",
+  "number": 138,
+  "proverb": "Xóm tới thụt lui như thằng cui ăn bánh ít.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xóm",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2942"
+  ],
+  "pdf_pages": [
+   520
+  ],
+  "fixed": false,
+  "image": "X-138.png"
+ },
+ {
+  "name": "X 139",
+  "anchor": "X-139",
+  "letter": "X",
+  "number": 139,
+  "proverb": "Xù đầu giả dại làm ngày, khôn kia dễ bán dại này mà ăn.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "57b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Rù đầu giả dại làm ngày, khôn kia dễ bán dại này mà ăn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "254"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xù",
+  "sources": [
+   "NASL II",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2942"
+  ],
+  "pdf_pages": [
+   520
+  ],
+  "fixed": false,
+  "image": "X-139.png"
+ },
+ {
+  "name": "X 140",
+  "anchor": "X-140",
+  "letter": "X",
+  "number": 140,
+  "proverb": "Xú diện ố nga mi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "27"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Xú diện là mặt xấu; ố là ghét; nga mi là mày con ngài."
+    }
+   ],
+   [
+    {
+     "text": "Kẻ mặt xấu ghét người đẹp."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xú",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2943"
+  ],
+  "pdf_pages": [
+   521
+  ],
+  "fixed": false,
+  "image": "X-140.png"
+ },
+ {
+  "name": "X 141",
+  "anchor": "X-141",
+  "letter": "X",
+  "number": 141,
+  "proverb": "Xuân bất tái lai.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "814"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "649"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Mùa xuân không trở lại. Tuổi trẻ đã qua không thể lấy lại được nữa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xuân",
+  "sources": [
+   "CNGN",
+   "NL",
+   "NTP",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2943"
+  ],
+  "pdf_pages": [
+   521
+  ],
+  "fixed": false,
+  "image": "X-141.png"
+ },
+ {
+  "name": "X 142",
+  "anchor": "X-142",
+  "letter": "X",
+  "number": 142,
+  "proverb": "Xuân Lũng Cầu Mâu, Chu Hoá làng Vàng, Do Ngãi hủm Hang, Tập Lục non Trang.",
+  "citations": [
+   {
+    "abbreviation": "TNVP",
+    "pages": "11"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "TNVP",
+     "source": "TNVP"
+    },
+    {
+     "text": ", Cầu Mâu, làng Vàng, hủm Hang và non Trang là nơi gốc, đất lập nghiệp của các xã Xuân Lũng, Chu Hoá, Do Ngãi (xã Sơn Vị) và Tập Lục (xã Tiên Kiên). Các xã này đều thuộc huyện Lâm Thao tỉnh Phú Thọ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xuân",
+  "sources": [
+   "TNVP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2943"
+  ],
+  "pdf_pages": [
+   521
+  ],
+  "fixed": false,
+  "image": "X-142.png"
+ },
+ {
+  "name": "X 143",
+  "anchor": "X-143",
+  "letter": "X",
+  "number": 143,
+  "proverb": "Xuất giá tòng phu.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "22"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "814"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "650"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "nghĩa đen",
+     "general": "Nđ"
+    },
+    {
+     "text": ": Lấy chồng phải theo chồng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xuất",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNPD I",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2943"
+  ],
+  "pdf_pages": [
+   521
+  ],
+  "fixed": false,
+  "image": "X-143.png"
+ },
+ {
+  "name": "X 144",
+  "anchor": "X-144",
+  "letter": "X",
+  "number": 144,
+  "proverb": "Xuất hồ nhĩ, phản hồ nhĩ.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ra nơi mình, trở lại nơi mình: có vay có trả, việc tại nơi mình."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xuất",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2943"
+  ],
+  "pdf_pages": [
+   521
+  ],
+  "fixed": false,
+  "image": "X-144.png"
+ },
+ {
+  "name": "X 145",
+  "anchor": "X-145",
+  "letter": "X",
+  "number": 145,
+  "proverb": "Xui nhau làm phúc không ai giục nhau đi kiện.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "165"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "815"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "650"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Bảo nháu làm phúc, không ai giục nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "324"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "134"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Dõi nhau làm phúc chẳng ai giục nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "40b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Giục nhau làm phúc đừng giục nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "360"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Rủ nhau làm phúc, chẳng ai rỉ nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NQPN",
+      "pages": "38a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Rủ nhau làm phúc, chớ giục nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "246"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "161"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "545"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Rủ nhau làm phúc, chớ rủ nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNLG II",
+      "pages": "19, 135"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Rủ nhau làm phúc, không ai giục nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "212"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "324"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xui nhau làm phúc, ai giục nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "117"
+     },
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "60b"
+     },
+     {
+      "abbreviation": "NNCC",
+      "pages": "45"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xui nhau làm phúc, chẳng ai giục nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCD",
+      "pages": "93"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xui nhau làm phúc chứ ai giục nhau đi kiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "48"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xui",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "TNVN",
+   "TTVH",
+   "PNTN",
+   "NQPN",
+   "TNLG II",
+   "CCM",
+   "ĐNQT",
+   "NNCC",
+   "TNCD",
+   "ANTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2943",
+   "2944"
+  ],
+  "pdf_pages": [
+   521,
+   522
+  ],
+  "fixed": false,
+  "image": "X-145.png"
+ },
+ {
+  "name": "X 146",
+  "anchor": "X-146",
+  "letter": "X",
+  "number": 146,
+  "proverb": "Xui trẻ ăn cứt gà.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "27"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "150"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "13b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xui trẻ con ăn cứt gà."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "650"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Xúi giục, bày vẽ cho người ta làm điều sai trái, dại dột."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xui",
+  "sources": [
+   "NL",
+   "NNCC",
+   "NXK",
+   "PNTN",
+   "TNPD I",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2944"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "X-146.png"
+ },
+ {
+  "name": "X 147",
+  "anchor": "X-147",
+  "letter": "X",
+  "number": 147,
+  "proverb": "Xung xăng như thằng mới đến, trụn trện như đứa ở đầy mùa.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "815"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Lăng xăng như thằng mới đến, "
+     },
+     {
+      "text": "trộn",
+      "em": true
+     },
+     {
+      "text": " trện như đứa ở đầy mùa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN IV",
+      "pages": "472"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xung xăng như thằng mới đến, "
+     },
+     {
+      "text": "trụm trệu",
+      "em": true
+     },
+     {
+      "text": " như đứa ở đầy mùa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "650"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xung",
+  "sources": [
+   "TNPD I",
+   "VC II",
+   "VCVN IV",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2944"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "X-147.png"
+ },
+ {
+  "name": "X 148",
+  "anchor": "X-148",
+  "letter": "X",
+  "number": 148,
+  "proverb": "Xúng xính như áo lễ sinh.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "37b"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "650"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xúng xính như lễ sinh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "321"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Áo lễ sinh: Áo tế."
+    }
+   ],
+   [
+    {
+     "text": "Mặc quần áo quá dài rộng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xúng",
+  "sources": [
+   "ĐNQT",
+   "VD",
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2944",
+   "2945"
+  ],
+  "pdf_pages": [
+   522,
+   523
+  ],
+  "fixed": false,
+  "image": "X-148.png"
+ },
+ {
+  "name": "X 149",
+  "anchor": "X-149",
+  "letter": "X",
+  "number": 149,
+  "proverb": "Xúng xính như lính về quê.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "815-816"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xúng",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2945"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "X-149.png"
+ },
+ {
+  "name": "X 150",
+  "anchor": "X-150",
+  "letter": "X",
+  "number": 150,
+  "proverb": "Xuôi việc tiệc to, xuôi cò bò ống.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "581"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "335"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "169"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "... bò *ông*.",
+    "sources": [
+     "TNVN",
+     "TTVH"
+    ],
+    "right": [
+     {
+      "text": "... bò "
+     },
+     {
+      "text": "ống",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNVN",
+      "source": "TNVN"
+     },
+     {
+      "text": ", "
+     },
+     {
+      "text": "TTVH",
+      "source": "TTVH"
+     },
+     {
+      "text": " in sai thành \"... bò ông.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... bò "
+     },
+     {
+      "text": "ống",
+      "strong": true
+     },
+     {
+      "text": "."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xuôi",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2945"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "X-150.png"
+ },
+ {
+  "name": "X 151",
+  "anchor": "X-151",
+  "letter": "X",
+  "number": 151,
+  "proverb": "Xuống sông hốt trứng sấu lên bờ xỉa răng cọp.",
+  "citations": [
+   {
+    "abbreviation": "VHSCL",
+    "pages": "164"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xuống",
+  "sources": [
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2945"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "X-151.png"
+ },
+ {
+  "name": "X 152",
+  "anchor": "X-152",
+  "letter": "X",
+  "number": 152,
+  "proverb": "Xứ Bắc đình Rồng, xứ Đông đình Vàng.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "19"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": ", Rồng còn gọi là Long Khám, trước thuộc tổng Đông Sơn huyện Tiên Du, nay thuộc xã Việt Đoàn huyện Tiên Sơn tỉnh Bắc Ninh. Đình Long Khám thờ Lí Bát Đế. Vàng còn gọi là Kênh Vàng, là Hoàng Kênh trước thuộc huyện Thanh Tâm tỉnh Hải Dương, nay thuộc huyện Gia Lương tỉnh Bắc Ninh. Quy mô đình Vàng không lớn nhưng kiến trúc đình độc đáo."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2945"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "X-152.png"
+ },
+ {
+  "name": "X 153",
+  "anchor": "X-153",
+  "letter": "X",
+  "number": 153,
+  "proverb": "Xứ Cần Thơ nam thanh nữ tú, xứ Rạch Giá vượn hú chim kêu.",
+  "citations": [
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "194"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "VNP₁₁"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2945"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "X-153.png"
+ },
+ {
+  "name": "X 154",
+  "anchor": "X-154",
+  "letter": "X",
+  "number": 154,
+  "proverb": "Xứ Cùa đất đỏ ba gian, ai ơi trồng mít làm giàn thả tiêu.",
+  "citations": [
+   {
+    "abbreviation": "VHQT",
+    "pages": "146"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Quảng Trị."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "VHQT"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2945"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "X-154.png"
+ },
+ {
+  "name": "X 155",
+  "anchor": "X-155",
+  "letter": "X",
+  "number": 155,
+  "proverb": "Xứ Đoài, xứ Bắc, xứ Đông, linh thiêng phải kể Đức ông Sâm Đồng.",
+  "citations": [
+   {
+    "abbreviation": "VHTB",
+    "pages": "77"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Thái Bình. "
+    },
+    {
+     "text": "VHTB",
+     "source": "VHTB"
+    },
+    {
+     "text": ": Làng Sâm Đồng, tên là làng Thâm đọc chệch đi, nay thuộc xã Hồng Phong, huyện Hưng Hà, nơi táng mộ vua Huệ Tông nhà Trần. Gần ngôi mộ cổ có ngôi miếu cổ, thờ bảy đời vua nhà Trần."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "VHTB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2946"
+  ],
+  "pdf_pages": [
+   524
+  ],
+  "fixed": false,
+  "image": "X-155.png"
+ },
+ {
+  "name": "X 156",
+  "anchor": "X-156",
+  "letter": "X",
+  "number": 156,
+  "proverb": "Xứ Đông Cổ Am, xứ Nam Hành Thiện.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "15"
+   },
+   {
+    "abbreviation": "PNHNN",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "70"
+   },
+   {
+    "abbreviation": "TNNH",
+    "pages": "224"
+   },
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "390"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Đông Cổ Âm, Nam Hành Thiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "285"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xứ Đông Bạch Sam, xứ Nam Hành Thiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "45"
+     },
+     {
+      "abbreviation": "CCM",
+      "pages": "88"
+     },
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "76a"
+     },
+     {
+      "abbreviation": "TNCD",
+      "pages": "92"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "328"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "293"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Xứ Đông: rộng hơn tỉnh Hải Dương ngày nay; xứ Nam: rộng hơn tỉnh Nam Định hiện nay."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "T 1218",
+    "anchor": "T-1218",
+    "preview": "Tỉnh Đông Cổ Am, tỉnh Nam…"
+   }
+  ],
+  "first_syllable": "xứ",
+  "sources": [
+   "NXK",
+   "PNHNN",
+   "TMT",
+   "TNNH",
+   "VCVN IV",
+   "TNVN",
+   "ANTN",
+   "CCM",
+   "ĐNQT",
+   "TNCD",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2946"
+  ],
+  "pdf_pages": [
+   524
+  ],
+  "fixed": false,
+  "image": "X-156.png"
+ },
+ {
+  "name": "X 157",
+  "anchor": "X-157",
+  "letter": "X",
+  "number": 157,
+  "proverb": "Xứ Nam nhất chợ Bằng Gồi, xứ Bắc Vân Khám, xứ Đoài Hương Canh.",
+  "citations": [
+   {
+    "abbreviation": "TNVN",
+    "pages": "291"
+   },
+   {
+    "abbreviation": "TNVP",
+    "pages": "37"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xứ Nam nhất chợ Bằng Gồi, xứ Bắc "
+     },
+     {
+      "text": "Dâu",
+      "em": true
+     },
+     {
+      "text": " Khám, xứ Đoài Hương Canh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNXB",
+      "pages": "19"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xứ Nam nhất chợ "
+     },
+     {
+      "text": "Bình Bồi",
+      "em": true
+     },
+     {
+      "text": ", xứ Bắc "
+     },
+     {
+      "text": "Trân",
+      "em": true
+     },
+     {
+      "text": " Khám, xứ Đoài Hương Canh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "329"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xứ Nam nhất chợ "
+     },
+     {
+      "text": "Bình Bồi",
+      "em": true
+     },
+     {
+      "text": ", xứ Bắc Vân Khám, xứ Đoài Hương Canh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xứ Nam nhất chợ "
+     },
+     {
+      "text": "Bình Vôi",
+      "em": true
+     },
+     {
+      "text": ", xứ Bắc Vân Khám, xứ Đoài Hương Canh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNXB",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Các chợ lớn, nổi tiếng thời xưa. Chợ Bằng Gỏi ở huyện Thường Tín, tỉnh Hà Tây. Chợ Vân Khám ở tỉnh Bắc Ninh. Chợ Hương Canh (còn gọi là chợ Cánh) thời trước thuộc trấn (rồi đổi là tỉnh) Sơn Tây (nên gọi là xứ Đoài), nay chợ này thuộc tỉnh Vĩnh Phúc. (theo "
+    },
+    {
+     "text": "TNVP",
+     "source": "TNVP"
+    },
+    {
+     "text": ")"
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "TNVN",
+   "TNVP",
+   "PNXB",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2946",
+   "2947"
+  ],
+  "pdf_pages": [
+   524,
+   525
+  ],
+  "fixed": false,
+  "image": "X-157.png"
+ },
+ {
+  "name": "X 158",
+  "anchor": "X-158",
+  "letter": "X",
+  "number": 158,
+  "proverb": "Xứ Nam Quần Anh, xứ Thanh Bồng Hải.",
+  "citations": [
+   {
+    "abbreviation": "PNHNN",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "TNNH",
+    "pages": "224"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xứ Nam Quần Anh, xứ Thanh Đồng Hải."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "14"
+     },
+     {
+      "abbreviation": "TMT",
+      "pages": "70"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Quần Anh ở tỉnh Nam Định, Bồng Hải ở tỉnh Thanh Hoá. Theo "
+    },
+    {
+     "text": "TNNH",
+     "source": "TNNH"
+    },
+    {
+     "text": ", xã Quần Anh (còn gọi là Quần Phương), thuộc huyện Hải Hậu. Về mặt văn hóa, về nhân vật có tiếng và sản vật, Quần Anh rất phong phú."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "PNHNN",
+   "TNNH",
+   "NXK",
+   "TMT"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2947"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "X-158.png"
+ },
+ {
+  "name": "X 159",
+  "anchor": "X-159",
+  "letter": "X",
+  "number": 159,
+  "proverb": "Xứ Nam Thanh Oai, xứ Đoài Cổ Đô.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "88"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "76a"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "14"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "70"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "293"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Thanh Oai nay thuộc Hà Tây, Cổ Đô trước thuộc tỉnh Sơn Tây (cũ), nay thuộc tỉnh Hà Tây."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "... Cố Đô.",
+    "sources": [
+     "CCM"
+    ],
+    "right": [
+     {
+      "text": "... Cổ Đô."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "CCM",
+      "source": "CCM"
+     },
+     {
+      "text": " in sai thành \"... Cố Đô.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... Cổ Đô."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NXK",
+   "TMT",
+   "TNPD I",
+   "TNVN"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2947"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "X-159.png"
+ },
+ {
+  "name": "X 160",
+  "anchor": "X-160",
+  "letter": "X",
+  "number": 160,
+  "proverb": "Xứ Thanh cậy thế, xứ Nghệ cậy thần.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "107"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "76a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "43"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "36a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "35a"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "328"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "285"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "169"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thanh cậy thế, Nghệ cậy thần."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL I",
+      "pages": "25a"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NL",
+   "NNCC",
+   "NQPN",
+   "PNTN",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2947"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "X-160.png"
+ },
+ {
+  "name": "X 161",
+  "anchor": "X-161",
+  "letter": "X",
+  "number": 161,
+  "proverb": "Xứ xứ hữu anh hùng.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "817"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Nơi nào cũng có người anh hùng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "CNGN",
+   "NL",
+   "NTP",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2947"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "X-161.png"
+ },
+ {
+  "name": "X 162",
+  "anchor": "X-162",
+  "letter": "X",
+  "number": 162,
+  "proverb": "Xứ xứ hữu lộ đáo Tràng An.",
+  "citations": [
+   {
+    "abbreviation": "NNHN I",
+    "pages": "171"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Nơi nào cũng có đường đến Tràng An. Tràng An vốn là tên chỉ kinh độ nhà Đường (Trung Quốc), sau được dùng để chỉ những nơi đô hội, vinh hoa phú quý."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xứ",
+  "sources": [
+   "NNHN I",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2948"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "X-162.png"
+ },
+ {
+  "name": "X 163",
+  "anchor": "X-163",
+  "letter": "X",
+  "number": 163,
+  "proverb": "Xưa bày nay làm.",
+  "citations": [
+   {
+    "abbreviation": "VHNB",
+    "pages": "26"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xưa bày nay bắt chước."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "116"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xưa",
+  "sources": [
+   "VHNB",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2948"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "X-163.png"
+ },
+ {
+  "name": "X 164",
+  "anchor": "X-164",
+  "letter": "X",
+  "number": 164,
+  "proverb": "Xưa con ta, chừ ra vợ bậu.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "327"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chừ: bây giờ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xưa",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2948"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "X-164.png"
+ },
+ {
+  "name": "X 165",
+  "anchor": "X-165",
+  "letter": "X",
+  "number": 165,
+  "proverb": "Xưa nay ăn đâu ở đâu, bây giờ có bí chê bầu rằng hôi.",
+  "citations": [
+   {
+    "abbreviation": "NQPN",
+    "pages": "34a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "32a"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "817"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xưa "
+     },
+     {
+      "text": "kia",
+      "em": true
+     },
+     {
+      "text": " ăn đâu ở đâu, bây giờ có bí chê bầu "
+     },
+     {
+      "text": "là",
+      "em": true
+     },
+     {
+      "text": " hôi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "321"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xưa "
+     },
+     {
+      "text": "kia",
+      "em": true
+     },
+     {
+      "text": " ăn đâu ở đâu, bây giờ có bí chê bầu rằng hôi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "329"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xưa",
+  "sources": [
+   "NQPN",
+   "PNTN",
+   "VC II",
+   "NL",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1914,
+  "book_pages": [
+   "2948"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "X-165.png"
+ },
+ {
+  "name": "X 166",
+  "anchor": "X-166",
+  "letter": "X",
+  "number": 166,
+  "proverb": "Xưa nay thế thái nhân tình, vợ người thì đẹp, văn mình thì hay.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "133"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "248"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "169"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "121"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xưa",
+  "sources": [
+   "NL",
+   "TMT",
+   "TNCL",
+   "TTVH",
+   "VNP₁₁"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2948"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "X-166.png"
+ },
+ {
+  "name": "X 167",
+  "anchor": "X-167",
+  "letter": "X",
+  "number": 167,
+  "proverb": "Xưa rày ăn đâu ở đâu, bây giờ được miếng bánh dầu ăn riêng.",
+  "citations": [
+   {
+    "abbreviation": "VHQB",
+    "pages": "322"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "... ở đậu...",
+    "sources": [],
+    "right": [
+     {
+      "text": "... ở đâu..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": " in sai thành \"... ở đậu...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... ở đâu..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "xưa",
+  "sources": [
+   "VHQB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": null,
+  "book_pages": [
+   "2948"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "X-167.png"
+ },
+ {
+  "name": "X 168",
+  "anchor": "X-168",
+  "letter": "X",
+  "number": 168,
+  "proverb": "Xương bỏ ra, da bọc lấy.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "56a, 56b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "14"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "819"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "651"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xương bỏ ra, da bọc lại."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "327"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xương bỏ ra, da gói vào."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "651"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Đã là anh em họ hàng cùng huyết thống, cho dù người ta có tệ bạc với mình, cũng cứ phải cưu mang, đùm bọc họ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "R 234",
+    "anchor": "R-234",
+    "preview": "Ruột bỏ ra, da bỏ vào."
+   }
+  ],
+  "first_syllable": "xương",
+  "sources": [
+   "NASL II",
+   "NL",
+   "NNCC",
+   "NNPD",
+   "VC II",
+   "VD",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2949"
+  ],
+  "pdf_pages": [
+   527
+  ],
+  "fixed": false,
+  "image": "X-168.png"
+ },
+ {
+  "name": "X 169",
+  "anchor": "X-169",
+  "letter": "X",
+  "number": 169,
+  "proverb": "Xương gà da chó.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "391"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Xương của gà, chim nếu có bị gãy thì cũng rất mau lành. Da của loài thú như chó nếu có bị rách thì cũng mau lành. Do đó, có người tin một cách thiếu căn cứ là bó một con gà vào chỗ xương gãy của người thì chỗ ấy sẽ mau liền. (Theo VCVN)"
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xương",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2949"
+  ],
+  "pdf_pages": [
+   527
+  ],
+  "fixed": false,
+  "image": "X-169.png"
+ },
+ {
+  "name": "X 170",
+  "anchor": "X-170",
+  "letter": "X",
+  "number": 170,
+  "proverb": "Xướng ca vô loài.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "220"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "270, 309"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "169"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xướng ca vô "
+     },
+     {
+      "text": "loại",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "87"
+     },
+     {
+      "abbreviation": "NTP",
+      "pages": "175"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "508"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "819"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "xướng",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "CNGN",
+   "NTP",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2949"
+  ],
+  "pdf_pages": [
+   527
+  ],
+  "fixed": false,
+  "image": "X-170.png"
+ }
+]

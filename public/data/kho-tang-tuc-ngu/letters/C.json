@@ -1159,6 +1159,9 @@
     "name": "G 567"
    },
    {
+    "name": "G 568"
+   },
+   {
     "name": "Q 37"
    }
   ],
@@ -4675,6 +4678,9 @@
   "see_also": [
    {
     "name": "M 67"
+   },
+   {
+    "name": "M 1015"
    }
   ],
   "first_syllable": "cá",
@@ -4801,7 +4807,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cá đuối tầy đầu."
+      "text": "Cá đuối tẩy đầu."
      }
     ],
     "citations": [
@@ -8241,21 +8247,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cá tươi "
-     },
-     {
-      "text": "thì",
-      "em": true
-     },
-     {
-      "text": " xem "
-     },
-     {
-      "text": "lấy",
-      "em": true
-     },
-     {
-      "text": " mang."
+      "text": "Cá tươi thì xem lấy mang."
      }
     ],
     "citations": [
@@ -8760,21 +8752,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cách sông "
-     },
-     {
-      "text": "nên",
-      "em": true
-     },
-     {
-      "text": " phải luy thuyền, "
-     },
-     {
-      "text": "cầm bằng",
-      "em": true
-     },
-     {
-      "text": " đường liền ai phải luy ai."
+      "text": "Cách sông nên phải luy thuyền, cầm bằng đường liền ai phải luy ai."
      }
     ],
     "citations": [
@@ -8796,21 +8774,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cách sông "
-     },
-     {
-      "text": "nên",
-      "em": true
-     },
-     {
-      "text": " phải luy thuyền, "
-     },
-     {
-      "text": "nếu",
-      "em": true
-     },
-     {
-      "text": " như đường liền ai phải luy ai."
+      "text": "Cách sông nên phải luy thuyền, nếu như đường liền ai phải luy ai."
      }
     ],
     "citations": [
@@ -8944,7 +8908,11 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Qua sông luy đò."
+      "text": "Qua",
+      "em": true
+     },
+     {
+      "text": " sông luy đò."
      }
     ],
     "citations": [
@@ -8966,7 +8934,11 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Qua sông phải luy đò."
+      "text": "Qua",
+      "em": true
+     },
+     {
+      "text": " sông phải luy đò."
      }
     ],
     "citations": [
@@ -8984,7 +8956,11 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Vì sông nên phải luy đò."
+      "text": "Vì",
+      "em": true
+     },
+     {
+      "text": " sông nên phải luy đò."
      }
     ],
     "citations": [
@@ -9006,7 +8982,11 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Vì sông nên phải luy "
+      "text": "Vì",
+      "em": true
+     },
+     {
+      "text": " sông nên phải luy "
      },
      {
       "text": "thuyền",
@@ -10088,13 +10068,20 @@
   ],
   "corrections": [
    {
-    "wrong": "Cái cứ ...",
+    "wrong": "Cái *cứ* ...",
     "sources": [
      "NL"
     ],
     "right": [
      {
-      "text": "Cái cú ..."
+      "text": "Cái "
+     },
+     {
+      "text": "cú",
+      "em": true
+     },
+     {
+      "text": " ..."
      }
     ],
     "sentence": [
@@ -10109,7 +10096,14 @@
       "text": " in sai thành \"Cái cứ ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "Cái cú ..."
+      "text": "Cái "
+     },
+     {
+      "text": "cú",
+      "strong": true
+     },
+     {
+      "text": " ..."
      },
      {
       "text": "\"."
@@ -10905,14 +10899,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cái kim bọc giẻ lâu ngày cũng "
-     },
-     {
-      "text": "tòi",
-      "em": true
-     },
-     {
-      "text": " ra."
+      "text": "Cái kim bọc giẻ lâu ngày cũng tòi ra."
      }
     ],
     "citations": [
@@ -10930,14 +10917,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cái kim "
-     },
-     {
-      "text": "giấu mãi",
-      "em": true
-     },
-     {
-      "text": " lâu ngày cũng ra."
+      "text": "Cái kim giấu mãi lâu ngày cũng ra."
      }
     ],
     "citations": [
@@ -10952,14 +10932,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cái kim "
-     },
-     {
-      "text": "trong",
-      "em": true
-     },
-     {
-      "text": " bọc lâu ngày cũng ra."
+      "text": "Cái kim trong bọc lâu ngày cũng ra."
      }
     ],
     "citations": [
@@ -11004,14 +10977,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Kim bọc giẻ "
-     },
-     {
-      "text": "một ngày một",
-      "em": true
-     },
-     {
-      "text": " ra."
+      "text": "Kim bọc giẻ một ngày một ra."
      }
     ],
     "citations": [
@@ -11674,15 +11640,10 @@
       "em": true
      },
      {
-      "text": "."
+      "text": ". VCVN I 317"
      }
     ],
-    "citations": [
-     {
-      "abbreviation": "VCVN I",
-      "pages": "317"
-     }
-    ]
+    "citations": []
    }
   ],
   "notes": [
@@ -11696,8 +11657,7 @@
   "see_also": [],
   "first_syllable": "cái",
   "sources": [
-   "NL",
-   "VCVN I"
+   "NL"
   ],
   "has_notes": true,
   "has_variants": true,
@@ -12055,7 +12015,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cái trảy nảy cái ung."
+      "text": "Cái "
+     },
+     {
+      "text": "trảy",
+      "em": true
+     },
+     {
+      "text": " nảy cái ung."
      }
     ],
     "citations": [
@@ -13440,6 +13407,11 @@
     "name": "C 2785",
     "anchor": "C-2785",
     "preview": "Cuốc chạm tai, mai đến gáy."
+   },
+   {
+    "name": "C 2786",
+    "anchor": "C-2786",
+    "preview": "Cuốc chạm vai mai quá trốc."
    }
   ],
   "first_syllable": "cán",
@@ -13505,6 +13477,11 @@
     "name": "C 2785",
     "anchor": "C-2785",
     "preview": "Cuốc chạm tai, mai đến gáy."
+   },
+   {
+    "name": "C 2786",
+    "anchor": "C-2786",
+    "preview": "Cuốc chạm vai mai quá trốc."
    }
   ],
   "first_syllable": "cán",
@@ -13825,7 +13802,7 @@
   "notes": [
    [
     {
-     "text": "Hoàn cảnh khốn cùng, con người cũng khốn cùng, luy kẻ khác."
+     "text": "Hoàn cảnh khốn cùng, con người cũng khốn cùng, lụy kẻ khác."
     }
    ]
   ],
@@ -14586,21 +14563,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Càng quen "
-     },
-     {
-      "text": "lèn",
-      "em": true
-     },
-     {
-      "text": " "
-     },
-     {
-      "text": "càng",
-      "em": true
-     },
-     {
-      "text": " đau."
+      "text": "Càng quen lèn càng đau."
      }
     ],
     "citations": [
@@ -14614,14 +14577,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Quen càng "
-     },
-     {
-      "text": "lèn",
-      "em": true
-     },
-     {
-      "text": " cho đau."
+      "text": "Quen càng lèn cho đau."
      }
     ],
     "citations": [
@@ -14637,6 +14593,9 @@
   "see_also": [
    {
     "name": "Q 188"
+   },
+   {
+    "name": "Q 190"
    }
   ],
   "first_syllable": "càng",
@@ -14730,14 +14689,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Càng rộng "
-     },
-     {
-      "text": "đàng",
-      "em": true
-     },
-     {
-      "text": " go, càng to vốn sợi."
+      "text": "Càng rộng đàng go, càng to vốn sợi."
      }
     ],
     "citations": [
@@ -15074,22 +15026,26 @@
     "pages": "112"
    }
   ],
-  "variants": [],
-  "notes": [
-   [
-    {
-     "text": "Việc chung không ai lo."
-    }
-   ]
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Việc chung không ai lo."
+     }
+    ],
+    "citations": []
+   }
   ],
+  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "canh",
   "sources": [
    "VD"
   ],
-  "has_notes": true,
-  "has_variants": false,
+  "has_notes": false,
+  "has_variants": true,
   "has_correction": false,
   "earliest_year": null,
   "book_pages": [
@@ -15124,7 +15080,7 @@
   "corrections": [],
   "see_also": [
    {
-    "name": "I. 393"
+    "name": "I 393"
    }
   ],
   "first_syllable": "canh",
@@ -15192,7 +15148,7 @@
   ],
   "corrections": [
    {
-    "wrong": "... điểu phi lai.",
+    "wrong": "... *điều* phi lai.",
     "sources": [
      "TNPD I"
     ],
@@ -15201,7 +15157,7 @@
       "text": "... "
      },
      {
-      "text": "điểu",
+      "text": "điều",
       "em": true
      },
      {
@@ -15217,13 +15173,13 @@
       "source": "TNPD I"
      },
      {
-      "text": " in sai thành \"... điểu phi lai.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": " in sai thành \"... điều phi lai.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
       "text": "... "
      },
      {
-      "text": "điểu",
+      "text": "điều",
       "strong": true
      },
      {
@@ -15580,21 +15536,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Canh "
-     },
-     {
-      "text": "rau vặt thì",
-      "em": true
-     },
-     {
-      "text": " ngon, con tập tàng "
-     },
-     {
-      "text": "thì",
-      "em": true
-     },
-     {
-      "text": " khôn."
+      "text": "Canh rau vặt thì ngon, con tập tàng thì khôn."
      }
     ],
     "citations": [
@@ -15915,14 +15857,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cảnh cau màu "
-     },
-     {
-      "text": "mít",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Cảnh cau màu mít."
      }
     ],
     "citations": [
@@ -16070,20 +16005,20 @@
    }
   ],
   "variants": [],
-  "notes": [],
-  "corrections": [],
-  "see_also": [
-   {
-    "name": "C 235",
-    "anchor": "C-235",
-    "preview": "Cảnh cau rau khoai."
-   }
+  "notes": [
+   [
+    {
+     "text": "Giống nghĩa C 235"
+    }
+   ]
   ],
+  "corrections": [],
+  "see_also": [],
   "first_syllable": "cảnh",
   "sources": [
    "VD"
   ],
-  "has_notes": false,
+  "has_notes": true,
   "has_variants": false,
   "has_correction": false,
   "earliest_year": null,
@@ -16671,6 +16606,9 @@
   "see_also": [
    {
     "name": "T 1240"
+   },
+   {
+    "name": "T 1322"
    }
   ],
   "first_syllable": "cao",
@@ -17958,14 +17896,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cáo chết "
-     },
-     {
-      "text": "ba năm còn",
-      "em": true
-     },
-     {
-      "text": " quay đầu về núi."
+      "text": "Cáo chết ba năm còn quay đầu về núi."
      }
     ],
     "citations": [
@@ -17991,14 +17922,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cáo chết "
-     },
-     {
-      "text": "ba năm",
-      "em": true
-     },
-     {
-      "text": " quay đầu về núi."
+      "text": "Cáo chết ba năm quay đầu về núi."
      }
     ],
     "citations": [
@@ -18032,14 +17956,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chó chết "
-     },
-     {
-      "text": "ba năm trở",
-      "em": true
-     },
-     {
-      "text": " đầu về núi."
+      "text": "Chó chết ba năm trở đầu về núi."
      }
     ],
     "citations": [
@@ -18053,14 +17970,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cóc chết "
-     },
-     {
-      "text": "ba năm",
-      "em": true
-     },
-     {
-      "text": " quay đầu về núi."
+      "text": "Cóc chết ba năm quay đầu về núi."
      }
     ],
     "citations": [
@@ -18486,7 +18396,12 @@
      "general": "Nb"
     },
     {
-     "text": ": Việc nhỏ lại dùng phương tiện quá lớn. Sử dụng người tài làm việc nhỏ mọn."
+     "text": ": Việc nhỏ lại dùng phương tiện quá lớn."
+    }
+   ],
+   [
+    {
+     "text": "Sử dụng người tài làm việc nhỏ mọn."
     }
    ]
   ],
@@ -19673,14 +19588,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cày chạm vó, bừa mó "
-     },
-     {
-      "text": "đuôi",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Cày chạm vó, bừa mó đuôi."
      }
     ],
     "citations": [
@@ -19826,6 +19734,18 @@
   "see_also": [
    {
     "name": "M 1087"
+   },
+   {
+    "name": "M 1160"
+   },
+   {
+    "name": "M 1162"
+   },
+   {
+    "name": "M 1163"
+   },
+   {
+    "name": "M 1164"
    }
   ],
   "first_syllable": "cày",
@@ -19856,7 +19776,7 @@
   "anchor": "C-304",
   "letter": "C",
   "number": 304,
-  "proverb": "Cày ruộng tháng năm, xem trăng rằm tháng tám; cày ruộng tháng mười, xem trăng mỗng tám tháng tư.",
+  "proverb": "Cày ruộng tháng năm, xem trăng rằm tháng tám; cày ruộng tháng mười, xem trăng mồng tám tháng tư.",
   "citations": [
    {
     "abbreviation": "TNCL",
@@ -19877,6 +19797,18 @@
   "see_also": [
    {
     "name": "M 1087"
+   },
+   {
+    "name": "M 1160"
+   },
+   {
+    "name": "M 1162"
+   },
+   {
+    "name": "M 1163"
+   },
+   {
+    "name": "M 1164"
    }
   ],
   "first_syllable": "cày",
@@ -21700,7 +21632,12 @@
   "letter": "C",
   "number": 339,
   "proverb": "Cầm dầu phòng dính tay.",
-  "citations": [],
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "118"
+   }
+  ],
   "variants": [
    {
     "label": "Bản khác",
@@ -21709,12 +21646,7 @@
       "text": "Cầm dầu phòng ướt tay."
      }
     ],
-    "citations": [
-     {
-      "abbreviation": "VD",
-      "pages": "118"
-     }
-    ]
+    "citations": []
    }
   ],
   "notes": [
@@ -24090,7 +24022,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cắt lúa rụng thóc."
+      "text": "Cất lúa rụng thóc."
      }
     ],
     "citations": [
@@ -25621,6 +25553,11 @@
     "name": "C 205",
     "anchor": "C-205",
     "preview": "Càng cao danh vọng, càng dày…"
+   },
+   {
+    "name": "C 409",
+    "anchor": "C-409",
+    "preview": "Cây cao thì gió càng lay,…"
    }
   ],
   "first_syllable": "cây",
@@ -25954,6 +25891,11 @@
     "name": "C 205",
     "anchor": "C-205",
     "preview": "Càng cao danh vọng, càng dày…"
+   },
+   {
+    "name": "C 404",
+    "anchor": "C-404",
+    "preview": "Cây càng cao thì gió càng…"
    }
   ],
   "first_syllable": "cây",
@@ -26166,6 +26108,11 @@
     "name": "C 431",
     "anchor": "C-431",
     "preview": "Cây mất lá, cá mất vây."
+   },
+   {
+    "name": "C 444",
+    "anchor": "C-444",
+    "preview": "Cây sát lá, cá róc vẩy."
    }
   ],
   "first_syllable": "cây",
@@ -26562,14 +26509,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cây "
-     },
-     {
-      "text": "cao",
-      "em": true
-     },
-     {
-      "text": " không trái, gái độc không con."
+      "text": "Cây cao không trái, gái độc không con."
      }
     ],
     "citations": [
@@ -27197,32 +27137,33 @@
     "pages": "68a"
    }
   ],
-  "variants": [
-   {
-    "label": "Bản khác",
-    "text": [
-     {
-      "text": "Cây, cá như vậy khó sống."
-     }
-    ],
-    "citations": []
-   }
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Cây, cá như vậy khó sống."
+    }
+   ]
   ],
-  "notes": [],
   "corrections": [],
   "see_also": [
    {
     "name": "C 411",
     "anchor": "C-411",
     "preview": "Cây chạm lá, cá chạm vẩy."
+   },
+   {
+    "name": "C 444",
+    "anchor": "C-444",
+    "preview": "Cây sát lá, cá róc vẩy."
    }
   ],
   "first_syllable": "cây",
   "sources": [
    "ĐNQT"
   ],
-  "has_notes": false,
-  "has_variants": true,
+  "has_notes": true,
+  "has_variants": false,
   "has_correction": false,
   "earliest_year": 1908,
   "book_pages": [
@@ -28147,6 +28088,11 @@
     "name": "C 411",
     "anchor": "C-411",
     "preview": "Cây chạm lá, cá chạm vẩy."
+   },
+   {
+    "name": "C 431",
+    "anchor": "C-431",
+    "preview": "Cây mất lá, cá mất vây."
    }
   ],
   "first_syllable": "cây",
@@ -28288,14 +28234,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cây thẳng bóng ngay, cây "
-     },
-     {
-      "text": "nghiêng",
-      "em": true
-     },
-     {
-      "text": " bóng vạy."
+      "text": "Cây thẳng bóng ngay, cây nghiêng bóng vạy."
      }
     ],
     "citations": [
@@ -29075,26 +29014,22 @@
     "pages": "125"
    }
   ],
-  "variants": [
-   {
-    "label": "Bản khác",
-    "text": [
-     {
-      "text": "Cấy chiêm rét cắn răng; lúc gặt nắng nực."
-     }
-    ],
-    "citations": []
-   }
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Cấy chiêm rét cắn răng; lúc gặt nắng nực."
+    }
+   ]
   ],
-  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "cấy",
   "sources": [
    "VD"
   ],
-  "has_notes": false,
-  "has_variants": true,
+  "has_notes": true,
+  "has_variants": false,
   "has_correction": false,
   "earliest_year": null,
   "book_pages": [
@@ -29469,7 +29404,7 @@
   "notes": [
    [
     {
-     "text": "Dược: ruộng. Mạ ưa chất mùn, rễ nông gieo ở ruộng đã chuyên canh thì đảm bảo, lúa cấy ở mọi loại ruộng đều có thể mọc tốt (theo "
+     "text": "Được: ruộng. Mạ ưa chất mùn, rễ nông gieo ở ruộng đã chuyên canh thì đảm bảo, lúa cấy ở mọi loại ruộng đều có thể mọc tốt (theo "
     },
     {
      "text": "VD",
@@ -29487,13 +29422,20 @@
   ],
   "corrections": [
    {
-    "wrong": "... được rạ...",
+    "wrong": "... được *rạ*...",
     "sources": [
      "TNCL"
     ],
     "right": [
      {
-      "text": "được lạ ..."
+      "text": "được "
+     },
+     {
+      "text": "lạ",
+      "em": true
+     },
+     {
+      "text": " ..."
      }
     ],
     "sentence": [
@@ -29508,7 +29450,14 @@
       "text": " in sai thành \"... được rạ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "được lạ ..."
+      "text": "được "
+     },
+     {
+      "text": "lạ",
+      "strong": true
+     },
+     {
+      "text": " ..."
      },
      {
       "text": "\"."
@@ -30515,7 +30464,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cha cắm thẻ con bẻ măng."
+      "text": "Cha "
+     },
+     {
+      "text": "cắm thẻ",
+      "em": true
+     },
+     {
+      "text": " con bẻ măng."
      }
     ],
     "citations": [
@@ -30524,15 +30480,25 @@
       "pages": "47b"
      }
     ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Cha "
+     },
+     {
+      "text": "nắm luật pháp",
+      "em": true
+     },
+     {
+      "text": ", con làm bậy, vi phạm luật pháp."
+     }
+    ],
+    "citations": []
    }
   ],
-  "notes": [
-   [
-    {
-     "text": "Cha nắm luật pháp, con làm bậy, vi phạm luật pháp."
-    }
-   ]
-  ],
+  "notes": [],
   "corrections": [],
   "see_also": [
    {
@@ -30553,7 +30519,7 @@
    "VHTB",
    "ĐNQT"
   ],
-  "has_notes": true,
+  "has_notes": false,
   "has_variants": true,
   "has_correction": false,
   "earliest_year": 1908,
@@ -31929,14 +31895,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cha già "
-     },
-     {
-      "text": "đi",
-      "em": true
-     },
-     {
-      "text": " nuôi con "
+      "text": "Cha già đi nuôi con "
      },
      {
       "text": "mượn",
@@ -32524,14 +32483,21 @@
   "notes": [],
   "corrections": [
    {
-    "wrong": "...đào mả...",
+    "wrong": "...đào *mả*...",
     "sources": [
      "TNVN",
      "TTVH"
     ],
     "right": [
      {
-      "text": "... đào mà..."
+      "text": "... đào "
+     },
+     {
+      "text": "mà",
+      "em": true
+     },
+     {
+      "text": "..."
      }
     ],
     "sentence": [
@@ -32553,7 +32519,14 @@
       "text": " in sai thành \"...đào mả...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "... đào mà..."
+      "text": "... đào "
+     },
+     {
+      "text": "mà",
+      "strong": true
+     },
+     {
+      "text": "..."
      },
      {
       "text": "\"."
@@ -33782,14 +33755,7 @@
       "em": true
      },
      {
-      "text": " "
-     },
-     {
-      "text": "bằng",
-      "em": true
-     },
-     {
-      "text": " mẹ dưỡng."
+      "text": " bằng mẹ dưỡng."
      }
     ],
     "citations": [
@@ -34604,11 +34570,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Đem",
-      "em": true
-     },
-     {
-      "text": " chạch bỏ giỏ cua."
+      "text": "Đem chạch bỏ giỏ cua."
      }
     ],
     "citations": [
@@ -36418,14 +36380,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cháu ngoại không đoái "
-     },
-     {
-      "text": "tới",
-      "em": true
-     },
-     {
-      "text": " mồ."
+      "text": "Cháu ngoại không đoái tới mồ."
      }
     ],
     "citations": [
@@ -37349,14 +37304,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cháy rừng bởi chưng "
-     },
-     {
-      "text": "đốm",
-      "em": true
-     },
-     {
-      "text": " lửa."
+      "text": "Cháy rừng bởi chưng đốm lửa."
      }
     ],
     "citations": [
@@ -40591,7 +40539,12 @@
   "notes": [
    [
     {
-     "text": "Không tra khảo thì không chịu theo. (Hành động của kẻ ác, có quyền lực đối với người nghèo khó)."
+     "text": "Không tra khảo thì không chịu theo."
+    }
+   ],
+   [
+    {
+     "text": "Hành động của kẻ ác, có quyền lực đối với người nghèo khó."
     }
    ]
   ],
@@ -42726,14 +42679,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chả làm thì đói, làm thì chói xương "
-     },
-     {
-      "text": "hông",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Chả làm thì đói, làm thì chói xương hông."
      }
     ],
     "citations": [
@@ -42747,14 +42693,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chẳng làm thì đói, làm thì "
-     },
-     {
-      "text": "lói",
-      "em": true
-     },
-     {
-      "text": " xương hom."
+      "text": "Chẳng làm thì đói, làm thì lói xương hom."
      }
     ],
     "citations": [
@@ -42768,21 +42707,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chẳng làm "
-     },
-     {
-      "text": "thời",
-      "em": true
-     },
-     {
-      "text": " đói, làm "
-     },
-     {
-      "text": "thời",
-      "em": true
-     },
-     {
-      "text": " chói xương hom."
+      "text": "Chẳng làm thời đói, làm thời chói xương hom."
      }
     ],
     "citations": [
@@ -42804,28 +42729,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chẳng làm "
-     },
-     {
-      "text": "thời",
-      "em": true
-     },
-     {
-      "text": " đói, làm "
-     },
-     {
-      "text": "thời mỏi",
-      "em": true
-     },
-     {
-      "text": " xương "
-     },
-     {
-      "text": "hông",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Chẳng làm thời đói, làm thời mỏi xương hông."
      }
     ],
     "citations": [
@@ -42839,21 +42743,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Không làm "
-     },
-     {
-      "text": "sợ",
-      "em": true
-     },
-     {
-      "text": " đói, làm "
-     },
-     {
-      "text": "sợ",
-      "em": true
-     },
-     {
-      "text": " chói xương hom."
+      "text": "Không làm sợ đói, làm sợ chói xương hom."
      }
     ],
     "citations": [
@@ -42889,21 +42779,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Không làm thì đói, làm thì "
-     },
-     {
-      "text": "đau chói",
-      "em": true
-     },
-     {
-      "text": " xương "
-     },
-     {
-      "text": "hông",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Không làm thì đói, làm thì đau chói xương hông."
      }
     ],
     "citations": [
@@ -42917,21 +42793,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Không làm "
-     },
-     {
-      "text": "thời",
-      "em": true
-     },
-     {
-      "text": " đói, làm "
-     },
-     {
-      "text": "thời",
-      "em": true
-     },
-     {
-      "text": " chói xương hom."
+      "text": "Không làm thời đói, làm thời chói xương hom."
      }
     ],
     "citations": [
@@ -43432,13 +43294,20 @@
   ],
   "corrections": [
    {
-    "wrong": "... cũng dòn ...",
+    "wrong": "... cũng *dòn* ...",
     "sources": [
      "TTVH"
     ],
     "right": [
      {
-      "text": "... cũng dòng..."
+      "text": "... cũng "
+     },
+     {
+      "text": "dòng",
+      "em": true
+     },
+     {
+      "text": "..."
      }
     ],
     "sentence": [
@@ -43453,7 +43322,14 @@
       "text": " in sai thành \"... cũng dòn ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "... cũng dòng..."
+      "text": "... cũng "
+     },
+     {
+      "text": "dòng",
+      "strong": true
+     },
+     {
+      "text": "..."
      },
      {
       "text": "\"."
@@ -46191,14 +46067,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chân "
-     },
-     {
-      "text": "chưa",
-      "em": true
-     },
-     {
-      "text": " đặt xuống đất, miệng đã hát lên trời."
+      "text": "Chân chưa đặt xuống đất, miệng đã hát lên trời."
      }
     ],
     "citations": [
@@ -46482,14 +46351,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chân đi miệng "
-     },
-     {
-      "text": "cũng",
-      "em": true
-     },
-     {
-      "text": " đi."
+      "text": "Chân đi miệng cũng đi."
      }
     ],
     "citations": [
@@ -46503,14 +46365,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chân đi miệng "
-     },
-     {
-      "text": "phải",
-      "em": true
-     },
-     {
-      "text": " đi."
+      "text": "Chân đi miệng phải đi."
      }
     ],
     "citations": [
@@ -46888,10 +46743,10 @@
       "em": true
      },
      {
-      "text": ", "
+      "text": ", mà "
      },
      {
-      "text": "mà đi",
+      "text": "đi",
       "em": true
      },
      {
@@ -47546,21 +47401,10 @@
       "em": true
      },
      {
-      "text": "."
+      "text": ". bk TNVN bk TTVH"
      }
     ],
-    "citations": [
-     {
-      "abbreviation": "TNVN",
-      "pages": "",
-      "variant": true
-     },
-     {
-      "abbreviation": "TTVH",
-      "pages": "",
-      "variant": true
-     }
-    ]
+    "citations": []
    },
    {
     "label": "Bản khác",
@@ -47573,15 +47417,10 @@
       "em": true
      },
      {
-      "text": "."
+      "text": ". ĐNQT 40b"
      }
     ],
-    "citations": [
-     {
-      "abbreviation": "ĐNQT",
-      "pages": "40b"
-     }
-    ]
+    "citations": []
    },
    {
     "label": "Bản khác",
@@ -47594,33 +47433,10 @@
       "em": true
      },
      {
-      "text": "."
+      "text": ". NASL II 48b NASL III 15a TNCL 12 bk TNVN bk TTVH"
      }
     ],
-    "citations": [
-     {
-      "abbreviation": "NASL II",
-      "pages": "48b"
-     },
-     {
-      "abbreviation": "NASL III",
-      "pages": "15a"
-     },
-     {
-      "abbreviation": "TNCL",
-      "pages": "12"
-     },
-     {
-      "abbreviation": "TNVN",
-      "pages": "",
-      "variant": true
-     },
-     {
-      "abbreviation": "TTVH",
-      "pages": "",
-      "variant": true
-     }
-    ]
+    "citations": []
    },
    {
     "label": "Bản khác",
@@ -47633,19 +47449,10 @@
       "em": true
      },
      {
-      "text": "."
+      "text": ". NL 50 TNCL 131"
      }
     ],
-    "citations": [
-     {
-      "abbreviation": "NL",
-      "pages": "50"
-     },
-     {
-      "abbreviation": "TNCL",
-      "pages": "131"
-     }
-    ]
+    "citations": []
    }
   ],
   "notes": [
@@ -47672,16 +47479,12 @@
    "TNVN",
    "TTVH",
    "VD",
-   "VNP₁₁",
-   "ĐNQT",
-   "NASL II",
-   "NASL III",
-   "NL"
+   "VNP₁₁"
   ],
   "has_notes": true,
   "has_variants": true,
   "has_correction": false,
-  "earliest_year": 1908,
+  "earliest_year": 1928,
   "book_pages": [
    "467"
   ],
@@ -47975,14 +47778,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Châu chấu thấy đỏ lửa thì "
-     },
-     {
-      "text": "đến",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Châu chấu thấy đỏ lửa thì đến."
      }
     ],
     "citations": [
@@ -48504,11 +48300,11 @@
       "text": ", thuốc ngon "
      },
      {
-      "text": "lắm",
+      "text": "lắm đờm",
       "em": true
      },
      {
-      "text": " đờm."
+      "text": "."
      }
     ],
     "citations": [
@@ -48532,11 +48328,11 @@
       "text": ", thuốc ngon "
      },
      {
-      "text": "quyện",
+      "text": "quyện đờm",
       "em": true
      },
      {
-      "text": " đờm."
+      "text": "."
      }
     ],
     "citations": [
@@ -48553,11 +48349,11 @@
       "text": "Chè ngon ngọt giọng, thuốc ngon "
      },
      {
-      "text": "quyện",
+      "text": "quyện đờm",
       "em": true
      },
      {
-      "text": " đờm."
+      "text": "."
      }
     ],
     "citations": [
@@ -48588,11 +48384,11 @@
       "text": " "
      },
      {
-      "text": "quyện",
+      "text": "quyện đờm",
       "em": true
      },
      {
-      "text": " đờm."
+      "text": "."
      }
     ],
     "citations": [
@@ -48616,11 +48412,11 @@
       "text": ", thuốc ngon "
      },
      {
-      "text": "lắm",
+      "text": "lắm đờm",
       "em": true
      },
      {
-      "text": " đờm."
+      "text": "."
      }
     ],
     "citations": [
@@ -49105,13 +48901,34 @@
   ],
   "corrections": [
    {
-    "wrong": "... Cầu Tiên ...",
+    "wrong": "... Cầu *Tiên* ...",
     "sources": [
      "NNGQ"
     ],
     "right": [
      {
-      "text": "... Cầu Tiên ... ... Cầu Tiêu ... CCM = ... Cầu Tiên ..."
+      "text": "... Cầu "
+     },
+     {
+      "text": "Tiên",
+      "em": true
+     },
+     {
+      "text": " ... ... Cầu "
+     },
+     {
+      "text": "Tiêu",
+      "em": true
+     },
+     {
+      "text": " ... CCM = ... Cầu "
+     },
+     {
+      "text": "Tiên",
+      "em": true
+     },
+     {
+      "text": " ..."
      }
     ],
     "sentence": [
@@ -49126,7 +48943,28 @@
       "text": " in sai thành \"... Cầu Tiên ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "... Cầu Tiên ... ... Cầu Tiêu ... CCM = ... Cầu Tiên ..."
+      "text": "... Cầu "
+     },
+     {
+      "text": "Tiên",
+      "strong": true
+     },
+     {
+      "text": " ... ... Cầu "
+     },
+     {
+      "text": "Tiêu",
+      "strong": true
+     },
+     {
+      "text": " ... CCM = ... Cầu "
+     },
+     {
+      "text": "Tiên",
+      "strong": true
+     },
+     {
+      "text": " ..."
      },
      {
       "text": "\"."
@@ -49342,7 +49180,11 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chẻ tre nghe "
+      "text": "Chẻ",
+      "em": true
+     },
+     {
+      "text": " tre nghe "
      },
      {
       "text": "lóng",
@@ -49856,21 +49698,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chém nhau "
-     },
-     {
-      "text": "đằng",
-      "em": true
-     },
-     {
-      "text": " sống, không chém nhau "
-     },
-     {
-      "text": "đằng",
-      "em": true
-     },
-     {
-      "text": " lưỡi."
+      "text": "Chém nhau đường sống, không chém nhau đường lưỡi."
      }
     ],
     "citations": [
@@ -49894,6 +49722,11 @@
     "name": "A 116",
     "anchor": "A-116",
     "preview": "Anh em chém nhau bằng sống,…"
+   },
+   {
+    "name": "A 130",
+    "anchor": "A-130",
+    "preview": "Anh em mài gươm ba năm…"
    }
   ],
   "first_syllable": "chém",
@@ -50841,18 +50674,11 @@
       "text": "Chèo xuôi mát mái, "
      },
      {
-      "text": "mài mại cho",
+      "text": "mài mại cho thuận nhân tình",
       "em": true
      },
      {
-      "text": " thuận "
-     },
-     {
-      "text": "nhân",
-      "em": true
-     },
-     {
-      "text": " tình."
+      "text": "."
      }
     ],
     "citations": [
@@ -52108,14 +51934,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chê tôm ăn cá "
-     },
-     {
-      "text": "lù dù",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Chê tôm ăn cá lù dù."
      }
     ],
     "citations": [
@@ -53312,7 +53131,7 @@
   "notes": [
    [
     {
-     "text": "Ở xã Ninh Khánh, huyện Hoa Lự, tỉnh Ninh Bình. Theo "
+     "text": "Ở xã Ninh Khánh, huyện Hoa Lư, tỉnh Ninh Bình. Theo "
     },
     {
      "text": "PNHNN",
@@ -55372,14 +55191,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chì khoe chì nặng hơn đồng, sao chì chẳng đúc nên cồng nên "
-     },
-     {
-      "text": "chiêng",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Chì khoe chì nặng hơn đồng, sao chì chẳng đúc nên cồng nên chiêng."
      }
     ],
     "citations": [
@@ -56948,14 +56760,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chị em dâu như bầu nước "
-     },
-     {
-      "text": "lạnh",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Chị em dâu như bầu nước lạnh."
      }
     ],
     "citations": [
@@ -58009,11 +57814,7 @@
    ],
    [
     {
-     "text": "nghĩa bóng",
-     "general": "Nb"
-    },
-    {
-     "text": ": Kẻ nào cũng bênh chủ."
+     "text": "Kẻ nào cũng bênh chủ."
     }
    ]
   ],
@@ -58681,18 +58482,14 @@
     "pages": "154"
    }
   ],
-  "variants": [
-   {
-    "label": "Bản khác",
-    "text": [
-     {
-      "text": "Mạ chiêm cấy nông, mạ mùa cấy sâu."
-     }
-    ],
-    "citations": []
-   }
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Mạ chiêm cấy nông, mạ mùa cấy sâu."
+    }
+   ]
   ],
-  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "chiêm",
@@ -58700,8 +58497,8 @@
    "VCVN II",
    "VD"
   ],
-  "has_notes": false,
-  "has_variants": true,
+  "has_notes": true,
+  "has_variants": false,
   "has_correction": false,
   "earliest_year": null,
   "book_pages": [
@@ -60052,7 +59849,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chiêm cập cời, mùa đợi nhau."
+      "text": "Chiêm "
+     },
+     {
+      "text": "cập cời",
+      "em": true
+     },
+     {
+      "text": ", mùa đợi nhau."
      }
     ],
     "citations": [
@@ -60066,7 +59870,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chiêm cập cợi, mùa đợi nhau."
+      "text": "Chiêm "
+     },
+     {
+      "text": "cập cợi",
+      "em": true
+     },
+     {
+      "text": ", mùa đợi nhau."
      }
     ],
     "citations": [
@@ -60080,7 +59891,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chiêm chấp chới, mùa đợi nhau."
+      "text": "Chiêm "
+     },
+     {
+      "text": "chấp chới",
+      "em": true
+     },
+     {
+      "text": ", mùa đợi nhau."
      }
     ],
     "citations": [
@@ -60319,7 +60137,14 @@
   "notes": [
    [
     {
-     "text": "Theo VHLD, nghe tiếng chiêng ngân nga thì làng đóng khố vào hội vật võ. Có người giải thích cồng thất bố là cồng lớn, nghe tiếng cồng thì cả làng đổ ra đồng nghênh chiến."
+     "text": "Theo "
+    },
+    {
+     "text": "VHLĐ",
+     "source": "VHLĐ"
+    },
+    {
+     "text": ", nghe tiếng chiêng ngân nga thì làng đóng khố vào hội vật võ. Có người giải thích cồng thất bố là cồng lớn, nghe tiếng cồng thì cả làng đổ ra đồng nghênh chiến."
     }
    ]
   ],
@@ -61199,26 +61024,22 @@
     "pages": "157"
    }
   ],
-  "variants": [
-   {
-    "label": "Bản khác",
-    "text": [
-     {
-      "text": "Không của đâu mà rải khắp nơi, phải dè sẻn."
-     }
-    ],
-    "citations": []
-   }
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Không của đâu mà rải khắp nơi, phải dè sẻn."
+    }
+   ]
   ],
-  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "chiếu",
   "sources": [
    "VD"
   ],
-  "has_notes": false,
-  "has_variants": true,
+  "has_notes": true,
+  "has_variants": false,
   "has_correction": false,
   "earliest_year": null,
   "book_pages": [
@@ -61416,13 +61237,20 @@
   ],
   "corrections": [
    {
-    "wrong": "Chiếu Tam Tống ...",
+    "wrong": "Chiếu Tam *Tống* ...",
     "sources": [
      "TMT"
     ],
     "right": [
      {
-      "text": "Chiếu Tam Tổng..."
+      "text": "Chiếu Tam "
+     },
+     {
+      "text": "Tổng",
+      "em": true
+     },
+     {
+      "text": "..."
      }
     ],
     "sentence": [
@@ -61437,7 +61265,14 @@
       "text": " in sai thành \"Chiếu Tam Tống ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "Chiếu Tam Tổng..."
+      "text": "Chiếu Tam "
+     },
+     {
+      "text": "Tổng",
+      "strong": true
+     },
+     {
+      "text": "..."
      },
      {
       "text": "\"."
@@ -61570,14 +61405,7 @@
       "em": true
      },
      {
-      "text": " biển động trời đà "
-     },
-     {
-      "text": "chuyển",
-      "em": true
-     },
-     {
-      "text": " mưa."
+      "text": " biển động trời đà chuyển mưa."
      }
     ],
     "citations": [
@@ -61823,14 +61651,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chim chích "
-     },
-     {
-      "text": "đá trèo",
-      "em": true
-     },
-     {
-      "text": " bồ nông."
+      "text": "Chim chích đá trèo bồ nông."
      }
     ],
     "citations": [
@@ -61844,14 +61665,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chim chích "
-     },
-     {
-      "text": "mà",
-      "em": true
-     },
-     {
-      "text": " ghẹo bồ nông."
+      "text": "Chim chích mà ghẹo bồ nông."
      }
     ],
     "citations": [
@@ -62628,14 +62442,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chim hoa, "
-     },
-     {
-      "text": "cá nhảy",
-      "em": true
-     },
-     {
-      "text": " chớ nuôi, những người lông bụng chớ chơi bạn cùng."
+      "text": "Chim hoa, cá nhảy chớ nuôi, những người lông bụng chớ chơi bạn cùng."
      }
     ],
     "citations": [
@@ -63197,25 +63004,513 @@
   "letter": "C",
   "number": 1008,
   "proverb": "Chim khôn kêu tiếng rảnh rang, người khôn nói tiếng dịu dàng dễ nghe.",
-  "citations": [],
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "13"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "131"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "235, 265"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "303, 314"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "42"
+   },
+   {
+    "abbreviation": "VHNB",
+    "pages": "17"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "129"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Chim khôn "
+     },
+     {
+      "text": "tiếng kêu",
+      "em": true
+     },
+     {
+      "text": " rảnh rang, người khôn "
+     },
+     {
+      "text": "tiếng nói",
+      "em": true
+     },
+     {
+      "text": " dịu dàng dễ nghe."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "86"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Chim khôn kêu "
+     },
+     {
+      "text": "tiếng",
+      "em": true
+     },
+     {
+      "text": " rảnh rang, người khôn "
+     },
+     {
+      "text": "tiếng nói",
+      "em": true
+     },
+     {
+      "text": " dịu dàng dễ nghe."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC I",
+      "pages": "281"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "chim",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VHNB",
+   "VNP₁₁",
+   "TNPD I",
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "514",
+   "515"
+  ],
+  "pdf_pages": [
+   515,
+   516
+  ],
+  "fixed": false,
+  "image": "C-1008.png"
+ },
+ {
+  "name": "C 1009",
+  "anchor": "C-1009",
+  "letter": "C",
+  "number": 1009,
+  "proverb": "Chim khôn, khôn cả từ lông, khôn cả tận lồng, người gánh cũng khôn.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "86"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "314"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "42"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Chim khôn khôn cả từ lông, khôn cả "
+     },
+     {
+      "text": "từ",
+      "em": true
+     },
+     {
+      "text": " lồng, "
+     },
+     {
+      "text": "thẳng",
+      "em": true
+     },
+     {
+      "text": " gánh cũng khôn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VNNN",
+      "pages": "5"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Chim khôn, khôn cả "
+     },
+     {
+      "text": "vì",
+      "em": true
+     },
+     {
+      "text": " lông, khôn cả "
+     },
+     {
+      "text": "vừa",
+      "em": true
+     },
+     {
+      "text": " lòng người gánh cũng khôn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "62"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "chim",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VNNN",
+   "ANTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "515"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "C-1009.png"
+ },
+ {
+  "name": "C 1010",
+  "anchor": "C-1010",
+  "letter": "C",
+  "number": 1010,
+  "proverb": "Chim khôn lựa cành đậu, người khôn lựa chúa thờ.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "158"
+   }
+  ],
   "variants": [],
   "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "chim",
-  "sources": [],
+  "sources": [
+   "VD"
+  ],
   "has_notes": false,
   "has_variants": false,
   "has_correction": false,
   "earliest_year": null,
   "book_pages": [
-   "514"
+   "515"
   ],
   "pdf_pages": [
-   515
+   516
   ],
   "fixed": false,
-  "image": "C-1008.png"
+  "image": "C-1010.png"
+ },
+ {
+  "name": "C 1011",
+  "anchor": "C-1011",
+  "letter": "C",
+  "number": 1011,
+  "proverb": "Chim khôn lựa nhánh lựa cánh, gái khôn lựa chốn trai lành gửi thân.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "22"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "32"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "17"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "302"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "238"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "42"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Chim khôn "
+     },
+     {
+      "text": "lót ổ",
+      "em": true
+     },
+     {
+      "text": " lựa cánh, gái khôn lựa chốn trai lành gửi thân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC I",
+      "pages": "282"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "... lựa *cánh* ...",
+    "sources": [
+     "TNCL"
+    ],
+    "right": [
+     {
+      "text": "... lựa "
+     },
+     {
+      "text": "nhánh",
+      "em": true
+     },
+     {
+      "text": "..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"... lựa cánh ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... lựa "
+     },
+     {
+      "text": "nhánh",
+      "strong": true
+     },
+     {
+      "text": "..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "chim",
+  "sources": [
+   "MGL",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": null,
+  "book_pages": [
+   "515"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "C-1011.png"
+ },
+ {
+  "name": "C 1012",
+  "anchor": "C-1012",
+  "letter": "C",
+  "number": 1012,
+  "proverb": "Chim khôn thử tiếng, người ngoan thử lời.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "158"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "chim",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "515"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "C-1012.png"
+ },
+ {
+  "name": "C 1013",
+  "anchor": "C-1013",
+  "letter": "C",
+  "number": 1013,
+  "proverb": "Chim khôn tiếc lông, người khôn tiếc lời.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "55"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "235"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "81"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "280"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "158"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Chim khôn tiếc lông, người "
+     },
+     {
+      "text": "ngoan",
+      "em": true
+     },
+     {
+      "text": " tiếc lời."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "156"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "265"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "303"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "42"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "chim",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "VC I",
+   "VD",
+   "NXK",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "515",
+   "516"
+  ],
+  "pdf_pages": [
+   516,
+   517
+  ],
+  "fixed": false,
+  "image": "C-1013.png"
  },
  {
   "name": "C 1014",
@@ -65089,7 +65384,21 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chín đụn chẳng cai, một lai ăn dè."
+      "text": "Chín đụn chẳng "
+     },
+     {
+      "text": "cai",
+      "em": true
+     },
+     {
+      "text": ", một "
+     },
+     {
+      "text": "lai",
+      "em": true
+     },
+     {
+      "text": " ăn dè."
      }
     ],
     "citations": [
@@ -65103,7 +65412,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chín đụn chẳng coi, một đoi ăn dè."
+      "text": "Chín đụn chẳng coi, một "
+     },
+     {
+      "text": "đoi",
+      "em": true
+     },
+     {
+      "text": " ăn dè."
      }
     ],
     "citations": [
@@ -65243,7 +65559,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chín đụn còn muốn đụn nữa là mười."
+      "text": "Chín đụn "
+     },
+     {
+      "text": "còn",
+      "em": true
+     },
+     {
+      "text": " muốn đụn nữa là mười."
      }
     ],
     "citations": [
@@ -65277,7 +65600,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chín đụn còn muốn một đụn nữa là mười."
+      "text": "Chín đụn "
+     },
+     {
+      "text": "còn",
+      "em": true
+     },
+     {
+      "text": " muốn một đụn nữa là mười."
      }
     ],
     "citations": [
@@ -67765,6 +68095,9 @@
   "see_also": [
    {
     "name": "L 426"
+   },
+   {
+    "name": "L 914"
    }
   ],
   "first_syllable": "chó",
@@ -68051,8 +68384,7 @@
     "citations": [
      {
       "abbreviation": "VCVN II",
-      "pages": "",
-      "variant": true
+      "pages": ""
      }
     ]
    }
@@ -68869,14 +69201,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chó chạy đường "
-     },
-     {
-      "text": "dài",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Chó chạy đường dài."
      }
     ],
     "citations": [
@@ -70177,18 +70502,14 @@
     "pages": "164"
    }
   ],
-  "variants": [
-   {
-    "label": "Bản khác",
-    "text": [
-     {
-      "text": "Kẻ ngu dại cứ mãi ngu dại, không khôn được."
-     }
-    ],
-    "citations": []
-   }
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Kẻ ngu dại cứ mãi ngu dại, không khôn được."
+    }
+   ]
   ],
-  "notes": [],
   "corrections": [],
   "see_also": [
    {
@@ -70212,8 +70533,8 @@
    "VCVN II",
    "VD"
   ],
-  "has_notes": false,
-  "has_variants": true,
+  "has_notes": true,
+  "has_variants": false,
   "has_correction": false,
   "earliest_year": 1925,
   "book_pages": [
@@ -70716,7 +71037,7 @@
   "notes": [
    [
     {
-     "text": "Có dư luận hắn phải có nguyên cớ."
+     "text": "Có dư luận hẳn phải có nguyên cớ."
     }
    ]
   ],
@@ -73851,14 +74172,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Giẫm vỏ dưa, "
-     },
-     {
-      "text": "thấy",
-      "em": true
-     },
-     {
-      "text": " vỏ dừa phải tránh."
+      "text": "Giẫm vỏ dưa, thấy vỏ dừa phải tránh."
      }
     ],
     "citations": [
@@ -73872,14 +74186,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Trượt vỏ dưa, "
-     },
-     {
-      "text": "thấy",
-      "em": true
-     },
-     {
-      "text": " vỏ dừa phải tránh."
+      "text": "Trượt vỏ dưa, thấy vỏ dừa phải tránh."
      }
     ],
     "citations": [
@@ -74192,6 +74499,9 @@
   "see_also": [
    {
     "name": "G 286"
+   },
+   {
+    "name": "G 295"
    }
   ],
   "first_syllable": "chọn",
@@ -75558,6 +75868,11 @@
     "preview": "Bát còn có lúc xô xát,…"
    },
    {
+    "name": "B 266",
+    "anchor": "B-266",
+    "preview": "Bát đĩa còn có khi chạm…"
+   },
+   {
     "name": "Đ 750"
    }
   ],
@@ -76208,14 +76523,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chồng dữ thì lo, mẹ chồng dữ "
-     },
-     {
-      "text": "giằng",
-      "em": true
-     },
-     {
-      "text": " co mà vào."
+      "text": "Chồng dữ thì lo, mẹ chồng dữ giằng co mà vào."
      }
     ],
     "citations": [
@@ -76748,14 +77056,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chồng "
-     },
-     {
-      "text": "lành",
-      "em": true
-     },
-     {
-      "text": " dễ khiến, chồng khôn khó chiều."
+      "text": "Chồng lành dễ khiến, chồng khôn khó chiều."
      }
     ],
     "citations": [
@@ -77344,6 +77645,11 @@
     "name": "C 2522",
     "anchor": "C-2522",
     "preview": "Cơm sôi bớt lửa, chồng giận…"
+   },
+   {
+    "name": "C 2527",
+    "anchor": "C-2527",
+    "preview": "Cơm sôi nhỏ lửa một đời…"
    }
   ],
   "first_syllable": "chồng",
@@ -77998,14 +78304,21 @@
   "anchor": "C-1262",
   "letter": "C",
   "number": 1262,
-  "proverb": "Chồng không yêu, yêu ai ?\nCCM 91",
-  "citations": [],
+  "proverb": "Chồng không yêu, yêu ai ?",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "91"
+   }
+  ],
   "variants": [],
   "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "chồng",
-  "sources": [],
+  "sources": [
+   "CCM"
+  ],
   "has_notes": false,
   "has_variants": false,
   "has_correction": false,
@@ -82484,6 +82797,9 @@
     "name": "Đ 348"
    },
    {
+    "name": "Đ 367"
+   },
+   {
     "name": "S 11"
    }
   ],
@@ -82952,7 +83268,7 @@
      "source": "VHTB"
     },
     {
-     "text": ", chợ Quài nay thuộc xã Thái Sơn, chợ Sặt nay thuộc xã Thái Giang, huyện Thái Thụy; chợ Vông tức chợ làng Thượng Gia nay thuộc xã Hồng Thái huyện Kiến Xương."
+     "text": ", chợ Quài nay thuộc xã Thái Sơn, chợ Sặt nay thuộc xã Thái Giang, huyện Thái Thuy; chợ Vông tức chợ làng Thượng Gia nay thuộc xã Hồng Thái huyện Kiến Xương."
     }
    ]
   ],
@@ -83241,7 +83557,16 @@
     "name": "N 1329"
    },
    {
+    "name": "N 1330"
+   },
+   {
+    "name": "N 1331"
+   },
+   {
     "name": "T 1774"
+   },
+   {
+    "name": "T 1775"
    },
    {
     "name": "Y 42"
@@ -83302,7 +83627,16 @@
     "name": "N 1330"
    },
    {
+    "name": "N 1331"
+   },
+   {
+    "name": "N 1332"
+   },
+   {
     "name": "T 1777"
+   },
+   {
+    "name": "T 1778"
    },
    {
     "name": "Y 42"
@@ -83386,7 +83720,16 @@
     "name": "N 1330"
    },
    {
+    "name": "N 1331"
+   },
+   {
+    "name": "N 1332"
+   },
+   {
     "name": "T 1777"
+   },
+   {
+    "name": "T 1778"
    },
    {
     "name": "Y 42"
@@ -84858,14 +85201,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chơi với quan viên kẻ Vẽ, "
-     },
-     {
-      "text": "cái bát mẻ",
-      "em": true
-     },
-     {
-      "text": " không còn."
+      "text": "Chơi với quan viên kẻ Vẽ, cái bát mẻ không còn."
      }
     ],
     "citations": [
@@ -86951,14 +87287,7 @@
       "text": "Chú đánh cha, tôi "
      },
      {
-      "text": "chẳng",
-      "em": true
-     },
-     {
-      "text": " "
-     },
-     {
-      "text": "tha",
+      "text": "chẳng tha",
       "em": true
      },
      {
@@ -87192,21 +87521,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chú "
-     },
-     {
-      "text": "cũng",
-      "em": true
-     },
-     {
-      "text": " như cha, già "
-     },
-     {
-      "text": "cũng",
-      "em": true
-     },
-     {
-      "text": " như mẹ."
+      "text": "Chú cũng như cha, già cũng như mẹ."
      }
     ],
     "citations": [
@@ -87485,16 +87800,10 @@
       "em": true
      },
      {
-      "text": "."
+      "text": ". bk VD"
      }
     ],
-    "citations": [
-     {
-      "abbreviation": "VD",
-      "pages": "",
-      "variant": true
-     }
-    ]
+    "citations": []
    }
   ],
   "notes": [],
@@ -89011,14 +89320,7 @@
       "em": true
      },
      {
-      "text": " quản, "
-     },
-     {
-      "text": "ngắn",
-      "em": true
-     },
-     {
-      "text": " đuôi, "
+      "text": " quản, ngắn đuôi, "
      },
      {
       "text": "sừng",
@@ -89770,7 +90072,7 @@
    ],
    [
     {
-     "text": "VCVN: Chuối đẻ nhiều con, chiếm nhiều đất và bẹ lá lôi thôi, nên trồng đằng sau nhà cho tiện. Cây cau thì gọn, chiếm ít đất, nên trồng đàng trước nhà cho gọn và đẹp."
+     "text": "VCVN: Chuối đẻ nhiều con, chiếm nhiều đất và bẹ lá lôi thôi, nên trồng đàng sau nhà cho tiện. Cây cau thì gọn, chiếm ít đất, nên trồng đàng trước nhà cho gọn và đẹp."
     }
    ],
    [
@@ -90119,14 +90421,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chuồn chuồn bay thấp thì mưa, bay cao thì nắng, bay vừa thì "
-     },
-     {
-      "text": "im",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Chuồn chuồn bay thấp thì mưa, bay cao thì nắng, bay vừa thì im."
      }
     ],
     "citations": [
@@ -90521,7 +90816,7 @@
   "anchor": "C-1480",
   "letter": "C",
   "number": 1480,
-  "proverb": "Chuồn chuồn mắc phải nhện vương, đã trót quán quýt thì thương nhau cùng.",
+  "proverb": "Chuồn chuồn mắc phải nhện vương, đã trót quấn quýt thì thương nhau cùng.",
   "citations": [
    {
     "abbreviation": "TNPD I",
@@ -90544,7 +90839,7 @@
       "em": true
      },
      {
-      "text": " quán quýt thì thương nhau cùng."
+      "text": " quấn quýt thì thương nhau cùng."
      }
     ],
     "citations": [
@@ -93116,11 +93411,11 @@
       "text": "Chuột sa "
      },
      {
-      "text": "hũ nếp",
+      "text": "hũ",
       "em": true
      },
      {
-      "text": "."
+      "text": " nếp."
      }
     ],
     "citations": [
@@ -93432,21 +93727,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chuyện "
-     },
-     {
-      "text": "nổ",
-      "em": true
-     },
-     {
-      "text": " như pháo "
-     },
-     {
-      "text": "rang",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Chuyện nổ như pháo rang."
      }
     ],
     "citations": [
@@ -94060,7 +94341,11 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Viết như gà bới."
+      "text": "Viết",
+      "em": true
+     },
+     {
+      "text": " như gà bới."
      }
     ],
     "citations": [
@@ -95420,7 +95705,7 @@
       "text": "Chưa biết mèo nào cắn "
      },
      {
-      "text": "mửu",
+      "text": "mỉu",
       "em": true
      },
      {
@@ -95441,7 +95726,7 @@
       "text": "Đã biết mèo nào cắn "
      },
      {
-      "text": "mửu",
+      "text": "mỉu",
       "em": true
      },
      {
@@ -95462,7 +95747,7 @@
       "text": "Đã chắc mèo nào cắn "
      },
      {
-      "text": "mửu",
+      "text": "mỉu",
       "em": true
      },
      {
@@ -96281,7 +96566,21 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chửa đánh được người mặt xanh mày tía, đánh được người hồn vía lên mây."
+      "text": "Chửa đánh được người "
+     },
+     {
+      "text": "mặt",
+      "em": true
+     },
+     {
+      "text": " xanh "
+     },
+     {
+      "text": "mày",
+      "em": true
+     },
+     {
+      "text": " tía, đánh được người hồn vía lên mây."
      }
     ],
     "citations": [
@@ -96299,7 +96598,21 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chửa đánh được người mặt xanh mày tía, đánh được người rồi hồn vía lên mây."
+      "text": "Chửa đánh được người "
+     },
+     {
+      "text": "mặt",
+      "em": true
+     },
+     {
+      "text": " xanh "
+     },
+     {
+      "text": "mày",
+      "em": true
+     },
+     {
+      "text": " tía, đánh được người rồi hồn vía lên mây."
      }
     ],
     "citations": [
@@ -97818,14 +98131,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Chưa học làm xã đã "
-     },
-     {
-      "text": "lo",
-      "em": true
-     },
-     {
-      "text": " ăn bớt."
+      "text": "Chưa học làm xã đã lo ăn bớt."
      }
     ],
     "citations": [
@@ -103420,32 +103726,15 @@
       "pages": "510"
      }
     ]
-   },
-   {
-    "label": "Bản khác",
-    "text": [
-     {
-      "text": "Có "
-     },
-     {
-      "text": "của cải",
-      "em": true
-     },
-     {
-      "text": " thì "
-     },
-     {
-      "text": "nhiều người đến giúp",
-      "em": true
-     },
-     {
-      "text": "."
-     }
-    ],
-    "citations": []
    }
   ],
-  "notes": [],
+  "notes": [
+   [
+    {
+     "text": "Có của cải thì nhiều người đến giúp."
+    }
+   ]
+  ],
   "corrections": [],
   "see_also": [],
   "first_syllable": "có",
@@ -103453,7 +103742,7 @@
    "NASL IV",
    "TNCL"
   ],
-  "has_notes": false,
+  "has_notes": true,
   "has_variants": true,
   "has_correction": false,
   "earliest_year": 1925,
@@ -103588,7 +103877,7 @@
     ],
     "citations": [
      {
-      "abbreviation": "TNCĐ",
+      "abbreviation": "TNCD",
       "pages": "94"
      }
     ]
@@ -103763,7 +104052,7 @@
      "general": "Nb"
     },
     {
-     "text": ": Không có việc gì, không phải phiền luy ai."
+     "text": ": Không có việc gì, không phải phiền lụy ai."
     }
    ]
   ],
@@ -103809,6 +104098,7 @@
    "TMT",
    "CCM",
    "ANTN",
+   "TNCD",
    "ĐNQT",
    "NL",
    "PNTN",
@@ -109020,6 +109310,9 @@
     "name": "L 521"
    },
    {
+    "name": "L 527"
+   },
+   {
     "name": "T 17"
    }
   ],
@@ -109312,7 +109605,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có của thì có người làm."
+      "text": "Có của "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " có người làm."
      }
     ],
     "citations": [
@@ -113036,21 +113336,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có hỏi "
-     },
-     {
-      "text": "mới",
-      "em": true
-     },
-     {
-      "text": " nói, có gọi "
-     },
-     {
-      "text": "mới",
-      "em": true
-     },
-     {
-      "text": " thưa."
+      "text": "Có hỏi mới nói, có gọi mới thưa."
      }
     ],
     "citations": [
@@ -113527,14 +113813,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có khó mới có "
-     },
-     {
-      "text": "mà",
-      "em": true
-     },
-     {
-      "text": " ăn."
+      "text": "Có khó mới có mà ăn."
      }
     ],
     "citations": [
@@ -114233,10 +114512,10 @@
   "image": "C-1840.png"
  },
  {
-  "name": "C 1042",
-  "anchor": "C-1042",
+  "name": "C 1842",
+  "anchor": "C-1842",
   "letter": "C",
-  "number": 1042,
+  "number": 1842,
   "proverb": "Có lòng thì tìm về Yên Thế, không có lòng thì Đèo Khế - Thái Nguyên.",
   "citations": [
    {
@@ -114275,8 +114554,8 @@
   "pdf_pages": [
    668
   ],
-  "fixed": false,
-  "image": "C-1042_2.png"
+  "fixed": true,
+  "image": "C-1842.png"
  },
  {
   "name": "C 1843",
@@ -114432,14 +114711,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có "
-     },
-     {
-      "text": "nửa đấu",
-      "em": true
-     },
-     {
-      "text": " gạo khấn trời làm mưa."
+      "text": "Có nửa đấu gạo khấn trời làm mưa."
      }
     ],
     "citations": [
@@ -114453,14 +114725,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có "
-     },
-     {
-      "text": "nửa tháng",
-      "em": true
-     },
-     {
-      "text": " gạo khấn trời làm mưa."
+      "text": "Có nửa tháng gạo khấn trời làm mưa."
      }
     ],
     "citations": [
@@ -114992,14 +115257,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có mặt thì: cô, vắng mặt "
-     },
-     {
-      "text": "thì",
-      "em": true
-     },
-     {
-      "text": ": đĩ."
+      "text": "Có mặt thì: cô, vắng mặt thì: đĩ."
      }
     ],
     "citations": [
@@ -115226,7 +115484,7 @@
    671
   ],
   "fixed": false,
-  "image": "C-1842.png"
+  "image": "C-1842_2.png"
  },
  {
   "name": "C 1843",
@@ -115382,14 +115640,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có "
-     },
-     {
-      "text": "nửa đầu",
-      "em": true
-     },
-     {
-      "text": " gạo khẩn trời làm mưa."
+      "text": "Có nửa đầu gạo khẩn trời làm mưa."
      }
     ],
     "citations": [
@@ -115403,14 +115654,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có "
-     },
-     {
-      "text": "nửa tháng",
-      "em": true
-     },
-     {
-      "text": " gạo khẩn trời làm mưa."
+      "text": "Có nửa tháng gạo khẩn trời làm mưa."
      }
     ],
     "citations": [
@@ -115640,6 +115884,9 @@
   "see_also": [
    {
     "name": "M 513"
+   },
+   {
+    "name": "M 665"
    }
   ],
   "first_syllable": "có",
@@ -118823,14 +119070,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có phúc lấy được vợ già, "
-     },
-     {
-      "text": "sạch cửa sạch nhà lại ngọt",
-      "em": true
-     },
-     {
-      "text": " cơm canh."
+      "text": "Có phúc lấy được vợ già, sạch cửa sạch nhà lại ngọt cơm canh."
      }
     ],
     "citations": [
@@ -123442,14 +123682,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Có tiền mua tiên cũng được, "
-     },
-     {
-      "text": "chẳng",
-      "em": true
-     },
-     {
-      "text": " có tiền mua lược cũng không."
+      "text": "Có tiền mua tiên cũng được, chẳng có tiền mua lược cũng không."
      }
     ],
     "citations": [
@@ -124192,6 +124425,9 @@
     "name": "Đ 1233"
    },
    {
+    "name": "Đ 1236"
+   },
+   {
     "name": "T 1178"
    }
   ],
@@ -124905,7 +125141,8 @@
     "citations": [
      {
       "abbreviation": "TNPD I",
-      "pages": ""
+      "pages": "",
+      "variant": true
      },
      {
       "abbreviation": "VC I",
@@ -126594,7 +126831,12 @@
   "letter": "C",
   "number": 2018,
   "proverb": "Cóc cũng phải mở miệng.",
-  "citations": [],
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "202"
+   }
+  ],
   "variants": [
    {
     "label": "Bản khác",
@@ -126606,12 +126848,20 @@
     "citations": []
    }
   ],
-  "notes": [],
+  "notes": [
+   [
+    {
+     "text": "Người ít nói cũng phải lên tiếng"
+    }
+   ]
+  ],
   "corrections": [],
   "see_also": [],
   "first_syllable": "cóc",
-  "sources": [],
-  "has_notes": false,
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
   "has_variants": true,
   "has_correction": false,
   "earliest_year": null,
@@ -126621,34 +126871,8 @@
   "pdf_pages": [
    702
   ],
-  "fixed": false,
+  "fixed": true,
   "image": "C-2018.png"
- },
- {
-  "name": "C 202",
-  "anchor": "C-202",
-  "letter": "C",
-  "number": 202,
-  "proverb": "Người ít nói cũng phải lên tiếng.",
-  "citations": [],
-  "variants": [],
-  "notes": [],
-  "corrections": [],
-  "see_also": [],
-  "first_syllable": "người",
-  "sources": [],
-  "has_notes": false,
-  "has_variants": false,
-  "has_correction": false,
-  "earliest_year": null,
-  "book_pages": [
-   "702"
-  ],
-  "pdf_pages": [
-   703
-  ],
-  "fixed": false,
-  "image": "C-202_2.png"
  },
  {
   "name": "C 2019",
@@ -126711,14 +126935,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cóc kêu "
-     },
-     {
-      "text": "nỏ",
-      "em": true
-     },
-     {
-      "text": " thấu trời."
+      "text": "Cóc kêu nỏ thấu trời."
      }
     ],
     "citations": [
@@ -127495,22 +127712,26 @@
     "pages": "203"
    }
   ],
-  "variants": [],
-  "notes": [
-   [
-    {
-     "text": "Coi đồng tiền quá lớn."
-    }
-   ]
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Coi đồng tiền quá lớn."
+     }
+    ],
+    "citations": []
+   }
   ],
+  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "coi",
   "sources": [
    "VD"
   ],
-  "has_notes": true,
-  "has_variants": false,
+  "has_notes": false,
+  "has_variants": true,
   "has_correction": false,
   "earliest_year": null,
   "book_pages": [
@@ -130707,7 +130928,7 @@
   "anchor": "C-2088",
   "letter": "C",
   "number": 2088,
-  "proverb": "Con chị cõng con em.",
+  "proverb": "Con chị cống con em.",
   "citations": [
    {
     "abbreviation": "ĐNQT",
@@ -131565,14 +131786,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con có cha có mẹ đẻ, chẳng ai ở lỗ nẻ "
-     },
-     {
-      "text": "chui",
-      "em": true
-     },
-     {
-      "text": " lên."
+      "text": "Con có cha có mẹ đẻ, chẳng ai ở lỗ nẻ chui lên."
      }
     ],
     "citations": [
@@ -131904,14 +132118,18 @@
     "pages": "103"
    }
   ],
-  "variants": [],
-  "notes": [
-   [
-    {
-     "text": "Con có cha mẹ được cha mẹ che chở; không cha mẹ thì phải tự lập."
-    }
-   ]
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Con có cha mẹ được cha mẹ che chở; không cha mẹ thì phải tự lập."
+     }
+    ],
+    "citations": []
+   }
   ],
+  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "con",
@@ -131925,8 +132143,8 @@
    "VNP₁₁",
    "VNQNĐN I"
   ],
-  "has_notes": true,
-  "has_variants": false,
+  "has_notes": false,
+  "has_variants": true,
   "has_correction": false,
   "earliest_year": 1928,
   "book_pages": [
@@ -133582,14 +133800,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con cái "
-     },
-     {
-      "text": "đông đúc",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Con cái đông đúc."
      }
     ],
     "citations": []
@@ -134055,7 +134266,7 @@
   "notes": [
    [
     {
-     "text": "Những kẻ làm điều xấu xa hay già mồm để lấp liếm, không hề biết ngượng."
+     "text": "Những kẻ làm điều xấu xa hay già mồm để lấp liếm, không hể biết ngượng."
     }
    ]
   ],
@@ -134417,21 +134628,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con "
-     },
-     {
-      "text": "một",
-      "em": true
-     },
-     {
-      "text": " cháu "
-     },
-     {
-      "text": "bầy",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Con một cháu bầy."
      }
     ],
     "citations": [
@@ -135821,6 +136018,11 @@
     "preview": "Con giống cha giàu ba đụn,…"
    },
    {
+    "name": "C 2297",
+    "anchor": "C-2297",
+    "preview": "Con trai giống cha, giầu ba…"
+   },
+   {
     "name": "G 130"
    }
   ],
@@ -136049,6 +136251,11 @@
     "name": "C 2190",
     "anchor": "C-2190",
     "preview": "Con giống cha giàu ba đụn,…"
+   },
+   {
+    "name": "C 2297",
+    "anchor": "C-2297",
+    "preview": "Con trai giống cha, giầu ba…"
    },
    {
     "name": "G 130"
@@ -136654,28 +136861,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con gái "
-     },
-     {
-      "text": "nhỡ",
-      "em": true
-     },
-     {
-      "text": " thì gặp "
-     },
-     {
-      "text": "được",
-      "em": true
-     },
-     {
-      "text": " quan tri "
-     },
-     {
-      "text": "goá",
-      "em": true
-     },
-     {
-      "text": " vợ."
+      "text": "Con gái nhỡ thì gặp được quan tri goá vợ."
      }
     ],
     "citations": [
@@ -136689,28 +136875,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con gái "
-     },
-     {
-      "text": "nhỡ",
-      "em": true
-     },
-     {
-      "text": " thì "
-     },
-     {
-      "text": "gặp",
-      "em": true
-     },
-     {
-      "text": " quan tri "
-     },
-     {
-      "text": "hoá",
-      "em": true
-     },
-     {
-      "text": " vợ."
+      "text": "Con gái nhỡ thì gặp quan tri hoá vợ."
      }
     ],
     "citations": [
@@ -136724,28 +136889,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con gái "
-     },
-     {
-      "text": "nhỡ",
-      "em": true
-     },
-     {
-      "text": " thì, "
-     },
-     {
-      "text": "lấy được ông ti",
-      "em": true
-     },
-     {
-      "text": " "
-     },
-     {
-      "text": "hoá",
-      "em": true
-     },
-     {
-      "text": " vợ."
+      "text": "Con gái nhỡ thì, lấy được ông ti hoá vợ."
      }
     ],
     "citations": [
@@ -136759,14 +136903,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Gái lỡ thì gặp quan tri "
-     },
-     {
-      "text": "hoá",
-      "em": true
-     },
-     {
-      "text": " vợ."
+      "text": "Gái lỡ thì gặp quan tri hoá vợ."
      }
     ],
     "citations": [
@@ -136788,14 +136925,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Gái lỡ thì gặp quan tri "
-     },
-     {
-      "text": "goá",
-      "em": true
-     },
-     {
-      "text": " vợ."
+      "text": "Gái lỡ thì gặp quan tri goá vợ."
      }
     ],
     "citations": [
@@ -136813,28 +136943,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Gái "
-     },
-     {
-      "text": "nhỡ",
-      "em": true
-     },
-     {
-      "text": " thì "
-     },
-     {
-      "text": "gặp",
-      "em": true
-     },
-     {
-      "text": " quan tri "
-     },
-     {
-      "text": "goá",
-      "em": true
-     },
-     {
-      "text": " vợ."
+      "text": "Gái nhỡ thì gặp quan tri goá vợ."
      }
     ],
     "citations": [
@@ -136979,14 +137088,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con gái mười bảy bẻ gãy sừng "
-     },
-     {
-      "text": "bò",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Con gái mười bảy bẻ gãy sừng bò."
      }
     ],
     "citations": [
@@ -137000,14 +137102,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Gái mười bảy bẻ gãy sừng "
-     },
-     {
-      "text": "bò",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Gái mười bảy bẻ gãy sừng bò."
      }
     ],
     "citations": [
@@ -137122,7 +137217,7 @@
       "text": "Con gái mười bảy chớ ngủ với cha, con trai mười ba "
      },
      {
-      "text": "chớ",
+      "text": "chở",
       "em": true
      },
      {
@@ -137638,21 +137733,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con "
-     },
-     {
-      "text": "trai",
-      "em": true
-     },
-     {
-      "text": " Bát Tràng, thành hoàng "
-     },
-     {
-      "text": "Cao",
-      "em": true
-     },
-     {
-      "text": " Kị."
+      "text": "Con trai Bát Tràng, thành hoàng Cao Kị."
      }
     ],
     "citations": [
@@ -137926,14 +138007,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con giàu một bó, con khó một "
-     },
-     {
-      "text": "nẹn",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Con giàu một bó, con khó một nẹn."
      }
     ],
     "citations": [
@@ -138011,6 +138085,16 @@
     "name": "C 2161",
     "anchor": "C-2161",
     "preview": "Con gái giống cha giàu ba…"
+   },
+   {
+    "name": "C 2163",
+    "anchor": "C-2163",
+    "preview": "Con gái giống cha giàu ba…"
+   },
+   {
+    "name": "C 2297",
+    "anchor": "C-2297",
+    "preview": "Con trai giống cha, giầu ba…"
    },
    {
     "name": "G 130"
@@ -138298,7 +138382,7 @@
      "general": "Nb"
     },
     {
-     "text": ": Nội bộ tầng bốc nhau."
+     "text": ": Nội bộ tăng bốc nhau."
     }
    ]
   ],
@@ -141554,14 +141638,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con mống "
-     },
-     {
-      "text": "trống",
-      "em": true
-     },
-     {
-      "text": " mang."
+      "text": "Con mống trống mang."
      }
     ],
     "citations": [
@@ -144103,7 +144180,7 @@
    ],
    [
     {
-     "text": "Người phụ nữ để con so thường về nhà mẹ đẻ để tiện kiêng cử, mẹ đẻ chăm nom; khi đẻ những đứa sau (con rạ) thì ở nhà chồng."
+     "text": "Người phụ nữ để con so thường về nhà mẹ để để tiện kiêng cử, mẹ để chăm nom; khi đẻ những đứa sau (con rạ) thì ở nhà chồng."
     }
    ]
   ],
@@ -144447,14 +144524,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con thím xã đánh nhả cơm ra, con ông "
-     },
-     {
-      "text": "con",
-      "em": true
-     },
-     {
-      "text": " bà thì tha không đánh."
+      "text": "Con thím xã đánh nhả cơm ra, con ông con bà thì tha không đánh."
      }
     ],
     "citations": [
@@ -144874,6 +144944,11 @@
     "name": "C 2161",
     "anchor": "C-2161",
     "preview": "Con gái giống cha giàu ba…"
+   },
+   {
+    "name": "C 2163",
+    "anchor": "C-2163",
+    "preview": "Con gái giống cha giàu ba…"
    }
   ],
   "first_syllable": "con",
@@ -145266,14 +145341,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Con út "
-     },
-     {
-      "text": "trút sạch",
-      "em": true
-     },
-     {
-      "text": " cửa nhà."
+      "text": "Con út trút sạch cửa nhà."
      }
     ],
     "citations": [
@@ -148718,14 +148786,13 @@
       "em": true
      },
      {
-      "text": "."
+      "text": ". bk"
      }
     ],
     "citations": [
      {
       "abbreviation": "TNPD I",
-      "pages": "",
-      "variant": true
+      "pages": ""
      }
     ]
    },
@@ -150570,6 +150637,9 @@
   "see_also": [
    {
     "name": "D 9"
+   },
+   {
+    "name": "D 10"
    }
   ],
   "first_syllable": "công",
@@ -150973,7 +151043,12 @@
   "notes": [
    [
     {
-     "text": "NNHN chỉ cho biết xóm Dai ở làng Hiệp Thượng, huyện Phúc Thọ, tỉnh Hà Tây, có một cái cồng rất lớn, đánh rất kêu. Chưa rõ \"trai xóm Dịp\" là gì và ở đâu?"
+     "text": "NNHN chỉ cho biết xóm Dai ở làng Hiệp Thượng, huyện Phúc Thọ, tỉnh Hà Tây, có một cái cồng rất lớn, đánh rất kêu."
+    }
+   ],
+   [
+    {
+     "text": "Chưa rõ \"trai xóm Dịp\" là gì và ở đâu?"
     }
    ]
   ],
@@ -152607,14 +152682,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cờ đến tay ai "
-     },
-     {
-      "text": "nấy",
-      "em": true
-     },
-     {
-      "text": " phất."
+      "text": "Cờ đến tay ai nấy phất."
      }
     ],
     "citations": [
@@ -153875,6 +153943,12 @@
   "see_also": [
    {
     "name": "S 43"
+   },
+   {
+    "name": "S 355"
+   },
+   {
+    "name": "S 356"
    }
   ],
   "first_syllable": "cơm",
@@ -154718,7 +154792,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm ba bát tắm mát hôm mai."
+      "text": "Cơm ba bát tắm mát "
+     },
+     {
+      "text": "hôm",
+      "em": true
+     },
+     {
+      "text": " mai."
      }
     ],
     "citations": [
@@ -154736,7 +154817,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm ba bát tắm mát sớm ngày."
+      "text": "Cơm ba bát tắm mát sớm "
+     },
+     {
+      "text": "ngày",
+      "em": true
+     },
+     {
+      "text": "."
      }
     ],
     "citations": [
@@ -154751,7 +154839,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm ba bát tắm mát suốt ngày."
+      "text": "Cơm ba bát tắm mát "
+     },
+     {
+      "text": "suốt",
+      "em": true
+     },
+     {
+      "text": " ngày."
      }
     ],
     "citations": [
@@ -155475,7 +155570,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm chăm, mắm chườm."
+      "text": "Cơm chắm, mắm chườm."
      }
     ],
     "citations": [
@@ -155674,14 +155769,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm chẳng lành, canh chẳng ngon, chín đụn mười con cũng "
-     },
-     {
-      "text": "bỏ",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Cơm chẳng lành, canh chẳng ngon, chín đụn mười con cũng bỏ."
      }
     ],
     "citations": [
@@ -156848,14 +156936,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm đồng Quá, cá đồng "
-     },
-     {
-      "text": "Ua",
-      "em": true
-     },
-     {
-      "text": ", cua đồng Chùa."
+      "text": "Cơm đồng Quá, cá đồng Ua, cua đồng Chùa."
      }
     ],
     "citations": [
@@ -158785,14 +158866,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm ráo cháo "
-     },
-     {
-      "text": "dừ",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Cơm ráo cháo dừ."
      }
     ],
     "citations": [
@@ -158819,14 +158893,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm ráo cháo "
-     },
-     {
-      "text": "nhừ",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Cơm ráo cháo nhừ."
      }
     ],
     "citations": [
@@ -158840,14 +158907,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm ráo cháo "
-     },
-     {
-      "text": "ướt",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Cơm ráo cháo ướt."
      }
     ],
     "citations": [
@@ -158861,21 +158921,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm "
-     },
-     {
-      "text": "táo",
-      "em": true
-     },
-     {
-      "text": ", cháo nát "
-     },
-     {
-      "text": "bét",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Cơm táo, cháo nát bét."
      }
     ],
     "citations": [
@@ -159764,18 +159810,15 @@
       "pages": "78"
      }
     ]
-   },
-   {
-    "label": "Bản khác",
-    "text": [
-     {
-      "text": "Ăn no không thiết gì thức khác."
-     }
-    ],
-    "citations": []
    }
   ],
-  "notes": [],
+  "notes": [
+   [
+    {
+     "text": "Ăn no không thiết gì thức khác."
+    }
+   ]
+  ],
   "corrections": [],
   "see_also": [],
   "first_syllable": "cơm",
@@ -159786,7 +159829,7 @@
    "VD",
    "NL"
   ],
-  "has_notes": false,
+  "has_notes": true,
   "has_variants": true,
   "has_correction": false,
   "earliest_year": null,
@@ -166613,6 +166656,11 @@
     "name": "C 2672",
     "anchor": "C-2672",
     "preview": "Của làm ra để trên gác,…"
+   },
+   {
+    "name": "C 2673",
+    "anchor": "C-2673",
+    "preview": "Của làm ra thì để trên…"
    }
   ],
   "first_syllable": "của",
@@ -169029,6 +169077,9 @@
    },
    {
     "name": "T 1102"
+   },
+   {
+    "name": "T 1111"
    }
   ],
   "first_syllable": "của",
@@ -169099,6 +169150,9 @@
    },
    {
     "name": "T 1102"
+   },
+   {
+    "name": "T 1111"
    }
   ],
   "first_syllable": "của",
@@ -169340,13 +169394,20 @@
   "notes": [],
   "corrections": [
    {
-    "wrong": "... thì dễ ...",
+    "wrong": "... thì *để* ...",
     "sources": [
      "TNCL"
     ],
     "right": [
      {
-      "text": "... thì để..."
+      "text": "... thì "
+     },
+     {
+      "text": "để",
+      "em": true
+     },
+     {
+      "text": "..."
      }
     ],
     "sentence": [
@@ -169358,10 +169419,17 @@
       "source": "TNCL"
      },
      {
-      "text": " in sai thành \"... thì dễ ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+      "text": " in sai thành \"... thì để ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "... thì để..."
+      "text": "... thì "
+     },
+     {
+      "text": "để",
+      "strong": true
+     },
+     {
+      "text": "..."
      },
      {
       "text": "\"."
@@ -170712,7 +170780,7 @@
   "anchor": "C-2697",
   "letter": "C",
   "number": 2697,
-  "proverb": "Cửa như chân như tay.",
+  "proverb": "Của như chân như tay.",
   "citations": [
    {
     "abbreviation": "NASL IV",
@@ -170723,7 +170791,7 @@
   "notes": [],
   "corrections": [],
   "see_also": [],
-  "first_syllable": "cửa",
+  "first_syllable": "của",
   "sources": [
    "NASL IV"
   ],
@@ -172540,7 +172608,7 @@
   "anchor": "C-2726",
   "letter": "C",
   "number": 2726,
-  "proverb": "Của trọng hơn người.",
+  "proverb": "Cửa trọng hơn người.",
   "citations": [
    {
     "abbreviation": "NL",
@@ -172571,7 +172639,7 @@
   "notes": [],
   "corrections": [],
   "see_also": [],
-  "first_syllable": "của",
+  "first_syllable": "cửa",
   "sources": [
    "NL",
    "TNCL",
@@ -172751,6 +172819,11 @@
     "name": "C 2739",
     "anchor": "C-2739",
     "preview": "Của trời vạn, ngắn tay không…"
+   },
+   {
+    "name": "C 2741",
+    "anchor": "C-2741",
+    "preview": "Của trời vô khối, chỉ vắn…"
    }
   ],
   "first_syllable": "của",
@@ -174100,6 +174173,9 @@
    },
    {
     "name": "H 360"
+   },
+   {
+    "name": "H 363"
    }
   ],
   "first_syllable": "cục",
@@ -176124,6 +176200,11 @@
     "name": "C 195",
     "anchor": "C-195",
     "preview": "Cán cuốc bằng tay, cán mai…"
+   },
+   {
+    "name": "C 196",
+    "anchor": "C-196",
+    "preview": "Cán cuốc bằng vai, cán mai…"
    }
   ],
   "first_syllable": "cuốc",
@@ -176168,6 +176249,11 @@
     "name": "C 195",
     "anchor": "C-195",
     "preview": "Cán cuốc bằng tay, cán mai…"
+   },
+   {
+    "name": "C 196",
+    "anchor": "C-196",
+    "preview": "Cán cuốc bằng vai, cán mai…"
    }
   ],
   "first_syllable": "cuốc",
@@ -176885,14 +176971,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cưa đứt đục "
-     },
-     {
-      "text": "khoát",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Cưa đứt đục khoát."
      }
     ],
     "citations": [
@@ -177141,6 +177220,9 @@
    },
    {
     "name": "N 995"
+   },
+   {
+    "name": "N 1003"
    }
   ],
   "first_syllable": "cưa",
@@ -177267,7 +177349,21 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cửa không qua, nhà không ngó."
+      "text": "Cửa "
+     },
+     {
+      "text": "không",
+      "em": true
+     },
+     {
+      "text": " qua, nhà "
+     },
+     {
+      "text": "không",
+      "em": true
+     },
+     {
+      "text": " ngó."
      }
     ],
     "citations": [
@@ -178940,7 +179036,21 @@
     ],
     "right": [
      {
-      "text": "... đủ lão đủ tân."
+      "text": "... "
+     },
+     {
+      "text": "đủ",
+      "em": true
+     },
+     {
+      "text": " lão "
+     },
+     {
+      "text": "đủ",
+      "em": true
+     },
+     {
+      "text": " tân."
      }
     ],
     "sentence": [
@@ -178955,7 +179065,21 @@
       "text": " in sai thành \"... dủ lão dủ tân.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "... đủ lão đủ tân."
+      "text": "... "
+     },
+     {
+      "text": "đủ",
+      "strong": true
+     },
+     {
+      "text": " lão "
+     },
+     {
+      "text": "đủ",
+      "strong": true
+     },
+     {
+      "text": " tân."
      },
      {
       "text": "\"."
@@ -179740,14 +179864,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cứt "
-     },
-     {
-      "text": "ngoài đường",
-      "em": true
-     },
-     {
-      "text": " thì thối, cứt đầu gối thì thơm."
+      "text": "Cứt ngoài đường thì thối, cứt đầu gối thì thơm."
      }
     ],
     "citations": [
@@ -179761,14 +179878,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cứt người thì thối, cứt "
-     },
-     {
-      "text": "con",
-      "em": true
-     },
-     {
-      "text": " đầu gối thì thơm."
+      "text": "Cứt người thì thối, cứt con đầu gối thì thơm."
      }
     ],
     "citations": [
@@ -179796,14 +179906,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cứt ở "
-     },
-     {
-      "text": "nơi",
-      "em": true
-     },
-     {
-      "text": " người thì thối, cứt ở đầu gối thì thơm."
+      "text": "Cứt ở nơi người thì thối, cứt ở đầu gối thì thơm."
      }
     ],
     "citations": [
@@ -180022,7 +180125,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cửu đại thắng ngoại nhân."
+      "text": "Cửu đại "
+     },
+     {
+      "text": "thắng",
+      "em": true
+     },
+     {
+      "text": " ngoại nhân."
      }
     ],
     "citations": [

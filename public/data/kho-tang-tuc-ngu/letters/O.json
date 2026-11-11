@@ -1,0 +1,1644 @@
+[
+ {
+  "name": "O 1",
+  "anchor": "O-1",
+  "letter": "O",
+  "number": 1,
+  "proverb": "Oa giác công danh, nhãng đầu vi lợi.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "59"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "158"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oa",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2182"
+  ],
+  "pdf_pages": [
+   492
+  ],
+  "fixed": false,
+  "image": "O-1.png"
+ },
+ {
+  "name": "O 2",
+  "anchor": "O-2",
+  "letter": "O",
+  "number": 2,
+  "proverb": "Oai oái như phủ Khoái xin tương.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "7a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ngoai ngoái như bà phủ Khoái xin tương."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "224"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ngoai ngoái như phủ Khoái xin ăn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "201"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Oai oái như bà phủ Khoái xin tương."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "41a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Oai oái như phủ Khoái xin cơm."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "227"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "289"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "510"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Ở phủ Khoái Châu cũ, nay thuộc tỉnh Hưng Yên. Thời xưa, nơi này hay bị vỡ đê, mất mùa, dân làng phải bỏ làng đi ăn xin."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oai",
+  "sources": [
+   "NASL III",
+   "TNPD I",
+   "NL",
+   "PNTN",
+   "TNVN",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2182"
+  ],
+  "pdf_pages": [
+   492
+  ],
+  "fixed": false,
+  "image": "O-2.png"
+ },
+ {
+  "name": "O 3",
+  "anchor": "O-3",
+  "letter": "O",
+  "number": 3,
+  "proverb": "Oai oái như rắn bắt nhái.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "68b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "227"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "33"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "237"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "363"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Oai oái như "
+     },
+     {
+      "text": "nhái phải rắn",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "510"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Nhái là món ăn thích khẩu của rắn. Nhái mà bị rắn đớp thì sợ hãi kêu oai oái mãi, cho đến khi thấm nọc tê dại đi mới chịu thôi (theo VC)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oai",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "NNCC",
+   "TNPD I",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2182",
+   "2183"
+  ],
+  "pdf_pages": [
+   492,
+   493
+  ],
+  "fixed": false,
+  "image": "O-3.png"
+ },
+ {
+  "name": "O 4",
+  "anchor": "O-4",
+  "letter": "O",
+  "number": 4,
+  "proverb": "Oan gia nghi giải bất nghi kết.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "90"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "158"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Nghĩa giống O 5"
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "... nghi *kiết*.",
+    "sources": [
+     "CNGN",
+     "NTP"
+    ],
+    "right": [
+     {
+      "text": "... nghi "
+     },
+     {
+      "text": "kết",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "CNGN",
+      "source": "CNGN"
+     },
+     {
+      "text": ", "
+     },
+     {
+      "text": "NTP",
+      "source": "NTP"
+     },
+     {
+      "text": " in sai thành \"... nghi kiết.\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... nghi "
+     },
+     {
+      "text": "kết",
+      "strong": true
+     },
+     {
+      "text": "."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "oan",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2183"
+  ],
+  "pdf_pages": [
+   493
+  ],
+  "fixed": false,
+  "image": "O-4.png"
+ },
+ {
+  "name": "O 5",
+  "anchor": "O-5",
+  "letter": "O",
+  "number": 5,
+  "proverb": "Oan gia nên mở không nên kết.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "364"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oan",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2183"
+  ],
+  "pdf_pages": [
+   493
+  ],
+  "fixed": false,
+  "image": "O-5.png"
+ },
+ {
+  "name": "O 6",
+  "anchor": "O-6",
+  "letter": "O",
+  "number": 6,
+  "proverb": "Oan hồn, hồn hiện.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "11"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "294, 401"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "237"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "281, 310"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "128"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "510"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Theo mê tín, những người bị chết oan ức hồn thường hiện về đời báo oán."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oan",
+  "sources": [
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2183"
+  ],
+  "pdf_pages": [
+   493
+  ],
+  "fixed": false,
+  "image": "O-6.png"
+ },
+ {
+  "name": "O 7",
+  "anchor": "O-7",
+  "letter": "O",
+  "number": 7,
+  "proverb": "Oan như oan Thị Kính.",
+  "citations": [
+   {
+    "abbreviation": "VCVN III",
+    "pages": "511"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "510"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Oan bằng oan Thị Kính."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "227"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Oan như oan bà Thị Kính."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "18a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Oan Thị Kính."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "KCTN",
+      "pages": "13, 270"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Quá oan ức mà không có cách gì giãi bày được."
+    }
+   ],
+   [
+    {
+     "text": "Thị Kính và Thị Màu là hai nhân vật của vở chèo \"Quan Âm Thị Kính\". Một đêm Thị Kính ngồi khâu, chồng là Thiện Sĩ đọc sách, ngủ gục bên bàn. Thấy trên mặt chồng có cái râu mọc ngược, Thị Kính lấy dao định cắt bỏ thì Thiện Sĩ choàng dậy, hoảng hốt kêu lên. Mẹ chồng thấy vậy, nghi là Thị Kính"
+    }
+   ],
+   [
+    {
+     "text": "chủ bụng giết chồng, mắng nhiếc thậm tệ rồi đuổi đi. Thị Kính giả trai xin vào chùa tu lấy tên là Kính Tâm. Trong làng có Thị Màu lắng lơ, thấy tiểu Kính Tâm đẹp người nên đem lòng yêu mến. Ve vẫn mãi không được, Thị Màu ăn nằm với người ở rồi khai là có chửa với chú tiểu. Làng bắt vạ, Kính Tâm bị đuổi ra khỏi chùa. Đẻ ra đứa con trai, Thị Màu đem con ra cổng tam quan \"vứt trả chú tiểu\". Kính Tâm thương chú bé, hàng ngày bế đi xin sữa nuôi cho khôn lớn. Khi sắp thoát bụi trần, Kính Tâm viết thư để lại rồi hóa kiếp thành Phật Quan Âm bồ tát. Bấy giờ mọi người mới rõ Kính Tâm là gái giả trai và hiểu rõ nỗi oan của nàng cùng tội lỗi của Thị Màu (theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oan",
+  "sources": [
+   "VCVN III",
+   "VD",
+   "NL",
+   "NASL IV",
+   "KCTN"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2183",
+   "2184"
+  ],
+  "pdf_pages": [
+   493,
+   494
+  ],
+  "fixed": false,
+  "image": "O-7.png"
+ },
+ {
+  "name": "O 8",
+  "anchor": "O-8",
+  "letter": "O",
+  "number": 8,
+  "proverb": "Oan như oan Thị Màu.",
+  "citations": [
+   {
+    "abbreviation": "VCVN III",
+    "pages": "511"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "510"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Không còn oan ức gì nữa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oan",
+  "sources": [
+   "VCVN III",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2184"
+  ],
+  "pdf_pages": [
+   494
+  ],
+  "fixed": false,
+  "image": "O-8.png"
+ },
+ {
+  "name": "O 9",
+  "anchor": "O-9",
+  "letter": "O",
+  "number": 9,
+  "proverb": "Oan oan tương báo.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "59"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "158"
+   },
+   {
+    "abbreviation": "TNLG II",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "364"
+   },
+   {
+    "abbreviation": "VCVN III",
+    "pages": "510"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "510"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ", có hai nghĩa:"
+    }
+   ],
+   [
+    {
+     "text": "+ Người bị oan thì trả thù người đã gây cho mình nỗi oan khuất"
+    }
+   ],
+   [
+    {
+     "text": "+ Gieo oán thì bị oán cừu trở lại."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oan",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "TNLG II",
+   "VC II",
+   "VCVN III",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2184"
+  ],
+  "pdf_pages": [
+   494
+  ],
+  "fixed": false,
+  "image": "O-9.png"
+ },
+ {
+  "name": "O 10",
+  "anchor": "O-10",
+  "letter": "O",
+  "number": 10,
+  "proverb": "Oản chùa cúng Bụt.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "7"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "511"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "H 453",
+    "anchor": "H-453",
+    "preview": "Hương Bụt thấp thờ Bụt."
+   }
+  ],
+  "first_syllable": "oản",
+  "sources": [
+   "ANTN",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1933,
+  "book_pages": [
+   "2184"
+  ],
+  "pdf_pages": [
+   494
+  ],
+  "fixed": false,
+  "image": "O-10.png"
+ },
+ {
+  "name": "O 11",
+  "anchor": "O-11",
+  "letter": "O",
+  "number": 11,
+  "proverb": "Oán ai một chút để bên dạ này.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "476"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oán",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2184"
+  ],
+  "pdf_pages": [
+   494
+  ],
+  "fixed": false,
+  "image": "O-11.png"
+ },
+ {
+  "name": "O 12",
+  "anchor": "O-12",
+  "letter": "O",
+  "number": 12,
+  "proverb": "Oán cừu thì cởi, nhân nghĩa thì thắt.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "511"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Nên xử sự với nhau bằng cách làm điều nhân nghĩa, xóa bỏ thù oán."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oán",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2185"
+  ],
+  "pdf_pages": [
+   495
+  ],
+  "fixed": false,
+  "image": "O-12.png"
+ },
+ {
+  "name": "O 13",
+  "anchor": "O-13",
+  "letter": "O",
+  "number": 13,
+  "proverb": "Oán thì trả oán, ân thì trả ân.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "160"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "oán",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2185"
+  ],
+  "pdf_pages": [
+   495
+  ],
+  "fixed": false,
+  "image": "O-13.png"
+ },
+ {
+  "name": "O 14",
+  "anchor": "O-14",
+  "letter": "O",
+  "number": 14,
+  "proverb": "Oang oang như lệnh vỡ.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "511"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Lệnh: nhạc khí gõ bằng đồng thau, hình đĩa tròn, dùng để đánh hiệu lệnh."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "G 658",
+    "anchor": "G-658",
+    "preview": "Giọng như lệnh vỡ."
+   }
+  ],
+  "first_syllable": "oang",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2185"
+  ],
+  "pdf_pages": [
+   495
+  ],
+  "fixed": false,
+  "image": "O-14.png"
+ },
+ {
+  "name": "O 15",
+  "anchor": "O-15",
+  "letter": "O",
+  "number": 15,
+  "proverb": "Ốc nhồi Bà Mụ, xơi đủ chín nồi, võ dư trăm trận thì rồi hằng hay.",
+  "citations": [
+   {
+    "abbreviation": "VHLĐ",
+    "pages": "352"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Lưu truyền ở vùng Liễu Đôi, tỉnh Hà Nam. Có lẽ \"Ốc nhồi Bà Mụ...\" thì đúng hơn."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ốc",
+  "sources": [
+   "VHLĐ"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2185"
+  ],
+  "pdf_pages": [
+   495
+  ],
+  "fixed": false,
+  "image": "O-15.png"
+ },
+ {
+  "name": "O 16",
+  "anchor": "O-16",
+  "letter": "O",
+  "number": 16,
+  "proverb": "Óc nóc cũng có mỡ sa.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "444"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "237"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "365"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VC: Óc nóc: cá cóc, con nòng nọc (tiếng địa phương miền Trung)."
+    }
+   ],
+   [
+    {
+     "text": "Trứng ếch nhái mới nở gọi là con nòng nọc (óc nóc). Nòng nọc có cái bụng to phình tưởng chừng như có chứa mỡ sa (mỡ ở phần bụng) ở trong đó."
+    }
+   ],
+   [
+    {
+     "text": "Câu này ám chỉ những người còn nhỏ mà nói năng hỗn xược, khôn ranh, như luận điệu của người lớn."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "óc",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2185"
+  ],
+  "pdf_pages": [
+   495
+  ],
+  "fixed": false,
+  "image": "O-16.png"
+ },
+ {
+  "name": "O 17",
+  "anchor": "O-17",
+  "letter": "O",
+  "number": 17,
+  "proverb": "Ởe học bánh tẻ nhân đường.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "13a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ởe",
+  "sources": [
+   "NASL III"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2186"
+  ],
+  "pdf_pages": [
+   496
+  ],
+  "fixed": false,
+  "image": "O-17.png"
+ },
+ {
+  "name": "O 18",
+  "anchor": "O-18",
+  "letter": "O",
+  "number": 18,
+  "proverb": "Oi mô, nắp nấy.",
+  "citations": [
+   {
+    "abbreviation": "VHHP",
+    "pages": "126"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giỏ nào, nắp nấy (oi: cái giỏ)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "N 1270",
+    "anchor": "N-1270",
+    "preview": "Nồi nào vung ấy."
+   }
+  ],
+  "first_syllable": "oi",
+  "sources": [
+   "VHHP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2186"
+  ],
+  "pdf_pages": [
+   496
+  ],
+  "fixed": false,
+  "image": "O-18.png"
+ },
+ {
+  "name": "O 19",
+  "anchor": "O-19",
+  "letter": "O",
+  "number": 19,
+  "proverb": "Ổn ển như cô đồng.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "511"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "O 31"
+   }
+  ],
+  "first_syllable": "ổn",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2186"
+  ],
+  "pdf_pages": [
+   496
+  ],
+  "fixed": false,
+  "image": "O-19.png"
+ },
+ {
+  "name": "O 20",
+  "anchor": "O-20",
+  "letter": "O",
+  "number": 20,
+  "proverb": "Ổn ẻn như quan thị.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "227"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "36b"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "35a"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "237"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "365"
+   },
+   {
+    "abbreviation": "VCVN III",
+    "pages": "512"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "511"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Quan thị: Viên quan đã bị hoạn, để được vua chúa tin dùng trong việc hầu hạ nơi cung cấm."
+    }
+   ],
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Chê người có giọng nói nhỏ nhẹ, yếu ớt và ủy mị."
+    }
+   ],
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Cách nói, giọng nói nhỏ nhẹ và uốn éo, không được tự nhiên."
+    }
+   ],
+   [
+    {
+     "text": "Theo VC, đây là giọng nói đàn ông không ra đàn ông mà đàn bà cũng không ra đàn bà."
+    }
+   ],
+   [
+    {
+     "text": "Theo VCVN, quan thị tức quan thị vệ theo hầu và bảo vệ vua. Các quan này ở sát cạnh vua trong cung cấm. Nơi đây có nhiều cung nữ và để tránh quan hệ nam nữ, trai gái có thể xảy ra thì các quan thị đều phải thiến hoạn trước khi được thu nhận. Do đó người ta cũng gọi các quan này là quan hoạn. Vì bị thiến hoạn nên các quan thị thay đổi giới tính: tiếng nói nhỏ nhẹ, dáng điệu nói năng mềm mại, dịu dàng như phụ nữ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ổn",
+  "sources": [
+   "CCM",
+   "NL",
+   "NQPN",
+   "PNTN",
+   "TNPD I",
+   "VC II",
+   "VCVN III",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1914,
+  "book_pages": [
+   "2186"
+  ],
+  "pdf_pages": [
+   496
+  ],
+  "fixed": false,
+  "image": "O-20.png"
+ },
+ {
+  "name": "O 21",
+  "anchor": "O-21",
+  "letter": "O",
+  "number": 21,
+  "proverb": "Ong kiến còn có vua tôi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "227"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ong",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2187"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "O-21.png"
+ },
+ {
+  "name": "O 22",
+  "anchor": "O-22",
+  "letter": "O",
+  "number": 22,
+  "proverb": "Ong kiến còn có vua tôi, huống chi loài người chẳng có nghĩa ru.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "11a"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "238"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "365"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ong kiến còn có vua tôi huống chi loài người."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "47"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Trong các bầy ong, dàn kiến có ong chúa, ong thợ, kiến chúa, kiến thợ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ong",
+  "sources": [
+   "PNTN",
+   "TNPD I",
+   "VC II",
+   "NNCC"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2187"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "O-22.png"
+ },
+ {
+  "name": "O 23",
+  "anchor": "O-23",
+  "letter": "O",
+  "number": 23,
+  "proverb": "Ong làm mật mà không được ăn.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "227"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "566"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Người lao động vất vả mà không được hưởng kết quả làm việc của mình."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ong",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2187"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "O-23.png"
+ },
+ {
+  "name": "O 24",
+  "anchor": "O-24",
+  "letter": "O",
+  "number": 24,
+  "proverb": "Ong làm mật mà không được ăn, yến làm tổ mà không được ở.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "444"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "238"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "366"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ong làm mật không được ăn, yến làm tổ không được ở."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "128"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "141"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "272"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "128"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Yến là chim biển cỡ nhỏ, cùng họ với én, cánh dài và nhọn, làm tổ bằng nước bọt ở vách đá cao. Tổ yến được gọi là yến sào, là món ăn bổ dưỡng đắt tiền. Mật là loại thức ăn dự trữ của ong. Người nuôi ong chỉ chờ đến lúc số mật này nhiều là lấy ra để dùng. Yến làm tổ đến đâu, con người gỡ đến đó."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ong",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "NXK",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2187"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "O-24.png"
+ },
+ {
+  "name": "O 25",
+  "anchor": "O-25",
+  "letter": "O",
+  "number": 25,
+  "proverb": "Ong non ngứa nọc.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "227"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "502"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "512"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Nghĩa giống \"Ngựa non háu đá\"."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ong",
+  "sources": [
+   "NL",
+   "TNCL",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2187"
+  ],
+  "pdf_pages": [
+   497
+  ],
+  "fixed": false,
+  "image": "O-25.png"
+ },
+ {
+  "name": "O 26",
+  "anchor": "O-26",
+  "letter": "O",
+  "number": 26,
+  "proverb": "Ong óc những thóc với rơm.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "31b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ong",
+  "sources": [
+   "NASL III"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2188"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "O-26.png"
+ },
+ {
+  "name": "O 27",
+  "anchor": "O-27",
+  "letter": "O",
+  "number": 27,
+  "proverb": "Ong vò vẽ làm tổ bụi gai, hễ thấp ắt lụt lớn, cao thời nắng to.",
+  "citations": [
+   {
+    "abbreviation": "VHQB",
+    "pages": "291"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ong",
+  "sources": [
+   "VHQB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2188"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "O-27.png"
+ },
+ {
+  "name": "O 28",
+  "anchor": "O-28",
+  "letter": "O",
+  "number": 28,
+  "proverb": "Ỏng bụng muốn trèo cây cao.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "74b"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "196"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "237"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "366"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "512"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ỏng bụng trèo cây cao."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "227"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Ỏng bụng: bụng to một cách không bình thường."
+    }
+   ],
+   [
+    {
+     "text": "Đua đòi làm những việc không phù hợp với mình."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ỏng",
+  "sources": [
+   "ĐNQT",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2188"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "O-28.png"
+ },
+ {
+  "name": "O 29",
+  "anchor": "O-29",
+  "letter": "O",
+  "number": 29,
+  "proverb": "Õng ẹo như đồng cô.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "512"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "O 19",
+    "anchor": "O-19",
+    "preview": "Ổn ển như cô đồng."
+   }
+  ],
+  "first_syllable": "õng",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2188"
+  ],
+  "pdf_pages": [
+   498
+  ],
+  "fixed": false,
+  "image": "O-29.png"
+ }
+]

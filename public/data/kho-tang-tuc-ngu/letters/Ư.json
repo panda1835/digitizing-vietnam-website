@@ -1,0 +1,686 @@
+[
+ {
+  "name": "Ư 1",
+  "anchor": "Ư-1",
+  "letter": "Ư",
+  "number": 1,
+  "proverb": "Ưa ai vo tròn, ghét ai bóp bẹp.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ưa",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2828"
+  ],
+  "pdf_pages": [
+   406
+  ],
+  "fixed": false,
+  "image": "Ư-1.png"
+ },
+ {
+  "name": "Ư 2",
+  "anchor": "Ư-2",
+  "letter": "Ư",
+  "number": 2,
+  "proverb": "Ưa nhau cũng thể nàng dâu mẹ chồng.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "305"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "124"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ưa",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2828"
+  ],
+  "pdf_pages": [
+   406
+  ],
+  "fixed": false,
+  "image": "Ư-2.png"
+ },
+ {
+  "name": "Ư 3",
+  "anchor": "Ư-3",
+  "letter": "Ư",
+  "number": 3,
+  "proverb": "Ước gì được nấy, ước sao được vậy.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "745"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ước",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2828"
+  ],
+  "pdf_pages": [
+   406
+  ],
+  "fixed": false,
+  "image": "Ư-3.png"
+ },
+ {
+  "name": "Ư 4",
+  "anchor": "Ư-4",
+  "letter": "Ư",
+  "number": 4,
+  "proverb": "Ướp dưa phải dằn đá, vãi mạ phải soạn trưa.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "99"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "47, 353"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "314"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "204, 218"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "162"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "746"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Gieo mạ phải soạn trưa, muối dưa phải dằn đá."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN II",
+      "pages": "415"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Muối dưa phải dằn đá, gieo mạ phải soạn trưa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN II",
+      "pages": "415"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Muối dưa phải dằn đá, vãi mạ phải soạn trưa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN II",
+      "pages": "289"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ướp dưa phải dằn đá, gieo mạ phải soạn trưa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN II",
+      "pages": "289"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Sau khi ướp muối phải chặn hòn đá nặng lên trên cho dưa ngập xuống, nước muối làm cho dưa không bị vi sinh vật gây nẫu (khú); khi gieo mạ mùa phải sửa soạn vào buổi trưa, chiều mát gieo xuống, qua đêm mát mẻ mạ chóng bén rễ, tránh được nắng gắt."
+    }
+   ],
+   [
+    {
+     "text": "Theo VCVN, trưa (tiếng miền Trung): ruộng chuyên canh để gieo mạ, Bắc Bộ gọi là \"rược mạ\"."
+    }
+   ],
+   [
+    {
+     "text": "nhóm biên soạn",
+     "general": "Nbs"
+    },
+    {
+     "text": " tán thành VCVN."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "... vải má ... TNPD I ... vãi mạ ...",
+    "sources": [],
+    "right": [],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": " in sai thành \"... vải má ... TNPD I ... vãi mạ ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "ướp",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VCVN II"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2828",
+   "2829"
+  ],
+  "pdf_pages": [
+   406,
+   407
+  ],
+  "fixed": false,
+  "image": "Ư-4.png"
+ },
+ {
+  "name": "Ư 5",
+  "anchor": "Ư-5",
+  "letter": "Ư",
+  "number": 5,
+  "proverb": "Ướt còn, cháy mất.",
+  "citations": [
+   {
+    "abbreviation": "NTB",
+    "pages": "331"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "517"
+   },
+   {
+    "abbreviation": "VNQNĐN I",
+    "pages": "101"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ướt",
+  "sources": [
+   "NTB",
+   "TNCL",
+   "VNQNĐN I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2829"
+  ],
+  "pdf_pages": [
+   407
+  ],
+  "fixed": false,
+  "image": "Ư-5.png"
+ },
+ {
+  "name": "Ư 6",
+  "anchor": "Ư-6",
+  "letter": "Ư",
+  "number": 6,
+  "proverb": "Ướt như chuột lột.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "305"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "314"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "746"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "624"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ướt như chuột "
+     },
+     {
+      "text": "lội",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "624"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ướt như chuột "
+     },
+     {
+      "text": "lụt",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "624"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Chuột lụt: chuột gặp nước lụt. Loài chuột rất sợ nước."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ướt",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2829"
+  ],
+  "pdf_pages": [
+   407
+  ],
+  "fixed": false,
+  "image": "Ư-6.png"
+ },
+ {
+  "name": "Ư 7",
+  "anchor": "Ư-7",
+  "letter": "Ư",
+  "number": 7,
+  "proverb": "Ướt sề còn hơn về không.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "21"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "305"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "33"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "14"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "79"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "64, 577"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "314"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "624"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ướt "
+     },
+     {
+      "text": "dề",
+      "em": true
+     },
+     {
+      "text": " còn hơn về không."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "624"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ướt sề hơn về không."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "37a"
+     },
+     {
+      "abbreviation": "VCVN IV",
+      "pages": "306"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ướt "
+     },
+     {
+      "text": "te",
+      "em": true
+     },
+     {
+      "text": " hơn về không."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "106"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thà ướt sề còn hơn về không."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "341"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "141"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "571"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Cố vớt vát chút đỉnh còn hơn không được gì."
+    }
+   ],
+   [
+    {
+     "text": "Theo VCVN, sề: một loại rổ lớn, rất cứng, đan bằng tre, dùng để đựng những thứ rau cỏ, tôm cá, cũng thường dùng để đi xúc tôm cá."
+    }
+   ],
+   [
+    {
+     "text": "Mình mang sề đi xúc cá tôm thì dù sao cũng xúc thử (cho ướt sề) xem có được gì hay không, chứ đừng cho rằng chỗ đó khó xúc hoặc ít tôm cá mà không làm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ướt",
+  "sources": [
+   "ANTN",
+   "NL",
+   "NNCC",
+   "NNPD",
+   "TNCD",
+   "TNCL",
+   "TNPD I",
+   "VD",
+   "PNTN",
+   "VCVN IV",
+   "CCM",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2829",
+   "2830"
+  ],
+  "pdf_pages": [
+   407,
+   408
+  ],
+  "fixed": false,
+  "image": "Ư-7.png"
+ },
+ {
+  "name": "Ư 8",
+  "anchor": "Ư-8",
+  "letter": "Ư",
+  "number": 8,
+  "proverb": "Ưu đạo bất ưu bần.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "305"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "189"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "314"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "746"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": "
+    },
+    {
+     "text": "nghĩa đen",
+     "general": "Nđ"
+    },
+    {
+     "text": ": Lo việc đạo đức chứ không lo nghèo."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ưu",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2830"
+  ],
+  "pdf_pages": [
+   408
+  ],
+  "fixed": false,
+  "image": "Ư-8.png"
+ },
+ {
+  "name": "Ư 9",
+  "anchor": "Ư-9",
+  "letter": "Ư",
+  "number": 9,
+  "proverb": "Ưu thắng, liệt bại.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "305"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ưu",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2830"
+  ],
+  "pdf_pages": [
+   408
+  ],
+  "fixed": false,
+  "image": "Ư-9.png"
+ }
+]

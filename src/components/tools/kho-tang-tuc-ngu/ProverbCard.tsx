@@ -4,6 +4,11 @@ import { Fragment, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Check, Link2, Scan } from "lucide-react";
 import { Merriweather } from "next/font/google";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Citation, LIST_PATH, ProverbEntry, Run, Sources } from "./data";
 import { SourcePopover } from "./SourcePopover";
 
@@ -96,12 +101,10 @@ export function ProverbCard({
   entry,
   sources,
   onSeeAlso,
-  onOpenImage,
 }: {
   entry: ProverbEntry;
   sources: Sources;
   onSeeAlso: (anchor: string) => void;
-  onOpenImage: (entry: ProverbEntry) => void;
 }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
   const locale = useLocale();
@@ -221,15 +224,24 @@ export function ProverbCard({
             <span>{t("page", { pages: entry.book_pages.join("–") })}</span>
           )}
           <div className="ml-auto flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => onOpenImage(entry)}
-              className={`inline-flex min-h-10 items-center gap-1.5 rounded-md px-2 text-branding-black/75 hover:text-[#956319] hover:bg-branding-brown/5 ${focusClass}`}
-              aria-label={`${t("original-scan")}: ${entry.name}`}
-            >
-              <Scan className="h-4 w-4" aria-hidden />
-              {t("original-scan")}
-            </button>
+            {/* Entry Images are moving to IIIF; until then the button says so. */}
+            <Popover>
+              <PopoverTrigger
+                className={`inline-flex min-h-10 items-center gap-1.5 rounded-md px-2 text-branding-black/75 hover:text-[#956319] hover:bg-branding-brown/5 ${focusClass}`}
+                aria-label={`${t("original-scan")}: ${entry.name}`}
+              >
+                <Scan className="h-4 w-4" aria-hidden />
+                {t("original-scan")}
+              </PopoverTrigger>
+              <PopoverContent
+                side="top"
+                sideOffset={8}
+                collisionPadding={16}
+                className="w-72 max-w-[calc(100vw-32px)] p-4 bg-white border-branding-black/10 rounded-xl shadow-lg text-sm leading-relaxed text-branding-black/75"
+              >
+                {t("no-image")}
+              </PopoverContent>
+            </Popover>
             <button
               type="button"
               onClick={copyLink}

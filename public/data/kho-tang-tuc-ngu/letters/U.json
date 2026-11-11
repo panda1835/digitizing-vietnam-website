@@ -1,0 +1,2334 @@
+[
+ {
+  "name": "U 1",
+  "anchor": "U-1",
+  "letter": "U",
+  "number": 1,
+  "proverb": "U u minh minh, có mình thì giữ",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "262"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "u",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2821"
+  ],
+  "pdf_pages": [
+   399
+  ],
+  "fixed": false,
+  "image": "U-1.png"
+ },
+ {
+  "name": "U 2",
+  "anchor": "U-2",
+  "letter": "U",
+  "number": 2,
+  "proverb": "Ù ì như vịt nghe sấm.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "68a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "33"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "740"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ngẩn ngơ như vịt nghe sấm."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNTB",
+      "pages": "5a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ù cạc như vịt nghe sấm."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "303"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ù ù cạc cạc như con vịt nghe sấm."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "62"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ù ù cạc cạc như vịt nghe sấm."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN IV",
+      "pages": "302"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ù",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "NNCC",
+   "TNPD I",
+   "VC II",
+   "TNTB",
+   "CCM",
+   "VCVN IV"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2821"
+  ],
+  "pdf_pages": [
+   399
+  ],
+  "fixed": false,
+  "image": "U-2.png"
+ },
+ {
+  "name": "U 3",
+  "anchor": "U-3",
+  "letter": "U",
+  "number": 3,
+  "proverb": "Ù ù như hung thần gió,",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "740"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ù",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2821"
+  ],
+  "pdf_pages": [
+   399
+  ],
+  "fixed": false,
+  "image": "U-3.png"
+ },
+ {
+  "name": "U 4",
+  "anchor": "U-4",
+  "letter": "U",
+  "number": 4,
+  "proverb": "Ủ rũ như cò bợ phải trời mưa.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "622"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Cò bợ: cò có cổ và ngực màu nâu thẫm."
+    }
+   ],
+   [
+    {
+     "text": "Dáng vẻ mệt mỏi ỉu xìu, buồn bã, không còn sinh khí gì nữa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ủ",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2821"
+  ],
+  "pdf_pages": [
+   399
+  ],
+  "fixed": false,
+  "image": "U-4.png"
+ },
+ {
+  "name": "U 5",
+  "anchor": "U-5",
+  "letter": "U",
+  "number": 5,
+  "proverb": "Ủ rũ như cò nằm sương.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "68a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ủ",
+  "sources": [
+   "ĐNQT"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2822"
+  ],
+  "pdf_pages": [
+   400
+  ],
+  "fixed": false,
+  "image": "U-5.png"
+ },
+ {
+  "name": "U 6",
+  "anchor": "U-6",
+  "letter": "U",
+  "number": 6,
+  "proverb": "Ủ rũ như diều hâu tháng chạp.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "622"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ủ",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2822"
+  ],
+  "pdf_pages": [
+   400
+  ],
+  "fixed": false,
+  "image": "U-6.png"
+ },
+ {
+  "name": "U 7",
+  "anchor": "U-7",
+  "letter": "U",
+  "number": 7,
+  "proverb": "Ủ rũ như gà phải trời mưa.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "622"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ủ",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2822"
+  ],
+  "pdf_pages": [
+   400
+  ],
+  "fixed": false,
+  "image": "U-7.png"
+ },
+ {
+  "name": "U 8",
+  "anchor": "U-8",
+  "letter": "U",
+  "number": 8,
+  "proverb": "Ủ rũ như gà rù.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "622"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Gà rù: gà bị mắc bệnh dịch."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ủ",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2822"
+  ],
+  "pdf_pages": [
+   400
+  ],
+  "fixed": false,
+  "image": "U-8.png"
+ },
+ {
+  "name": "U 9",
+  "anchor": "U-9",
+  "letter": "U",
+  "number": 9,
+  "proverb": "Ú ử như chó nằm bếp.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ú ứ như chó nằm bếp."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "303"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ừ ử như chó nằm bếp."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "623"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Rên rỉ không ngớt."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ú",
+  "sources": [
+   "TNPD I",
+   "NL",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2822"
+  ],
+  "pdf_pages": [
+   400
+  ],
+  "fixed": false,
+  "image": "U-9.png"
+ },
+ {
+  "name": "U 10",
+  "anchor": "U-10",
+  "letter": "U",
+  "number": 10,
+  "proverb": "Ủn ỉn như lợn ăn khoai.",
+  "citations": [
+   {
+    "abbreviation": "NASL IV",
+    "pages": "53b"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "6b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ủn",
+  "sources": [
+   "NASL IV",
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2822"
+  ],
+  "pdf_pages": [
+   400
+  ],
+  "fixed": false,
+  "image": "U-10.png"
+ },
+ {
+  "name": "U 11",
+  "anchor": "U-11",
+  "letter": "U",
+  "number": 11,
+  "proverb": "Uốn câu sao vừa miệng cá.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "27"
+   },
+   {
+    "abbreviation": "CNGN",
+    "pages": "83"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "172"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uốn câu "
+     },
+     {
+      "text": "không",
+      "em": true
+     },
+     {
+      "text": " vừa miệng cá."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "42b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uốn "
+     },
+     {
+      "text": "lưỡi",
+      "em": true
+     },
+     {
+      "text": " câu sao vừa miệng cá."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "32b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uốn",
+  "sources": [
+   "CCM",
+   "CNGN",
+   "NTP",
+   "NASL IV",
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2822"
+  ],
+  "pdf_pages": [
+   400
+  ],
+  "fixed": false,
+  "image": "U-11.png"
+ },
+ {
+  "name": "U 12",
+  "anchor": "U-12",
+  "letter": "U",
+  "number": 12,
+  "proverb": "Uốn câu vừa miệng cá.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "24"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "576"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uốn câu cho vừa miệng cá."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "19"
+     },
+     {
+      "abbreviation": "TNCD",
+      "pages": "77"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "B 470",
+    "anchor": "B-470",
+    "preview": "Biết đâu uốn câu cho vừa…"
+   }
+  ],
+  "first_syllable": "uốn",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "ANTN",
+   "TNCD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2822",
+   "2823"
+  ],
+  "pdf_pages": [
+   400,
+   401
+  ],
+  "fixed": false,
+  "image": "U-12.png"
+ },
+ {
+  "name": "U 13",
+  "anchor": "U-13",
+  "letter": "U",
+  "number": 13,
+  "proverb": "Uốn cây từ thuở còn non, dạy con từ thuở con còn ngày thơ.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "171"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "307"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "162"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "741"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "425"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uốn cây từ thuở còn non, dạy con từ thuở con còn "
+     },
+     {
+      "text": "thơ ngây",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "303"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uốn cây từ thuở còn non, dạy con từ thuở "
+     },
+     {
+      "text": "hãy còn bé thơ",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "12a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uốn cây từ thuở còn non, dạy con từ thuở "
+     },
+     {
+      "text": "hãy còn ngây thơ",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNLG III",
+      "pages": "15, 100"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uốn",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VNP₁₁",
+   "NL",
+   "PNTN",
+   "TNLG III"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2823"
+  ],
+  "pdf_pages": [
+   401
+  ],
+  "fixed": false,
+  "image": "U-13.png"
+ },
+ {
+  "name": "U 14",
+  "anchor": "U-14",
+  "letter": "U",
+  "number": 14,
+  "proverb": "Uốn như sâu đo.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "10a"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "741"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Sâu đo: sâu di chuyển bằng cách gập cong mình lại rồi duỗi dài ra liên tiếp (giống như người ta đo gang tay)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uốn",
+  "sources": [
+   "NL",
+   "PNTN",
+   "TNPD I",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2823"
+  ],
+  "pdf_pages": [
+   401
+  ],
+  "fixed": false,
+  "image": "U-14.png"
+ },
+ {
+  "name": "U 15",
+  "anchor": "U-15",
+  "letter": "U",
+  "number": 15,
+  "proverb": "Uốn như vòng cung.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "741"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uốn",
+  "sources": [
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2823"
+  ],
+  "pdf_pages": [
+   401
+  ],
+  "fixed": false,
+  "image": "U-15.png"
+ },
+ {
+  "name": "U 16",
+  "anchor": "U-16",
+  "letter": "U",
+  "number": 16,
+  "proverb": "Uổng xích nhi trực tầm.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "83"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "172"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "CNGN",
+     "source": "CNGN"
+    },
+    {
+     "text": ", vay thước mà ngay tầm, nghĩa là vì lợi mà quên nghĩa, người quân tử chẳng vì lợi mà làm điều sai trái."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uổng",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2823"
+  ],
+  "pdf_pages": [
+   401
+  ],
+  "fixed": false,
+  "image": "U-16.png"
+ },
+ {
+  "name": "U 17",
+  "anchor": "U-17",
+  "letter": "U",
+  "number": 17,
+  "proverb": "Uống dấm để đỡ khát.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Muốn thoát khỏi tình trạng khó khăn nhưng lại hành động một cách dại dột."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2823",
+   "2824"
+  ],
+  "pdf_pages": [
+   401,
+   402
+  ],
+  "fixed": false,
+  "image": "U-17.png"
+ },
+ {
+  "name": "U 18",
+  "anchor": "U-18",
+  "letter": "U",
+  "number": 18,
+  "proverb": "Uống máu người không tạnh.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Nói kẻ dã man, tàn ác."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NL",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2824"
+  ],
+  "pdf_pages": [
+   402
+  ],
+  "fixed": false,
+  "image": "U-18.png"
+ },
+ {
+  "name": "U 19",
+  "anchor": "U-19",
+  "letter": "U",
+  "number": 19,
+  "proverb": "Uống như thằn lằn uống nước cúng.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "46"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2824"
+  ],
+  "pdf_pages": [
+   402
+  ],
+  "fixed": false,
+  "image": "U-19.png"
+ },
+ {
+  "name": "U 20",
+  "anchor": "U-20",
+  "letter": "U",
+  "number": 20,
+  "proverb": "Uống nước chè tàu, ăn trầu cơi thiếc.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "100"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "47"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "218"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "162"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "742"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Nước chè tàu, "
+     },
+     {
+      "text": "giàu",
+      "em": true
+     },
+     {
+      "text": " cơi thiếc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "8a"
+     },
+     {
+      "abbreviation": "NL",
+      "pages": "225"
+     },
+     {
+      "abbreviation": "NNCC",
+      "pages": "29"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "212"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Nước chè tàu, "
+     },
+     {
+      "text": "trầu",
+      "em": true
+     },
+     {
+      "text": " cơi thiếc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "100"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Cảnh sống sung túc, lịch sự."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "CCM",
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "NASL IV",
+   "NNCC",
+   "NXK"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2824"
+  ],
+  "pdf_pages": [
+   402
+  ],
+  "fixed": false,
+  "image": "U-20.png"
+ },
+ {
+  "name": "U 21",
+  "anchor": "U-21",
+  "letter": "U",
+  "number": 21,
+  "proverb": "Uống nước dễ quên người đào mạch.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "358"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "742"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước chớ quên người đào mạch."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "326"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "162"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2824"
+  ],
+  "pdf_pages": [
+   402
+  ],
+  "fixed": false,
+  "image": "U-21.png"
+ },
+ {
+  "name": "U 22",
+  "anchor": "U-22",
+  "letter": "U",
+  "number": 22,
+  "proverb": "Uống nước không chừa cặn.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "26"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "577"
+   },
+   {
+    "abbreviation": "TNLG II",
+    "pages": "21, 161"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "742"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước cả cặn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "623"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước chẳng chừa cặn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "147"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước chẳng trừ cặn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "33b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước phải chừa cặn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "623"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Không nên tham lam riết róng quá, phải biết nhường phần cho người khác được hưởng chút lợi lộc."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNLG II",
+   "TNPD I",
+   "VC II",
+   "VD",
+   "NXK",
+   "ĐNQT"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2824",
+   "2825"
+  ],
+  "pdf_pages": [
+   402,
+   403
+  ],
+  "fixed": false,
+  "image": "U-22.png"
+ },
+ {
+  "name": "U 23",
+  "anchor": "U-23",
+  "letter": "U",
+  "number": 23,
+  "proverb": "Uống nước lã cầm hơi.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "47a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "743"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước lã "
+     },
+     {
+      "text": "ngậm",
+      "em": true
+     },
+     {
+      "text": " hơi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "313"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "N 938",
+    "anchor": "N-938",
+    "preview": "Nhịn đói cầm hơi nước lã."
+   }
+  ],
+  "first_syllable": "uống",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "VC II",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2825"
+  ],
+  "pdf_pages": [
+   403
+  ],
+  "fixed": false,
+  "image": "U-23.png"
+ },
+ {
+  "name": "U 24",
+  "anchor": "U-24",
+  "letter": "U",
+  "number": 24,
+  "proverb": "Uống nước, nhớ kẻ đào giếng.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "358"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "325"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "162"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "742"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước nhớ người đào giếng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHSCL",
+      "pages": "208"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2825"
+  ],
+  "pdf_pages": [
+   403
+  ],
+  "fixed": false,
+  "image": "U-24.png"
+ },
+ {
+  "name": "U 25",
+  "anchor": "U-25",
+  "letter": "U",
+  "number": 25,
+  "proverb": "Uống nước nhớ nguồn.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "303"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "55"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "358"
+   },
+   {
+    "abbreviation": "TNLG II",
+    "pages": "21, 161"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "325"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "162"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "MGL",
+   "NL",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNLG II",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2825"
+  ],
+  "pdf_pages": [
+   403
+  ],
+  "fixed": false,
+  "image": "U-25.png"
+ },
+ {
+  "name": "U 26",
+  "anchor": "U-26",
+  "letter": "U",
+  "number": 26,
+  "proverb": "Uống nước sông, nhớ ngọn nguồn.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "31"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước sông, nhớ đến nguồn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "48"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước sông, nhớ "
+     },
+     {
+      "text": "mạch suối",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "304"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "358"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước sông, "
+     },
+     {
+      "text": "trông",
+      "em": true
+     },
+     {
+      "text": " ngọn nguồn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL III",
+      "pages": "4a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống nước sông, "
+     },
+     {
+      "text": "trông nước",
+      "em": true
+     },
+     {
+      "text": " nguồn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL I",
+      "pages": "20b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NNCC",
+   "TNPD I",
+   "CCM",
+   "NL",
+   "TNCL",
+   "NASL III",
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2825"
+  ],
+  "pdf_pages": [
+   403
+  ],
+  "fixed": false,
+  "image": "U-26.png"
+ },
+ {
+  "name": "U 27",
+  "anchor": "U-27",
+  "letter": "U",
+  "number": 27,
+  "proverb": "Uống rượu chẳng say như vạy chẳng trả.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "104"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "39b"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "26a, 42b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống rượu "
+     },
+     {
+      "text": "không",
+      "em": true
+     },
+     {
+      "text": " say như vay "
+     },
+     {
+      "text": "không",
+      "em": true
+     },
+     {
+      "text": " trả."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL III",
+      "pages": "4a"
+     },
+     {
+      "abbreviation": "NNCC",
+      "pages": "44"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "CCM",
+   "NQPN",
+   "PNTN",
+   "NASL III",
+   "NNCC"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1914,
+  "book_pages": [
+   "2825"
+  ],
+  "pdf_pages": [
+   403
+  ],
+  "fixed": false,
+  "image": "U-27.png"
+ },
+ {
+  "name": "U 28",
+  "anchor": "U-28",
+  "letter": "U",
+  "number": 28,
+  "proverb": "Uống rượu li bì, công nợ như Chúa Chổm.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "48"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chúa Chổm tên thật là Lê Duy Ninh, sinh năm 1515, mất năm 1548, được Nguyễn Kim lập làm vua ở Lào và đưa về Thanh Hóa năm 1533. Lúc hàn vi, ông mắc nhiều công nợ (theo Từ điển nhân vật lịch sử Việt Nam (1991) của Nguyễn Q. Thắng và Nguyễn Bá Thế."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2826"
+  ],
+  "pdf_pages": [
+   404
+  ],
+  "fixed": false,
+  "image": "U-28.png"
+ },
+ {
+  "name": "U 29",
+  "anchor": "U-29",
+  "letter": "U",
+  "number": 29,
+  "proverb": "Uống rượu ngồi dai.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "11"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống rượu nói dai."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "105"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NNCC",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2826"
+  ],
+  "pdf_pages": [
+   404
+  ],
+  "fixed": false,
+  "image": "U-29.png"
+ },
+ {
+  "name": "U 30",
+  "anchor": "U-30",
+  "letter": "U",
+  "number": 30,
+  "proverb": "Uống rượu ngồi dai, dái mài xuống đất.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "43"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống rượu nói dai, dái mài xuống đất."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL I",
+      "pages": "2a"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NNCC",
+   "TNPD I",
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2826"
+  ],
+  "pdf_pages": [
+   404
+  ],
+  "fixed": false,
+  "image": "U-30.png"
+ },
+ {
+  "name": "U 31",
+  "anchor": "U-31",
+  "letter": "U",
+  "number": 31,
+  "proverb": "Uống rượu ngồi trên, lên thuyền ngồi đầu.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "623"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Vị trí của người được tôn trọng kính nể (theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2826"
+  ],
+  "pdf_pages": [
+   404
+  ],
+  "fixed": false,
+  "image": "U-31.png"
+ },
+ {
+  "name": "U 32",
+  "anchor": "U-32",
+  "letter": "U",
+  "number": 32,
+  "proverb": "Uống rượu như hũ chìm.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "83"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "173"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2826"
+  ],
+  "pdf_pages": [
+   404
+  ],
+  "fixed": false,
+  "image": "U-32.png"
+ },
+ {
+  "name": "U 33",
+  "anchor": "U-33",
+  "letter": "U",
+  "number": 33,
+  "proverb": "Uống rượu thịt chó, xem nôm Thuý Kiều.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "12a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NASL III"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2826"
+  ],
+  "pdf_pages": [
+   404
+  ],
+  "fixed": false,
+  "image": "U-33.png"
+ },
+ {
+  "name": "U 34",
+  "anchor": "U-34",
+  "letter": "U",
+  "number": 34,
+  "proverb": "Uống chè tàu, ngồi trường kỉ.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "31"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống chè tàu, ngồi "
+     },
+     {
+      "text": "tràng",
+      "em": true
+     },
+     {
+      "text": " kỉ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "100"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Uống "
+     },
+     {
+      "text": "nước",
+      "em": true
+     },
+     {
+      "text": " chè, ngồi "
+     },
+     {
+      "text": "ghế",
+      "em": true
+     },
+     {
+      "text": " trường kỉ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "313"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uống",
+  "sources": [
+   "NNCC",
+   "NXK",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2826",
+   "2827"
+  ],
+  "pdf_pages": [
+   404,
+   405
+  ],
+  "fixed": false,
+  "image": "U-34.png"
+ },
+ {
+  "name": "U 35",
+  "anchor": "U-35",
+  "letter": "U",
+  "number": 35,
+  "proverb": "Úp sóng đồng Dòng, vật cong cầu Đá.",
+  "citations": [
+   {
+    "abbreviation": "VHLĐ",
+    "pages": "330"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở huyện Thanh Liêm, tỉnh Hà Nam. Theo "
+    },
+    {
+     "text": "VHLĐ",
+     "source": "VHLĐ"
+    },
+    {
+     "text": ", đồng Dòng là cánh đồng rất sâu và rộng, ở phía đông bắc Liễu Đôi, xưa thường có sóng lớn, nhiều thuyền và người đã bị nhận chìm ở đây; cầu Đá tức cầu Kênh, xây bằng đá xanh phiến lớn, ở đồng làng Sấu; cầu này vẫn còn."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "úp",
+  "sources": [
+   "VHLĐ"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2827"
+  ],
+  "pdf_pages": [
+   405
+  ],
+  "fixed": false,
+  "image": "U-35.png"
+ },
+ {
+  "name": "U 36",
+  "anchor": "U-36",
+  "letter": "U",
+  "number": 36,
+  "proverb": "Uy vũ bất năng khuất.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "304"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Không chịu khuất phục trước sức mạnh (của kẻ khác)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uy",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2827"
+  ],
+  "pdf_pages": [
+   405
+  ],
+  "fixed": false,
+  "image": "U-36.png"
+ },
+ {
+  "name": "U 37",
+  "anchor": "U-37",
+  "letter": "U",
+  "number": 37,
+  "proverb": "Uý thủ, uý vĩ, thân kì dư kỉ.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "313"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Sợ đầu, sợ đuôi, còn thừa phần thân thì đến lượt mình."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uý",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2827"
+  ],
+  "pdf_pages": [
+   405
+  ],
+  "fixed": false,
+  "image": "U-37.png"
+ },
+ {
+  "name": "U 38",
+  "anchor": "U-38",
+  "letter": "U",
+  "number": 38,
+  "proverb": "Uý trọng cầu khinh.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "22"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "312"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "744"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Sợ việc nặng, tìm việc nhẹ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "uý",
+  "sources": [
+   "NNCC",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2827"
+  ],
+  "pdf_pages": [
+   405
+  ],
+  "fixed": false,
+  "image": "U-38.png"
+ }
+]

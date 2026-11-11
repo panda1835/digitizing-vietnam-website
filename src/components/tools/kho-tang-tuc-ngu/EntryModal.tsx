@@ -12,6 +12,9 @@ import {
 import { ProverbCard } from "./ProverbCard";
 import { ProverbEntry, Sources, findEntry } from "./data";
 
+const focusClass =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown";
+
 /**
  * One Proverb Entry shown over the list, for a See-also or a #anchor deep
  * link. `stack` holds the anchors followed so far; the last is shown, and a
@@ -23,16 +26,12 @@ export function EntryModal({
   onPush,
   onBack,
   onClose,
-  onOpenImage,
-  lightboxOpen,
 }: {
   stack: string[];
   sources: Sources;
   onPush: (anchor: string) => void;
   onBack: () => void;
   onClose: () => void;
-  onOpenImage: (entry: ProverbEntry) => void;
-  lightboxOpen: boolean;
 }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
   const anchor = stack[stack.length - 1];
@@ -55,17 +54,15 @@ export function EntryModal({
   return (
     <Dialog open={stack.length > 0} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
-        // The lightbox sits outside the dialog; using it must not close the dialog.
-        onInteractOutside={(e) => lightboxOpen && e.preventDefault()}
-        onEscapeKeyDown={(e) => lightboxOpen && e.preventDefault()}
         // The default × would sit under the sticky header; the header has its own.
         className="max-w-none w-full h-[100dvh] md:h-auto md:max-h-[90vh] md:w-[min(1100px,calc(100vw-48px))] p-0 gap-0 bg-branding-gray border-0 md:rounded-2xl overflow-y-auto flex flex-col [&>button:last-child]:hidden"
       >
         <div className="sticky top-0 z-10 flex items-center gap-3 px-4 md:px-6 py-3 bg-branding-gray/95 backdrop-blur border-b border-branding-brown/10">
           {stack.length > 1 && (
             <button
+              type="button"
               onClick={onBack}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#956319] hover:text-branding-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown"
+              className={`inline-flex items-center gap-1.5 text-sm font-medium text-[#956319] hover:text-branding-black ${focusClass}`}
             >
               <ArrowLeft className="h-4 w-4" />
               {t("back")}
@@ -76,7 +73,7 @@ export function EntryModal({
           </DialogTitle>
           <DialogClose
             aria-label={t("close")}
-            className="ml-auto p-2 rounded-lg text-branding-black/60 hover:text-branding-black hover:bg-branding-black/5"
+            className={`ml-auto flex h-10 w-10 items-center justify-center rounded-md text-branding-black/60 hover:text-[#956319] hover:bg-branding-brown/5 ${focusClass}`}
           >
             <X className="h-5 w-5" />
           </DialogClose>
@@ -99,7 +96,6 @@ export function EntryModal({
               entry={entry}
               sources={sources}
               onSeeAlso={onPush}
-              onOpenImage={onOpenImage}
             />
           )}
         </div>

@@ -49,6 +49,7 @@ export default async function KhoTangTucNguPage({
         <div className="mt-8 w-full">
           <IntroContent
             enterLabel={t("Tools.ca-dao-tuc-ngu.kho-tang.enter-list")}
+            enterTopicsLabel={t("Tools.ca-dao-tuc-ngu.kho-tang.enter-topics")}
             tocLabel={t("Tools.ca-dao-tuc-ngu.kho-tang.toc")}
             progressLabel={t("Tools.ca-dao-tuc-ngu.kho-tang.progress", {
               parts: EXPORTED_PARTS,

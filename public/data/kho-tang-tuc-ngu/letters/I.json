@@ -1,0 +1,1234 @@
+[
+ {
+  "name": "I 1",
+  "anchor": "I-1",
+  "letter": "I",
+  "number": 1,
+  "proverb": "Ỉa đồng một bãi bằng vạn đại Quận công.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "132"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "92"
+   },
+   {
+    "abbreviation": "VNP₂ II",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "472"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ỉa đầy một bãi, bằng vạn đại Quận công."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "92"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ỉa",
+  "sources": [
+   "NXK",
+   "TMT",
+   "VNP₂ II",
+   "VNP₁₁",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1391"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "I-1.png"
+ },
+ {
+  "name": "I 2",
+  "anchor": "I-2",
+  "letter": "I",
+  "number": 2,
+  "proverb": "Ích Duệ làm sao, Đồng Giao làm vậy.",
+  "citations": [
+   {
+    "abbreviation": "PNHNN",
+    "pages": "28"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Ninh Bình. Theo "
+    },
+    {
+     "text": "PNHNN",
+     "source": "PNHNN"
+    },
+    {
+     "text": " 28, 103, làng Ích Duệ thuộc xã Ninh Nhất, huyện Hoa Lư; Đồng Giao xưa kia là nơi ma thiêng nước độc, nay là một nông trường lớn, thuộc thị xã Tam Điệp. Xưa, làng Ích Duệ có nhiều người di cư tới làm ăn, khai phá Đồng Giao, vì vậy tập tục ở hai nơi này giống nhau."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ích",
+  "sources": [
+   "PNHNN"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1391"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "I-2.png"
+ },
+ {
+  "name": "I 3",
+  "anchor": "I-3",
+  "letter": "I",
+  "number": 3,
+  "proverb": "Ích kỉ hại nhân.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "47b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "137"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "23"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "144"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "229"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "148"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "333"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "679"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ích kỉ hại nhơn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "38"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ích",
+  "sources": [
+   "NASL III",
+   "NL",
+   "NNCC",
+   "NTP",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "VC I",
+   "CNGN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "1391"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "I-3.png"
+ },
+ {
+  "name": "I 4",
+  "anchor": "I-4",
+  "letter": "I",
+  "number": 4,
+  "proverb": "Im ỉm như bà cốt uống thuốc.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "99"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "137"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "136"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "148"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "386"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Bà cốt: người đàn bà làm nghề đồng bóng."
+    }
+   ],
+   [
+    {
+     "text": "Bà cốt lấy việc thánh nhập vào để trị bệnh cho thiên hạ, nay lại phải uống thuốc trị bệnh của mình thì phải lặng lẽ không để ai biết."
+    }
+   ],
+   [
+    {
+     "text": "Che giấu cái dở, cái xấu của mình (mà vốn thường vẫn khoe khoang là hay là tốt)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "im",
+  "sources": [
+   "CCM",
+   "NL",
+   "NXK",
+   "TNPD I",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "1391",
+   "1392"
+  ],
+  "pdf_pages": [
+   531,
+   532
+  ],
+  "fixed": false,
+  "image": "I-4.png"
+ },
+ {
+  "name": "I 5",
+  "anchor": "I-5",
+  "letter": "I",
+  "number": 5,
+  "proverb": "Im ỉm như gái ngồi phải cọc.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "137"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "148"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "679"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "386"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Gái ngồi phải cọc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "8"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Nín thít như gái ngồi phải cọc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "216"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "499"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Tẩm ngẩm đĩ ngồi phải cọc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL III",
+      "pages": "43b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Tẩm ngẩm như gái ngồi phải cọc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "56a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Tẩn ngẩn như gái ngồi phải cọc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "114"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thin thít như gái ngồi phải cọc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "584"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Người đã trót vô ý vô tứ rồi thì đành im lặng cho đỡ xấu mặt."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "im",
+  "sources": [
+   "NL",
+   "NNCC",
+   "TNPD I",
+   "VC I",
+   "VD",
+   "NASL III",
+   "ĐNQT",
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "1392"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "I-5.png"
+ },
+ {
+  "name": "I 6",
+  "anchor": "I-6",
+  "letter": "I",
+  "number": 6,
+  "proverb": "Im ỉm như mèo ăn vụng.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "679"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "im",
+  "sources": [
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1392"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "I-6.png"
+ },
+ {
+  "name": "I 7",
+  "anchor": "I-7",
+  "letter": "I",
+  "number": 7,
+  "proverb": "Im lặng là vàng.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "679"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "im",
+  "sources": [
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1392"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "I-7.png"
+ },
+ {
+  "name": "I 8",
+  "anchor": "I-8",
+  "letter": "I",
+  "number": 8,
+  "proverb": "Im lặng như tờ.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "680"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "386"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "im",
+  "sources": [
+   "VC I",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1392"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "I-8.png"
+ },
+ {
+  "name": "I 9",
+  "anchor": "I-9",
+  "letter": "I",
+  "number": 9,
+  "proverb": "Im như hến.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "680"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "im",
+  "sources": [
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1392"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "I-9.png"
+ },
+ {
+  "name": "I 10",
+  "anchor": "I-10",
+  "letter": "I",
+  "number": 10,
+  "proverb": "Im như thóc.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "680"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "386"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Im như thóc "
+     },
+     {
+      "text": "đổ bồ",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "137"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Im như thóc "
+     },
+     {
+      "text": "trong bồ",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "386"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "C 330",
+    "anchor": "C-330",
+    "preview": "Câm như thóc trầm ba mùa."
+   }
+  ],
+  "first_syllable": "im",
+  "sources": [
+   "VC I",
+   "VD",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1393"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "I-10.png"
+ },
+ {
+  "name": "I 11",
+  "anchor": "I-11",
+  "letter": "I",
+  "number": 11,
+  "proverb": "Ít ăn, ít mặc, ít lo, ít làm.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "137"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "548"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1393"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "I-11.png"
+ },
+ {
+  "name": "I 12",
+  "anchor": "I-12",
+  "letter": "I",
+  "number": 12,
+  "proverb": "Ít bột không nặn nhiều bánh.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "137"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "548"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "148"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "386"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ít bột không nặn được nhiều bánh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC I",
+      "pages": "681"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ít bột sao cho nhiều bánh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "39"
+     },
+     {
+      "abbreviation": "NTP",
+      "pages": "144"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Khả năng ít đừng bày ra nhiều (theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "VD",
+   "VC I",
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "1393"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "I-12.png"
+ },
+ {
+  "name": "I 13",
+  "anchor": "I-13",
+  "letter": "I",
+  "number": 13,
+  "proverb": "Ít bột vẫn gột nên hồ.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "681"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1393"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "I-13.png"
+ },
+ {
+  "name": "I 14",
+  "anchor": "I-14",
+  "letter": "I",
+  "number": 14,
+  "proverb": "Ít chất chiu hơn nhiều phung phí.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "137"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "386"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ít chất chiu hơn nhiều vung phí."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "HT",
+      "pages": "74"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "339"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "87"
+     },
+     {
+      "abbreviation": "VHSCL",
+      "pages": "172"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "NL",
+   "VD",
+   "HT",
+   "TNVN",
+   "TTVH",
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1393"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "I-14.png"
+ },
+ {
+  "name": "I 15",
+  "anchor": "I-15",
+  "letter": "I",
+  "number": 15,
+  "proverb": "Ít còn hơn không.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "681"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1393"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "I-15.png"
+ },
+ {
+  "name": "I 16",
+  "anchor": "I-16",
+  "letter": "I",
+  "number": 16,
+  "proverb": "Ít ngài dài đũa.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "137"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "4"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "148"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "681"
+   },
+   {
+    "abbreviation": "VCVN II",
+    "pages": "495"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "386"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Càng ít người thì mỗi người càng được hưởng nhiều hơn."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "NL",
+   "NNPD",
+   "TNPD I",
+   "VC I",
+   "VCVN II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "1393",
+   "1394"
+  ],
+  "pdf_pages": [
+   533,
+   534
+  ],
+  "fixed": false,
+  "image": "I-16.png"
+ },
+ {
+  "name": "I 17",
+  "anchor": "I-17",
+  "letter": "I",
+  "number": 17,
+  "proverb": "Ít thầy đầy đẫy.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "4"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "137"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "4"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "144"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "174"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "148"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "87"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "377"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "681"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ít thầy dày đẫy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "386"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ít thầy dày nải."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "8a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ít thầy đầy dẫy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "36"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ít thầy đầy đãy."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CNGN",
+      "pages": "39"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ít thầy đầy đĩa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCD",
+      "pages": "66"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Thầy: thầy cúng, thầy bói; đẫy: tay đẫy, tay nải, túi vải có quai đeo, dùng đựng đồ mang đi đường."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Càng ít người càng tốt vì được hưởng phần nhiều."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "ANTN",
+   "NL",
+   "NNPD",
+   "NTP",
+   "NXK",
+   "TNPD I",
+   "TTVH",
+   "TNVN",
+   "VC I",
+   "VD",
+   "NASL IV",
+   "TNCL",
+   "CNGN",
+   "TNCD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "1394"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "I-17.png"
+ },
+ {
+  "name": "I 18",
+  "anchor": "I-18",
+  "letter": "I",
+  "number": 18,
+  "proverb": "Ít thầy đầy đẫy, nhiều thầy chia bảy chia ba.",
+  "citations": [
+   {
+    "abbreviation": "NTB",
+    "pages": "329"
+   },
+   {
+    "abbreviation": "VHNB",
+    "pages": "20"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "NTB",
+   "VHNB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1394"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "I-18.png"
+ },
+ {
+  "name": "I 19",
+  "anchor": "I-19",
+  "letter": "I",
+  "number": 19,
+  "proverb": "Ít tuổi đã chơi trèo.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "54"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ít",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1394"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "I-19.png"
+ }
+]

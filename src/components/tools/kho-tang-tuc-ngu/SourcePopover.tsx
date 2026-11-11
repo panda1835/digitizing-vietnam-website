@@ -48,49 +48,47 @@ export function SourcePopover({
   };
 
   return (
-    <>
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger
-          onPointerEnter={hoverOpen}
-          onPointerLeave={hoverClose}
-          className={`${
-            subtle
-              ? "font-normal text-branding-black/65 decoration-branding-black/30"
-              : "font-medium text-[#956319] decoration-branding-brown/50"
-          } underline decoration-dotted underline-offset-[3px] hover:decoration-solid hover:text-[#956319] focus:outline-none focus-visible:ring-2 focus-visible:ring-branding-brown/40 rounded-sm`}
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger
+        onPointerEnter={hoverOpen}
+        onPointerLeave={hoverClose}
+        className={`${
+          subtle
+            ? "font-normal text-branding-black/65 decoration-branding-black/30"
+            : "font-medium text-[#956319] decoration-branding-brown/50"
+        } underline decoration-dotted underline-offset-[3px] hover:decoration-solid hover:text-[#956319] focus:outline-none focus-visible:ring-2 focus-visible:ring-branding-brown/40 rounded-sm`}
+      >
+        {abbreviation}
+      </PopoverTrigger>
+      <PopoverContent
+        onPointerEnter={hoverOpen}
+        onPointerLeave={hoverClose}
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        aria-labelledby={titleId}
+        sideOffset={8}
+        collisionPadding={16}
+        className="w-96 max-w-[calc(100vw-32px)] max-h-[min(80dvh,var(--radix-popover-content-available-height))] overflow-y-auto overscroll-contain p-5 bg-white border-branding-black/10 rounded-xl shadow-lg text-branding-black"
+      >
+        <h3
+          id={titleId}
+          className={`${merriweather.className} text-base leading-relaxed break-words`}
         >
-          {abbreviation}
-        </PopoverTrigger>
-        <PopoverContent
-          onPointerEnter={hoverOpen}
-          onPointerLeave={hoverClose}
-          onOpenAutoFocus={(e) => e.preventDefault()}
-          aria-labelledby={titleId}
-          sideOffset={8}
-          collisionPadding={16}
-          className="w-96 max-w-[calc(100vw-32px)] max-h-[min(80dvh,var(--radix-popover-content-available-height))] overflow-y-auto overscroll-contain p-5 bg-white border-branding-black/10 rounded-xl shadow-lg text-branding-black"
-        >
-          <h3
-            id={titleId}
-            className={`${merriweather.className} text-base leading-relaxed break-words`}
-          >
-            {source.title}
-          </h3>
-          {(source.author || source.year) && (
-            <p className="mt-2 text-sm leading-relaxed text-branding-black/65">
-              {[source.author, source.year].filter(Boolean).join(", ")}
-            </p>
-          )}
-          <div className="mt-4 border-t border-branding-black/10 pt-3">
-            <p className="text-sm leading-relaxed text-branding-black/75 whitespace-pre-line break-words">
-              {source.note}
-            </p>
-          </div>
-          <p className="mt-4 text-xs leading-relaxed text-branding-black/65">
-            {source.abbreviation} · {source.kind}
+          {source.title}
+        </h3>
+        {(source.author || source.year) && (
+          <p className="mt-2 text-sm leading-relaxed text-branding-black/65">
+            {[source.author, source.year].filter(Boolean).join(", ")}
           </p>
-        </PopoverContent>
-      </Popover>
-    </>
+        )}
+        <div className="mt-4 border-t border-branding-black/10 pt-3">
+          <p className="text-sm leading-relaxed text-branding-black/75 whitespace-pre-line break-words">
+            {source.note}
+          </p>
+        </div>
+        <p className="mt-4 text-xs leading-relaxed text-branding-black/65">
+          {source.abbreviation} · {source.kind}
+        </p>
+      </PopoverContent>
+    </Popover>
   );
 }
