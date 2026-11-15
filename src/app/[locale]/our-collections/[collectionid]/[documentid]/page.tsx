@@ -28,6 +28,7 @@ import HundredVietMuongWordsTable from "./ngu-am-tieng-muong/100-tu-tieng-viet-m
 import TuVungTiengMuongTable from "./ngu-am-tieng-muong/tu-vung-tieng-muong-30-tho-ngu/TuVungTiengMuongTable";
 import NotFound from "@/components/common/NotFoundContent";
 import PhilippheBinh from "./searchable-text/the-han-nom-catholic-prayer-philipphe-binh/PhilippheBinh";
+import StreetCries from "./street-cries/StreetCries";
 import BookReader from "./searchable-text/book-reader/BookReader";
 
 const merriweather = Merriweather({ weight: "300", subsets: ["vietnamese"] });
@@ -226,8 +227,11 @@ const CollectionItemViewer = async ({
         </div>
 
         {/* Content */}
-        {collectionId === "luc-van-tien" &&
-        documentId === "van-tien-co-tich-tan-truyen" ? (
+        {collectionId === "vietnam-sound" &&
+        documentId === "street-cries-vietnam" ? (
+          <StreetCries locale={locale} />
+        ) : collectionId === "luc-van-tien" &&
+          documentId === "van-tien-co-tich-tan-truyen" ? (
           <LucVanTienText
             title={collectionItemData.title}
             locale={locale}

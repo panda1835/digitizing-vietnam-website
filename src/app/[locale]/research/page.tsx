@@ -28,11 +28,9 @@ const ResearchPage = async ({ params: { locale } }) => {
       href: "/research/han-nom",
     },
     {
-      name: t("ResearchHub.hubs.vietnam-war.title"),
-      description: t("ResearchHub.hubs.vietnam-war.description"),
-      href: "/research/vietnam-war",
-      ctaText: locale === "vi" ? "(Sắp ra mắt)" : "(Coming soon)",
-      ctaIsLink: false,
+      name: t("ResearchHub.hubs.ca-dao.title"),
+      description: t("ResearchHub.hubs.ca-dao.description"),
+      href: "/research/ca-dao-tuc-ngu",
     },
     {
       name: t("ResearchHub.hubs.linguistics.title"),
@@ -57,7 +55,7 @@ const ResearchPage = async ({ params: { locale } }) => {
           <h2 className="text-[28px] text-branding-black font-['Helvetica Neue']">
             {t("ResearchHub.hubs-title")}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {researchHubs.map((hub) => (
               <div key={hub.name}>
                 <InfoCard
@@ -66,6 +64,7 @@ const ResearchPage = async ({ params: { locale } }) => {
                   url={hub.href}
                   ctaText={hub.ctaText}
                   ctaIsLink={hub.ctaIsLink}
+                  variant="resource"
                 />
               </div>
             ))}
@@ -79,7 +78,7 @@ const ResearchPage = async ({ params: { locale } }) => {
           <p className="font-['Helvetica Neue'] font-light text-base text-branding-black mt-4">
             {t("ResearchHub.tools-section.description")}
           </p>
-          <MainToolsGrid />
+          <MainToolsGrid cardVariant="resource" />
         </section>
       </div>
     </div>

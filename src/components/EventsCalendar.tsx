@@ -4,6 +4,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Download, MapPin } from "lucide-react";
 import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
+import EventSubmissionForm from "@/components/EventSubmissionForm";
 import { Badge } from "@/components/ui/badge";
 import {
   Select,
@@ -501,6 +502,9 @@ export default function EventsCalendar({
             })}
           </div>
         </div>
+      </div>
+      <div className="mt-12">
+        <EventSubmissionForm locale={locale} />
       </div>
     </section>
   );

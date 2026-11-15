@@ -9,7 +9,11 @@ interface MainTool {
   target?: "_blank";
 }
 
-export async function MainToolsGrid() {
+export async function MainToolsGrid({
+  cardVariant = "default",
+}: {
+  cardVariant?: "default" | "resource";
+} = {}) {
   const t = await getTranslations();
 
   const tools: MainTool[] = [
@@ -47,7 +51,7 @@ export async function MainToolsGrid() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${cardVariant === "resource" ? "gap-8" : "gap-6"} mt-10`}>
       {tools.map((tool) => (
         <div key={tool.name}>
           <InfoCard
@@ -55,6 +59,7 @@ export async function MainToolsGrid() {
             description={tool.description}
             url={tool.href}
             newTab={tool.target === "_blank"}
+            variant={cardVariant}
           />
         </div>
       ))}
