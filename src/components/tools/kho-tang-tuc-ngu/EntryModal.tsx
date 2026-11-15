@@ -26,12 +26,16 @@ export function EntryModal({
   onPush,
   onBack,
   onClose,
+  onOpenImage,
+  lightboxOpen,
 }: {
   stack: string[];
   sources: Sources;
   onPush: (anchor: string) => void;
   onBack: () => void;
   onClose: () => void;
+  onOpenImage: (entry: ProverbEntry) => void;
+  lightboxOpen: boolean;
 }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
   const anchor = stack[stack.length - 1];
@@ -54,6 +58,9 @@ export function EntryModal({
   return (
     <Dialog open={stack.length > 0} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
+        // The lightbox sits outside the dialog; using it must not close the dialog.
+        onInteractOutside={(e) => lightboxOpen && e.preventDefault()}
+        onEscapeKeyDown={(e) => lightboxOpen && e.preventDefault()}
         // The default × would sit under the sticky header; the header has its own.
         className="max-w-none w-full h-[100dvh] md:h-auto md:max-h-[90vh] md:w-[min(1100px,calc(100vw-48px))] p-0 gap-0 bg-branding-gray border-0 md:rounded-2xl overflow-y-auto flex flex-col [&>button:last-child]:hidden"
       >
@@ -96,6 +103,7 @@ export function EntryModal({
               entry={entry}
               sources={sources}
               onSeeAlso={onPush}
+              onOpenImage={onOpenImage}
             />
           )}
         </div>

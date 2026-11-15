@@ -9,6 +9,21 @@ const DATA_BASE = "/data/kho-tang-tuc-ngu";
 export const INTRO_PATH = "/research/ca-dao-tuc-ngu/kho-tang-tuc-ngu";
 export const LIST_PATH = `${INTRO_PATH}/tra-cuu`;
 
+const ENTRY_IMAGE_BASE =
+  "https://iiif.digitizingvietnam.com/iiif/2/kho-tang-tuc-ngu-viet-nam-entry-split";
+
+/**
+ * The IIIF URL of an Entry Image. On IIIF the number is padded to 4 digits
+ * ("B-1.png" -> "B-0001.png") and the letter is stored decomposed (NFD), so
+ * "Ă" is "A" + combining breve.
+ */
+export function entryImageUrl(image: string): string {
+  const file = image
+    .replace(/-(\d+)/, (_, n: string) => `-${n.padStart(4, "0")}`)
+    .normalize("NFD");
+  return `${ENTRY_IMAGE_BASE}/${encodeURIComponent(file)}/full/full/0/default.jpg`;
+}
+
 /** The 29 letters of the book, in its order. */
 export const ALPHABET = [
   "A",
@@ -109,7 +124,7 @@ export interface ProverbEntry {
   book_pages: string[];
   pdf_pages: number[];
   fixed: boolean;
-  /** The Entry Image's file name; the images await their move to IIIF. */
+  /** The Entry Image's file name in the export, e.g. "B-1.png"; see entryImageUrl. */
   image: string;
 }
 

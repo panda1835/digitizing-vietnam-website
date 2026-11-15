@@ -8,6 +8,7 @@ import MiniSearch from "minisearch";
 import { Merriweather } from "next/font/google";
 import { Link } from "@/i18n/routing";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { ScanLightbox } from "@/components/common/ScanLightbox";
 import { ProverbCard } from "./ProverbCard";
 import { EntryModal } from "./EntryModal";
 import {
@@ -20,6 +21,7 @@ import {
   Sources,
   TOTAL_PARTS,
   TieuChuDe,
+  entryImageUrl,
   fetchAllLetters,
   fetchLetter,
   fetchSources,
@@ -151,6 +153,7 @@ export function TraCuuContent() {
   const [searchLoading, setSearchLoading] = useState(false);
 
   const [modalStack, setModalStack] = useState<string[]>([]);
+  const [lightboxEntry, setLightboxEntry] = useState<ProverbEntry | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
@@ -318,6 +321,7 @@ export function TraCuuContent() {
     (anchor: string) => setModalStack([anchor]),
     []
   );
+  const closeLightbox = useCallback(() => setLightboxEntry(null), []);
 
   const chips: { key: string; label: string; remove: () => void }[] = [];
   if (filters.topic)
@@ -515,6 +519,7 @@ export function TraCuuContent() {
               entry={entry}
               sources={sources}
               onSeeAlso={openModal}
+              onOpenImage={setLightboxEntry}
             />
           ))}
 
@@ -544,7 +549,18 @@ export function TraCuuContent() {
         onPush={pushModal}
         onBack={() => setModalStack((s) => s.slice(0, -1))}
         onClose={() => setModalStack([])}
+        onOpenImage={setLightboxEntry}
+        lightboxOpen={lightboxEntry !== null}
       />
+
+      {lightboxEntry && (
+        <ScanLightbox
+          src={entryImageUrl(lightboxEntry.image)}
+          alt={lightboxEntry.name}
+          errorText={t("no-image")}
+          onClose={closeLightbox}
+        />
+      )}
     </div>
   );
 }

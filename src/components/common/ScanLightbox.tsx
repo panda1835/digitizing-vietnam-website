@@ -1,18 +1,28 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { Loader2 } from "lucide-react";
 
 // Full-screen view of one scan, with wheel/pinch zoom and drag-to-pan,
 // matching templates/wiki.html. Closes on Escape or the × button.
+// A spinner shows until the image loads, since IIIF can be slow;
+// `errorText` replaces it if the image fails.
 export function ScanLightbox({
   src,
   alt,
+  errorText = "Could not load the image.",
   onClose,
 }: {
   src: string;
   alt: string;
+  errorText?: string;
   onClose: () => void;
 }) {
+  // Keyed by src, so a new image starts loading again without an effect.
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const loaded = loadedSrc === src;
+  const failed = failedSrc === src;
   const [scale, setScale] = useState(1);
   const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -97,10 +107,28 @@ export function ScanLightbox({
         ref={containerRef}
         className="w-[calc(100vw-20px)] h-[calc(100vh-20px)] overflow-hidden rounded-lg bg-white p-2 shadow-2xl flex items-center justify-center relative"
       >
+        {!loaded && !failed && (
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            role="status"
+            aria-label="Loading image"
+          >
+            <Loader2 className="animate-spin h-10 w-10 text-branding-brown" />
+          </div>
+        )}
+        {failed && (
+          <p className="absolute inset-0 flex items-center justify-center p-6 text-center text-sm text-branding-black/65">
+            {errorText}
+          </p>
+        )}
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-contain transition-transform duration-100 ease-out select-none"
+          onLoad={() => setLoadedSrc(src)}
+          onError={() => setFailedSrc(src)}
+          className={`w-full h-full object-contain transition-transform duration-100 ease-out select-none ${
+            loaded ? "" : "invisible"
+          }`}
           style={{
             transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${scale})`,
             transformOrigin: "center center",
