@@ -487,8 +487,9 @@
         "title": "Treasury of Vietnamese Proverbs",
         "intro-subtitle": "The book's introduction, list of abbreviations and editorial notes, to read before you look up the proverbs. The book's text is in Vietnamese.",
         "list-title": "Look up proverbs",
-        "list-subtitle": "Look up proverbs by letter and source, with printed page images for comparison. The book's text is in Vietnamese.",
+        "list-subtitle": "Look up proverbs by letter or by topic. The book's text is in Vietnamese.",
         "enter-list": "Start searching",
+        "enter-alphabet": "Look up alphabetically",
         "enter-topics": "Look up by topic",
         "back-to-intro": "Read the introduction",
         "toc": "Contents",
@@ -502,6 +503,10 @@
         "filters": "Filters",
         "clear-all": "Clear all",
         "topic": "Topic",
+        "all-topics": "All topics",
+        "topic-search": "Search topics...",
+        "topic-empty": "No matching topics",
+        "clear-topic": "Clear topic",
         "not-in-topic": "No proverbs in this topic",
         "letter": "Letter",
         "source": "Source",
@@ -523,7 +528,9 @@
         "close": "Close",
         "not-found": "Proverb {name} not found.",
         "read-more": "Read more",
-        "correction": "Correction"
+        "correction": "Correction",
+        "clear-search": "Clear search",
+        "remove-filter": "Remove filter"
       }
     }
   },

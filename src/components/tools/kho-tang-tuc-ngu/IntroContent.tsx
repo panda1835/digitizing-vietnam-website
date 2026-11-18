@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Merriweather } from "next/font/google";
 import { Link } from "@/i18n/routing";
 import { LIST_PATH, foldDiacritics, sourceNoteId } from "./data";
@@ -25,8 +25,22 @@ const TITLE_PAGE = "Trang tên sách";
 const BOOK_CONTENTS = "Mục lục";
 // The empty heading where the book's Proverb Entries begin.
 const PROVERBS_START = "Hệ thống tục ngữ người Việt";
+// Shown in place of the Back Matter's printed # heading.
+const BACK_MATTER_TITLE = "THƯ MỤC VỀ TỤC NGỮ";
 // The Back Matter heading over the Topic Index's title page.
 const TOPIC_INDEX_START = "Hệ thống tra cứu theo chủ đề";
+// Not in the book: a heading set beside the Topic Index's, so the two ways
+// into the list close the Front Matter, ahead of the Back Matter.
+const ALPHABET_INDEX_START = "Hệ thống tra cứu theo bảng chữ cái";
+// The Back Matter section shown on the page but left out of the contents: the
+// Topic Index's preface.
+const UNLISTED_SECTIONS = ["Lời dẫn"];
+// The notes on the compilers are listed, but not each compiler's name.
+const COMPILERS_SECTION = "Vài nét về các soạn giả";
+// The Front Matter section whose subsections fold away in the contents.
+const COLLAPSED_SECTION = "Phàm lệ biên soạn";
+// The abbreviation tables' bare numerals (I, II) stay out of the contents.
+const ROMAN_NUMERAL = /^[IVX]+$/;
 // The transcriber's notes in back-matter.md, each on one line.
 const COMMENT = /<!--.*?-->/g;
 
@@ -75,10 +89,17 @@ function readIntro(): Intro {
     }
   }
 
-  // The Back Matter follows, under its own # heading, so a reader can tell
-  // where the book ends. Lines are kept one for one, to match `headings`.
-  body.push("");
+  // The two lookup headings, then the Back Matter under its own # heading,
+  // so a reader can tell where the book ends.
+  body.push("", `## ${ALPHABET_INDEX_START}`, "", `## ${TOPIC_INDEX_START}`, "");
   for (const line of fs.readFileSync(BACK_MATTER_FILE, "utf8").split("\n")) {
+    if (line.startsWith("# ")) {
+      body.push(`# ${BACK_MATTER_TITLE}`);
+      continue;
+    }
+    if (line.startsWith("## ") && plain(line.slice(3)) === TOPIC_INDEX_START) {
+      continue;
+    }
     body.push(line.replace(COMMENT, "").trimEnd());
   }
 
@@ -106,17 +127,36 @@ function readIntro(): Intro {
 
 export function IntroContent({
   enterLabel,
+  enterAlphabetLabel,
   enterTopicsLabel,
   tocLabel,
   progressLabel,
 }: {
   enterLabel: string;
+  enterAlphabetLabel: string;
   enterTopicsLabel: string;
   tocLabel: string;
   progressLabel: string;
 }) {
   const intro = readIntro();
-  const toc = Array.from(intro.headings.values()).filter((h) => h.depth <= 3);
+  // Second-level headings, each with the third-level headings under it.
+  const toc: { heading: Heading; children: Heading[] }[] = [];
+  let unlisted = false;
+  let compilers = false;
+  for (const h of Array.from(intro.headings.values())) {
+    if (h.depth === 2) {
+      unlisted = UNLISTED_SECTIONS.some((s) => h.text.startsWith(s));
+      compilers = h.text.startsWith(COMPILERS_SECTION);
+      if (!unlisted) toc.push({ heading: h, children: [] });
+    } else if (
+      h.depth === 3 &&
+      !unlisted &&
+      !compilers &&
+      !ROMAN_NUMERAL.test(h.text)
+    ) {
+      toc[toc.length - 1]?.children.push(h);
+    }
+  }
 
   const heading = (depth: number, className: string) =>
     function IntroHeading({ line, children }: MarkdownProps) {
@@ -130,6 +170,9 @@ export function IntroContent({
           {h?.depth === 2 && h.text.startsWith(PROVERBS_START) && (
             <EnterButton label={enterLabel} />
           )}
+          {h?.depth === 2 && h.text === ALPHABET_INDEX_START && (
+            <EnterButton label={enterAlphabetLabel} />
+          )}
           {h?.depth === 2 && h.text === TOPIC_INDEX_START && (
             <EnterButton label={enterTopicsLabel} />
           )}
@@ -138,22 +181,17 @@ export function IntroContent({
     };
 
   const components: Components = {
-    // Only the Back Matter has one: the list's entrance closes the Front
-    // Matter, then a rule marks where the end of the book begins.
+    // Only the Back Matter has one: a rule marks where the end of the book
+    // begins.
     h1: function BackMatterHeading({ line, children }: MarkdownProps) {
       const h = intro.headings.get(line);
       return (
-        <>
-          <div className="mt-10">
-            <EnterButton label={enterLabel} />
-          </div>
-          <h1
-            id={h?.id}
-            className={`${merriweather.className} scroll-mt-28 mt-10 border-t-2 border-branding-brown/30 pt-10 text-center text-2xl sm:text-3xl text-branding-black leading-relaxed mb-4`}
-          >
-            {children}
-          </h1>
-        </>
+        <h1
+          id={h?.id}
+          className={`${merriweather.className} scroll-mt-28 mt-12 border-t-2 border-branding-brown/30 pt-10 text-center text-2xl sm:text-3xl text-branding-black leading-relaxed mb-4`}
+        >
+          {children}
+        </h1>
       );
     },
     h2: heading(
@@ -235,25 +273,46 @@ export function IntroContent({
               {tocLabel}
             </h2>
             <ul className="mt-4 space-y-1 text-sm">
-              {toc.map((h) => (
+              {toc.map(({ heading: h, children }) => (
                 <li
                   key={h.id}
                   className={
-                    h.depth === 1
+                    h.text === ALPHABET_INDEX_START
                       ? "mt-3 border-t border-branding-black/10 pt-3"
-                      : h.depth === 3
-                      ? "pl-3"
                       : ""
                   }
                 >
-                  <a
-                    href={`#${h.id}`}
-                    className={`${
-                      h.depth === 1 ? "font-medium" : ""
-                    } rounded-md px-2 py-2 text-branding-black/75 hover:bg-branding-brown/5 hover:text-[#956319] leading-relaxed block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown`}
-                  >
-                    {h.text}
-                  </a>
+                  {h.text === COLLAPSED_SECTION && children.length > 0 ? (
+                    <details className="group">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-2 rounded-md px-2 py-2 text-branding-black/75 hover:bg-branding-brown/5 hover:text-[#956319] leading-relaxed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown [&::-webkit-details-marker]:hidden">
+                        {h.text}
+                        <ChevronDown
+                          className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180"
+                          aria-hidden
+                        />
+                      </summary>
+                      <ul className="space-y-1">
+                        {children.map((c) => (
+                          <li key={c.id} className="pl-3">
+                            <TocLink heading={c} />
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  ) : (
+                    <>
+                      <TocLink heading={h} />
+                      {children.length > 0 && (
+                        <ul className="space-y-1">
+                          {children.map((c) => (
+                            <li key={c.id} className="pl-3">
+                              <TocLink heading={c} />
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  )}
                 </li>
               ))}
             </ul>
@@ -281,6 +340,17 @@ export function IntroContent({
         </article>
       </div>
     </div>
+  );
+}
+
+function TocLink({ heading }: { heading: Heading }) {
+  return (
+    <a
+      href={`#${heading.id}`}
+      className="rounded-md px-2 py-2 text-branding-black/75 hover:bg-branding-brown/5 hover:text-[#956319] leading-relaxed block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown"
+    >
+      {heading.text}
+    </a>
   );
 }
 

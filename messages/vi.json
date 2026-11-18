@@ -488,8 +488,9 @@
         "title": "Kho tàng Tục ngữ Người Việt",
         "intro-subtitle": "Lời giới thiệu, bảng chữ tắt và phàm lệ biên soạn của bộ sách, trước khi bạn tra cứu các câu tục ngữ.",
         "list-title": "Tra cứu tục ngữ",
-        "list-subtitle": "Tra cứu các câu tục ngữ theo chữ cái và nguồn, kèm ảnh bản in để đối chiếu.",
+        "list-subtitle": "Tra cứu tục ngữ theo chữ cái hoặc theo chủ đề.",
         "enter-list": "Vào tra cứu",
+        "enter-alphabet": "Tra cứu theo bảng chữ cái",
         "enter-topics": "Tra cứu theo chủ đề",
         "back-to-intro": "Đọc lời giới thiệu",
         "toc": "Mục lục",
@@ -503,6 +504,10 @@
         "filters": "Bộ lọc",
         "clear-all": "Xoá tất cả",
         "topic": "Chủ đề",
+        "all-topics": "Tất cả chủ đề",
+        "topic-search": "Tìm chủ đề...",
+        "topic-empty": "Không có chủ đề phù hợp",
+        "clear-topic": "Bỏ chọn chủ đề",
         "not-in-topic": "Không có câu nào thuộc chủ đề này",
         "letter": "Chữ cái",
         "source": "Nguồn",
@@ -524,7 +529,9 @@
         "close": "Đóng",
         "not-found": "Không tìm thấy câu {name}.",
         "read-more": "Xem thêm",
-        "correction": "Sửa lại"
+        "correction": "Sửa lại",
+        "clear-search": "Xoá từ khoá",
+        "remove-filter": "Bỏ bộ lọc"
       }
     }
   },

@@ -56,7 +56,7 @@ export function SourcePopover({
           subtle
             ? "font-normal text-branding-black/65 decoration-branding-black/30"
             : "font-medium text-[#956319] decoration-branding-brown/50"
-        } underline decoration-dotted underline-offset-[3px] hover:decoration-solid hover:text-[#956319] focus:outline-none focus-visible:ring-2 focus-visible:ring-branding-brown/40 rounded-sm`}
+        } underline decoration-dotted underline-offset-[3px] hover:decoration-solid hover:text-[#956319] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown rounded-sm`}
       >
         {abbreviation}
       </PopoverTrigger>

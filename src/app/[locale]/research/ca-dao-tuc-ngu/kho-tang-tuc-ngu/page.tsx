@@ -30,7 +30,7 @@ export default async function KhoTangTucNguPage({
   const t = await getTranslations();
 
   return (
-    <div className="flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main className="flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="w-full mb-20">
         <PageHeader
           title={t("Tools.ca-dao-tuc-ngu.kho-tang.title")}
@@ -49,6 +49,9 @@ export default async function KhoTangTucNguPage({
         <div className="mt-8 w-full">
           <IntroContent
             enterLabel={t("Tools.ca-dao-tuc-ngu.kho-tang.enter-list")}
+            enterAlphabetLabel={t(
+              "Tools.ca-dao-tuc-ngu.kho-tang.enter-alphabet"
+            )}
             enterTopicsLabel={t("Tools.ca-dao-tuc-ngu.kho-tang.enter-topics")}
             tocLabel={t("Tools.ca-dao-tuc-ngu.kho-tang.toc")}
             progressLabel={t("Tools.ca-dao-tuc-ngu.kho-tang.progress", {
@@ -61,6 +64,6 @@ export default async function KhoTangTucNguPage({
           />
         </div>
       </div>
-    </div>
+    </main>
   );
 }

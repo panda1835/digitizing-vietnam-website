@@ -69,9 +69,9 @@ export function EntryModal({
             <button
               type="button"
               onClick={onBack}
-              className={`inline-flex items-center gap-1.5 text-sm font-medium text-[#956319] hover:text-branding-black ${focusClass}`}
+              className={`inline-flex min-h-10 items-center gap-1.5 text-sm font-medium text-[#805516] hover:text-branding-black ${focusClass}`}
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" aria-hidden />
               {t("back")}
             </button>
           )}
@@ -82,14 +82,18 @@ export function EntryModal({
             aria-label={t("close")}
             className={`ml-auto flex h-10 w-10 items-center justify-center rounded-md text-branding-black/60 hover:text-[#956319] hover:bg-branding-brown/5 ${focusClass}`}
           >
-            <X className="h-5 w-5" />
+            <X className="h-5 w-5" aria-hidden />
           </DialogClose>
         </div>
 
         <div className="p-4 md:p-6">
           {entry === undefined && (
-            <div className="flex items-center justify-center py-20">
-              <Loader2 className="animate-spin h-8 w-8 text-branding-brown" />
+            <div role="status" className="flex items-center justify-center py-20">
+              <Loader2
+                className="animate-spin h-8 w-8 text-branding-brown"
+                aria-hidden
+              />
+              <span className="sr-only">{t("loading")}</span>
             </div>
           )}
           {entry === null && (

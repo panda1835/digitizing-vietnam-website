@@ -243,6 +243,10 @@ export function ProverbCard({
                 <Link2 className="h-4 w-4" aria-hidden />
               )}
             </button>
+            {/* Announces the copy, since the button's new label is not read out. */}
+            <span role="status" className="sr-only">
+              {copied ? t("copied") : ""}
+            </span>
           </div>
         </div>
       </footer>

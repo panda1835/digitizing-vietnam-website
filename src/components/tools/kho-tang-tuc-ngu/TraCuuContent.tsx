@@ -11,6 +11,7 @@ import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { ScanLightbox } from "@/components/common/ScanLightbox";
 import { ProverbCard } from "./ProverbCard";
 import { EntryModal } from "./EntryModal";
+import { TopicPicker } from "./TopicPicker";
 import {
   ALPHABET,
   AVAILABLE_LETTERS,
@@ -385,7 +386,7 @@ export function TraCuuContent() {
         </span>
         <Link
           href={INTRO_PATH}
-          className={`font-medium text-[#956319] underline underline-offset-2 hover:text-branding-black ${focusClass}`}
+          className={`font-medium text-[#805516] underline underline-offset-2 hover:text-branding-black ${focusClass}`}
         >
           {t("back-to-intro")}
         </Link>
@@ -410,7 +411,10 @@ export function TraCuuContent() {
             />
             <div className="absolute right-4 flex items-center gap-2">
               {searchLoading && (
-                <Loader2 className="animate-spin h-5 w-5 text-branding-brown" />
+                <Loader2
+                  className="animate-spin h-5 w-5 text-branding-brown"
+                  aria-hidden
+                />
               )}
               {queryInput ? (
                 <button
@@ -420,12 +424,12 @@ export function TraCuuContent() {
                     setFilters({ query: "" });
                   }}
                   className={`flex h-10 w-10 items-center justify-center rounded-md text-branding-black/60 hover:text-[#956319] ${focusClass}`}
-                  aria-label={t("clear-all")}
+                  aria-label={t("clear-search")}
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-5 w-5" aria-hidden />
                 </button>
               ) : (
-                <Search className="text-branding-black/60 h-5 w-5" />
+                <Search className="text-branding-black/60 h-5 w-5" aria-hidden />
               )}
             </div>
           </div>
@@ -436,7 +440,7 @@ export function TraCuuContent() {
             onClick={() => setDrawerOpen(true)}
             className={`lg:hidden self-start inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-branding-black/20 rounded-lg text-sm font-medium text-branding-black hover:bg-branding-brown/5 ${focusClass}`}
           >
-            <SlidersHorizontal className="h-4 w-4 text-branding-brown" />
+            <SlidersHorizontal className="h-4 w-4 text-branding-brown" aria-hidden />
             {t("filters")}
             {chips.length > 0 && ` (${chips.length})`}
           </button>
@@ -474,8 +478,9 @@ export function TraCuuContent() {
                 onClick={chip.remove}
                 className={`inline-flex items-center gap-1 pl-3 pr-2 py-1.5 rounded-md bg-branding-brown/10 text-[#805516] hover:bg-branding-brown/20 ${focusClass}`}
               >
+                <span className="sr-only">{t("remove-filter")}: </span>
                 {chip.label}
-                <X className="h-3.5 w-3.5" />
+                <X className="h-3.5 w-3.5" aria-hidden />
               </button>
             ))}
             {chips.length > 0 && (
@@ -505,8 +510,14 @@ export function TraCuuContent() {
           )}
 
           {loading && (
-            <div className="flex flex-col items-center justify-center py-20 w-full">
-              <Loader2 className="animate-spin h-10 w-10 text-branding-brown mb-2" />
+            <div
+              role="status"
+              className="flex flex-col items-center justify-center py-20 w-full"
+            >
+              <Loader2
+                className="animate-spin h-10 w-10 text-branding-brown mb-2"
+                aria-hidden
+              />
               <span className="text-sm text-branding-black/65">
                 {t("loading")}
               </span>
@@ -615,62 +626,6 @@ function FilterPanel({
 
   return (
     <div className="flex flex-col gap-7">
-      {topics.length > 0 && (
-        <section>
-          <FacetHeading>{t("topic")}</FacetHeading>
-          <div className="max-h-80 overflow-y-auto flex flex-col gap-1">
-            {topics.map((chuDe) => (
-              <details
-                key={chuDe.id}
-                open={chuDe.subtopics.some((s) => s.id === filters.topic)}
-                className="group"
-              >
-                <summary
-                  className={`flex cursor-pointer items-start gap-2 rounded-md px-1.5 py-2 text-xs font-medium leading-relaxed text-branding-black hover:bg-branding-brown/5 ${focusClass}`}
-                >
-                  <span className="shrink-0">{chuDe.id}.</span>
-                  <span>{chuDe.title}</span>
-                </summary>
-                <div className="flex flex-col gap-0.5 pb-2 pl-3">
-                  {chuDe.subtopics.map((tieuChuDe) => {
-                    const active = filters.topic === tieuChuDe.id;
-                    return (
-                      <button
-                        type="button"
-                        key={tieuChuDe.id}
-                        aria-pressed={active}
-                        onClick={() =>
-                          setFilters({
-                            topic: active ? "" : tieuChuDe.id,
-                            letter: "",
-                          })
-                        }
-                        className={`flex items-start gap-2 rounded-md px-1.5 py-2 text-left text-sm leading-relaxed ${focusClass} ${
-                          active
-                            ? "bg-[#956319] text-white"
-                            : "text-branding-black/75 hover:bg-branding-brown/5 hover:text-[#956319]"
-                        }`}
-                      >
-                        <span className="flex-1 min-w-0">
-                          {tieuChuDe.number}. {tieuChuDe.title}
-                        </span>
-                        <span
-                          className={`text-xs mt-0.5 tabular-nums ${
-                            active ? "text-white/80" : "text-branding-black/65"
-                          }`}
-                        >
-                          {tieuChuDe.entries.length}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </details>
-            ))}
-          </div>
-        </section>
-      )}
-
       <section>
         <FacetHeading>{t("letter")}</FacetHeading>
         <div
@@ -716,6 +671,17 @@ function FilterPanel({
           })}
         </div>
       </section>
+
+      {topics.length > 0 && (
+        <section>
+          <FacetHeading>{t("topic")}</FacetHeading>
+          <TopicPicker
+            topics={topics}
+            selected={topic}
+            onSelect={(id) => setFilters({ topic: id, letter: "" })}
+          />
+        </section>
+      )}
 
       <section>
         <FacetHeading>{t("source")}</FacetHeading>
