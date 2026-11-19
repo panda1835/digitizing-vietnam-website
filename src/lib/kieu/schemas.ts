@@ -93,7 +93,9 @@ export const nomVariantsSchema = z
   );
 export type NomVariantsInput = z.infer<typeof nomVariantsSchema>;
 
-export const researchRequestSchema = z.discriminatedUnion("operation", [
+// This schema is also sent as a model tool parameter. Use anyOf-compatible
+// unions; the literal operation fields preserve unambiguous validation.
+export const researchRequestSchema = z.union([
   z.object({ operation: z.literal("editions") }).strict(),
   z
     .object({

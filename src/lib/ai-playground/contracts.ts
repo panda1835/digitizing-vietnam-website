@@ -216,7 +216,11 @@ export type PlaygroundEvent =
       updateKind?: "patch" | "replace";
     }
   | ({ type: "discussion" } & DiscussionResponse)
-  | { type: "error"; code: string };
+  | {
+      type: "error";
+      code: string;
+      providerError?: { status?: number; code: string; parameter: string };
+    };
 
 export function extractHtml(value: string): string | null {
   const start = value.search(/<!doctype\s+html\b|<html\b/i);

@@ -11,7 +11,9 @@ const sort = z
   })
   .strict()
   .nullable();
-export const reportBlockSchema = z.discriminatedUnion("type", [
+// OpenAI structured outputs accepts anyOf, while Zod discriminated unions emit
+// oneOf. Literal type fields still make these variants mutually exclusive.
+export const reportBlockSchema = z.union([
   z
     .object({
       type: z.literal("section"),

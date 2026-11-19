@@ -18,6 +18,7 @@ import { createResearchRunner } from "@/lib/ai-playground/agent";
 import { researchRequestSchema } from "@/lib/kieu/schemas";
 import { executeResearch } from "@/lib/kieu/research";
 import { getModelCatalog } from "@/lib/ai-playground/catalog";
+import { providerErrorDetails } from "@/lib/ai-playground/provider-error";
 import { createAnthropic } from "@ai-sdk/anthropic";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createXai } from "@ai-sdk/xai";
@@ -378,6 +379,7 @@ export async function POST(request: Request) {
             : mode === "build" && !html && error instanceof WebsiteUpdateError
             ? "incomplete"
             : errorCode(error),
+          providerError: providerErrorDetails(error),
         });
       } finally {
         cleanup();
