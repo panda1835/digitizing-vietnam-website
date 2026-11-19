@@ -1,10 +1,19 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Check, Link2, Scan } from "lucide-react";
 import { Merriweather } from "next/font/google";
-import { Citation, LIST_PATH, ProverbEntry, Run, Sources } from "./data";
+import {
+  Citation,
+  citesVc,
+  fetchTuDienMatches,
+  LIST_PATH,
+  ProverbEntry,
+  Run,
+  Sources,
+  TuDienMatch,
+} from "./data";
 import { SourcePopover } from "./SourcePopover";
 
 const focusClass =
@@ -96,16 +105,35 @@ export function ProverbCard({
   entry,
   sources,
   onSeeAlso,
+  onTuDien,
   onOpenImage,
 }: {
   entry: ProverbEntry;
   sources: Sources;
   onSeeAlso: (anchor: string) => void;
+  onTuDien: (match: TuDienMatch) => void;
   onOpenImage: (entry: ProverbEntry) => void;
 }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.kho-tang");
   const locale = useLocale();
   const [copied, setCopied] = useState(false);
+  const [tuDienMatches, setTuDienMatches] = useState<TuDienMatch[]>([]);
+
+  // Only an entry citing VC can have a Từ điển Match, so only it downloads them.
+  useEffect(() => {
+    setTuDienMatches([]);
+    if (!citesVc(entry)) return;
+    let cancelled = false;
+    fetchTuDienMatches()
+      .then((matches) => {
+        if (!cancelled) setTuDienMatches(matches[entry.anchor] ?? []);
+      })
+      // Without the matches the card simply shows no links.
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [entry]);
 
   const copyLink = async () => {
     const url = `${window.location.origin}/${locale}${LIST_PATH}#${entry.anchor}`;
@@ -213,6 +241,18 @@ export function ProverbCard({
             <Citations citations={entry.citations} sources={sources} />
           </div>
         )}
+        {tuDienMatches.map((match) => (
+          <button
+            key={match.id}
+            type="button"
+            onClick={() => onTuDien(match)}
+            className={`mt-1 self-start text-left text-sm text-[#956319] underline underline-offset-2 hover:text-branding-black ${focusClass}`}
+          >
+            {match.kind === "approximate"
+              ? t("tu-dien-link-approximate")
+              : t("tu-dien-link")}
+          </button>
+        ))}
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-branding-black/65">
           <span>
             {entry.letter}.{entry.number}

@@ -91,7 +91,13 @@ function readIntro(): Intro {
 
   // The two lookup headings, then the Back Matter under its own # heading,
   // so a reader can tell where the book ends.
-  body.push("", `## ${ALPHABET_INDEX_START}`, "", `## ${TOPIC_INDEX_START}`, "");
+  body.push(
+    "",
+    `## ${ALPHABET_INDEX_START}`,
+    "",
+    `## ${TOPIC_INDEX_START}`,
+    ""
+  );
   for (const line of fs.readFileSync(BACK_MATTER_FILE, "utf8").split("\n")) {
     if (line.startsWith("# ")) {
       body.push(`# ${BACK_MATTER_TITLE}`);
@@ -256,53 +262,48 @@ export function IntroContent({
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <EnterButton label={enterLabel} />
+        <div className="lg:hidden">
+          <EnterButton label={enterLabel} />
+        </div>
         <p className="text-sm leading-relaxed text-branding-black/65">
           {progressLabel}
         </p>
       </div>
       <div className="flex flex-col lg:flex-row gap-6 xl:gap-8 items-start">
-        <nav
-          aria-label={tocLabel}
-          className="w-full lg:w-64 flex-shrink-0 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto"
-        >
-          <div className="bg-white/70 rounded-xl border border-branding-black/10 p-5">
-            <h2
-              className={`${merriweather.className} text-base text-branding-black`}
-            >
-              {tocLabel}
-            </h2>
-            <ul className="mt-4 space-y-1 text-sm">
-              {toc.map(({ heading: h, children }) => (
-                <li
-                  key={h.id}
-                  className={
-                    h.text === ALPHABET_INDEX_START
-                      ? "mt-3 border-t border-branding-black/10 pt-3"
-                      : ""
-                  }
-                >
-                  {h.text === COLLAPSED_SECTION && children.length > 0 ? (
-                    <details className="group">
-                      <summary className="flex cursor-pointer list-none items-center justify-between gap-2 rounded-md px-2 py-2 text-branding-black/75 hover:bg-branding-brown/5 hover:text-[#956319] leading-relaxed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown [&::-webkit-details-marker]:hidden">
-                        {h.text}
-                        <ChevronDown
-                          className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180"
-                          aria-hidden
-                        />
-                      </summary>
-                      <ul className="space-y-1">
-                        {children.map((c) => (
-                          <li key={c.id} className="pl-3">
-                            <TocLink heading={c} />
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  ) : (
-                    <>
-                      <TocLink heading={h} />
-                      {children.length > 0 && (
+        {/* On desktop the enter button rides along with the sticky TOC. */}
+        <div className="w-full lg:w-64 flex-shrink-0 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:flex lg:flex-col lg:gap-4">
+          <div className="hidden lg:block flex-shrink-0">
+            <EnterButton label={enterLabel} />
+          </div>
+          <nav
+            aria-label={tocLabel}
+            className="w-full lg:min-h-0 lg:overflow-y-auto"
+          >
+            <div className="bg-white/70 rounded-xl border border-branding-black/10 p-5">
+              <h2
+                className={`${merriweather.className} text-base text-branding-black`}
+              >
+                {tocLabel}
+              </h2>
+              <ul className="mt-4 space-y-1 text-sm">
+                {toc.map(({ heading: h, children }) => (
+                  <li
+                    key={h.id}
+                    className={
+                      h.text === ALPHABET_INDEX_START
+                        ? "mt-3 border-t border-branding-black/10 pt-3"
+                        : ""
+                    }
+                  >
+                    {h.text === COLLAPSED_SECTION && children.length > 0 ? (
+                      <details className="group">
+                        <summary className="flex cursor-pointer list-none items-center justify-between gap-2 rounded-md px-2 py-2 text-branding-black/75 hover:bg-branding-brown/5 hover:text-[#956319] leading-relaxed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-branding-brown [&::-webkit-details-marker]:hidden">
+                          {h.text}
+                          <ChevronDown
+                            className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180"
+                            aria-hidden
+                          />
+                        </summary>
                         <ul className="space-y-1">
                           {children.map((c) => (
                             <li key={c.id} className="pl-3">
@@ -310,14 +311,27 @@ export function IntroContent({
                             </li>
                           ))}
                         </ul>
-                      )}
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
+                      </details>
+                    ) : (
+                      <>
+                        <TocLink heading={h} />
+                        {children.length > 0 && (
+                          <ul className="space-y-1">
+                            {children.map((c) => (
+                              <li key={c.id} className="pl-3">
+                                <TocLink heading={c} />
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+        </div>
 
         <article className="w-full flex-1 min-w-0 bg-white/90 rounded-xl border border-branding-black/10 p-5 sm:p-8">
           <div className="max-w-prose mx-auto [&>h2:first-child]:mt-0">

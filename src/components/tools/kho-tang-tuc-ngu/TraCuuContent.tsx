@@ -10,7 +10,8 @@ import { Link } from "@/i18n/routing";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { ScanLightbox } from "@/components/common/ScanLightbox";
 import { ProverbCard } from "./ProverbCard";
-import { EntryModal } from "./EntryModal";
+import { EntryModal, ModalItem, topAnchor } from "./EntryModal";
+import { tuDienScanUrl } from "@/components/tools/ca-dao-tuc-ngu/TuDienEntryCard";
 import { TopicPicker } from "./TopicPicker";
 import {
   ALPHABET,
@@ -42,11 +43,13 @@ const SEARCH_DEBOUNCE_MS = 250;
 const FLAGS = ["notes", "variants", "correction"] as const;
 type Flag = typeof FLAGS[number];
 const ANCHOR_HASH = /^#(.+-\d+)$/;
+/** The `letter` that browses every letter, saved as `l=all`. */
+const ALL_LETTERS = "all";
 
 /**
  * Everything the reader has chosen, as kept in the URL query. With a
  * Tiểu chủ đề chosen the list spans every letter, so `letter` is optional
- * ("" for all); without one, the list is always one letter.
+ * ("" for all); without one, the list is one letter or ALL_LETTERS.
  */
 interface Filters {
   topic: string;
@@ -65,6 +68,8 @@ function parseFilters(params: URLSearchParams): Filters {
       ? letter
       : topic
       ? ""
+      : letter === ALL_LETTERS
+      ? ALL_LETTERS
       : AVAILABLE_LETTERS[0],
     query: params.get("q") ?? "",
     sources: (params.get("src") ?? "").split(",").filter(Boolean),
@@ -153,8 +158,13 @@ export function TraCuuContent() {
   } | null>(null);
   const [searchLoading, setSearchLoading] = useState(false);
 
-  const [modalStack, setModalStack] = useState<string[]>([]);
-  const [lightboxEntry, setLightboxEntry] = useState<ProverbEntry | null>(null);
+  const [modalStack, setModalStack] = useState<ModalItem[]>([]);
+  // A Proverb Entry's page image, or a Từ điển Entry's scan from the modal.
+  const [lightbox, setLightbox] = useState<{
+    src: string;
+    alt: string;
+    errorText: string;
+  } | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
@@ -201,7 +211,11 @@ export function TraCuuContent() {
     if (filters.topic || !filters.letter) return;
     let cancelled = false;
     setLetterEntries(null);
-    fetchLetter(filters.letter)
+    // Browsing every letter downloads the whole book, like a first search.
+    (filters.letter === ALL_LETTERS
+      ? fetchAllLetters()
+      : fetchLetter(filters.letter)
+    )
       .then((entries) => !cancelled && setLetterEntries(entries))
       .catch(() => !cancelled && setLoadError(true));
     return () => {
@@ -261,9 +275,10 @@ export function TraCuuContent() {
     return () => window.removeEventListener("hashchange", openFromHash);
   }, []);
 
-  // The hash follows the entry shown in the modal, so its URL can be shared.
+  // The hash follows the Proverb Entry shown in the modal, or the one a
+  // shown Từ điển Entry was followed from, so its URL can be shared.
   useEffect(() => {
-    const top = modalStack[modalStack.length - 1];
+    const top = topAnchor(modalStack);
     const url = `${window.location.pathname}${window.location.search}${
       top ? `#${top}` : ""
     }`;
@@ -274,9 +289,9 @@ export function TraCuuContent() {
     setVisibleCount(PAGE_SIZE);
   }, [filters]);
 
-  // Searching spans every letter; browsing is one letter. A Tiểu chủ đề
-  // spans every letter too, in book order even when searched, and the
-  // letter, if chosen, narrows it.
+  // Searching spans every letter; browsing is one letter, or every letter
+  // in book order. A Tiểu chủ đề spans every letter too, in book order even
+  // when searched, and the letter, if chosen, narrows it.
   const baseEntries = useMemo(() => {
     const searched = filters.query
       ? search?.ms
@@ -315,14 +330,32 @@ export function TraCuuContent() {
   }, [baseEntries, filters.sources]);
 
   const pushModal = useCallback(
-    (anchor: string) => setModalStack((s) => [...s, anchor]),
+    (item: ModalItem) => setModalStack((s) => [...s, item]),
     []
   );
   const openModal = useCallback(
-    (anchor: string) => setModalStack([anchor]),
+    (item: ModalItem) => setModalStack([item]),
     []
   );
-  const closeLightbox = useCallback(() => setLightboxEntry(null), []);
+  const openEntryImage = useCallback(
+    (entry: ProverbEntry) =>
+      setLightbox({
+        src: entryImageUrl(entry.image),
+        alt: entry.name,
+        errorText: t("no-image"),
+      }),
+    [t]
+  );
+  const openTuDienScan = useCallback(
+    (id: string) =>
+      setLightbox({
+        src: tuDienScanUrl(id),
+        alt: t("tu-dien-scan"),
+        errorText: t("tu-dien-no-scan"),
+      }),
+    [t]
+  );
+  const closeLightbox = useCallback(() => setLightbox(null), []);
 
   const chips: { key: string; label: string; remove: () => void }[] = [];
   if (filters.topic)
@@ -466,7 +499,11 @@ export function TraCuuContent() {
             {results && (
               <span className="font-semibold text-branding-black mr-1">
                 {filters.letter && (filters.topic || !filters.query)
-                  ? `${filters.letter} · `
+                  ? `${
+                      filters.letter === ALL_LETTERS
+                        ? t("all-letters")
+                        : filters.letter
+                    } · `
                   : ""}
                 {t("count", { count: results.length.toLocaleString(locale) })}
               </span>
@@ -530,7 +567,8 @@ export function TraCuuContent() {
               entry={entry}
               sources={sources}
               onSeeAlso={openModal}
-              onOpenImage={setLightboxEntry}
+              onTuDien={openModal}
+              onOpenImage={openEntryImage}
             />
           ))}
 
@@ -560,15 +598,16 @@ export function TraCuuContent() {
         onPush={pushModal}
         onBack={() => setModalStack((s) => s.slice(0, -1))}
         onClose={() => setModalStack([])}
-        onOpenImage={setLightboxEntry}
-        lightboxOpen={lightboxEntry !== null}
+        onOpenImage={openEntryImage}
+        onOpenTuDienScan={openTuDienScan}
+        lightboxOpen={lightbox !== null}
       />
 
-      {lightboxEntry && (
+      {lightbox && (
         <ScanLightbox
-          src={entryImageUrl(lightboxEntry.image)}
-          alt={lightboxEntry.name}
-          errorText={t("no-image")}
+          src={lightbox.src}
+          alt={lightbox.alt}
+          errorText={lightbox.errorText}
           onClose={closeLightbox}
         />
       )}
@@ -623,6 +662,10 @@ function FilterPanel({
   const topicLetters = topic
     ? new Set(topic.entries.map(letterOfAnchor))
     : null;
+  // "Tất cả" browses every letter; within a Tiểu chủ đề it is the no-letter state.
+  const allActive = topic
+    ? !filters.letter
+    : filters.letter === ALL_LETTERS && !filters.query;
 
   return (
     <div className="flex flex-col gap-7">
@@ -633,6 +676,22 @@ function FilterPanel({
           aria-label={t("letter")}
           className="grid grid-cols-5 gap-1.5"
         >
+          <button
+            type="button"
+            aria-pressed={allActive}
+            onClick={() =>
+              topic
+                ? setFilters({ letter: "" })
+                : setFilters({ letter: ALL_LETTERS, query: "" })
+            }
+            className={`h-11 flex items-center justify-center text-xs font-medium whitespace-nowrap rounded-lg border transition-colors ${focusClass} ${
+              allActive
+                ? "bg-[#956319] text-white border-[#956319]"
+                : "bg-white/70 border-branding-black/15 text-branding-black hover:border-branding-brown hover:bg-branding-brown/5 hover:text-[#956319]"
+            }`}
+          >
+            {t("all-letters")}
+          </button>
           {ALPHABET.map((letter) => {
             const available = topicLetters
               ? topicLetters.has(letter)
