@@ -559,3 +559,482 @@
   font-size: 12px;
   margin: 16px 0 12px;
 }
+
+.workflowChoice {
+  display: grid;
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.workflowChoice legend {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.workflowChoice label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  cursor: pointer;
+}
+.workflowChoice input {
+  width: 16px;
+  height: 16px;
+  accent-color: #875714;
+  padding: 0;
+}
+.workflowChoice:disabled label {
+  cursor: default;
+  opacity: 0.65;
+}
+.researchPanel {
+  padding: 28px;
+  background: #fff;
+  min-height: 660px;
+  overflow-wrap: anywhere;
+}
+.researchPanel[hidden] {
+  display: none;
+}
+.researchQuestion {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dedbd4;
+}
+.researchQuestion h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #625c53;
+}
+.researchQuestion p,
+.researchAnswer {
+  white-space: pre-wrap;
+  line-height: 1.75;
+  max-width: 72ch;
+}
+.researchReport {
+  margin-bottom: 40px;
+}
+.researchReport h2 {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+.finding {
+  margin-top: 28px;
+}
+.finding h3,
+.evidenceHeading h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.finding p {
+  white-space: pre-wrap;
+  line-height: 1.75;
+  max-width: 72ch;
+}
+.finding ul,
+.researchDetails ul {
+  list-style: disc;
+  padding-left: 22px;
+  line-height: 1.75;
+}
+.evidenceLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.evidenceLinks a,
+.researchSources a {
+  color: #795013;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.evidenceSection {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #dedbd4;
+  scroll-margin-top: 32px;
+}
+.evidenceHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.evidenceHeading button,
+.jsonDownload {
+  color: #795013;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 13px;
+  min-height: 36px;
+}
+.researchCounts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px 20px;
+  font-size: 13px;
+  margin: 16px 0;
+}
+.researchCounts dt {
+  color: #625c53;
+  line-height: 1.5;
+}
+.researchCounts dd {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.researchScope {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #625c53;
+  overflow-wrap: anywhere;
+  margin: 12px 0;
+}
+.researchTableScroll {
+  overflow-x: auto;
+  margin-top: 16px;
+  max-width: 100%;
+  scrollbar-color: #b6aa96 #f7f6f3;
+}
+.researchTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+.researchTable caption {
+  text-align: left;
+  font-size: 13px;
+  color: #625c53;
+  padding-bottom: 10px;
+}
+.researchTable th {
+  font-weight: 600;
+  background: #f7f6f3;
+  white-space: nowrap;
+}
+.researchTable th,
+.researchTable td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #dedbd4;
+  vertical-align: top;
+  line-height: 1.65;
+}
+.researchTable td {
+  font-variant-numeric: tabular-nums;
+  min-width: 60px;
+}
+.nomCell {
+  font-family: "Noto Serif CJK TC", "Han-Nom Gothic", serif;
+  font-size: 22px;
+  line-height: 1.7;
+}
+.researchDetails {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.75;
+}
+.researchDetails summary,
+.activityLog summary {
+  cursor: pointer;
+  min-height: 32px;
+}
+.researchDetails p {
+  margin: 10px 0;
+}
+.researchSources {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+.researchSources li {
+  padding: 16px 0;
+  border-top: 1px solid #dedbd4;
+}
+.activityLog {
+  border-top: 1px solid #dedbd4;
+  padding-top: 16px;
+  margin-top: 24px;
+  font-size: 13px;
+  color: #625c53;
+}
+.activityLog ol {
+  list-style: decimal;
+  padding-left: 22px;
+  line-height: 1.9;
+}
+@media (max-width: 767px) {
+  .researchPanel {
+    padding: 20px;
+    min-height: 520px;
+  }
+  .researchCounts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.reportBlock,
+.reportNote {
+  margin-top: 28px;
+}
+.reportBlock h3,
+.reportNote h3 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.reportNote {
+  padding: 16px 0;
+  border-top: 1px solid #dedbd4;
+}
+.reportText {
+  max-width: 72ch;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.reportText p {
+  white-space: pre-wrap;
+}
+.reportText > * + * {
+  margin-top: 12px;
+}
+.reportText ul {
+  list-style: disc;
+  padding-left: 22px;
+}
+.reportText ol {
+  list-style: decimal;
+  padding-left: 22px;
+}
+.reportText code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+  background: #f7f6f3;
+  padding: 2px 4px;
+}
+.reportPassages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 24px;
+}
+.reportPassages blockquote {
+  margin: 0;
+  padding: 12px 0;
+  line-height: 1.8;
+}
+.reportPassages cite {
+  font-size: 13px;
+  font-style: normal;
+}
+.reportPassages a {
+  color: #795013;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.reportDataControls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 12px;
+  color: #625c53;
+}
+.reportDataControls > div {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.reportDataControls button {
+  min-height: 36px;
+  color: #795013;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.reportDataControls button:disabled {
+  color: #625c53;
+  text-decoration: none;
+  cursor: default;
+}
+.reportEvidenceAppendix {
+  margin-top: 32px;
+  border-top: 1px solid #dedbd4;
+  padding-top: 18px;
+}
+.reportEvidenceAppendix > summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  min-height: 36px;
+}
+.reportChart {
+  margin: 0;
+}
+.reportChartControls {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0;
+}
+.reportChartControls label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #625c53;
+}
+.reportChartControls select {
+  padding: 6px 10px;
+  border: 1px solid #c9c6bf;
+  border-radius: 5px;
+  background: #fff;
+}
+.reportChartScroll {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-color: #b6aa96 #f7f6f3;
+}
+.reportChart svg {
+  display: block;
+  width: 100%;
+  min-width: 480px;
+  height: auto;
+}
+.chartGrid {
+  stroke: #dedbd4;
+  stroke-width: 1;
+}
+.chartAxis {
+  stroke: #625c53;
+  stroke-width: 1;
+}
+.chartLabel {
+  font-size: 12px;
+  fill: #4f493f;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.chartMark {
+  fill: #875714;
+  cursor: default;
+}
+.chartMark:hover,
+.chartMark:focus {
+  fill: #181818;
+  stroke: #181818;
+  stroke-width: 2;
+  outline: none;
+}
+.chartLine {
+  fill: none;
+  stroke: #875714;
+  stroke-width: 2;
+}
+.reportChart figcaption {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #625c53;
+  margin-top: 10px;
+}
+.reportChart figcaption > span {
+  display: block;
+  min-height: 24px;
+  color: #181818;
+}
+
+.tokenUsage {
+  border-top: 1px solid #dedbd4;
+  padding: 20px 24px;
+  background: #fff;
+}
+.usageHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.usageHeading h2 {
+  font-size: 15px;
+  font-weight: 600;
+}
+.usageHeading > span {
+  font-size: 12px;
+  color: #625c53;
+}
+.usageTotals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+.usageTotals dt {
+  font-size: 12px;
+  color: #625c53;
+  margin-bottom: 5px;
+}
+.usageTotals dd {
+  font-size: 17px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.usageNote {
+  font-size: 12px;
+  color: #625c53;
+  line-height: 1.7;
+  margin-top: 12px;
+  max-width: 75ch;
+}
+.usageHistory summary {
+  font-size: 13px;
+  cursor: pointer;
+  min-height: 36px;
+  padding-top: 6px;
+}
+.usageTableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-color: #b6aa96 #f7f6f3;
+}
+.usageTableScroll table {
+  font-size: 12px;
+}
+.usageTableScroll th,
+.usageTableScroll td {
+  font-variant-numeric: tabular-nums;
+}
+.usageTableScroll tbody th {
+  background: #fff;
+}
+.usageRequestTitle {
+  font-size: 12px;
+  line-height: 1.6;
+  min-width: 120px;
+  max-width: 220px;
+  overflow-wrap: anywhere;
+  color: #625c53;
+  margin-top: 4px;
+}
+.usageProvider {
+  display: block;
+  font-size: 11px;
+  color: #625c53;
+  margin-top: 3px;
+}
+@media (max-width: 767px) {
+  .tokenUsage {
+    padding: 20px;
+  }
+}

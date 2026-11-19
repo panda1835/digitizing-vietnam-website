@@ -33,8 +33,13 @@ function dataRuntime(channel: string, snapshot: KieuSnapshot | null) {
     version?: string;
     page?: number;
     query?: string;
+    request?: unknown;
   }) => {
     if (snapshot) {
+      if (input.method === "research")
+        throw new Error(
+          "Research queries require the live playground. Basic edition reading and search remain available offline."
+        );
       const versions = Object.keys(snapshot);
       if (input.method === "listVersions")
         return versions.map((version) => ({
@@ -95,6 +100,8 @@ function dataRuntime(channel: string, snapshot: KieuSnapshot | null) {
     writable: false,
     configurable: false,
     value: Object.freeze({
+      research: (input: unknown) =>
+        request({ method: "research", request: input }),
       listVersions: () => request({ method: "listVersions" }),
       getPage: (version: string, page: number) =>
         request({ method: "getPage", version, page }),

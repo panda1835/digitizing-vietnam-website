@@ -11,6 +11,7 @@ const nextConfig = {
     // escaped: keys are picomatch globs matched against the route.
     outputFileTracingIncludes: {
       "/api/ai-playground/*": ["./data/truyen-kieu/*.xml"],
+      "/api/kieu/**": ["./data/truyen-kieu/*.xml"],
       "our-collections/\\[collectionid\\]/\\[documentid\\]": [
         "./public/data/kho-tang-truyen-co-tich-viet-nam/**/*",
       ],

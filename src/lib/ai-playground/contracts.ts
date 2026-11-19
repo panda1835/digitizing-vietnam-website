@@ -1,3 +1,5 @@
+import type { ReportedTokenUsage } from "./usage";
+import type { ResearchReport } from "./agent-contracts";
 import { z } from "zod";
 
 export const KIEU_VERSIONS = ["1866", "1870", "1871", "1872", "1902"] as const;
@@ -174,6 +176,13 @@ const requestSettings = z.object({
 export const generationSchema = z.discriminatedUnion("mode", [
   requestSettings
     .extend({
+      mode: z.literal("research"),
+      prompt: z.string().trim().min(1).max(4000),
+      messages: z.array(discussionMessageSchema).max(14).default([]),
+    })
+    .strict(),
+  requestSettings
+    .extend({
       mode: z.literal("discuss"),
       prompt: z.string().trim().min(1).max(4000),
       messages: z.array(discussionMessageSchema).max(14).default([]),
@@ -188,10 +197,24 @@ export const generationSchema = z.discriminatedUnion("mode", [
 ]);
 
 export type PlaygroundEvent =
+  | ({ type: "usage" } & ReportedTokenUsage)
+  | { type: "research"; report: ResearchReport }
+  | {
+      type: "activity";
+      operation: string;
+      state: "running" | "complete" | "failed";
+      evidenceId?: string;
+    }
   | { type: "step" }
   | { type: "status"; tool: string }
   | { type: "delta"; text: string }
-  | { type: "done"; html: string }
+  | {
+      type: "done";
+      html: string;
+      baseRevision?: string;
+      revision?: string;
+      updateKind?: "patch" | "replace";
+    }
   | ({ type: "discussion" } & DiscussionResponse)
   | { type: "error"; code: string };
 

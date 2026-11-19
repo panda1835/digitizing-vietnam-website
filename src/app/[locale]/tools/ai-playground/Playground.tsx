@@ -45,11 +45,24 @@ import {
   type PlaygroundScope,
   type DiscussionMessage,
 } from "@/lib/ai-playground/contracts";
+import { researchBridgeSchema } from "@/lib/kieu/schemas";
 import { createPreviewDocument } from "@/lib/ai-playground/preview";
+import type { ResearchReport } from "@/lib/ai-playground/agent-contracts";
+import {
+  reportMarkdown,
+  reportSummary,
+  reportFollowupContext,
+} from "@/lib/ai-playground/report";
+import TokenUsage from "./TokenUsage";
+import { normalizeTokenUsage, type UsageTurn } from "@/lib/ai-playground/usage";
+import ResearchResults, { saveResearchFile } from "./ResearchResults";
 import styles from "./playground.module.css";
 
 type Revision = { prompt: string; html: string };
-type IdeaMessage = DiscussionMessage & { scope?: PlaygroundScope | null };
+type IdeaMessage = DiscussionMessage & {
+  scope?: PlaygroundScope | null;
+  report?: ResearchReport;
+};
 
 const API_KEY_PAGES: Record<PlaygroundProvider, string> = {
   openai: "https://platform.openai.com/api-keys",
@@ -68,6 +81,12 @@ const API_KEY_PLACEHOLDERS: Partial<Record<PlaygroundProvider, string>> = {
 export default function Playground() {
   const t = useTranslations("AIPlayground");
   const locale = useLocale();
+  const [workflow, setWorkflow] = useState<"research" | "website">("research");
+  const [researchMessages, setResearchMessages] = useState<IdeaMessage[]>([]);
+  const [usageTurns, setUsageTurns] = useState<UsageTurn[]>([]);
+  const [activity, setActivity] = useState<
+    { operation: string; state: string; evidenceId?: string }[]
+  >([]);
   const [apiKey, setApiKey] = useState("");
   const [showKey, setShowKey] = useState(false);
   const [provider, setProvider] = useState<PlaygroundProvider>("openai");
@@ -78,11 +97,15 @@ export default function Playground() {
   const [revisions, setRevisions] = useState<Revision[]>([]);
   const [html, setHtml] = useState("");
   const [draft, setDraft] = useState("");
-  const [tab, setTab] = useState<"idea" | "preview" | "code">("idea");
+  const [tab, setTab] = useState<"results" | "idea" | "preview" | "code">(
+    "results"
+  );
   const [messages, setMessages] = useState<IdeaMessage[]>([]);
   const [scope, setScope] = useState<PlaygroundScope | null>(null);
   const [scopeBuilt, setScopeBuilt] = useState(false);
-  const [operation, setOperation] = useState<"discuss" | "build" | null>(null);
+  const [operation, setOperation] = useState<
+    "research" | "discuss" | "build" | null
+  >(null);
   const [mobile, setMobile] = useState(false);
   const [busy, setBusy] = useState(false);
   const [exporting, setExporting] = useState(false);
@@ -91,6 +114,7 @@ export default function Playground() {
   const [status, setStatus] = useState("");
   const [previewError, setPreviewError] = useState(false);
   const [reload, setReload] = useState(0);
+  const htmlSnapshot = useRef("");
   const frame = useRef<HTMLIFrameElement>(null);
   const abort = useRef<AbortController | null>(null);
   const promptInput = useRef<HTMLTextAreaElement>(null);
@@ -195,7 +219,9 @@ export default function Playground() {
             "*"
           );
       };
-      const parsed = dataRequestSchema.safeParse(message.input);
+      const parsed = dataRequestSchema
+        .or(researchBridgeSchema)
+        .safeParse(message.input);
       if (!parsed.success) {
         respond(null, true);
         return;
@@ -208,19 +234,33 @@ export default function Playground() {
         respond(null, true);
         return;
       }
+      const research =
+        parsed.data.method === "research" ? parsed.data.request : null;
       const query = new URLSearchParams(
         Object.entries(parsed.data).map(([key, value]) => [key, String(value)])
       );
-      const cacheKey = query.toString();
+      const cacheKey = research ? JSON.stringify(research) : query.toString();
       if (cache.has(cacheKey)) {
         respond(cache.get(cacheKey));
         return;
       }
       inFlight++;
       try {
-        const response = await fetch(`/api/ai-playground/kieu?${query}`, {
-          signal: requests.signal,
-        });
+        const response = await fetch(
+          research
+            ? "/api/ai-playground/research"
+            : `/api/ai-playground/kieu?${query}`,
+          {
+            signal: requests.signal,
+            ...(research
+              ? {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(research),
+                }
+              : {}),
+          }
+        );
         if (!response.ok) throw new Error("data");
         const data = await response.json();
         if (cache.size < 100) cache.set(cacheKey, data);
@@ -239,6 +279,11 @@ export default function Playground() {
     };
   }, [preview]);
 
+  function commitHtml(value: string) {
+    htmlSnapshot.current = value;
+    setHtml(value);
+  }
+
   function scopeText(plan: PlaygroundScope) {
     return [
       plan.title,
@@ -252,7 +297,7 @@ export default function Playground() {
 
   async function discuss(event: FormEvent) {
     event.preventDefault();
-    await run("discuss");
+    await run(workflow === "research" ? "research" : "discuss");
   }
 
   async function build() {
@@ -261,31 +306,57 @@ export default function Playground() {
   }
 
   async function run(
-    mode: "discuss" | "build",
+    mode: "research" | "discuss" | "build",
     approvedScope?: PlaygroundScope
   ) {
     if (
       busy ||
       abort.current ||
-      (mode === "discuss" && !prompt.trim()) ||
+      (mode !== "build" && !prompt.trim()) ||
       (mode === "build" && !approvedScope) ||
       !apiKey.trim() ||
       !model.trim()
     )
       return;
+    const submittedHtml = htmlSnapshot.current;
     const controller = new AbortController();
     abort.current = controller;
     const submittedPrompt =
-      mode === "discuss" ? prompt.trim() : approvedScope!.title;
+      mode !== "build" ? prompt.trim() : approvedScope!.title;
     const userContent =
-      mode === "discuss"
+      mode !== "build"
         ? submittedPrompt
         : `${t("agreeMessage")}\n${scopeText(approvedScope!)}`;
+    const currentMessages = mode === "research" ? researchMessages : messages;
+    const updateMessages =
+      mode === "research" ? setResearchMessages : setMessages;
+    const turnId = crypto.randomUUID();
+    setUsageTurns((previous) => [
+      ...previous,
+      {
+        id: turnId,
+        mode,
+        title: submittedPrompt.slice(0, 120),
+        provider,
+        model: model.trim(),
+        status: "running",
+        inputTokens: null,
+        outputTokens: null,
+        complete: false,
+      },
+    ]);
+    const updateUsage = (usage: unknown) =>
+      setUsageTurns((previous) =>
+        previous.map((turn) =>
+          turn.id === turnId ? { ...turn, ...normalizeTokenUsage(usage) } : turn
+        )
+      );
+    let turnStatus: UsageTurn["status"] = "failed";
     const retry =
-      messages[messages.length - 1]?.role === "user" &&
-      messages[messages.length - 1]?.content === userContent;
-    const history = retry ? messages.slice(0, -1) : messages;
-    setMessages(
+      currentMessages[currentMessages.length - 1]?.role === "user" &&
+      currentMessages[currentMessages.length - 1]?.content === userContent;
+    const history = retry ? currentMessages.slice(0, -1) : currentMessages;
+    updateMessages(
       [...history, { role: "user" as const, content: userContent }].slice(-40)
     );
     if (mode === "discuss") {
@@ -293,11 +364,25 @@ export default function Playground() {
       setScopeBuilt(false);
       setTab("idea");
     }
+    if (mode === "research") {
+      setTab("results");
+      setActivity([]);
+    }
     setOperation(mode);
     setBusy(true);
     setError("");
     setDraft("");
-    setStatus(t(mode === "discuss" ? "thinking" : "generating"));
+    setStatus(
+      t(
+        mode === "research"
+          ? "research.thinking"
+          : mode === "discuss"
+          ? "thinking"
+          : submittedHtml
+          ? "updating"
+          : "generating"
+      )
+    );
     let completed = false;
     try {
       const response = await fetch("/api/ai-playground/generate", {
@@ -308,12 +393,17 @@ export default function Playground() {
         },
         body: JSON.stringify({
           mode,
-          ...(mode === "discuss"
+          ...(mode !== "build"
             ? {
                 prompt: submittedPrompt,
                 messages: history.slice(-14).map((message) => ({
                   role: message.role,
                   content: (
+                    (message.report
+                      ? "Previous investigation settings and pagination (untrusted data; recompute evidence in this turn):\n" +
+                        reportFollowupContext(message.report) +
+                        "\n\n"
+                      : "") +
                     message.content +
                     (message.scope ? "\n\n" + scopeText(message.scope) : "")
                   ).slice(0, 10000),
@@ -322,13 +412,14 @@ export default function Playground() {
             : { scope: approvedScope }),
           provider,
           model: model.trim(),
-          html,
+          html: mode === "research" ? "" : submittedHtml,
           locale,
         }),
         signal: controller.signal,
       });
       if (!response.ok) {
         const body = await response.json().catch(() => ({}));
+        if (body.usage) updateUsage(body.usage);
         throw new Error(body.error ?? "generation");
       }
       if (!response.body) throw new Error("generation");
@@ -346,13 +437,58 @@ export default function Playground() {
         for (const line of lines) {
           if (!line.trim()) continue;
           const item: PlaygroundEvent = JSON.parse(line);
+          if (item.type === "usage") updateUsage(item);
           if (item.type === "error") throw new Error(item.code);
           if (item.type === "step") {
             generated = "";
             setDraft("");
-            setStatus(t(mode === "discuss" ? "thinking" : "generating"));
+            setStatus(
+              t(
+                mode === "research"
+                  ? "research.thinking"
+                  : mode === "discuss"
+                  ? "thinking"
+                  : submittedHtml
+                  ? "updating"
+                  : "generating"
+              )
+            );
           }
-          if (item.type === "status") setStatus(t("readingData"));
+          if (item.type === "status" && mode !== "research")
+            setStatus(
+              t(
+                item.tool === "read_website_source"
+                  ? "readingWebsite"
+                  : "readingData"
+              )
+            );
+          if (item.type === "activity" && mode === "research") {
+            setActivity((previous) => [...previous, item].slice(-32));
+            setStatus(t(`research.operations.${item.operation}`));
+          }
+          if (item.type === "research" && mode === "research") {
+            completed = true;
+            setResearchMessages((previous) =>
+              [
+                ...previous,
+                {
+                  role: "assistant" as const,
+                  content: reportSummary(item.report),
+                  report: item.report,
+                },
+              ].slice(-40)
+            );
+            setPrompt("");
+            setStatus(
+              t(
+                item.report.status === "needs-clarification"
+                  ? "research.needsClarification"
+                  : item.report.status === "unavailable"
+                  ? "research.unavailable"
+                  : "research.ready"
+              )
+            );
+          }
           if (item.type === "delta" && mode === "build") {
             generated += item.text;
             setDraft(generated);
@@ -375,8 +511,14 @@ export default function Playground() {
             setStatus("");
           }
           if (item.type === "done" && mode === "build") {
+            if (
+              !active.current ||
+              abort.current !== controller ||
+              htmlSnapshot.current !== submittedHtml
+            )
+              throw new Error("stale-revision");
             completed = true;
-            setHtml(item.html);
+            commitHtml(item.html);
             setRevisions((previous) =>
               [...previous, { prompt: submittedPrompt, html: item.html }].slice(
                 -5
@@ -397,9 +539,12 @@ export default function Playground() {
         if (done) break;
       }
       if (!completed) throw new Error("incomplete");
+      turnStatus = "complete";
     } catch (caught) {
-      if (controller.signal.aborted) setStatus(t("stopped"));
-      else {
+      if (controller.signal.aborted) {
+        turnStatus = "stopped";
+        setStatus(t("stopped"));
+      } else {
         const code = caught instanceof Error ? caught.message : "generation";
         const known = [
           "authentication",
@@ -408,9 +553,15 @@ export default function Playground() {
           "incomplete",
           "timeout",
           "invalid-request",
+          "invalid-update",
+          "stale-revision",
         ];
         const errorKey =
-          mode === "discuss" && (!known.includes(code) || code === "incomplete")
+          mode === "research" &&
+          (!known.includes(code) || code === "incomplete")
+            ? "research"
+            : mode === "discuss" &&
+              (!known.includes(code) || code === "incomplete")
             ? "discussion"
             : known.includes(code)
             ? code
@@ -420,6 +571,17 @@ export default function Playground() {
       }
     } finally {
       if (active.current && abort.current === controller) {
+        setUsageTurns((previous) =>
+          previous.map((turn) =>
+            turn.id === turnId
+              ? {
+                  ...turn,
+                  status: turnStatus,
+                  complete: turnStatus === "stopped" ? false : turn.complete,
+                }
+              : turn
+          )
+        );
         setBusy(false);
         setDraft("");
         setOperation(null);
@@ -429,6 +591,18 @@ export default function Playground() {
   }
 
   async function download() {
+    if (tab === "results" && latestReport) {
+      try {
+        saveResearchFile(
+          reportMarkdown(latestReport),
+          "truyen-kieu-research.md",
+          "text/markdown;charset=utf-8"
+        );
+      } catch {
+        setError(t("errors.researchDownload"));
+      }
+      return;
+    }
     setExporting(true);
     setError("");
     try {
@@ -457,34 +631,47 @@ export default function Playground() {
 
   async function copy() {
     try {
-      await navigator.clipboard.writeText(html);
+      await navigator.clipboard.writeText(
+        tab === "results" && latestReport ? reportMarkdown(latestReport) : html
+      );
       setCopied(true);
       clearTimeout(copyTimer.current);
       copyTimer.current = setTimeout(() => setCopied(false), 2000);
     } catch {
-      setError(t("errors.copy"));
+      setError(t(tab === "results" ? "errors.researchCopy" : "errors.copy"));
     }
   }
 
   function startOver() {
-    setHtml("");
+    commitHtml("");
     setRevisions([]);
+    setUsageTurns([]);
     setPrompt("");
     setError("");
     setStatus("");
     setDraft("");
     setMessages([]);
+    setResearchMessages([]);
+    setActivity([]);
     setScope(null);
     setScopeBuilt(false);
-    setTab("idea");
+    setTab(workflow === "research" ? "results" : "idea");
     promptInput.current?.focus();
   }
 
-  const examples = ["reader", "compare", "search"] as const;
-  const code = busy && operation === "build" ? draft : html;
+  const conversation = workflow === "research" ? researchMessages : messages;
+  const latestReport = [...researchMessages]
+    .reverse()
+    .find((message) => message.report)?.report;
+  const examples =
+    workflow === "research"
+      ? ["variants", "concordance", "frequency"]
+      : ["reader", "compare", "search"];
+  const code = busy && operation === "build" && !html ? draft : html;
 
   function moveTab(event: KeyboardEvent<HTMLButtonElement>) {
-    const tabs = ["idea", "preview", "code"] as const;
+    const tabs: ("results" | "idea" | "preview" | "code")[] =
+      workflow === "research" ? ["results"] : ["idea", "preview", "code"];
     const index = tabs.indexOf(tab);
     const next =
       event.key === "ArrowRight"
@@ -507,8 +694,31 @@ export default function Playground() {
         <section className={styles.controls} aria-label={t("setup")}>
           <form onSubmit={discuss} className={styles.form}>
             <div className={styles.sectionHeading}>
-              <h2>{t("ideaSetup")}</h2>
+              <h2>
+                {t(workflow === "research" ? "research.setup" : "ideaSetup")}
+              </h2>
             </div>
+            <fieldset className={styles.workflowChoice} disabled={busy}>
+              <legend>{t("research.workflow")}</legend>
+              {(["research", "website"] as const).map((value) => (
+                <label key={value}>
+                  <input
+                    type="radio"
+                    name="playground-workflow"
+                    value={value}
+                    checked={workflow === value}
+                    onChange={() => {
+                      setWorkflow(value);
+                      setTab(value === "research" ? "results" : "idea");
+                      setPrompt("");
+                      setError("");
+                      setStatus("");
+                    }}
+                  />
+                  <span>{t(`research.workflows.${value}`)}</span>
+                </label>
+              ))}
+            </fieldset>
             <div className={styles.field}>
               <label htmlFor="playground-provider">{t("provider")}</label>
               <Select
@@ -608,7 +818,13 @@ export default function Playground() {
             </div>
             <div className={styles.promptField}>
               <label htmlFor="playground-prompt">
-                {messages.length
+                {workflow === "research"
+                  ? t(
+                      conversation.length
+                        ? "research.followup"
+                        : "research.prompt"
+                    )
+                  : conversation.length
                   ? t("discussionFollowup")
                   : t("discussionPrompt")}
               </label>
@@ -621,7 +837,13 @@ export default function Playground() {
                 onChange={(event) => setPrompt(event.target.value)}
                 disabled={busy}
                 placeholder={
-                  messages.length
+                  workflow === "research"
+                    ? t(
+                        conversation.length
+                          ? "research.followupPlaceholder"
+                          : "research.placeholder"
+                      )
+                    : conversation.length
                     ? t("discussionFollowupPlaceholder")
                     : t("discussionPlaceholder")
                 }
@@ -631,20 +853,42 @@ export default function Playground() {
                 <span>{prompt.length}/4000</span>
               </div>
             </div>
-            {!messages.length && (
+            {!conversation.length && (
               <div className={styles.examples}>
-                <p>{t("tryExample")}</p>
+                <p>
+                  {t(
+                    workflow === "research"
+                      ? "research.tryExample"
+                      : "tryExample"
+                  )}
+                </p>
                 {examples.map((example) => (
                   <button
                     type="button"
                     key={example}
                     disabled={busy}
                     onClick={() => {
-                      setPrompt(t(`examples.${example}.prompt`));
+                      setPrompt(
+                        t(
+                          `${
+                            workflow === "research"
+                              ? "research.examples"
+                              : "examples"
+                          }.${example}.prompt`
+                        )
+                      );
                       promptInput.current?.focus();
                     }}
                   >
-                    <span>{t(`examples.${example}.label`)}</span>
+                    <span>
+                      {t(
+                        `${
+                          workflow === "research"
+                            ? "research.examples"
+                            : "examples"
+                        }.${example}.label`
+                      )}
+                    </span>
                     <ArrowRight size={15} aria-hidden="true" />
                   </button>
                 ))}
@@ -678,14 +922,22 @@ export default function Playground() {
                   disabled={!apiKey.trim() || !prompt.trim() || !model.trim()}
                   className="w-full"
                 >
-                  {messages.length ? t("sendMessage") : t("discussIdea")}
+                  {workflow === "research"
+                    ? t(
+                        conversation.length
+                          ? "research.continue"
+                          : "research.run"
+                      )
+                    : conversation.length
+                    ? t("sendMessage")
+                    : t("discussIdea")}
                   <ArrowRight size={16} />
                 </Button>
               )}
               <p className={styles.help}>{t("costHelp")}</p>
             </div>
           </form>
-          {revisions.length > 0 && (
+          {workflow === "website" && revisions.length > 0 && (
             <div className={styles.history}>
               <h3>{t("history")}</h3>
               {revisions.map((revision, index) => (
@@ -695,7 +947,7 @@ export default function Playground() {
                     type="button"
                     disabled={busy || html === revision.html}
                     onClick={() => {
-                      setHtml(revision.html);
+                      commitHtml(revision.html);
                       setTab("preview");
                       setError("");
                       setStatus(t("ready"));
@@ -720,42 +972,59 @@ export default function Playground() {
               role="tablist"
               aria-label={t("output")}
             >
-              <button
-                id="idea-tab"
-                role="tab"
-                aria-selected={tab === "idea"}
-                aria-controls="playground-idea"
-                tabIndex={tab === "idea" ? 0 : -1}
-                onClick={() => setTab("idea")}
-                onKeyDown={moveTab}
-              >
-                <MessagesSquare size={16} />
-                {t("ideaTab")}
-              </button>
-              <button
-                id="preview-tab"
-                role="tab"
-                aria-selected={tab === "preview"}
-                aria-controls="playground-preview"
-                tabIndex={tab === "preview" ? 0 : -1}
-                onClick={() => setTab("preview")}
-                onKeyDown={moveTab}
-              >
-                <Eye size={16} />
-                {t("preview")}
-              </button>
-              <button
-                id="code-tab"
-                role="tab"
-                aria-selected={tab === "code"}
-                aria-controls="playground-code"
-                tabIndex={tab === "code" ? 0 : -1}
-                onClick={() => setTab("code")}
-                onKeyDown={moveTab}
-              >
-                <Code2 size={16} />
-                {t("code")}
-              </button>
+              {workflow === "research" ? (
+                <button
+                  id="results-tab"
+                  role="tab"
+                  aria-selected={tab === "results"}
+                  aria-controls="playground-results"
+                  tabIndex={tab === "results" ? 0 : -1}
+                  onClick={() => setTab("results")}
+                  onKeyDown={moveTab}
+                >
+                  <BookOpen size={16} />
+                  {t("research.results")}
+                </button>
+              ) : (
+                <>
+                  <button
+                    id="idea-tab"
+                    role="tab"
+                    aria-selected={tab === "idea"}
+                    aria-controls="playground-idea"
+                    tabIndex={tab === "idea" ? 0 : -1}
+                    onClick={() => setTab("idea")}
+                    onKeyDown={moveTab}
+                  >
+                    <MessagesSquare size={16} />
+                    {t("ideaTab")}
+                  </button>
+                  <button
+                    id="preview-tab"
+                    role="tab"
+                    aria-selected={tab === "preview"}
+                    aria-controls="playground-preview"
+                    tabIndex={tab === "preview" ? 0 : -1}
+                    onClick={() => setTab("preview")}
+                    onKeyDown={moveTab}
+                  >
+                    <Eye size={16} />
+                    {t("preview")}
+                  </button>
+                  <button
+                    id="code-tab"
+                    role="tab"
+                    aria-selected={tab === "code"}
+                    aria-controls="playground-code"
+                    tabIndex={tab === "code" ? 0 : -1}
+                    onClick={() => setTab("code")}
+                    onKeyDown={moveTab}
+                  >
+                    <Code2 size={16} />
+                    {t("code")}
+                  </button>
+                </>
+              )}
             </div>
             <div className={styles.tools}>
               {tab === "preview" && (
@@ -784,7 +1053,7 @@ export default function Playground() {
               <button
                 type="button"
                 onClick={() => setReload((value) => value + 1)}
-                disabled={!html || busy}
+                disabled={!html || busy || tab === "results"}
                 aria-label={t("reload")}
                 title={t("reload")}
               >
@@ -793,16 +1062,20 @@ export default function Playground() {
               <button
                 type="button"
                 onClick={copy}
-                disabled={!html || busy}
-                aria-label={t("copy")}
-                title={t("copy")}
+                disabled={busy || (tab === "results" ? !latestReport : !html)}
+                aria-label={t(tab === "results" ? "research.copy" : "copy")}
+                title={t(tab === "results" ? "research.copy" : "copy")}
               >
                 {copied ? <Check size={16} /> : <Copy size={16} />}
               </button>
               <button
                 type="button"
                 onClick={startOver}
-                disabled={(!html && !messages.length) || busy || exporting}
+                disabled={
+                  (!html && !messages.length && !researchMessages.length) ||
+                  busy ||
+                  exporting
+                }
                 aria-label={t("reset")}
                 title={t("reset")}
               >
@@ -811,6 +1084,57 @@ export default function Playground() {
             </div>
           </div>
           <div className={styles.previewArea}>
+            <div
+              id="playground-results"
+              role="tabpanel"
+              aria-labelledby="results-tab"
+              hidden={tab !== "results"}
+              className={styles.researchPanel}
+            >
+              {!researchMessages.length && (
+                <div className={styles.discussionIntro}>
+                  <h2>{t("research.introTitle")}</h2>
+                  <p>{t("research.intro")}</p>
+                </div>
+              )}
+              {researchMessages.map((message, index) =>
+                message.role === "user" ? (
+                  <div key={index} className={styles.researchQuestion}>
+                    <h3>{t("you")}</h3>
+                    <p>{message.content}</p>
+                  </div>
+                ) : message.report ? (
+                  <ResearchResults
+                    key={index}
+                    report={message.report}
+                    prefix={`research-${index}`}
+                    onError={() => setError(t("errors.researchDownload"))}
+                  />
+                ) : null
+              )}
+              {activity.length > 0 && (
+                <details
+                  className={styles.activityLog}
+                  open={busy && operation === "research"}
+                >
+                  <summary>{t("research.activity")}</summary>
+                  <ol>
+                    {activity.map((item, index) => (
+                      <li key={index}>
+                        {t(`research.operations.${item.operation}`)} ·{" "}
+                        {t(`research.states.${item.state}`)}
+                        {item.evidenceId ? ` (${item.evidenceId})` : ""}
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+              )}
+              {busy && operation === "research" && (
+                <p role="status" className={styles.discussionThinking}>
+                  {t("research.thinking")}
+                </p>
+              )}
+            </div>
             <div
               id="playground-idea"
               role="tabpanel"
@@ -898,7 +1222,7 @@ export default function Playground() {
                 </section>
               )}
             </div>
-            {tab === "idea" ? null : !html &&
+            {tab === "idea" || tab === "results" ? null : !html &&
               !(busy && operation === "build" && tab === "code") ? (
               <div className={styles.empty}>
                 <h2>{t("emptyTitle")}</h2>
@@ -942,7 +1266,7 @@ export default function Playground() {
               </>
             )}
           </div>
-          {previewError && (
+          {previewError && workflow === "website" && (
             <p role="alert" className={styles.previewWarning}>
               {t("previewError")}
             </p>
@@ -958,11 +1282,33 @@ export default function Playground() {
               )}
               {copied ? t("copied") : status}
             </p>
+            {tab === "results" && latestReport && (
+              <button
+                type="button"
+                className={styles.jsonDownload}
+                disabled={busy}
+                onClick={() => {
+                  try {
+                    saveResearchFile(
+                      JSON.stringify(latestReport, null, 2),
+                      "truyen-kieu-research.json",
+                      "application/json;charset=utf-8"
+                    );
+                  } catch {
+                    setError(t("errors.researchDownload"));
+                  }
+                }}
+              >
+                {t("research.downloadEvidence")}
+              </button>
+            )}
             <Button
               type="button"
               variant="outline"
               size="sm"
-              disabled={!html || busy || exporting}
+              disabled={
+                busy || exporting || (tab === "results" ? !latestReport : !html)
+              }
               onClick={download}
             >
               {exporting ? (
@@ -970,9 +1316,12 @@ export default function Playground() {
               ) : (
                 <Download size={15} />
               )}
-              {exporting ? t("exporting") : t("download")}
+              {exporting
+                ? t("exporting")
+                : t(tab === "results" ? "research.downloadReport" : "download")}
             </Button>
           </div>
+          <TokenUsage turns={usageTurns} />
         </section>
       </div>
     </div>
