@@ -271,7 +271,7 @@ Hà Nội, ngày 30-10-2002
 | TVVH | Thư viện Viện Văn học |
 | TVXH | Thư viện Viện Thông tin khoa học xã hội |
 
-## Hệ thống tục ngữ người Việt sắp xếp theo trật tự chữ cái của tiếng đầu
+# Hệ thống tục ngữ người Việt sắp xếp theo trật tự chữ cái của tiếng đầu
 
 ## Phàm lệ biên soạn
 

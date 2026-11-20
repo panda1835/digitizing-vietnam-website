@@ -1,0 +1,1140 @@
+[
+ {
+  "name": "E 1",
+  "anchor": "E-1",
+  "letter": "E",
+  "number": 1,
+  "proverb": "E thẹn như con gái mới về nhà chồng.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "314"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "B 396",
+    "anchor": "B-396",
+    "preview": "Bẽn lẽn như gái mới về…"
+   },
+   {
+    "name": "G 159",
+    "anchor": "G-159",
+    "preview": "Gái mới về nhà chồng."
+   },
+   {
+    "name": "K 155",
+    "anchor": "K-155",
+    "preview": "Khép nép như dâu mới về…"
+   }
+  ],
+  "first_syllable": "e",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1155"
+  ],
+  "pdf_pages": [
+   295
+  ],
+  "fixed": false,
+  "image": "E-1.png"
+ },
+ {
+  "name": "E 2",
+  "anchor": "E-2",
+  "letter": "E",
+  "number": 2,
+  "proverb": "Em chồng ở với chị dâu coi chừng kẻo nó giết nhau có ngày.",
+  "citations": [
+   {
+    "abbreviation": "VNP₂I",
+    "pages": "176",
+    "unknown": true
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "em",
+  "sources": [],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1155"
+  ],
+  "pdf_pages": [
+   295
+  ],
+  "fixed": false,
+  "image": "E-2.png"
+ },
+ {
+  "name": "E 3",
+  "anchor": "E-3",
+  "letter": "E",
+  "number": 3,
+  "proverb": "Em khôn cũng là em chị, chị dại cũng là chị em.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "14"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "121"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "254"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "561"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Em khôn "
+     },
+     {
+      "text": "em",
+      "em": true
+     },
+     {
+      "text": " là em chị, chị dại "
+     },
+     {
+      "text": "chị",
+      "em": true
+     },
+     {
+      "text": " là chị em."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "111"
+     },
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "54b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "em",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC I",
+   "CCM",
+   "ĐNQT"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "1155"
+  ],
+  "pdf_pages": [
+   295
+  ],
+  "fixed": false,
+  "image": "E-3.png"
+ },
+ {
+  "name": "E 4",
+  "anchor": "E-4",
+  "letter": "E",
+  "number": 4,
+  "proverb": "Em là con gái kẻ Cài, ăn cơm thì ít, ăn khoai thì nhiều.",
+  "citations": [
+   {
+    "abbreviation": "TNVP",
+    "pages": "23"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Cài nay thuộc xã Kinh Kệ, huyện Lâm Thao, tỉnh Phú Thọ, đất màu, có tập quán trồng khoai."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "em",
+  "sources": [
+   "TNVP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1155",
+   "1156"
+  ],
+  "pdf_pages": [
+   295,
+   296
+  ],
+  "fixed": false,
+  "image": "E-4.png"
+ },
+ {
+  "name": "E 5",
+  "anchor": "E-5",
+  "letter": "E",
+  "number": 5,
+  "proverb": "Em ngã chị nâng, chị ngã em khóc.",
+  "citations": [
+   {
+    "abbreviation": "TNTB",
+    "pages": "14b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "em",
+  "sources": [
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1156"
+  ],
+  "pdf_pages": [
+   296
+  ],
+  "fixed": false,
+  "image": "E-5.png"
+ },
+ {
+  "name": "E 6",
+  "anchor": "E-6",
+  "letter": "E",
+  "number": 6,
+  "proverb": "Em ngã đã có chị nưng.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "32"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Em ngã chị "
+     },
+     {
+      "text": "nâng",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "113"
+     },
+     {
+      "abbreviation": "VC I",
+      "pages": "563"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Em ngã chị nưng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "121"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Em ngã đã có chị "
+     },
+     {
+      "text": "nâng",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "314"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "em",
+  "sources": [
+   "NNCC",
+   "NL",
+   "VC I",
+   "TNPD I",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "1156"
+  ],
+  "pdf_pages": [
+   296
+  ],
+  "fixed": false,
+  "image": "E-6.png"
+ },
+ {
+  "name": "E 7",
+  "anchor": "E-7",
+  "letter": "E",
+  "number": 7,
+  "proverb": "Em ngã thì chị phải nâng, đến khi chị ngã em bưng miệng cười.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "14"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "254"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "564"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Em ngã chị "
+     },
+     {
+      "text": "nưng",
+      "em": true
+     },
+     {
+      "text": ", chị ngã em bưng miệng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "45"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Em ngã thì chị phải "
+     },
+     {
+      "text": "nưng",
+      "em": true
+     },
+     {
+      "text": ", đến khi chị ngã em bưng miệng cười."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "121"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "C 914",
+    "anchor": "C-914",
+    "preview": "Chị ngã em bưng miệng."
+   },
+   {
+    "name": "N 397"
+   }
+  ],
+  "first_syllable": "em",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VC I",
+   "NNCC",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "1156"
+  ],
+  "pdf_pages": [
+   296
+  ],
+  "fixed": false,
+  "image": "E-7.png"
+ },
+ {
+  "name": "E 8",
+  "anchor": "E-8",
+  "letter": "E",
+  "number": 8,
+  "proverb": "Em ngoan lấy phải chồng đần, cho giỏi mười phần ai biết rằng ngoan.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "223"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "122"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "em",
+  "sources": [
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "1156"
+  ],
+  "pdf_pages": [
+   296
+  ],
+  "fixed": false,
+  "image": "E-8.png"
+ },
+ {
+  "name": "E 9",
+  "anchor": "E-9",
+  "letter": "E",
+  "number": 9,
+  "proverb": "Em ơi, anh bảo em này, trứng chọi với đá có ngày vỡ tan.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "22b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "122"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Em ơi, "
+     },
+     {
+      "text": "chị",
+      "em": true
+     },
+     {
+      "text": " bảo em này, trứng chọi với đá có ngày vỡ tan."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VNP₂ II",
+      "pages": "92"
+     },
+     {
+      "abbreviation": "VNP₁₁",
+      "pages": "112"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "em",
+  "sources": [
+   "NASL I",
+   "TNPD I",
+   "VNP₂ II",
+   "VNP₁₁"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "1156"
+  ],
+  "pdf_pages": [
+   296
+  ],
+  "fixed": false,
+  "image": "E-9.png"
+ },
+ {
+  "name": "E 10",
+  "anchor": "E-10",
+  "letter": "E",
+  "number": 10,
+  "proverb": "Em thuận anh hoà là nhà có phúc.",
+  "citations": [
+   {
+    "abbreviation": "HT",
+    "pages": "69"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "113"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "98"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "14"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "121"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "567"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "314"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "191"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "432"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "VC I",
+     "source": "VC I"
+    },
+    {
+     "text": ", Con cái trong nhà mà biết hoà thuận, yêu thương nhau là điều mừng cho cha mẹ. Gia đình như vậy, dù nghèo cũng có hạnh phúc, ai cũng thèm muốn."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "em",
+  "sources": [
+   "HT",
+   "NL",
+   "TMT",
+   "TNCL",
+   "TNPD I",
+   "VC I",
+   "VD",
+   "VHSCL",
+   "VNP₁₁"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "1157"
+  ],
+  "pdf_pages": [
+   297
+  ],
+  "fixed": false,
+  "image": "E-10.png"
+ },
+ {
+  "name": "E 11",
+  "anchor": "E-11",
+  "letter": "E",
+  "number": 11,
+  "proverb": "Én bay thấp, mưa ngập bờ ao; én bay cao, mưa rào lại tạnh.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "95"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "4a"
+   },
+   {
+    "abbreviation": "HT",
+    "pages": "52"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "113"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "59"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "57"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "17"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "407"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "122"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "314"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "158"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "225"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Én bay thấp mưa ngập "
+     },
+     {
+      "text": "cầu",
+      "em": true
+     },
+     {
+      "text": " ao; én bay cao mưa rào lại tạnh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "MGL",
+      "pages": "13"
+     },
+     {
+      "abbreviation": "TMT",
+      "pages": "10"
+     },
+     {
+      "abbreviation": "TNCĐ",
+      "pages": "10"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "201"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "75"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Én bay thấp mưa ngập bờ ao; én bay cao mưa rào "
+     },
+     {
+      "text": "mau",
+      "em": true
+     },
+     {
+      "text": " tạnh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC I",
+      "pages": "569"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yến",
+      "em": true
+     },
+     {
+      "text": " bay thấp mưa ngập bờ ao, "
+     },
+     {
+      "text": "yến",
+      "em": true
+     },
+     {
+      "text": " bay cao mưa rào lại tạnh."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "322"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "419"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "652"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "Yếu bay ...",
+    "sources": [
+     "TNCL"
+    ],
+    "right": [
+     {
+      "text": "Yến",
+      "em": true
+     },
+     {
+      "text": " bay ..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"Yếu bay ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Yến",
+      "strong": true
+     },
+     {
+      "text": " bay ..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "én",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "HT",
+   "NL",
+   "NNPD",
+   "NXK",
+   "TMT",
+   "TNCL",
+   "TNPD I",
+   "VD",
+   "VHSCL",
+   "VNP₁₁",
+   "MGL",
+   "TNCĐ",
+   "TNVN",
+   "TTVH",
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1908,
+  "book_pages": [
+   "1157"
+  ],
+  "pdf_pages": [
+   297
+  ],
+  "fixed": false,
+  "image": "E-11.png"
+ },
+ {
+  "name": "E 12",
+  "anchor": "E-12",
+  "letter": "E",
+  "number": 12,
+  "proverb": "Én ra tháng ba, ngâu ra tháng bảy.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "72"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "én",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1157"
+  ],
+  "pdf_pages": [
+   297
+  ],
+  "fixed": false,
+  "image": "E-12.png"
+ },
+ {
+  "name": "E 13",
+  "anchor": "E-13",
+  "letter": "E",
+  "number": 13,
+  "proverb": "Eo éo như mõ réo quan viên.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "24b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "eo",
+  "sources": [
+   "ĐNQT"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "1157"
+  ],
+  "pdf_pages": [
+   297
+  ],
+  "fixed": false,
+  "image": "E-13.png"
+ },
+ {
+  "name": "E 14",
+  "anchor": "E-14",
+  "letter": "E",
+  "number": 14,
+  "proverb": "Ép dầu ép mỡ ai nỡ ép duyên.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "CCM",
+    "pages": "20"
+   },
+   {
+    "abbreviation": "CNGN",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "18b"
+   },
+   {
+    "abbreviation": "HT",
+    "pages": "69"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "23"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "113"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "139"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "163"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "33"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "88"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "223"
+   },
+   {
+    "abbreviation": "TNLG II",
+    "pages": "13"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "121"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "241"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "569"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "314"
+   },
+   {
+    "abbreviation": "VHNB",
+    "pages": "19"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "191"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ép",
+  "sources": [
+   "ANTN",
+   "CCM",
+   "CNGN",
+   "ĐNQT",
+   "HT",
+   "MGL",
+   "NL",
+   "NTP",
+   "NXK",
+   "TMT",
+   "TNCD",
+   "TNCĐ",
+   "TNCL",
+   "TNLG II",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC I",
+   "VD",
+   "VHNB",
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "1157",
+   "1158"
+  ],
+  "pdf_pages": [
+   297,
+   298
+  ],
+  "fixed": false,
+  "image": "E-14.png"
+ },
+ {
+  "name": "E 15",
+  "anchor": "E-15",
+  "letter": "E",
+  "number": 15,
+  "proverb": "Ép như ép giò.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "315"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ép",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1158"
+  ],
+  "pdf_pages": [
+   298
+  ],
+  "fixed": false,
+  "image": "E-15.png"
+ },
+ {
+  "name": "E 16",
+  "anchor": "E-16",
+  "letter": "E",
+  "number": 16,
+  "proverb": "Ép quả thì nước chảy ra.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "544"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "121"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "360"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ép",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "1158"
+  ],
+  "pdf_pages": [
+   298
+  ],
+  "fixed": false,
+  "image": "E-16.png"
+ }
+]

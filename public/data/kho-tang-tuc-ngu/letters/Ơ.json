@@ -1,0 +1,5656 @@
+[
+ {
+  "name": "Ơ 1",
+  "anchor": "Ơ-1",
+  "letter": "Ơ",
+  "number": 1,
+  "proverb": "Ở ăn chẳng lành, đọc kinh phải tội.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "9b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở chẳng lành, đọc "
+     },
+     {
+      "text": "canh",
+      "em": true
+     },
+     {
+      "text": " phải tội."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN II",
+      "pages": "228"
+     },
+     {
+      "abbreviation": "VCVN III",
+      "pages": "522"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở "
+     },
+     {
+      "text": "dưng",
+      "em": true
+     },
+     {
+      "text": " chẳng lành, đọc "
+     },
+     {
+      "text": "canh",
+      "em": true
+     },
+     {
+      "text": " phải tội."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCD",
+      "pages": "89"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở "
+     },
+     {
+      "text": "dưng",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "hay",
+      "em": true
+     },
+     {
+      "text": " lành, đọc "
+     },
+     {
+      "text": "canh",
+      "em": true
+     },
+     {
+      "text": " phải tội."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "40"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở "
+     },
+     {
+      "text": "yên",
+      "em": true
+     },
+     {
+      "text": " chẳng lành, đọc "
+     },
+     {
+      "text": "canh",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "chịu",
+      "em": true
+     },
+     {
+      "text": " tội."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "294, 566"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "240"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "281"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "129"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "379"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở "
+     },
+     {
+      "text": "yên",
+      "em": true
+     },
+     {
+      "text": " chẳng lành đọc "
+     },
+     {
+      "text": "canh",
+      "em": true
+     },
+     {
+      "text": " phải tội."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "231"
+     },
+     {
+      "abbreviation": "NNCC",
+      "pages": "39"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "516"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Tự nhiên vô cớ lại chuốc lấy tai vạ, mang họa vào thân."
+    }
+   ],
+   [
+    {
+     "text": "VCVN: Mình mà ăn ở chẳng lành thì dù mình có cầu xin cách mấy cũng vẫn là phải tội lỗi, chỉ lo cầu xin mà không lo sửa lỗi thì càng thêm tội nhiều."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "Đ 144",
+    "anchor": "Đ-144",
+    "preview": "Đang yên đang lành, đọc canh…"
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "ĐNQT",
+   "VCVN II",
+   "VCVN III",
+   "TNCD",
+   "ANTN",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "NL",
+   "NNCC",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2205"
+  ],
+  "pdf_pages": [
+   515
+  ],
+  "fixed": false,
+  "image": "Ơ-1.png"
+ },
+ {
+  "name": "Ơ 2",
+  "anchor": "Ơ-2",
+  "letter": "Ơ",
+  "number": 2,
+  "proverb": "Ở bầu thì tròn, ở ống thì dài.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "40"
+   },
+   {
+    "abbreviation": "CCM",
+    "pages": "51, 81"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "13b"
+   },
+   {
+    "abbreviation": "HT",
+    "pages": "70"
+   },
+   {
+    "abbreviation": "KCTN",
+    "pages": "13, 273"
+   },
+   {
+    "abbreviation": "KSK",
+    "pages": "18a"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "48"
+   },
+   {
+    "abbreviation": "NASL IV",
+    "pages": "2b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "36a"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "50"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "34b"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "47, 65"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "88"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "160"
+   },
+   {
+    "abbreviation": "TNLG I",
+    "pages": "15, 68"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "13a"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "128"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "372"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "514"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ", có hai nghĩa:"
+    }
+   ],
+   [
+    {
+     "text": "+ Phẩm hạnh, tư chất con người chịu sự ảnh hưởng, tác động của hoàn cảnh sống."
+    }
+   ],
+   [
+    {
+     "text": "+ Ở đâu phải theo phong tục, nền nếp ở đó, lựa theo hoàn cảnh mà cư xử cho phù hợp."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "ANTN",
+   "CCM",
+   "ĐNQT",
+   "HT",
+   "KCTN",
+   "KSK",
+   "MGL",
+   "NASL IV",
+   "NL",
+   "NNCC",
+   "NQPN",
+   "NXK",
+   "PNTN",
+   "TMT",
+   "TNCD",
+   "TNCĐ",
+   "TNCL",
+   "TNLG I",
+   "TNPD I",
+   "TNTB",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2205",
+   "2206"
+  ],
+  "pdf_pages": [
+   515,
+   516
+  ],
+  "fixed": false,
+  "image": "Ơ-2.png"
+ },
+ {
+  "name": "Ơ 3",
+  "anchor": "Ơ-3",
+  "letter": "Ơ",
+  "number": 3,
+  "proverb": "Ở chẳng lành bẻ hành bẻ tỏi.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "160"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2206"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "Ơ-3.png"
+ },
+ {
+  "name": "Ơ 4",
+  "anchor": "Ơ-4",
+  "letter": "Ơ",
+  "number": 4,
+  "proverb": "Ở cho ngay không sợ đường cày khúc khuỷu.",
+  "citations": [
+   {
+    "abbreviation": "VHQB",
+    "pages": "315"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHQB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2206"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "Ơ-4.png"
+ },
+ {
+  "name": "Ơ 5",
+  "anchor": "Ơ-5",
+  "letter": "Ơ",
+  "number": 5,
+  "proverb": "Ở cho ngay thực giàu sau mới bền.",
+  "citations": [
+   {
+    "abbreviation": "NASL IV",
+    "pages": "9b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NASL IV"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2206"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "Ơ-5.png"
+ },
+ {
+  "name": "Ơ 6",
+  "anchor": "Ơ-6",
+  "letter": "Ơ",
+  "number": 6,
+  "proverb": "Ở cho phải phải phân phân, cây đa cậy thần, thần cậy cây đa.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "59"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "158"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "119"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "241"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "VNP₁₁",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2206"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "Ơ-6.png"
+ },
+ {
+  "name": "Ơ 7",
+  "anchor": "Ơ-7",
+  "letter": "Ơ",
+  "number": 7,
+  "proverb": "Ở chọn láng giềng.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "32a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2206"
+  ],
+  "pdf_pages": [
+   516
+  ],
+  "fixed": false,
+  "image": "Ơ-7.png"
+ },
+ {
+  "name": "Ơ 8",
+  "anchor": "Ơ-8",
+  "letter": "Ơ",
+  "number": 8,
+  "proverb": "Ở chọn nơi, chơi chọn bạn.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "102"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "111"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "49"
+   },
+   {
+    "abbreviation": "TNLG III",
+    "pages": "13"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "220, 258"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "128"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "373"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "106"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Chọn bạn mà chơi, chọn nơi mà ở."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "HT",
+      "pages": "79"
+     },
+     {
+      "abbreviation": "MGL",
+      "pages": "18"
+     },
+     {
+      "abbreviation": "TMT",
+      "pages": "28"
+     },
+     {
+      "abbreviation": "TNCĐ",
+      "pages": "14"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "48"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "220, 258"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "44"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "167"
+     },
+     {
+      "abbreviation": "VHSCL",
+      "pages": "184"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Tìm ở lựa nơi, tìm chơi lựa bạn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHSCL",
+      "pages": "207"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "TMT",
+     "source": "TMT"
+    },
+    {
+     "text": " 111: Ở chọn nơi chọn bạn, học ở thầy chả tẩy học bạn. "
+    },
+    {
+     "text": "nhóm biên soạn",
+     "general": "Nbs"
+    },
+    {
+     "text": " tách làm 2 đơn vị."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "Ă 69",
+    "anchor": "Ă-69",
+    "preview": "Ăn chọn nơi, chơi chọn bạn."
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "NL",
+   "NXK",
+   "TMT",
+   "TNCL",
+   "TNLG III",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VNP₁₁",
+   "HT",
+   "MGL",
+   "TNCĐ",
+   "VHSCL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2206",
+   "2207"
+  ],
+  "pdf_pages": [
+   516,
+   517
+  ],
+  "fixed": false,
+  "image": "Ơ-8.png"
+ },
+ {
+  "name": "Ơ 9",
+  "anchor": "Ơ-9",
+  "letter": "Ơ",
+  "number": 9,
+  "proverb": "Ở chùa có ông Thiện ông Ác.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "99"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "8b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "401"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "311"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "128"
+   },
+   {
+    "abbreviation": "VCVN III",
+    "pages": "522"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở đâu cũng có người hiền kẻ dữ."
+     }
+    ],
+    "citations": []
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Hiền lành dược phù hộ, ác độc sẽ bị trừng trị."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ", ông Thiện, ông Ác: hai pho tượng hộ pháp đặt ở hai bên bàn thờ Phật, một ông mặt mũi hiền lành phúc hậu, một ông hung dữ."
+    }
+   ],
+   [
+    {
+     "text": "VCVN: Ở nhà chùa, nơi từ bi hỉ xả như vậy mà cũng còn có ông hiền ông ác, huống chi ngoài đời sao tránh khỏi có kẻ gian ác lẫn lộn trong đám đông hiền lành được."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NL",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VCVN III",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2207"
+  ],
+  "pdf_pages": [
+   517
+  ],
+  "fixed": false,
+  "image": "Ơ-9.png"
+ },
+ {
+  "name": "Ơ 10",
+  "anchor": "Ơ-10",
+  "letter": "Ơ",
+  "number": 10,
+  "proverb": "Ở chùa đốt chùa.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "21b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "15"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "239"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "NNCC",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2207"
+  ],
+  "pdf_pages": [
+   517
+  ],
+  "fixed": false,
+  "image": "Ơ-10.png"
+ },
+ {
+  "name": "Ơ 11",
+  "anchor": "Ơ-11",
+  "letter": "Ơ",
+  "number": 11,
+  "proverb": "Ở chuồng heo còn hơn theo quê vợ.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "373"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2207"
+  ],
+  "pdf_pages": [
+   517
+  ],
+  "fixed": false,
+  "image": "Ơ-11.png"
+ },
+ {
+  "name": "Ơ 12",
+  "anchor": "Ơ-12",
+  "letter": "Ơ",
+  "number": 12,
+  "proverb": "Ở có nhân mười phần chẳng khốn.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "31"
+   },
+   {
+    "abbreviation": "HT",
+    "pages": "72"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "83"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "101"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "309"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "128"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "204"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ăn ở có nhân, mười phần chẳng khó."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "45"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở cho có nhân mười phần chẳng khốn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "153"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở có nhân muôn phần không khó."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "230"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "335"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở có nhân mười phần chẳng khó."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "515"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở có nhân mười phần không khó."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNTB",
+      "pages": "11a"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "K 13",
+    "anchor": "K-13",
+    "preview": "Kẻ có nhân, mười phần chẳng…"
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "ANTN",
+   "HT",
+   "TNCD",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VHSCL",
+   "VD",
+   "NXK",
+   "NL",
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1932,
+  "book_pages": [
+   "2207",
+   "2208"
+  ],
+  "pdf_pages": [
+   517,
+   518
+  ],
+  "fixed": false,
+  "image": "Ơ-12.png"
+ },
+ {
+  "name": "Ơ 13",
+  "anchor": "Ơ-13",
+  "letter": "Ơ",
+  "number": 13,
+  "proverb": "Ở dăm dảm như đọi nước đầy.",
+  "citations": [
+   {
+    "abbreviation": "VHQB",
+    "pages": "315"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHQB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2208"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "Ơ-13.png"
+ },
+ {
+  "name": "Ơ 14",
+  "anchor": "Ơ-14",
+  "letter": "Ơ",
+  "number": 14,
+  "proverb": "Ở dữ Trời nào chứng cho.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "2a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2208"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "Ơ-14.png"
+ },
+ {
+  "name": "Ơ 15",
+  "anchor": "Ơ-15",
+  "letter": "Ơ",
+  "number": 15,
+  "proverb": "Ở đâu âu đấy.",
+  "citations": [
+   {
+    "abbreviation": "TNLG I",
+    "pages": "15, 68"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "374"
+   },
+   {
+    "abbreviation": "VCVN III",
+    "pages": "523"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Âu: âu yếm, yêu mến. Ở đâu thì yêu mến, lo toan vun vén cho chỗ đó."
+    }
+   ],
+   [
+    {
+     "text": "VCVN giải thích tương tự."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "TNLG I",
+   "VC II",
+   "VCVN III",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2208"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "Ơ-15.png"
+ },
+ {
+  "name": "Ơ 16",
+  "anchor": "Ơ-16",
+  "letter": "Ơ",
+  "number": 16,
+  "proverb": "Ở đâu có khói, thì lửa ở đó.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở đâu có khói, thì lửa ở "
+     },
+     {
+      "text": "đấy",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "230"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "C 1844",
+    "anchor": "C-1844",
+    "preview": "Có lửa mới có khói."
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "TNPD I",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2208"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "Ơ-16.png"
+ },
+ {
+  "name": "Ơ 17",
+  "anchor": "Ơ-17",
+  "letter": "Ơ",
+  "number": 17,
+  "proverb": "Ở đâu có thổ công đấy.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2208"
+  ],
+  "pdf_pages": [
+   518
+  ],
+  "fixed": false,
+  "image": "Ơ-17.png"
+ },
+ {
+  "name": "Ơ 18",
+  "anchor": "Ơ-18",
+  "letter": "Ơ",
+  "number": 18,
+  "proverb": "Ở đâu mà chẳng biết ta, ta con ông sấm cháu bà Thiên Lôi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2208",
+   "2209"
+  ],
+  "pdf_pages": [
+   518,
+   519
+  ],
+  "fixed": false,
+  "image": "Ơ-18.png"
+ },
+ {
+  "name": "Ơ 19",
+  "anchor": "Ơ-19",
+  "letter": "Ơ",
+  "number": 19,
+  "proverb": "Ở đâu quen đó.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "374"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2209"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "Ơ-19.png"
+ },
+ {
+  "name": "Ơ 20",
+  "anchor": "Ơ-20",
+  "letter": "Ơ",
+  "number": 20,
+  "proverb": "Ở đầu làng, bán hàng đầu dây.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Nhà ở đầu làng thì mát, bán hàng đầu dãy thì lợi khách."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "L 501",
+    "anchor": "L-501",
+    "preview": "Lấy chồng giữa làng, bán hàng…"
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2209"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "Ơ-20.png"
+ },
+ {
+  "name": "Ơ 21",
+  "anchor": "Ơ-21",
+  "letter": "Ơ",
+  "number": 21,
+  "proverb": "Ở đây ăn bát rau chành, còn hơn nơi khác mâm gành cổ gơ.",
+  "citations": [
+   {
+    "abbreviation": "HTTH",
+    "pages": "46"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở đây ăn bát rau chành, còn hơn "
+     },
+     {
+      "text": "chốn",
+      "em": true
+     },
+     {
+      "text": " khác mâm gành cổ gơ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNTH",
+      "pages": "31"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "TNTH",
+     "source": "TNTH"
+    },
+    {
+     "text": ": Rau chành: rau vặt; mâm gành cổ gơ: mâm bằng gỗ, cổ xếp thành nhiều tầng cao."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "HTTH",
+   "TNTH"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2209"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "Ơ-21.png"
+ },
+ {
+  "name": "Ơ 22",
+  "anchor": "Ơ-22",
+  "letter": "Ơ",
+  "number": 22,
+  "proverb": "Ở đây gần bạn gần thầy, có công mài sắt có ngày nên kim.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "241"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "375"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "C 1739",
+    "anchor": "C-1739",
+    "preview": "Có công mài sắt có ngày…"
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2209"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "Ơ-22.png"
+ },
+ {
+  "name": "Ơ 23",
+  "anchor": "Ơ-23",
+  "letter": "Ơ",
+  "number": 23,
+  "proverb": "Ở đầy gặp đầy, ở vơi gặp vơi.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở đầy "
+     },
+     {
+      "text": "được",
+      "em": true
+     },
+     {
+      "text": " đầy, ở vơi "
+     },
+     {
+      "text": "được",
+      "em": true
+     },
+     {
+      "text": " vơi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "65"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Ăn ở đầy đặn với mọi người thì được đối xử từ tế, gặp may mắn; ăn ở điêu bạc thì gặp sự không may."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VD",
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2209"
+  ],
+  "pdf_pages": [
+   519
+  ],
+  "fixed": false,
+  "image": "Ơ-23.png"
+ },
+ {
+  "name": "Ơ 24",
+  "anchor": "Ơ-24",
+  "letter": "Ơ",
+  "number": 24,
+  "proverb": "Ở đây gặp voi.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Ăn ở đây đặn mà lại bị đối xử tệ bạc."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2210"
+  ],
+  "pdf_pages": [
+   520
+  ],
+  "fixed": false,
+  "image": "Ơ-24.png"
+ },
+ {
+  "name": "Ơ 25",
+  "anchor": "Ơ-25",
+  "letter": "Ơ",
+  "number": 25,
+  "proverb": "Ở đình nào chúc đình ấy.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "22a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "34a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "32a"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "368"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "331"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "128"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "Đ 619",
+    "anchor": "Đ-619",
+    "preview": "Đến đình nào chúc đình ấy."
+   },
+   {
+    "name": "H 77",
+    "anchor": "H-77",
+    "preview": "Hát đình nào chúc đình ấy."
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "NNCC",
+   "NQPN",
+   "PNTN",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2210"
+  ],
+  "pdf_pages": [
+   520
+  ],
+  "fixed": false,
+  "image": "Ơ-25.png"
+ },
+ {
+  "name": "Ơ 26",
+  "anchor": "Ơ-26",
+  "letter": "Ơ",
+  "number": 26,
+  "proverb": "Ở đình quét đình, ở chùa quét chùa.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2210"
+  ],
+  "pdf_pages": [
+   520
+  ],
+  "fixed": false,
+  "image": "Ơ-26.png"
+ },
+ {
+  "name": "Ơ 27",
+  "anchor": "Ơ-27",
+  "letter": "Ơ",
+  "number": 27,
+  "proverb": "Ở đời chẳng biết sợ ai, sợ thằng say rượu nói dai tối ngày.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "241"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "375"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2210"
+  ],
+  "pdf_pages": [
+   520
+  ],
+  "fixed": false,
+  "image": "Ơ-27.png"
+ },
+ {
+  "name": "Ơ 28",
+  "anchor": "Ơ-28",
+  "letter": "Ơ",
+  "number": 28,
+  "proverb": "Ở đời có bốn chuyện ngu: làm mai, lãnh nợ, gác cu, cầm chầu.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "243"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "315"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "116"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở đời có bốn cái ngu: làm mai, "
+     },
+     {
+      "text": "lĩnh",
+      "em": true
+     },
+     {
+      "text": " nợ, gác cu, cầm chầu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "267"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "129"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở đời có bốn cái ngu: làm mai, lãnh nợ, gác cu, cầm chầu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN III",
+      "pages": "523"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "375"
+     },
+     {
+      "abbreviation": "VHSCL",
+      "pages": "205"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VCVN: 1) Làm mai mối việc vợ chồng cho người ta thì mình chỉ mất công không chứ chẳng được ăn tiền ăn bạc gì. Việc nên và tốt đẹp thì họ hưởng, nếu không nên và không tốt đẹp, mà chính do họ gây ra, thì họ lại oán trách mình."
+    }
+   ],
+   [
+    {
+     "text": "2) Lãnh nợ dùm cho người, hai bên họ đều có lợi, mình chẳng được ăn gì trong đó. Nhưng nếu có gì trục trặc thì chủ nợ trách cứ tới mình, nếu không vay được nợ thì con nợ cũng oán"
+    }
+   ],
+   [
+    {
+     "text": "trách mình là chẳng quyết tâm giúp họ, còn nếu con nợ mà không trả được thì mình phải gánh lấy mà trả thay."
+    }
+   ],
+   [
+    {
+     "text": "3) Việc đánh bắt chim cu bằng lưới rập gồm có hai người. Lưới được giăng lên ở một chỗ thuận tiện. Một sợi dây dài cột vào mép lưới và kéo ra xa, người chủ chốt cầm đầu mối dây này và tìm chỗ tương đối kín đáo mà ngồi chờ. Một người gác (gác cu) khác sẽ ngồi trên cành cây cao hoặc mô đất cao có bụi rậm gần cái lưới làm sao cho mình có thể trông thấy rõ khi chim xuống chỗ lưới mà nó lại không thấy mình. Khi thấy chim đáp xuống ăn mồi, (rắc cạnh lưới) lọt vào giữa lưới thì người gác tìm cách ra hiệu cho người chủ chốt giựt dây để lưới sập xuống mà bắt chim."
+    }
+   ],
+   [
+    {
+     "text": "Nếu bắt được chim thì công lao ấy gần như là thuộc về người hủ chốt giựt dây, nếu vì sao đó mà giựt sẩy thì người ta sẽ đổ tội cho người gác là không biết cách ra hiệu giật dây cho đúng như chim chưa vào tới lưới, ra hiệu lộ liễu để chim hoảng sợ mà bay mất... \"Gác\" do chữ \"các\" là đặt lên cao, ở trên cao (cái lầu, cái gác)."
+    }
+   ],
+   [
+    {
+     "text": "4) Trong đám hát bội, nơi khán giả ngồi có một người ngồi đánh trống chầu. Khi người hát hay thì tới cuối câu mình sẽ đánh vài tiếng trống để vừa rước giọng cho họ vừa tỏ hiệu khen họ. Nếu khi họ hát chưa xong câu mà mình vội đánh trống thì đôi khi tiếng trống sẽ át giọng họ, làm nghẹt họng họ, họ hát mất hay. Như vậy, người cầm chầu góp phần vào việc hát hay hoặc hát dở... Nhưng nếu con hát hát hay thì người ta khen con hát chứ chẳng biết tới người cầm chầu, nếu mình đánh trật nhịp, con hát hát không được thì họ lại trách cứ tới mình đã làm hại họ... \"Chầu\" do chữ \"trù\" có nghĩa là đàn hát (ca trù), xếp đặt, tính toán (trù tính)."
+    }
+   ],
+   [
+    {
+     "text": "Đó là bốn cái ngu dốt của con người, làm việc vô duyên chỉ có thiệt, không có lợi..."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "VNP₁₁",
+   "TTVH",
+   "VCVN III",
+   "VC II",
+   "VHSCL"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2210",
+   "2211"
+  ],
+  "pdf_pages": [
+   520,
+   521
+  ],
+  "fixed": false,
+  "image": "Ơ-28.png"
+ },
+ {
+  "name": "Ơ 29",
+  "anchor": "Ơ-29",
+  "letter": "Ơ",
+  "number": 29,
+  "proverb": "Ở đời được mấy gang tay.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2211",
+   "2212"
+  ],
+  "pdf_pages": [
+   521,
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-29.png"
+ },
+ {
+  "name": "Ơ 30",
+  "anchor": "Ơ-30",
+  "letter": "Ơ",
+  "number": 30,
+  "proverb": "Ở đời mình giữ lấy mình, điều hay lẽ phải đỉnh ninh giữ tròn.",
+  "citations": [
+   {
+    "abbreviation": "VHSCL",
+    "pages": "205"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2212"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-30.png"
+ },
+ {
+  "name": "Ơ 31",
+  "anchor": "Ơ-31",
+  "letter": "Ơ",
+  "number": 31,
+  "proverb": "Ở đời muôn sự của chung.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2212"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-31.png"
+ },
+ {
+  "name": "Ơ 32",
+  "anchor": "Ơ-32",
+  "letter": "Ơ",
+  "number": 32,
+  "proverb": "Ở đời muôn sự của chung, hơn nhau một tiếng anh hùng mà thôi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "119"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "376"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2212"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-32.png"
+ },
+ {
+  "name": "Ơ 33",
+  "anchor": "Ơ-33",
+  "letter": "Ơ",
+  "number": 33,
+  "proverb": "Ở đời thà chịu thiệt mình, chớ đừng tàn hiếp vì ta hại người.",
+  "citations": [
+   {
+    "abbreviation": "VHSCL",
+    "pages": "205"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2212"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-33.png"
+ },
+ {
+  "name": "Ơ 34",
+  "anchor": "Ơ-34",
+  "letter": "Ơ",
+  "number": 34,
+  "proverb": "Ở đời tốt nhịn là hơn.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "18"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2212"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-34.png"
+ },
+ {
+  "name": "Ơ 35",
+  "anchor": "Ơ-35",
+  "letter": "Ơ",
+  "number": 35,
+  "proverb": "Ở gần hàng bún thời nhũn đến xương.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "12a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NASL III"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2212"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-35.png"
+ },
+ {
+  "name": "Ơ 36",
+  "anchor": "Ơ-36",
+  "letter": "Ơ",
+  "number": 36,
+  "proverb": "Ở gần nên gần, ở xa nên xa.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "515"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2212"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-36.png"
+ },
+ {
+  "name": "Ơ 37",
+  "anchor": "Ơ-37",
+  "letter": "Ơ",
+  "number": 37,
+  "proverb": "Ở giữa chết chẹt.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "177"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "18"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "370"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Ở vào tình thế khó xử, bị cả hai phía dồn ép, không có lối thoát."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL",
+   "NXK",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2212"
+  ],
+  "pdf_pages": [
+   522
+  ],
+  "fixed": false,
+  "image": "Ơ-37.png"
+ },
+ {
+  "name": "Ơ 38",
+  "anchor": "Ơ-38",
+  "letter": "Ơ",
+  "number": 38,
+  "proverb": "Ở hậu gặp hậu, ở bạc gặp bạc.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "52"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "161, 401"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "310"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "CCM",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2213"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "Ơ-38.png"
+ },
+ {
+  "name": "Ơ 39",
+  "anchor": "Ơ-39",
+  "letter": "Ơ",
+  "number": 39,
+  "proverb": "Ở hậu lại gặp hậu.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "23"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NNCC",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2213"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "Ơ-39.png"
+ },
+ {
+  "name": "Ơ 40",
+  "anchor": "Ơ-40",
+  "letter": "Ơ",
+  "number": 40,
+  "proverb": "Ở hiền gặp lành.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "8"
+   },
+   {
+    "abbreviation": "HT",
+    "pages": "72"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "35"
+   },
+   {
+    "abbreviation": "NASL III",
+    "pages": "47a- 47b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "8"
+   },
+   {
+    "abbreviation": "NTB",
+    "pages": "330"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "43, 52"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "71"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "309"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "377"
+   },
+   {
+    "abbreviation": "VNP₂ II",
+    "pages": "88"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "98"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở hiền "
+     },
+     {
+      "text": "lại",
+      "em": true
+     },
+     {
+      "text": " gặp lành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "240"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở hiền "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "lại",
+      "em": true
+     },
+     {
+      "text": " gặp lành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "402"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở "
+     },
+     {
+      "text": "lành",
+      "em": true
+     },
+     {
+      "text": " gặp lành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "75"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "516"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "ANTN",
+   "HT",
+   "MGL",
+   "NASL III",
+   "NL",
+   "NNCC",
+   "NTB",
+   "TMT",
+   "TNCD",
+   "TNCĐ",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VNP₂ II",
+   "VNP₁₁",
+   "TNPD I",
+   "TNCL",
+   "CCM",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2213"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "Ơ-40.png"
+ },
+ {
+  "name": "Ơ 41",
+  "anchor": "Ơ-41",
+  "letter": "Ơ",
+  "number": 41,
+  "proverb": "Ở hiền gặp lành, chui đầu giành mà trợn mắt lên.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "402"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "TNCL",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2213"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "Ơ-41.png"
+ },
+ {
+  "name": "Ơ 42",
+  "anchor": "Ơ-42",
+  "letter": "Ơ",
+  "number": 42,
+  "proverb": "Ở hiền gặp lành, ở ác gặp dữ.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "62a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở hiền gặp lành, ở ác gặp ác."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "516"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "ĐNQT",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2213"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "Ơ-42.png"
+ },
+ {
+  "name": "Ơ 43",
+  "anchor": "Ơ-43",
+  "letter": "Ơ",
+  "number": 43,
+  "proverb": "Ở hiền nhiều bạn tốt, ở ác hết bạn hiền.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2213"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "Ơ-43.png"
+ },
+ {
+  "name": "Ơ 44",
+  "anchor": "Ơ-44",
+  "letter": "Ơ",
+  "number": 44,
+  "proverb": "Ở hiền thì lại gặp lành, hễ ai ở ác tội dành vào thân.",
+  "citations": [
+   {
+    "abbreviation": "TNVN",
+    "pages": "310"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở hiền thì gặp lành, hễ ai ở ác tội dành vào thân."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "402"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "TNVN",
+   "TTVH",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2213"
+  ],
+  "pdf_pages": [
+   523
+  ],
+  "fixed": false,
+  "image": "Ơ-44.png"
+ },
+ {
+  "name": "Ơ 45",
+  "anchor": "Ơ-45",
+  "letter": "Ơ",
+  "number": 45,
+  "proverb": "Ở hiền thì lại gặp lành, những người nhân đức Trời dành phúc cho.",
+  "citations": [
+   {
+    "abbreviation": "TMT",
+    "pages": "110"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "241"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "377"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "108"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở hiền thì lại gặp lành, những người nhân đức Trời dành "
+     },
+     {
+      "text": "phần",
+      "em": true
+     },
+     {
+      "text": " cho."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "402"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở hiền thì lại gặp lành, những người nhân đức Trời dành "
+     },
+     {
+      "text": "phần",
+      "em": true
+     },
+     {
+      "text": " cho."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "309"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "129"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "TMT",
+   "TNPD I",
+   "VC II",
+   "VNP₁₁",
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2214"
+  ],
+  "pdf_pages": [
+   524
+  ],
+  "fixed": false,
+  "image": "Ơ-45.png"
+ },
+ {
+  "name": "Ơ 46",
+  "anchor": "Ơ-46",
+  "letter": "Ơ",
+  "number": 46,
+  "proverb": "Ở hiền thì lại gặp lành, ở ác gặp dữ tan tành như tro.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "241"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở hiền thì lại gặp lành, ở ác gặp dữ tan tành rư tro."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "310"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "129"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2214"
+  ],
+  "pdf_pages": [
+   524
+  ],
+  "fixed": false,
+  "image": "Ơ-46.png"
+ },
+ {
+  "name": "Ơ 47",
+  "anchor": "Ơ-47",
+  "letter": "Ơ",
+  "number": 47,
+  "proverb": "Ở hoá ba năm, lấy chồng hay ngủ.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "5a"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở goá ba đông, lấy chồng hay ngủ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "230"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "600"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "516"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở góa ba năm lấy chồng hay ngủ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "600"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở hoá ba năm, lấy chồng buồn ngủ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "243"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Câu nói đùa về cảnh hẩm hiu khiến người ta luôn luôn bị thiệt thời."
+    }
+   ],
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Số kiếp bẽ bàng vô duyên."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NASL II",
+   "TNPD I",
+   "TTVH",
+   "NL",
+   "TNCL",
+   "VD",
+   "TNVN"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2214"
+  ],
+  "pdf_pages": [
+   524
+  ],
+  "fixed": false,
+  "image": "Ơ-47.png"
+ },
+ {
+  "name": "Ơ 48",
+  "anchor": "Ơ-48",
+  "letter": "Ơ",
+  "number": 48,
+  "proverb": "Ở làm sao vừa lòng thiên hạ.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "68"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2214"
+  ],
+  "pdf_pages": [
+   524
+  ],
+  "fixed": false,
+  "image": "Ơ-48.png"
+ },
+ {
+  "name": "Ơ 49",
+  "anchor": "Ơ-49",
+  "letter": "Ơ",
+  "number": 49,
+  "proverb": "Ở lẻ loi toi mạng, có phường có bạn mới nên.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2214"
+  ],
+  "pdf_pages": [
+   524
+  ],
+  "fixed": false,
+  "image": "Ơ-49.png"
+ },
+ {
+  "name": "Ơ 50",
+  "anchor": "Ơ-50",
+  "letter": "Ơ",
+  "number": 50,
+  "proverb": "Ở nhà bế bốc, ở trận thốc sườn.",
+  "citations": [
+   {
+    "abbreviation": "VHLĐ",
+    "pages": "354"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Lưu truyền ở vùng Liễu Đôi, tỉnh Hà Nam. "
+    },
+    {
+     "text": "VHLĐ",
+     "source": "VHLĐ"
+    },
+    {
+     "text": ": Ở nhà: chỉ ở hội vật võ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHLĐ"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2215"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "Ơ-50.png"
+ },
+ {
+  "name": "Ơ 51",
+  "anchor": "Ơ-51",
+  "letter": "Ơ",
+  "number": 51,
+  "proverb": "Ở nhà chẳng chịu tiếp ai, ra đường mới biết chẳng ai tiếp mình.",
+  "citations": [
+   {
+    "abbreviation": "VHSCL",
+    "pages": "205"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2215"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "Ơ-51.png"
+ },
+ {
+  "name": "Ơ 52",
+  "anchor": "Ơ-52",
+  "letter": "Ơ",
+  "number": 52,
+  "proverb": "Ở nhà cợm chú, ở rú cơm chung.",
+  "citations": [
+   {
+    "abbreviation": "VHQB",
+    "pages": "315"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHQB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2215"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "Ơ-52.png"
+ },
+ {
+  "name": "Ơ 53",
+  "anchor": "Ơ-53",
+  "letter": "Ơ",
+  "number": 53,
+  "proverb": "Ở nhà đáng giá kì lân, đem ra giữa chợ kém cân con lợn sề.",
+  "citations": [
+   {
+    "abbreviation": "HTTH",
+    "pages": "46"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "HTTH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2215"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "Ơ-53.png"
+ },
+ {
+  "name": "Ơ 54",
+  "anchor": "Ơ-54",
+  "letter": "Ơ",
+  "number": 54,
+  "proverb": "Ở nhà đáng giá vàng mười, đem ra giữa chợ kém người vài bốn năm phần.",
+  "citations": [
+   {
+    "abbreviation": "HTTH",
+    "pages": "46"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "HTTH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2215"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "Ơ-54.png"
+ },
+ {
+  "name": "Ơ 55",
+  "anchor": "Ơ-55",
+  "letter": "Ơ",
+  "number": 55,
+  "proverb": "Ở nhà giàu hầu quan lớn.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "CCM",
+    "pages": "41, 91"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "20b"
+   },
+   {
+    "abbreviation": "NASL I",
+    "pages": "26b, 54a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "230"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "82"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "187"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "276"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Nói lên cái thân phận tôi đòi của một số người trong chế độ cũ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "ANTN",
+   "CCM",
+   "ĐNQT",
+   "NASL I",
+   "NL",
+   "NNCC",
+   "TNCD",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2215"
+  ],
+  "pdf_pages": [
+   525
+  ],
+  "fixed": false,
+  "image": "Ơ-55.png"
+ },
+ {
+  "name": "Ơ 56",
+  "anchor": "Ơ-56",
+  "letter": "Ơ",
+  "number": 56,
+  "proverb": "Ở nhà giàu hơn hầu quan lớn.",
+  "citations": [
+   {
+    "abbreviation": "VCVN III",
+    "pages": "524"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Theo VCVN, nhà giàu chỉ cần việc, mình giúp việc cho nhà họ thì họ sẽ chiều chuộng mình, cho mình ăn no, chỉ vẽ cho mình làm, mình sẽ thạo việc thêm... (được tiếng). Nhà quan thì họ chỉ thích nịnh, mình đi hầu họ thì mình phải chiều chuộng họ, họ chẳng cho mình được cái gì hơn, ngoại trừ là mình được người khác nể nang là được ở gần nơi quyền quý... (được tiếng)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VCVN III"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2215",
+   "2216"
+  ],
+  "pdf_pages": [
+   525,
+   526
+  ],
+  "fixed": false,
+  "image": "Ơ-56.png"
+ },
+ {
+  "name": "Ơ 57",
+  "anchor": "Ơ-57",
+  "letter": "Ơ",
+  "number": 57,
+  "proverb": "Ở nhà người thất cổ đừng nói chuyện dây thừng, trước mặt người quê đừng có đi cà nhắc.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "49"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NXK"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2216"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "Ơ-57.png"
+ },
+ {
+  "name": "Ơ 58",
+  "anchor": "Ơ-58",
+  "letter": "Ơ",
+  "number": 58,
+  "proverb": "Ở nhà nhất mẹ nhì con.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "7b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "CCM",
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2216"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "Ơ-58.png"
+ },
+ {
+  "name": "Ơ 59",
+  "anchor": "Ơ-59",
+  "letter": "Ơ",
+  "number": 59,
+  "proverb": "Ở nhà nhất mẹ nhì con, ra ngoài lắm kẻ lại giòn hơn ta.",
+  "citations": [
+   {
+    "abbreviation": "NQPN",
+    "pages": "8a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "6b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở nhà nhất mẹ nhì con, ra đường chán vạn kẻ giòn hơn ta."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "377"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở nhà nhất mẹ nhì con, ra đường lắm kẻ còn đẹp còn giòn hơn ta."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "83"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "251"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở nhà nhất mẹ nhì con, ra đường lắm kẻ còn giòn hơn ta."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "230"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "248"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "241"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "353"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "129"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở nhà nhất mẹ nhì con, ra đường tám vạn người giòn hơn ta."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "60"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NQPN",
+   "PNTN",
+   "VC II",
+   "TNCL",
+   "TNVN",
+   "NL",
+   "TNPD I",
+   "TTVH",
+   "ANTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1914,
+  "book_pages": [
+   "2216"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "Ơ-59.png"
+ },
+ {
+  "name": "Ơ 60",
+  "anchor": "Ơ-60",
+  "letter": "Ơ",
+  "number": 60,
+  "proverb": "Ở nhà nhờ mẹ cha, đi ra nhờ bè bạn.",
+  "citations": [
+   {
+    "abbreviation": "VNNN",
+    "pages": "7"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VNNN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1931,
+  "book_pages": [
+   "2216"
+  ],
+  "pdf_pages": [
+   526
+  ],
+  "fixed": false,
+  "image": "Ơ-60.png"
+ },
+ {
+  "name": "Ơ 61",
+  "anchor": "Ơ-61",
+  "letter": "Ơ",
+  "number": 61,
+  "proverb": "Ở nhà thì khôn, ra ngoài thì dại.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "K 405",
+    "anchor": "K-405",
+    "preview": "Khôn nhà dại chợ."
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2216",
+   "2217"
+  ],
+  "pdf_pages": [
+   526,
+   527
+  ],
+  "fixed": false,
+  "image": "Ơ-61.png"
+ },
+ {
+  "name": "Ơ 62",
+  "anchor": "Ơ-62",
+  "letter": "Ơ",
+  "number": 62,
+  "proverb": "Ở quen thói, nói quen sáo.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "231"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "186"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "278, 421"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "303, 373"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Nói lên tầm quan trọng của tập quán."
+    }
+   ],
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Sáo: cách nói theo một khuôn mẫu có sẵn, nghe kêu nhưng nội dung rỗng tuếch và nhàm."
+    }
+   ],
+   [
+    {
+     "text": "Ăn ở, nói năng khi đã thành thói quen thì khó mà sửa đổi và có ảnh hưởng lâu dài đến tính cách."
+    }
+   ],
+   [
+    {
+     "text": "Nguyễn Hùng Vĩ: Ở lâu tất biết thói xấu của người khác, nói nhiều nghe sẽ nhàm đi."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL",
+   "NXK",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2217"
+  ],
+  "pdf_pages": [
+   527
+  ],
+  "fixed": false,
+  "image": "Ơ-62.png"
+ },
+ {
+  "name": "Ơ 63",
+  "anchor": "Ơ-63",
+  "letter": "Ơ",
+  "number": 63,
+  "proverb": "Ở quỷ gặp quái, gian tà gặp nhau.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "35"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "52"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "MGL",
+   "TMT"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2217"
+  ],
+  "pdf_pages": [
+   527
+  ],
+  "fixed": false,
+  "image": "Ơ-63.png"
+ },
+ {
+  "name": "Ơ 64",
+  "anchor": "Ơ-64",
+  "letter": "Ơ",
+  "number": 64,
+  "proverb": "Ở rộng người cười, ở hẹp người chê.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "65"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2217"
+  ],
+  "pdf_pages": [
+   527
+  ],
+  "fixed": false,
+  "image": "Ơ-64.png"
+ },
+ {
+  "name": "Ơ 65",
+  "anchor": "Ơ-65",
+  "letter": "Ơ",
+  "number": 65,
+  "proverb": "Ở sao cho vừa lòng người, ở rộng người cười ở hẹp người chê.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "231"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "34a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "32a"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "241"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "132"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "21"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "257"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "205"
+   },
+   {
+    "abbreviation": "VNNN",
+    "pages": "6"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NL",
+   "NQPN",
+   "PNTN",
+   "TNPD I",
+   "VNP₁₁",
+   "TNCĐ",
+   "TNVN",
+   "TTVH",
+   "VHSCL",
+   "VNNN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1914,
+  "book_pages": [
+   "2217"
+  ],
+  "pdf_pages": [
+   527
+  ],
+  "fixed": false,
+  "image": "Ơ-65.png"
+ },
+ {
+  "name": "Ơ 66",
+  "anchor": "Ơ-66",
+  "letter": "Ơ",
+  "number": 66,
+  "proverb": "Ở tinh gặp ma.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "35"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "52"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "MGL",
+   "TMT"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2217"
+  ],
+  "pdf_pages": [
+   527
+  ],
+  "fixed": false,
+  "image": "Ơ-66.png"
+ },
+ {
+  "name": "Ơ 67",
+  "anchor": "Ơ-67",
+  "letter": "Ơ",
+  "number": 67,
+  "proverb": "Ở tinh gặp ma, ở quỷ gặp quái, gian tà gặp nhau.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "9b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "231"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "402"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "310"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở tinh gặp ma, ở quỷ gặp quái."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "378"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "TNCĐ",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2217",
+   "2218"
+  ],
+  "pdf_pages": [
+   527,
+   528
+  ],
+  "fixed": false,
+  "image": "Ơ-67.png"
+ },
+ {
+  "name": "Ơ 68",
+  "anchor": "Ơ-68",
+  "letter": "Ơ",
+  "number": 68,
+  "proverb": "Ở tình thì khó, ở kháu ó thì dễ.",
+  "citations": [
+   {
+    "abbreviation": "VHQB",
+    "pages": "315"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ăn ở, cư xử với nhau cho có tình, cho dễ chịu thì khó; quấy rầy nhau, la mắng nhau thì dễ (theo Triều Nguyên)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHQB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2218"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Ơ-68.png"
+ },
+ {
+  "name": "Ơ 69",
+  "anchor": "Ơ-69",
+  "letter": "Ơ",
+  "number": 69,
+  "proverb": "Ở trong bếp thì là thổ công, ở dưới sông thì là hà bá.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "21"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "Đ 349",
+    "anchor": "Đ-349",
+    "preview": "Đất có thổ công, sông có…"
+   }
+  ],
+  "first_syllable": "ở",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2218"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Ơ-69.png"
+ },
+ {
+  "name": "Ơ 70",
+  "anchor": "Ơ-70",
+  "letter": "Ơ",
+  "number": 70,
+  "proverb": "Ở trong chăn mới biết chăn có rận.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "33"
+   },
+   {
+    "abbreviation": "NASL III",
+    "pages": "16b"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "185"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "26"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "251"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "301"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ai ở trong chăn mới biết chăn có rận."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "8"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "15"
+     },
+     {
+      "abbreviation": "VC I",
+      "pages": "18"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ai trong chăn mới biết chăn có rận."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "17"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở trong chăn biết chăn có rận."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "45b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở trong chăn mới biết "
+     },
+     {
+      "text": "trong",
+      "em": true
+     },
+     {
+      "text": " chăn có rận."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TMT",
+      "pages": "50"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "MGL",
+   "NASL III",
+   "NXK",
+   "TNCD",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "NL",
+   "TNPD I",
+   "VC I",
+   "NASL IV",
+   "TMT"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2218"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Ơ-70.png"
+ },
+ {
+  "name": "Ơ 71",
+  "anchor": "Ơ-71",
+  "letter": "Ơ",
+  "number": 71,
+  "proverb": "Ở trong dạy học, ở ngoài viết văn.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "47a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2218"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Ơ-71.png"
+ },
+ {
+  "name": "Ơ 72",
+  "anchor": "Ơ-72",
+  "letter": "Ơ",
+  "number": 72,
+  "proverb": "Ở với mẹ biết ngày nào khôn.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "35"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở nhà với mẹ biết ngày nào khôn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "204"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "NNCC",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2218"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Ơ-72.png"
+ },
+ {
+  "name": "Ơ 73",
+  "anchor": "Ơ-73",
+  "letter": "Ơ",
+  "number": 73,
+  "proverb": "Ở vườn nhà ăn cau sâu.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "333"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "378"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giống nghĩa câu \"Hàng sáng chết bó chiếu\"."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "TNCL",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2219"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Ơ-73.png"
+ },
+ {
+  "name": "Ơ 74",
+  "anchor": "Ơ-74",
+  "letter": "Ơ",
+  "number": 74,
+  "proverb": "Ở xa tìm thế, ở xế tìm mồi.",
+  "citations": [
+   {
+    "abbreviation": "VHLĐ",
+    "pages": "345"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Lưu truyền ở vùng Liễu Đội, tỉnh Hà Nam. "
+    },
+    {
+     "text": "VHLĐ",
+     "source": "VHLĐ"
+    },
+    {
+     "text": ": Ở xế: ở gần bên."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "VHLĐ"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2219"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Ơ-74.png"
+ },
+ {
+  "name": "Ơ 75",
+  "anchor": "Ơ-75",
+  "letter": "Ơ",
+  "number": 75,
+  "proverb": "Ở xứ mù anh chột làm vua.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "47"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "64"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "36"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "365"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "362"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ở xứ mù "
+     },
+     {
+      "text": "thằng",
+      "em": true
+     },
+     {
+      "text": " chột làm vua."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHNB",
+      "pages": "23"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thằng",
+      "em": true
+     },
+     {
+      "text": " chột làm vua xứ mù."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "578"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Trong xứ mù "
+     },
+     {
+      "text": "kẻ",
+      "em": true
+     },
+     {
+      "text": " chột làm-vua."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "115"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Xứ mù anh chột làm vua."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "650"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Có địa vị cao nhất chẳng qua vì ở trong một tập thể toàn những người kém cỏi chứ thực chất cũng chẳng ra gì."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ở",
+  "sources": [
+   "MGL",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VHNB",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2219"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Ơ-75.png"
+ },
+ {
+  "name": "Ơ 76",
+  "anchor": "Ơ-76",
+  "letter": "Ơ",
+  "number": 76,
+  "proverb": "Ơn ai một chút chớ quên.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "231"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "358"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2219"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Ơ-76.png"
+ },
+ {
+  "name": "Ơ 77",
+  "anchor": "Ơ-77",
+  "letter": "Ơ",
+  "number": 77,
+  "proverb": "Ơn ai một chút chớ quên, oán ai một chút để bên dạ này.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "358"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "241"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "324"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "379"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ơn ai một chút "
+     },
+     {
+      "text": "chưa",
+      "em": true
+     },
+     {
+      "text": " quên, oán ai một chút để "
+     },
+     {
+      "text": "trong",
+      "em": true
+     },
+     {
+      "text": " dạ này."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VHSCL",
+      "pages": "205"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ơn ai một chút chớ quên, "
+     },
+     {
+      "text": "phiền",
+      "em": true
+     },
+     {
+      "text": " ai một chút để bên "
+     },
+     {
+      "text": "cạnh",
+      "em": true
+     },
+     {
+      "text": " lòng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNLG III",
+      "pages": "13, 86"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VHSCL",
+   "TNLG III"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2219"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Ơ-77.png"
+ },
+ {
+  "name": "Ơ 78",
+  "anchor": "Ơ-78",
+  "letter": "Ơ",
+  "number": 78,
+  "proverb": "Ơn bằng cái đĩa, nghĩa bằng cái đọi đèn.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "40b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ơn bằng cái đĩa, nghĩa bằng cái nồi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "123"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ơn bằng cái đĩa, nghĩa bằng cái đọi đèn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "103"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "ĐNQT",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2220"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Ơ-78.png"
+ },
+ {
+  "name": "Ơ 79",
+  "anchor": "Ơ-79",
+  "letter": "Ơ",
+  "number": 79,
+  "proverb": "Ơn bằng cái đĩa, nghĩa bằng con ruồi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "231"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "21"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "37b"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "358"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "326"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "380"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "516"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Chê những kẻ khi trả ơn người ta lại so kè một cách ti tiện."
+    }
+   ],
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Trách kẻ vô ơn, bội bạc."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "NL",
+   "NNPD",
+   "NQPN",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1914,
+  "book_pages": [
+   "2220"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Ơ-79.png"
+ },
+ {
+  "name": "Ơ 80",
+  "anchor": "Ơ-80",
+  "letter": "Ơ",
+  "number": 80,
+  "proverb": "Ơn cha là ba ngàn bảy, nghĩa mẹ là bảy ngàn ba.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "83"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2220"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Ơ-80.png"
+ },
+ {
+  "name": "Ơ 81",
+  "anchor": "Ơ-81",
+  "letter": "Ơ",
+  "number": 81,
+  "proverb": "Ơn cha nhờ mẹ.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "5"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "ANTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1933,
+  "book_pages": [
+   "2220"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Ơ-81.png"
+ },
+ {
+  "name": "Ơ 82",
+  "anchor": "Ơ-82",
+  "letter": "Ơ",
+  "number": 82,
+  "proverb": "Ơn dân lấy sọt mà đựng.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "381"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ơn nghĩa là thứ vô cùng quý giá ở trên đời. Cái thứ ơn nghĩa mà người ta chỉ dùng sọt mà đựng thì ơn đó chắc cũng chẳng đáng gọi là ơn. Các quan lại ngày trước ít khi tôn trọng dân, biết ơn dân (theo VC)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2220"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Ơ-82.png"
+ },
+ {
+  "name": "Ơ 83",
+  "anchor": "Ơ-83",
+  "letter": "Ơ",
+  "number": 83,
+  "proverb": "Ơn dân, nghĩa bợm.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "110"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "15b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "381"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Bợm: tên gian xảo, quỷ quyệt (theo VC)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2220"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Ơ-83.png"
+ },
+ {
+  "name": "Ơ 84",
+  "anchor": "Ơ-84",
+  "letter": "Ơ",
+  "number": 84,
+  "proverb": "Ơn dân như hạt cơm dính má.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "104"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "15b"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "41b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ơn dân như hạt cơm dính mỡ."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "254"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "279"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "129"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "PNTN",
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2220",
+   "2221"
+  ],
+  "pdf_pages": [
+   530,
+   531
+  ],
+  "fixed": false,
+  "image": "Ơ-84.png"
+ },
+ {
+  "name": "Ơ 85",
+  "anchor": "Ơ-85",
+  "letter": "Ơ",
+  "number": 85,
+  "proverb": "Ơn dân, nợ nước.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "231"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "NL",
+     "source": "NL"
+    },
+    {
+     "text": ": Nói nghĩa vụ của người công dân đối với nhân dân và đất nước."
+    }
+   ],
+   [
+    {
+     "text": "nhóm biên soạn",
+     "general": "Nbs"
+    },
+    {
+     "text": ": Trách nhiệm của những ông quan tốt ngày xưa."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2221"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Ơ-85.png"
+ },
+ {
+  "name": "Ơ 86",
+  "anchor": "Ơ-86",
+  "letter": "Ơ",
+  "number": 86,
+  "proverb": "Ơn đền ơn, oán trả oán.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "161"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ơn đền, oán trả."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "381"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "TNCL",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2221"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Ơ-86.png"
+ },
+ {
+  "name": "Ơ 87",
+  "anchor": "Ơ-87",
+  "letter": "Ơ",
+  "number": 87,
+  "proverb": "Ơn nghĩa mau quên, oán thù nhớ mãi.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "382"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2221"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Ơ-87.png"
+ },
+ {
+  "name": "Ơ 88",
+  "anchor": "Ơ-88",
+  "letter": "Ơ",
+  "number": 88,
+  "proverb": "Ơn nghĩa mắt hơn mua.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2221"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Ơ-88.png"
+ },
+ {
+  "name": "Ơ 89",
+  "anchor": "Ơ-89",
+  "letter": "Ơ",
+  "number": 89,
+  "proverb": "Ơn to khó trả, nghĩa cả khó đền.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "382"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2221"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Ơ-89.png"
+ },
+ {
+  "name": "Ơ 90",
+  "anchor": "Ơ-90",
+  "letter": "Ơ",
+  "number": 90,
+  "proverb": "Ơn vua giấy vàng, ơn làng giấy trắng.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "42"
+   },
+   {
+    "abbreviation": "CCM",
+    "pages": "44"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "24b"
+   },
+   {
+    "abbreviation": "NASL I",
+    "pages": "24a, 50b"
+   },
+   {
+    "abbreviation": "NASL III",
+    "pages": "19a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "231"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "42"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "21"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "90"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "254, 358"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "240"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "279"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "383"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "517"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Sắc chỉ vua ban giấy vàng, còn giấy tờ văn bản của làng màu trắng."
+    }
+   ],
+   [
+    {
+     "text": "Ơn vua, ơn làng đã cất nhắc, ban thưởng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ơn",
+  "sources": [
+   "ANTN",
+   "CCM",
+   "ĐNQT",
+   "NASL I",
+   "NASL III",
+   "NL",
+   "NNCC",
+   "NNPD",
+   "TNCD",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2221",
+   "2222"
+  ],
+  "pdf_pages": [
+   531,
+   532
+  ],
+  "fixed": false,
+  "image": "Ơ-90.png"
+ },
+ {
+  "name": "Ơ 91",
+  "anchor": "Ơ-91",
+  "letter": "Ơ",
+  "number": 91,
+  "proverb": "Ớt cay gừng đắng.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "15"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ớt",
+  "sources": [
+   "NNCC"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2222"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Ơ-91.png"
+ },
+ {
+  "name": "Ơ 92",
+  "anchor": "Ơ-92",
+  "letter": "Ơ",
+  "number": 92,
+  "proverb": "Ớt Định Công, nhãn lồng làng Quang, vàng làng Sét.",
+  "citations": [
+   {
+    "abbreviation": "NNGQ",
+    "pages": "101"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở huyện Thanh Trì. Hà Nội."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "Ô 15",
+    "anchor": "Ô-15",
+    "preview": "Ổi Định Công, nhãn lồng làng…"
+   }
+  ],
+  "first_syllable": "ớt",
+  "sources": [
+   "NNGQ"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2222"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Ơ-92.png"
+ },
+ {
+  "name": "Ơ 93",
+  "anchor": "Ơ-93",
+  "letter": "Ơ",
+  "number": 93,
+  "proverb": "Ớt nào là ớt chẳng cay, gái nào là gái chẳng hay ghen chồng.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "231"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "49"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "19"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "249"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "129"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "383"
+   },
+   {
+    "abbreviation": "VNP II",
+    "pages": "89",
+    "unknown": true
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "108-109"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VNP II 89 và "
+    },
+    {
+     "text": "VNP₁₁",
+     "source": "VNP₁₁"
+    },
+    {
+     "text": " 108-109 nhập O 93 và V 361 làm một đơn vị. "
+    },
+    {
+     "text": "nhóm biên soạn",
+     "general": "Nbs"
+    },
+    {
+     "text": " tách làm hai."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ớt",
+  "sources": [
+   "NL",
+   "NXK",
+   "TNCĐ",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VNP₁₁"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2222"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Ơ-93.png"
+ },
+ {
+  "name": "Ơ 94",
+  "anchor": "Ơ-94",
+  "letter": "Ơ",
+  "number": 94,
+  "proverb": "Ớt tháng ba, cà tháng hai.",
+  "citations": [
+   {
+    "abbreviation": "VHQB",
+    "pages": "291"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Vào những thời gian trên (tính theo âm lịch) ớt rất cay và cà rất ngon."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ớt",
+  "sources": [
+   "VHQB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2222"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Ơ-94.png"
+ }
+]

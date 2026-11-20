@@ -6,19 +6,34 @@ import {
   Search,
   Loader2,
   X,
-  Maximize2,
   ExternalLink,
   ChevronDown,
 } from "lucide-react";
 import { Merriweather } from "next/font/google";
 import MiniSearch from "minisearch";
-import Image from "next/image";
 import { ScanLightbox } from "@/components/common/ScanLightbox";
+import { cleanCategory, tuDienScanUrl, TuDienEntryCard } from "./TuDienEntryCard";
 
 const merriweather = Merriweather({
   weight: ["300", "400", "700"],
   subsets: ["vietnamese"],
 });
+
+// Helper to normalize the first character of the poem
+const getCleanFirstChar = (poemText: string): string => {
+  const cleaned = poemText.replace(/^['"\s]+/, "");
+  if (!cleaned) return "A";
+  const char = cleaned.charAt(0).toUpperCase();
+  return char === "Đ" ? "Đ" : char;
+};
+
+// Entries of one letter file shown under a letter (D and Đ share a file)
+const entriesForLetter = (rawEntries: any[], letter: string) => {
+  if (letter === "D" || letter === "Đ") {
+    return rawEntries.filter((e) => getCleanFirstChar(e.poem) === letter);
+  }
+  return rawEntries;
+};
 
 export function TuDienContent({ locale }: { locale: string }) {
   const t = useTranslations("Tools.ca-dao-tuc-ngu.tu-dien");
@@ -43,6 +58,13 @@ export function TuDienContent({ locale }: { locale: string }) {
 
   // Pagination state
   const [visibleCount, setVisibleCount] = useState<number>(10);
+
+  // Entry linked from the URL hash (#<id>), ringed until the reader changes
+  // the letter, search or category
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const pendingScrollIdRef = useRef<string | null>(null);
+  // Bumped by reader actions so an in-flight hash landing doesn't override them
+  const landingTokenRef = useRef(0);
 
   // Lightbox state
   const [activeScanId, setActiveScanId] = useState<string | null>(null);
@@ -73,20 +95,6 @@ export function TuDienContent({ locale }: { locale: string }) {
     "X",
     "Y",
   ];
-
-  // Helper to normalize the first character of the poem
-  const getCleanFirstChar = (poemText: string): string => {
-    const cleaned = poemText.replace(/^['"\s]+/, "");
-    if (!cleaned) return "A";
-    const char = cleaned.charAt(0).toUpperCase();
-    return char === "Đ" ? "Đ" : char;
-  };
-
-  // Helper to clean category text
-  const cleanCategory = (cat?: string) => {
-    if (!cat) return "";
-    return cat.replace(/[()]/g, "").trim().toUpperCase();
-  };
 
   // In-flight fetch cache to prevent concurrent duplicate network calls
   const letterPromisesRef = useRef<Record<string, Promise<any[]> | undefined>>(
@@ -154,8 +162,15 @@ export function TuDienContent({ locale }: { locale: string }) {
     return null;
   };
 
+  const cancelHashLanding = () => {
+    landingTokenRef.current++;
+    pendingScrollIdRef.current = null;
+    setHighlightedId(null);
+  };
+
   // Execute full-text search
   const handleSearch = async (query: string) => {
+    cancelHashLanding();
     setSearchQuery(query);
     setVisibleCount(10); // Reset page count
 
@@ -176,15 +191,60 @@ export function TuDienContent({ locale }: { locale: string }) {
 
   // Handle letter filter click
   const handleLetterClick = (letter: string) => {
+    cancelHashLanding();
     setSearchQuery("");
     setSelectedLetter(letter);
     setVisibleCount(10);
     fetchLetter(letter);
   };
 
-  // Load the initial letter chunk 'A'
+  // Show the entry whose id is the URL hash: clear filters, select its letter,
+  // show enough entries to include it, then scroll to and ring it. Returns
+  // false when the id isn't in the data (or the reader acted first), so the
+  // caller falls back to the default view.
+  const landOnEntry = async (id: string) => {
+    const token = ++landingTokenRef.current;
+    const ms = await loadSearchIndex();
+    const fields = ms?.getStoredFields(id);
+    if (!fields || token !== landingTokenRef.current) return false;
+
+    const poem = String(fields.poem ?? "");
+    const fileLetter = String(fields.letter ?? "");
+    // Letter files file Đ under D; other letters keep their accented
+    // initials (Ă, Ô…) in the plain letter's file
+    const letter = fileLetter === "D" ? getCleanFirstChar(poem) : fileLetter;
+    if (!ALPHABET.includes(letter)) return false;
+
+    setSearchQuery("");
+    setSearchResults([]);
+    setSelectedCategory("ALL");
+    setSelectedLetter(letter);
+
+    const rawEntries = await fetchLetter(letter);
+    if (token !== landingTokenRef.current) return true;
+    const index = entriesForLetter(rawEntries, letter).findIndex(
+      (e) => e.id === id
+    );
+    if (index === -1) return true;
+
+    setVisibleCount(Math.max(10, index + 1));
+    setHighlightedId(id);
+    pendingScrollIdRef.current = id;
+    return true;
+  };
+
+  // Land on the hash's entry, or load the initial letter chunk 'A'
   useEffect(() => {
-    fetchLetter("A");
+    let id = "";
+    try {
+      id = decodeURIComponent(window.location.hash.slice(1));
+    } catch {
+      // Malformed hash: show the default view
+    }
+    (async () => {
+      if (id && (await landOnEntry(id))) return;
+      fetchLetter("A");
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -199,16 +259,7 @@ export function TuDienContent({ locale }: { locale: string }) {
       list = searchResults;
     } else {
       const baseFile = selectedLetter === "Đ" ? "D" : selectedLetter;
-      const rawEntries = letterEntries[baseFile] || [];
-
-      // Separate D and Đ filter
-      if (selectedLetter === "D") {
-        list = rawEntries.filter((e) => getCleanFirstChar(e.poem) === "D");
-      } else if (selectedLetter === "Đ") {
-        list = rawEntries.filter((e) => getCleanFirstChar(e.poem) === "Đ");
-      } else {
-        list = rawEntries;
-      }
+      list = entriesForLetter(letterEntries[baseFile] || [], selectedLetter);
     }
 
     // Filter by Category
@@ -283,6 +334,16 @@ export function TuDienContent({ locale }: { locale: string }) {
     loadDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentEntries, visibleCount]);
+
+  // Scroll the hash's entry into view once it has rendered
+  useEffect(() => {
+    const id = pendingScrollIdRef.current;
+    if (!id || letterLoading || searchLoading) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+    pendingScrollIdRef.current = null;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [highlightedId, currentEntries, visibleCount, letterLoading, searchLoading]);
 
   const focusClass =
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown";
@@ -370,6 +431,7 @@ export function TuDienContent({ locale }: { locale: string }) {
               aria-label={locale === "vi" ? "Phân loại" : "Category"}
               value={selectedCategory}
               onChange={(e) => {
+                cancelHashLanding();
                 setSelectedCategory(e.target.value);
                 setVisibleCount(10);
               }}
@@ -490,78 +552,18 @@ export function TuDienContent({ locale }: { locale: string }) {
             currentEntries.slice(0, visibleCount).map((entry) => {
               // Resolve full details object (since index list doesn't have explanations)
               const detail = entry.explanation ? entry : detailsMap[entry.id];
-              const hasDetails = !!detail;
 
               return (
-                <article
+                <TuDienEntryCard
                   key={entry.id}
-                  className="bg-white/90 p-5 sm:p-6 rounded-xl border border-branding-black/10 flex flex-col md:flex-row gap-6 lg:gap-8 items-stretch"
-                >
-                  {/* Left Side: Content */}
-                  <div className="min-w-0 flex-1 flex flex-col gap-4">
-                    <div>
-                      <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-md bg-branding-brown/10 text-[#805516]">
-                        {cleanCategory(detail?.category || entry.category)}
-                      </span>
-                    </div>
-
-                    {/* Poem text */}
-                    <h3
-                      className={`${merriweather.className} text-lg md:text-xl text-branding-black whitespace-pre-line break-words leading-[1.7] md:leading-[1.7]`}
-                    >
-                      {entry.poem}
-                    </h3>
-
-                    {/* Meaning & Explanation text */}
-                    <div className="border-t border-branding-black/10 pt-4 flex flex-col gap-2">
-                      {hasDetails ? (
-                        <p className="text-base text-branding-black/75 leading-relaxed whitespace-pre-line break-words max-w-prose">
-                          {detail.explanation}
-                        </p>
-                      ) : (
-                        <div className="flex items-center gap-2 py-4">
-                          <Loader2 className="animate-spin h-4 w-4 text-branding-brown" />
-                          <span className="text-xs text-branding-black/65">
-                            {locale === "vi"
-                              ? "Đang tải nghĩa giải thích..."
-                              : "Loading the explanation..."}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Right Side: Cropped Page Scan (Whole element clickable) */}
-                  <button
-                    type="button"
-                    aria-label={`${
-                      locale === "vi" ? "Xem bản quét" : "View scan"
-                    }: ${entry.poem}`}
-                    onClick={() => setActiveScanId(entry.id)}
-                    className={`w-full md:w-[32%] min-h-[240px] flex-shrink-0 border border-branding-black/10 rounded-lg overflow-hidden bg-branding-gray/50 flex items-center justify-center relative group cursor-zoom-in ${focusClass}`}
-                  >
-                    <Image
-                      src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${entry.id}.png/full/full/0/default.jpg`}
-                      alt={
-                        locale === "vi"
-                          ? "Bản quét trang sách gốc"
-                          : "Scan of the original book page"
-                      }
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-contain"
-                      loading="lazy"
-                    />
-
-                    {/* Maximize zoom overlay */}
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                      <span className="px-4 py-2 bg-white/95 text-branding-black text-xs font-bold rounded-lg shadow-md flex items-center gap-1.5">
-                        <Maximize2 className="h-3.5 w-3.5" />
-                        {locale === "vi" ? "Xem phóng to" : "View larger"}
-                      </span>
-                    </div>
-                  </button>
-                </article>
+                  id={entry.id}
+                  poem={entry.poem}
+                  category={detail?.category || entry.category}
+                  explanation={detail ? detail.explanation ?? "" : undefined}
+                  locale={locale}
+                  highlighted={entry.id === highlightedId}
+                  onOpenScan={setActiveScanId}
+                />
               );
             })}
 
@@ -594,7 +596,7 @@ export function TuDienContent({ locale }: { locale: string }) {
       {/* Enlarged original scan */}
       {activeScanId && (
         <ScanLightbox
-          src={`https://iiif.digitizingvietnam.com/iiif/2/tu-dien-thanh-ngu-tuc-ngu-ca-dao-viet-nam/output-folder/${activeScanId}.png/full/full/0/default.jpg`}
+          src={tuDienScanUrl(activeScanId)}
           alt={locale === "vi" ? "Bản quét phóng to" : "Enlarged scan"}
           onClose={closeLightbox}
         />

@@ -645,6 +645,11 @@
     "name": "A 78",
     "anchor": "A-78",
     "preview": "Ai nỡ cướp cơm chim mắm…"
+   },
+   {
+    "name": "Ă 48",
+    "anchor": "Ă-48",
+    "preview": "Ăn chặn cả cơm chim."
    }
   ],
   "first_syllable": "ai",
@@ -665,14 +670,14 @@
   "pdf_pages": [
    38
   ],
-  "fixed": false,
+  "fixed": true,
   "image": "A-13.png"
  },
  {
-  "name": "A 4",
-  "anchor": "A-4",
+  "name": "A 14",
+  "anchor": "A-14",
   "letter": "A",
-  "number": 4,
+  "number": 14,
   "proverb": "Ai ăn mặn nấy khát nước.",
   "citations": [
    {
@@ -708,8 +713,8 @@
   "pdf_pages": [
    38
   ],
-  "fixed": false,
-  "image": "A-4_2.png"
+  "fixed": true,
+  "image": "A-14.png"
  },
  {
   "name": "A 15",
@@ -1068,6 +1073,11 @@
     "name": "B 463",
     "anchor": "B-463",
     "preview": "Biết chiều trời, nước đời chảng…"
+   },
+   {
+    "name": "B 484",
+    "anchor": "B-484",
+    "preview": "Biết sự trời, mười đời chẳng…"
    }
   ],
   "first_syllable": "ai",
@@ -1167,7 +1177,14 @@
       "text": "Ai biết "
      },
      {
-      "text": "đâu chỗ",
+      "text": "đâu",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "chỗ",
       "em": true
      },
      {
@@ -1215,7 +1232,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Biết đâu chỗ",
+      "text": "Biết đâu",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "chỗ",
       "em": true
      },
      {
@@ -1675,28 +1699,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ai biết "
-     },
-     {
-      "text": "con",
-      "em": true
-     },
-     {
-      "text": " quạ nào "
-     },
-     {
-      "text": "là",
-      "em": true
-     },
-     {
-      "text": " đực "
-     },
-     {
-      "text": "là",
-      "em": true
-     },
-     {
-      "text": " cái."
+      "text": "Ai biết con quạ nào là đực là cái."
      }
     ],
     "citations": [
@@ -1755,14 +1758,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ai "
-     },
-     {
-      "text": "muốn lấy",
-      "em": true
-     },
-     {
-      "text": " phấn dồi mặt."
+      "text": "Ai muốn lấy phấn dồi mặt."
      }
     ],
     "citations": [
@@ -2145,14 +2141,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ai chửa nấy đẻ, có phải ghẻ đâu mà "
-     },
-     {
-      "text": "lây",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Ai chửa nấy đẻ, có phải ghẻ đâu mà lây."
      }
     ],
     "citations": [
@@ -3337,14 +3326,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ai "
-     },
-     {
-      "text": "mang",
-      "em": true
-     },
-     {
-      "text": " dùi đục đi hỏi vợ."
+      "text": "Ai mang dùi đục đi hỏi vợ."
      }
     ],
     "citations": [
@@ -3358,14 +3340,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ai "
-     },
-     {
-      "text": "vác",
-      "em": true
-     },
-     {
-      "text": " dùi đục đi hỏi vợ."
+      "text": "Ai vác dùi đục đi hỏi vợ."
      }
     ],
     "citations": [
@@ -4857,14 +4832,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ai nuôi chó một nhà, ai nuôi gà một "
-     },
-     {
-      "text": "chuồng được",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Ai nuôi chó một nhà, ai nuôi gà một chuồng được."
      }
     ],
     "citations": [
@@ -5189,14 +5157,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ai ơi "
-     },
-     {
-      "text": "chớ",
-      "em": true
-     },
-     {
-      "text": " bỏ ruộng hoang, bao nhiêu tấc đất tấc vàng bấy nhiêu."
+      "text": "Ai ơi chớ bỏ ruộng hoang, bao nhiêu tấc đất tấc vàng bấy nhiêu."
      }
     ],
     "citations": [
@@ -5952,14 +5913,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ai "
-     },
-     {
-      "text": "biết",
-      "em": true
-     },
-     {
-      "text": " uốn câu cho vừa miệng cá."
+      "text": "Ai biết uốn câu cho vừa miệng cá."
      }
     ],
     "citations": [
@@ -8462,14 +8416,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Anh em rể đánh nhau "
-     },
-     {
-      "text": "bể đầu",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Anh em rể đánh nhau bể đầu."
      }
     ],
     "citations": [
@@ -8936,9 +8883,8 @@
   "proverb": "Anh ham giàu là anh ham dại, của hoạnh tài người lại mau hư.",
   "citations": [
    {
-    "abbreviation": "VCI",
-    "pages": "37",
-    "unknown": true
+    "abbreviation": "VC I",
+    "pages": "37"
    }
   ],
   "variants": [],
@@ -8957,7 +8903,9 @@
   "corrections": [],
   "see_also": [],
   "first_syllable": "anh",
-  "sources": [],
+  "sources": [
+   "VC I"
+  ],
   "has_notes": true,
   "has_variants": false,
   "has_correction": false,
@@ -9330,14 +9278,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Anh hùng "
-     },
-     {
-      "text": "một",
-      "em": true
-     },
-     {
-      "text": " khoảnh."
+      "text": "Anh hùng một khoảnh."
      }
     ],
     "citations": [
@@ -10047,14 +9988,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Anh ngủ em thức, em trực anh "
-     },
-     {
-      "text": "đi",
-      "em": true
-     },
-     {
-      "text": " nằm."
+      "text": "Anh ngủ em thức, em trực anh đi nằm."
      }
     ],
     "citations": [

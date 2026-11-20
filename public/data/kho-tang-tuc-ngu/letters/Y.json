@@ -1,0 +1,5486 @@
+[
+ {
+  "name": "Y 1",
+  "anchor": "Y-1",
+  "letter": "Y",
+  "number": 1,
+  "proverb": "Y bất như tân, nhân bất như cố.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "393"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VCVN: Áo thì không gì bằng áo mới, người thì không gì bằng người cũ."
+    }
+   ],
+   [
+    {
+     "text": "Áo nên thay, người không nên thay."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2950"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Y-1.png"
+ },
+ {
+  "name": "Y 2",
+  "anchor": "Y-2",
+  "letter": "Y",
+  "number": 2,
+  "proverb": "Y bệnh, bất y mệnh.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "394"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chữa được bệnh chứ không chữa được mệnh trời."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2950"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Y-2.png"
+ },
+ {
+  "name": "Y 3",
+  "anchor": "Y-3",
+  "letter": "Y",
+  "number": 3,
+  "proverb": "Y cấm dạ hành.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "34a"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Áo gấm đi đêm."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "A 204",
+    "anchor": "A-204",
+    "preview": "Áo gấm đi đêm."
+   }
+  ],
+  "first_syllable": "y",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2950"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Y-3.png"
+ },
+ {
+  "name": "Y 4",
+  "anchor": "Y-4",
+  "letter": "Y",
+  "number": 4,
+  "proverb": "Y cẩm hồi hương.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Áo gấm về làng."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2950"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Y-4.png"
+ },
+ {
+  "name": "Y 5",
+  "anchor": "Y-5",
+  "letter": "Y",
+  "number": 5,
+  "proverb": "Y cẩm thương quynh, ám thiên nhật chương.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "34a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2950"
+  ],
+  "pdf_pages": [
+   528
+  ],
+  "fixed": false,
+  "image": "Y-5.png"
+ },
+ {
+  "name": "Y 6",
+  "anchor": "Y-6",
+  "letter": "Y",
+  "number": 6,
+  "proverb": "Y dã ý dã.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "175"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Thầy thuốc chữa bệnh phải linh hoạt, không cứng nhắc, máy móc."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2951"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Y-6.png"
+ },
+ {
+  "name": "Y 7",
+  "anchor": "Y-7",
+  "letter": "Y",
+  "number": 7,
+  "proverb": "Y dạng hoạ hồ lô.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "176"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Căn cứ theo hình dạng mà vẽ trái bầu."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2951"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Y-7.png"
+ },
+ {
+  "name": "Y 8",
+  "anchor": "Y-8",
+  "letter": "Y",
+  "number": 8,
+  "proverb": "Y đa kì tật.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "19a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2951"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Y-8.png"
+ },
+ {
+  "name": "Y 9",
+  "anchor": "Y-9",
+  "letter": "Y",
+  "number": 9,
+  "proverb": "Y năng sát nhơn, dược năng cứu nhơn.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "176"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Thầy thuốc (dở) thì hay làm chết người, thuốc thì hay cứu người."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2951"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Y-9.png"
+ },
+ {
+  "name": "Y 10",
+  "anchor": "Y-10",
+  "letter": "Y",
+  "number": 10,
+  "proverb": "Y phục xứng kì đức.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "395"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VCVN: Ăn mặc quần áo phải sao cho xứng với cái đức của mình; tức là xứng hợp với hoàn cảnh, với tư cách, với khả năng của mình."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "y",
+  "sources": [
+   "NL",
+   "VCVN IV"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2951"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Y-10.png"
+ },
+ {
+  "name": "Y 11",
+  "anchor": "Y-11",
+  "letter": "Y",
+  "number": 11,
+  "proverb": "Ý ạch như cóc leo thang.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "652"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Vận động một cách chậm chạp, nặng nề, khó nhọc."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ý",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2951"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Y-11.png"
+ },
+ {
+  "name": "Y 12",
+  "anchor": "Y-12",
+  "letter": "Y",
+  "number": 12,
+  "proverb": "Ý dân là ý trời.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "255"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "821"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ý",
+  "sources": [
+   "TNCL",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2951"
+  ],
+  "pdf_pages": [
+   529
+  ],
+  "fixed": false,
+  "image": "Y-12.png"
+ },
+ {
+  "name": "Y 13",
+  "anchor": "Y-13",
+  "letter": "Y",
+  "number": 13,
+  "proverb": "Ý tại ngôn ngoại.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "822"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ý ở ngoài lời."
+     }
+    ],
+    "citations": []
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ý",
+  "sources": [
+   "NL",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2952"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Y-13.png"
+ },
+ {
+  "name": "Y 14",
+  "anchor": "Y-14",
+  "letter": "Y",
+  "number": 14,
+  "proverb": "Yểm nhĩ đạo linh.",
+  "citations": [
+   {
+    "abbreviation": "PNTN",
+    "pages": "14b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yểm",
+  "sources": [
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2952"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Y-14.png"
+ },
+ {
+  "name": "Y 15",
+  "anchor": "Y-15",
+  "letter": "Y",
+  "number": 15,
+  "proverb": "Yếm bà mặc cổ bà.",
+  "citations": [
+   {
+    "abbreviation": "TNTB",
+    "pages": "4a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yếm",
+  "sources": [
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2952"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Y-15.png"
+ },
+ {
+  "name": "Y 16",
+  "anchor": "Y-16",
+  "letter": "Y",
+  "number": 16,
+  "proverb": "Yếm bò lại buộc cổ bò.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "652"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Giống nghĩa câu \"Gậy ông lại đập lưng ông\""
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yếm",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2952"
+  ],
+  "pdf_pages": [
+   530
+  ],
+  "fixed": false,
+  "image": "Y-16.png"
+ },
+ {
+  "name": "Y 17",
+  "anchor": "Y-17",
+  "letter": "Y",
+  "number": 17,
+  "proverb": "Yên Dương: Trung Hành, Kim Thành: Quỳnh Khê, Từ Liêm: Đông Ngạc, Bạch Hạc: ? Nhật Chiêu.",
+  "citations": [
+   {
+    "abbreviation": "NNHN I",
+    "pages": "192"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "116"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "151"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Yên Dương, Kim Thành, Từ Liêm, Bạch Hạc đều là tên phủ huyện cũ. Yên Dương nay thuộc Hải Phòng, Kim Thành là một huyện của tỉnh Hải Dương, Từ Liêm là một huyện của Hà Nội, Bạch Hạc thuộc Phú Thọ. Làng Trung Hành (thuộc An Dương), làng Quỳnh Khê (thuộc Kim Thành) là hai làng có mấy họ nhiều đời vinh hiển. Làng Đông Ngạc (tức làng Vẽ) nổi tiếng vì có nhiều người đỗ đạt làm nên, là quê hương của Phan Phu Tiên, nhà văn và nhà sử học thế kỉ XV, của Phan Lê Phiên và Đỗ Văn Giai thế kỉ XVIII. Theo lôgic, câu này nói về các làng có người vinh hiển; song tại huyện Bạch Hạc cũ không có làng"
+    }
+   ],
+   [
+    {
+     "text": "Nhật Chiêu, chỉ có làng Nhật Chiểu thuộc huyện Yên Lạc; huyện này nay thuộc tỉnh Vĩnh Phúc (theo NNHN)."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "... Bạch Nạc: Nhật Nhiêu ...",
+    "sources": [
+     "TNPD I"
+    ],
+    "right": [
+     {
+      "text": "... Bạch Hạc: Nhật Chiêu"
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNPD I",
+      "source": "TNPD I"
+     },
+     {
+      "text": " in sai thành \"... Bạch Nạc: Nhật Nhiêu ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... Bạch Hạc: Nhật Chiêu"
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   },
+   {
+    "wrong": "... Kinh Thành ...",
+    "sources": [
+     "NNHN I"
+    ],
+    "right": [
+     {
+      "text": ".. Kim Thành ..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "NNHN I",
+      "source": "NNHN I"
+     },
+     {
+      "text": " in sai thành \"... Kinh Thành ...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": ".. Kim Thành ..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   },
+   {
+    "wrong": "... Tung hàng...",
+    "sources": [
+     "TNPD I"
+    ],
+    "right": [
+     {
+      "text": "... Trung Hành..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNPD I",
+      "source": "TNPD I"
+     },
+     {
+      "text": " in sai thành \"... Tung hàng...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... Trung Hành..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "yên",
+  "sources": [
+   "NNHN I",
+   "NXK",
+   "TNPD I"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2952",
+   "2953"
+  ],
+  "pdf_pages": [
+   530,
+   531
+  ],
+  "fixed": false,
+  "image": "Y-17.png"
+ },
+ {
+  "name": "Y 18",
+  "anchor": "Y-18",
+  "letter": "Y",
+  "number": 18,
+  "proverb": "Yên Lạc tứ \"Cẩm\", ngũ \"Yên\".",
+  "citations": [
+   {
+    "abbreviation": "TNVP",
+    "pages": "11"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Vĩnh Phúc. Theo "
+    },
+    {
+     "text": "TNVP",
+     "source": "TNVP"
+    },
+    {
+     "text": ", huyện Yên Lạc có bốn làng Cẩm là: Cẩm La (nay thuộc xã Văn Tiến); một Cẩm La nữa (nay về xã Hồng Châu); Cẩm Viên và Cẩm Trạch (nay về xã Đại Tự); lại có năm làng Yên là: Yên Tâm và Yên Nghiệp (về xã Yên Đồng), Yên Quán (xã Bình Định), Yên Lạc (xã Đồng Văn) và Yên Thư (xã Yên Phương)."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yên",
+  "sources": [
+   "TNVP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2953"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Y-18.png"
+ },
+ {
+  "name": "Y 19",
+  "anchor": "Y-19",
+  "letter": "Y",
+  "number": 19,
+  "proverb": "Yên Phụ đất bụi người tiên, đi cấy không tiền, đi gặt không công.",
+  "citations": [
+   {
+    "abbreviation": "PNXB",
+    "pages": "67"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Bắc Ninh. Theo "
+    },
+    {
+     "text": "PNXB",
+     "source": "PNXB"
+    },
+    {
+     "text": " 138, Yên Phụ nay là một xã thuộc huyện Yên Phong."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yên",
+  "sources": [
+   "PNXB"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2953"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Y-19.png"
+ },
+ {
+  "name": "Y 20",
+  "anchor": "Y-20",
+  "letter": "Y",
+  "number": 20,
+  "proverb": "Yến sào Hòn Nội, vịt lội Ninh Hoà, tôm hùm Bình Ba, nai khô Diên Khánh.",
+  "citations": [
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "192"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Khánh Hoà."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yến",
+  "sources": [
+   "VNP₁₁"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2953"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Y-20.png"
+ },
+ {
+  "name": "Y 21",
+  "anchor": "Y-21",
+  "letter": "Y",
+  "number": 21,
+  "proverb": "Yến sào Vĩnh Sơn, nam sâm Bố Trạch, cua gạch Quảng Khê, sò nghêu Quán Hà, rượu dân Thuận Lí.",
+  "citations": [
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "191"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Ở Trung Bộ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yến",
+  "sources": [
+   "VNP₁₁"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2953"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Y-21.png"
+ },
+ {
+  "name": "Y 22",
+  "anchor": "Y-22",
+  "letter": "Y",
+  "number": 22,
+  "proverb": "Yến tước khởi tri hồng học chí.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "176"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "451"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "823"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chim én, chim sẻ không biết được chí của chim hồng học."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yến",
+  "sources": [
+   "CNGN",
+   "NTP",
+   "TNCL",
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2953"
+  ],
+  "pdf_pages": [
+   531
+  ],
+  "fixed": false,
+  "image": "Y-22.png"
+ },
+ {
+  "name": "Y 23",
+  "anchor": "Y-23",
+  "letter": "Y",
+  "number": 23,
+  "proverb": "Yêu ai thì bốc lên trời, ghét ai thì dìm xuống đất.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "166"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "478"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "150"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "823"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu ai thì bốc lên "
+     },
+     {
+      "text": "giời",
+      "em": true
+     },
+     {
+      "text": ", ghét ai thì dìm xuống đất."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "48"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NL",
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "NNCC"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2954"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Y-23.png"
+ },
+ {
+  "name": "Y 24",
+  "anchor": "Y-24",
+  "letter": "Y",
+  "number": 24,
+  "proverb": "Yêu ai thì nói quá ưa, ghét ai nói thiếu nói thừa như không.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "151"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": ", ghé tai...",
+    "sources": [
+     "TNPD I"
+    ],
+    "right": [
+     {
+      "text": ", ghét ai..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNPD I",
+      "source": "TNPD I"
+     },
+     {
+      "text": " in sai thành \", ghé tai...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": ", ghét ai..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NL",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2954"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Y-24.png"
+ },
+ {
+  "name": "Y 25",
+  "anchor": "Y-25",
+  "letter": "Y",
+  "number": 25,
+  "proverb": "Yêu ai yêu cả đường đi, ghét ai ghét cả tông chi họ hàng.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "55"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "478"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu "
+     },
+     {
+      "text": "nhau",
+      "em": true
+     },
+     {
+      "text": " yêu cả đường đi, ghét "
+     },
+     {
+      "text": "nhau",
+      "em": true
+     },
+     {
+      "text": " ghét cả tông chi họ hàng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "151"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "",
+      "variant": true
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu "
+     },
+     {
+      "text": "nhau",
+      "em": true
+     },
+     {
+      "text": " yêu cả đường đi, ghét "
+     },
+     {
+      "text": "nhau",
+      "em": true
+     },
+     {
+      "text": " ghét cả tông ti họ hàng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TTVH",
+      "pages": "171"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "MGL",
+   "NL",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2954"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Y-25.png"
+ },
+ {
+  "name": "Y 26",
+  "anchor": "Y-26",
+  "letter": "Y",
+  "number": 26,
+  "proverb": "Yêu anh hàng thịt, thít chị hàng xôi, đập bát đập nồi đuổi cô hàng bún.",
+  "citations": [
+   {
+    "abbreviation": "VHTB",
+    "pages": "127"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu anh hàng thịt, "
+     },
+     {
+      "text": "thích",
+      "em": true
+     },
+     {
+      "text": " chị hàng xôi, đập bát đập nồi đuổi cô hàng bún."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "483"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "VHTB",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2954"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Y-26.png"
+ },
+ {
+  "name": "Y 27",
+  "anchor": "Y-27",
+  "letter": "Y",
+  "number": 27,
+  "proverb": "Yêu cái nết cái na, chớ yêu cái xa cái phí.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "483"
+   },
+   {
+    "abbreviation": "VHTB",
+    "pages": "127"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "VHTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2954"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Y-27.png"
+ },
+ {
+  "name": "Y 28",
+  "anchor": "Y-28",
+  "letter": "Y",
+  "number": 28,
+  "proverb": "Yêu cái niêu thành nồi.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "483"
+   },
+   {
+    "abbreviation": "VHTB",
+    "pages": "127"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "VHTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2954"
+  ],
+  "pdf_pages": [
+   532
+  ],
+  "fixed": false,
+  "image": "Y-28.png"
+ },
+ {
+  "name": "Y 29",
+  "anchor": "Y-29",
+  "letter": "Y",
+  "number": 29,
+  "proverb": "Yêu cây mới nhớ đến hoa, yêu dì thằng đỏ, mua quà nó ăn.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "151"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "823"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2954",
+   "2955"
+  ],
+  "pdf_pages": [
+   532,
+   533
+  ],
+  "fixed": false,
+  "image": "Y-29.png"
+ },
+ {
+  "name": "Y 30",
+  "anchor": "Y-30",
+  "letter": "Y",
+  "number": 30,
+  "proverb": "Yêu cây nên dấu đến hoa.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "166"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "478"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321, 371"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "823"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu cây "
+     },
+     {
+      "text": "mới nhớ",
+      "em": true
+     },
+     {
+      "text": " đến hoa."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "322"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "478"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2955"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "Y-30.png"
+ },
+ {
+  "name": "Y 31",
+  "anchor": "Y-31",
+  "letter": "Y",
+  "number": 31,
+  "proverb": "Yêu chia tiền chia thóc, không yêu cắm cọc rào sân.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "165"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "478, 483"
+   },
+   {
+    "abbreviation": "VHTB",
+    "pages": "127"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "VHTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2955"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "Y-31.png"
+ },
+ {
+  "name": "Y 32",
+  "anchor": "Y-32",
+  "letter": "Y",
+  "number": 32,
+  "proverb": "Yêu cho ăn cháy, ghét cho cạy nồi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "473"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "Cho ăn cháy...",
+    "sources": [
+     "TNCL"
+    ],
+    "right": [
+     {
+      "text": "Yêu cho ăn cháy..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "TNCL",
+      "source": "TNCL"
+     },
+     {
+      "text": " in sai thành \"Cho ăn cháy...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Yêu cho ăn cháy..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NL",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": null,
+  "book_pages": [
+   "2955"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "Y-32.png"
+ },
+ {
+  "name": "Y 33",
+  "anchor": "Y-33",
+  "letter": "Y",
+  "number": 33,
+  "proverb": "Yêu cho nhau ăn cháy, ghét chửi nhau cạy nồi.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "165"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu "
+     },
+     {
+      "text": "nhau",
+      "em": true
+     },
+     {
+      "text": " cho nhau ăn cháy, ghét "
+     },
+     {
+      "text": "nhau nói",
+      "em": true
+     },
+     {
+      "text": " nhau cạy nồi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN IV",
+      "pages": "399"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "K 170",
+    "anchor": "K-170",
+    "preview": "Khi lành cho nhau ăn cháy,…"
+   },
+   {
+    "name": "T 1041",
+    "anchor": "T-1041",
+    "preview": "Thương nhau cho nhau ăn cháy,…"
+   }
+  ],
+  "first_syllable": "yêu",
+  "sources": [
+   "NXK",
+   "TNVN",
+   "TTVH",
+   "VCVN IV"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2955"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "Y-33.png"
+ },
+ {
+  "name": "Y 34",
+  "anchor": "Y-34",
+  "letter": "Y",
+  "number": 34,
+  "proverb": "Yêu cho vọt, ghét cho chơi.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "58b"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "35"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "52"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "171, 478"
+   },
+   {
+    "abbreviation": "TNLG I",
+    "pages": "17, 84"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "307"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "653"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thương cho đòn, ghét cho chơi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "592"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thương con cho vọt, ghét con cho chơi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "592"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu cho đòn, ghét cho ăn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "58a"
+     },
+     {
+      "abbreviation": "NNCC",
+      "pages": "29"
+     },
+     {
+      "abbreviation": "NQPN",
+      "pages": "17a"
+     },
+     {
+      "abbreviation": "PNTN",
+      "pages": "13b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu cho đòn, ghét cho chơi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL I",
+      "pages": "32b"
+     },
+     {
+      "abbreviation": "NASL II",
+      "pages": "37b, 38b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "ĐNQT",
+   "MGL",
+   "NL",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNLG I",
+   "TNPD I",
+   "TNVN",
+   "VD",
+   "NNCC",
+   "NQPN",
+   "PNTN",
+   "NASL I",
+   "NASL II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2955"
+  ],
+  "pdf_pages": [
+   533
+  ],
+  "fixed": false,
+  "image": "Y-34.png"
+ },
+ {
+  "name": "Y 35",
+  "anchor": "Y-35",
+  "letter": "Y",
+  "number": 35,
+  "proverb": "Yêu con cậu, mới đậu con mình.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "85"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "333"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "653"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Cậu: em trai vợ. Nên sống nhân ái với mọi người mới gặp được điều tốt lành."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2956"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "Y-35.png"
+ },
+ {
+  "name": "Y 36",
+  "anchor": "Y-36",
+  "letter": "Y",
+  "number": 36,
+  "proverb": "Yêu con chị vị con em.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "121"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "49"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "11"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "66"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "38"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "478"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "371"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "823"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "653"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu con chị vì con em."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL I",
+      "pages": "39a"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "CCM",
+   "MGL",
+   "NL",
+   "NNCC",
+   "NNPD",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2956"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "Y-36.png"
+ },
+ {
+  "name": "Y 37",
+  "anchor": "Y-37",
+  "letter": "Y",
+  "number": 37,
+  "proverb": "Yêu con cho vọt vào lưng.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "45"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2956"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "Y-37.png"
+ },
+ {
+  "name": "Y 38",
+  "anchor": "Y-38",
+  "letter": "Y",
+  "number": 38,
+  "proverb": "Yêu con đỏ, bỏ con đen.",
+  "citations": [
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "397"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "C 2132",
+    "anchor": "C-2132",
+    "preview": "Con đen thì bỏ, con đỏ…"
+   },
+   {
+    "name": "Đ 504",
+    "anchor": "Đ-504",
+    "preview": "Đen đầu thì bỏ, đỏ đầu…"
+   },
+   {
+    "name": "T 213",
+    "anchor": "T-213",
+    "preview": "Tham con đỏ, bỏ con đen."
+   }
+  ],
+  "first_syllable": "yêu",
+  "sources": [
+   "VCVN IV"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2956"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "Y-38.png"
+ },
+ {
+  "name": "Y 39",
+  "anchor": "Y-39",
+  "letter": "Y",
+  "number": 39,
+  "proverb": "Yêu con, ngon của.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "166"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "85, 479"
+   },
+   {
+    "abbreviation": "TNTB",
+    "pages": "1b"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "T 1018",
+    "anchor": "T-1018",
+    "preview": "Thương con ngon rau."
+   }
+  ],
+  "first_syllable": "yêu",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNTB",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2956"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "Y-39.png"
+ },
+ {
+  "name": "Y 40",
+  "anchor": "Y-40",
+  "letter": "Y",
+  "number": 40,
+  "proverb": "Yêu con người, mát con ta.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "37b"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "49"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "85"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "333"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "653"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Sống nhân ái thì sẽ gặp được điều tốt lành."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NASL I",
+   "NXK",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2956"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "Y-40.png"
+ },
+ {
+  "name": "Y 41",
+  "anchor": "Y-41",
+  "letter": "Y",
+  "number": 41,
+  "proverb": "Yêu của thì của ở cùng, ghét của, của dùng của đi.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "51"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "ANTN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1933,
+  "book_pages": [
+   "2956"
+  ],
+  "pdf_pages": [
+   534
+  ],
+  "fixed": false,
+  "image": "Y-41.png"
+ },
+ {
+  "name": "Y 42",
+  "anchor": "Y-42",
+  "letter": "Y",
+  "number": 42,
+  "proverb": "Yêu gà gà mổ mắt, yêu chó chó liếm mặt.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "824"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "C 1349",
+    "anchor": "C-1349",
+    "preview": "Chơi chó, chó liếm mặt."
+   },
+   {
+    "name": "C 1350",
+    "anchor": "C-1350",
+    "preview": "Chơi chó: chó liếm mặt, chơi…"
+   },
+   {
+    "name": "N 1329",
+    "anchor": "N-1329",
+    "preview": "Nuôi cò, cò mổ mắt, nuôi…"
+   },
+   {
+    "name": "N 1330",
+    "anchor": "N-1330",
+    "preview": "Nuôi cò cò mổ mắt, nuôi…"
+   },
+   {
+    "name": "N 1331",
+    "anchor": "N-1331",
+    "preview": "Nuôi cò rồi cò lại mổ…"
+   },
+   {
+    "name": "T 1774",
+    "anchor": "T-1774",
+    "preview": "Trêu cò, cò mổ mắt."
+   },
+   {
+    "name": "T 1775",
+    "anchor": "T-1775",
+    "preview": "Trêu cò, cò mổ mắt, trêu…"
+   }
+  ],
+  "first_syllable": "yêu",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2957"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "Y-42.png"
+ },
+ {
+  "name": "Y 43",
+  "anchor": "Y-43",
+  "letter": "Y",
+  "number": 43,
+  "proverb": "Yêu hoa muốn bẻ cả cành.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "79"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2957"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "Y-43.png"
+ },
+ {
+  "name": "Y 44",
+  "anchor": "Y-44",
+  "letter": "Y",
+  "number": 44,
+  "proverb": "Yêu hoa nên phải vin cành.",
+  "citations": [
+   {
+    "abbreviation": "NASL IV",
+    "pages": "28b"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "32"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "166"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "479, 483"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321, 371"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu hoa "
+     },
+     {
+      "text": "cho",
+      "em": true
+     },
+     {
+      "text": " nên phải vin cành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "89"
+     },
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "74b"
+     },
+     {
+      "abbreviation": "NQPN",
+      "pages": "15a"
+     },
+     {
+      "abbreviation": "PNTN",
+      "pages": "12a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu hoa nên phải "
+     },
+     {
+      "text": "vì",
+      "em": true
+     },
+     {
+      "text": " cành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "322"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu hoa nên phải "
+     },
+     {
+      "text": "vịn",
+      "em": true
+     },
+     {
+      "text": " cành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "479, 483"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu hoa vin cành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "12"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NASL IV",
+   "NNCC",
+   "NXK",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "CCM",
+   "ĐNQT",
+   "NQPN",
+   "PNTN",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2957"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "Y-44.png"
+ },
+ {
+  "name": "Y 45",
+  "anchor": "Y-45",
+  "letter": "Y",
+  "number": 45,
+  "proverb": "Yêu khăn điều trao tay, không yêu mắt đầy lòng trắng.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "166"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "484"
+   },
+   {
+    "abbreviation": "VHTB",
+    "pages": "127"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "VHTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2957"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "Y-45.png"
+ },
+ {
+  "name": "Y 46",
+  "anchor": "Y-46",
+  "letter": "Y",
+  "number": 46,
+  "proverb": "Yêu khi có men, khen khi đếm bạc.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "166"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "483"
+   },
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "397"
+   },
+   {
+    "abbreviation": "VHTB",
+    "pages": "127"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "VCVN IV",
+   "VHTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2957"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "Y-46.png"
+ },
+ {
+  "name": "Y 47",
+  "anchor": "Y-47",
+  "letter": "Y",
+  "number": 47,
+  "proverb": "Yêu nên bấc, ghét nên chì.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "824"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2957"
+  ],
+  "pdf_pages": [
+   535
+  ],
+  "fixed": false,
+  "image": "Y-47.png"
+ },
+ {
+  "name": "Y 48",
+  "anchor": "Y-48",
+  "letter": "Y",
+  "number": 48,
+  "proverb": "Yêu nên tốt, ghét nên xấu.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "50a"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "37"
+   },
+   {
+    "abbreviation": "NASL II",
+    "pages": "37b"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "29"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "166"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "45, 54"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "479"
+   },
+   {
+    "abbreviation": "TNLG I",
+    "pages": "17, 85"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "824"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "653"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "100"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ưa nên tốt, ghét nên xấu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "623"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ưa thì tốt, không ưa thì xấu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "56"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau nên tốt, ghét nhau nên xấu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "39"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Sự yêu ghét thường làm cho người ta mất sáng suốt, đối xử thiên vị, không khách quan."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "ĐNQT",
+   "MGL",
+   "NASL II",
+   "NL",
+   "NNCC",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNLG I",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VNP₁₁",
+   "CCM"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2957",
+   "2958"
+  ],
+  "pdf_pages": [
+   535,
+   536
+  ],
+  "fixed": false,
+  "image": "Y-48.png"
+ },
+ {
+  "name": "Y 49",
+  "anchor": "Y-49",
+  "letter": "Y",
+  "number": 49,
+  "proverb": "Yêu người mới được người yêu.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "653"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Sống nhân ái với mọi người mới được họ quý mến lại."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2958"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "Y-49.png"
+ },
+ {
+  "name": "Y 50",
+  "anchor": "Y-50",
+  "letter": "Y",
+  "number": 50,
+  "proverb": "Yêu nhau bốc bải giần sàng.",
+  "citations": [
+   {
+    "abbreviation": "TNVN",
+    "pages": "244"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNVN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2958"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "Y-50.png"
+ },
+ {
+  "name": "Y 51",
+  "anchor": "Y-51",
+  "letter": "Y",
+  "number": 51,
+  "proverb": "Yêu nhau bốc bải giần sàng, ghét nhau đũa ngọc mâm vàng chẳng ăn.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "479"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "150"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau bốc bải giần sàng, ghét nhau đĩa ngọc mâm vàng chớ thây."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "322"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau bốc bải giần sàng, ghét nhau đũa ngọc mâm vàng chớ thây."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD",
+      "pages": "",
+      "variant": true,
+      "unknown": true
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau bốc bải giần sàng, ghét nhau đũa ngọc mâm vàng cũng chê."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "61"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau bốc "
+     },
+     {
+      "text": "bãi",
+      "em": true
+     },
+     {
+      "text": " giần sàng, ghét nhau đũa ngọc mâm vàng cũng thây."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "824"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "NL",
+   "ANTN",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2958"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "Y-51.png"
+ },
+ {
+  "name": "Y 52",
+  "anchor": "Y-52",
+  "letter": "Y",
+  "number": 52,
+  "proverb": "Yêu nhau cái chấy cắn đôi.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "165"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "479"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2958"
+  ],
+  "pdf_pages": [
+   536
+  ],
+  "fixed": false,
+  "image": "Y-52.png"
+ },
+ {
+  "name": "Y 53",
+  "anchor": "Y-53",
+  "letter": "Y",
+  "number": 53,
+  "proverb": "Yêu nhau cau bảy bổ ba, ghét nhau cau bảy bổ ra làm mười.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "479"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "150"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau cau bảy bổ ba, ghét nhau cau sáu bổ ra làm mười."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "63"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "824"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "ANTN",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2958",
+   "2959"
+  ],
+  "pdf_pages": [
+   536,
+   537
+  ],
+  "fixed": false,
+  "image": "Y-53.png"
+ },
+ {
+  "name": "Y 54",
+  "anchor": "Y-54",
+  "letter": "Y",
+  "number": 54,
+  "proverb": "Yêu nhau chị em gái, rái nhau chị em dâu.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "49"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "323"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "46"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "93"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau là chị em gái, rái nhau là chị em dâu."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VNNN",
+      "pages": "6"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "ANTN",
+   "NL",
+   "NNCC",
+   "TNCD",
+   "VNNN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2959"
+  ],
+  "pdf_pages": [
+   537
+  ],
+  "fixed": false,
+  "image": "Y-54.png"
+ },
+ {
+  "name": "Y 55",
+  "anchor": "Y-55",
+  "letter": "Y",
+  "number": 55,
+  "proverb": "Yêu nhau chị em gái, rái nhau chị em dâu, đánh nhau vỡ đầu là anh em rể.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "124"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "151"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "255"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "652"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thương nhau chị em gái, rái nhau chị em dâu, đánh nhau vỡ đầu là anh em rể."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "592"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau chị em gái, rái nhau chị em dâu, đánh nhạu đến vỡ đầu là anh em bạn rể."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "825"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau chị em gái, rái nhau chị em dâu, ngoảnh mặt hất đầu là anh em rể."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "124"
+     },
+     {
+      "abbreviation": "VHTB",
+      "pages": "122"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau chị em gái, trái nhau chị em dâu, đánh nhau vỡ đầu thời anh em rể."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "12b"
+     },
+     {
+      "abbreviation": "NQPN",
+      "pages": "8a"
+     },
+     {
+      "abbreviation": "PNTN",
+      "pages": "6a-6b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau là chị em gái, rái nhau là chị em dâu, đánh nhau vỡ đầu là anh em rể."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "105"
+     },
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "12b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VC II",
+   "VHTB",
+   "ĐNQT",
+   "NQPN",
+   "PNTN",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2959"
+  ],
+  "pdf_pages": [
+   537
+  ],
+  "fixed": false,
+  "image": "Y-55.png"
+ },
+ {
+  "name": "Y 56",
+  "anchor": "Y-56",
+  "letter": "Y",
+  "number": 56,
+  "proverb": "Yêu nhau chín bỏ làm mười.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "67"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "47b"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "37"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "323"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "165"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "54"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "484"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "825"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "653"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "209"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Tốt với nhau dễ thông cảm, xuê xoa, bỏ quá cho nhau những điều không nên không phải."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "MGL",
+   "NL",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD",
+   "VHSCL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2959"
+  ],
+  "pdf_pages": [
+   537
+  ],
+  "fixed": false,
+  "image": "Y-56.png"
+ },
+ {
+  "name": "Y 57",
+  "anchor": "Y-57",
+  "letter": "Y",
+  "number": 57,
+  "proverb": "Yêu nhau, chữ vị là vì, chữ dục là muốn, chữ tuỳ là theo.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "151"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2959"
+  ],
+  "pdf_pages": [
+   537
+  ],
+  "fixed": false,
+  "image": "Y-57.png"
+ },
+ {
+  "name": "Y 58",
+  "anchor": "Y-58",
+  "letter": "Y",
+  "number": 58,
+  "proverb": "Yêu nhau cũng chẳng cho vàng, ghét nhau cũng chẳng tránh đàng mà đi.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "151"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "826"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau cũng chẳng cho vàng, ghét nhau cũng chẳng giành đàng mà đi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN IV",
+      "pages": "400"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNPD I",
+   "VC II",
+   "VCVN IV"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2960"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "Y-58.png"
+ },
+ {
+  "name": "Y 59",
+  "anchor": "Y-59",
+  "letter": "Y",
+  "number": 59,
+  "proverb": "Yêu nhau đóng cửa bảo nhau.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "654"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2960"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "Y-59.png"
+ },
+ {
+  "name": "Y 60",
+  "anchor": "Y-60",
+  "letter": "Y",
+  "number": 60,
+  "proverb": "Yêu nhau đưa đến hồ sen, ghét nhau nhận xuống bùn đen đất lầy.",
+  "citations": [
+   {
+    "abbreviation": "TNTH",
+    "pages": "31"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNTH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2960"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "Y-60.png"
+ },
+ {
+  "name": "Y 61",
+  "anchor": "Y-61",
+  "letter": "Y",
+  "number": 61,
+  "proverb": "Yêu nhau giá thú bất luận tài.",
+  "citations": [
+   {
+    "abbreviation": "VNNN",
+    "pages": "5"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "VNNN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1931,
+  "book_pages": [
+   "2960"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "Y-61.png"
+ },
+ {
+  "name": "Y 62",
+  "anchor": "Y-62",
+  "letter": "Y",
+  "number": 62,
+  "proverb": "Yêu nhau gắp bỏ cho nhau.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "27"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2960"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "Y-62.png"
+ },
+ {
+  "name": "Y 63",
+  "anchor": "Y-63",
+  "letter": "Y",
+  "number": 63,
+  "proverb": "Yêu nhau lắm cắn nhau đau.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "50b"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "37"
+   },
+   {
+    "abbreviation": "NASL II",
+    "pages": "38b"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "36a"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "165"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "34b"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "54"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "484"
+   },
+   {
+    "abbreviation": "TNLG I",
+    "pages": "17, 85"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "654"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thân nhau lắm thì cắn nhau đau."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "580"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Thương nhau lắm, cắn nhau đau."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "611"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau lắm, cắn nhau nhiều."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "114"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "ĐNQT",
+   "MGL",
+   "NASL II",
+   "NNCC",
+   "NQPN",
+   "NXK",
+   "PNTN",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNLG I",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VC II",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2960"
+  ],
+  "pdf_pages": [
+   538
+  ],
+  "fixed": false,
+  "image": "Y-63.png"
+ },
+ {
+  "name": "Y 64",
+  "anchor": "Y-64",
+  "letter": "Y",
+  "number": 64,
+  "proverb": "Yêu nhau mấy núi cũng trèo, mấy sông cũng lội mấy đèo cũng qua.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "18b-19a"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NASL I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2960",
+   "2961"
+  ],
+  "pdf_pages": [
+   538,
+   539
+  ],
+  "fixed": false,
+  "image": "Y-64.png"
+ },
+ {
+  "name": "Y 65",
+  "anchor": "Y-65",
+  "letter": "Y",
+  "number": 65,
+  "proverb": "Yêu nhau mọi việc chẳng nề, một trăm chỗ lệch cũng kê cho bằng.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "323"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "479"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau đắp điếm mọi bề, một trăm chỗ lệch cũng kê cho bằng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL II",
+      "pages": "37a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau mọi sự chẳng hề, dù trăm chỗ lệch cũng kê cho bằng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "826"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau mọi việc chẳng nề, dù trăm chỗ lệch cũng kê cho bằng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "150"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau vạn sự chẳng nề, một trăm chỗ lệch cũng kê cho bằng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "61"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "NASL II",
+   "VC II",
+   "TNPD I",
+   "ANTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2961"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "Y-65.png"
+ },
+ {
+  "name": "Y 66",
+  "anchor": "Y-66",
+  "letter": "Y",
+  "number": 66,
+  "proverb": "Yêu nhau nay đến mai đến.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "47"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2961"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "Y-66.png"
+ },
+ {
+  "name": "Y 67",
+  "anchor": "Y-67",
+  "letter": "Y",
+  "number": 67,
+  "proverb": "Yêu nhau quá đỗi nên mê, rồi sau mới biết kẻ chê người cười.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "150"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "826"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNPD I",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2961"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "Y-67.png"
+ },
+ {
+  "name": "Y 68",
+  "anchor": "Y-68",
+  "letter": "Y",
+  "number": 68,
+  "proverb": "Yêu nhau rào giậu cho kín.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "49"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "323"
+   },
+   {
+    "abbreviation": "NNPD",
+    "pages": "11"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "165"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "484"
+   },
+   {
+    "abbreviation": "TNLG II",
+    "pages": "22, 167"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "320"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "826"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "654"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "CCM",
+   "NL",
+   "NNPD",
+   "NXK",
+   "TNCL",
+   "TNLG II",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2961"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "Y-68.png"
+ },
+ {
+  "name": "Y 69",
+  "anchor": "Y-69",
+  "letter": "Y",
+  "number": 69,
+  "proverb": "Yêu nhau tam, tứ núi cũng trèo; thất, bát khe cũng lội, tứ cửu tam thập lục đèo cũng qua.",
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "152"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNPD I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2961"
+  ],
+  "pdf_pages": [
+   539
+  ],
+  "fixed": false,
+  "image": "Y-69.png"
+ },
+ {
+  "name": "Y 70",
+  "anchor": "Y-70",
+  "letter": "Y",
+  "number": 70,
+  "proverb": "Yêu nhau thời ngửa bàn tay cho ngồi.",
+  "citations": [
+   {
+    "abbreviation": "NASL II",
+    "pages": "51b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NASL II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2961",
+   "2962"
+  ],
+  "pdf_pages": [
+   539,
+   540
+  ],
+  "fixed": false,
+  "image": "Y-70.png"
+ },
+ {
+  "name": "Y 71",
+  "anchor": "Y-71",
+  "letter": "Y",
+  "number": 71,
+  "proverb": "Yêu nhau trầu vỏ cũng say, ghét nhau cau đậu đầy khay chẳng màng.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "479"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "150"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "321"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "170"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "827"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau cau chũm ăn chơi, ghét nhau cau đậu đầy cơi chẳng màng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "HTTH",
+      "pages": "46"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau cau chũm ăn quàng, ghét nhau cau đậu đầy sàng chẳng ăn."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "HTTH",
+      "pages": "46"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu nhau cau nó cũng say, ghét nhau cau đậu đầy khay chẳng màng."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN IV",
+      "pages": "398"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC II",
+   "HTTH",
+   "VCVN IV"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2962"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "Y-71.png"
+ },
+ {
+  "name": "Y 72",
+  "anchor": "Y-72",
+  "letter": "Y",
+  "number": 72,
+  "proverb": "Yêu nhau xé lụa may quần, ghét nhau kể nợ kể nần nhau ra.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "323"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "150"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "827"
+   },
+   {
+    "abbreviation": "VCVN IV",
+    "pages": "400"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NL",
+   "TNPD I",
+   "VC II",
+   "VCVN IV"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2962"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "Y-72.png"
+ },
+ {
+  "name": "Y 73",
+  "anchor": "Y-73",
+  "letter": "Y",
+  "number": 73,
+  "proverb": "Yêu nói liều cũng đúng.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "484"
+   },
+   {
+    "abbreviation": "VHTB",
+    "pages": "127"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "VHTB"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2962"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "Y-73.png"
+ },
+ {
+  "name": "Y 74",
+  "anchor": "Y-74",
+  "letter": "Y",
+  "number": 74,
+  "proverb": "Yêu sau lưng, không yêu trước mặt.",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "32b"
+   },
+   {
+    "abbreviation": "NASL II",
+    "pages": "46b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NASL I",
+   "NASL II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "2962"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "Y-74.png"
+ },
+ {
+  "name": "Y 75",
+  "anchor": "Y-75",
+  "letter": "Y",
+  "number": 75,
+  "proverb": "Yêu thì yêu cả tông chi, ghét thì ghét cả đường đi lối về.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "479"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "322"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "171"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2962"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "Y-75.png"
+ },
+ {
+  "name": "Y 76",
+  "anchor": "Y-76",
+  "letter": "Y",
+  "number": 76,
+  "proverb": "Yêu trẻ, trẻ đến nhà.",
+  "citations": [
+   {
+    "abbreviation": "NASL III",
+    "pages": "51a"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "23"
+   },
+   {
+    "abbreviation": "TNLG I",
+    "pages": "17, 85"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NASL III",
+   "NNCC",
+   "TNLG I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2962"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "Y-76.png"
+ },
+ {
+  "name": "Y 77",
+  "anchor": "Y-77",
+  "letter": "Y",
+  "number": 77,
+  "proverb": "Yêu trẻ trẻ đến nhà, ghét già già tránh thân.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "42"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2962"
+  ],
+  "pdf_pages": [
+   540
+  ],
+  "fixed": false,
+  "image": "Y-77.png"
+ },
+ {
+  "name": "Y 78",
+  "anchor": "Y-78",
+  "letter": "Y",
+  "number": 78,
+  "proverb": "Yêu trẻ, trẻ đến nhà; kính già, già để tuổi cho.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "323"
+   },
+   {
+    "abbreviation": "NQPN",
+    "pages": "16a"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "13a"
+   },
+   {
+    "abbreviation": "TNCDCL",
+    "pages": "11"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "504"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu trẻ "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " trẻ đến nhà, "
+     },
+     {
+      "text": "trọng",
+      "em": true
+     },
+     {
+      "text": " già, già để tuổi cho."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ANTN",
+      "pages": "51"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu trẻ trẻ đến nhà, "
+     },
+     {
+      "text": "yêu",
+      "em": true
+     },
+     {
+      "text": " già, già để "
+     },
+     {
+      "text": "phúc",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "MGL",
+      "pages": "37"
+     },
+     {
+      "abbreviation": "TMT",
+      "pages": "54"
+     },
+     {
+      "abbreviation": "TNCĐ",
+      "pages": "30"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "479"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "320"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "171"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu trẻ trẻ đến nhà, "
+     },
+     {
+      "text": "yêu",
+      "em": true
+     },
+     {
+      "text": " già, già để tuổi cho."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "14b"
+     },
+     {
+      "abbreviation": "NASL II",
+      "pages": "35a"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu trẻ trẻ đến nhà, "
+     },
+     {
+      "text": "yêu",
+      "em": true
+     },
+     {
+      "text": " già, già "
+     },
+     {
+      "text": "nhường",
+      "em": true
+     },
+     {
+      "text": " tuổi."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL II",
+      "pages": "35a"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu trẻ trẻ "
+     },
+     {
+      "text": "hay",
+      "em": true
+     },
+     {
+      "text": " đến nhà, kính già già "
+     },
+     {
+      "text": "bớt",
+      "em": true
+     },
+     {
+      "text": " tuổi cho."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNPD I",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu trẻ trẻ "
+     },
+     {
+      "text": "hay",
+      "em": true
+     },
+     {
+      "text": " đến nhà, kính già già để tuổi cho."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NXK",
+      "pages": "49"
+     },
+     {
+      "abbreviation": "TMT",
+      "pages": "108"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "150"
+     },
+     {
+      "abbreviation": "VC II",
+      "pages": "828"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "654"
+     },
+     {
+      "abbreviation": "VNP₁₁",
+      "pages": "106"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "NL",
+   "NQPN",
+   "PNTN",
+   "TNCDCL",
+   "TNCL",
+   "ANTN",
+   "MGL",
+   "TMT",
+   "TNCĐ",
+   "TNVN",
+   "TTVH",
+   "ĐNQT",
+   "NASL II",
+   "TNPD I",
+   "NXK",
+   "VC II",
+   "VD",
+   "VNP₁₁"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2963"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "Y-78.png"
+ },
+ {
+  "name": "Y 79",
+  "anchor": "Y-79",
+  "letter": "Y",
+  "number": 79,
+  "proverb": "Yêu vì nết, chẳng chết vì người.",
+  "citations": [
+   {
+    "abbreviation": "TNCL",
+    "pages": "486"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "312"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "171"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "654"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yêu vì nết chẳng "
+     },
+     {
+      "text": "hết chi",
+      "em": true
+     },
+     {
+      "text": " người."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yêu",
+  "sources": [
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2963"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "Y-79.png"
+ },
+ {
+  "name": "Y 80",
+  "anchor": "Y-80",
+  "letter": "Y",
+  "number": 80,
+  "proverb": "Yểu điệu thanh tân bồ sứt cạp.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "323"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yểu",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2963"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "Y-80.png"
+ },
+ {
+  "name": "Y 81",
+  "anchor": "Y-81",
+  "letter": "Y",
+  "number": 81,
+  "proverb": "Yếu chân chạy trước.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "41"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "105, 181"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "58"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "32 T"
+   },
+   {
+    "abbreviation": "NCL",
+    "pages": "116, 263",
+    "unknown": true
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "338"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "171"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "654"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Kém cỏi, không có sức lực thì phải lo liệu, đề phòng trước để tránh nguy hiểm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yếu",
+  "sources": [
+   "MGL",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "2963"
+  ],
+  "pdf_pages": [
+   541
+  ],
+  "fixed": false,
+  "image": "Y-81.png"
+ },
+ {
+  "name": "Y 82",
+  "anchor": "Y-82",
+  "letter": "Y",
+  "number": 82,
+  "proverb": "Yếu như cua lột.",
+  "citations": [
+   {
+    "abbreviation": "VC II",
+    "pages": "828"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yếu",
+  "sources": [
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "2963",
+   "2964"
+  ],
+  "pdf_pages": [
+   541,
+   542
+  ],
+  "fixed": false,
+  "image": "Y-82.png"
+ },
+ {
+  "name": "Y 83",
+  "anchor": "Y-83",
+  "letter": "Y",
+  "number": 83,
+  "proverb": "Yếu như sên.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "5"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yếu như con sên."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "27b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yếu",
+  "sources": [
+   "NNCC",
+   "TNPD I",
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2964"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "Y-83.png"
+ },
+ {
+  "name": "Y 84",
+  "anchor": "Y-84",
+  "letter": "Y",
+  "number": 84,
+  "proverb": "Yếu tha già thải.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "176"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yếu",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2964"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "Y-84.png"
+ },
+ {
+  "name": "Y 85",
+  "anchor": "Y-85",
+  "letter": "Y",
+  "number": 85,
+  "proverb": "Yếu trâu bằng khoẻ bò.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "82"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "25"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "22"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "451"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "VC II",
+    "pages": "828"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "240"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": "
+    },
+    {
+     "text": "nghĩa đen",
+     "general": "Nđ"
+    },
+    {
+     "text": ": Trâu khỏe hơn bò."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Nam giới dù yếu cũng còn hơn phụ nữ khỏe."
+    }
+   ]
+  ],
+  "corrections": [
+   {
+    "wrong": "Yêu trâu...",
+    "sources": [
+     "CCM"
+    ],
+    "right": [
+     {
+      "text": "Yếu trâu..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "CCM",
+      "source": "CCM"
+     },
+     {
+      "text": " in sai thành \"Yêu trâu...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Yếu trâu..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [
+   {
+    "name": "T 1650",
+    "anchor": "T-1650",
+    "preview": "Trâu he cũng bằng bò khoẻ."
+   }
+  ],
+  "first_syllable": "yếu",
+  "sources": [
+   "CCM",
+   "NNCC",
+   "TMT",
+   "TNCL",
+   "TNPD I",
+   "VC II",
+   "VNP₁₁"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": true,
+  "earliest_year": 1918,
+  "book_pages": [
+   "2964"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "Y-85.png"
+ },
+ {
+  "name": "Y 86",
+  "anchor": "Y-86",
+  "letter": "Y",
+  "number": 86,
+  "proverb": "Yếu trâu hơn thể mạnh bò.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "96"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "67b"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "74"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yếu trâu còn hơn "
+     },
+     {
+      "text": "khoẻ",
+      "em": true
+     },
+     {
+      "text": " bò."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "42b"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "654"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yếu trâu hơn bò "
+     },
+     {
+      "text": "khoẻ",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNCL",
+      "pages": "387"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yếu trâu hơn "
+     },
+     {
+      "text": "khoẻ",
+      "em": true
+     },
+     {
+      "text": " bò."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "323"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Yếu trâu hơn thể "
+     },
+     {
+      "text": "khoẻ",
+      "em": true
+     },
+     {
+      "text": " bò."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "654"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "yếu",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NXK",
+   "NASL IV",
+   "VD",
+   "TNCL",
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "2964"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "Y-86.png"
+ },
+ {
+  "name": "Y 87",
+  "anchor": "Y-87",
+  "letter": "Y",
+  "number": 87,
+  "proverb": "Ým cựu nghinh tân.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "39"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "176"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Chán cũ rước mới"
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ým",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "2964"
+  ],
+  "pdf_pages": [
+   542
+  ],
+  "fixed": false,
+  "image": "Y-87.png"
+ }
+]

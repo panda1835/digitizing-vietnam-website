@@ -1,0 +1,1168 @@
+[
+ {
+  "name": "Ê 1",
+  "anchor": "Ê-1",
+  "letter": "Ê",
+  "number": 1,
+  "proverb": "Ề à thầy già đọc kinh.",
+  "citations": [
+   {
+    "abbreviation": "NASL IV",
+    "pages": "22b"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ề",
+  "sources": [
+   "NASL IV"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "1159"
+  ],
+  "pdf_pages": [
+   299
+  ],
+  "fixed": false,
+  "image": "Ê-1.png"
+ },
+ {
+  "name": "Ê 2",
+  "anchor": "Ê-2",
+  "letter": "Ê",
+  "number": 2,
+  "proverb": "Ếch kêu uôm uôm, ao chuôm đầy nước.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "13"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "114"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "58"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "10, 18"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "10"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "407"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "201"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "315"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "226"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "MGL",
+   "NL",
+   "NXK",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "VNP₁₁"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1159"
+  ],
+  "pdf_pages": [
+   299
+  ],
+  "fixed": false,
+  "image": "Ê-2.png"
+ },
+ {
+  "name": "Ê 3",
+  "anchor": "Ê-3",
+  "letter": "Ê",
+  "number": 3,
+  "proverb": "Ếch lại đòi cắn cổ rắn.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "315"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1159"
+  ],
+  "pdf_pages": [
+   299
+  ],
+  "fixed": false,
+  "image": "Ê-3.png"
+ },
+ {
+  "name": "Ê 4",
+  "anchor": "Ê-4",
+  "letter": "Ê",
+  "number": 4,
+  "proverb": "Ếch mọc lông nách.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "114"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "436"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "123"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "315"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ếch có lông nách."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNTB",
+      "pages": "2b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "VD",
+   "TNTB"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "1159"
+  ],
+  "pdf_pages": [
+   299
+  ],
+  "fixed": false,
+  "image": "Ê-4.png"
+ },
+ {
+  "name": "Ê 5",
+  "anchor": "Ê-5",
+  "letter": "Ê",
+  "number": 5,
+  "proverb": "Ếch muốn to bằng bò.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "570"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1159"
+  ],
+  "pdf_pages": [
+   299
+  ],
+  "fixed": false,
+  "image": "Ê-5.png"
+ },
+ {
+  "name": "Ê 6",
+  "anchor": "Ê-6",
+  "letter": "Ê",
+  "number": 6,
+  "proverb": "Ếch nào chẳng là thịt.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "97"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "71a"
+   },
+   {
+    "abbreviation": "NASL IV",
+    "pages": "40b"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "123"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ếch nào "
+     },
+     {
+      "text": "chả",
+      "em": true
+     },
+     {
+      "text": " là thịt."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL IV",
+      "pages": "40b"
+     },
+     {
+      "abbreviation": "VCVN II",
+      "pages": "345"
+     },
+     {
+      "abbreviation": "TNCL",
+      "pages": "436"
+     },
+     {
+      "abbreviation": "TNVN",
+      "pages": "365"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "75"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "NASL IV",
+   "TNPD I",
+   "VCVN II",
+   "TNCL",
+   "TNVN",
+   "TTVH"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "1160"
+  ],
+  "pdf_pages": [
+   300
+  ],
+  "fixed": false,
+  "image": "Ê-6.png"
+ },
+ {
+  "name": "Ê 7",
+  "anchor": "Ê-7",
+  "letter": "Ê",
+  "number": 7,
+  "proverb": "Ếch ngồi đáy giếng biết đâu là giời.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "42"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "NNCC"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "1160"
+  ],
+  "pdf_pages": [
+   300
+  ],
+  "fixed": false,
+  "image": "Ê-7.png"
+ },
+ {
+  "name": "Ê 8",
+  "anchor": "Ê-8",
+  "letter": "Ê",
+  "number": 8,
+  "proverb": "Ếch ngồi đáy giếng coi trời bằng vung.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "110"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "69a"
+   },
+   {
+    "abbreviation": "HT",
+    "pages": "64"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "45"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "114"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "149"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "203, 232, 247"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "35"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "124"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "571"
+   },
+   {
+    "abbreviation": "VCVN II",
+    "pages": "345"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "315"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "191"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "HT",
+   "MGL",
+   "NL",
+   "NXK",
+   "TMT",
+   "TNCL",
+   "TTVH",
+   "TNCĐ",
+   "TNPD I",
+   "VC I",
+   "VCVN II",
+   "VD",
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "1160"
+  ],
+  "pdf_pages": [
+   300
+  ],
+  "fixed": false,
+  "image": "Ê-8.png"
+ },
+ {
+  "name": "Ê 9",
+  "anchor": "Ê-9",
+  "letter": "Ê",
+  "number": 9,
+  "proverb": "Ếch no khó nhử mồi.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "46"
+   },
+   {
+    "abbreviation": "NASL IV",
+    "pages": "46a"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "62"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "36"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "195"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "356"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ếch no khó nhử."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN II",
+      "pages": "346"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "316"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "MGL",
+   "NASL IV",
+   "TMT",
+   "TNCĐ",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VCVN II",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "1160"
+  ],
+  "pdf_pages": [
+   300
+  ],
+  "fixed": false,
+  "image": "Ê-9.png"
+ },
+ {
+  "name": "Ê 10",
+  "anchor": "Ê-10",
+  "letter": "Ê",
+  "number": 10,
+  "proverb": "Ếch tháng ba, gà tháng bảy.",
+  "citations": [
+   {
+    "abbreviation": "MGL",
+    "pages": "17"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "114"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "96"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "27"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "436"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "13"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "123"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "216"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "571"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "316"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "165"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ếch tháng ba, gà tháng tám."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NASL",
+      "pages": "12b",
+      "unknown": true
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "MGL",
+   "NL",
+   "NXK",
+   "TMT",
+   "TNCL",
+   "TNCĐ",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC I",
+   "VD",
+   "VHSCL"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1925,
+  "book_pages": [
+   "1160"
+  ],
+  "pdf_pages": [
+   300
+  ],
+  "fixed": false,
+  "image": "Ê-10.png"
+ },
+ {
+  "name": "Ê 11",
+  "anchor": "Ê-11",
+  "letter": "Ê",
+  "number": 11,
+  "proverb": "Ếch tháng ba gà tháng mười.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "571"
+   },
+   {
+    "abbreviation": "VNQNĐN I",
+    "pages": "100"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "VC I",
+   "VNQNĐN I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1160"
+  ],
+  "pdf_pages": [
+   300
+  ],
+  "fixed": false,
+  "image": "Ê-11.png"
+ },
+ {
+  "name": "Ê 12",
+  "anchor": "Ê-12",
+  "letter": "Ê",
+  "number": 12,
+  "proverb": "Ếch tháng mười người Hà Nội.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "76"
+   },
+   {
+    "abbreviation": "NNGQ",
+    "pages": "98"
+   },
+   {
+    "abbreviation": "NNHN I",
+    "pages": "189"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "288"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "CCM",
+   "NNGQ",
+   "NNHN I",
+   "TNVN"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1160"
+  ],
+  "pdf_pages": [
+   300
+  ],
+  "fixed": false,
+  "image": "Ê-12.png"
+ },
+ {
+  "name": "Ê 13",
+  "anchor": "Ê-13",
+  "letter": "Ê",
+  "number": 13,
+  "proverb": "Ếch tháng mười, người tháng giêng.",
+  "citations": [
+   {
+    "abbreviation": "TNVN",
+    "pages": "216"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "316"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Ếch tháng mười béo, người tháng giêng sẵn ăn ít làm."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1161"
+  ],
+  "pdf_pages": [
+   301
+  ],
+  "fixed": false,
+  "image": "Ê-13.png"
+ },
+ {
+  "name": "Ê 14",
+  "anchor": "Ê-14",
+  "letter": "Ê",
+  "number": 14,
+  "proverb": "Ếch thấy hoa thì vồ.",
+  "citations": [
+   {
+    "abbreviation": "NNCC",
+    "pages": "26"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "195, 436"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "123"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "355"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "75"
+   },
+   {
+    "abbreviation": "VCVN II",
+    "pages": "346"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "316"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Người đi câu ếch dùng hoa dâm bụt, hoa mướp có màu đỏ, màu vàng dễ nhận thấy làm nồi nhử."
+    }
+   ],
+   [
+    {
+     "text": "Chỉ hành động nhảy bổ vào, tối mắt vì tham lam, say mê (theo "
+    },
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ")."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VCVN II",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "1161"
+  ],
+  "pdf_pages": [
+   301
+  ],
+  "fixed": false,
+  "image": "Ê-14.png"
+ },
+ {
+  "name": "Ê 15",
+  "anchor": "Ê-15",
+  "letter": "Ê",
+  "number": 15,
+  "proverb": "Ếch trong hang cũng còn lo chết.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "114"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "260"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "123"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ếch "
+     },
+     {
+      "text": "ngồi",
+      "em": true
+     },
+     {
+      "text": " trong hang còn lo chết."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "364"
+     },
+     {
+      "abbreviation": "TTVH",
+      "pages": "75"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "316"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "NL",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "1161"
+  ],
+  "pdf_pages": [
+   301
+  ],
+  "fixed": false,
+  "image": "Ê-15.png"
+ },
+ {
+  "name": "Ê 16",
+  "anchor": "Ê-16",
+  "letter": "Ê",
+  "number": 16,
+  "proverb": "Ếch vào cua ra.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "316"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Cua và ếch đều sống trong hang, con này vào thì con khác phải ra."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Mối quan hệ đối kháng, không song song tồn tại."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1161"
+  ],
+  "pdf_pages": [
+   301
+  ],
+  "fixed": false,
+  "image": "Ê-16.png"
+ },
+ {
+  "name": "Ê 17",
+  "anchor": "Ê-17",
+  "letter": "Ê",
+  "number": 17,
+  "proverb": "Ếch vồ hoa dâm bụt.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "114"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Nghĩa giống câu Ê 14."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ếch",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1161"
+  ],
+  "pdf_pages": [
+   301
+  ],
+  "fixed": false,
+  "image": "Ê-17.png"
+ },
+ {
+  "name": "Ê 18",
+  "anchor": "Ê-18",
+  "letter": "Ê",
+  "number": 18,
+  "proverb": "Êm như cát, mát như nước.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "316"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Lời nói dịu ngọt dễ nghe, dễ xuôi lòng."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "êm",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1162"
+  ],
+  "pdf_pages": [
+   302
+  ],
+  "fixed": false,
+  "image": "Ê-18.png"
+ },
+ {
+  "name": "Ê 19",
+  "anchor": "Ê-19",
+  "letter": "Ê",
+  "number": 19,
+  "proverb": "Êm như nhung.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "571"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "êm",
+  "sources": [
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1162"
+  ],
+  "pdf_pages": [
+   302
+  ],
+  "fixed": false,
+  "image": "Ê-19.png"
+ },
+ {
+  "name": "Ê 20",
+  "anchor": "Ê-20",
+  "letter": "Ê",
+  "number": 20,
+  "proverb": "Êm như ru.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "571"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "316"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "VD",
+     "source": "VD"
+    },
+    {
+     "text": ": Hoạt động, nói năng một cách nhẹ nhàng, êm ái, giải quyết công việc rất trôi chảy, nhanh gọn."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "êm",
+  "sources": [
+   "VC I",
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "1162"
+  ],
+  "pdf_pages": [
+   302
+  ],
+  "fixed": false,
+  "image": "Ê-20.png"
+ }
+]

@@ -912,7 +912,14 @@
       "em": true
      },
      {
-      "text": " anh đi ở."
+      "text": " "
+     },
+     {
+      "text": "anh",
+      "em": true
+     },
+     {
+      "text": " đi ở."
      }
     ],
     "citations": [
@@ -2109,14 +2116,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ba người đánh một "
-     },
-     {
-      "text": "chẳng",
-      "em": true
-     },
-     {
-      "text": " chột cũng què."
+      "text": "Ba người đánh một chẳng chột cũng què."
      }
     ],
     "citations": [
@@ -2970,14 +2970,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Hai thưng cũng "
-     },
-     {
-      "text": "chừng",
-      "em": true
-     },
-     {
-      "text": " một đấu."
+      "text": "Hai thưng cũng chừng một đấu."
      }
     ],
     "citations": [
@@ -3264,14 +3257,13 @@
       "em": true
      },
      {
-      "text": " nước xáo."
+      "text": " nước xáo. bk"
      }
     ],
     "citations": [
      {
       "abbreviation": "KCTN",
-      "pages": "",
-      "variant": true
+      "pages": ""
      },
      {
       "abbreviation": "VC I",
@@ -3290,14 +3282,13 @@
       "em": true
      },
      {
-      "text": " nước xáo."
+      "text": " nước xáo. bk"
      }
     ],
     "citations": [
      {
       "abbreviation": "KCTN",
-      "pages": "",
-      "variant": true
+      "pages": ""
      }
     ]
    },
@@ -4905,6 +4896,16 @@
     "name": "B 69",
     "anchor": "B-69",
     "preview": "Bà cô thập thò đầu ngõ."
+   },
+   {
+    "name": "B 72",
+    "anchor": "B-72",
+    "preview": "Bà dì rù rì xó bếp."
+   },
+   {
+    "name": "B 73",
+    "anchor": "B-73",
+    "preview": "Bà dì tới nhà, nồi đầy…"
    }
   ],
   "first_syllable": "bà",
@@ -6535,14 +6536,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bạc ba quan tha hồ mở bát, cháo ba đồng chê đất "
-     },
-     {
-      "text": "không",
-      "em": true
-     },
-     {
-      "text": " ăn."
+      "text": "Bạc ba quan tha hồ mở bát, cháo ba đồng chê đất không ăn."
      }
     ],
     "citations": [
@@ -7561,6 +7555,9 @@
   "see_also": [
    {
     "name": "T 1082"
+   },
+   {
+    "name": "T 1364"
    }
   ],
   "first_syllable": "bạc",
@@ -7601,6 +7598,11 @@
     "name": "C 1531",
     "anchor": "C-1531",
     "preview": "Chữ nghĩa bề bề cũng thua…"
+   },
+   {
+    "name": "C 2715",
+    "anchor": "C-2715",
+    "preview": "Của rẻ rẻ không bằng nghề…"
    },
    {
     "name": "R 208"
@@ -7668,22 +7670,26 @@
     "pages": "24b"
    }
   ],
-  "variants": [],
-  "notes": [
-   [
-    {
-     "text": "Trăm nghìn bệnh đều tiêu tan."
-    }
-   ]
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Trăm nghìn bệnh đều tiêu tan."
+     }
+    ],
+    "citations": []
+   }
   ],
+  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "bách",
   "sources": [
    "NASL III"
   ],
-  "has_notes": true,
-  "has_variants": false,
+  "has_notes": false,
+  "has_variants": true,
   "has_correction": false,
   "earliest_year": 1925,
   "book_pages": [
@@ -8212,14 +8218,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ban ngày ngồi lê, tối về vê "
-     },
-     {
-      "text": "sồi",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Ban ngày ngồi lê, tối về vê sồi."
      }
     ],
     "citations": [
@@ -8233,14 +8232,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ban ngày ngồi lê, tối về vê "
-     },
-     {
-      "text": "vôi",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Ban ngày ngồi lê, tối về vê vôi."
      }
     ],
     "citations": [
@@ -8679,14 +8671,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bán "
-     },
-     {
-      "text": "chị",
-      "em": true
-     },
-     {
-      "text": " em xa mua láng giềng gần."
+      "text": "Bán chị em xa mua láng giềng gần."
      }
     ],
     "citations": [
@@ -8700,14 +8685,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bán "
-     },
-     {
-      "text": "họ hàng",
-      "em": true
-     },
-     {
-      "text": " xa mua láng giềng gần."
+      "text": "Bán họ hàng xa mua láng giềng gần."
      }
     ],
     "citations": [
@@ -8731,6 +8709,11 @@
     "name": "B 64",
     "anchor": "B-64",
     "preview": "Bà con ở xa không bằng…"
+   },
+   {
+    "name": "B 66",
+    "anchor": "B-66",
+    "preview": "Bà con xa chẳng bằng láng…"
    },
    {
     "name": "H 239"
@@ -9519,6 +9502,9 @@
   "see_also": [
    {
     "name": "H 416"
+   },
+   {
+    "name": "H 421"
    }
   ],
   "first_syllable": "bán",
@@ -10046,14 +10032,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bán hàng "
-     },
-     {
-      "text": "chào",
-      "em": true
-     },
-     {
-      "text": " khách."
+      "text": "Bán hàng chào khách."
      }
     ],
     "citations": [
@@ -10067,14 +10046,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bán "
-     },
-     {
-      "text": "rao chào",
-      "em": true
-     },
-     {
-      "text": " khách."
+      "text": "Bán rao chào khách."
      }
     ],
     "citations": [
@@ -12953,14 +12925,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bánh cuốn Thanh Trì, bánh "
-     },
-     {
-      "text": "dầy",
-      "em": true
-     },
-     {
-      "text": " Quan Thánh."
+      "text": "Bánh cuốn Thanh Trì, bánh dầy Quan Thánh."
      }
     ],
     "citations": [
@@ -12974,14 +12939,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bánh cuốn Thanh Trì, bánh "
-     },
-     {
-      "text": "dầy",
-      "em": true
-     },
-     {
-      "text": " Quán Gánh."
+      "text": "Bánh cuốn Thanh Trì, bánh dầy Quán Gánh."
      }
     ],
     "citations": [
@@ -14886,14 +14844,7 @@
       "em": true
      },
      {
-      "text": " ngọ thì thôi "
-     },
-     {
-      "text": "cấy mùa",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": " ngọ thì thôi cấy mùa."
      }
     ],
     "citations": [
@@ -14921,14 +14872,7 @@
       "em": true
      },
      {
-      "text": " thì thôi "
-     },
-     {
-      "text": "cấy mùa",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": " thì thôi cấy mùa."
      }
     ],
     "citations": [
@@ -15763,7 +15707,12 @@
    ],
    [
     {
-     "text": "Công danh như thế là hưu hỉ Đại sự xin nhường kẻ hậu sinh."
+     "text": "Công danh như thế là hưu hỉ"
+    }
+   ],
+   [
+    {
+     "text": "Đại sự xin nhường kẻ hậu sinh."
     }
    ],
    [
@@ -16150,6 +16099,9 @@
   "see_also": [
    {
     "name": "N 1143"
+   },
+   {
+    "name": "N 1144"
    }
   ],
   "first_syllable": "bảo",
@@ -16327,14 +16279,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bảo "
-     },
-     {
-      "text": "rằng",
-      "em": true
-     },
-     {
-      "text": " trời thấp phải đi khom."
+      "text": "Bảo rằng trời thấp phải đi khom."
      }
     ],
     "citations": [
@@ -18335,7 +18280,7 @@
   "anchor": "B-283",
   "letter": "B",
   "number": 283,
-  "proverb": "Bác cầu mà noi.",
+  "proverb": "Bắc cầu mà noi.",
   "citations": [
    {
     "abbreviation": "NNCC",
@@ -18352,7 +18297,7 @@
   ],
   "corrections": [],
   "see_also": [],
-  "first_syllable": "bác",
+  "first_syllable": "bắc",
   "sources": [
    "NNCC"
   ],
@@ -19706,18 +19651,15 @@
       "pages": "124"
      }
     ]
-   },
-   {
-    "label": "Bản khác",
-    "text": [
-     {
-      "text": "Bạn bè cốt ở chữ tín."
-     }
-    ],
-    "citations": []
    }
   ],
-  "notes": [],
+  "notes": [
+   [
+    {
+     "text": "Bạn bè cốt ở chữ tín."
+    }
+   ]
+  ],
   "corrections": [],
   "see_also": [],
   "first_syllable": "bằng",
@@ -19725,7 +19667,7 @@
    "CNGN",
    "NTP"
   ],
-  "has_notes": false,
+  "has_notes": true,
   "has_variants": true,
   "has_correction": false,
   "earliest_year": 1896,
@@ -20223,18 +20165,25 @@
   "anchor": "B-307",
   "letter": "B",
   "number": 307,
-  "proverb": "Bắt cắt, nỏ có đâu đã chắc ?\nNASL I 1a",
-  "citations": [],
+  "proverb": "Bắt cắt, nỏ có đâu đã chắc ?",
+  "citations": [
+   {
+    "abbreviation": "NASL I",
+    "pages": "1a"
+   }
+  ],
   "variants": [],
   "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "bắt",
-  "sources": [],
+  "sources": [
+   "NASL I"
+  ],
   "has_notes": false,
   "has_variants": false,
   "has_correction": false,
-  "earliest_year": null,
+  "earliest_year": 1925,
   "book_pages": [
    "233"
   ],
@@ -21713,7 +21662,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bần cùng bất đắc dĩ, có lòi tĩ mới phải dịt lá vông."
+      "text": "Bần cùng bất đắc dĩ, có lòi tĩ mới phải dịt lá vòng."
      }
     ],
     "citations": [
@@ -22571,14 +22520,18 @@
     "pages": "215"
    }
   ],
-  "variants": [],
-  "notes": [
-   [
-    {
-     "text": "Không độc ác không trở thành anh hùng."
-    }
-   ]
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Không độc ác không trở thành anh hùng."
+     }
+    ],
+    "citations": []
+   }
   ],
+  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "bất",
@@ -22591,8 +22544,8 @@
    "TNPD I",
    "VCVN I"
   ],
-  "has_notes": true,
-  "has_variants": false,
+  "has_notes": false,
+  "has_variants": true,
   "has_correction": false,
   "earliest_year": 1914,
   "book_pages": [
@@ -22877,9 +22830,8 @@
     "pages": "522"
    },
    {
-    "abbreviation": "TNPD",
-    "pages": "I 35",
-    "unknown": true
+    "abbreviation": "TNPD I",
+    "pages": "35"
    }
   ],
   "variants": [],
@@ -22909,7 +22861,8 @@
   "sources": [
    "NL",
    "PNTN",
-   "TNCL"
+   "TNCL",
+   "TNPD I"
   ],
   "has_notes": true,
   "has_variants": false,
@@ -23981,21 +23934,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bè "
-     },
-     {
-      "text": "thì",
-      "em": true
-     },
-     {
-      "text": " bè lim, sào "
-     },
-     {
-      "text": "thì",
-      "em": true
-     },
-     {
-      "text": " sào gậy."
+      "text": "Bè thì bè lim, sào thì sào gậy."
      }
     ],
     "citations": [
@@ -24122,14 +24061,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bè "
-     },
-     {
-      "text": "tôi",
-      "em": true
-     },
-     {
-      "text": " gỗ chú nó."
+      "text": "Bè tôi gỗ chú nó."
      }
     ],
     "citations": [
@@ -24433,25 +24365,521 @@
    }
   ],
   "variants": [],
-  "notes": [],
+  "notes": [
+   [
+    {
+     "text": "Ở tỉnh Nam Định. Theo "
+    },
+    {
+     "text": "PNHNN",
+     "source": "PNHNN"
+    },
+    {
+     "text": ", Ninh Cường nay thuộc huyện Hải Hậu, xưa có chợ lớn, lại tiện sông con gái tháo vát, gan góc, khôn ngoan, khó lòng lừa gạt, bắt nạt họ."
+    }
+   ]
+  ],
   "corrections": [],
   "see_also": [],
   "first_syllable": "bẻ",
   "sources": [
    "PNHNN"
   ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "245",
+   "246"
+  ],
+  "pdf_pages": [
+   246,
+   247
+  ],
+  "fixed": false,
+  "image": "B-379.png"
+ },
+ {
+  "name": "B 380",
+  "anchor": "B-380",
+  "letter": "B",
+  "number": 380,
+  "proverb": "Bẻ vành bẻ néo, bẻ vẹo lời ngay.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "151"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "bẻ",
+  "sources": [
+   "VC I"
+  ],
   "has_notes": false,
   "has_variants": false,
   "has_correction": false,
   "earliest_year": null,
   "book_pages": [
-   "245"
+   "246"
   ],
   "pdf_pages": [
-   246
+   247
   ],
   "fixed": false,
-  "image": "B-379.png"
+  "image": "B-380.png"
+ },
+ {
+  "name": "B 381",
+  "anchor": "B-381",
+  "letter": "B",
+  "number": 381,
+  "proverb": "Bé ăn trộm gà, cả ăn trộm trâu, lâu lâu làm giặc.",
+  "citations": [
+   {
+    "abbreviation": "NXK",
+    "pages": "143"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "93, 420"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "374"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "29"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Bé ăn trộm gà, cả ăn trộm trâu, lâu lâu "
+     },
+     {
+      "text": "thì",
+      "em": true
+     },
+     {
+      "text": " làm giặc."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "76"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "bé",
+  "sources": [
+   "NXK",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "246"
+  ],
+  "pdf_pages": [
+   247
+  ],
+  "fixed": false,
+  "image": "B-381.png"
+ },
+ {
+  "name": "B 382",
+  "anchor": "B-382",
+  "letter": "B",
+  "number": 382,
+  "proverb": "Bé ăn trộm gà, già ăn trộm bò.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "76"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Trẻ trộm gà, già trộm bò."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VC II",
+      "pages": "686"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "bé",
+  "sources": [
+   "VD",
+   "VC II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "246"
+  ],
+  "pdf_pages": [
+   247
+  ],
+  "fixed": false,
+  "image": "B-382.png"
+ },
+ {
+  "name": "B 383",
+  "anchor": "B-383",
+  "letter": "B",
+  "number": 383,
+  "proverb": "Bé chẳng vin, cả gẫy cành.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "25"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "58b"
+   },
+   {
+    "abbreviation": "HT",
+    "pages": "68"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "35"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "NXK",
+    "pages": "117"
+   },
+   {
+    "abbreviation": "PNTN",
+    "pages": "13b"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "52"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "81"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "28"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "168"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "33"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "307"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "29"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "76"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Bé "
+     },
+     {
+      "text": "chả",
+      "em": true
+     },
+     {
+      "text": " vin, cả gẫy cành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "19"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Bé "
+     },
+     {
+      "text": "không",
+      "em": true
+     },
+     {
+      "text": " vin, cả gẫy cành."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNCC",
+      "pages": "31"
+     },
+     {
+      "abbreviation": "TNCDCL",
+      "pages": "11"
+     },
+     {
+      "abbreviation": "TNLG III",
+      "pages": "7, 30"
+     },
+     {
+      "abbreviation": "VC I",
+      "pages": "149"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "Bé chẳng *vịn*...",
+    "sources": [
+     "NL"
+    ],
+    "right": [
+     {
+      "text": "Bé chẳng "
+     },
+     {
+      "text": "vin",
+      "em": true
+     },
+     {
+      "text": "..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "NL",
+      "source": "NL"
+     },
+     {
+      "text": " in sai thành \"Bé chẳng vịn...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Bé chẳng "
+     },
+     {
+      "text": "vin",
+      "strong": true
+     },
+     {
+      "text": "..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "bé",
+  "sources": [
+   "ANTN",
+   "ĐNQT",
+   "HT",
+   "MGL",
+   "NL",
+   "NXK",
+   "PNTN",
+   "TMT",
+   "TNCD",
+   "TNCĐ",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "CCM",
+   "NNCC",
+   "TNCDCL",
+   "TNLG III",
+   "VC I"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1908,
+  "book_pages": [
+   "246"
+  ],
+  "pdf_pages": [
+   247
+  ],
+  "fixed": false,
+  "image": "B-383.png"
+ },
+ {
+  "name": "B 384",
+  "anchor": "B-384",
+  "letter": "B",
+  "number": 384,
+  "proverb": "Bé con nhà bác, lớn xác con nhà chú.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "12a"
+   },
+   {
+    "abbreviation": "NASL I",
+    "pages": "42a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "30"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "125"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "233"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "29"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "76"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Bé người con nhà bác, lớn xác con nhà chú."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "84"
+     },
+     {
+      "abbreviation": "NNCC",
+      "pages": "46"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "36"
+     },
+     {
+      "abbreviation": "VNP₁₁",
+      "pages": "433"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Bé người con nhà bác, nhớn xác con nhà chú."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NNPD",
+      "pages": "22"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Phải coi trọng tôn ti, trật tự gia đình, dòng họ."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [
+   {
+    "name": "X 17"
+   }
+  ],
+  "first_syllable": "bé",
+  "sources": [
+   "ĐNQT",
+   "NASL I",
+   "NL",
+   "TNCL",
+   "TNVN",
+   "TTVH",
+   "VD",
+   "CCM",
+   "NNCC",
+   "TNPD I",
+   "VNP₁₁",
+   "NNPD"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "246",
+   "247"
+  ],
+  "pdf_pages": [
+   247,
+   248
+  ],
+  "fixed": false,
+  "image": "B-384.png"
  },
  {
   "name": "B 385",
@@ -24752,14 +25180,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bé lớn ra, già "
-     },
-     {
-      "text": "cọp",
-      "em": true
-     },
-     {
-      "text": " lại."
+      "text": "Bé lớn ra, già cọp lại."
      }
     ],
     "citations": [
@@ -26756,14 +27177,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bên được dâu, bên được rể, "
-     },
-     {
-      "text": "mối",
-      "em": true
-     },
-     {
-      "text": " ở giữa nhễ nhại."
+      "text": "Bên được dâu, bên được rể, mối ở giữa nhễ nhại."
      }
     ],
     "citations": [
@@ -27420,14 +27834,18 @@
     "pages": "80"
    }
   ],
-  "variants": [],
-  "notes": [
-   [
-    {
-     "text": "Lúc gay cấn hay làm liều."
-    }
-   ]
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Lúc gay cấn hay làm liều."
+     }
+    ],
+    "citations": []
+   }
   ],
+  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "bệnh",
@@ -27436,8 +27854,8 @@
    "TNCL",
    "VD"
   ],
-  "has_notes": true,
-  "has_variants": false,
+  "has_notes": false,
+  "has_variants": true,
   "has_correction": false,
   "earliest_year": null,
   "book_pages": [
@@ -28582,7 +29000,7 @@
   "notes": [
    [
     {
-     "text": "Theo Kiều Thu Hoạch, có thể câu này vốn là \"Biều đa ít quả\"."
+     "text": "Theo Kiều Thu Hoạch, có thể câu này vốn là \"Biều đa ít quả\""
     }
    ],
    [
@@ -29012,14 +29430,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Biết đâu mà há miệng chờ "
-     },
-     {
-      "text": "sung",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Biết đâu mà há miệng chờ sung."
      }
     ],
     "citations": [
@@ -30291,8 +30702,9 @@
     "pages": "82"
    },
    {
-    "abbreviation": "VNP₂ II",
-    "pages": "91"
+    "abbreviation": "VNP₂II",
+    "pages": "91",
+    "unknown": true
    },
    {
     "abbreviation": "VNP₁₁",
@@ -30464,7 +30876,6 @@
    "TNVN",
    "TTVH",
    "VD",
-   "VNP₂ II",
    "VNP₁₁",
    "NQPN",
    "HT",
@@ -30842,14 +31253,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bìm bịp bắt gà "
-     },
-     {
-      "text": "trống thiến",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Bìm bịp bắt gà trống thiến."
      }
     ],
     "citations": [
@@ -31770,14 +32174,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bò chết chẳng "
-     },
-     {
-      "text": "tránh",
-      "em": true
-     },
-     {
-      "text": " khỏi rơm."
+      "text": "Bò chết chẳng tránh khỏi rơm."
      }
     ],
     "citations": [
@@ -34565,21 +34962,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bòn "
-     },
-     {
-      "text": "lỗ",
-      "em": true
-     },
-     {
-      "text": " chét nhét miệng "
-     },
-     {
-      "text": "ông",
-      "em": true
-     },
-     {
-      "text": " voi."
+      "text": "Bòn lỗ chét nhét miệng ông voi."
      }
     ],
     "citations": [
@@ -35048,14 +35431,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bồ "
-     },
-     {
-      "text": "Bát",
-      "em": true
-     },
-     {
-      "text": " Căng, năng kẻ Chè."
+      "text": "Bồ Bát Căng, năng kẻ Chè."
      }
     ],
     "citations": [
@@ -39684,7 +40060,7 @@
   "notes": [],
   "corrections": [
    {
-    "wrong": "... đồng kẽ.",
+    "wrong": "... đồng *kẽ*.",
     "sources": [
      "TNCL"
     ],
@@ -39775,14 +40151,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bới tóc củ hành "
-     },
-     {
-      "text": "làm",
-      "em": true
-     },
-     {
-      "text": " anh thiên hạ."
+      "text": "Bới tóc củ hành làm anh thiên hạ."
      }
     ],
     "citations": [
@@ -41550,14 +41919,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Bụng đàn bà dạ "
-     },
-     {
-      "text": "trẻ con",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Bụng đàn bà dạ trẻ con."
      }
     ],
     "citations": [
@@ -42691,14 +43053,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Buộc chân voi chân ngựa "
-     },
-     {
-      "text": "chớ",
-      "em": true
-     },
-     {
-      "text": " buộc sao được chân người."
+      "text": "Buộc chân voi chân ngựa chớ buộc sao được chân người."
      }
     ],
     "citations": [
@@ -43047,7 +43402,17 @@
      {
       "abbreviation": "TNLG I",
       "pages": "9, 27"
-     },
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn nhỏ, lãi lớn."
+     }
+    ],
+    "citations": [
      {
       "abbreviation": "VD",
       "pages": "97"
@@ -43062,11 +43427,6 @@
    }
   ],
   "notes": [
-   [
-    {
-     "text": "Buôn nhỏ, lãi lớn."
-    }
-   ],
    [
     {
      "text": "Làm việc nhỏ, lợi ích nhiều."
@@ -43368,6 +43728,9 @@
   "see_also": [
    {
     "name": "T 151"
+   },
+   {
+    "name": "T 152"
    }
   ],
   "first_syllable": "buôn",
@@ -44334,27 +44697,540 @@
     "pages": "96"
    }
   ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn Tần, bán Sở."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "36"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "31"
+     },
+     {
+      "abbreviation": "VC I",
+      "pages": "179"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "",
+      "variant": true
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Tần, Sở: các nước chư hầu thời Đông Chu, Trung Quốc."
+    }
+   ],
+   [
+    {
+     "text": "Buôn bán khắp nơi."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "buôn",
+  "sources": [
+   "NNCC",
+   "VD",
+   "NL",
+   "TNPD I",
+   "VC I"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1918,
+  "book_pages": [
+   "308",
+   "309"
+  ],
+  "pdf_pages": [
+   309,
+   310
+  ],
+  "fixed": false,
+  "image": "B-716.png"
+ },
+ {
+  "name": "B 717",
+  "anchor": "B-717",
+  "letter": "B",
+  "number": 717,
+  "proverb": "Buôn tài không bằng dài vốn.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "20"
+   }
+  ],
   "variants": [],
   "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "buôn",
   "sources": [
-   "NNCC",
-   "VD"
+   "CCM"
   ],
   "has_notes": false,
   "has_variants": false,
   "has_correction": false,
-  "earliest_year": 1918,
+  "earliest_year": null,
   "book_pages": [
-   "308"
+   "309"
   ],
   "pdf_pages": [
-   309
+   310
   ],
   "fixed": false,
-  "image": "B-716.png"
+  "image": "B-717.png"
+ },
+ {
+  "name": "B 718",
+  "anchor": "B-718",
+  "letter": "B",
+  "number": 718,
+  "proverb": "Buôn tàu bán bè không bằng ăn dè hà tiện.",
+  "citations": [
+   {
+    "abbreviation": "HT",
+    "pages": "74"
+   },
+   {
+    "abbreviation": "MGL",
+    "pages": "41"
+   },
+   {
+    "abbreviation": "TMT",
+    "pages": "58"
+   },
+   {
+    "abbreviation": "TNCĐ",
+    "pages": "32"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "31"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "96"
+   },
+   {
+    "abbreviation": "VHSCL",
+    "pages": "171"
+   },
+   {
+    "abbreviation": "VNP₁₁",
+    "pages": "105"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn tàu bán bè "
+     },
+     {
+      "text": "chẳng",
+      "em": true
+     },
+     {
+      "text": " bằng ăn dè hà tiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "36"
+     },
+     {
+      "abbreviation": "TNPD I",
+      "pages": "36"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "96"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn tàu bán bè "
+     },
+     {
+      "text": "chẳng",
+      "em": true
+     },
+     {
+      "text": " bằng "
+     },
+     {
+      "text": "dè miệng",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "ĐNQT",
+      "pages": "53b"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn tàu "
+     },
+     {
+      "text": "buôn",
+      "em": true
+     },
+     {
+      "text": " bè, không bằng ăn dè hà tiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TMT",
+      "pages": "48"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn "
+     },
+     {
+      "text": "tầu",
+      "em": true
+     },
+     {
+      "text": " "
+     },
+     {
+      "text": "buôn",
+      "em": true
+     },
+     {
+      "text": " bè, không bằng "
+     },
+     {
+      "text": "dè miệng",
+      "em": true
+     },
+     {
+      "text": "."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNLG II",
+      "pages": "9"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "... ăn *chè*...",
+    "sources": [
+     "VHSCL"
+    ],
+    "right": [
+     {
+      "text": "... ăn "
+     },
+     {
+      "text": "dè",
+      "em": true
+     },
+     {
+      "text": "..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "VHSCL",
+      "source": "VHSCL"
+     },
+     {
+      "text": " in sai thành \"... ăn chè...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "... ăn "
+     },
+     {
+      "text": "dè",
+      "strong": true
+     },
+     {
+      "text": "..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "buôn",
+  "sources": [
+   "HT",
+   "MGL",
+   "TMT",
+   "TNCĐ",
+   "TTVH",
+   "VD",
+   "VHSCL",
+   "VNP₁₁",
+   "NL",
+   "TNPD I",
+   "ĐNQT",
+   "TNLG II"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": 1908,
+  "book_pages": [
+   "309"
+  ],
+  "pdf_pages": [
+   310
+  ],
+  "fixed": false,
+  "image": "B-718.png"
+ },
+ {
+  "name": "B 719",
+  "anchor": "B-719",
+  "letter": "B",
+  "number": 719,
+  "proverb": "Buôn tay mặt, bắt tay trái.",
+  "citations": [
+   {
+    "abbreviation": "CNGN",
+    "pages": "8"
+   },
+   {
+    "abbreviation": "NTP",
+    "pages": "125"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Buôn bán nhiều mánh lới."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "buôn",
+  "sources": [
+   "CNGN",
+   "NTP"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": 1896,
+  "book_pages": [
+   "309"
+  ],
+  "pdf_pages": [
+   310
+  ],
+  "fixed": false,
+  "image": "B-719.png"
+ },
+ {
+  "name": "B 720",
+  "anchor": "B-720",
+  "letter": "B",
+  "number": 720,
+  "proverb": "Buôn tàu chẳng giàu bằng hà tiện.",
+  "citations": [
+   {
+    "abbreviation": "CCM",
+    "pages": "118"
+   },
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "53b"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn tàu "
+     },
+     {
+      "text": "không",
+      "em": true
+     },
+     {
+      "text": " giàu bằng hà tiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNVN",
+      "pages": "339"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "buôn",
+  "sources": [
+   "CCM",
+   "ĐNQT",
+   "TNVN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "309"
+  ],
+  "pdf_pages": [
+   310
+  ],
+  "fixed": false,
+  "image": "B-720.png"
+ },
+ {
+  "name": "B 721",
+  "anchor": "B-721",
+  "letter": "B",
+  "number": 721,
+  "proverb": "Buôn thuỷ buôn vã chẳng đã hà tiện.",
+  "citations": [
+   {
+    "abbreviation": "ANTN",
+    "pages": "42"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "36"
+   },
+   {
+    "abbreviation": "TNCD",
+    "pages": "90"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "65"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "35"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn tầu buôn vã chẳng đã hà tiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "TNLG II",
+      "pages": "9, 37"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn thuỷ bán vã chẳng đã hà tiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VCVN I",
+      "pages": "281"
+     }
+    ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Buôn thuyền buôn đất chẳng đã hà tiện."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "PNTN",
+      "pages": "24b"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "buôn",
+  "sources": [
+   "ANTN",
+   "NL",
+   "TNCD",
+   "TNCL",
+   "TNPD I",
+   "TNLG II",
+   "VCVN I",
+   "PNTN"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1928,
+  "book_pages": [
+   "309",
+   "310"
+  ],
+  "pdf_pages": [
+   310,
+   311
+  ],
+  "fixed": false,
+  "image": "B-721.png"
  },
  {
   "name": "B 722",
@@ -47638,9 +48514,8 @@
     "pages": "41"
    },
    {
-    "abbreviation": "VNP₂II",
-    "pages": "18, 93",
-    "unknown": true
+    "abbreviation": "VNP₂ II",
+    "pages": "18, 93"
    },
    {
     "abbreviation": "VNP₁₁",
@@ -47654,6 +48529,7 @@
   "first_syllable": "bực",
   "sources": [
    "TNPD I",
+   "VNP₂ II",
    "VNP₁₁"
   ],
   "has_notes": false,

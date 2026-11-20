@@ -983,6 +983,16 @@
     "name": "Ă 38",
     "anchor": "Ă-38",
     "preview": "Ăn cắp quen tay, ngủ ngày…"
+   },
+   {
+    "name": "Ă 453",
+    "anchor": "Ă-453",
+    "preview": "Ăn trộm quen tay, ngủ ngày…"
+   },
+   {
+    "name": "Ă 480",
+    "anchor": "Ă-480",
+    "preview": "Ăn vụng quen tay, ngủ ngày…"
    }
   ],
   "first_syllable": "ăn",
@@ -2232,6 +2242,16 @@
     "name": "Ă 16",
     "anchor": "Ă-16",
     "preview": "Ăn bốc quen tay ngủ ngày…"
+   },
+   {
+    "name": "Ă 453",
+    "anchor": "Ă-453",
+    "preview": "Ăn trộm quen tay, ngủ ngày…"
+   },
+   {
+    "name": "Ă 480",
+    "anchor": "Ă-480",
+    "preview": "Ăn vụng quen tay, ngủ ngày…"
    }
   ],
   "first_syllable": "ăn",
@@ -3121,6 +3141,11 @@
     "name": "A 13",
     "anchor": "A-13",
     "preview": "Ai ăn cướp cơm chim."
+   },
+   {
+    "name": "A 78",
+    "anchor": "A-78",
+    "preview": "Ai nỡ cướp cơm chim mắm…"
    }
   ],
   "first_syllable": "ăn",
@@ -3450,9 +3475,8 @@
   "proverb": "Ăn chẳng đến no, lo chẳng đến phận.",
   "citations": [
    {
-    "abbreviation": "VCI",
-    "pages": "68",
-    "unknown": true
+    "abbreviation": "VC I",
+    "pages": "68"
    }
   ],
   "variants": [],
@@ -3470,7 +3494,9 @@
    }
   ],
   "first_syllable": "ăn",
-  "sources": [],
+  "sources": [
+   "VC I"
+  ],
   "has_notes": true,
   "has_variants": false,
   "has_correction": false,
@@ -3577,14 +3603,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn chẳng hết "
-     },
-     {
-      "text": "tết",
-      "em": true
-     },
-     {
-      "text": " chẳng khắp."
+      "text": "Ăn chẳng hết tết chẳng khắp."
      }
     ],
     "citations": [
@@ -3598,14 +3617,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn chẳng "
-     },
-     {
-      "text": "mết",
-      "em": true
-     },
-     {
-      "text": ", thết chẳng khắp."
+      "text": "Ăn chẳng mết, thết chẳng khắp."
      }
     ],
     "citations": [
@@ -3619,28 +3631,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn "
-     },
-     {
-      "text": "không",
-      "em": true
-     },
-     {
-      "text": " hết, "
-     },
-     {
-      "text": "tết",
-      "em": true
-     },
-     {
-      "text": " "
-     },
-     {
-      "text": "không",
-      "em": true
-     },
-     {
-      "text": " khắp."
+      "text": "Ăn không hết, tết không khắp."
      }
     ],
     "citations": [
@@ -3654,21 +3645,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn "
-     },
-     {
-      "text": "không",
-      "em": true
-     },
-     {
-      "text": " hết, thết "
-     },
-     {
-      "text": "không",
-      "em": true
-     },
-     {
-      "text": " khắp."
+      "text": "Ăn không hết, thết không khắp."
      }
     ],
     "citations": [
@@ -5036,14 +5013,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn có chỗ, "
-     },
-     {
-      "text": "nghỉ",
-      "em": true
-     },
-     {
-      "text": " có nơi."
+      "text": "Ăn có chỗ, nghỉ có nơi."
      }
     ],
     "citations": [
@@ -5615,7 +5585,14 @@
     ],
     "right": [
      {
-      "text": "Ăn có nơi..."
+      "text": "Ăn có "
+     },
+     {
+      "text": "nơi",
+      "em": true
+     },
+     {
+      "text": "..."
      }
     ],
     "sentence": [
@@ -5630,7 +5607,14 @@
       "text": " in sai thành \"Ăn có no...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
      },
      {
-      "text": "Ăn có nơi..."
+      "text": "Ăn có "
+     },
+     {
+      "text": "nơi",
+      "strong": true
+     },
+     {
+      "text": "..."
      },
      {
       "text": "\"."
@@ -5794,6 +5778,11 @@
     "name": "Ă 109",
     "anchor": "Ă-109",
     "preview": "Ăn cơm lừa thóc, ăn cóc…"
+   },
+   {
+    "name": "Ă 441",
+    "anchor": "Ă-441",
+    "preview": "Ăn trầu nhả bã, ăn cá…"
    }
   ],
   "first_syllable": "ăn",
@@ -6163,12 +6152,16 @@
   "notes": [
    [
     {
-     "text": "Người có địa vị quyền thế đã được hưởng quyền lợi này lại được hưởng quyền lợi khác."
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": - Người có địa vị quyền thế đã được hưởng quyền lợi này lại được hưởng quyền lợi khác."
     }
    ],
    [
     {
-     "text": "Cũng có thể hiểu đã có quyền lợi này lại còn nhận thêm quyền lợi khác, ý chê bai."
+     "text": "- Cũng có thể hiểu đã có quyền lợi này lại còn nhận thêm quyền lợi khác, ý chê bai."
     }
    ]
   ],
@@ -7535,6 +7528,11 @@
     "name": "Ă 86",
     "anchor": "Ă-86",
     "preview": "Ăn cóc bỏ gan, ăn trầu…"
+   },
+   {
+    "name": "Ă 441",
+    "anchor": "Ă-441",
+    "preview": "Ăn trầu nhả bã, ăn cá…"
    }
   ],
   "first_syllable": "ăn",
@@ -8001,7 +7999,7 @@
   "notes": [
    [
     {
-     "text": "Theo VC, câu này nói về người khách (không phải chủ nhà). Đến nhà người mà được thết cơm, lại được mời nằm nhà ngoài thì đương nhiên mình là vị khách của người ta; mà đã là khách thì đâu có thể ở lâu ngày được! Ở lâu thì người ta sẽ coi thường !"
+     "text": "Theo VC, câu này nói về người khách (không phải chủ nhà). Đến nhà người mà được thết cơm, lại được mời nằm nhà ngoài thì đương nhiên mình là vị khách của người ta; mà đã là khách thì đâu có thể ở lâu ngày được! Ở lâu thì người ta sẽ coi thường!"
     }
    ]
   ],
@@ -9145,14 +9143,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn của Bụt thắp hương "
-     },
-     {
-      "text": "thờ",
-      "em": true
-     },
-     {
-      "text": " Bụt."
+      "text": "Ăn của Bụt thắp hương thờ Bụt."
      }
     ],
     "citations": [
@@ -9182,14 +9173,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn "
-     },
-     {
-      "text": "oản",
-      "em": true
-     },
-     {
-      "text": " Bụt thắp hương giả Bụt."
+      "text": "Ăn oản Bụt thắp hương giả Bụt."
      }
     ],
     "citations": [
@@ -12571,14 +12555,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn ít no "
-     },
-     {
-      "text": "lâu",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Ăn ít no lâu."
      }
     ],
     "citations": [
@@ -12731,21 +12708,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn "
-     },
-     {
-      "text": "lúc",
-      "em": true
-     },
-     {
-      "text": " đói, nói "
-     },
-     {
-      "text": "lúc",
-      "em": true
-     },
-     {
-      "text": " hay."
+      "text": "Ăn lúc đói, nói lúc hay."
      }
     ],
     "citations": [
@@ -13301,21 +13264,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn "
-     },
-     {
-      "text": "chẳng",
-      "em": true
-     },
-     {
-      "text": " nên, làm "
-     },
-     {
-      "text": "chẳng",
-      "em": true
-     },
-     {
-      "text": " ra."
+      "text": "Ăn chẳng nên, làm chẳng ra."
      }
     ],
     "citations": [
@@ -13421,21 +13370,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn "
-     },
-     {
-      "text": "cơm",
-      "em": true
-     },
-     {
-      "text": " không rau "
-     },
-     {
-      "text": "như",
-      "em": true
-     },
-     {
-      "text": " đau không thuốc."
+      "text": "Ăn cơm không rau như đau không thuốc."
      }
     ],
     "citations": [
@@ -13449,14 +13384,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn không rau "
-     },
-     {
-      "text": "như",
-      "em": true
-     },
-     {
-      "text": " đau không thuốc."
+      "text": "Ăn không rau như đau không thuốc."
      }
     ],
     "citations": [
@@ -13486,18 +13414,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Cơm",
-      "em": true
-     },
-     {
-      "text": " không rau "
-     },
-     {
-      "text": "như",
-      "em": true
-     },
-     {
-      "text": " đau không thuốc."
+      "text": "Cơm không rau như đau không thuốc."
      }
     ],
     "citations": [
@@ -13586,15 +13503,18 @@
       "pages": "48"
      }
     ]
+   },
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Có ăn phải có làm, chẳng việc nọ thì việc kia."
+     }
+    ],
+    "citations": []
    }
   ],
-  "notes": [
-   [
-    {
-     "text": "Có ăn phải có làm, chẳng việc nọ thì việc kia."
-    }
-   ]
-  ],
+  "notes": [],
   "corrections": [],
   "see_also": [],
   "first_syllable": "ăn",
@@ -13605,7 +13525,7 @@
    "VD",
    "ANTN"
   ],
-  "has_notes": true,
+  "has_notes": false,
   "has_variants": true,
   "has_correction": false,
   "earliest_year": 1933,
@@ -14901,7 +14821,14 @@
       "em": true
      },
      {
-      "text": " dày."
+      "text": " "
+     },
+     {
+      "text": "dày",
+      "em": true
+     },
+     {
+      "text": "."
      }
     ],
     "citations": [
@@ -16640,7 +16567,22 @@
     "pages": "39"
    }
   ],
-  "variants": [],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ăn mày nơi có thể, làm rể nơi nhiều con."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "97"
+     }
+    ]
+   }
+  ],
   "notes": [],
   "corrections": [],
   "see_also": [],
@@ -16652,6 +16594,82 @@
    "TNPD I",
    "TNVN",
    "TTVH",
+   "VD",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": 1908,
+  "book_pages": [
+   "120",
+   "121"
+  ],
+  "pdf_pages": [
+   121,
+   122
+  ],
+  "fixed": false,
+  "image": "Ă-253.png"
+ },
+ {
+  "name": "Ă 254",
+  "anchor": "Ă-254",
+  "letter": "Ă",
+  "number": 254,
+  "proverb": "Ăn mày quen ngõ.",
+  "citations": [
+   {
+    "abbreviation": "ĐNQT",
+    "pages": "23a"
+   },
+   {
+    "abbreviation": "NL",
+    "pages": "16"
+   },
+   {
+    "abbreviation": "NNCC",
+    "pages": "13"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "420"
+   },
+   {
+    "abbreviation": "TNPD I",
+    "pages": "20"
+   },
+   {
+    "abbreviation": "TNVN",
+    "pages": "374"
+   },
+   {
+    "abbreviation": "TTVH",
+    "pages": "23"
+   },
+   {
+    "abbreviation": "VC I",
+    "pages": "79"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "39"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ăn",
+  "sources": [
+   "ĐNQT",
+   "NL",
+   "NNCC",
+   "TNCL",
+   "TNPD I",
+   "TNVN",
+   "TTVH",
+   "VC I",
    "VD"
   ],
   "has_notes": false,
@@ -16659,13 +16677,305 @@
   "has_correction": false,
   "earliest_year": 1908,
   "book_pages": [
-   "120"
+   "121"
   ],
   "pdf_pages": [
-   121
+   122
   ],
   "fixed": false,
-  "image": "Ă-253.png"
+  "image": "Ă-254.png"
+ },
+ {
+  "name": "Ă 255",
+  "anchor": "Ă-255",
+  "letter": "Ă",
+  "number": 255,
+  "proverb": "Ăn mặc dở chợ dở quê.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "16"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ăn",
+  "sources": [
+   "NL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "121"
+  ],
+  "pdf_pages": [
+   122
+  ],
+  "fixed": false,
+  "image": "Ă-255.png"
+ },
+ {
+  "name": "Ă 256",
+  "anchor": "Ă-256",
+  "letter": "Ă",
+  "number": 256,
+  "proverb": "Ăn mắm khát nước.",
+  "citations": [
+   {
+    "abbreviation": "VD",
+    "pages": "39"
+   }
+  ],
+  "variants": [],
+  "notes": [
+   [
+    {
+     "text": "Mắm mặn nên ăn mắm thì khát nước."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Làm điều ác sẽ chịu hậu quả xấu."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ăn",
+  "sources": [
+   "VD"
+  ],
+  "has_notes": true,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "121"
+  ],
+  "pdf_pages": [
+   122
+  ],
+  "fixed": false,
+  "image": "Ă-256.png"
+ },
+ {
+  "name": "Ă 257",
+  "anchor": "Ă-257",
+  "letter": "Ă",
+  "number": 257,
+  "proverb": "Ăn mắm lắm cơm.",
+  "citations": [
+   {
+    "abbreviation": "VCVN I",
+    "pages": "77"
+   },
+   {
+    "abbreviation": "TNCL",
+    "pages": "26"
+   }
+  ],
+  "variants": [],
+  "notes": [],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ăn",
+  "sources": [
+   "VCVN I",
+   "TNCL"
+  ],
+  "has_notes": false,
+  "has_variants": false,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "121"
+  ],
+  "pdf_pages": [
+   122
+  ],
+  "fixed": false,
+  "image": "Ă-257.png"
+ },
+ {
+  "name": "Ă 258",
+  "anchor": "Ă-258",
+  "letter": "Ă",
+  "number": 258,
+  "proverb": "Ăn mắm mút dòi.",
+  "citations": [
+   {
+    "abbreviation": "NL",
+    "pages": "16"
+   },
+   {
+    "abbreviation": "VD",
+    "pages": "39"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ăn mắm mút tay."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "39"
+     },
+     {
+      "abbreviation": "VHHP",
+      "pages": "123"
+     }
+    ]
+   }
+  ],
+  "notes": [
+   [
+    {
+     "text": "Ăn tham, ăn bẩn."
+    }
+   ],
+   [
+    {
+     "text": "nghĩa bóng",
+     "general": "Nb"
+    },
+    {
+     "text": ": Chê kẻ keo bẩn. Gần nghĩa với câu \"Uống nước cả cặn\"."
+    }
+   ]
+  ],
+  "corrections": [],
+  "see_also": [],
+  "first_syllable": "ăn",
+  "sources": [
+   "NL",
+   "VD",
+   "VHHP"
+  ],
+  "has_notes": true,
+  "has_variants": true,
+  "has_correction": false,
+  "earliest_year": null,
+  "book_pages": [
+   "121"
+  ],
+  "pdf_pages": [
+   122
+  ],
+  "fixed": false,
+  "image": "Ă-258.png"
+ },
+ {
+  "name": "Ă 259",
+  "anchor": "Ă-259",
+  "letter": "Ă",
+  "number": 259,
+  "proverb": "Ăn mắm thì ngắm về sau.",
+  "citations": [
+   {
+    "abbreviation": "VC I",
+    "pages": "79"
+   }
+  ],
+  "variants": [
+   {
+    "label": "Bản khác",
+    "text": [
+     {
+      "text": "Ăn mắm "
+     },
+     {
+      "text": "phải",
+      "em": true
+     },
+     {
+      "text": " ngắm về sau."
+     }
+    ],
+    "citations": [
+     {
+      "abbreviation": "CCM",
+      "pages": "20"
+     }
+    ]
+   }
+  ],
+  "notes": [],
+  "corrections": [
+   {
+    "wrong": "Ăn *mắm*...",
+    "sources": [
+     "CCM"
+    ],
+    "right": [
+     {
+      "text": "Ăn "
+     },
+     {
+      "text": "mắm",
+      "em": true
+     },
+     {
+      "text": "..."
+     }
+    ],
+    "sentence": [
+     {
+      "text": "Sách "
+     },
+     {
+      "text": "CCM",
+      "source": "CCM"
+     },
+     {
+      "text": " in sai thành \"Ăn mắm...\". Nhóm biên soạn cho đây là lỗi in, không phải dị bản, và sửa lại thành \""
+     },
+     {
+      "text": "Ăn "
+     },
+     {
+      "text": "mắm",
+      "strong": true
+     },
+     {
+      "text": "..."
+     },
+     {
+      "text": "\"."
+     }
+    ]
+   }
+  ],
+  "see_also": [],
+  "first_syllable": "ăn",
+  "sources": [
+   "VC I",
+   "CCM"
+  ],
+  "has_notes": false,
+  "has_variants": true,
+  "has_correction": true,
+  "earliest_year": null,
+  "book_pages": [
+   "121"
+  ],
+  "pdf_pages": [
+   122
+  ],
+  "fixed": false,
+  "image": "Ă-259.png"
  },
  {
   "name": "Ă 260",
@@ -19185,7 +19495,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn ngồi tựa bức vách, có khách "
+      "text": "Ăn ngồi tựa "
+     },
+     {
+      "text": "bức",
+      "em": true
+     },
+     {
+      "text": " vách, có khách "
      },
      {
       "text": "bảo",
@@ -19206,7 +19523,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn ngồi tựa bức vách, có khách "
+      "text": "Ăn ngồi tựa "
+     },
+     {
+      "text": "bức",
+      "em": true
+     },
+     {
+      "text": " vách, có khách "
      },
      {
       "text": "bảo",
@@ -20338,14 +20662,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn như hùm "
-     },
-     {
-      "text": "như hổ",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Ăn như hùm như hổ."
      }
     ],
     "citations": [
@@ -21290,14 +21607,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn như thuyền chở mã, làm như ả chơi "
-     },
-     {
-      "text": "giăng",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Ăn như thuyền chở mã, làm như ả chơi giăng."
      }
     ],
     "citations": [
@@ -21374,7 +21684,14 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn như trai tráng, làm như ông già. Ăn khoẻ, làm kém."
+      "text": "Ăn như trai tráng, làm như ông già. Ăn "
+     },
+     {
+      "text": "khoẻ",
+      "em": true
+     },
+     {
+      "text": ", làm kém."
      }
     ],
     "citations": []
@@ -21383,7 +21700,7 @@
   "notes": [],
   "corrections": [
    {
-    "wrong": "... làm như bão.",
+    "wrong": "... làm như *bão*.",
     "sources": [
      "NL"
     ],
@@ -21415,6 +21732,9 @@
   "see_also": [
    {
     "name": "N 1179"
+   },
+   {
+    "name": "N 1192"
    }
   ],
   "first_syllable": "ăn",
@@ -22083,14 +22403,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn no ngủ kĩ tĩ "
-     },
-     {
-      "text": "chổng",
-      "em": true
-     },
-     {
-      "text": " lên trời."
+      "text": "Ăn no ngủ kĩ tĩ chổng lên trời."
      }
     ],
     "citations": [
@@ -23163,8 +23476,7 @@
     "citations": [
      {
       "abbreviation": "VD",
-      "pages": "",
-      "variant": true
+      "pages": ""
      }
     ]
    }
@@ -23650,14 +23962,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn quả "
-     },
-     {
-      "text": "bỏ",
-      "em": true
-     },
-     {
-      "text": " hột."
+      "text": "Ăn quả bỏ hột."
      }
     ],
     "citations": [
@@ -24061,14 +24366,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn quả nhớ kẻ trồng cây, nào ai vun xới cho mày "
-     },
-     {
-      "text": "mà",
-      "em": true
-     },
-     {
-      "text": " ăn ?"
+      "text": "Ăn quả nhớ kẻ trồng cây, nào ai vun xới cho mày mà ăn ?"
      }
     ],
     "citations": [
@@ -24371,7 +24669,7 @@
   "anchor": "Ă-376",
   "letter": "Ă",
   "number": 376,
-  "proverb": "Ăn quen chồn rần mắc bẫy.",
+  "proverb": "Ăn quen chồn rân mắc bẫy.",
   "citations": [
    {
     "abbreviation": "NNPD",
@@ -24696,14 +24994,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn sau là đầu "
-     },
-     {
-      "text": "quét",
-      "em": true
-     },
-     {
-      "text": " dọn."
+      "text": "Ăn sau là đầu quét dọn."
      }
     ],
     "citations": [
@@ -24725,14 +25016,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn sau "
-     },
-     {
-      "text": "mới",
-      "em": true
-     },
-     {
-      "text": " đầu cất dọn."
+      "text": "Ăn sau mới đầu cất dọn."
      }
     ],
     "citations": [
@@ -25304,14 +25588,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn tại "
-     },
-     {
-      "text": "chủ",
-      "em": true
-     },
-     {
-      "text": ", ngủ tại công đường."
+      "text": "Ăn tại chủ, ngủ tại công đường."
      }
     ],
     "citations": [
@@ -25337,14 +25614,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn tại "
-     },
-     {
-      "text": "ngũ",
-      "em": true
-     },
-     {
-      "text": ", ngủ tại công đường."
+      "text": "Ăn tại ngũ, ngủ tại công đường."
      }
     ],
     "citations": [
@@ -25362,14 +25632,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn tại "
-     },
-     {
-      "text": "thủ",
-      "em": true
-     },
-     {
-      "text": " ngủ tại công đường."
+      "text": "Ăn tại thủ ngủ tại công đường."
      }
     ],
     "citations": [
@@ -26038,33 +26301,39 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn thật làm "
-     },
-     {
-      "text": "bỡn",
-      "em": true
-     },
-     {
-      "text": ". bk VD"
+      "text": "Ăn thật làm bỡn."
      }
     ],
-    "citations": []
+    "citations": [
+     {
+      "abbreviation": "VD",
+      "pages": "",
+      "variant": true
+     }
+    ]
    },
    {
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn thật làm "
-     },
-     {
-      "text": "giá",
-      "em": true
-     },
-     {
-      "text": ". NL 18 TNLG III 6 bk VD"
+      "text": "Ăn thật làm giả."
      }
     ],
-    "citations": []
+    "citations": [
+     {
+      "abbreviation": "NL",
+      "pages": "18"
+     },
+     {
+      "abbreviation": "TNLG III",
+      "pages": "6"
+     },
+     {
+      "abbreviation": "VD",
+      "pages": "",
+      "variant": true
+     }
+    ]
    }
   ],
   "notes": [],
@@ -26076,7 +26345,8 @@
    "NL",
    "NXK",
    "TNPD I",
-   "VD"
+   "VD",
+   "TNLG III"
   ],
   "has_notes": false,
   "has_variants": true,
@@ -27103,14 +27373,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn thịt trâu không tỏi, ăn gỏi không "
-     },
-     {
-      "text": "lá",
-      "em": true
-     },
-     {
-      "text": " mơ."
+      "text": "Ăn thịt trâu không tỏi, ăn gỏi không lá mơ."
      }
     ],
     "citations": [
@@ -27124,21 +27387,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn thịt trâu không tỏi như ăn gỏi không "
-     },
-     {
-      "text": "nống",
-      "em": true
-     },
-     {
-      "text": " "
-     },
-     {
-      "text": "rượu",
-      "em": true
-     },
-     {
-      "text": "."
+      "text": "Ăn thịt trâu không tỏi như ăn gỏi không nống rượu."
      }
     ],
     "citations": [
@@ -27598,14 +27847,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn tôm "
-     },
-     {
-      "text": "cấu",
-      "em": true
-     },
-     {
-      "text": " đầu, ăn trầu nhả bã."
+      "text": "Ăn tôm cấu đầu, ăn trầu nhả bã."
      }
     ],
     "citations": [
@@ -27883,7 +28125,7 @@
   "anchor": "Ă-439",
   "letter": "Ă",
   "number": 439,
-  "proverb": "Ăn trầu không rễ như rễ nằm nhà ngoài.",
+  "proverb": "Ăn trầu không rễ như rể nằm nhà ngoài.",
   "citations": [
    {
     "abbreviation": "CCM",
@@ -27910,7 +28152,7 @@
       "em": true
      },
      {
-      "text": " không có rễ như rễ nằm nhà ngoài."
+      "text": " không có rễ như rể nằm nhà ngoài."
      }
     ],
     "citations": [
@@ -27924,7 +28166,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn trầu không có rễ như rễ nằm nhà ngoài."
+      "text": "Ăn trầu không có rễ như rể nằm nhà ngoài."
      }
     ],
     "citations": [
@@ -27957,7 +28199,7 @@
       "em": true
      },
      {
-      "text": " rễ "
+      "text": " rể "
      },
      {
       "text": "không",
@@ -27985,7 +28227,7 @@
       "em": true
      },
      {
-      "text": " rễ nằm nhà."
+      "text": " rể nằm nhà."
      }
     ],
     "citations": [
@@ -28002,7 +28244,7 @@
       "text": "Ăn trầu không "
      },
      {
-      "text": "tế",
+      "text": "tễ",
       "em": true
      },
      {
@@ -28013,7 +28255,7 @@
       "em": true
      },
      {
-      "text": " rễ nằm nhà ngoài."
+      "text": " rể nằm nhà ngoài."
      }
     ],
     "citations": [
@@ -28055,14 +28297,14 @@
   "pdf_pages": [
    155
   ],
-  "fixed": false,
+  "fixed": true,
   "image": "Ă-439.png"
  },
  {
-  "name": "Ă 140",
-  "anchor": "Ă-140",
+  "name": "Ă 440",
+  "anchor": "Ă-440",
   "letter": "Ă",
-  "number": 140,
+  "number": 440,
   "proverb": "Ăn trầu lá lốt, bà tốt không tiền.",
   "citations": [
    {
@@ -28074,7 +28316,14 @@
   "notes": [
    [
     {
-     "text": "Theo VCVN, bà phải ăn trầu bằng lá lốt vì tuy bà tốt mã nhưng không tiền. Phải dùng của giả, của dở vì tốt mã mà không tiền."
+     "text": "Theo "
+    },
+    {
+     "text": "VCVN I",
+     "source": "VCVN I"
+    },
+    {
+     "text": ", bà phải ăn trầu bằng lá lốt vì tuy bà tốt mã nhưng không tiền. Phải dùng của giả, của dở vì tốt mã mà không tiền."
     }
    ],
    [
@@ -28108,8 +28357,8 @@
    155,
    156
   ],
-  "fixed": false,
-  "image": "Ă-140_2.png"
+  "fixed": true,
+  "image": "Ă-440.png"
  },
  {
   "name": "Ă 441",
@@ -28131,6 +28380,11 @@
     "name": "Ă 86",
     "anchor": "Ă-86",
     "preview": "Ăn cóc bỏ gan, ăn trầu…"
+   },
+   {
+    "name": "Ă 109",
+    "anchor": "Ă-109",
+    "preview": "Ăn cơm lừa thóc, ăn cóc…"
    }
   ],
   "first_syllable": "ăn",
@@ -28195,7 +28449,12 @@
   "letter": "Ă",
   "number": 443,
   "proverb": "Ăn trầu thì giở trầu ra, một là thuốc độc, hai là mặn vôi.",
-  "citations": [],
+  "citations": [
+   {
+    "abbreviation": "TNPD I",
+    "pages": "27"
+   }
+  ],
   "variants": [
    {
     "label": "Bản khác",
@@ -28241,12 +28500,7 @@
       "text": " thuốc hai là mặn vôi."
      }
     ],
-    "citations": [
-     {
-      "abbreviation": "TNPD I",
-      "pages": "27"
-     }
-    ]
+    "citations": []
    }
   ],
   "notes": [
@@ -28903,6 +29157,16 @@
     "name": "Ă 16",
     "anchor": "Ă-16",
     "preview": "Ăn bốc quen tay ngủ ngày…"
+   },
+   {
+    "name": "Ă 38",
+    "anchor": "Ă-38",
+    "preview": "Ăn cắp quen tay, ngủ ngày…"
+   },
+   {
+    "name": "Ă 480",
+    "anchor": "Ă-480",
+    "preview": "Ăn vụng quen tay, ngủ ngày…"
    }
   ],
   "first_syllable": "ăn",
@@ -29376,14 +29640,7 @@
     "label": "Bản khác",
     "text": [
      {
-      "text": "Ăn trước "
-     },
-     {
-      "text": "trừ",
-      "em": true
-     },
-     {
-      "text": " sau."
+      "text": "Ăn trước trừ sau."
      }
     ],
     "citations": [
@@ -30688,6 +30945,16 @@
     "name": "Ă 16",
     "anchor": "Ă-16",
     "preview": "Ăn bốc quen tay ngủ ngày…"
+   },
+   {
+    "name": "Ă 38",
+    "anchor": "Ă-38",
+    "preview": "Ăn cắp quen tay, ngủ ngày…"
+   },
+   {
+    "name": "Ă 453",
+    "anchor": "Ă-453",
+    "preview": "Ăn trộm quen tay, ngủ ngày…"
    }
   ],
   "first_syllable": "ăn",
