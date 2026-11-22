@@ -417,6 +417,11 @@
           "title": "Treasury of Vietnamese Proverbs",
           "description": "Look up proverbs (still being updated) from the work of the Institute of Folk Culture Studies, edited by Nguyễn Xuân Kính (2002), with their sources, variants and printed page images for comparison.",
           "cta": "Explore the Treasury"
+        },
+        "crafts-encyclopedia": {
+          "title": "Encyclopedia of Traditional Vietnamese Crafts",
+          "description": "[Placeholder description] Read the digitized Encyclopedia of Traditional Crafts in Vietnam (Tạ Văn Thông, ed., 2020).",
+          "cta": "Browse the encyclopedia"
         }
       },
       "tu-dien": {
@@ -541,6 +546,24 @@
         "correction": "Correction",
         "clear-search": "Clear search",
         "remove-filter": "Remove filter"
+      },
+      "nghe-thu-cong": {
+        "title": "Encyclopedia of Traditional Vietnamese Crafts",
+        "seo": {
+          "title": "Encyclopedia of Traditional Vietnamese Crafts",
+          "description": "Read the digitized Encyclopedia of Traditional Crafts in Vietnam (Tạ Văn Thông, ed., Thái Nguyên University Press, 2020): crafts, craft villages, craft ancestors and traditional products."
+        },
+        "contents": "Contents",
+        "loading": "Loading the book…",
+        "load-error": "The book could not be loaded. Please try again later.",
+        "page-one": "Page {page}",
+        "page-range": "Pages {start}–{end}",
+        "search-placeholder": "Search entry titles…",
+        "search-label": "Search the contents by entry title",
+        "no-results": "No entry titles match.",
+        "previous": "Previous",
+        "next": "Next",
+        "neighbours": "Previous and next entries"
       }
     }
   },

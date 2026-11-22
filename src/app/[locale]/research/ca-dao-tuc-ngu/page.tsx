@@ -163,6 +163,11 @@ export default async function CaDaoTucNguPage({
       href: "/research/ca-dao-tuc-ngu/hoc-ca-dao",
       icon: GraduationCap,
     },
+    {
+      key: "crafts-encyclopedia",
+      href: "/research/ca-dao-tuc-ngu/tu-dien-nghe-thu-cong",
+      icon: Search,
+    },
   ];
   const focusClass =
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-branding-brown";

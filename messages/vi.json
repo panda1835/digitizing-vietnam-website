@@ -418,6 +418,11 @@
           "title": "Kho tàng Tục ngữ Người Việt",
           "description": "Tra cứu tục ngữ (đang cập nhật) từ công trình của Viện Nghiên cứu Văn hoá dân gian do Nguyễn Xuân Kính chủ biên (2002), kèm nguồn, dị bản và ảnh bản in để đối chiếu.",
           "cta": "Khám phá Kho tàng"
+        },
+        "crafts-encyclopedia": {
+          "title": "Từ điển bách khoa nghề thủ công truyền thống",
+          "description": "[Mô tả tạm thời] Đọc bản số hóa Từ điển bách khoa nghề thủ công truyền thống ở Việt Nam (Tạ Văn Thông chủ biên, 2020).",
+          "cta": "Tra cứu Từ điển"
         }
       },
       "tu-dien": {
@@ -542,6 +547,24 @@
         "correction": "Sửa lại",
         "clear-search": "Xoá từ khoá",
         "remove-filter": "Bỏ bộ lọc"
+      },
+      "nghe-thu-cong": {
+        "title": "Từ điển bách khoa nghề thủ công truyền thống ở Việt Nam",
+        "seo": {
+          "title": "Từ điển bách khoa nghề thủ công truyền thống ở Việt Nam",
+          "description": "Đọc bản số hóa Từ điển bách khoa nghề thủ công truyền thống ở Việt Nam (Tạ Văn Thông chủ biên, NXB Đại học Thái Nguyên, 2020): nghề, làng nghề, ông/bà tổ nghề và sản phẩm thủ công truyền thống."
+        },
+        "contents": "Mục lục",
+        "loading": "Đang tải sách…",
+        "load-error": "Không tải được sách. Vui lòng thử lại sau.",
+        "page-one": "Trang {page}",
+        "page-range": "Trang {start}–{end}",
+        "search-placeholder": "Tìm theo tên mục…",
+        "search-label": "Tìm trong mục lục theo tên mục",
+        "no-results": "Không có mục nào phù hợp.",
+        "previous": "Trước",
+        "next": "Tiếp",
+        "neighbours": "Mục trước và mục tiếp theo"
       }
     }
   },
